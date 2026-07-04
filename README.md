@@ -64,9 +64,10 @@ docs/                  #   architecture + ADRs
 - **Tier 2** — model routing + the fine-tuning SLM.
 - **Tier 3** — A2A + AWS deploy + retail portal + full multimodal ingestion.
 
-## Design context
-Full architecture, decisions, and the honest performance picture:
-`../job_profile/ai_enginerring/design_context.md` and the ADRs in [docs/adr/](docs/adr/).
+## Architecture
+Full system design across all subsystems — strategy research, ingestion, memory, guardrails,
+frontend, observability, model routing, deployment: the [architecture/](architecture/) docs and
+the decision records in [docs/adr/](docs/adr/).
 
 ## License
 MIT.

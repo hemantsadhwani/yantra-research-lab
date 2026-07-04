@@ -17,5 +17,5 @@ chatbot/
   api.py            FastAPI retrieval endpoint
 ```
 Proof: hand an interviewer the bot, invite a jailbreak, show leak-rate ≈ 0.
-See `../job_profile/ai_enginerring/design_context.md` §2, §8.
+See [architecture/04-guardrails-rbac.md](../architecture/04-guardrails-rbac.md).
 </content>

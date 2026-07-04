@@ -8,7 +8,6 @@ updates (drop 2–3 docs → auto-ingest → vector DB current).
 formula/figure) · `verify/` (critic + HITL) · `index/` (chunk · contextual-embed · upsert) ·
 `librarian.py` (dedup by hash · manifest · staging→eval-gate→promote).
 
-Full architecture + ADRs + tool picks:
-`../job_profile/ai_enginerring/MULTIMODAL_INGESTION_ARCHITECTURE.md`.
-Seed corpus: `../knowledge_base/seed_papers.md`.
+Full architecture + ADRs + tool picks: [architecture/02-data-ingestion.md](../architecture/02-data-ingestion.md).
+Seed corpus: [../knowledge_base/seed_papers.md](../knowledge_base/seed_papers.md).
 </content>

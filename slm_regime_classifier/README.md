@@ -9,5 +9,5 @@ gate stays on the frontier API (fine-tuning wouldn't amortize) — knowing where
 tolerance; CI blocks a regressing model).
 
 ADR: *fine-tune vs RAG vs prompt* — fine-tune to **distill** for cost/latency/compliance, not for
-knowledge. See `../job_profile/HEMANT_PRO_PLAN.md` (Days 8b–8d).
+knowledge. See [architecture/07-model-routing-finetune.md](../architecture/07-model-routing-finetune.md).
 </content>

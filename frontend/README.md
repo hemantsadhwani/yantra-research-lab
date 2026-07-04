@@ -4,6 +4,6 @@ The "Signal Desk" UI: product switcher (Options live; Futures/Swing roadmap), st
 with **Plan-vs-Actual (capture-factor)**, the research-lab view, simulated-capital allocation, and
 the IP/PII-guardrail chatbot. Served from **S3 + CloudFront**; **Cognito** registration + RBAC.
 
-Wireframe (open in a browser): `../job_profile/ai_enginerring/yantra-wireframe.html`.
+Design: [architecture/05-frontend-product.md](../architecture/05-frontend-product.md).
 **Paper/simulated only — labelled simulation/education, no performance promises.**
 </content>
