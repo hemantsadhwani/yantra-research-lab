@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "yantra-research-lab"
+version = "0.1.0"
+description = "Autonomous multi-agent quant strategy research platform (public synthetic-engine build)."
+requires-python = ">=3.11"
+readme = "README.md"
+license = { text = "MIT" }
+dependencies = []   # Tier-1 core runs on the standard library — clone and run, no deps
+
+[project.optional-dependencies]
+# Tier-2/3 dependencies, installed per service as they are built out.
+agents = ["langgraph>=0.2", "langchain>=0.3", "pydantic>=2"]
+llm    = ["anthropic>=0.40", "litellm>=1.50"]
+mcp    = ["mcp>=1.0"]
+rag    = ["chromadb>=0.5", "voyageai>=0.3"]
+ops    = ["langsmith>=0.1", "logfire>=0.50", "opentelemetry-sdk>=1.27"]
+dev    = ["pytest>=8", "ruff>=0.6"]
+
+[project.scripts]
+yantra-research = "research_lab.run:main"
+
+[tool.setuptools]
+packages = ["research_lab", "research_lab.agents", "synthetic_engine", "mcp_server"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.pytest.ini_options]
+addopts = "-q"
+testpaths = ["tests"]

@@ -1,0 +1,75 @@
+name: ci
+
+# Monorepo CI: path-filtered so a change to one tier only exercises that tier.
+# Flow: PR/merge → lint · test · eval-gate → deploy dev → (manual approval) → prod.
+# See docs/adr/0004-monorepo-and-environment-promotion.md.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  # ---- detect which parts of the monorepo changed ----
+  changes:
+    runs-on: ubuntu-latest
+    outputs:
+      core: ${{ steps.filter.outputs.core }}
+      chatbot: ${{ steps.filter.outputs.chatbot }}
+      ingestion: ${{ steps.filter.outputs.ingestion }}
+      slm: ${{ steps.filter.outputs.slm }}
+      frontend: ${{ steps.filter.outputs.frontend }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dorny/paths-filter@v3
+        id: filter
+        with:
+          filters: |
+            core: ['research_lab/**', 'synthetic_engine/**', 'mcp_server/**', 'tests/**', 'pyproject.toml']
+            chatbot: ['chatbot/**']
+            ingestion: ['ingestion/**']
+            slm: ['slm_regime_classifier/**']
+            frontend: ['frontend/**']
+
+  # ---- the runnable Tier-1 core: lint + test ----
+  core:
+    needs: changes
+    if: needs.changes.outputs.core == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - run: pip install -e '.[dev]'
+      - run: ruff check .
+      - run: pytest -q
+
+  # ---- eval-gate: block promotion if the agent/RAG regression eval drops ----
+  eval-gate:
+    needs: core
+    if: always() && needs.core.result != 'failure'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - run: pip install -e '.[dev]'
+      - name: agent-loop regression (best variant must beat baseline)
+        run: python -m eval.run_gate    # placeholder gate; see eval/README.md
+
+  # ---- environment promotion (same artifact: dev → prod). Stubs until infra lands. ----
+  deploy-dev:
+    needs: eval-gate
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    environment: dev
+    steps:
+      - run: echo "deploy to dev (infra/environments/dev)"
+
+  deploy-prod:
+    needs: deploy-dev
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    environment: prod        # GitHub 'prod' environment = required manual approval
+    steps:
+      - run: echo "promote same artifact to prod (infra/environments/prod)"

@@ -1,0 +1,32 @@
+# python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+build/
+dist/
+
+# env / secrets
+.env
+.env.*
+!.env.example
+
+# data (knowledge base is populated at runtime, not committed)
+knowledge_base/raw/
+knowledge_base/processed/
+chroma_db/
+*.sqlite
+.yantra/
+
+# frontend
+node_modules/
+frontend/.next/
+frontend/dist/
+
+# os / editor
+.DS_Store
+.idea/
+.vscode/
