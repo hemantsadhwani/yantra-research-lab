@@ -25,6 +25,7 @@ from fastapi.responses import JSONResponse
 from pydantic import BaseModel, Field
 
 import guardrails
+import observability as obs
 from retriever import get_retriever
 
 # --------------------------------------------------------------------------- #
@@ -50,6 +51,26 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# Observability: traces every request + the Anthropic call. No-op without LOGFIRE_TOKEN.
+_LOGFIRE_ACTIVE = obs.configure(app)
+logger.info("logfire active=%s", _LOGFIRE_ACTIVE)
+
+# Cold-start flag: True until the first request finishes. On a scale-to-zero host the
+# first request after a wake pays the model/index warm-up cost — worth seeing in traces.
+_first_request_done = False
+_first_lock = threading.Lock()
+
+
+def _take_cold_start() -> bool:
+    global _first_request_done
+    if _first_request_done:
+        return False
+    with _first_lock:
+        if _first_request_done:
+            return False
+        _first_request_done = True
+        return True
 
 
 # --------------------------------------------------------------------------- #
@@ -182,78 +203,122 @@ def chat(req: ChatRequest, request: Request):
                      "Please try again tomorrow."},
         )
 
-    # 1. PII redaction — redact before we log or send anything to the model.
-    safe_message = guardrails.redact_pii(req.message or "")
-    logger.info("chat request ip=%s message=%r", ip, safe_message)
+    t0 = time.monotonic()
+    cold_start = _take_cold_start()
+    message = req.message or ""
 
-    # 2. Injection detection + 3. IP refusal policy — refuse WITHOUT calling the LLM.
-    if guardrails.detect_injection(req.message or "") or guardrails.should_refuse(
-        req.message or ""
-    ):
-        return ChatResponse(
-            answer=guardrails.REFUSAL_ANSWER, refused=True, sources=[], leak_rate=0
-        )
-
-    # Retrieve methodology context (top-k). Degrade gracefully if the index is missing.
-    chunks = []
-    try:
-        chunks = get_retriever_cached().search(safe_message, k=TOP_K)
-    except Exception as e:
-        logger.warning("retrieval failed: %s", e)
-
-    sources = [Source(title=c.title, snippet=_snippet(c.text)) for c in chunks]
-    context = (
-        "\n\n".join(f"[{c.title}]\n{c.text}" for c in chunks)
-        if chunks
-        else "(no retrieved context)"
-    )
-
-    client = get_client()
-    if client is None:
-        return ChatResponse(
-            answer="The assistant is not configured with an API key right now, so I "
-            "can't generate a full answer. Set ANTHROPIC_API_KEY and try again.",
-            refused=False,
-            sources=sources,
-            leak_rate=0,
-        )
-
-    # Build messages: prior turns + the current (PII-redacted) question with context.
-    messages = [
-        {"role": h.role, "content": guardrails.redact_pii(h.content)}
-        for h in req.history
-        if h.role in ("user", "assistant")
-    ]
-    messages.append(
-        {
-            "role": "user",
-            "content": f"Retrieved methodology context:\n{context}\n\n"
-            f"Question: {safe_message}",
+    # One span per request. Attributes are safe aggregates only — NEVER the user's
+    # text (PII / injection payloads). These feed the private dashboard + public stats.
+    with obs.span("chat_request") as sp:
+        attrs: dict = {
+            "cold_start": cold_start,
+            "msg_chars": len(message),
+            "model": MODEL,
+            "refused": False,
+            "leak_rate": 0,
         }
-    )
 
-    try:
-        resp = client.messages.create(
-            model=MODEL,
-            max_tokens=MAX_TOKENS,
-            system=[
-                {
-                    "type": "text",
-                    "text": guardrails.SYSTEM_PROMPT,
-                    "cache_control": {"type": "ephemeral"},  # cache the stable prefix
-                }
-            ],
-            messages=messages,
-        )
-        answer = "".join(b.text for b in resp.content if b.type == "text").strip()
-        if not answer:
-            answer = "I wasn't able to produce an answer for that. Try rephrasing."
-    except Exception as e:  # covers anthropic.APIError, RateLimitError, connection, etc.
-        # Never 500 the whole request for an LLM hiccup — return a friendly message.
-        logger.warning("LLM call failed: %s", e)
-        answer = (
-            "I'm having trouble reaching the language model right now. Please try "
-            "again in a moment."
+        # 1. PII redaction — redact before we log or send anything to the model.
+        safe_message = guardrails.redact_pii(message)
+        logger.info("chat request ip=%s message=%r", ip, safe_message)
+
+        # 2. Injection detection + 3. IP refusal policy — refuse WITHOUT calling the LLM.
+        injection = guardrails.detect_injection(message)
+        if injection or guardrails.should_refuse(message):
+            attrs.update(
+                refused=True,
+                refuse_reason="injection" if injection else "policy",
+                injection_detected=injection,
+                total_ms=round((time.monotonic() - t0) * 1000, 1),
+            )
+            obs.set_attributes(sp, attrs)
+            return ChatResponse(
+                answer=guardrails.REFUSAL_ANSWER, refused=True, sources=[], leak_rate=0
+            )
+
+        # Retrieve methodology context (top-k). Degrade gracefully if index is missing.
+        chunks = []
+        with obs.span("retrieve") as rsp:
+            r0 = time.monotonic()
+            try:
+                chunks = get_retriever_cached().search(safe_message, k=TOP_K)
+            except Exception as e:
+                logger.warning("retrieval failed: %s", e)
+            retrieve_ms = round((time.monotonic() - r0) * 1000, 1)
+            obs.set_attributes(rsp, {"retrieved_k": len(chunks), "retrieve_ms": retrieve_ms})
+        attrs.update(retrieved_k=len(chunks), retrieve_ms=retrieve_ms)
+
+        sources = [Source(title=c.title, snippet=_snippet(c.text)) for c in chunks]
+        context = (
+            "\n\n".join(f"[{c.title}]\n{c.text}" for c in chunks)
+            if chunks
+            else "(no retrieved context)"
         )
 
-    return ChatResponse(answer=answer, refused=False, sources=sources, leak_rate=0)
+        client = get_client()
+        if client is None:
+            attrs.update(
+                llm_configured=False,
+                total_ms=round((time.monotonic() - t0) * 1000, 1),
+            )
+            obs.set_attributes(sp, attrs)
+            return ChatResponse(
+                answer="The assistant is not configured with an API key right now, so I "
+                "can't generate a full answer. Set ANTHROPIC_API_KEY and try again.",
+                refused=False,
+                sources=sources,
+                leak_rate=0,
+            )
+
+        # Build messages: prior turns + the current (PII-redacted) question with context.
+        messages = [
+            {"role": h.role, "content": guardrails.redact_pii(h.content)}
+            for h in req.history
+            if h.role in ("user", "assistant")
+        ]
+        messages.append(
+            {
+                "role": "user",
+                "content": f"Retrieved methodology context:\n{context}\n\n"
+                f"Question: {safe_message}",
+            }
+        )
+
+        answer = ""
+        with obs.span("llm") as lsp:
+            l0 = time.monotonic()
+            try:
+                resp = client.messages.create(
+                    model=MODEL,
+                    max_tokens=MAX_TOKENS,
+                    system=[
+                        {
+                            "type": "text",
+                            "text": guardrails.SYSTEM_PROMPT,
+                            "cache_control": {"type": "ephemeral"},  # cache stable prefix
+                        }
+                    ],
+                    messages=messages,
+                )
+                answer = "".join(b.text for b in resp.content if b.type == "text").strip()
+                if not answer:
+                    answer = "I wasn't able to produce an answer for that. Try rephrasing."
+                tokens = obs.usage_tokens(getattr(resp, "usage", None))
+                cost = obs.estimate_cost_usd(getattr(resp, "usage", None))
+                attrs.update(tokens, est_cost_usd=cost)
+                obs.set_attributes(lsp, {**tokens, "est_cost_usd": cost})
+            except Exception as e:  # anthropic.APIError, RateLimitError, connection, etc.
+                # Never 500 the whole request for an LLM hiccup — friendly message.
+                logger.warning("LLM call failed: %s", e)
+                answer = (
+                    "I'm having trouble reaching the language model right now. Please "
+                    "try again in a moment."
+                )
+                attrs["llm_error"] = True
+            llm_ms = round((time.monotonic() - l0) * 1000, 1)
+            obs.set_attributes(lsp, {"llm_ms": llm_ms})
+        attrs["llm_ms"] = llm_ms
+
+        attrs["total_ms"] = round((time.monotonic() - t0) * 1000, 1)
+        obs.set_attributes(sp, attrs)
+        return ChatResponse(answer=answer, refused=False, sources=sources, leak_rate=0)
