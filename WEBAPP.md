@@ -18,10 +18,13 @@ scripts/    generate_run.py — regenerates the cached Research-Lab run.json
 **1. Backend** (terminal 1):
 ```bash
 cd backend
+python3.12 -m venv .venv && source .venv/bin/activate   # Python 3.12 (see .python-version)
 pip install -r requirements.txt          # or: pip install -e .
 python ingest.py                          # builds the local vector index (first run downloads a small embedding model)
 uvicorn app:app --reload --port 8000
 ```
+> **Python 3.12** is pinned (`.python-version`) — safest for `fastembed`/`onnxruntime`/`qdrant`.
+> 3.13 wheels for those can be flaky. The `.venv/` is git-ignored (never committed).
 
 **2. Frontend** (terminal 2):
 ```bash
