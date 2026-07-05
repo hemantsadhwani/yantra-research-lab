@@ -5,7 +5,9 @@
 > and iterate — bounded by a budget, with a human-approval gate before promotion.
 
 ![tier](https://img.shields.io/badge/tier--1-runnable-brightgreen)
-![python](https://img.shields.io/badge/python-3.11%2B-blue)
+![python](https://img.shields.io/badge/python-3.12-blue)
+![tests](https://img.shields.io/badge/tests-16%20passing-brightgreen)
+![eval--gate](https://img.shields.io/badge/eval--gate-passing-success)
 ![deps](https://img.shields.io/badge/tier--1%20deps-stdlib%20only-success)
 ![license](https://img.shields.io/badge/license-MIT-lightgrey)
 
