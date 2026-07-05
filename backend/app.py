@@ -25,6 +25,7 @@ from fastapi.responses import JSONResponse
 from pydantic import BaseModel, Field
 
 import guardrails
+import metrics as metrics_mod
 import observability as obs
 from retriever import get_retriever
 
@@ -178,6 +179,16 @@ class ChatResponse(BaseModel):
 @app.get("/health")
 def health():
     return {"status": "ok"}
+
+
+@app.get("/api/metrics")
+def api_metrics():
+    """Public, safe aggregate telemetry for the 'Live Ops' page (cached ~60s).
+
+    Returns only counts / latency percentiles / cost / guardrail blocks queried back
+    from Logfire — never user text, IPs, or raw logs. Degrades to {available:false}.
+    """
+    return metrics_mod.get_metrics()
 
 
 def _snippet(text: str, limit: int = 240) -> str:
