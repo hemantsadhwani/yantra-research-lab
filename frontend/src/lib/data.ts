@@ -1,6 +1,6 @@
 import { promises as fs } from "fs";
 import path from "path";
-import type { PerformanceData, RunData } from "./types";
+import type { IngestionManifest, PerformanceData, RunData } from "./types";
 
 // Server-side loaders. These read the static JSON in public/data at build/render
 // time (the owner overwrites those files with real cached data). No backend calls.
@@ -17,4 +17,8 @@ export function getRun(): Promise<RunData> {
 
 export function getPerformance(): Promise<PerformanceData> {
   return readJson<PerformanceData>("performance.json");
+}
+
+export function getIngestion(): Promise<IngestionManifest> {
+  return readJson<IngestionManifest>("ingestion.json");
 }

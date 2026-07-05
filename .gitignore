@@ -30,3 +30,7 @@ frontend/dist/
 .DS_Store
 .idea/
 .vscode/
+
+# Ingestion pipeline: raw PDFs (bronze), parsed (silver), caches, checkpoints — never commit
+ingestion/data/
+frontend/tsconfig.tsbuildinfo

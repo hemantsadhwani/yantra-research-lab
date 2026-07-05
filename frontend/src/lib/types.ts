@@ -61,6 +61,52 @@ export interface PerformanceData {
   };
 }
 
+// --- Tier-3 ingestion pipeline manifest ---
+
+export interface IngestStage {
+  id: string;
+  label: string;
+  desc: string;
+}
+
+export interface IngestDoc {
+  id: string;
+  title: string;
+  source: string;
+  pages: number;
+  images: number;
+  tables: number;
+  has_math: boolean;
+  ocr_used: boolean;
+  chunks_indexed: number;
+}
+
+export interface IngestionManifest {
+  _note: string;
+  run_id: string;
+  generated_at: string;
+  collection: string;
+  embed_model: string;
+  dag: IngestStage[];
+  stats: {
+    discovered: number;
+    fetched: number;
+    parsed: number;
+    chunks: number;
+    accepted: number;
+    rejected: number;
+    images: number;
+    tables: number;
+    with_math: number;
+    indexed: number;
+    spent_usd: number;
+    duration_s: number;
+  };
+  rejects_by_reason: Record<string, number>;
+  budget_usd: number;
+  docs: IngestDoc[];
+}
+
 // --- Chat API contract ---
 
 export interface ChatSource {

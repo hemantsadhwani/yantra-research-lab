@@ -1,0 +1,97 @@
+{
+  "_note": "Public run manifest of the Tier-3 agentic ingestion pipeline. Safe aggregates + provenance only; raw PDFs live in S3, not here.",
+  "run_id": "20260705T121559Z",
+  "generated_at": "2026-07-05T12:19:29+00:00",
+  "collection": "research_corpus",
+  "embed_model": "BAAI/bge-small-en-v1.5",
+  "dag": [
+    {
+      "id": "discover",
+      "label": "Discover",
+      "desc": "arXiv q-fin API \u2014 source catalog"
+    },
+    {
+      "id": "fetch",
+      "label": "Fetch",
+      "desc": "download PDFs \u2192 S3 bronze (content-hash, incremental)"
+    },
+    {
+      "id": "parse",
+      "label": "Parse",
+      "desc": "PyMuPDF text+tables+images, formula flag, OCR fallback"
+    },
+    {
+      "id": "enrich",
+      "label": "Enrich",
+      "desc": "chunk + LLM summary/topics (Haiku, budget-bounded)"
+    },
+    {
+      "id": "quality",
+      "label": "Quality gate",
+      "desc": "dedup \u00b7 relevance \u00b7 IP-leak quarantine"
+    },
+    {
+      "id": "gate",
+      "label": "Human gate",
+      "desc": "HITL approval before indexing"
+    },
+    {
+      "id": "index",
+      "label": "Index",
+      "desc": "embed (bge-small) \u2192 Qdrant research_corpus + catalog"
+    }
+  ],
+  "stats": {
+    "discovered": 3,
+    "fetched": 3,
+    "parsed": 3,
+    "chunks": 141,
+    "accepted": 125,
+    "rejected": 16,
+    "images": 0,
+    "tables": 13,
+    "with_math": 3,
+    "indexed": 125,
+    "spent_usd": 0.0026,
+    "duration_s": 210.1
+  },
+  "rejects_by_reason": {
+    "low-relevance": 16
+  },
+  "budget_usd": 3.0,
+  "docs": [
+    {
+      "id": "2607.01765v1",
+      "title": "A Cap-Axis Integral Diagnostic of Factor Models",
+      "source": "https://arxiv.org/pdf/2607.01765v1",
+      "pages": 37,
+      "images": 0,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 34
+    },
+    {
+      "id": "2607.01705v1",
+      "title": "Portfolio Optimization under Fast and Slow Latent Mean-Reverting and Momentum Drift",
+      "source": "https://arxiv.org/pdf/2607.01705v1",
+      "pages": 24,
+      "images": 0,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 43
+    },
+    {
+      "id": "2607.01550v1",
+      "title": "Is Trend Still Your Friend?: A Microstructural Account of the Demise of Short-Term Trend-Following",
+      "source": "https://arxiv.org/pdf/2607.01550v1",
+      "pages": 31,
+      "images": 0,
+      "tables": 13,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 48
+    }
+  ]
+}
