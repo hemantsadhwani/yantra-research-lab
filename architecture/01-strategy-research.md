@@ -29,6 +29,32 @@ is deliberately bounded. **Pay for autonomy only where the problem demands it.**
 | LLM-as-judge + a metric score | metric is cheap and transparent; the judge catches overfit/implausible edges |
 | Deterministic engine + fixed baseline | doubles as the loop's own **eval-gate** — a change that stops beating baseline fails CI |
 
+## One contract, two engines — the lab drives the locked IP
+The agent loop and the strategies meet at a single seam: the MCP contract
+`run_backtest(params, strategy) → metrics`. Because both sides speak it, the **same loop drives
+either engine** — only the innermost strategy is swapped.
+
+```
+        AGENTIC RESEARCH LAB  (public, readable)
+        LangGraph · LLM proposer · judge · memory · HITL
+                        │  MCP: run_backtest(params, strategy) → metrics
+          ┌─────────────┴──────────────┐
+          ▼                             ▼
+   SYNTHETIC ENGINE            REAL STRATEGIES  (private, server-side)
+   public · toy · clone&run    nifty-weekday / nifty-expiry / sensex-expiry
+   what a stranger runs        what runs in production — logic never ships
+```
+
+- The three products appear here **by name only** (`list_strategies()`), as synthetic stand-ins that
+  differ solely in a public market *profile* (seed, reversion, noise). The real **entry/exit logic is
+  proprietary** and served behind this identical contract — an agent host cannot tell which engine it
+  drives, nor need to.
+- **IP is protected by the contract boundary, not obfuscation** — no compiled blobs. The public repo
+  stays fully readable and `clone && run`, which is the stronger interview signal: *the intelligence
+  that operates the strategies is right here; only the edge is behind the seam.*
+- So the public repo is not a substitute for the real system — it is the **actual orchestration layer**
+  of it, with the innermost edge swapped for a stand-in.
+
 ## Production mapping
 The reference implementation runs the loop in plain Python (workflow-shaped, zero deps). The
 production build re-expresses it as a **LangGraph `StateGraph`** for checkpointing, streaming, and

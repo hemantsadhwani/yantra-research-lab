@@ -2,6 +2,7 @@
 
     python -m research_lab.run                 # defaults: 4 iterations x 5 variants
     python -m research_lab.run --iterations 6 --variants 6 --seed 7
+    python -m research_lab.run --strategy nifty-expiry
 """
 
 from __future__ import annotations
@@ -10,14 +11,16 @@ import argparse
 
 from research_lab.schemas import RunResult
 from research_lab.supervisor import Supervisor
+from synthetic_engine import DEFAULT_STRATEGY, list_strategies
 
 
-def _report(run: RunResult) -> str:
+def _report(run: RunResult, strategy: str) -> str:
     lines: list[str] = []
     b = run.baseline
     lines.append("")
     lines.append("=" * 68)
     lines.append("  yantra-research-lab · autonomous strategy research (synthetic)")
+    lines.append(f"  strategy: {strategy}  (synthetic stand-in · real logic is private)")
     lines.append("=" * 68)
     lines.append(f"  iterations: {run.iterations}   variants tested: {run.variants_tested}")
     lines.append(f"  baseline:   return {b.total_return_pct:+8.1f}%   "
@@ -52,11 +55,13 @@ def main() -> None:
     ap.add_argument("--iterations", type=int, default=4)
     ap.add_argument("--variants", type=int, default=5)
     ap.add_argument("--seed", type=int, default=0)
+    ap.add_argument("--strategy", default=DEFAULT_STRATEGY, choices=list_strategies(),
+                    help="which (synthetic) strategy engine the agent loop drives")
     args = ap.parse_args()
 
-    supervisor = Supervisor(seed=args.seed, log=lambda m: print(f"  · {m}"))
+    supervisor = Supervisor(seed=args.seed, strategy=args.strategy, log=lambda m: print(f"  · {m}"))
     run = supervisor.run(iterations=args.iterations, variants_per_iter=args.variants)
-    print(_report(run))
+    print(_report(run, args.strategy))
 
 
 if __name__ == "__main__":

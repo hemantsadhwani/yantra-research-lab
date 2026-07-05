@@ -1,11 +1,15 @@
 # 08 · Deployment — AWS, monorepo, dev→prod promotion
 
+> **This is the business/scale target.** The *public demo* deploys today on a minimal-cost
+> scale-to-zero stack (Vercel + a serverless container + Qdrant/FAISS) — see
+> [ADR-0005](../docs/adr/0005-public-demo-deployment.md). Same container lifts to Fargate later.
+
 ## Cloud — AWS
 | Concern | Service |
 |---|---|
 | Agents + API | **ECS Fargate** (managed) or **EC2 Graviton** (self-host) |
 | Frontend | **S3 + CloudFront** (static SPA) |
-| Auth + RBAC | **Cognito** |
+| Auth + RBAC | **Cognito** (scale target; demo/v2 uses **Clerk** — see [ADR-0006](../docs/adr/0006-auth-rbac.md)) |
 | Artifacts / object store | **S3** |
 | Vector DB | Qdrant/Weaviate (self-host) or a managed store |
 | Infra metrics | **CloudWatch** |

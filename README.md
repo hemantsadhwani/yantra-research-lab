@@ -18,10 +18,21 @@ The production version drives a private engine — referenced here only in the a
 git clone <this-repo> && cd yantra-research-lab
 python -m research_lab.run            # 4 iterations × 5 variants
 python -m research_lab.run --iterations 6 --variants 6 --seed 7
+python -m research_lab.run --strategy nifty-expiry   # drive a named strategy
 ```
 
 You'll watch the loop discover a variant that **beats a deliberately-mediocre baseline** and
 surface it as `promote?` — held for a human gate (nothing promotes autonomously).
+
+## One contract, two engines — the lab drives the locked IP
+
+The real products — `nifty-weekday`, `nifty-expiry`, `sensex-expiry` — appear here **by name only**,
+as synthetic stand-ins behind a single MCP contract, `run_backtest(params, strategy) → metrics`.
+The **same agent loop drives either engine**: the public synthetic one you just ran, or the private
+production strategies served behind the identical contract. Only the innermost **entry/exit logic is
+proprietary** — protected by the contract boundary, not obfuscation, so this repo stays fully readable
+and reproducible. This isn't a substitute for the real system; it's its **orchestration layer**, with
+the edge swapped for a stand-in. See [architecture/01-strategy-research.md](architecture/01-strategy-research.md).
 
 ## What it demonstrates (the architecture)
 
@@ -67,7 +78,8 @@ docs/                  #   architecture + ADRs
 ## Architecture
 Full system design across all subsystems — strategy research, ingestion, memory, guardrails,
 frontend, observability, model routing, deployment: the [architecture/](architecture/) docs and
-the decision records in [docs/adr/](docs/adr/).
+the decision records in [docs/adr/](docs/adr/). The ongoing decision journal — context and
+trade-offs as the project evolves — is in [docs/DESIGN_LOG.md](docs/DESIGN_LOG.md).
 
 ## License
 MIT.

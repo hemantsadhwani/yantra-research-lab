@@ -21,20 +21,26 @@ from research_lab.schemas import (
     RunResult,
     StrategyVariant,
 )
-from synthetic_engine import BASELINE_PARAMS
+from synthetic_engine import DEFAULT_STRATEGY, get_baseline
 
 
 class Supervisor:
-    def __init__(self, seed: int = 0, log: Optional[Callable[[str], None]] = None) -> None:
+    def __init__(
+        self,
+        seed: int = 0,
+        strategy: str = DEFAULT_STRATEGY,
+        log: Optional[Callable[[str], None]] = None,
+    ) -> None:
+        self.strategy = strategy
         self.proposer = Proposer(seed=seed)
-        self.backtester = Backtester()
+        self.backtester = Backtester(strategy=strategy)
         self.memory = Memory()
         self._log = log or (lambda _msg: None)
 
     def run(self, iterations: int = 4, variants_per_iter: int = 5) -> RunResult:
         # Baseline first — every variant is judged against it (offline↔online parity).
         baseline = self.backtester.backtest(
-            StrategyVariant(id="baseline", params=dict(BASELINE_PARAMS), rationale="baseline")
+            StrategyVariant(id="baseline", params=get_baseline(self.strategy), rationale="baseline")
         )
         evaluator = Evaluator(baseline_score=score_result(baseline))
         self._log(f"baseline: return {baseline.total_return_pct:+.1f}% · "
