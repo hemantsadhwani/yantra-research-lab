@@ -1,0 +1,63 @@
+name: ingest-corpus
+
+# Tier-3 ingestion pipeline as scheduled, near-zero-cost CI:
+#   - runs daily (and on demand) on an ephemeral runner — no always-on compute
+#   - incremental (content-hashed S3 bronze) so most days re-process nothing
+#   - commits the refreshed public manifest back, which auto-redeploys the site
+on:
+  schedule:
+    - cron: "17 2 * * *" # 02:17 UTC daily (off-peak)
+  workflow_dispatch: # manual "Run workflow" button
+    inputs:
+      corpus_size:
+        description: "Number of papers to ingest"
+        default: "10"
+
+concurrency:
+  group: ingest-corpus
+  cancel-in-progress: false
+
+jobs:
+  ingest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: write # to commit the refreshed manifest back
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install pipeline deps
+        run: pip install -r ingestion/requirements.txt
+
+      - name: Run ingestion pipeline
+        env:
+          INGEST_CORPUS_SIZE: ${{ github.event.inputs.corpus_size || '10' }}
+          INGEST_AUTO_APPROVE: "1" # CI auto-approves the HITL gate
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          QDRANT_URL: ${{ secrets.QDRANT_URL }}
+          QDRANT_API_KEY: ${{ secrets.QDRANT_API_KEY }}
+          LOGFIRE_TOKEN: ${{ secrets.LOGFIRE_TOKEN }}
+          # S3 bronze (optional — falls back to local if unset)
+          S3_BUCKET: ${{ secrets.S3_BUCKET }}
+          S3_ENDPOINT_URL: ${{ secrets.S3_ENDPOINT_URL }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: ${{ secrets.AWS_REGION }}
+        run: python -m ingestion.run
+
+      - name: Commit refreshed manifest (auto-redeploys the site)
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if ! git diff --quiet -- frontend/public/data/ingestion.json; then
+            git add frontend/public/data/ingestion.json
+            git commit -m "chore(ingest): refresh corpus manifest [skip ci]"
+            git push
+          else
+            echo "manifest unchanged — nothing to commit"
+          fi
