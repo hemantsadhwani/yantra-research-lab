@@ -3,7 +3,7 @@
 # so you pay only for actual traffic.
 
 app = "yantra-chatbot"
-primary_region = "bom"  # Mumbai
+primary_region = "sin"  # Singapore (bom/Mumbai had no capacity at deploy time)
 
 [build]
   dockerfile = "Dockerfile"
