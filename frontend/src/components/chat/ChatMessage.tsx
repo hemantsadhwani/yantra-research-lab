@@ -1,3 +1,5 @@
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 import type { UiMessage } from "@/lib/useChat";
 
 export default function ChatMessage({ msg }: { msg: UiMessage }) {
@@ -21,10 +23,22 @@ export default function ChatMessage({ msg }: { msg: UiMessage }) {
         ▚
       </div>
       <div className={`bubble${refused ? " refused" : ""}`}>
-        <span className="txt">{msg.content}</span>
+        <div className="md">
+          <ReactMarkdown
+            remarkPlugins={[remarkGfm]}
+            components={{
+              // real, clickable links that open in a new tab
+              a: ({ node, ...props }) => (
+                <a {...props} target="_blank" rel="noopener noreferrer" />
+              ),
+            }}
+          >
+            {msg.content}
+          </ReactMarkdown>
+        </div>
 
         {msg.sources && msg.sources.length > 0 && (
-          <div style={{ display: "flex", flexDirection: "column", gap: 6, marginTop: 2 }}>
+          <div style={{ display: "flex", flexDirection: "column", gap: 6, marginTop: 8 }}>
             <span className="tag">sources</span>
             {msg.sources.map((s, i) => (
               <div
