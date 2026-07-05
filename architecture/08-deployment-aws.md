@@ -1,7 +1,7 @@
 # 08 · Deployment — AWS, monorepo, dev→prod promotion
 
 > **This is the business/scale target.** The *public demo* deploys today on a minimal-cost
-> scale-to-zero stack (Vercel + a serverless container + Qdrant/FAISS) — see
+> scale-to-zero stack (Vercel + a serverless container + Qdrant local mode) — see
 > [ADR-0005](../docs/adr/0005-public-demo-deployment.md). Same container lifts to Fargate later.
 
 ## Cloud — AWS

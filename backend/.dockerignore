@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+.venv/
+venv/
+.qdrant/
+.faiss_index.*
+*.egg-info/
+.env
+.env.*
+!.env.example

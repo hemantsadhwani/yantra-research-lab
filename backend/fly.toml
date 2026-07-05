@@ -1,0 +1,41 @@
+# Fly.io config for the RAG chatbot backend.
+# Scale-to-zero: machines auto-stop when idle and auto-start on the next request,
+# so you pay only for actual traffic.
+
+app = "yantra-chatbot"
+primary_region = "bom"  # Mumbai
+
+[build]
+  dockerfile = "Dockerfile"
+
+[http_service]
+  internal_port = 8080
+  force_https = true
+  auto_stop_machines = true
+  auto_start_machines = true
+  min_machines_running = 0   # scale to zero when idle
+
+  [http_service.concurrency]
+    type = "requests"
+    soft_limit = 40
+    hard_limit = 50
+
+[[http_service.checks]]
+  method = "GET"
+  path = "/health"
+  interval = "30s"
+  timeout = "5s"
+  grace_period = "10s"
+
+[[vm]]
+  cpu_kind = "shared"
+  cpus = 1
+  memory = "1gb"
+
+# Secrets (do NOT put them here). Set them once with:
+#   fly secrets set ANTHROPIC_API_KEY=sk-ant-...
+#   fly secrets set FRONTEND_ORIGIN=https://your-frontend.example.com
+[env]
+  VECTOR_BACKEND = "qdrant"
+  RATE_LIMIT_PER_MIN = "20"
+  DAILY_REQUEST_CAP = "500"

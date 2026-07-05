@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "yantra-chatbot-backend"
+version = "1.0.0"
+description = "Public RAG chatbot backend with dual IP/PII guardrails (FastAPI + Claude Haiku)."
+requires-python = ">=3.11"
+readme = "README.md"
+license = { text = "MIT" }
+dependencies = [
+    "fastapi>=0.115,<0.121",
+    "uvicorn[standard]>=0.30,<0.35",
+    "anthropic>=0.49,<1.0",
+    "qdrant-client>=1.9,<1.13",
+    "fastembed>=0.3,<0.8",
+    "python-dotenv>=1.0,<2.0",
+    "pydantic>=2.7,<3.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "ruff>=0.6"]
+
+# The backend is a flat set of modules (app, retriever, embeddings, guardrails,
+# ingest), not an installable package tree — pip install -e . just needs the deps.
+[tool.setuptools]
+py-modules = ["app", "retriever", "embeddings", "guardrails", "ingest"]
+
+[tool.pytest.ini_options]
+addopts = "-q"
+testpaths = ["tests"]

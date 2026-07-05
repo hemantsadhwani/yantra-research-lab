@@ -1,0 +1,15 @@
+{
+  "_note": "PLACEHOLDER — owner fills real labeled numbers from the private master. All values fake.",
+  "disclaimer": "Simulation / educational · backtest not live-executed · % summed, not compounded · no performance promises.",
+  "strategies": [
+    { "name": "NIFTY weekday", "backtest_return_pct": 0.0, "win_rate": 0.0, "trades": 0 },
+    { "name": "NIFTY expiry", "backtest_return_pct": 0.0, "win_rate": 0.0, "trades": 0 },
+    { "name": "SENSEX expiry", "backtest_return_pct": 0.0, "win_rate": 0.0, "trades": 0 }
+  ],
+  "plan_vs_actual": {
+    "capture_factor": 0.0,
+    "weeks": [
+      { "week": "week 1", "bt_plan_pct": 0.0, "live_actual_pct": 0.0, "realized": 0.0, "capture_f": 0.0 }
+    ]
+  }
+}

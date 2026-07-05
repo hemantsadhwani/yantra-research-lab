@@ -59,9 +59,10 @@ Tasteful, professional, responsive, light+dark. Four screens + a persistent "Ask
 Config: `NEXT_PUBLIC_BACKEND_URL` from env. Keep it a static/SSR site that deploys clean on Vercel.
 
 ### 3. Backend — FastAPI in `backend/`, containerized, deploy on Fly.io (scale-to-zero)
-- **`Retriever` interface** with two implementations behind it (the "one contract, two engines"
-  pattern): `QdrantRetriever` (Qdrant **local mode**, no server) and `FaissRetriever` (in-process
-  fallback). Select via `VECTOR_BACKEND` env (default `qdrant`).
+- **`Retriever` interface** with `QdrantRetriever` behind it: Qdrant **local on-disk mode** (no
+  server) by default; set `QDRANT_URL` (+`QDRANT_API_KEY`) for Qdrant Cloud. Keep the interface so
+  an `OpenSearchRetriever` can slot in for multi-tenant scale (the "one contract, swappable engines"
+  seam) — but do NOT add a FAISS backend.
 - **Embeddings:** local, via **fastembed** (`BAAI/bge-small-en-v1.5`, ONNX — lightweight, no torch,
   good for scale-to-zero). No API key.
 - **Ingestion script** `backend/ingest.py`: load the corpus from `knowledge_base/` (methodology docs

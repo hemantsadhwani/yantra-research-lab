@@ -1,0 +1,18 @@
+# Build artifacts (rebuilt by ingest.py)
+.qdrant/
+.faiss_index.npy
+.faiss_index.json
+
+# python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+.venv/
+venv/
+
+# secrets
+.env
+.env.*
+!.env.example

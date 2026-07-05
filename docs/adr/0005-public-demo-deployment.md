@@ -18,7 +18,7 @@ scaled version. Same philosophy as the Tier system and the synthetic-vs-real eng
 |---|---|---|
 | **Frontend** | **Next.js on Vercel** — free global CDN, auto-HTTPS, custom domain | S3 + CloudFront |
 | **API + chatbot** | **FastAPI in one scale-to-zero container** (Cloud Run / Fly.io) | ECS Fargate |
-| **Vector store** | **Qdrant (local mode) + FAISS**, behind a `Retriever` interface | Qdrant Cloud / self-host, or OpenSearch |
+| **Vector store** | **Qdrant** (local on-disk mode), behind a `Retriever` interface | Qdrant Cloud / self-host, or OpenSearch |
 | **LLM** | **Claude Haiku 4.5** + prompt caching | model routing (Haiku↔frontier) |
 | **Auth** | **none** (fully public read + chatbot) | Cognito (registration + RBAC) |
 | **Domain** | one `.com` (~$12/yr) | same |
@@ -34,12 +34,13 @@ scaled version. Same philosophy as the Tier system and the synthetic-vs-real eng
   because it's a showcase; here's the AWS multi-tenant architecture it grows into."* FinOps
   discipline reads as senior, not cheap.
 
-## Vector store — Qdrant primary + FAISS fallback, one interface
-Retrieval sits behind a `Retriever` contract (`index()` / `search()`) with two implementations:
-- **`QdrantRetriever`** — the industry-standard default; **local/embedded mode now** (free, no
-  server), upgrades to Qdrant Cloud / a container later with **zero code change**.
-- **`FaissRetriever`** — zero-dependency embedded fallback (in-process), for the truly-minimal path
-  and CI.
+## Vector store — Qdrant behind a `Retriever` interface
+Retrieval sits behind a `Retriever` contract (`index()` / `search()`):
+- **`QdrantRetriever`** — the industry-standard vector database; **local/embedded on-disk mode now**
+  (free, no server), upgrades to **Qdrant Cloud / a container** just by setting `QDRANT_URL` — zero
+  code change. A future `OpenSearchRetriever` slots in behind the same contract for multi-tenant scale.
+- FAISS was considered as an in-process fallback but dropped: Qdrant's local mode already gives the
+  embedded, no-server benefit, so a second engine was redundant.
 
 This is the same "one contract, two engines" seam as the backtest engine (ADR-0002): the RAG code
 never changes when the store does. Consistent with the vector row in

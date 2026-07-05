@@ -39,7 +39,7 @@ scale target, not built yet. Full rationale in [ADR-0005](adr/0005-public-demo-d
 |---|---|---|
 | Frontend | Next.js on **Vercel** (free CDN) | S3 + CloudFront |
 | API + chatbot | FastAPI in **one scale-to-zero container** (Cloud Run / Fly) | ECS Fargate |
-| Vector | **Qdrant (local → cloud) + FAISS**, behind a `Retriever` interface | Qdrant Cloud / OpenSearch |
+| Vector | **Qdrant** (local → cloud via `QDRANT_URL`), behind a `Retriever` interface | Qdrant Cloud / OpenSearch |
 | LLM | **Claude Haiku** + prompt caching | model routing |
 
 Site v1 = 4 screens (Landing · Strategy Explorer · Research Lab · live guarded Chatbot); no auth
