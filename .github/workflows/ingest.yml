@@ -50,14 +50,14 @@ jobs:
           AWS_REGION: ${{ secrets.AWS_REGION }}
         run: python -m ingestion.run
 
-      - name: Commit refreshed manifest (auto-redeploys the site)
+      - name: Commit refreshed manifest + figures (auto-redeploys the site)
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          if ! git diff --quiet -- frontend/public/data/ingestion.json; then
-            git add frontend/public/data/ingestion.json
-            git commit -m "chore(ingest): refresh corpus manifest [skip ci]"
+          git add frontend/public/data/ingestion.json frontend/public/data/figures
+          if ! git diff --cached --quiet; then
+            git commit -m "chore(ingest): refresh corpus manifest + figures [skip ci]"
             git push
           else
-            echo "manifest unchanged — nothing to commit"
+            echo "manifest + figures unchanged — nothing to commit"
           fi

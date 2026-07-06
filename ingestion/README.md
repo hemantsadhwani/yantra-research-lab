@@ -11,17 +11,25 @@ serving API** (`backend/`) so the runtime container stays lean.
 ## Pipeline
 
 ```
-discover ─▶ fetch ─▶ parse ─▶ enrich ─▶ quality ─▶ [human gate] ─▶ index
- arXiv      S3       PyMuPDF   chunk +    dedup ·      HITL          bge-small
- q-fin      bronze   text/     Haiku      relevance ·  approval      → Qdrant
- API        (hash)   tables/   summary    IP-leak                    research_corpus
-                     images/   + topics   quarantine                 + lineage catalog
-                     formulas
+discover ─▶ fetch ─▶ parse ─▶ caption ─▶ enrich ─▶ quality ─▶ [human gate] ─▶ index
+ arXiv      S3       PyMuPDF   figures    chunk +    dedup ·      HITL          bge-small
+ q-fin      bronze   text/     → vision   Haiku      relevance ·  approval      → Qdrant
+ API        (hash)   tables/   caption    summary    IP-leak                    research_corpus
+                     formulas  (Claude)   + topics   quarantine                 + lineage catalog
 ```
 
 Each stage returns a partial state update; documents accumulate fields as they advance.
-Modules: `discover.py` `fetch.py` `parse.py` `enrich.py` `quality.py` `index.py`, wired in
-`graph.py`, run by `run.py`. Data contracts in `state.py`; pluggable storage in `storage.py`.
+Modules: `discover.py` `fetch.py` `parse.py` `figures.py`+`caption.py` `enrich.py`
+`quality.py` `index.py`, wired in `graph.py`, run by `run.py`. Data contracts in `state.py`;
+pluggable storage in `storage.py`.
+
+**Multimodal (sub-project A).** Figures are located by anchoring on their captions and
+rasterizing the region defined by the figure's own vector/image geometry (this catches
+arXiv's vector plots that `get_images()` misses). Each figure's full-res PNG goes to S3
+bronze; a small thumbnail is committed for the public site; a bounded **Claude vision**
+call captions it; the caption is embedded into `research_corpus` — so a text query
+retrieves the matching figure (caption-based multimodal retrieval; the paper's printed
+caption is the fallback when vision is off/over-budget).
 
 ## Data-engineering properties
 
@@ -56,8 +64,6 @@ the site.
 
 Knowing what *not* to build is part of the design. Each is a one-flag/one-module add:
 
-- **Vision figure-captioning** — rasterize figure regions → Claude vision caption →
-  embed (multimodal retrieval). Sub-project A.
 - **Tables → Text-to-SQL** — structured tables → DuckDB → schema-linked LLM SQL agent
   with execution-feedback self-correction (automates reporting). Sub-project B.
 - **High-fidelity math** — Nougat / Mathpix / arXiv LaTeX source (v1 flags `has_math`).

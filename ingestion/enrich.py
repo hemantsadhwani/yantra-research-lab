@@ -6,8 +6,10 @@ topic tags, which are attached to every chunk of that doc (doc-level enrichment 
 cost at pennies for 30 papers). A hard USD budget stops enrichment early and falls back
 to deterministic metadata rather than overspending.
 
-Image blocks are cataloged upstream but not turned into indexable chunks here — captioning
-them is the phase-2 vision step; until then we index text, tables and formulas.
+Image blocks that carry a vision caption (from the ``caption`` stage) ARE indexed here:
+each becomes one figure chunk (``kind="image"``) embedded by its caption, with its S3 path
+and thumbnail preserved — that's the caption-based multimodal retrieval. Uncaptioned image
+blocks (no text) are still skipped.
 """
 
 from __future__ import annotations
@@ -15,6 +17,7 @@ from __future__ import annotations
 import hashlib
 
 from ingestion import config
+from ingestion.caption import figure_chunk_sha
 from ingestion.llm import complete_json
 from ingestion.state import Chunk, ParsedDoc
 
@@ -66,7 +69,21 @@ def enrich(parsed_docs: list[ParsedDoc], start_spent: float = 0.0) -> tuple[list
         spent += cost
         for block in parsed.blocks:
             if block.kind == "image":
-                continue  # phase-2: caption then index
+                # Captioned figure → one indexable chunk embedded by its caption.
+                # Uncaptioned image blocks (e.g. raw rasters from parse) are skipped.
+                cap = block.text.strip()
+                if len(cap) < 20:
+                    continue
+                chunks.append(
+                    Chunk(
+                        id=cid, doc_id=parsed.source_id, title=parsed.title,
+                        source_url=parsed.pdf_url, text=cap, kind="image", page=block.page,
+                        sha256=figure_chunk_sha(parsed.source_id, block.page, cap),
+                        topics=topics, summary=summary, image_path=block.image_path,
+                    )
+                )
+                cid += 1
+                continue
             texts = _windows(block.text) if block.kind == "text" else [block.text]
             for piece in texts:
                 piece = piece.strip()

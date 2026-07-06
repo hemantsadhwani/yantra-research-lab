@@ -1,5 +1,5 @@
 import { getIngestion } from "@/lib/data";
-import type { IngestDoc } from "@/lib/types";
+import type { IngestDoc, IngestFigure } from "@/lib/types";
 
 export const metadata = {
   title: "Ingestion Pipeline — yantra-research-lab (Tier-3)",
@@ -20,6 +20,7 @@ function Stat({ label, value, sub }: { label: string; value: string; sub?: strin
 export default async function PipelinePage() {
   const m = await getIngestion();
   const s = m.stats;
+  const figures: IngestFigure[] = m.figures ?? [];
 
   return (
     <div>
@@ -66,6 +67,7 @@ export default async function PipelinePage() {
       {/* headline stats */}
       <div style={{ display: "flex", gap: 12, flexWrap: "wrap", marginBottom: 14 }}>
         <Stat label="papers ingested" value={String(s.parsed)} sub={`of ${s.discovered} discovered`} />
+        <Stat label="figures captioned" value={String(s.figures_captioned ?? figures.length)} sub="Claude vision" />
         <Stat label="tables extracted" value={String(s.tables)} />
         <Stat label="papers with formulas" value={String(s.with_math)} />
         <Stat label="chunks indexed" value={String(s.indexed)} sub={`${s.rejected} rejected at gate`} />
@@ -110,6 +112,7 @@ export default async function PipelinePage() {
                 <tr style={{ textAlign: "left", color: "var(--muted)" }}>
                   <th style={{ padding: "4px 8px 4px 0" }}>paper</th>
                   <th style={{ padding: "4px 8px" }}>pg</th>
+                  <th style={{ padding: "4px 8px" }}>fig</th>
                   <th style={{ padding: "4px 8px" }}>tbl</th>
                   <th style={{ padding: "4px 8px" }}>∑</th>
                   <th style={{ padding: "4px 8px" }}>chunks</th>
@@ -124,6 +127,7 @@ export default async function PipelinePage() {
                       </a>
                     </td>
                     <td className="mono" style={{ padding: "6px 8px" }}>{d.pages}</td>
+                    <td className="mono" style={{ padding: "6px 8px" }}>{d.figures_captioned ?? 0}</td>
                     <td className="mono" style={{ padding: "6px 8px" }}>{d.tables}</td>
                     <td style={{ padding: "6px 8px" }}>{d.has_math ? "✓" : ""}</td>
                     <td className="mono" style={{ padding: "6px 8px" }}>{d.chunks_indexed}</td>
@@ -135,11 +139,45 @@ export default async function PipelinePage() {
         </div>
       </div>
 
+      {/* figure gallery — sub-project A: multimodal (vision-captioned figures) */}
+      {figures.length > 0 && (
+        <div className="panel flat" style={{ marginTop: 14 }}>
+          <span className="tag">multimodal · vision-captioned figures → embedded for retrieval</span>
+          <span className="caption" style={{ marginTop: 6, marginBottom: 10, display: "block", maxWidth: 760 }}>
+            Figures are found by anchoring on their captions, rasterized (full-res → S3 bronze),
+            described by a bounded <strong>Claude vision</strong> call, then embedded <em>by their
+            caption</em> into <span className="mono">{m.collection}</span> — so a text query can
+            retrieve the right chart. Thumbnails below; the private bucket stays private.
+          </span>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))", gap: 12 }}>
+            {figures.map((f, i) => (
+              <figure key={i} className="panel" style={{ margin: 0, padding: 8, display: "flex", flexDirection: "column", gap: 6 }}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={f.thumb}
+                  alt={f.caption.slice(0, 80)}
+                  loading="lazy"
+                  style={{ width: "100%", height: 150, objectFit: "contain", background: "var(--panel)", borderRadius: 6 }}
+                />
+                <figcaption className="caption" style={{ fontSize: 11.5, lineHeight: 1.35 }}>
+                  <span className={f.vision ? "chip acc" : "chip"} style={{ fontSize: 9.5, marginBottom: 4, display: "inline-block" }}>
+                    {f.vision ? "vision caption" : "printed caption"} · p{f.page}
+                  </span>
+                  <br />
+                  {f.caption.length > 180 ? f.caption.slice(0, 180) + "…" : f.caption}
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+      )}
+
       <div className="disc strong" style={{ marginTop: 14 }}>
-        Runs offline on a <strong>GitHub Actions cron</strong> (near-zero cost). Images extracted to
-        S3; <strong>vision-captioning</strong> and <strong>tables → Text-to-SQL</strong> are the next
-        multimodal sub-projects. Sources are public arXiv; the same framework will feed private
-        strategy metrics through the IP guardrail into the honesty panel.
+        Runs offline on a <strong>GitHub Actions cron</strong> (near-zero cost). Figures are
+        vision-captioned and embedded for <strong>multimodal retrieval</strong> (sub-project A);
+        <strong> tables → Text-to-SQL</strong> is the next sub-project. Sources are public arXiv;
+        the same framework will feed private strategy metrics through the IP guardrail into the
+        honesty panel.
       </div>
     </div>
   );

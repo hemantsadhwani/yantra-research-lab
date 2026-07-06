@@ -75,10 +75,21 @@ export interface IngestDoc {
   source: string;
   pages: number;
   images: number;
+  figures_captioned?: number;
   tables: number;
   has_math: boolean;
   ocr_used: boolean;
   chunks_indexed: number;
+}
+
+export interface IngestFigure {
+  doc_id: string;
+  title: string;
+  page: number;
+  thumb: string;      // public path, e.g. /data/figures/xxx.jpg
+  caption: string;    // vision caption (or the paper's printed caption as fallback)
+  vision: boolean;    // true if a Claude vision call produced the caption
+  source: string;
 }
 
 export interface IngestionManifest {
@@ -96,6 +107,7 @@ export interface IngestionManifest {
     accepted: number;
     rejected: number;
     images: number;
+    figures_captioned?: number;
     tables: number;
     with_math: number;
     indexed: number;
@@ -104,6 +116,7 @@ export interface IngestionManifest {
   };
   rejects_by_reason: Record<string, number>;
   budget_usd: number;
+  figures?: IngestFigure[];
   docs: IngestDoc[];
 }
 

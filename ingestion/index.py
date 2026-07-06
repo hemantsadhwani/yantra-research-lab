@@ -76,6 +76,7 @@ def index_chunks(chunks: list[Chunk]) -> int:
                 "kind": c.kind,
                 "topics": c.topics,
                 "summary": c.summary,
+                "image_path": c.image_path,
             },
         )
         for i, c in enumerate(chunks)
@@ -101,6 +102,7 @@ def write_catalog(parsed_docs: list[ParsedDoc], accepted: list[Chunk]) -> None:
                 "source": d.pdf_url,
                 "pages": d.n_pages,
                 "images": d.n_images,
+                "figures_captioned": d.n_captioned,
                 "tables": d.n_tables,
                 "has_math": d.has_math,
                 "ocr_used": d.ocr_used,

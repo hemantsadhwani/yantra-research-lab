@@ -28,6 +28,7 @@ DAG = [
     {"id": "discover", "label": "Discover", "desc": "arXiv q-fin API — source catalog"},
     {"id": "fetch", "label": "Fetch", "desc": "download PDFs → S3 bronze (content-hash, incremental)"},
     {"id": "parse", "label": "Parse", "desc": "PyMuPDF text+tables+images, formula flag, OCR fallback"},
+    {"id": "caption", "label": "Caption", "desc": "rasterize figures → Claude vision caption (multimodal)"},
     {"id": "enrich", "label": "Enrich", "desc": "chunk + LLM summary/topics (Haiku, budget-bounded)"},
     {"id": "quality", "label": "Quality gate", "desc": "dedup · relevance · IP-leak quarantine"},
     {"id": "gate", "label": "Human gate", "desc": "HITL approval before indexing"},
@@ -83,6 +84,23 @@ def main() -> None:
     accepted = final.get("accepted", [])
     reasons = Counter(r["reason"] for r in rejects)
 
+    # Figure gallery (sub-project A) — safe: only thumbnails + captions, no raw content.
+    figures = []
+    for p in parsed:
+        for b in p.get("blocks", []):
+            meta = b.get("meta") or {}
+            if b.get("kind") != "image" or not meta.get("thumb"):
+                continue
+            figures.append({
+                "doc_id": p["source_id"],
+                "title": p["title"],
+                "page": b.get("page", 0),
+                "thumb": meta["thumb"],
+                "caption": b.get("text", "")[:500],
+                "vision": bool(meta.get("vision")),
+                "source": p["pdf_url"],
+            })
+
     manifest = {
         "_note": ("Public run manifest of the Tier-3 agentic ingestion pipeline. "
                   "Safe aggregates + provenance only; raw PDFs live in S3, not here."),
@@ -99,6 +117,7 @@ def main() -> None:
             "accepted": len(accepted),
             "rejected": len(rejects),
             "images": sum(p.get("n_images", 0) for p in parsed),
+            "figures_captioned": final.get("stats", {}).get("figures_captioned", len(figures)),
             "tables": sum(p.get("n_tables", 0) for p in parsed),
             "with_math": sum(1 for p in parsed if p.get("has_math")),
             "indexed": final.get("indexed", 0),
@@ -107,6 +126,7 @@ def main() -> None:
         },
         "rejects_by_reason": dict(reasons),
         "budget_usd": config.TOKEN_BUDGET_USD,
+        "figures": figures,
         "docs": [
             {
                 "id": p["source_id"],
@@ -114,6 +134,7 @@ def main() -> None:
                 "source": p["pdf_url"],
                 "pages": p.get("n_pages", 0),
                 "images": p.get("n_images", 0),
+                "figures_captioned": p.get("n_captioned", 0),
                 "tables": p.get("n_tables", 0),
                 "has_math": p.get("has_math", False),
                 "ocr_used": p.get("ocr_used", False),
@@ -128,7 +149,7 @@ def main() -> None:
     s = manifest["stats"]
     print(f"run {run_id} · {duration}s")
     print(f"  discovered {s['discovered']} · parsed {s['parsed']} · "
-          f"images {s['images']} · tables {s['tables']} · math-docs {s['with_math']}")
+          f"figures captioned {s['figures_captioned']} · tables {s['tables']} · math-docs {s['with_math']}")
     print(f"  chunks {s['chunks']} → accepted {s['accepted']} (rejected {s['rejected']}: {dict(reasons)})")
     print(f"  indexed {s['indexed']} into '{config.COLLECTION}' · spent ${s['spent_usd']}")
     print(f"  manifest → {config.MANIFEST_PATH}")

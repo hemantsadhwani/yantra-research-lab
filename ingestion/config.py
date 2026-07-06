@@ -52,6 +52,28 @@ TOKEN_BUDGET_USD = float(os.environ.get("INGEST_TOKEN_BUDGET_USD", "3.0"))  # ha
 FETCH_RETRIES = int(os.environ.get("INGEST_FETCH_RETRIES", "3"))
 NODE_RETRIES = int(os.environ.get("INGEST_NODE_RETRIES", "3"))
 
+# --- Sub-project A: figure extraction + vision captioning (multimodal retrieval) ---
+# Figures are found by anchoring on "Figure N" captions and rasterizing the band above
+# them (catches vector figures that get_images misses). Each is captioned by a bounded
+# vision call, then embedded by its caption. Counts are capped to bound cost + repo size.
+CAPTION_FIGURES = os.environ.get("INGEST_CAPTION_FIGURES", "1") == "1"
+VISION_MODEL = os.environ.get("INGEST_VISION_MODEL", "claude-haiku-4-5")  # 4.x Haiku is multimodal
+VISION_MAX_TOKENS = int(os.environ.get("INGEST_VISION_MAX_TOKENS", "220"))
+MAX_FIGURES_PER_DOC = int(os.environ.get("INGEST_MAX_FIGURES_PER_DOC", "4"))
+MAX_FIGURES_TOTAL = int(os.environ.get("INGEST_MAX_FIGURES_TOTAL", "18"))  # caps committed thumbnails
+FIGURE_DPI = int(os.environ.get("INGEST_FIGURE_DPI", "110"))       # render DPI for the figure band
+FIGURE_MAX_PX = int(os.environ.get("INGEST_FIGURE_MAX_PX", "1024"))  # cap sent-to-vision long edge
+THUMB_MAX_PX = int(os.environ.get("INGEST_THUMB_MAX_PX", "512"))   # public thumbnail long edge
+FIGURE_MIN_BAND_FRAC = float(os.environ.get("INGEST_FIGURE_MIN_BAND_FRAC", "0.05"))  # min band height
+FIGURE_MAX_BAND_FRAC = float(os.environ.get("INGEST_FIGURE_MAX_BAND_FRAC", "0.62"))  # max band height
+FIGURE_FALLBACK_BAND_FRAC = float(os.environ.get("INGEST_FIGURE_FALLBACK_BAND_FRAC", "0.33"))  # no-geometry band
+FIGURE_MIN_INK_FRAC = float(os.environ.get("INGEST_FIGURE_MIN_INK_FRAC", "0.012"))   # skip blank bands
+
+# Public thumbnails the site renders (committed, small). Full-res PNGs live in S3 bronze.
+PUBLIC_FIGURES_DIR = Path(
+    os.environ.get("INGEST_PUBLIC_FIGURES_DIR", REPO_ROOT / "frontend" / "public" / "data" / "figures")
+)
+
 # Polite crawling — arXiv asks for a descriptive UA and >=3s between API hits.
 USER_AGENT = os.environ.get(
     "INGEST_USER_AGENT", "yantra-research-lab/1.0 (ingestion; +https://yantra-research-lab.vercel.app)"

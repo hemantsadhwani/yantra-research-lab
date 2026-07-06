@@ -53,9 +53,10 @@ class ParsedDoc(BaseModel):
     blocks: list[Block] = Field(default_factory=list)
     n_images: int = 0
     n_tables: int = 0
+    n_captioned: int = 0                      # figures rasterized + vision-captioned (sub-project A)
     has_math: bool = False
     ocr_used: bool = False
-    parser: str = "pymupdf+pdfplumber"
+    parser: str = "pymupdf"
 
 
 class Chunk(BaseModel):

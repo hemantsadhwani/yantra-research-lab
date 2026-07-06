@@ -18,6 +18,7 @@ import os
 from langgraph.graph import END, START, StateGraph
 
 from ingestion import config
+from ingestion.caption import caption_figures
 from ingestion.enrich import enrich
 from ingestion.fetch import fetch
 from ingestion.index import index_chunks, write_catalog
@@ -60,6 +61,17 @@ def _n_parse(state: PipelineState) -> dict:
     return {"parsed": parsed, "rejects": rejects}
 
 
+def _n_caption(state: PipelineState) -> dict:
+    # Sub-project A: rasterize + vision-caption figures, appending image blocks.
+    storage = get_storage()
+    parsed = [ParsedDoc(**p) for p in state["parsed"]]
+    fetched = [FetchedDoc(**f) for f in state["fetched"]]
+    parsed, spent, n_captioned = caption_figures(parsed, fetched, storage, state.get("spent_usd", 0.0))
+    stats = dict(state.get("stats", {}))
+    stats["figures_captioned"] = n_captioned
+    return {"parsed": [p.model_dump() for p in parsed], "spent_usd": spent, "stats": stats}
+
+
 def _n_enrich(state: PipelineState) -> dict:
     parsed = [ParsedDoc(**p) for p in state["parsed"]]
     chunks, spent = enrich(parsed, state.get("spent_usd", 0.0))
@@ -99,6 +111,7 @@ def build_graph():
     g.add_node("discover", _n_discover)
     g.add_node("fetch", _n_fetch, **kw)
     g.add_node("parse", _n_parse, **kw)
+    g.add_node("caption", _n_caption, **kw)
     g.add_node("enrich", _n_enrich, **kw)
     g.add_node("quality", _n_quality)
     g.add_node("gate", _n_gate)
@@ -107,7 +120,8 @@ def build_graph():
     g.add_edge(START, "discover")
     g.add_edge("discover", "fetch")
     g.add_edge("fetch", "parse")
-    g.add_edge("parse", "enrich")
+    g.add_edge("parse", "caption")
+    g.add_edge("caption", "enrich")
     g.add_edge("enrich", "quality")
     g.add_edge("quality", "gate")
     g.add_conditional_edges("gate", _route_after_gate, {"index": "index", END: END})

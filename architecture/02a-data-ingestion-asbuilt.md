@@ -18,6 +18,7 @@ verification loop — are deliberately deferred; see that doc.)
 | Object storage (bronze) | **AWS S3** `yantra-research-lab-data` (ap-south-1), IAM least-privilege, public-access blocked | LIVE |
 | Compute | **GitHub Actions** — daily cron + manual, native runner, **3m6s/run**, ~$0 | LIVE |
 | Parse (silver) | PyMuPDF text+tables+images, formula heuristic, Tesseract OCR fallback | LIVE |
+| Figure captioning (multimodal) | Caption-anchored figure rasterization → **Claude vision** caption → embedded for retrieval (sub-project A) | LIVE |
 | Enrich | Chunk + Claude Haiku summary/topics, USD-budget-bounded | LIVE |
 | Quality gate | dedup · relevance · IP-leak quarantine (dead-letter) | LIVE |
 | Vector DB (gold) | Qdrant Cloud `research_corpus` — 393 chunks | LIVE |
@@ -67,7 +68,8 @@ flowchart LR
 flowchart LR
   D[discover\narXiv API] --> F[fetch\nS3 bronze - hash - incremental]
   F --> P[parse\ntext - tables - images - formulas]
-  P --> E[enrich\nchunk + Haiku summary/topics]
+  P --> C[caption\nrasterize figures - Claude vision]
+  C --> E[enrich\nchunk + Haiku summary/topics]
   E --> Q[quality gate\ndedup - relevance - IP-leak]
   Q --> G{human gate\nHITL - auto in CI}
   G -->|approve| I[index\nbge-small - Qdrant + catalog]
@@ -127,7 +129,8 @@ free CI minutes, S3 pennies. No always-on compute (deliberately not EC2).
 
 ## Roadmap (documented upgrades)
 
-- **Sub-project A — Images**: rasterize figure regions → S3 → Claude-vision caption → embed (multimodal retrieval)
+- **Sub-project A — Images**: ✅ SHIPPED — caption-anchored figure rasterization → S3 bronze +
+  committed thumbnails → Claude-vision caption → embedded in `research_corpus` (multimodal retrieval)
 - **Sub-project B — Tables → Text-to-SQL**: structured tables → DuckDB → schema-linked LLM SQL agent
   with execution-feedback self-correction + read-only guardrails (automates reporting)
 - High-fidelity math (Nougat/Mathpix), GraphRAG, CLIP visual retrieval, private strategy-metrics connector
