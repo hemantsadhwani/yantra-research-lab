@@ -1,7 +1,7 @@
 {
   "_note": "Public run manifest of the Tier-3 agentic ingestion pipeline. Safe aggregates + provenance only; raw PDFs live in S3, not here.",
-  "run_id": "20260706T064817Z",
-  "generated_at": "2026-07-06T06:51:45+00:00",
+  "run_id": "20260707T061925Z",
+  "generated_at": "2026-07-07T06:23:19+00:00",
   "collection": "research_corpus",
   "embed_model": "BAAI/bge-small-en-v1.5",
   "dag": [
@@ -50,305 +50,305 @@
     "discovered": 10,
     "fetched": 10,
     "parsed": 10,
-    "chunks": 446,
-    "accepted": 411,
-    "rejected": 35,
-    "images": 6,
+    "chunks": 510,
+    "accepted": 467,
+    "rejected": 43,
+    "images": 23,
     "figures_captioned": 18,
-    "tables": 16,
+    "tables": 0,
     "with_math": 10,
-    "indexed": 411,
-    "spent_usd": 0.0324,
-    "duration_s": 207.7
+    "indexed": 467,
+    "spent_usd": 0.0332,
+    "duration_s": 233.5
   },
   "rejects_by_reason": {
-    "low-relevance": 35
+    "low-relevance": 43
   },
   "budget_usd": 3.0,
   "figures": [
     {
-      "doc_id": "2607.01765v1",
-      "title": "A Cap-Axis Integral Diagnostic of Factor Models",
-      "page": 11,
-      "thumb": "/data/figures/2607.01765v1_p11_0.jpg",
-      "caption": "Figure 4.1: CRSP-based market return versus standard market factors Note: This figure compares the market return cMKT, constructed from the CRSP investable universe, with the Fama\u2013French and q5 market returns. The comparison is on a total-market-return basis, with each provider\u2019s risk-free rate added back to the excess market return. The dashed line is the 45-degree line. The common sample runs fr \u2014 These are scatter plots comparing the constructed market return (cMKT) against two standard marke",
+      "doc_id": "2607.05320v1",
+      "title": "Causal Separation, Conditional Risk, and Projected Markowitz Portfolios",
+      "page": 18,
+      "thumb": "/data/figures/2607.05320v1_p18_0.jpg",
+      "caption": "Figure 1: Experiment E1: conditional factorization and the two windows. Left: residual correlation matrix conditioning on the past window only (systematic block alive). Middle: conditioning on the horizon-closed window (diagonal, as Theorem 3.1 requires). Right: rejection rates of pairwise Fisher-z independence tests across 400 replications; the closed-window curve sits on the nominal 45\u25e6line (siz \u2014 This figure demonstrates conditional independence testing in a time series setting with three pan",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.01765v1"
+      "source": "https://arxiv.org/pdf/2607.05320v1"
     },
     {
-      "doc_id": "2607.01765v1",
-      "title": "A Cap-Axis Integral Diagnostic of Factor Models",
-      "page": 16,
-      "thumb": "/data/figures/2607.01765v1_p16_1.jpg",
-      "caption": "Figure 5.1: Annual Jul\u2013Jun rebalancing, daily frequency: cap-axis bridge-alpha curve Note: Each candidate model\u2019s estimated bridge-alpha curve b\u03b1m(p) is plotted against the cumulative market- cap share p \u2208[0, 1]. The vertical axis is in annualized basis points. The q5 curve reaches a minimum of about \u221268 bp near p \u22480.45, stays in the negative region across the large- to mid-cap range, and closes t \u2014 This line chart displays bridge-alpha curves for five asset pricing models (CAPM, FF3, FF5, FF6, ",
+      "doc_id": "2607.05320v1",
+      "title": "Causal Separation, Conditional Risk, and Projected Markowitz Portfolios",
+      "page": 18,
+      "thumb": "/data/figures/2607.05320v1_p18_1.jpg",
+      "caption": "Figure 1 conditions the same simulated panel (n = 30, m = 3, T = 500, 400 replications) two ways. Past-window residuals (returns regressed on Zt alone) carry the full systematic block B\u039bB\u22a4: the maximal absolute off-diagonal residual correlation is 0.83, and Fisher-z tests reject independence for 82% of pairs at the 5% level. Closed-window residuals (regressed on (Zt, \u02c6\u03b7t+1)) show no dependence: ma \u2014 This figure demonstrates conditional factorization and the empirical sharpness of past versus clo",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.01765v1"
+      "source": "https://arxiv.org/pdf/2607.05320v1"
     },
     {
-      "doc_id": "2607.01765v1",
-      "title": "A Cap-Axis Integral Diagnostic of Factor Models",
-      "page": 17,
-      "thumb": "/data/figures/2607.01765v1_p17_2.jpg",
-      "caption": "Figure 5.2: Annual Jul\u2013Jun rebalancing, monthly frequency: cap-axis bridge-alpha curve Note: Same format as Figure 5.1 but at the monthly factor frequency. The FF3, FF5, FF6, and Carhart curves form a positive one-signed bulge reaching a maximum of about +55 to +57 bp near p \u22480.33. The q5 curve stays closer to zero and changes sign, with | c SA|/[ IAE = 0.83. The sample and estimation procedure ar \u2014 This line chart displays bridge-alpha curves across cumulative market-cap share (p) for multiple ",
+      "doc_id": "2607.05320v1",
+      "title": "Causal Separation, Conditional Risk, and Projected Markowitz Portfolios",
+      "page": 21,
+      "thumb": "/data/figures/2607.05320v1_p21_2.jpg",
+      "caption": "Figure 2: Experiment E2: estimation risk across n at T = 252. Left: OOS annualized GMV volatility (log scale). Right: variance calibration; the structured estimator stays on the dashed line. \u2014 This figure displays two line plots comparing estimation risk across portfolio dimensions (n=50 to 200 assets) with T=252 observations. The left panel shows out-of-sample annualized GMV (global minimum variance) volatility on a logarithmic scale, with five methods compared: Sample, IW, PCA-m, Causal, and O",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.01765v1"
+      "source": "https://arxiv.org/pdf/2607.05320v1"
     },
     {
-      "doc_id": "2607.01765v1",
-      "title": "A Cap-Axis Integral Diagnostic of Factor Models",
-      "page": 20,
-      "thumb": "/data/figures/2607.01765v1_p20_3.jpg",
-      "caption": "Figure 6.1: Cap-axis footprint versus Sharpe-ratio gain across the factor universe Note: Each point is one candidate factor added to the market in the 1967\u20132024 monthly sample. The horizontal axis is the integrated absolute error [ IAEj of the cap-axis bridge-alpha curve of the two-factor model {Re \u2014 This scatter plot shows the relationship between integrated absolute error (IAE) on the cap-axis bridge-alpha curve (x-axis, measured in basis points) and Sharpe ratio gain (y-axis) for various fact",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.01765v1"
-    },
-    {
-      "doc_id": "2607.01550v1",
-      "title": "Is Trend Still Your Friend?: A Microstructural Account of the Demise of Short-Term Trend-Following",
-      "page": 2,
-      "thumb": "/data/figures/2607.01550v1_p2_0.jpg",
-      "caption": "Figure 1: (Rebased) SG CTA Index, 2000\u20132025. Data courtesy of Soci\u00b4et\u00b4e G\u00b4en\u00b4erale Prime Services & Clearing. \u2014 This line chart displays the Soci\u00e9t\u00e9 G\u00e9n\u00e9rale CTA (Commodity Trading Advisor) Index from 2000 to 2025, rebased to a base value of 100. The y-axis shows the index level in rebased points ranging from approximately 100 to 300, while the x-axis spans from 2000 to 2024. The chart reveals an overall upward trend with notable volatility, particularly highlighting two major drawdown periods m",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.01550v1"
-    },
-    {
-      "doc_id": "2607.01550v1",
-      "title": "Is Trend Still Your Friend?: A Microstructural Account of the Demise of Short-Term Trend-Following",
-      "page": 5,
-      "thumb": "/data/figures/2607.01550v1_p5_1.jpg",
-      "caption": "Fig. 2 (left) shows the cumulative PnL of a fast trend portfolio (EWM-5-20) from 1950 to 2025. Two features stand out: the cumulative PnL is essentially flat from 2009 onward, although a weakening may already be detected from approximately 2000. The five-year rolling Sharpe ratio (right) collapses from a historical range of 1\u20132.5 to a level statistically indistinguishable from zero post-2010. This \u2014 This figure displays the cumulative profit-and-loss (PnL) of a fast trend-following strategy (EWM",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.01550v1"
-    },
-    {
-      "doc_id": "2607.01550v1",
-      "title": "Is Trend Still Your Friend?: A Microstructural Account of the Demise of Short-Term Trend-Following",
-      "page": 5,
-      "thumb": "/data/figures/2607.01550v1_p5_2.jpg",
-      "caption": "Figure 2: Left: cumulative PnL of EWM-5-20, 1950\u20132025. Right: corresponding 5-year rolling annualised Sharpe with bootstrap standard errors. \u2014 The left panel shows a line chart of cumulative profit and loss for the EWM-5-20 trading strategy from 1950 to 2025, displaying exponential growth from near zero to over 1000 basis points, with acceleration beginning in the 1970s and plateauing after 2010. The right panel presents a time series of 5-year rolling annualized Sharpe ratios with bootstrap sta",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.01550v1"
-    },
-    {
-      "doc_id": "2607.01550v1",
-      "title": "Is Trend Still Your Friend?: A Microstructural Account of the Demise of Short-Term Trend-Following",
-      "page": 5,
-      "thumb": "/data/figures/2607.01550v1_p5_3.jpg",
-      "caption": "Fig. 4 disaggregates the cumulative PnL by sector. Trend has effectively vanished for IDX and FXR, while YLD and CMD show no appreciable degradation. As we will see in Sec. 5, this asset-class heterogeneity is most cleanly understood as a downstream consequence of a deeper microstructural variable. \u2014 Figure 2 displays the performance deterioration of the EWM-5-20 trend-following strategy from 1950-2025. The left panel is a line chart showing cumulative profit-and-loss in basis points, rising fro",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.01550v1"
-    },
-    {
-      "doc_id": "2607.01377v1",
-      "title": "Liquidity Premium and Investment Horizons",
-      "page": 9,
-      "thumb": "/data/figures/2607.01377v1_p9_0.jpg",
-      "caption": "Figure 1 summarizes the end-to-end construction process: starting from raw CRSP daily and monthly files, we apply the cleaning and filtering steps in Section 4.2, construct daily order-flow and price-impact variables (Section 4.3), aggregate to the firm-month level, merge in delisting returns and point-in-time index membership, and assemble the final panel used throughout Sections 6\u20139. \u2014 This table presents summary statistics for monthly stock returns across multiple distributional measures. The",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.01377v1"
-    },
-    {
-      "doc_id": "2607.01377v1",
-      "title": "Liquidity Premium and Investment Horizons",
-      "page": 9,
-      "thumb": "/data/figures/2607.01377v1_p9_1.jpg",
-      "caption": "Figure 1: Data pipeline from raw CRSP files to firm\u2013month features and final analysis panel. \u2014 Table 4 presents summary statistics for illiquidity measures derived from Kyle's lambda regression and the Amihud (2002b) illiquidity metric, with the distribution shown across percentiles and summary statistics (mean, median, standard deviation, min/max values). The table displays a right-skewed distribution with a median illiquidity measure near zero (0.0009) and extreme values ranging from -0.9806 t",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.01377v1"
-    },
-    {
-      "doc_id": "2607.00883v1",
-      "title": "Tail Risk Management with Puts and Trend Following: A CVaR Framework for Crashes and Drawdowns",
-      "page": 9,
-      "thumb": "/data/figures/2607.00883v1_p9_0.jpg",
-      "caption": "Figure 1: Kalman-filter trend extraction on a representative simulated path from our exper- iments. The top panel shows the log price together with the filtered latent trend and a 95% band. The bottom panel shows filtered trend increments. At steady state the Kalman recursion is an EWMA, which is the signal used in the control problem. \u2014 This figure demonstrates Kalman filter trend extraction applied to a simulated log price series. The top panel displays the log price (gray line), the extracted",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.00883v1"
-    },
-    {
-      "doc_id": "2607.00883v1",
-      "title": "Tail Risk Management with Puts and Trend Following: A CVaR Framework for Crashes and Drawdowns",
+      "doc_id": "2607.05320v1",
+      "title": "Causal Separation, Conditional Risk, and Projected Markowitz Portfolios",
       "page": 22,
-      "thumb": "/data/figures/2607.00883v1_p22_1.jpg",
-      "caption": "Figure 2: Baseline strategy comparison from the experiments. Left: annualized return distributions for unhedged equity, the put overlay, trend, and the hybrid. Right: CVaR as a function of the confidence level \u03b1. In the baseline, the hybrid has the lowest CVaR curve across the displayed tail levels. \u2014 The left panel displays density histograms of annualized returns for four strategies: unhedged equity (Call), put overlay with 10% OTM puts, trend following, and a hybrid strategy combining them. T",
+      "thumb": "/data/figures/2607.05320v1_p22_3.jpg",
+      "caption": "Figure 3: Experiment E4: predicted versus realized conditional Sharpe ratio (daily rebalancing, binned; bars are \u00b12 standard errors). Left: oracle parameters, slope 1.01. Right: estimated parameters (T = 500), slope 0.91: attenuation from estimation error. \u2014 This figure contains two scatter plots comparing predicted versus realized conditional Sharpe ratios for portfolio optimization. The left panel shows oracle parameters with a slope of 1.01 (nearly perfect prediction), while the right panel s",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.00883v1"
+      "source": "https://arxiv.org/pdf/2607.05320v1"
     },
     {
-      "doc_id": "2607.00475v1",
-      "title": "End-to-End Parametric Portfolio Policies for Cross-Asset Futures Timing: When Do AI Models Beat Simple Rules?",
-      "page": 2,
-      "thumb": "/data/figures/2607.00475v1_p2_0.jpg",
-      "caption": "Fig. 1: Sample period 2001\u20132024. (a) Rolling one-year Sharpe ratio of each asset class\u2019s equal-weighted portfolio, averaged within each calendar year; every class alternates in sign across years. (b) Correlation of daily returns among the sixteen contracts, ordered by asset class; the mean pairwise correlation is 0.67 within an asset class and 0.05 across, leaving the classes as near-orthogonal re \u2014 Panel (a) shows a heatmap of rolling one-year Sharpe ratios from 2001-2024 across five asset clas",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.00475v1"
-    },
-    {
-      "doc_id": "2607.00475v1",
-      "title": "End-to-End Parametric Portfolio Policies for Cross-Asset Futures Timing: When Do AI Models Beat Simple Rules?",
-      "page": 4,
-      "thumb": "/data/figures/2607.00475v1_p4_1.jpg",
-      "caption": "Figure 2 plots cumulative returns after scaling each strategy to the same 10% annualized volatility. This normalization is natural for global-macro and managed-futures portfolios, where futures exposures can be scaled through notional and managers often allocate risk rather than dollars across sleeves. It puts every strategy on the same risk scale, so the figure compares compounding per unit of ri \u2014 This figure displays cumulative returns of various trading strategies normalized to 10% annualize",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.00475v1"
-    },
-    {
-      "doc_id": "2607.00475v1",
-      "title": "End-to-End Parametric Portfolio Policies for Cross-Asset Futures Timing: When Do AI Models Beat Simple Rules?",
-      "page": 6,
-      "thumb": "/data/figures/2607.00475v1_p6_2.jpg",
-      "caption": "Fig. 2: Volatility-matched cumulative returns (growth of $1). Each series is scaled to 10% annual volatility. The learned models are competitive in cross-asset, equities, and agriculture, while time-series momentum leads in interest rates. \u2014 This figure displays four panels of time-series cumulative returns from 2012\u20132024, each normalized to 10% annual volatility (growth of $1), comparing three portfolio allocation strategies: Transformer, LSTM, and either Risk parity or TSMOM benchmarks across ",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.00475v1"
-    },
-    {
-      "doc_id": "2607.00475v1",
-      "title": "End-to-End Parametric Portfolio Policies for Cross-Asset Futures Timing: When Do AI Models Beat Simple Rules?",
-      "page": 6,
-      "thumb": "/data/figures/2607.00475v1_p6_3.jpg",
-      "caption": "Fig. 3: Rolling one-year (252-day) Sharpe ratio on the cross- asset portfolio, net of a 10 bp transaction cost. The low- turnover transformer is less eroded by trading costs than the LSTM. \u2014 This line chart displays rolling one-year Sharpe ratios for a cross-asset portfolio from 2013 to 2024, comparing a Transformer model (green) against an LSTM model (red), both net of 10 basis points in transaction costs. The y-axis shows Sharpe ratios ranging from -1.5 to 3.0, while the x-axis represents time",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.00475v1"
-    },
-    {
-      "doc_id": "2606.31675v1",
-      "title": "Settlement Manipulation in Prediction Markets",
-      "page": 4,
-      "thumb": "/data/figures/2606.31675v1_p4_0.jpg",
-      "caption": "Figure 1. The footprint of settlement manipulation. This figure plots Binance BTC spot activity around the five- minute contract\u2019s close, in the post-launch period. Left: absolute order flow per five-minute cycle, folded onto the rolling clock; the dotted vertical line marks the final ten seconds before the close. Right: the post-settlement reversal slope \u03b3 j at each lag j around the close, the sl \u2014 This figure displays two panels analyzing settlement manipulation behavior in Bitcoin futures mar",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2606.31675v1"
-    },
-    {
-      "doc_id": "2606.31675v1",
-      "title": "Settlement Manipulation in Prediction Markets",
+      "doc_id": "2607.05291v1",
+      "title": "Forecasting Realized Volatility with Time Series Foundation Models: A Comparison with Econometric Benchmarks",
       "page": 16,
-      "thumb": "/data/figures/2606.31675v1_p16_1.jpg",
-      "caption": "Figure 2. The five-stage timeline. Filled dots mark the manipulator\u2019s two decision points: entry on the prediction market (Stage 1) and the settlement-window spot trade (Stage 3). \u2014 This figure presents a five-stage timeline diagram illustrating the sequence of events in a prediction market manipulation scenario. The stages progress from left to right: Stage 0 (Nature) where V is drawn from a distribution and observed, Stage 1 (Prediction market) where the manipulator decides whether to enter wi",
+      "thumb": "/data/figures/2607.05291v1_p16_0.jpg",
+      "caption": "Figure 1: Forecast vs. actual realized volatility at h = 1 for four representative assets (AAPL, JPM, TSLA, EUR/USD). We show the last 500 out-of-sample observations. The plot compares the actual realized volatility against Log-HAR and two representative foundation models (TTM and Sundial). \u2014 This figure displays four time series line plots comparing actual realized volatility (black line) against forecasts from Log-HAR, TTM, and Sundial models for one-step-ahead predictions across four assets: ",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2606.31675v1"
+      "source": "https://arxiv.org/pdf/2607.05291v1"
+    },
+    {
+      "doc_id": "2607.05291v1",
+      "title": "Forecasting Realized Volatility with Time Series Foundation Models: A Comparison with Econometric Benchmarks",
+      "page": 18,
+      "thumb": "/data/figures/2607.05291v1_p18_1.jpg",
+      "caption": "Fig. 2 provides a distributional view, plotting QLIKE ratios (model / Log-HAR) across all 50 assets. Values below one indicate the model outperforms Log-HAR. The competitive econometric benchmarks (HAR, ARFIMA, ARMA, MEM) cluster just above parity, and TTM is the only \u2014 This figure displays a box plot showing the distribution of QLIKE (Quasi-Likelihood) ratios across 50 assets, with each ratio computed as the model's QLIKE divided by Log-HAR's QLIKE. The x-axis lists different forecasting models",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.05291v1"
+    },
+    {
+      "doc_id": "2607.05291v1",
+      "title": "Forecasting Realized Volatility with Time Series Foundation Models: A Comparison with Econometric Benchmarks",
+      "page": 20,
+      "thumb": "/data/figures/2607.05291v1_p20_2.jpg",
+      "caption": "Figure 2: Distribution of QLIKE ratios (model / Log-HAR) across 50 assets. Values below one indicate the model outperforms Log-HAR. Boxes span the interquartile range; whiskers extend to 1.5\u00d7 IQR; we suppress outliers. The dashed line marks parity with Log-HAR. The plot shows the competitive econometric benchmarks (HAR, ARFIMA, ARMA, MEM) alongside the foundation models. The augmented HAR variants \u2014 This figure displays three box plots comparing QLIKE loss ratios (model performance divided by Lo",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.05291v1"
+    },
+    {
+      "doc_id": "2607.05291v1",
+      "title": "Forecasting Realized Volatility with Time Series Foundation Models: A Comparison with Econometric Benchmarks",
+      "page": 22,
+      "thumb": "/data/figures/2607.05291v1_p22_3.jpg",
+      "caption": "Fig. 3 plots the rolling DM statistic (QLIKE loss) of each foundation model against Log-HAR across the three forecast horizons, averaged across 50 assets. A positive rolling DM indicates \u2014 This table presents Mincer-Zarnowitz forecast-efficiency regression results comparing realized volatility forecasts across multiple econometric and machine learning models at three forecast horizons (h=1, 5, and 22 days). For each horizon and model, the table reports the regression intercept (\u03b1), slope coeffic",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.05291v1"
+    },
+    {
+      "doc_id": "2607.05141v1",
+      "title": "Square-Root Price Impact Is Necessary for Endogenous Manipulation Cycles in Learning-Agent Markets",
+      "page": 2,
+      "thumb": "/data/figures/2607.05141v1_p2_0.jpg",
+      "caption": "FIG. 1. Emergent manipulation cycle and mean-field the- ory validation (seed 45, 2000 days). (a) Price deviation x = P/P0 \u22121 (blue) with mean-field SDE solution (red dashed, r = 0.62) and holding fraction q (orange fill). Back- ground shading indicates the four trading phases. (b) Effec- tive damping \u0393(v0) of the retail-only market: always positive at calibrated and tested \u03b2. (c) Phase durations:  \u2014 Panel (a) shows a time-series simulation of price deviations and holding fractions over 2000 trad",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.05141v1"
+    },
+    {
+      "doc_id": "2607.05141v1",
+      "title": "Square-Root Price Impact Is Necessary for Endogenous Manipulation Cycles in Learning-Agent Markets",
+      "page": 2,
+      "thumb": "/data/figures/2607.05141v1_p2_1.jpg",
+      "caption": "FIG. 2. Phase-space portrait (q, x) of the limit cycle (seed 45, 2000 days). Each loop traces one accumulation\u2013push\u2013 distribution\u2013reset cycle. The star marks the start; the tra- jectory spirals outward before settling onto a stable periodic orbit\u2014the attractor born at the Hopf bifurcation. \u2014 This scatter plot shows a phase-space trajectory in (q, x) coordinates where q is institutional holding fraction and x is price deviation, with data points colored by trading phase (Accumulation, Push, Distr",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.05141v1"
+    },
+    {
+      "doc_id": "2607.05141v1",
+      "title": "Square-Root Price Impact Is Necessary for Endogenous Manipulation Cycles in Learning-Agent Markets",
+      "page": 4,
+      "thumb": "/data/figures/2607.05141v1_p4_2.jpg",
+      "caption": "Figure 3 shows the numerical verification. Panel (a) plots the oscillation amplitude in (\u03bb, C) space with the boundary located by binary search. Panel (b) shows the order parameter A(C) at \u03bb = 0.008: A rises continuously from zero at the numerical Hopf boundary Cnum \u2014 This figure presents a bifurcation analysis of a mean-field ODE model across four panels. Panel (a) is a heatmap showing oscillation amplitude in (\u03bb, C) parameter space with the Hopf bifurcation boundary marked by a white dashed cu",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.05141v1"
+    },
+    {
+      "doc_id": "2607.05141v1",
+      "title": "Square-Root Price Impact Is Necessary for Endogenous Manipulation Cycles in Learning-Agent Markets",
+      "page": 4,
+      "thumb": "/data/figures/2607.05141v1_p4_3.jpg",
+      "caption": "FIG. 3. Bifurcation analysis of the mean-field ODE. (a) Os- cillation amplitude in (\u03bb, C) space. Black curve: numer- ical Hopf boundary (binary search). White dashed: ana- lytical prediction from tr J = 0. Star: calibrated point (\u03bb = 0.008, C = 25%). (b) Order parameter A(C) at \u03bb = 0.008. Red dashed: A \u221d(C \u2212Cc)0.48. (c) \u03b5-sensitivity: Cc (blue) and \u03b1 (red). Physical range \u03b5 \u2208[3 \u00d7 104, 3 \u00d7 105] sha \u2014 This figure presents bifurcation analysis of a mean-field ODE system studying price impact and ma",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.05141v1"
+    },
+    {
+      "doc_id": "2607.05091v1",
+      "title": "Any Axes Are Allowed: A Characteristic-Axis Integral Diagnosis of Factor Models",
+      "page": 17,
+      "thumb": "/data/figures/2607.05091v1_p17_0.jpg",
+      "caption": "Figure 5.1 and Table 5.2 report the main value-axis result. CAPM has a low rank-area R2 of 0.031, and neither its signed area nor its IAE is significant. By contrast, FF3, Carhart, FF5, \u2014 This table reports monthly aggregate-gate regression results testing factor models (CAPM, FF3, Carhart, FF5, FF6, q5) against a value-valid aggregate return, with columns showing model names, observations (n=690), alpha values, t-statistics, R-squared, and correlation with full market return. The key takeaway i",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.05091v1"
+    },
+    {
+      "doc_id": "2607.05091v1",
+      "title": "Any Axes Are Allowed: A Characteristic-Axis Integral Diagnosis of Factor Models",
+      "page": 18,
+      "thumb": "/data/figures/2607.05091v1_p18_1.jpg",
+      "caption": "Figure 5.1: Value-axis bridge-alpha curves and functional summaries Note: Panel A shows the monthly bridge-alpha curves on the book-to-market axis within the valid- characteristic universe. Panel B reports the absolute signed area, IAE, and SUP computed from the same curves. Alphas and functional statistics are annualized and reported in basis points. \u2014 This figure presents value-axis bridge-alpha analysis and functional diagnostics for factor models across multiple model specifications. Panel A",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.05091v1"
+    },
+    {
+      "doc_id": "2607.05091v1",
+      "title": "Any Axes Are Allowed: A Characteristic-Axis Integral Diagnosis of Factor Models",
+      "page": 20,
+      "thumb": "/data/figures/2607.05091v1_p20_2.jpg",
+      "caption": "Figure 5.2: Value-axis IAE and maximum-Sharpe gain Note: This figure plots value-axis IAE against \u2206SR relative to CAPM for candidate factors in the monthly CAPM-plus-one-factor scan. Circles denote Global Factor Data factors, squares denote Fama\u2013French/Carhart factors, and triangles denote q-factor-family factors. The line is the upper-left frontier in the direction of lower IAE and higher \u2206SR. \u2014 This scatter plot displays the relationship between value-axis Characteristic-Axis Integral (IAE) on",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.05091v1"
+    },
+    {
+      "doc_id": "2607.05091v1",
+      "title": "Any Axes Are Allowed: A Characteristic-Axis Integral Diagnosis of Factor Models",
+      "page": 20,
+      "thumb": "/data/figures/2607.05091v1_p20_3.jpg",
+      "caption": "Figure 5.2 shows the same message in the full factor scan. Across 155 monthly candidates, \u2014 This scatter plot displays the relationship between Value-axis IAE (x-axis, ranging from 10 to 70) and maximum-Sharpe gain \u0394SR (y-axis, ranging from 0 to 1.2) across 155 candidate factors in a monthly CAPM-plus-one-factor scan. Three factor types are represented: Global Factor Data factors (circles), Fama-French/Carhart factors (squares), and q-factor-family factors (triangles), with an upper-left frontie",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.05091v1"
+    },
+    {
+      "doc_id": "2607.04958v1",
+      "title": "Look-Ahead-Freedom as Temporal Non-Interference: A Verifiable Correctness Property for Backtesting and Agentic Trading Pipelines",
+      "page": 7,
+      "thumb": "/data/figures/2607.04958v1_p7_0.jpg",
+      "caption": "Fig. 1. The two ideas the calculus is built on. (a) Every datum carries two independent temporal coordinates: its reference time (which instant it describes) and its availability (when it becomes knowable); the two differ by an ingest lag, and look-ahead occurs precisely when a datum whose availability follows a decision epoch \ud835\udc61influences the decision at \ud835\udc61. (b) The language is stratified by whethe \u2014 This figure illustrates a temporal framework for detecting look-ahead bias in trading systems. Pa",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.04958v1"
+    },
+    {
+      "doc_id": "2607.04958v1",
+      "title": "Look-Ahead-Freedom as Temporal Non-Interference: A Verifiable Correctness Property for Backtesting and Agentic Trading Pipelines",
+      "page": 23,
+      "thumb": "/data/figures/2607.04958v1_p23_1.jpg",
+      "caption": "Fig. 2. Checker scaling. (a) Node-count scaling at bounded availability complexity: median check time versus pipeline node count on log\u2013log axes, with a fitted slope of 1.023 (95% bootstrap CI [1.021, 1.026]) against the linear (slope = 1) reference; error bars are 5,000-draw bootstrap CIs on the median. (b) Availability-term complexity at fixed node count: check time versus the number of literals \u2014 Panel (a) shows a log-log plot of median check time versus pipeline node count, demonstrating nea",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.04958v1"
     }
   ],
   "docs": [
     {
-      "id": "2607.01765v1",
-      "title": "A Cap-Axis Integral Diagnostic of Factor Models",
-      "source": "https://arxiv.org/pdf/2607.01765v1",
-      "pages": 37,
-      "images": 0,
-      "figures_captioned": 4,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 38
-    },
-    {
-      "id": "2607.01705v1",
-      "title": "Portfolio Optimization under Fast and Slow Latent Mean-Reverting and Momentum Drift",
-      "source": "https://arxiv.org/pdf/2607.01705v1",
-      "pages": 24,
-      "images": 0,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 43
-    },
-    {
-      "id": "2607.01550v1",
-      "title": "Is Trend Still Your Friend?: A Microstructural Account of the Demise of Short-Term Trend-Following",
-      "source": "https://arxiv.org/pdf/2607.01550v1",
-      "pages": 31,
-      "images": 0,
-      "figures_captioned": 4,
-      "tables": 13,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 52
-    },
-    {
-      "id": "2607.01377v1",
-      "title": "Liquidity Premium and Investment Horizons",
-      "source": "https://arxiv.org/pdf/2607.01377v1",
-      "pages": 20,
-      "images": 0,
-      "figures_captioned": 2,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 44
-    },
-    {
-      "id": "2607.01198v1",
-      "title": "When large trades are not news: Liquidity tail risk and price discovery",
-      "source": "https://arxiv.org/pdf/2607.01198v1",
-      "pages": 83,
-      "images": 0,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 51
-    },
-    {
-      "id": "2607.00883v1",
-      "title": "Tail Risk Management with Puts and Trend Following: A CVaR Framework for Crashes and Drawdowns",
-      "source": "https://arxiv.org/pdf/2607.00883v1",
-      "pages": 31,
+      "id": "2607.05320v1",
+      "title": "Causal Separation, Conditional Risk, and Projected Markowitz Portfolios",
+      "source": "https://arxiv.org/pdf/2607.05320v1",
+      "pages": 28,
       "images": 2,
-      "figures_captioned": 2,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 55
-    },
-    {
-      "id": "2607.00856v1",
-      "title": "Shapley in Context: Explaining Financial Language with Domain Expertise",
-      "source": "https://arxiv.org/pdf/2607.00856v1",
-      "pages": 78,
-      "images": 0,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 30
-    },
-    {
-      "id": "2607.00475v1",
-      "title": "End-to-End Parametric Portfolio Policies for Cross-Asset Futures Timing: When Do AI Models Beat Simple Rules?",
-      "source": "https://arxiv.org/pdf/2607.00475v1",
-      "pages": 8,
-      "images": 3,
       "figures_captioned": 4,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 24
+      "chunks_indexed": 62
     },
     {
-      "id": "2606.31675v1",
-      "title": "Settlement Manipulation in Prediction Markets",
-      "source": "https://arxiv.org/pdf/2606.31675v1",
-      "pages": 134,
+      "id": "2607.05291v1",
+      "title": "Forecasting Realized Volatility with Time Series Foundation Models: A Comparison with Econometric Benchmarks",
+      "source": "https://arxiv.org/pdf/2607.05291v1",
+      "pages": 41,
       "images": 0,
-      "figures_captioned": 2,
+      "figures_captioned": 4,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 47
+    },
+    {
+      "id": "2607.05141v1",
+      "title": "Square-Root Price Impact Is Necessary for Endogenous Manipulation Cycles in Learning-Agent Markets",
+      "source": "https://arxiv.org/pdf/2607.05141v1",
+      "pages": 13,
+      "images": 7,
+      "figures_captioned": 4,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
       "chunks_indexed": 36
     },
     {
-      "id": "2606.31475v1",
-      "title": "Real-time identification of the onset of financial rogue waves",
-      "source": "https://arxiv.org/pdf/2606.31475v1",
-      "pages": 19,
-      "images": 1,
-      "figures_captioned": 0,
-      "tables": 3,
+      "id": "2607.05091v1",
+      "title": "Any Axes Are Allowed: A Characteristic-Axis Integral Diagnosis of Factor Models",
+      "source": "https://arxiv.org/pdf/2607.05091v1",
+      "pages": 47,
+      "images": 0,
+      "figures_captioned": 4,
+      "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 38
+      "chunks_indexed": 39
+    },
+    {
+      "id": "2607.05011v1",
+      "title": "Reaction-boundary variance and adjoint-consistent local-volatility projection",
+      "source": "https://arxiv.org/pdf/2607.05011v1",
+      "pages": 13,
+      "images": 0,
+      "figures_captioned": 0,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 32
+    },
+    {
+      "id": "2607.04958v1",
+      "title": "Look-Ahead-Freedom as Temporal Non-Interference: A Verifiable Correctness Property for Backtesting and Agentic Trading Pipelines",
+      "source": "https://arxiv.org/pdf/2607.04958v1",
+      "pages": 30,
+      "images": 0,
+      "figures_captioned": 2,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 57
+    },
+    {
+      "id": "2607.04781v1",
+      "title": "Renewing Reliability: Valuation and Credit Risk Adjustments for Renewable Power Purchase Agreements",
+      "source": "https://arxiv.org/pdf/2607.04781v1",
+      "pages": 26,
+      "images": 2,
+      "figures_captioned": 0,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 40
+    },
+    {
+      "id": "2607.04392v1",
+      "title": "Adapted Law Invariance and Time-Consistent Dynamic Risk Measures",
+      "source": "https://arxiv.org/pdf/2607.04392v1",
+      "pages": 23,
+      "images": 0,
+      "figures_captioned": 0,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 58
+    },
+    {
+      "id": "2607.04346v1",
+      "title": "Preference-fitting Framework: Elicited Utility Function and PHARA Approximation",
+      "source": "https://arxiv.org/pdf/2607.04346v1",
+      "pages": 39,
+      "images": 3,
+      "figures_captioned": 0,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 61
+    },
+    {
+      "id": "2607.04280v1",
+      "title": "Order Splitting and Liquidity Replenishment Are Jointly Necessary for the Square-Root Law of Market Impact:",
+      "source": "https://arxiv.org/pdf/2607.04280v1",
+      "pages": 20,
+      "images": 9,
+      "figures_captioned": 0,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 35
     }
   ]
 }
