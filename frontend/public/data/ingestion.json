@@ -1,7 +1,7 @@
 {
   "_note": "Public run manifest of the Tier-3 agentic ingestion pipeline. Safe aggregates + provenance only; raw PDFs live in S3, not here.",
-  "run_id": "20260707T061925Z",
-  "generated_at": "2026-07-07T06:23:19+00:00",
+  "run_id": "20260708T053221Z",
+  "generated_at": "2026-07-08T05:36:02+00:00",
   "collection": "research_corpus",
   "embed_model": "BAAI/bge-small-en-v1.5",
   "dag": [
@@ -50,264 +50,204 @@
     "discovered": 10,
     "fetched": 10,
     "parsed": 10,
-    "chunks": 510,
-    "accepted": 467,
-    "rejected": 43,
-    "images": 23,
+    "chunks": 517,
+    "accepted": 492,
+    "rejected": 25,
+    "images": 48,
     "figures_captioned": 18,
-    "tables": 0,
+    "tables": 4,
     "with_math": 10,
-    "indexed": 467,
-    "spent_usd": 0.0332,
-    "duration_s": 233.5
+    "indexed": 492,
+    "spent_usd": 0.0329,
+    "duration_s": 221.3
   },
   "rejects_by_reason": {
-    "low-relevance": 43
+    "low-relevance": 25
   },
   "budget_usd": 3.0,
   "figures": [
     {
-      "doc_id": "2607.05320v1",
-      "title": "Causal Separation, Conditional Risk, and Projected Markowitz Portfolios",
-      "page": 18,
-      "thumb": "/data/figures/2607.05320v1_p18_0.jpg",
-      "caption": "Figure 1: Experiment E1: conditional factorization and the two windows. Left: residual correlation matrix conditioning on the past window only (systematic block alive). Middle: conditioning on the horizon-closed window (diagonal, as Theorem 3.1 requires). Right: rejection rates of pairwise Fisher-z independence tests across 400 replications; the closed-window curve sits on the nominal 45\u25e6line (siz \u2014 This figure demonstrates conditional independence testing in a time series setting with three pan",
+      "doc_id": "2607.06373v1",
+      "title": "Error Propagation in Spectral Functionals of Shrinkage Covariance Estimators: Perturbation Bounds and Calibrated Inference",
+      "page": 15,
+      "thumb": "/data/figures/2607.06373v1_p15_0.jpg",
+      "caption": "Figure 1: Diagonal example (N=10, K=3), where CA = \u03a3 + \u03b5I has smaller Frobenius distance than scaled CB = (1 + b)\u03a3 but larger |ARK| error (Proposition 6). \u2014 This bar chart compares two covariance matrix estimators using dual y-axes, displaying Frobenius distance (left axis, blue bars) and absolute AR(K) error (right axis, red bars). The figure shows that estimator CA = \u03a3 + \u03b5I achieves smaller Frobenius distance than the scaled estimator CB = (1 + b)\u03a3, but paradoxically exhibits larger spectral f",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.05320v1"
+      "source": "https://arxiv.org/pdf/2607.06373v1"
     },
     {
-      "doc_id": "2607.05320v1",
-      "title": "Causal Separation, Conditional Risk, and Projected Markowitz Portfolios",
-      "page": 18,
-      "thumb": "/data/figures/2607.05320v1_p18_1.jpg",
-      "caption": "Figure 1 conditions the same simulated panel (n = 30, m = 3, T = 500, 400 replications) two ways. Past-window residuals (returns regressed on Zt alone) carry the full systematic block B\u039bB\u22a4: the maximal absolute off-diagonal residual correlation is 0.83, and Fisher-z tests reject independence for 82% of pairs at the 5% level. Closed-window residuals (regressed on (Zt, \u02c6\u03b7t+1)) show no dependence: ma \u2014 This figure demonstrates conditional factorization and the empirical sharpness of past versus clo",
+      "doc_id": "2607.06373v1",
+      "title": "Error Propagation in Spectral Functionals of Shrinkage Covariance Estimators: Perturbation Bounds and Calibrated Inference",
+      "page": 20,
+      "thumb": "/data/figures/2607.06373v1_p20_1.jpg",
+      "caption": "Figure 3 plots the same run. \u2014 Table 2 presents simulated lag rates P(D\u0302_K,t > \u03b1\u03c3*_K,t) across different gap regimes (Strong/Weak) and market phases (Calm/Break) with varying \u03b1 parameters from 0.25 to 1.00. The table shows that as \u03b1 increases from 0.25 to 1.00, the flag rates decrease substantially, demonstrating that the operational scale \u03b1* = 0.75 achieves conservativeness with lag rates staying at or below 5% across all gap and phase combinations. The key takeaway is that lower \u03b1 values gener",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.05320v1"
+      "source": "https://arxiv.org/pdf/2607.06373v1"
     },
     {
-      "doc_id": "2607.05320v1",
-      "title": "Causal Separation, Conditional Risk, and Projected Markowitz Portfolios",
+      "doc_id": "2607.06373v1",
+      "title": "Error Propagation in Spectral Functionals of Shrinkage Covariance Estimators: Perturbation Bounds and Calibrated Inference",
+      "page": 20,
+      "thumb": "/data/figures/2607.06373v1_p20_2.jpg",
+      "caption": "Figure 3 visualizes the same means, with QIS improving on LW for operator norm and |ARK| error, while MP-clip attains the lowest |ARK| and |f1| means in this DGP, a concrete instance of functional-risk separation. \u2014 Table 2 presents simulated flag rates P(D\u0302_K,t > \u03b1\u03c4*_K,t) across four gap regimes (Strong/Weak) and phases (Calm/Break), with operational scale parameter \u03b1 ranging from 0.25 to 1.00. The table shows that flag rates decrease sharply as \u03b1 increases, with rates at \u03b1*=0.75 staying below ",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.06373v1"
+    },
+    {
+      "doc_id": "2607.06373v1",
+      "title": "Error Propagation in Spectral Functionals of Shrinkage Covariance Estimators: Perturbation Bounds and Calibrated Inference",
       "page": 21,
-      "thumb": "/data/figures/2607.05320v1_p21_2.jpg",
-      "caption": "Figure 2: Experiment E2: estimation risk across n at T = 252. Left: OOS annualized GMV volatility (log scale). Right: variance calibration; the structured estimator stays on the dashed line. \u2014 This figure displays two line plots comparing estimation risk across portfolio dimensions (n=50 to 200 assets) with T=252 observations. The left panel shows out-of-sample annualized GMV (global minimum variance) volatility on a logarithmic scale, with five methods compared: Sample, IW, PCA-m, Causal, and O",
+      "thumb": "/data/figures/2607.06373v1_p21_3.jpg",
+      "caption": "Figure 2: Simulated flag rate vs. \u03b1 (known \u03a3t, population \u03c4 \u2217 \u2014 This line graph displays flag rates (y-axis, 0-100%) versus a scaling parameter \u03b1 (x-axis, 0-1.0) for four gap detection scenarios in covariance estimation. The plot compares strong gap calm (blue circles), strong gap break (blue diamonds), weak gap calm (red circles), and weak gap break (red diamonds) conditions. All four curves show monotonic decline from approximately 100% flag rates at low \u03b1 values to near 0% at \u03b1=1.0, with weak",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.05320v1"
+      "source": "https://arxiv.org/pdf/2607.06373v1"
     },
     {
-      "doc_id": "2607.05320v1",
-      "title": "Causal Separation, Conditional Risk, and Projected Markowitz Portfolios",
-      "page": 22,
-      "thumb": "/data/figures/2607.05320v1_p22_3.jpg",
-      "caption": "Figure 3: Experiment E4: predicted versus realized conditional Sharpe ratio (daily rebalancing, binned; bars are \u00b12 standard errors). Left: oracle parameters, slope 1.01. Right: estimated parameters (T = 500), slope 0.91: attenuation from estimation error. \u2014 This figure contains two scatter plots comparing predicted versus realized conditional Sharpe ratios for portfolio optimization. The left panel shows oracle parameters with a slope of 1.01 (nearly perfect prediction), while the right panel s",
+      "doc_id": "2607.06340v1",
+      "title": "Signature-based identification of volatility models from path geometry",
+      "page": 13,
+      "thumb": "/data/figures/2607.06340v1_p13_0.jpg",
+      "caption": "Figure 5.1: Confusion matrix for Experiment 5.1 (ntest = 50,000). \u2014 This confusion matrix displays the classification performance of a volatility model identification system tested on 50,000 samples. The matrix compares predicted labels (columns) against true labels (rows) across four volatility model classes: Heston, OU, rBD.1, and rBD.3. The diagonal elements show nearly perfect classification with counts of 50,000, 50,000, 49,999, and 49,998, indicating the model achieves extremely high accur",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.05320v1"
+      "source": "https://arxiv.org/pdf/2607.06340v1"
     },
     {
-      "doc_id": "2607.05291v1",
-      "title": "Forecasting Realized Volatility with Time Series Foundation Models: A Comparison with Econometric Benchmarks",
-      "page": 16,
-      "thumb": "/data/figures/2607.05291v1_p16_0.jpg",
-      "caption": "Figure 1: Forecast vs. actual realized volatility at h = 1 for four representative assets (AAPL, JPM, TSLA, EUR/USD). We show the last 500 out-of-sample observations. The plot compares the actual realized volatility against Log-HAR and two representative foundation models (TTM and Sundial). \u2014 This figure displays four time series line plots comparing actual realized volatility (black line) against forecasts from Log-HAR, TTM, and Sundial models for one-step-ahead predictions across four assets: ",
+      "doc_id": "2607.06340v1",
+      "title": "Signature-based identification of volatility models from path geometry",
+      "page": 14,
+      "thumb": "/data/figures/2607.06340v1_p14_1.jpg",
+      "caption": "Figure 5.2: Confusion matrix for Experiment 5.2 (ntest = 50,000). \u2014 This figure shows a confusion matrix displayed as a heatmap comparing true labels versus predicted labels for a classification model with four classes (rBD.15, rBD.4, rBD.6). The matrix has dimensions 4\u00d74 with the diagonal elements (50000, 50000, 49992, 49985) representing correctly classified samples shown in dark blue, while off-diagonal elements show misclassifications. The key takeaway is that the model achieves very high ac",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.05291v1"
+      "source": "https://arxiv.org/pdf/2607.06340v1"
     },
     {
-      "doc_id": "2607.05291v1",
-      "title": "Forecasting Realized Volatility with Time Series Foundation Models: A Comparison with Econometric Benchmarks",
-      "page": 18,
-      "thumb": "/data/figures/2607.05291v1_p18_1.jpg",
-      "caption": "Fig. 2 provides a distributional view, plotting QLIKE ratios (model / Log-HAR) across all 50 assets. Values below one indicate the model outperforms Log-HAR. The competitive econometric benchmarks (HAR, ARFIMA, ARMA, MEM) cluster just above parity, and TTM is the only \u2014 This figure displays a box plot showing the distribution of QLIKE (Quasi-Likelihood) ratios across 50 assets, with each ratio computed as the model's QLIKE divided by Log-HAR's QLIKE. The x-axis lists different forecasting models",
+      "doc_id": "2607.06340v1",
+      "title": "Signature-based identification of volatility models from path geometry",
+      "page": 15,
+      "thumb": "/data/figures/2607.06340v1_p15_2.jpg",
+      "caption": "Figure 5.3: Confusion matrix for Experiment 5.3 (ntest = 50,000). \u2014 This is a confusion matrix displayed as a heatmap showing classification results for volatility model identification across four predicted labels (rBD.05, rBD.15, rBD.25, rBD.35). The rows represent true labels and columns represent predicted labels, with cell values indicating the count of samples in each category out of 50,000 test samples. The matrix shows strong diagonal performance with values around 49,900-49,960 for corre",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.05291v1"
+      "source": "https://arxiv.org/pdf/2607.06340v1"
     },
     {
-      "doc_id": "2607.05291v1",
-      "title": "Forecasting Realized Volatility with Time Series Foundation Models: A Comparison with Econometric Benchmarks",
-      "page": 20,
-      "thumb": "/data/figures/2607.05291v1_p20_2.jpg",
-      "caption": "Figure 2: Distribution of QLIKE ratios (model / Log-HAR) across 50 assets. Values below one indicate the model outperforms Log-HAR. Boxes span the interquartile range; whiskers extend to 1.5\u00d7 IQR; we suppress outliers. The dashed line marks parity with Log-HAR. The plot shows the competitive econometric benchmarks (HAR, ARFIMA, ARMA, MEM) alongside the foundation models. The augmented HAR variants \u2014 This figure displays three box plots comparing QLIKE loss ratios (model performance divided by Lo",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.05291v1"
-    },
-    {
-      "doc_id": "2607.05291v1",
-      "title": "Forecasting Realized Volatility with Time Series Foundation Models: A Comparison with Econometric Benchmarks",
-      "page": 22,
-      "thumb": "/data/figures/2607.05291v1_p22_3.jpg",
-      "caption": "Fig. 3 plots the rolling DM statistic (QLIKE loss) of each foundation model against Log-HAR across the three forecast horizons, averaged across 50 assets. A positive rolling DM indicates \u2014 This table presents Mincer-Zarnowitz forecast-efficiency regression results comparing realized volatility forecasts across multiple econometric and machine learning models at three forecast horizons (h=1, 5, and 22 days). For each horizon and model, the table reports the regression intercept (\u03b1), slope coeffic",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.05291v1"
-    },
-    {
-      "doc_id": "2607.05141v1",
-      "title": "Square-Root Price Impact Is Necessary for Endogenous Manipulation Cycles in Learning-Agent Markets",
-      "page": 2,
-      "thumb": "/data/figures/2607.05141v1_p2_0.jpg",
-      "caption": "FIG. 1. Emergent manipulation cycle and mean-field the- ory validation (seed 45, 2000 days). (a) Price deviation x = P/P0 \u22121 (blue) with mean-field SDE solution (red dashed, r = 0.62) and holding fraction q (orange fill). Back- ground shading indicates the four trading phases. (b) Effec- tive damping \u0393(v0) of the retail-only market: always positive at calibrated and tested \u03b2. (c) Phase durations:  \u2014 Panel (a) shows a time-series simulation of price deviations and holding fractions over 2000 trad",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.05141v1"
-    },
-    {
-      "doc_id": "2607.05141v1",
-      "title": "Square-Root Price Impact Is Necessary for Endogenous Manipulation Cycles in Learning-Agent Markets",
-      "page": 2,
-      "thumb": "/data/figures/2607.05141v1_p2_1.jpg",
-      "caption": "FIG. 2. Phase-space portrait (q, x) of the limit cycle (seed 45, 2000 days). Each loop traces one accumulation\u2013push\u2013 distribution\u2013reset cycle. The star marks the start; the tra- jectory spirals outward before settling onto a stable periodic orbit\u2014the attractor born at the Hopf bifurcation. \u2014 This scatter plot shows a phase-space trajectory in (q, x) coordinates where q is institutional holding fraction and x is price deviation, with data points colored by trading phase (Accumulation, Push, Distr",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.05141v1"
-    },
-    {
-      "doc_id": "2607.05141v1",
-      "title": "Square-Root Price Impact Is Necessary for Endogenous Manipulation Cycles in Learning-Agent Markets",
-      "page": 4,
-      "thumb": "/data/figures/2607.05141v1_p4_2.jpg",
-      "caption": "Figure 3 shows the numerical verification. Panel (a) plots the oscillation amplitude in (\u03bb, C) space with the boundary located by binary search. Panel (b) shows the order parameter A(C) at \u03bb = 0.008: A rises continuously from zero at the numerical Hopf boundary Cnum \u2014 This figure presents a bifurcation analysis of a mean-field ODE model across four panels. Panel (a) is a heatmap showing oscillation amplitude in (\u03bb, C) parameter space with the Hopf bifurcation boundary marked by a white dashed cu",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.05141v1"
-    },
-    {
-      "doc_id": "2607.05141v1",
-      "title": "Square-Root Price Impact Is Necessary for Endogenous Manipulation Cycles in Learning-Agent Markets",
-      "page": 4,
-      "thumb": "/data/figures/2607.05141v1_p4_3.jpg",
-      "caption": "FIG. 3. Bifurcation analysis of the mean-field ODE. (a) Os- cillation amplitude in (\u03bb, C) space. Black curve: numer- ical Hopf boundary (binary search). White dashed: ana- lytical prediction from tr J = 0. Star: calibrated point (\u03bb = 0.008, C = 25%). (b) Order parameter A(C) at \u03bb = 0.008. Red dashed: A \u221d(C \u2212Cc)0.48. (c) \u03b5-sensitivity: Cc (blue) and \u03b1 (red). Physical range \u03b5 \u2208[3 \u00d7 104, 3 \u00d7 105] sha \u2014 This figure presents bifurcation analysis of a mean-field ODE system studying price impact and ma",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.05141v1"
-    },
-    {
-      "doc_id": "2607.05091v1",
-      "title": "Any Axes Are Allowed: A Characteristic-Axis Integral Diagnosis of Factor Models",
+      "doc_id": "2607.06340v1",
+      "title": "Signature-based identification of volatility models from path geometry",
       "page": 17,
-      "thumb": "/data/figures/2607.05091v1_p17_0.jpg",
-      "caption": "Figure 5.1 and Table 5.2 report the main value-axis result. CAPM has a low rank-area R2 of 0.031, and neither its signed area nor its IAE is significant. By contrast, FF3, Carhart, FF5, \u2014 This table reports monthly aggregate-gate regression results testing factor models (CAPM, FF3, Carhart, FF5, FF6, q5) against a value-valid aggregate return, with columns showing model names, observations (n=690), alpha values, t-statistics, R-squared, and correlation with full market return. The key takeaway i",
+      "thumb": "/data/figures/2607.06340v1_p17_3.jpg",
+      "caption": "Figure 6.1: Confusion matrix for Experiment 6.1 with randomly sampled model parameters (ntest = 50,000). Values are percentages. \u2014 This figure shows a confusion matrix displaying the classification performance of a volatility model identification system tested on 50,000 randomly sampled model parameter instances. The matrix rows represent true labels (Heston, OU, rB0.1, rB0.3) and columns represent predicted labels, with values shown as percentages. The diagonal elements show high classification",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.05091v1"
+      "source": "https://arxiv.org/pdf/2607.06340v1"
     },
     {
-      "doc_id": "2607.05091v1",
-      "title": "Any Axes Are Allowed: A Characteristic-Axis Integral Diagnosis of Factor Models",
-      "page": 18,
-      "thumb": "/data/figures/2607.05091v1_p18_1.jpg",
-      "caption": "Figure 5.1: Value-axis bridge-alpha curves and functional summaries Note: Panel A shows the monthly bridge-alpha curves on the book-to-market axis within the valid- characteristic universe. Panel B reports the absolute signed area, IAE, and SUP computed from the same curves. Alphas and functional statistics are annualized and reported in basis points. \u2014 This figure presents value-axis bridge-alpha analysis and functional diagnostics for factor models across multiple model specifications. Panel A",
+      "doc_id": "2607.06220v1",
+      "title": "Stable Sentiment and Persistent Dynamics in U.S. Economic News over 45 Years",
+      "page": 4,
+      "thumb": "/data/figures/2607.06220v1_p4_0.jpg",
+      "caption": "Figure 1: Statistical characterization of the daily news sentiment index from 1980 to 2025. (A) Time series of the sentiment index xt and the rolling mean (28 days), with gray shading marking major macroeconomic events (Volcker disinflation, dot-com bubble, global financial crisis, COVID- 19). Autocorrelation function (ACF) for (B) the sentiment index xt and its (C) first difference \u2206xt = xt \u2212xt\u22121 \u2014 Panel A displays a time series of daily sentiment index values from 1980 to 2025 as a green line ",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.05091v1"
+      "source": "https://arxiv.org/pdf/2607.06220v1"
     },
     {
-      "doc_id": "2607.05091v1",
-      "title": "Any Axes Are Allowed: A Characteristic-Axis Integral Diagnosis of Factor Models",
-      "page": 20,
-      "thumb": "/data/figures/2607.05091v1_p20_2.jpg",
-      "caption": "Figure 5.2: Value-axis IAE and maximum-Sharpe gain Note: This figure plots value-axis IAE against \u2206SR relative to CAPM for candidate factors in the monthly CAPM-plus-one-factor scan. Circles denote Global Factor Data factors, squares denote Fama\u2013French/Carhart factors, and triangles denote q-factor-family factors. The line is the upper-left frontier in the direction of lower IAE and higher \u2206SR. \u2014 This scatter plot displays the relationship between value-axis Characteristic-Axis Integral (IAE) on",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.05091v1"
-    },
-    {
-      "doc_id": "2607.05091v1",
-      "title": "Any Axes Are Allowed: A Characteristic-Axis Integral Diagnosis of Factor Models",
-      "page": 20,
-      "thumb": "/data/figures/2607.05091v1_p20_3.jpg",
-      "caption": "Figure 5.2 shows the same message in the full factor scan. Across 155 monthly candidates, \u2014 This scatter plot displays the relationship between Value-axis IAE (x-axis, ranging from 10 to 70) and maximum-Sharpe gain \u0394SR (y-axis, ranging from 0 to 1.2) across 155 candidate factors in a monthly CAPM-plus-one-factor scan. Three factor types are represented: Global Factor Data factors (circles), Fama-French/Carhart factors (squares), and q-factor-family factors (triangles), with an upper-left frontie",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.05091v1"
-    },
-    {
-      "doc_id": "2607.04958v1",
-      "title": "Look-Ahead-Freedom as Temporal Non-Interference: A Verifiable Correctness Property for Backtesting and Agentic Trading Pipelines",
+      "doc_id": "2607.06220v1",
+      "title": "Stable Sentiment and Persistent Dynamics in U.S. Economic News over 45 Years",
       "page": 7,
-      "thumb": "/data/figures/2607.04958v1_p7_0.jpg",
-      "caption": "Fig. 1. The two ideas the calculus is built on. (a) Every datum carries two independent temporal coordinates: its reference time (which instant it describes) and its availability (when it becomes knowable); the two differ by an ingest lag, and look-ahead occurs precisely when a datum whose availability follows a decision epoch \ud835\udc61influences the decision at \ud835\udc61. (b) The language is stratified by whethe \u2014 This figure illustrates a temporal framework for detecting look-ahead bias in trading systems. Pa",
+      "thumb": "/data/figures/2607.06220v1_p7_1.jpg",
+      "caption": "Figure 2: Estimated Hurst exponents. Log\u2013log fluctuation functions for (A) the raw sentiment index xt (circles) and the deseasonalised, Hampel-filtered series xdh \u2014 Panel A is a log-log plot of fluctuation function F(S) versus scale S, showing raw sentiment data (circles) and deseasonalized Hampel-filtered data (diamonds) with short-fit and long-fit power-law curves; the two vertical dashed lines mark transition scales around S=100. Panel B displays F(S) versus S on log-log axes for two fitted r",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.04958v1"
+      "source": "https://arxiv.org/pdf/2607.06220v1"
     },
     {
-      "doc_id": "2607.04958v1",
-      "title": "Look-Ahead-Freedom as Temporal Non-Interference: A Verifiable Correctness Property for Backtesting and Agentic Trading Pipelines",
-      "page": 23,
-      "thumb": "/data/figures/2607.04958v1_p23_1.jpg",
-      "caption": "Fig. 2. Checker scaling. (a) Node-count scaling at bounded availability complexity: median check time versus pipeline node count on log\u2013log axes, with a fitted slope of 1.023 (95% bootstrap CI [1.021, 1.026]) against the linear (slope = 1) reference; error bars are 5,000-draw bootstrap CIs on the median. (b) Availability-term complexity at fixed node count: check time versus the number of literals \u2014 Panel (a) shows a log-log plot of median check time versus pipeline node count, demonstrating nea",
+      "doc_id": "2607.06220v1",
+      "title": "Stable Sentiment and Persistent Dynamics in U.S. Economic News over 45 Years",
+      "page": 9,
+      "thumb": "/data/figures/2607.06220v1_p9_2.jpg",
+      "caption": "Figure 3: Empirical and modeled rolling Hurst exponents. Panels show the rolling (A) DFA2 slopes for the sentiment index on scales 7\u201381 days and (B) DFA1 slopes for first differences on scales 2\u20138 days. We show the median and interquartile range (shaded area) from 100 random realizations. \u2014 These panels display time series of rolling Hurst exponents (H) calculated from U.S. economic news sentiment data from 1980 to 2025, comparing empirical measurements (blue and red lines) against model predict",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.04958v1"
+      "source": "https://arxiv.org/pdf/2607.06220v1"
+    },
+    {
+      "doc_id": "2607.06220v1",
+      "title": "Stable Sentiment and Persistent Dynamics in U.S. Economic News over 45 Years",
+      "page": 10,
+      "thumb": "/data/figures/2607.06220v1_p10_3.jpg",
+      "caption": "Figure 3 shows that the model, calibrated using an optimisation procedure, reproduces the main temporal organization of the DFA exponents at shorter scales. For the sentiment index, empirical and model exponents on 7\u201381 day scales show good agreement (median correlation \u22480.56[0.48, 0.60], RMSE \u22480.069[0.065, 0.072], median negative bias \u2248\u22120.033[\u22120.038, \u22120.028], where brackets denote the interquarti \u2014 This figure compares detrended fluctuation analysis (DFA) exponents between empirical data and a ",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.06220v1"
+    },
+    {
+      "doc_id": "2607.06204v1",
+      "title": "Arbitrage-Free Multi-Maturity Risk-Neutral Marginals",
+      "page": 20,
+      "thumb": "/data/figures/2607.06204v1_p20_0.jpg",
+      "caption": "Figure 1 reports \u03f5avg and \u03f5max as the number of observed quotes increases. Even with only 10 observed quotes, \u03f5avg is already below 5 \u00d7 10\u22125, and by 20 quotes \u03f5max is below 3 \u00d7 10\u22125. Since the observed quotes are excluded from the evaluation set, the plotted errors measure only off-grid reconstruction accuracy, while the input quotes are matched exactly by construction. \u2014 This figure plots relative reconstruction errors (\u03f5avg and \u03f5max) versus the number of observed SSVI quotes used in single-mat",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.06204v1"
+    },
+    {
+      "doc_id": "2607.06204v1",
+      "title": "Arbitrage-Free Multi-Maturity Risk-Neutral Marginals",
+      "page": 20,
+      "thumb": "/data/figures/2607.06204v1_p20_1.jpg",
+      "caption": "Figure 2 gives a direct density-and-price comparison with the SSVI benchmark, and shows that the benchmark shape is already recovered accurately on a moderate quote grid and very closely by n = 50. Table 2 reports the per-fit runtime as a function of n at a single maturity. The growth is approximately linear in n, consistent with the O(n) closed-form arithmetic of Section 4: a single-maturity fit  \u2014 This figure displays the convergence of reconstructed call-price curves toward the SSVI (Stochast",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.06204v1"
+    },
+    {
+      "doc_id": "2607.06204v1",
+      "title": "Arbitrage-Free Multi-Maturity Risk-Neutral Marginals",
+      "page": 21,
+      "thumb": "/data/figures/2607.06204v1_p21_2.jpg",
+      "caption": "Figure 1: Single-maturity SSVI benchmark accuracy. The figure reports the average relative price error \u03f5avg and the maximum relative price error \u03f5max of the reconstructed call price as the number of observed quotes n increases. Errors are evaluated at 1000 off-grid moneyness points in [0.5, 1.5], excluding the observed quotes used as inputs. \u2014 This log-log scatter plot displays marginal fitting error under Stochastic Volatility Inspired (SSVI) model as a function of the number of observed quotes",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.06204v1"
+    },
+    {
+      "doc_id": "2607.06204v1",
+      "title": "Arbitrage-Free Multi-Maturity Risk-Neutral Marginals",
+      "page": 21,
+      "thumb": "/data/figures/2607.06204v1_p21_3.jpg",
+      "caption": "Figure 2: Single-maturity SSVI benchmark comparison. The top row shows the reconstructed marginal density, and the bottom row shows the reconstructed call price. Columns correspond to n = 10, 20, and 50 observed strikes. Solid curves are the reconstruction, dotted curves are the SSVI benchmark, and crosses in the call-price panels mark the observed quotes matched exactly by construction. \u2014 Figure 1 (top) displays a log-log plot of relative price errors versus number of observed quotes for single",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.06204v1"
+    },
+    {
+      "doc_id": "2607.06153v1",
+      "title": "From Gravity to Confinement: Wealth Redistribution as Optimal Drift Design in the Fokker-Planck Framework",
+      "page": 11,
+      "thumb": "/data/figures/2607.06153v1_p11_0.jpg",
+      "caption": "Figure 1: Convergence to target wealth distribution under different tax structures. The proportional tax (blue, solid) converges at the demographic turnover rate \u03b4; the progres- sive tax (red, dashed) converges at the progressivity rate \u03ba; a more strongly progressive tax (black, dotted) converges faster still. The shaded region marks a typical electoral cycle (4\u20138 years). The progressive tax achie \u2014 This line chart shows the convergence speed to a target wealth distribution under three different",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.06153v1"
+    },
+    {
+      "doc_id": "2607.06121v1",
+      "title": "Can Reinforcement Learning Efficiently Discover Price Manipulation?",
+      "page": 7,
+      "thumb": "/data/figures/2607.06121v1_p7_0.jpg",
+      "caption": "Figure 1: The optimal long position, n\u03b1\u2217, as a function of \u03b4 for the PnD strategy. \u2014 This line graph plots the optimal long position (n\u03b1*) on the y-axis against the impact exponent (\u03b4) on the x-axis for a pump-and-dump (PnD) strategy. The curve shows a monotonic decline from approximately 3.2 at \u03b4=0.2 to near 0 at \u03b4=0.9, illustrating that as market impact increases with higher exponent values, the optimal position size decreases substantially. The key takeaway is that stronger price impact from ",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.06121v1"
     }
   ],
   "docs": [
     {
-      "id": "2607.05320v1",
-      "title": "Causal Separation, Conditional Risk, and Projected Markowitz Portfolios",
-      "source": "https://arxiv.org/pdf/2607.05320v1",
-      "pages": 28,
-      "images": 2,
-      "figures_captioned": 4,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 62
-    },
-    {
-      "id": "2607.05291v1",
-      "title": "Forecasting Realized Volatility with Time Series Foundation Models: A Comparison with Econometric Benchmarks",
-      "source": "https://arxiv.org/pdf/2607.05291v1",
-      "pages": 41,
+      "id": "2607.06373v1",
+      "title": "Error Propagation in Spectral Functionals of Shrinkage Covariance Estimators: Perturbation Bounds and Calibrated Inference",
+      "source": "https://arxiv.org/pdf/2607.06373v1",
+      "pages": 39,
       "images": 0,
       "figures_captioned": 4,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 47
+      "chunks_indexed": 65
     },
     {
-      "id": "2607.05141v1",
-      "title": "Square-Root Price Impact Is Necessary for Endogenous Manipulation Cycles in Learning-Agent Markets",
-      "source": "https://arxiv.org/pdf/2607.05141v1",
-      "pages": 13,
-      "images": 7,
-      "figures_captioned": 4,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 36
-    },
-    {
-      "id": "2607.05091v1",
-      "title": "Any Axes Are Allowed: A Characteristic-Axis Integral Diagnosis of Factor Models",
-      "source": "https://arxiv.org/pdf/2607.05091v1",
-      "pages": 47,
+      "id": "2607.06355v1",
+      "title": "Entropic Dynamics of Jump-Diffusion Option Pricing",
+      "source": "https://arxiv.org/pdf/2607.06355v1",
+      "pages": 51,
       "images": 0,
-      "figures_captioned": 4,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 39
-    },
-    {
-      "id": "2607.05011v1",
-      "title": "Reaction-boundary variance and adjoint-consistent local-volatility projection",
-      "source": "https://arxiv.org/pdf/2607.05011v1",
-      "pages": 13,
-      "images": 0,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 32
-    },
-    {
-      "id": "2607.04958v1",
-      "title": "Look-Ahead-Freedom as Temporal Non-Interference: A Verifiable Correctness Property for Backtesting and Agentic Trading Pipelines",
-      "source": "https://arxiv.org/pdf/2607.04958v1",
-      "pages": 30,
-      "images": 0,
-      "figures_captioned": 2,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 57
-    },
-    {
-      "id": "2607.04781v1",
-      "title": "Renewing Reliability: Valuation and Credit Risk Adjustments for Renewable Power Purchase Agreements",
-      "source": "https://arxiv.org/pdf/2607.04781v1",
-      "pages": 26,
-      "images": 2,
       "figures_captioned": 0,
       "tables": 0,
       "has_math": true,
@@ -315,40 +255,100 @@
       "chunks_indexed": 40
     },
     {
-      "id": "2607.04392v1",
-      "title": "Adapted Law Invariance and Time-Consistent Dynamic Risk Measures",
-      "source": "https://arxiv.org/pdf/2607.04392v1",
-      "pages": 23,
+      "id": "2607.06340v1",
+      "title": "Signature-based identification of volatility models from path geometry",
+      "source": "https://arxiv.org/pdf/2607.06340v1",
+      "pages": 30,
+      "images": 16,
+      "figures_captioned": 4,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 51
+    },
+    {
+      "id": "2607.06220v1",
+      "title": "Stable Sentiment and Persistent Dynamics in U.S. Economic News over 45 Years",
+      "source": "https://arxiv.org/pdf/2607.06220v1",
+      "pages": 18,
+      "images": 0,
+      "figures_captioned": 4,
+      "tables": 3,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 41
+    },
+    {
+      "id": "2607.06204v1",
+      "title": "Arbitrage-Free Multi-Maturity Risk-Neutral Marginals",
+      "source": "https://arxiv.org/pdf/2607.06204v1",
+      "pages": 36,
+      "images": 15,
+      "figures_captioned": 4,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 69
+    },
+    {
+      "id": "2607.06153v1",
+      "title": "From Gravity to Confinement: Wealth Redistribution as Optimal Drift Design in the Fokker-Planck Framework",
+      "source": "https://arxiv.org/pdf/2607.06153v1",
+      "pages": 28,
+      "images": 0,
+      "figures_captioned": 1,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 40
+    },
+    {
+      "id": "2607.06121v1",
+      "title": "Can Reinforcement Learning Efficiently Discover Price Manipulation?",
+      "source": "https://arxiv.org/pdf/2607.06121v1",
+      "pages": 30,
+      "images": 7,
+      "figures_captioned": 1,
+      "tables": 1,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 43
+    },
+    {
+      "id": "2607.06117v1",
+      "title": "Relief-Gated Relative Rotation for QQQ-DIA Allocation: Globally Screened Relative States, Fixed Position Mapping, Incremental Interaction Admission, and Walk-Forward Validation",
+      "source": "https://arxiv.org/pdf/2607.06117v1",
+      "pages": 31,
+      "images": 8,
+      "figures_captioned": 0,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 37
+    },
+    {
+      "id": "2607.05697v1",
+      "title": "Stability and Dual Valuation of Contingent Claims under Rockafellian Perturbations",
+      "source": "https://arxiv.org/pdf/2607.05697v1",
+      "pages": 33,
       "images": 0,
       "figures_captioned": 0,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
+      "chunks_indexed": 48
+    },
+    {
+      "id": "2607.05320v1",
+      "title": "Causal Separation, Conditional Risk, and Projected Markowitz Portfolios",
+      "source": "https://arxiv.org/pdf/2607.05320v1",
+      "pages": 28,
+      "images": 2,
+      "figures_captioned": 0,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
       "chunks_indexed": 58
-    },
-    {
-      "id": "2607.04346v1",
-      "title": "Preference-fitting Framework: Elicited Utility Function and PHARA Approximation",
-      "source": "https://arxiv.org/pdf/2607.04346v1",
-      "pages": 39,
-      "images": 3,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 61
-    },
-    {
-      "id": "2607.04280v1",
-      "title": "Order Splitting and Liquidity Replenishment Are Jointly Necessary for the Square-Root Law of Market Impact:",
-      "source": "https://arxiv.org/pdf/2607.04280v1",
-      "pages": 20,
-      "images": 9,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 35
     }
   ]
 }
