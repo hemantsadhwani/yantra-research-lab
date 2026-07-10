@@ -1,7 +1,7 @@
 {
   "_note": "Public run manifest of the Tier-3 agentic ingestion pipeline. Safe aggregates + provenance only; raw PDFs live in S3, not here.",
-  "run_id": "20260708T053221Z",
-  "generated_at": "2026-07-08T05:36:02+00:00",
+  "run_id": "20260710T061554Z",
+  "generated_at": "2026-07-10T06:19:47+00:00",
   "collection": "research_corpus",
   "embed_model": "BAAI/bge-small-en-v1.5",
   "dag": [
@@ -50,197 +50,293 @@
     "discovered": 10,
     "fetched": 10,
     "parsed": 10,
-    "chunks": 517,
-    "accepted": 492,
-    "rejected": 25,
-    "images": 48,
+    "chunks": 476,
+    "accepted": 446,
+    "rejected": 30,
+    "images": 13,
     "figures_captioned": 18,
-    "tables": 4,
+    "tables": 6,
     "with_math": 10,
-    "indexed": 492,
-    "spent_usd": 0.0329,
-    "duration_s": 221.3
+    "indexed": 446,
+    "spent_usd": 0.0325,
+    "duration_s": 233.7
   },
   "rejects_by_reason": {
-    "low-relevance": 25
+    "low-relevance": 30
   },
   "budget_usd": 3.0,
   "figures": [
     {
-      "doc_id": "2607.06373v1",
-      "title": "Error Propagation in Spectral Functionals of Shrinkage Covariance Estimators: Perturbation Bounds and Calibrated Inference",
-      "page": 15,
-      "thumb": "/data/figures/2607.06373v1_p15_0.jpg",
-      "caption": "Figure 1: Diagonal example (N=10, K=3), where CA = \u03a3 + \u03b5I has smaller Frobenius distance than scaled CB = (1 + b)\u03a3 but larger |ARK| error (Proposition 6). \u2014 This bar chart compares two covariance matrix estimators using dual y-axes, displaying Frobenius distance (left axis, blue bars) and absolute AR(K) error (right axis, red bars). The figure shows that estimator CA = \u03a3 + \u03b5I achieves smaller Frobenius distance than the scaled estimator CB = (1 + b)\u03a3, but paradoxically exhibits larger spectral f",
+      "doc_id": "2607.08500v1",
+      "title": "Estimating the Stochastic Discount Factor from Option Prices and Predicting the Equity Premium",
+      "page": 19,
+      "thumb": "/data/figures/2607.08500v1_p19_0.jpg",
+      "caption": "Figure 1 shows the time-series evolution of the daily EP for target maturities of 30, 60, 90, 120, 180, 270 and 360 \u2014 Figure 1 displays time-series plots of equity premium (EP) estimates across seven target maturities (30, 60, 90, 120, 180, 270, and 360 days), comparing CVS and TVS specifications against M-Bound and CYL-Bound benchmarks. The x-axis represents time and the y-axis represents equity premium values, with separate panels or overlaid lines showing each maturity horizon. The figure dem",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.06373v1"
+      "source": "https://arxiv.org/pdf/2607.08500v1"
     },
     {
-      "doc_id": "2607.06373v1",
-      "title": "Error Propagation in Spectral Functionals of Shrinkage Covariance Estimators: Perturbation Bounds and Calibrated Inference",
-      "page": 20,
-      "thumb": "/data/figures/2607.06373v1_p20_1.jpg",
-      "caption": "Figure 3 plots the same run. \u2014 Table 2 presents simulated lag rates P(D\u0302_K,t > \u03b1\u03c3*_K,t) across different gap regimes (Strong/Weak) and market phases (Calm/Break) with varying \u03b1 parameters from 0.25 to 1.00. The table shows that as \u03b1 increases from 0.25 to 1.00, the flag rates decrease substantially, demonstrating that the operational scale \u03b1* = 0.75 achieves conservativeness with lag rates staying at or below 5% across all gap and phase combinations. The key takeaway is that lower \u03b1 values gener",
+      "doc_id": "2607.08500v1",
+      "title": "Estimating the Stochastic Discount Factor from Option Prices and Predicting the Equity Premium",
+      "page": 23,
+      "thumb": "/data/figures/2607.08500v1_p23_1.jpg",
+      "caption": "Figure 2. Estimated CVS SDF with Full-Sample Data \u2014 This figure displays seven line plots showing estimated Stochastic Discount Factors (SDFs) derived from option prices using the Christoffersen-Jacot-Vasquez-Serano (CVS) method across different time horizons (30, 60, 90, 120, 180, 270, and 360 days). Each plot has the same x-axis ranging from approximately -2.0 to 2.0 (representing moneyness or log-returns) and y-axis from 0.6 to 2.5 (representing SDF values), with three colored lines represent",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.06373v1"
+      "source": "https://arxiv.org/pdf/2607.08500v1"
     },
     {
-      "doc_id": "2607.06373v1",
-      "title": "Error Propagation in Spectral Functionals of Shrinkage Covariance Estimators: Perturbation Bounds and Calibrated Inference",
-      "page": 20,
-      "thumb": "/data/figures/2607.06373v1_p20_2.jpg",
-      "caption": "Figure 3 visualizes the same means, with QIS improving on LW for operator norm and |ARK| error, while MP-clip attains the lowest |ARK| and |f1| means in this DGP, a concrete instance of functional-risk separation. \u2014 Table 2 presents simulated flag rates P(D\u0302_K,t > \u03b1\u03c4*_K,t) across four gap regimes (Strong/Weak) and phases (Calm/Break), with operational scale parameter \u03b1 ranging from 0.25 to 1.00. The table shows that flag rates decrease sharply as \u03b1 increases, with rates at \u03b1*=0.75 staying below ",
+      "doc_id": "2607.08500v1",
+      "title": "Estimating the Stochastic Discount Factor from Option Prices and Predicting the Equity Premium",
+      "page": 24,
+      "thumb": "/data/figures/2607.08500v1_p24_2.jpg",
+      "caption": "Figure 3. Estimated TVS SDF with Full-Sample Data \u2014 This figure displays seven line plots showing the Term-Varying Stochastic Discount Factor (TVS SDF) estimated across different time horizons (30, 60, 90, 120, 180, 270, and 360 days), with the x-axis representing log-moneyness and the y-axis showing SDF values ranging from 0.0 to 2.5. Each plot contains three colored lines (orange, blue, and green) representing different model specifications or states, revealing how the SDF shape evolves with m",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.06373v1"
+      "source": "https://arxiv.org/pdf/2607.08500v1"
     },
     {
-      "doc_id": "2607.06373v1",
-      "title": "Error Propagation in Spectral Functionals of Shrinkage Covariance Estimators: Perturbation Bounds and Calibrated Inference",
-      "page": 21,
-      "thumb": "/data/figures/2607.06373v1_p21_3.jpg",
-      "caption": "Figure 2: Simulated flag rate vs. \u03b1 (known \u03a3t, population \u03c4 \u2217 \u2014 This line graph displays flag rates (y-axis, 0-100%) versus a scaling parameter \u03b1 (x-axis, 0-1.0) for four gap detection scenarios in covariance estimation. The plot compares strong gap calm (blue circles), strong gap break (blue diamonds), weak gap calm (red circles), and weak gap break (red diamonds) conditions. All four curves show monotonic decline from approximately 100% flag rates at low \u03b1 values to near 0% at \u03b1=1.0, with weak",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.06373v1"
-    },
-    {
-      "doc_id": "2607.06340v1",
-      "title": "Signature-based identification of volatility models from path geometry",
-      "page": 13,
-      "thumb": "/data/figures/2607.06340v1_p13_0.jpg",
-      "caption": "Figure 5.1: Confusion matrix for Experiment 5.1 (ntest = 50,000). \u2014 This confusion matrix displays the classification performance of a volatility model identification system tested on 50,000 samples. The matrix compares predicted labels (columns) against true labels (rows) across four volatility model classes: Heston, OU, rBD.1, and rBD.3. The diagonal elements show nearly perfect classification with counts of 50,000, 50,000, 49,999, and 49,998, indicating the model achieves extremely high accur",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.06340v1"
-    },
-    {
-      "doc_id": "2607.06340v1",
-      "title": "Signature-based identification of volatility models from path geometry",
-      "page": 14,
-      "thumb": "/data/figures/2607.06340v1_p14_1.jpg",
-      "caption": "Figure 5.2: Confusion matrix for Experiment 5.2 (ntest = 50,000). \u2014 This figure shows a confusion matrix displayed as a heatmap comparing true labels versus predicted labels for a classification model with four classes (rBD.15, rBD.4, rBD.6). The matrix has dimensions 4\u00d74 with the diagonal elements (50000, 50000, 49992, 49985) representing correctly classified samples shown in dark blue, while off-diagonal elements show misclassifications. The key takeaway is that the model achieves very high ac",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.06340v1"
-    },
-    {
-      "doc_id": "2607.06340v1",
-      "title": "Signature-based identification of volatility models from path geometry",
-      "page": 15,
-      "thumb": "/data/figures/2607.06340v1_p15_2.jpg",
-      "caption": "Figure 5.3: Confusion matrix for Experiment 5.3 (ntest = 50,000). \u2014 This is a confusion matrix displayed as a heatmap showing classification results for volatility model identification across four predicted labels (rBD.05, rBD.15, rBD.25, rBD.35). The rows represent true labels and columns represent predicted labels, with cell values indicating the count of samples in each category out of 50,000 test samples. The matrix shows strong diagonal performance with values around 49,900-49,960 for corre",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.06340v1"
-    },
-    {
-      "doc_id": "2607.06340v1",
-      "title": "Signature-based identification of volatility models from path geometry",
-      "page": 17,
-      "thumb": "/data/figures/2607.06340v1_p17_3.jpg",
-      "caption": "Figure 6.1: Confusion matrix for Experiment 6.1 with randomly sampled model parameters (ntest = 50,000). Values are percentages. \u2014 This figure shows a confusion matrix displaying the classification performance of a volatility model identification system tested on 50,000 randomly sampled model parameter instances. The matrix rows represent true labels (Heston, OU, rB0.1, rB0.3) and columns represent predicted labels, with values shown as percentages. The diagonal elements show high classification",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.06340v1"
-    },
-    {
-      "doc_id": "2607.06220v1",
-      "title": "Stable Sentiment and Persistent Dynamics in U.S. Economic News over 45 Years",
-      "page": 4,
-      "thumb": "/data/figures/2607.06220v1_p4_0.jpg",
-      "caption": "Figure 1: Statistical characterization of the daily news sentiment index from 1980 to 2025. (A) Time series of the sentiment index xt and the rolling mean (28 days), with gray shading marking major macroeconomic events (Volcker disinflation, dot-com bubble, global financial crisis, COVID- 19). Autocorrelation function (ACF) for (B) the sentiment index xt and its (C) first difference \u2206xt = xt \u2212xt\u22121 \u2014 Panel A displays a time series of daily sentiment index values from 1980 to 2025 as a green line ",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.06220v1"
-    },
-    {
-      "doc_id": "2607.06220v1",
-      "title": "Stable Sentiment and Persistent Dynamics in U.S. Economic News over 45 Years",
-      "page": 7,
-      "thumb": "/data/figures/2607.06220v1_p7_1.jpg",
-      "caption": "Figure 2: Estimated Hurst exponents. Log\u2013log fluctuation functions for (A) the raw sentiment index xt (circles) and the deseasonalised, Hampel-filtered series xdh \u2014 Panel A is a log-log plot of fluctuation function F(S) versus scale S, showing raw sentiment data (circles) and deseasonalized Hampel-filtered data (diamonds) with short-fit and long-fit power-law curves; the two vertical dashed lines mark transition scales around S=100. Panel B displays F(S) versus S on log-log axes for two fitted r",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.06220v1"
-    },
-    {
-      "doc_id": "2607.06220v1",
-      "title": "Stable Sentiment and Persistent Dynamics in U.S. Economic News over 45 Years",
-      "page": 9,
-      "thumb": "/data/figures/2607.06220v1_p9_2.jpg",
-      "caption": "Figure 3: Empirical and modeled rolling Hurst exponents. Panels show the rolling (A) DFA2 slopes for the sentiment index on scales 7\u201381 days and (B) DFA1 slopes for first differences on scales 2\u20138 days. We show the median and interquartile range (shaded area) from 100 random realizations. \u2014 These panels display time series of rolling Hurst exponents (H) calculated from U.S. economic news sentiment data from 1980 to 2025, comparing empirical measurements (blue and red lines) against model predict",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.06220v1"
-    },
-    {
-      "doc_id": "2607.06220v1",
-      "title": "Stable Sentiment and Persistent Dynamics in U.S. Economic News over 45 Years",
+      "doc_id": "2607.08199v1",
+      "title": "Volatility in Prediction Markets: A Structural Approach",
       "page": 10,
-      "thumb": "/data/figures/2607.06220v1_p10_3.jpg",
-      "caption": "Figure 3 shows that the model, calibrated using an optimisation procedure, reproduces the main temporal organization of the DFA exponents at shorter scales. For the sentiment index, empirical and model exponents on 7\u201381 day scales show good agreement (median correlation \u22480.56[0.48, 0.60], RMSE \u22480.069[0.065, 0.072], median negative bias \u2248\u22120.033[\u22120.038, \u22120.028], where brackets denote the interquarti \u2014 This figure compares detrended fluctuation analysis (DFA) exponents between empirical data and a ",
+      "thumb": "/data/figures/2607.08199v1_p10_0.jpg",
+      "caption": "Figure 1: Model-free binning diagnostics for the two primitive inputs of the deadline-resolution term. Red markers are volume-weighted RMS next-hour innovations within each bin; error bars are 95% within-bin bootstrap confidence intervals. \u2014 The figure contains two box-and-whisker plots comparing model-free binning diagnostics across time periods. Panel (a) shows price volatility (p) with a max/min ratio of 59.2x, displaying the distribution of volume-weighted RMS next-hour price innovations by ",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.06220v1"
+      "source": "https://arxiv.org/pdf/2607.08199v1"
     },
     {
-      "doc_id": "2607.06204v1",
-      "title": "Arbitrage-Free Multi-Maturity Risk-Neutral Marginals",
-      "page": 20,
-      "thumb": "/data/figures/2607.06204v1_p20_0.jpg",
-      "caption": "Figure 1 reports \u03f5avg and \u03f5max as the number of observed quotes increases. Even with only 10 observed quotes, \u03f5avg is already below 5 \u00d7 10\u22125, and by 20 quotes \u03f5max is below 3 \u00d7 10\u22125. Since the observed quotes are excluded from the evaluation set, the plotted errors measure only off-grid reconstruction accuracy, while the input quotes are matched exactly by construction. \u2014 This figure plots relative reconstruction errors (\u03f5avg and \u03f5max) versus the number of observed SSVI quotes used in single-mat",
+      "doc_id": "2607.08199v1",
+      "title": "Volatility in Prediction Markets: A Structural Approach",
+      "page": 14,
+      "thumb": "/data/figures/2607.08199v1_p14_1.jpg",
+      "caption": "Figure 2: Within-bin out-of-sample VW-IS (lower is better) for plain GARCH, deadline resolution alone, and DR-AS, against price (left) and time to resolution (right). Error bars are 95% within-bin bootstrap confidence intervals. \u2014 Figure 2 displays within-bin out-of-sample volatility-weighted information set (VW-IS) performance metrics across two dimensions using line charts with error bars. The left panel (a) plots VW-IS against mid-quote price bins, while the right panel (b) plots against time",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.06204v1"
+      "source": "https://arxiv.org/pdf/2607.08199v1"
     },
     {
-      "doc_id": "2607.06204v1",
-      "title": "Arbitrage-Free Multi-Maturity Risk-Neutral Marginals",
-      "page": 20,
-      "thumb": "/data/figures/2607.06204v1_p20_1.jpg",
-      "caption": "Figure 2 gives a direct density-and-price comparison with the SSVI benchmark, and shows that the benchmark shape is already recovered accurately on a moderate quote grid and very closely by n = 50. Table 2 reports the per-fit runtime as a function of n at a single maturity. The growth is approximately linear in n, consistent with the O(n) closed-form arithmetic of Section 4: a single-maturity fit  \u2014 This figure displays the convergence of reconstructed call-price curves toward the SSVI (Stochast",
+      "doc_id": "2607.08199v1",
+      "title": "Volatility in Prediction Markets: A Structural Approach",
+      "page": 16,
+      "thumb": "/data/figures/2607.08199v1_p16_2.jpg",
+      "caption": "Figure 3 repeats the comparison at the category level, now letting each category use its own best global specification. Even with this extra freedom, refitting improves the score in only two of the \u2014 Table 7 compares global volatility model fit versus per-category fit across seven major prediction market categories using two metrics: VW-IS (volatility-weighted information score) and VW-Cov (volatility-weighted covariance). The table shows that fitting a single global specification produces lower",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.06204v1"
+      "source": "https://arxiv.org/pdf/2607.08199v1"
     },
     {
-      "doc_id": "2607.06204v1",
-      "title": "Arbitrage-Free Multi-Maturity Risk-Neutral Marginals",
-      "page": 21,
-      "thumb": "/data/figures/2607.06204v1_p21_2.jpg",
-      "caption": "Figure 1: Single-maturity SSVI benchmark accuracy. The figure reports the average relative price error \u03f5avg and the maximum relative price error \u03f5max of the reconstructed call price as the number of observed quotes n increases. Errors are evaluated at 1000 off-grid moneyness points in [0.5, 1.5], excluding the observed quotes used as inputs. \u2014 This log-log scatter plot displays marginal fitting error under Stochastic Volatility Inspired (SSVI) model as a function of the number of observed quotes",
+      "doc_id": "2607.08199v1",
+      "title": "Volatility in Prediction Markets: A Structural Approach",
+      "page": 17,
+      "thumb": "/data/figures/2607.08199v1_p17_3.jpg",
+      "caption": "Figure 3: Per-category refitting of each category\u2019s best global specification, across the 11 major cate- gories. For each category, the specification with the lowest global-fit VW-IS is selected and re-estimated within the category. Panel (a): the open circle is the category-level VW-IS under the global fit; the ar- row points to the per-category-fit value. Panel (b): the relative change \u2206VW-IS; n \u2014 Panel (a) is a scatter plot with arrows showing the VW-IS (Vuong-Wang Information Set) metric on ",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.06204v1"
+      "source": "https://arxiv.org/pdf/2607.08199v1"
     },
     {
-      "doc_id": "2607.06204v1",
-      "title": "Arbitrage-Free Multi-Maturity Risk-Neutral Marginals",
-      "page": 21,
-      "thumb": "/data/figures/2607.06204v1_p21_3.jpg",
-      "caption": "Figure 2: Single-maturity SSVI benchmark comparison. The top row shows the reconstructed marginal density, and the bottom row shows the reconstructed call price. Columns correspond to n = 10, 20, and 50 observed strikes. Solid curves are the reconstruction, dotted curves are the SSVI benchmark, and crosses in the call-price panels mark the observed quotes matched exactly by construction. \u2014 Figure 1 (top) displays a log-log plot of relative price errors versus number of observed quotes for single",
+      "doc_id": "2607.07465v1",
+      "title": "Innovating Risk Modelling for Global Funds",
+      "page": 4,
+      "thumb": "/data/figures/2607.07465v1_p4_0.jpg",
+      "caption": "Figure 1. The universe\u2019s biggest factor is not the book\u2019s biggest risk. Left: principal components ranked by explained-variance ratio. Right: the same components ranked by portfolio risk contribution (6). The order changes once the actual weights are applied. \u2014 This figure displays two horizontal bar charts comparing principal component rankings using different metrics. The left chart ranks principal components (PC1-PC10) by their explained variance ratio as a property of the data universe, with",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.06204v1"
+      "source": "https://arxiv.org/pdf/2607.07465v1"
     },
     {
-      "doc_id": "2607.06153v1",
-      "title": "From Gravity to Confinement: Wealth Redistribution as Optimal Drift Design in the Fokker-Planck Framework",
-      "page": 11,
-      "thumb": "/data/figures/2607.06153v1_p11_0.jpg",
-      "caption": "Figure 1: Convergence to target wealth distribution under different tax structures. The proportional tax (blue, solid) converges at the demographic turnover rate \u03b4; the progres- sive tax (red, dashed) converges at the progressivity rate \u03ba; a more strongly progressive tax (black, dotted) converges faster still. The shaded region marks a typical electoral cycle (4\u20138 years). The progressive tax achie \u2014 This line chart shows the convergence speed to a target wealth distribution under three different",
+      "doc_id": "2607.07465v1",
+      "title": "Innovating Risk Modelling for Global Funds",
+      "page": 5,
+      "thumb": "/data/figures/2607.07465v1_p5_1.jpg",
+      "caption": "Figure 2. Reading the factors. Left: for the top six risk-contributing components, the holdings that define each leg, shaded by a correlation-style loading proxy (red = one leg, blue = the other); columns are keyed by PC index. Right: the AI-generated name for each factor, in descending order of contribution to portfolio risk (%RC). Factor names are produced by the labelling layer of \u00a72.5. \u2014 This figure displays a heatmap analysis of six principal components (PC3, PC2, PC13, PC11, PC5, PC7) extr",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.06153v1"
+      "source": "https://arxiv.org/pdf/2607.07465v1"
     },
     {
-      "doc_id": "2607.06121v1",
-      "title": "Can Reinforcement Learning Efficiently Discover Price Manipulation?",
+      "doc_id": "2607.07465v1",
+      "title": "Innovating Risk Modelling for Global Funds",
+      "page": 6,
+      "thumb": "/data/figures/2607.07465v1_p6_2.jpg",
+      "caption": "Figure 3. Cluster risk budget. Each theme\u2019s risk share versus its capital weight, with the mismatch ratio annotated. Red bars are flagged as over-risked: they carry risk out of proportion to their capital. \u2014 This horizontal bar chart compares the risk share versus capital weight allocation across six thematic clusters in a portfolio. Each cluster is represented by three bars showing capital weight (gray), risk share with tolerance (blue), and risk share lagged (red), with mismatch ratios labeled",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.07465v1"
+    },
+    {
+      "doc_id": "2607.07465v1",
+      "title": "Innovating Risk Modelling for Global Funds",
+      "page": 8,
+      "thumb": "/data/figures/2607.07465v1_p8_3.jpg",
+      "caption": "Figure 4. The decision table as a map. Each holding by PRS (factor-risk concentration) versus Bleed (own-price capital destruction), coloured by cluster, sized by weight. The two scores are built from disjoint \u2014 This scatter plot maps portfolio holdings by two risk metrics: PRS (factor concentration, x-axis) versus Bleed capital destruction (y-axis), with bubble size representing portfolio weight and colors indicating sector clusters. Holdings are classified into four quadrants by a dashed line ",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.07465v1"
+    },
+    {
+      "doc_id": "2607.06908v1",
+      "title": "Iterative detection of global factors near the BBP phase transition",
+      "page": 14,
+      "thumb": "/data/figures/2607.06908v1_p14_0.jpg",
+      "caption": "Figure 1(a) shows the behavior of the first ten eigenvalues of the BH factor model de- \u2014 This figure displays a line plot showing the first ten eigenvalues of the Bai-Hou (BH) factor model across a range of signal-to-noise ratios or model parameters. The x-axis represents the parameter space (likely related to the BBP phase transition threshold), while the y-axis shows eigenvalue magnitude. The key takeaway is that eigenvalues exhibit a phase transition behavior, with some eigenvalues separating",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.06908v1"
+    },
+    {
+      "doc_id": "2607.06908v1",
+      "title": "Iterative detection of global factors near the BBP phase transition",
+      "page": 14,
+      "thumb": "/data/figures/2607.06908v1_p14_1.jpg",
+      "caption": "Figure 2 shows the behavior of PR/p as the dimension p increases, under the same \u2014 This figure displays a semilogarithmic plot of sample eigenvalues versus dimension p, illustrating the phase transition behavior in factor detection. The x-axis shows dimension p on a logarithmic scale, while the y-axis shows eigenvalue magnitude; the blue line represents the largest sample eigenvalue with error bands showing one standard deviation, green lines show weak-factor eigenvalues, and red lines show idio",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.06908v1"
+    },
+    {
+      "doc_id": "2607.06908v1",
+      "title": "Iterative detection of global factors near the BBP phase transition",
+      "page": 14,
+      "thumb": "/data/figures/2607.06908v1_p14_2.jpg",
+      "caption": "Figure 3 shows the number of detected factors as the number of assets increases, with \u2014 Figure 2 shows how the ratio PR/p behaves as dimension p increases, with q = 1/2 fixed, displayed as line plots with shaded confidence bands representing one standard deviation across Monte Carlo replications. The x-axis represents dimension p and the y-axis represents PR/p, with separate curves for the largest eigenvalue (remaining near 1, indicating high diversification) and weaker factors (\u00fb\u2082, \u00fb\u2083, \u00fb\u2084) that",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.06908v1"
+    },
+    {
+      "doc_id": "2607.06908v1",
+      "title": "Iterative detection of global factors near the BBP phase transition",
+      "page": 15,
+      "thumb": "/data/figures/2607.06908v1_p15_3.jpg",
+      "caption": "Figure 1: Dimension-scaling analysis of the BH factor model. Panel (a) shows the mean of \u2014 Panel (a) is a line plot showing eigenvalue versus dimension p (ranging from 200 to 800), displaying four curves labeled \u03bb\u2081, \u03bb\u2082, \u03bb_B^*, and \u03bc_c, with the top three curves (shown in blue/black with shaded confidence band) closely overlapping and increasing from approximately 0.15 to 0.45, while \u03bb\u2081 (red) remains flat near zero. Panel (b) is a semi-log plot of eigenvalue versus p, showing multiple trajectorie",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.06908v1"
+    },
+    {
+      "doc_id": "2607.06702v1",
+      "title": "Dynamic Causal Portfolio Choice: Hedging the Rotation of the Common-Driver Manifold",
+      "page": 6,
+      "thumb": "/data/figures/2607.06702v1_p6_0.jpg",
+      "caption": "Figure 1 shows the optimal policy as the two projected funds it decomposes into. The hedge decomposes further, and the distinction matters for the paper\u2019s claim of novelty. Writing the transported motion in the frame of Theorem 4.5, \u03c8t splits into a vertical part and a horizontal part, and the two are Gt-orthogonal by Theorem 4.5, so the split is well defined and not a matter of attribution. The v \u2014 This is a text excerpt from a quantitative finance research paper on dynamic portfolio choice and",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.06702v1"
+    },
+    {
+      "doc_id": "2607.06702v1",
+      "title": "Dynamic Causal Portfolio Choice: Hedging the Rotation of the Common-Driver Manifold",
       "page": 7,
-      "thumb": "/data/figures/2607.06121v1_p7_0.jpg",
-      "caption": "Figure 1: The optimal long position, n\u03b1\u2217, as a function of \u03b4 for the PnD strategy. \u2014 This line graph plots the optimal long position (n\u03b1*) on the y-axis against the impact exponent (\u03b4) on the x-axis for a pump-and-dump (PnD) strategy. The curve shows a monotonic decline from approximately 3.2 at \u03b4=0.2 to near 0 at \u03b4=0.9, illustrating that as market impact increases with higher exponent values, the optimal position size decreases substantially. The key takeaway is that stronger price impact from ",
+      "thumb": "/data/figures/2607.06702v1_p7_1.jpg",
+      "caption": "Figure 1: The optimal policy (7) as two projected funds. The myopic fund projects the conditional premium onto the tangent-admissible space; the manifold hedge passes the predicted state motion \u03c8t through the driver noise \u039bZ, the sensitivity B(z), and the same projector MC. The hedge is nonzero when the information geometry is predictably moving. \u2014 This is a block diagram illustrating the structure of an optimal dynamic portfolio policy decomposed into two components. The diagram shows how predi",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.06121v1"
+      "source": "https://arxiv.org/pdf/2607.06702v1"
+    },
+    {
+      "doc_id": "2607.06702v1",
+      "title": "Dynamic Causal Portfolio Choice: Hedging the Rotation of the Common-Driver Manifold",
+      "page": 8,
+      "thumb": "/data/figures/2607.06702v1_p8_2.jpg",
+      "caption": "Figure 2: The moving manifold (Section 3.3). With state-dependent sensitivities B(z) the tangent space TxMt rotates as the driver state Z flows. The intertemporal term hedges this predictable rotation of the geometry; in the fixed-geometry case the span does not move and only the premium does. \u2014 This figure illustrates a geometric representation of a moving manifold in dynamic portfolio choice, showing two states: an initial manifold with tangent space TxMt at state Zt (left, blue rectangle) and",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.06702v1"
     }
   ],
   "docs": [
+    {
+      "id": "2607.08531v1",
+      "title": "Optimal Prediction of Resistance and Support Levels under Constant Elasticity of Variance Processes",
+      "source": "https://arxiv.org/pdf/2607.08531v1",
+      "pages": 34,
+      "images": 0,
+      "figures_captioned": 0,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 49
+    },
+    {
+      "id": "2607.08500v1",
+      "title": "Estimating the Stochastic Discount Factor from Option Prices and Predicting the Equity Premium",
+      "source": "https://arxiv.org/pdf/2607.08500v1",
+      "pages": 31,
+      "images": 0,
+      "figures_captioned": 3,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 51
+    },
+    {
+      "id": "2607.08291v1",
+      "title": "Robustness in Sequential Decision Making under Evolving Uncertainty: Evidence from High-Frequency Market Making",
+      "source": "https://arxiv.org/pdf/2607.08291v1",
+      "pages": 84,
+      "images": 0,
+      "figures_captioned": 0,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 57
+    },
+    {
+      "id": "2607.08199v1",
+      "title": "Volatility in Prediction Markets: A Structural Approach",
+      "source": "https://arxiv.org/pdf/2607.08199v1",
+      "pages": 31,
+      "images": 2,
+      "figures_captioned": 4,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 50
+    },
+    {
+      "id": "2607.07465v1",
+      "title": "Innovating Risk Modelling for Global Funds",
+      "source": "https://arxiv.org/pdf/2607.07465v1",
+      "pages": 10,
+      "images": 2,
+      "figures_captioned": 4,
+      "tables": 5,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 24
+    },
+    {
+      "id": "2607.06908v1",
+      "title": "Iterative detection of global factors near the BBP phase transition",
+      "source": "https://arxiv.org/pdf/2607.06908v1",
+      "pages": 31,
+      "images": 9,
+      "figures_captioned": 4,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 36
+    },
+    {
+      "id": "2607.06702v1",
+      "title": "Dynamic Causal Portfolio Choice: Hedging the Rotation of the Common-Driver Manifold",
+      "source": "https://arxiv.org/pdf/2607.06702v1",
+      "pages": 31,
+      "images": 0,
+      "figures_captioned": 3,
+      "tables": 1,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 67
+    },
+    {
+      "id": "2607.06690v1",
+      "title": "tsbootstrap: Distribution-Free Uncertainty Quantification and Conformal Prediction for Time Series",
+      "source": "https://arxiv.org/pdf/2607.06690v1",
+      "pages": 6,
+      "images": 0,
+      "figures_captioned": 0,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 11
+    },
     {
       "id": "2607.06373v1",
       "title": "Error Propagation in Spectral Functionals of Shrinkage Covariance Estimators: Perturbation Bounds and Calibrated Inference",
       "source": "https://arxiv.org/pdf/2607.06373v1",
       "pages": 39,
       "images": 0,
-      "figures_captioned": 4,
+      "figures_captioned": 0,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 65
+      "chunks_indexed": 61
     },
     {
       "id": "2607.06355v1",
@@ -253,102 +349,6 @@
       "has_math": true,
       "ocr_used": false,
       "chunks_indexed": 40
-    },
-    {
-      "id": "2607.06340v1",
-      "title": "Signature-based identification of volatility models from path geometry",
-      "source": "https://arxiv.org/pdf/2607.06340v1",
-      "pages": 30,
-      "images": 16,
-      "figures_captioned": 4,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 51
-    },
-    {
-      "id": "2607.06220v1",
-      "title": "Stable Sentiment and Persistent Dynamics in U.S. Economic News over 45 Years",
-      "source": "https://arxiv.org/pdf/2607.06220v1",
-      "pages": 18,
-      "images": 0,
-      "figures_captioned": 4,
-      "tables": 3,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 41
-    },
-    {
-      "id": "2607.06204v1",
-      "title": "Arbitrage-Free Multi-Maturity Risk-Neutral Marginals",
-      "source": "https://arxiv.org/pdf/2607.06204v1",
-      "pages": 36,
-      "images": 15,
-      "figures_captioned": 4,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 69
-    },
-    {
-      "id": "2607.06153v1",
-      "title": "From Gravity to Confinement: Wealth Redistribution as Optimal Drift Design in the Fokker-Planck Framework",
-      "source": "https://arxiv.org/pdf/2607.06153v1",
-      "pages": 28,
-      "images": 0,
-      "figures_captioned": 1,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 40
-    },
-    {
-      "id": "2607.06121v1",
-      "title": "Can Reinforcement Learning Efficiently Discover Price Manipulation?",
-      "source": "https://arxiv.org/pdf/2607.06121v1",
-      "pages": 30,
-      "images": 7,
-      "figures_captioned": 1,
-      "tables": 1,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 43
-    },
-    {
-      "id": "2607.06117v1",
-      "title": "Relief-Gated Relative Rotation for QQQ-DIA Allocation: Globally Screened Relative States, Fixed Position Mapping, Incremental Interaction Admission, and Walk-Forward Validation",
-      "source": "https://arxiv.org/pdf/2607.06117v1",
-      "pages": 31,
-      "images": 8,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 37
-    },
-    {
-      "id": "2607.05697v1",
-      "title": "Stability and Dual Valuation of Contingent Claims under Rockafellian Perturbations",
-      "source": "https://arxiv.org/pdf/2607.05697v1",
-      "pages": 33,
-      "images": 0,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 48
-    },
-    {
-      "id": "2607.05320v1",
-      "title": "Causal Separation, Conditional Risk, and Projected Markowitz Portfolios",
-      "source": "https://arxiv.org/pdf/2607.05320v1",
-      "pages": 28,
-      "images": 2,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 58
     }
   ]
 }
