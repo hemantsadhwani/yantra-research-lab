@@ -1,7 +1,7 @@
 {
   "_note": "Public run manifest of the Tier-3 agentic ingestion pipeline. Safe aggregates + provenance only; raw PDFs live in S3, not here.",
-  "run_id": "20260713T054926Z",
-  "generated_at": "2026-07-13T05:53:01+00:00",
+  "run_id": "20260714T051019Z",
+  "generated_at": "2026-07-14T05:13:54+00:00",
   "collection": "research_corpus",
   "embed_model": "BAAI/bge-small-en-v1.5",
   "dag": [
@@ -50,204 +50,216 @@
     "discovered": 10,
     "fetched": 10,
     "parsed": 10,
-    "chunks": 401,
-    "accepted": 372,
-    "rejected": 29,
-    "images": 60,
+    "chunks": 440,
+    "accepted": 396,
+    "rejected": 44,
+    "images": 38,
     "figures_captioned": 18,
     "tables": 2,
-    "with_math": 8,
-    "indexed": 372,
-    "spent_usd": 0.0312,
-    "duration_s": 215.8
+    "with_math": 10,
+    "indexed": 396,
+    "spent_usd": 0.0339,
+    "duration_s": 214.5
   },
   "rejects_by_reason": {
-    "low-relevance": 29
+    "low-relevance": 44
   },
   "budget_usd": 3.0,
   "figures": [
     {
-      "doc_id": "2607.09566v1",
-      "title": "Large-Scale Portfolio Optimization Problem Under Cardinality Constraint With Enhanced Multi-Objective Evolutionary Algorithms",
-      "page": 6,
-      "thumb": "/data/figures/2607.09566v1_p6_0.jpg",
-      "caption": "Fig. 1: Structure of a chromosome in a POP with size 5 \u2014 This figure displays a chromosome structure representation used in portfolio optimization, shown as a horizontal array with 5 cells labeled i, j, j, j, k in the header row. The second row contains corresponding numerical values: 0.20, 0.15, 0.25, 0.10, and 0.30, representing allocation weights or proportions for each asset position in a portfolio. The chromosome encodes both asset selection (through the asset identifiers) and their respect",
+      "doc_id": "2607.11335v1",
+      "title": "Minimizing Benchmark-Relative Drawdown Duration via Occupation Time Penalization",
+      "page": 17,
+      "thumb": "/data/figures/2607.11335v1_p17_0.jpg",
+      "caption": "Figure 1 plots the interquartile range, median and mean of underwater curves from the Monte Carlo simulation. Note that the median dominates the mean, which is due to the occurrence of prolonged and deep drawdowns. For the observed time period and random seed, the 25th percentile of paths does not breach the critical drawdown level. \u2014 This figure displays benchmark-relative drawdown metrics from 5000 Monte Carlo simulation paths over a 24-year horizon with weekly rebalancing. The chart plots thr",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.09566v1"
+      "source": "https://arxiv.org/pdf/2607.11335v1"
     },
     {
-      "doc_id": "2607.09566v1",
-      "title": "Large-Scale Portfolio Optimization Problem Under Cardinality Constraint With Enhanced Multi-Objective Evolutionary Algorithms",
-      "page": 7,
-      "thumb": "/data/figures/2607.09566v1_p7_1.jpg",
-      "caption": "Fig. 2: Range of activation of each tournament selection technique. \u2014 This figure is a horizontal timeline diagram showing the activation ranges of two tournament selection techniques across iterations in an evolutionary algorithm. The x-axis represents iterations, while two colored arrows indicate the domains where each technique is employed: Kpss-based selection (blue arrow) operates in early iterations, and similarity-based matrix selection (red arrow) activates in later iterations. The key t",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.09566v1"
-    },
-    {
-      "doc_id": "2607.09566v1",
-      "title": "Large-Scale Portfolio Optimization Problem Under Cardinality Constraint With Enhanced Multi-Objective Evolutionary Algorithms",
-      "page": 10,
-      "thumb": "/data/figures/2607.09566v1_p10_2.jpg",
-      "caption": "Fig. 3: Effect of each mutation on random individuals in random and different iterations. \u2014 This scatter plot displays the performance of different mutation operators tested on random individuals across various iterations of an evolutionary algorithm, with Risk on the x-axis (ranging from 0.004 to 0.016) and Return on the y-axis (ranging from 0.002 to 0.009). Each colored point represents a distinct mutation type, including 1st and 2nd type variants with different weight configurations (old, new",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.09566v1"
-    },
-    {
-      "doc_id": "2607.09566v1",
-      "title": "Large-Scale Portfolio Optimization Problem Under Cardinality Constraint With Enhanced Multi-Objective Evolutionary Algorithms",
-      "page": 10,
-      "thumb": "/data/figures/2607.09566v1_p10_3.jpg",
-      "caption": "Figure 3 demonstrates the fitness of random points before and after implementing the mutation tech- niques. The original point for the third type is a random sample from the population and the mutated point is a randomly generated portfolio. The fitness of points is recorded from different PFs and different iterations but only graphed together for better depiction of scalability. In this algorithm \u2014 This scatter plot displays the effect of different mutation operators on portfolio fitness, with ",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.09566v1"
-    },
-    {
-      "doc_id": "2607.09556v1",
-      "title": "A novel robust mixed integer linear programming model for index tracking problem under no rebalancing: heuristic optimization approach",
-      "page": 13,
-      "thumb": "/data/figures/2607.09556v1_p13_0.jpg",
-      "caption": "Fig. 1: In-sample and our-of-sample periods for each market. \u2014 This figure displays eight line charts comparing in-sample (blue) and out-of-sample (orange) index price movements across different global stock markets from 2008-2010. The x-axis represents time periods (0-300 observations) and the y-axis shows index values, with each subplot showing a different market index: CAC 40, EURO STOXX 50, Dow Jones, Hang Seng, DAX, FTSE 100, S&P 100, and Nikkei 225. The key takeaway is that the out-of-samp",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.09556v1"
-    },
-    {
-      "doc_id": "2607.09556v1",
-      "title": "A novel robust mixed integer linear programming model for index tracking problem under no rebalancing: heuristic optimization approach",
+      "doc_id": "2607.11335v1",
+      "title": "Minimizing Benchmark-Relative Drawdown Duration via Occupation Time Penalization",
       "page": 18,
-      "thumb": "/data/figures/2607.09556v1_p18_1.jpg",
-      "caption": "Figure 2 and 3 illustrate both out-of-sample and cumulative returns, respectively, of the tracking portfolios generated by our heuristic for each of the indices cited. The last Figure indicates what happens to both the index and the tracking portfolio generated by the heuristic at the beginning of the period if a fixed amount of cash is invested. Evidently, the portfolios yielded by the proposed h \u2014 This table presents performance metrics for Nikkei 225 index tracking with CPLEX and GALB (geneti",
+      "thumb": "/data/figures/2607.11335v1_p18_1.jpg",
+      "caption": "Figure 1: Underwater curves with interquartile ranges \u2014 This figure displays a line chart showing average benchmark-relative underwater curves computed over 5000 simulation paths, with the y-axis representing benchmark-relative drawdown (%) and x-axis representing time in years (0-25 years). Three strategies are compared: 100% asset 1 (red solid line), optimal allocation (blue solid line), and 100% asset 1 median (red dashed line), with shaded regions indicating the 25th-75th percentile bands ar",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.09556v1"
+      "source": "https://arxiv.org/pdf/2607.11335v1"
     },
     {
-      "doc_id": "2607.09556v1",
-      "title": "A novel robust mixed integer linear programming model for index tracking problem under no rebalancing: heuristic optimization approach",
-      "page": 19,
-      "thumb": "/data/figures/2607.09556v1_p19_2.jpg",
-      "caption": "Fig. 2: Out-of-sample returns produced by our heuristic. \u2014 This figure displays six time-series line charts comparing out-of-sample returns for major stock indices: Dow-Jones, Hang Seng, DAX, FTSE 100, S&P 100, and Nikkei 225. Each chart plots daily returns (y-axis) over a 140-period timeframe (x-axis), with two overlaid lines representing the tracking portfolio (blue) and the index (orange). The key takeaway is that the heuristic optimization approach achieves close tracking of benchmark indice",
+      "doc_id": "2607.11335v1",
+      "title": "Minimizing Benchmark-Relative Drawdown Duration via Occupation Time Penalization",
+      "page": 18,
+      "thumb": "/data/figures/2607.11335v1_p18_2.jpg",
+      "caption": "Figure 2: Empirical CDF of time in drawdown for different critical drawdown levels \u2014 This figure displays four empirical cumulative distribution function (CDF) plots comparing the distribution of time spent in drawdown conditions across different critical drawdown thresholds (d = 10%, 20%, 30%, 40%). Each subplot shows two curves: the optimal strategy (blue) and a buy-and-hold benchmark strategy (red), with the x-axis representing the share of time in critical drawdown (0-100%) and the y-axis re",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.09556v1"
+      "source": "https://arxiv.org/pdf/2607.11335v1"
     },
     {
-      "doc_id": "2607.09556v1",
-      "title": "A novel robust mixed integer linear programming model for index tracking problem under no rebalancing: heuristic optimization approach",
-      "page": 20,
-      "thumb": "/data/figures/2607.09556v1_p20_3.jpg",
-      "caption": "Fig. 3: Out-of-sample cumulative returns produced by our heuristic. \u2014 This figure comprises six line charts comparing out-of-sample cumulative returns between a tracking portfolio (orange) and benchmark index (blue) across six major stock indices: Dow-Jones, Hang Seng, DAX, FTSE 100, S&P 100, and Nikkei 225. The x-axis represents the period (0-140 days) and the y-axis shows cumulative returns (ranging from approximately 95-350 depending on the index). The key takeaway is that the heuristic optim",
+      "doc_id": "2607.11328v1",
+      "title": "Strategic OTC market making with reputation feedback",
+      "page": 8,
+      "thumb": "/data/figures/2607.11328v1_p8_0.jpg",
+      "caption": "Figure 1: Promotion values \u2206U\u03c4(R) = U(R\u03c4 \u2014 The figure displays two heatmaps showing promotion values \u0394U_\u03c4(R) across the reputation-volatility parameter space (R^a on x-axis, R^a on y-axis). The left panel shows values computed at an early time horizon with concentrated high values in a narrow band around R^a \u2248 0.3, while the right panel shows the same metric at a later time horizon with a broader, more diffuse peak centered around R^a \u2248 0.4-0.5. The color scale (purple to yellow) represents the ",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.09556v1"
+      "source": "https://arxiv.org/pdf/2607.11328v1"
     },
     {
-      "doc_id": "2607.09426v1",
-      "title": "The Quarter-Hour Effect: Periodic Algorithmic Trading and Return Predictability in Cryptocurrency Futures",
-      "page": 3,
-      "thumb": "/data/figures/2607.09426v1_p3_0.jpg",
-      "caption": "Figure 1: Minute-of-the-hour patterns in absolute returns (solid lines) and trading volume (bars) for six major Binance USDT perpetual futures contracts: BTC, ETH, XRP, SOL, DOGE, and ADA. Absolute returns are used as proxies for volatility. Both absolute returns and trading volume are normalized by their respective one-hour trailing averages. The pronounced spikes at 0, 15, 30, and 45 minutes rev \u2014 This figure displays six polar/radial charts showing minute-of-the-hour patterns for BTC, ETH, XR",
+      "doc_id": "2607.11328v1",
+      "title": "Strategic OTC market making with reputation feedback",
+      "page": 8,
+      "thumb": "/data/figures/2607.11328v1_p8_1.jpg",
+      "caption": "Figure 1 displays the marginal continuation value of a successful event in each tier. For tier A, this is the continuation value gain of winning rather than losing an RFQ event. The effect is concentrated around the RFQ gate because a single win matters most when the dealer is close to a promotional threshold. For tier B, the promotion value measures the continuation gain from filling rather than  \u2014 This figure displays a heatmap showing promotion values \u0394U_t(R) = U(R_t^+) - U(R_t^-) across a tw",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.09426v1"
+      "source": "https://arxiv.org/pdf/2607.11328v1"
     },
     {
-      "doc_id": "2607.09426v1",
-      "title": "The Quarter-Hour Effect: Periodic Algorithmic Trading and Return Predictability in Cryptocurrency Futures",
-      "page": 9,
-      "thumb": "/data/figures/2607.09426v1_p9_1.jpg",
-      "caption": "Figure 2 displays the average number of trades by second of the hour for six major Binance Fu- \u2014 Figure 2 is a time-series line chart showing the average number of trades per second across each second of the hour on Binance futures. The x-axis represents seconds within a one-hour period (0-3600 seconds), and the y-axis measures trading activity volume. The chart reveals distinct periodic spikes in trading volume at the 1-, 5-, and 15-minute marks (at 60, 300, and 900 seconds respectively), with ",
+      "doc_id": "2607.11328v1",
+      "title": "Strategic OTC market making with reputation feedback",
+      "page": 8,
+      "thumb": "/data/figures/2607.11328v1_p8_2.jpg",
+      "caption": "Figure 2 shows how the RFQ tier reacts to reputation. The bid offset falls near the gate midpoint, which is the signature of a campaign: the dealer sacrifices immediate spread to improve the probability of winning and to protect future access. Above the gate, spreads widens as the dealer monetizes the increased flow, although the policy remains defensive because falling back through the gate is co \u2014 The left panel shows a heatmap of promotion values \u0394U_c(R) across two-dimensional score space (R^",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.09426v1"
+      "source": "https://arxiv.org/pdf/2607.11328v1"
     },
     {
-      "doc_id": "2607.09426v1",
-      "title": "The Quarter-Hour Effect: Periodic Algorithmic Trading and Return Predictability in Cryptocurrency Futures",
-      "page": 10,
-      "thumb": "/data/figures/2607.09426v1_p10_2.jpg",
-      "caption": "Figure 2: Each panel plots the average number of trades by second of the hour for BTC, ETH, XRP, SOL, DOGE, and ADA. Trading activity peaks sharply at the start of each hour, with addi- tional recurring surges at the 15-, 30-, and 45-minute marks. Smaller micro-spikes also appear at one-minute intervals throughout the hour, revealing a layered intrahour periodic structure in trade arrival intensit \u2014 This figure displays six line charts showing intraday trading patterns across cryptocurrencies (B",
+      "doc_id": "2607.11328v1",
+      "title": "Strategic OTC market making with reputation feedback",
+      "page": 8,
+      "thumb": "/data/figures/2607.11328v1_p8_3.jpg",
+      "caption": "Figure 3 summarizes the streaming response. When RB is low, the dealer tightens quotes to the spread floor in order to create more streaming requests and hence more chances to repair the fill-ratio score in physical time. The acceptance probability is nevertheless not pushed mechanically to one: the dealer still controls the last-look threshold and retains protection against adverse selection. As  \u2014 The figure shows two heatmaps displaying promotion values \u0394U_c(R) over a two-dimensional score sp",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.09426v1"
+      "source": "https://arxiv.org/pdf/2607.11328v1"
     },
     {
-      "doc_id": "2607.09426v1",
-      "title": "The Quarter-Hour Effect: Periodic Algorithmic Trading and Return Predictability in Cryptocurrency Futures",
-      "page": 11,
-      "thumb": "/data/figures/2607.09426v1_p11_3.jpg",
-      "caption": "Figure 3: Each panel plots the average number of trades by second of the minute for BTC, ETH, XRP, SOL, DOGE, and ADA. The blue line averages activity during quarter-hour minutes (0, 15, 30, and 45), while the red line averages activity during all other minutes. Trading activity at quarter-hour marks rises sharply in the opening seconds and reaches its maximum within the first 10 seconds, indicate \u2014 This figure comprises six panels showing trading activity patterns across second-of-minute for si",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.09426v1"
-    },
-    {
-      "doc_id": "2607.09230v1",
-      "title": "When Does Order Flow Matter? State-Dependent L2 Liquidity-State Transitions in Crypto Futures",
-      "page": 3,
-      "thumb": "/data/figures/2607.09230v1_p3_0.jpg",
-      "caption": "Figure 1: We predict the post-event L2 liquidity-state transi- tion, not price direction; both states are built from spread, depth, and imbalance with train-fold-only tercile thresholds. \u2014 This is a flowchart diagram showing a three-stage prediction framework for cryptocurrency futures liquidity states. The diagram flows downward from \"macro-event window\" to \"pre-event L2 state\" (labeled with metrics: spread/depth/20 imb-20) to \"post-event liquidity regime\" (labeled with states: calm/mixed/stres",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.09230v1"
-    },
-    {
-      "doc_id": "2607.09230v1",
-      "title": "When Does Order Flow Matter? State-Dependent L2 Liquidity-State Transitions in Crypto Futures",
-      "page": 6,
-      "thumb": "/data/figures/2607.09230v1_p6_1.jpg",
-      "caption": "Figure 2: ETH order-flow additivity is present in every pre- event regime and largest under stress; BTC is not established (only the five-minute calm cell clears its null). Bars are the joint increment over the L2-only model. \u2014 This figure shows bar charts comparing order-flow additivity across three market regimes (calm, mixed, stressed) for both ETH and BTC cryptocurrencies. The left panel displays ETH results with two bar types (1m and 5m timeframes) showing joint increments over an L2-only b",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.09230v1"
-    },
-    {
-      "doc_id": "2607.09230v1",
-      "title": "When Does Order Flow Matter? State-Dependent L2 Liquidity-State Transitions in Crypto Futures",
+      "doc_id": "2607.10960v1",
+      "title": "Reinforcement Learning for Execution under Dynamic Fees in a Closed-Loop DEX Simulator",
       "page": 7,
-      "thumb": "/data/figures/2607.09230v1_p7_2.jpg",
-      "caption": "Figure 2 shows the two assets side by side across the calm-to- stressed axis, and the contrast is the headline order-flow result: the contribution over the L2 state and shape baseline is asset-dependent and state-dependent, present and stress-amplified for ETH and not established for BTC, rather than a single panel-wide effect. This conditional, asset-specific reading is the empirical core of the  \u2014 This figure compares order-flow informativeness across two cryptocurrency futures assets (ETH and",
+      "thumb": "/data/figures/2607.10960v1_p7_0.jpg",
+      "caption": "Figure 1: The closed-loop market. The execution agent trades a target order across two constant- product pools; the dynamic-fee closure reprices both pools from own-pool state, rival-pool state, and the oracle gap; noise traders route by effective cost; an arbitrageur closes profitable CEX\u2013 AMM gaps. The agent box lists the decision-time observation \u02dcot (Section 2.3); the step order shown is the a \u2014 This flowchart depicts a closed-loop decentralized exchange (DEX) simulator with multiple interco",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.09230v1"
+      "source": "https://arxiv.org/pdf/2607.10960v1"
     },
     {
-      "doc_id": "2607.09121v1",
-      "title": "Augmenting Fundamental Analysis with Large Language Models: A RAG-Based System for Generating Investor Briefs",
-      "page": 13,
-      "thumb": "/data/figures/2607.09121v1_p13_0.jpg",
-      "caption": "Figure 1: Word map used in the brief representing a cluster of similar news articles about Lululemon on 5th and begining of 6th of December \u2014 This is a word cloud visualization showing the most frequently occurring terms in a cluster of news articles about Lululemon from early December. The word cloud displays terms with font size proportional to frequency, with prominent words including \"third quarter,\" \"growth,\" \"revenue,\" \"investor,\" \"earnings,\" and \"store sales,\" among others. The visualizat",
+      "doc_id": "2607.10960v1",
+      "title": "Reinforcement Learning for Execution under Dynamic Fees in a Closed-Loop DEX Simulator",
+      "page": 7,
+      "thumb": "/data/figures/2607.10960v1_p7_1.jpg",
+      "caption": "Figure 1 sketches the instantiation. One risky asset Y trades against a numeraire X on two stylized constant-product pools in the Uniswap lineage [3] and an external venue. The external (CEX) mid price St follows a seeded geometric Brownian motion with zero drift. Each pool i \u2014 This flowchart depicts a closed-loop market simulation for decentralized exchange (DEX) execution, showing the interaction between an execution agent, two constant-product pools (Pool A and Pool B), and an arbitrageur. Th",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.09121v1"
+      "source": "https://arxiv.org/pdf/2607.10960v1"
     },
     {
-      "doc_id": "2607.09121v1",
-      "title": "Augmenting Fundamental Analysis with Large Language Models: A RAG-Based System for Generating Investor Briefs",
-      "page": 14,
-      "thumb": "/data/figures/2607.09121v1_p14_1.jpg",
-      "caption": "Figure 2: Word map used in the brief representing a cluster of similar news articles about Lululemon on 5th and begining of 6th of December \u2014 This word cloud visualizes the dominant themes from Cluster 2, a collection of news articles about Lululemon during early December, with word size proportional to frequency. The largest terms include \"Amazon,\" \"Lululemon,\" \"NVIDIA,\" \"growth,\" \"sales,\" and \"Yahoo,\" reflecting major companies and financial metrics mentioned across the clustered articles. The",
+      "doc_id": "2607.10960v1",
+      "title": "Reinforcement Learning for Execution under Dynamic Fees in a Closed-Loop DEX Simulator",
+      "page": 10,
+      "thumb": "/data/figures/2607.10960v1_p10_2.jpg",
+      "caption": "Figure 2 reports the frozen final block: mean shortfall for TWAP, tuned lookahead, and the DQN under each intra-step ordering, and the paired DQN\u2212lookahead edge with its interval. Under forced-terminal completion every policy completes exactly; paired intervals are over per-seed differences against lookahead evaluated under the same ordering. \u2014 This figure is a bar chart comparing execution performance across three algorithms: TWAP, tuned lookahead, and DQN, measured under different intra-step o",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.09121v1"
+      "source": "https://arxiv.org/pdf/2607.10960v1"
     },
     {
-      "doc_id": "2607.08907v1",
-      "title": "Herding and Liquidity in Order-Book Markets. I. A Robust Liquidity-Stress Crossover and its Reflexive Mechanism",
+      "doc_id": "2607.10960v1",
+      "title": "Reinforcement Learning for Execution under Dynamic Fees in a Closed-Loop DEX Simulator",
+      "page": 11,
+      "thumb": "/data/figures/2607.10960v1_p11_3.jpg",
+      "caption": "Figure 2: Final reserved seed block (90,000\u201390,999, n = 1,000; first evaluated after the design freeze), forced-terminal completion, in bps of order notional. Each DQN is trained under its stated intra-step ordering using the standard completion objective, then evaluated under forced-terminal completion together with all comparison policies (an out-of-training-semantics evaluation, Section 2.2). ( \u2014 This figure compares implementation shortfall across three ordering strategies (Agent-first, Rand",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.10960v1"
+    },
+    {
+      "doc_id": "2607.10810v1",
+      "title": "Diachronic Sample Integration: Robust Tail-Risk Estimation with Generative Models",
+      "page": 2,
+      "thumb": "/data/figures/2607.10810v1_p2_0.jpg",
+      "caption": "Figure 1: Conceptual illustration of DSI. (a) Single checkpoints prioritize bulk distributional fidelity, often truncating extreme tails due to optimization noise. (b) DSI aggregates heterogeneous checkpoints across a single trajectory, the resulting mixture averages checkpoint-specific tail fluctuations while any persistent trajectory bias remains as an irreducible floor. \u2014 This figure compares two approaches to distribution estimation using generative models through density plots. Panel (a) sh",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.10810v1"
+    },
+    {
+      "doc_id": "2607.10810v1",
+      "title": "Diachronic Sample Integration: Robust Tail-Risk Estimation with Generative Models",
+      "page": 7,
+      "thumb": "/data/figures/2607.10810v1_p7_1.jpg",
+      "caption": "Figure 2: Dependence preservation under realistic sampling budgets. (a) Sum of absolute differences between refer- ence and generated correlation matrices (multivariate depen- dence). (b) Sum of absolute differences between reference and generated autocorrelation coefficients (temporal depen- dence). Lower values indicate better agreement. Error bars denote standard deviation across runs. \u2014 This figure contains a table and two bar charts comparing Value-at-Risk (VaR) and Expected Shortfall (ES) ",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.10810v1"
+    },
+    {
+      "doc_id": "2607.10810v1",
+      "title": "Diachronic Sample Integration: Robust Tail-Risk Estimation with Generative Models",
+      "page": 8,
+      "thumb": "/data/figures/2607.10810v1_p8_2.jpg",
+      "caption": "Figure 3: Sensitivity of DSI to mixture size K and check- point stride M under a fixed budget (N = 1000). Average relative error (VaR and ES, \u03b1 = 5%) is plotted against K for different strides. Checkpoint values on the x-axis are dis- played with uniform spacing. Error decreases rapidly with increasing K and plateaus for large mixtures. Larger strides provide gains when K is small by reducing chec \u2014 This line plot shows the average relative error (in percent) for Value-at-Risk and Expected Short",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.10810v1"
+    },
+    {
+      "doc_id": "2607.10810v1",
+      "title": "Diachronic Sample Integration: Robust Tail-Risk Estimation with Generative Models",
+      "page": 19,
+      "thumb": "/data/figures/2607.10810v1_p19_3.jpg",
+      "caption": "Figure 4: Autocorrelation decay of the post-burn-in checkpoint tail-error process. For each model, the curve reports the average lag-h autocorrelation across training checkpoints of a composite tail-error vector that concatenates strategy-level VaR error, ES error, and lower-tail CDF discrepancies relative to the reference distribution at \u03b1 = 5%. Faster decay indicates that checkpoint-specific tai \u2014 This line chart displays the autocorrelation decay of checkpoint-level tail-error processes acros",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.10810v1"
+    },
+    {
+      "doc_id": "2607.10700v1",
+      "title": "An Extreme Value Perspective on Learning Stress Laws",
       "page": 9,
-      "thumb": "/data/figures/2607.08907v1_p9_0.jpg",
-      "caption": "Figure 1: Order parameters, REAL herding (top) vs. SCRAMBLED-sign null (bottom), shared colour scale per column. Middle column (\u03d5\u2205): the liquidity dry-up is a bright ramp in the high- \u03c6/high-\u03ba corner for the real condition and is identically zero everywhere in the null\u2013the key null contrast. Left column (RMS mispricing): the gradient is present in both conditions and, if anything, stronger in the  \u2014 This figure contains six heatmaps arranged in two rows comparing real herding behavior (top) vers",
+      "thumb": "/data/figures/2607.10700v1_p9_0.jpg",
+      "caption": "Figure 1. Left: distribution of VaR estimates across confidence levels. Middle: distribution of CVaR estimates across confidence levels. Right: CVaR estimates at \u03b1 = 0.999 as a function of |Y| over 1000 replications. \u2014 This figure displays three plots comparing Value-at-Risk (VaR) and Conditional Value-at-Risk (CVaR) estimates across different confidence levels and sample sizes. The left and middle panels show box plots of VaR and CVaR estimates respectively, plotted against confidence levels (\u03b1",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.08907v1"
+      "source": "https://arxiv.org/pdf/2607.10700v1"
+    },
+    {
+      "doc_id": "2607.10700v1",
+      "title": "An Extreme Value Perspective on Learning Stress Laws",
+      "page": 19,
+      "thumb": "/data/figures/2607.10700v1_p19_1.jpg",
+      "caption": "Figure 2. GAN training diagnostics for the d = 10 mixture experiment. (a) Mean projected Wasserstein distance across 256 random projections. (b) Cor- responding projected KS distances. (c) Generator and discriminator losses. \u2014 This figure displays three line plots showing GAN training diagnostics over 30,000 epochs for a d=10 mixture experiment. Panel (a) shows projected Wasserstein distance (y-axis: 0.05-0.25) across 256 random projections, exhibiting high volatility early in training that grad",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.10700v1"
+    },
+    {
+      "doc_id": "2607.10503v1",
+      "title": "A Cascade of Volterra-Operator BBP Transitions in a Correlated Wigner Matrix",
+      "page": 5,
+      "thumb": "/data/figures/2607.10503v1_p5_0.jpg",
+      "caption": "FIG. 1. (a) Full eigenvalue spectrum of M (N = 2000, one realization), sorted eigenvalue \u03bbk(M) \u2014 Panel (a) shows a line plot of the full eigenvalue spectrum of a 2000\u00d72000 random matrix M, with eigenvalue index k on the x-axis (0 to 2000) and eigenvalue \u03bbk(M) on the y-axis (-1000 to 1000). The spectrum exhibits a characteristic \"semicircular\" bulk distribution near zero with outer eigenvalues (spikes) extending to approximately \u00b11200, annotated with theoretical bounds \u03bbmax(M) \u2248 (2/\u03c0)N and \u03bbmin(M",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.10503v1"
     }
   ],
   "docs": [
     {
-      "id": "2607.09566v1",
-      "title": "Large-Scale Portfolio Optimization Problem Under Cardinality Constraint With Enhanced Multi-Objective Evolutionary Algorithms",
-      "source": "https://arxiv.org/pdf/2607.09566v1",
-      "pages": 37,
-      "images": 0,
-      "figures_captioned": 4,
-      "tables": 1,
+      "id": "2607.11335v1",
+      "title": "Minimizing Benchmark-Relative Drawdown Duration via Occupation Time Penalization",
+      "source": "https://arxiv.org/pdf/2607.11335v1",
+      "pages": 31,
+      "images": 2,
+      "figures_captioned": 3,
+      "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 55
+      "chunks_indexed": 42
     },
     {
-      "id": "2607.09556v1",
-      "title": "A novel robust mixed integer linear programming model for index tracking problem under no rebalancing: heuristic optimization approach",
-      "source": "https://arxiv.org/pdf/2607.09556v1",
-      "pages": 23,
-      "images": 20,
+      "id": "2607.11328v1",
+      "title": "Strategic OTC market making with reputation feedback",
+      "source": "https://arxiv.org/pdf/2607.11328v1",
+      "pages": 11,
+      "images": 0,
+      "figures_captioned": 4,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 26
+    },
+    {
+      "id": "2607.10960v1",
+      "title": "Reinforcement Learning for Execution under Dynamic Fees in a Closed-Loop DEX Simulator",
+      "source": "https://arxiv.org/pdf/2607.10960v1",
+      "pages": 19,
+      "images": 12,
       "figures_captioned": 4,
       "tables": 0,
       "has_math": true,
@@ -255,100 +267,88 @@
       "chunks_indexed": 45
     },
     {
-      "id": "2607.09505v1",
-      "title": "Objective and subjective entropy measures of portfolio suboptimality",
-      "source": "https://arxiv.org/pdf/2607.09505v1",
-      "pages": 7,
+      "id": "2607.10934v1",
+      "title": "Multidimensional stochastic liquidity in Kyle's model of informed trading",
+      "source": "https://arxiv.org/pdf/2607.10934v1",
+      "pages": 44,
       "images": 0,
       "figures_captioned": 0,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 10
+      "chunks_indexed": 39
     },
     {
-      "id": "2607.09461v1",
-      "title": "Deep Learning for Dynamic Programming with Recursive Utility Using First-order Conditions",
-      "source": "https://arxiv.org/pdf/2607.09461v1",
-      "pages": 86,
+      "id": "2607.10810v1",
+      "title": "Diachronic Sample Integration: Robust Tail-Risk Estimation with Generative Models",
+      "source": "https://arxiv.org/pdf/2607.10810v1",
+      "pages": 27,
       "images": 0,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 37
-    },
-    {
-      "id": "2607.09426v1",
-      "title": "The Quarter-Hour Effect: Periodic Algorithmic Trading and Return Predictability in Cryptocurrency Futures",
-      "source": "https://arxiv.org/pdf/2607.09426v1",
-      "pages": 74,
-      "images": 27,
       "figures_captioned": 4,
-      "tables": 0,
+      "tables": 1,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 30
+      "chunks_indexed": 54
     },
     {
-      "id": "2607.09230v1",
-      "title": "When Does Order Flow Matter? State-Dependent L2 Liquidity-State Transitions in Crypto Futures",
-      "source": "https://arxiv.org/pdf/2607.09230v1",
-      "pages": 8,
-      "images": 0,
-      "figures_captioned": 3,
-      "tables": 1,
-      "has_math": false,
-      "ocr_used": false,
-      "chunks_indexed": 28
-    },
-    {
-      "id": "2607.09132v1",
-      "title": "Distortion risk measures of step-weighted distribution",
-      "source": "https://arxiv.org/pdf/2607.09132v1",
-      "pages": 15,
+      "id": "2607.10700v1",
+      "title": "An Extreme Value Perspective on Learning Stress Laws",
+      "source": "https://arxiv.org/pdf/2607.10700v1",
+      "pages": 20,
       "images": 1,
+      "figures_captioned": 2,
+      "tables": 1,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 36
+    },
+    {
+      "id": "2607.10542v1",
+      "title": "optimal credit portfolio and consumption with regime switching and default contagion",
+      "source": "https://arxiv.org/pdf/2607.10542v1",
+      "pages": 17,
+      "images": 0,
       "figures_captioned": 0,
       "tables": 0,
       "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 27
-    },
-    {
-      "id": "2607.09121v1",
-      "title": "Augmenting Fundamental Analysis with Large Language Models: A RAG-Based System for Generating Investor Briefs",
-      "source": "https://arxiv.org/pdf/2607.09121v1",
-      "pages": 16,
-      "images": 2,
-      "figures_captioned": 2,
-      "tables": 0,
-      "has_math": false,
       "ocr_used": false,
       "chunks_indexed": 32
     },
     {
-      "id": "2607.08907v1",
-      "title": "Herding and Liquidity in Order-Book Markets. I. A Robust Liquidity-Stress Crossover and its Reflexive Mechanism",
-      "source": "https://arxiv.org/pdf/2607.08907v1",
+      "id": "2607.10503v1",
+      "title": "A Cascade of Volterra-Operator BBP Transitions in a Correlated Wigner Matrix",
+      "source": "https://arxiv.org/pdf/2607.10503v1",
       "pages": 26,
-      "images": 10,
+      "images": 1,
       "figures_captioned": 1,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 59
+      "chunks_indexed": 41
     },
     {
-      "id": "2607.08531v1",
-      "title": "Optimal Prediction of Resistance and Support Levels under Constant Elasticity of Variance Processes",
-      "source": "https://arxiv.org/pdf/2607.08531v1",
-      "pages": 34,
-      "images": 0,
+      "id": "2607.10297v1",
+      "title": "Recovering Structural Organization in Noisy Correlation Networks Using Financial Systems as a Testbed",
+      "source": "https://arxiv.org/pdf/2607.10297v1",
+      "pages": 23,
+      "images": 16,
       "figures_captioned": 0,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 49
+      "chunks_indexed": 36
+    },
+    {
+      "id": "2607.09906v1",
+      "title": "Depth-Efficient Quantum Topological Data Analysis for Regime-Specific Detection of Financial Stress",
+      "source": "https://arxiv.org/pdf/2607.09906v1",
+      "pages": 12,
+      "images": 6,
+      "figures_captioned": 0,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 45
     }
   ]
 }
