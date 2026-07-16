@@ -1,7 +1,7 @@
 {
   "_note": "Public run manifest of the Tier-3 agentic ingestion pipeline. Safe aggregates + provenance only; raw PDFs live in S3, not here.",
-  "run_id": "20260715T051046Z",
-  "generated_at": "2026-07-15T05:13:20+00:00",
+  "run_id": "20260716T052122Z",
+  "generated_at": "2026-07-16T05:25:00+00:00",
   "collection": "research_corpus",
   "embed_model": "BAAI/bge-small-en-v1.5",
   "dag": [
@@ -48,225 +48,307 @@
   ],
   "stats": {
     "discovered": 10,
-    "fetched": 5,
-    "parsed": 5,
-    "chunks": 229,
-    "accepted": 206,
-    "rejected": 28,
-    "images": 14,
-    "figures_captioned": 15,
-    "tables": 1,
-    "with_math": 5,
-    "indexed": 206,
-    "spent_usd": 0.0253,
-    "duration_s": 153.9
+    "fetched": 10,
+    "parsed": 10,
+    "chunks": 373,
+    "accepted": 343,
+    "rejected": 30,
+    "images": 38,
+    "figures_captioned": 18,
+    "tables": 0,
+    "with_math": 9,
+    "indexed": 343,
+    "spent_usd": 0.0312,
+    "duration_s": 218.4
   },
   "rejects_by_reason": {
-    "Client error '404 Not Found' for url 'https://arxiv.org/pdf/2607.12990v1'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404": 1,
-    "Client error '404 Not Found' for url 'https://arxiv.org/pdf/2607.12479v1'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404": 1,
-    "Client error '404 Not Found' for url 'https://arxiv.org/pdf/2607.12407v1'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404": 1,
-    "Client error '404 Not Found' for url 'https://arxiv.org/pdf/2607.12248v1'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404": 1,
-    "Client error '404 Not Found' for url 'https://arxiv.org/pdf/2607.12156v1'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404": 1,
-    "low-relevance": 23
+    "low-relevance": 30
   },
   "budget_usd": 3.0,
   "figures": [
     {
-      "doc_id": "2607.11335v1",
-      "title": "Minimizing Benchmark-Relative Drawdown Duration via Occupation Time Penalization",
-      "page": 17,
-      "thumb": "/data/figures/2607.11335v1_p17_0.jpg",
-      "caption": "Figure 1 plots the interquartile range, median and mean of underwater curves from the Monte Carlo simulation. Note that the median dominates the mean, which is due to the occurrence of prolonged and deep drawdowns. For the observed time period and random seed, the 25th percentile of paths does not breach the critical drawdown level. \u2014 This figure displays benchmark-relative drawdown duration over a 24-year horizon, comparing an optimal drawdown-duration strategy against a buy-and-hold benchmark ",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.11335v1"
-    },
-    {
-      "doc_id": "2607.11335v1",
-      "title": "Minimizing Benchmark-Relative Drawdown Duration via Occupation Time Penalization",
-      "page": 18,
-      "thumb": "/data/figures/2607.11335v1_p18_1.jpg",
-      "caption": "Figure 1: Underwater curves with interquartile ranges \u2014 This line chart displays average benchmark-relative underwater curves across 5000 simulated paths over a 25-year investment horizon, with the y-axis showing the percentage underwater drawdown relative to a benchmark (ranging from 0% to -35%) and the x-axis showing time in years. Three strategies are compared: 100% asset 1 allocation (red), optimal allocation (blue), and 100% asset 1 median (dashed red), each with shaded bands representing t",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.11335v1"
-    },
-    {
-      "doc_id": "2607.11335v1",
-      "title": "Minimizing Benchmark-Relative Drawdown Duration via Occupation Time Penalization",
-      "page": 18,
-      "thumb": "/data/figures/2607.11335v1_p18_2.jpg",
-      "caption": "Figure 2: Empirical CDF of time in drawdown for different critical drawdown levels \u2014 This figure displays four panels showing empirical cumulative distribution functions (CDFs) comparing optimal portfolio strategies (blue lines) against buy-and-hold strategies (red lines) across different critical drawdown levels (d = 10%, 20%, 30%, 40%). The x-axis represents the share of time in critical drawdown as a percentage (0-100%), and the y-axis represents the empirical CDF (0-1.0). Each panel is label",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.11335v1"
-    },
-    {
-      "doc_id": "2607.11328v1",
-      "title": "Strategic OTC market making with reputation feedback",
-      "page": 8,
-      "thumb": "/data/figures/2607.11328v1_p8_0.jpg",
-      "caption": "Figure 1: Promotion values \u2206U\u03c4(R) = U(R\u03c4 \u2014 This figure displays two heatmaps showing promotion values \u0394U\u03c4(R) as a function of inventory level R^a (x-axis, ranging 0-1.0) and reputation R^l (y-axis, ranging 0-1.0). The left panel shows a stark bimodal distribution with high values concentrated near reputation levels of 0.3 and 0.6, while most other regions remain near zero (dark purple). The right panel presents a smoother, unimodal distribution with a pronounced peak around R^a \u2248 0.4-0.5 and R^l",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.11328v1"
-    },
-    {
-      "doc_id": "2607.11328v1",
-      "title": "Strategic OTC market making with reputation feedback",
-      "page": 8,
-      "thumb": "/data/figures/2607.11328v1_p8_1.jpg",
-      "caption": "Figure 1 displays the marginal continuation value of a successful event in each tier. For tier A, this is the continuation value gain of winning rather than losing an RFQ event. The effect is concentrated around the RFQ gate because a single win matters most when the dealer is close to a promotional threshold. For tier B, the promotion value measures the continuation gain from filling rather than  \u2014 This figure displays two heatmaps showing promotion values \u0394U_t(R) = U(R_t^+) - U(R_t^-) across a",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.11328v1"
-    },
-    {
-      "doc_id": "2607.11328v1",
-      "title": "Strategic OTC market making with reputation feedback",
-      "page": 8,
-      "thumb": "/data/figures/2607.11328v1_p8_2.jpg",
-      "caption": "Figure 2 shows how the RFQ tier reacts to reputation. The bid offset falls near the gate midpoint, which is the signature of a campaign: the dealer sacrifices immediate spread to improve the probability of winning and to protect future access. Above the gate, spreads widens as the dealer monetizes the increased flow, although the policy remains defensive because falling back through the gate is co \u2014 This figure displays two heatmaps showing promotion values across a two-dimensional score space w",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.11328v1"
-    },
-    {
-      "doc_id": "2607.11328v1",
-      "title": "Strategic OTC market making with reputation feedback",
-      "page": 8,
-      "thumb": "/data/figures/2607.11328v1_p8_3.jpg",
-      "caption": "Figure 3 summarizes the streaming response. When RB is low, the dealer tightens quotes to the spread floor in order to create more streaming requests and hence more chances to repair the fill-ratio score in physical time. The acceptance probability is nevertheless not pushed mechanically to one: the dealer still controls the last-look threshold and retains protection against adverse selection. As  \u2014 These are two heatmaps showing promotion values \u0394U_c(R) over a two-dimensional score space with a",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.11328v1"
-    },
-    {
-      "doc_id": "2607.10960v1",
-      "title": "Reinforcement Learning for Execution under Dynamic Fees in a Closed-Loop DEX Simulator",
+      "doc_id": "2607.13929v1",
+      "title": "VAIOM: Continuous-Input, Discrete-Output Decoder-Only Financial Sequence Modeling",
       "page": 7,
-      "thumb": "/data/figures/2607.10960v1_p7_0.jpg",
-      "caption": "Figure 1: The closed-loop market. The execution agent trades a target order across two constant- product pools; the dynamic-fee closure reprices both pools from own-pool state, rival-pool state, and the oracle gap; noise traders route by effective cost; an arbitrageur closes profitable CEX\u2013 AMM gaps. The agent box lists the decision-time observation \u02dcot (Section 2.3); the step order shown is the a \u2014 This figure is a flowchart diagram illustrating a closed-loop DEX simulator architecture for algo",
+      "thumb": "/data/figures/2607.13929v1_p7_0.jpg",
+      "caption": "Figure 1 summarizes the split and information-flow rules. Recursive feature states continue causally across boundaries, but fitting ends with Train; the buffer is unscored, Validation selects the model and 2026 onward remains untouched. \u2014 This figure illustrates the data pipeline architecture for a financial forecasting model, showing three sequential phases: Train (fitting period), Validation (model selection period), and Test (held-out evaluation period spanning 2025). The diagram emphasizes c",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.10960v1"
+      "source": "https://arxiv.org/pdf/2607.13929v1"
     },
     {
-      "doc_id": "2607.10960v1",
-      "title": "Reinforcement Learning for Execution under Dynamic Fees in a Closed-Loop DEX Simulator",
-      "page": 7,
-      "thumb": "/data/figures/2607.10960v1_p7_1.jpg",
-      "caption": "Figure 1 sketches the instantiation. One risky asset Y trades against a numeraire X on two stylized constant-product pools in the Uniswap lineage [3] and an external venue. The external (CEX) mid price St follows a seeded geometric Brownian motion with zero drift. Each pool i \u2014 This flowchart illustrates a closed-loop market simulation for DEX (decentralized exchange) execution with dynamic fees. The diagram shows how an execution agent routes a target order across two constant-product pools (Po",
+      "doc_id": "2607.13929v1",
+      "title": "VAIOM: Continuous-Input, Discrete-Output Decoder-Only Financial Sequence Modeling",
+      "page": 8,
+      "thumb": "/data/figures/2607.13929v1_p8_1.jpg",
+      "caption": "Figure 1: Chronological split and causal information flow. Train determines fitted quantities. Recursive states update from past observations across later intervals, but no fitting occurs after Train. \u2014 This figure illustrates a temporal data split for financial time series modeling with a horizontal timeline spanning from \"Train before 2024\" through \"2026+ reserved\". The diagram shows five sequential periods: a training buffer, two 2024 half-year validation periods (H1 and H2), two 2025 half-ye",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.10960v1"
+      "source": "https://arxiv.org/pdf/2607.13929v1"
     },
     {
-      "doc_id": "2607.10960v1",
-      "title": "Reinforcement Learning for Execution under Dynamic Fees in a Closed-Loop DEX Simulator",
+      "doc_id": "2607.13929v1",
+      "title": "VAIOM: Continuous-Input, Discrete-Output Decoder-Only Financial Sequence Modeling",
       "page": 10,
-      "thumb": "/data/figures/2607.10960v1_p10_2.jpg",
-      "caption": "Figure 2 reports the frozen final block: mean shortfall for TWAP, tuned lookahead, and the DQN under each intra-step ordering, and the paired DQN\u2212lookahead edge with its interval. Under forced-terminal completion every policy completes exactly; paired intervals are over per-seed differences against lookahead evaluated under the same ordering. \u2014 This section discusses failure modes in reinforcement learning for trading execution, explaining why bootstrapped tabular Q-learning collapsed into perma",
+      "thumb": "/data/figures/2607.13929v1_p10_2.jpg",
+      "caption": "Figure 2 summarizes the three alternative input branches and the shared causal backbone. DiscIn and pure ContIn define the primary representation comparison; HybridContIn augments the continuous branch with static categorical metadata. \u2014 This figure presents three alternative input representation architectures for financial sequence modeling: DiscIn (discrete input), pure ContIn (continuous input), and HybridContIn (hybrid continuous input with categorical metadata). The diagram shows how each b",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.10960v1"
+      "source": "https://arxiv.org/pdf/2607.13929v1"
     },
     {
-      "doc_id": "2607.10960v1",
-      "title": "Reinforcement Learning for Execution under Dynamic Fees in a Closed-Loop DEX Simulator",
+      "doc_id": "2607.13929v1",
+      "title": "VAIOM: Continuous-Input, Discrete-Output Decoder-Only Financial Sequence Modeling",
       "page": 11,
-      "thumb": "/data/figures/2607.10960v1_p11_3.jpg",
-      "caption": "Figure 2: Final reserved seed block (90,000\u201390,999, n = 1,000; first evaluated after the design freeze), forced-terminal completion, in bps of order notional. Each DQN is trained under its stated intra-step ordering using the standard completion objective, then evaluated under forced-terminal completion together with all comparison policies (an out-of-training-semantics evaluation, Section 2.2). ( \u2014 This figure compares implementation shortfall across three ordering strategies (Agent-first, Rand",
+      "thumb": "/data/figures/2607.13929v1_p11_3.jpg",
+      "caption": "Figure 2: VAIOM architecture. Alternative DiscIn, pure ContIn and HybridContIn encoders feed the same causal decoder, return head, auxiliary heads and supervision interface. \u2014 This architecture diagram illustrates a financial sequence modeling system with three alternative input encoding pathways (DiscIn, Pure ContIn, and HybridContIn) that converge into a shared processing pipeline. DiscIn processes 15 categorical fields with 8-d embeddings, Pure ContIn handles 25 continuous fields through MLPs",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.10960v1"
+      "source": "https://arxiv.org/pdf/2607.13929v1"
     },
     {
-      "doc_id": "2607.10810v1",
-      "title": "Diachronic Sample Integration: Robust Tail-Risk Estimation with Generative Models",
-      "page": 2,
-      "thumb": "/data/figures/2607.10810v1_p2_0.jpg",
-      "caption": "Figure 1: Conceptual illustration of DSI. (a) Single checkpoints prioritize bulk distributional fidelity, often truncating extreme tails due to optimization noise. (b) DSI aggregates heterogeneous checkpoints across a single trajectory, the resulting mixture averages checkpoint-specific tail fluctuations while any persistent trajectory bias remains as an irreducible floor. \u2014 This figure illustrates two probability distribution estimation approaches using density plots. Panel (a) shows standard s",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.10810v1"
-    },
-    {
-      "doc_id": "2607.10810v1",
-      "title": "Diachronic Sample Integration: Robust Tail-Risk Estimation with Generative Models",
+      "doc_id": "2607.13916v1",
+      "title": "Detecting unusual trading patterns on cryptocurrency exchanges by means of complexity measures",
       "page": 7,
-      "thumb": "/data/figures/2607.10810v1_p7_1.jpg",
-      "caption": "Figure 2: Dependence preservation under realistic sampling budgets. (a) Sum of absolute differences between refer- ence and generated correlation matrices (multivariate depen- dence). (b) Sum of absolute differences between reference and generated autocorrelation coefficients (temporal depen- dence). Lower values indicate better agreement. Error bars denote standard deviation across runs. \u2014 Figure 2 displays two bar charts comparing dependence preservation metrics across different generative mod",
+      "thumb": "/data/figures/2607.13916v1_p7_0.jpg",
+      "caption": "Figure 1. Evolution of the cumulative log-returns \u02c6R(t), trading volume V\u2206t=1min(t), and the number of trans- actions N\u2206t=1min(t) for BTC on Binance (top left), Bitget (top right), Kraken (bottom left), and KuCoin (bottom right). The period of increased transaction activity is marked by a red dashed ellipse. \u2014 This figure displays time series data for Bitcoin (BTC) across four major cryptocurrency exchanges (Binance, Bitget, Kraken, KuCoin) from April to July 2025. Each exchange panel contains t",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.10810v1"
+      "source": "https://arxiv.org/pdf/2607.13916v1"
     },
     {
-      "doc_id": "2607.10810v1",
-      "title": "Diachronic Sample Integration: Robust Tail-Risk Estimation with Generative Models",
+      "doc_id": "2607.13916v1",
+      "title": "Detecting unusual trading patterns on cryptocurrency exchanges by means of complexity measures",
       "page": 8,
-      "thumb": "/data/figures/2607.10810v1_p8_2.jpg",
-      "caption": "Figure 3: Sensitivity of DSI to mixture size K and check- point stride M under a fixed budget (N = 1000). Average relative error (VaR and ES, \u03b1 = 5%) is plotted against K for different strides. Checkpoint values on the x-axis are dis- played with uniform spacing. Error decreases rapidly with increasing K and plateaus for large mixtures. Larger strides provide gains when K is small by reducing chec \u2014 This line plot shows the sensitivity of Diachronic Sample Integration (DSI) to ensemble size K an",
+      "thumb": "/data/figures/2607.13916v1_p8_1.jpg",
+      "caption": "Figure 2. The same as in Fig. 1, but for ETH. \u2014 This figure displays four subpanels showing Ethereum (ETH) trading data across four major cryptocurrency exchanges (Binance, Bitget, Kraken, and Kacoin) from April to July 2025. Each subpanel contains three time series stacked vertically: the log return (R\u209c) at the top, trading volume (V\u209c) in the middle, and number of trades (N\u209c) at the bottom. The key takeaway is that trading activity patterns, including volume spikes and transaction counts, vary ",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.10810v1"
+      "source": "https://arxiv.org/pdf/2607.13916v1"
     },
     {
-      "doc_id": "2607.10810v1",
-      "title": "Diachronic Sample Integration: Robust Tail-Risk Estimation with Generative Models",
-      "page": 19,
-      "thumb": "/data/figures/2607.10810v1_p19_3.jpg",
-      "caption": "Figure 4: Autocorrelation decay of the post-burn-in checkpoint tail-error process. For each model, the curve reports the average lag-h autocorrelation across training checkpoints of a composite tail-error vector that concatenates strategy-level VaR error, ES error, and lower-tail CDF discrepancies relative to the reference distribution at \u03b1 = 5%. Faster decay indicates that checkpoint-specific tai \u2014 This line plot displays the autocorrelation decay of checkpoint-level tail-error processes across",
+      "doc_id": "2607.13916v1",
+      "title": "Detecting unusual trading patterns on cryptocurrency exchanges by means of complexity measures",
+      "page": 9,
+      "thumb": "/data/figures/2607.13916v1_p9_2.jpg",
+      "caption": "Figure 3. The same as in Fig. 1, but for XRP. \u2014 This figure presents time series data for XRP (Ripple) across four major cryptocurrency exchanges\u2014Binance, Bitget, Kraken, and Kucoin\u2014from April to July 2025. Each panel contains three subplots showing returns (Rt), traded volume (Vt), and number of trades (Nt) over time, with the y-axis displaying these metrics and the x-axis showing the temporal progression. The key takeaway is that XRP exhibits similar volatility patterns and trading activity ac",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.10810v1"
+      "source": "https://arxiv.org/pdf/2607.13916v1"
+    },
+    {
+      "doc_id": "2607.13916v1",
+      "title": "Detecting unusual trading patterns on cryptocurrency exchanges by means of complexity measures",
+      "page": 10,
+      "thumb": "/data/figures/2607.13916v1_p10_3.jpg",
+      "caption": "Figure 4. Complementary cumulative distribution functions of standardised absolute log-returns |R| for BTC, ETH, and XRP on Binance, Bitget, Kraken, and KuCoin, together with the Gaussian and power-law (\u03b3 = 3) reference distributions. \u2014 This figure shows three panels displaying complementary cumulative distribution functions (CCDF) of standardized absolute log-returns for Bitcoin (BTC), Ethereum (ETH), and Ripple (XRP) across four cryptocurrency exchanges: Binance, Bitget, Kraken, and Kucoin. Th",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.13916v1"
+    },
+    {
+      "doc_id": "2607.12990v1",
+      "title": "A Noise-Aware Quantum Algorithm for Credit Valuation Adjustments on Real Quantum Hardware",
+      "page": 15,
+      "thumb": "/data/figures/2607.12990v1_p15_0.jpg",
+      "caption": "Figure 1: Quantum encoding of the discretised multi-asset CVA. The unitary GP prepares a coherent superposition over the full time\u2013market grid, while Rv, Rp, and Rq encode the positive exposure, discount factor, and default probability into three dedicated ancillas. The projector \u03a0111 selects the event in which all three ancillas are measured in state |1\u27e9. \u2014 This figure is a block diagram illustrating the quantum circuit architecture for computing Credit Valuation Adjustment (CVA) on a multi-ass",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.12990v1"
+    },
+    {
+      "doc_id": "2607.12990v1",
+      "title": "A Noise-Aware Quantum Algorithm for Credit Valuation Adjustments on Real Quantum Hardware",
+      "page": 21,
+      "thumb": "/data/figures/2607.12990v1_p21_1.jpg",
+      "caption": "Figure 2: Three-qubit circuit Atest used to validate CABIQAE. The final rotation angle \u03c6 is left free to generate different target amplitudes. \u2014 This figure shows a three-qubit quantum circuit diagram with three horizontal lines representing qubits labeled (0), (1), and (2). Each qubit undergoes a sequence of quantum gates including RY and RZ rotations, controlled operations (CX gates shown as dots connected by vertical lines), and final ZZ measurements, with a free rotation parameter \u03c6 used to ",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.12990v1"
+    },
+    {
+      "doc_id": "2607.12990v1",
+      "title": "A Noise-Aware Quantum Algorithm for Credit Valuation Adjustments on Real Quantum Hardware",
+      "page": 22,
+      "thumb": "/data/figures/2607.12990v1_p22_2.jpg",
+      "caption": "Figure 3: Hardware-compatible QCBM ansatz used for the six-qubit state-preparation block. Each variational block combines local single-qubit rotations with parametrised RZZ entanglers placed along a connectivity pattern chosen to respect the target heavy-hex hardware constraints. \u2014 This figure shows a quantum circuit diagram for a six-qubit state-preparation block using a hardware-compatible quantum circuit born machine (QCBM) ansatz. The circuit consists of six qubits (labeled t\u2080 through s\u2083) th",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.12990v1"
+    },
+    {
+      "doc_id": "2607.12990v1",
+      "title": "A Noise-Aware Quantum Algorithm for Credit Valuation Adjustments on Real Quantum Hardware",
+      "page": 23,
+      "thumb": "/data/figures/2607.12990v1_p23_3.jpg",
+      "caption": "Figure 4: Native-tree CRCA ansatz used for the time-dependent controlled rotations Rp and Rq. \u2014 This figure shows a quantum circuit diagram implementing a native-tree CRCA (Controlled Rotation Controlled Ansatz) architecture with three quantum registers. The circuit uses controlled rotation gates (Rx and Rz blocks) and ZZ entangling gates arranged in a tree-like structure to perform time-dependent controlled rotations. The key takeaway is that this native-tree topology minimizes the number of tw",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.12990v1"
+    },
+    {
+      "doc_id": "2607.13112v1",
+      "title": "Anchored Geodesic Analysis for Multivariate Extremes",
+      "page": 5,
+      "thumb": "/data/figures/2607.13112v1_p5_0.jpg",
+      "caption": "Figure 1: Sphere-level geometry in two controlled simulations. The left panel shows a low-dimensional angular law; the right panel shows a variable-specific near-axis regime. Each panel displays selected extreme directions, the canonical anchor and first AGC, and the Fr\u00e9chet anchor and first AGC. \u2014 This figure displays 3D sphere-level geometry for two multivariate extreme value models. The left panel (Model 1) illustrates a low-dimensional angular law with extreme directions clustering along a c",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.13112v1"
+    },
+    {
+      "doc_id": "2607.13112v1",
+      "title": "Anchored Geodesic Analysis for Multivariate Extremes",
+      "page": 9,
+      "thumb": "/data/figures/2607.13112v1_p9_1.jpg",
+      "caption": "Figure 2: Geometry of anchored geodesic component analysis. In the left panel, the open hemisphere H\u00b5 contains the positive Euclidean-spherical directions, and the anchored great subsphere M\u00b5(W) is the approximating set through the anchor. In the central panel, the gnomonic chart centered at \u00b5 sends the hemisphere H\u00b5 to the tangent affine hyperplane \u00b5 + \u00b5\u22a5, identified with \u00b5\u22a5, and maps the anchore \u2014 This figure illustrates the geometric framework of anchored geodesic component analysis for multi",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.13112v1"
+    },
+    {
+      "doc_id": "2607.12407v1",
+      "title": "Statistical Properties and Power Analysis of Divergence Measures for Credit Risk Model Monitoring",
+      "page": 9,
+      "thumb": "/data/figures/2607.12407v1_p9_0.jpg",
+      "caption": "Figure 1: Empirical Distributions of Divergence Indicators Histograms and Asymptotically Exact Densities \u2014 This figure displays empirical distributions and theoretical comparisons for three divergence measures (Hellinger, Kullback-Leibler, and Jensen-Shannon) used in credit risk monitoring. The left column shows histograms of empirical distributions (colored fills) overlaid with theoretical density curves (black lines), while the right column presents Q-Q plots comparing empirical quantiles agai",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.12407v1"
+    },
+    {
+      "doc_id": "2607.12407v1",
+      "title": "Statistical Properties and Power Analysis of Divergence Measures for Credit Risk Model Monitoring",
+      "page": 10,
+      "thumb": "/data/figures/2607.12407v1_p10_1.jpg",
+      "caption": "Figure 2: Divergence Indicator Empirical vs Exact CDF and Quantile Ratios \u2014 This figure presents six panels comparing empirical and theoretical cumulative distribution functions (CDFs) and quantile ratios for four divergence measures used in credit risk monitoring: Population Stability Index, Kullback-Leibler Divergence, Jensen-Shannon Divergence, and Cram\u00e9r-von Mises statistic. The top three panels display sigmoid-shaped empirical CDFs (colored curves) overlaid against theoretical CDFs (black c",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.12407v1"
+    },
+    {
+      "doc_id": "2607.12407v1",
+      "title": "Statistical Properties and Power Analysis of Divergence Measures for Credit Risk Model Monitoring",
+      "page": 10,
+      "thumb": "/data/figures/2607.12407v1_p10_2.jpg",
+      "caption": "Figure 2 confirms these theoretical discussion empirically: the JSD/PSI ratio \u2014 This figure displays six panels comparing empirical versus theoretical cumulative distribution functions (CDFs) and quantile ratios for divergence measures used in credit risk monitoring. The top three panels show cumulative probability curves plotting proportion of simulations (y-axis) against JSD/PSI ratio values (x-axis), comparing empirical distributions (blue, red, and black lines) to theoretical predictions wit",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.12407v1"
+    },
+    {
+      "doc_id": "2607.12407v1",
+      "title": "Statistical Properties and Power Analysis of Divergence Measures for Credit Risk Model Monitoring",
+      "page": 17,
+      "thumb": "/data/figures/2607.12407v1_p17_3.jpg",
+      "caption": "Figure 3: Default Models with respect to Time \u2014 This line chart displays the probability of default over time (0-14 units) for three different models: SVJ (blue), Merton with Jump (orange), and standard Merton (green). All three models show increasing default probability trajectories, with Merton with Jump producing the highest probability values, followed by SVJ, and standard Merton producing the lowest. The key takeaway is that incorporating jump components into structural default models signi",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.12407v1"
     }
   ],
   "docs": [
     {
-      "id": "2607.11335v1",
-      "title": "Minimizing Benchmark-Relative Drawdown Duration via Occupation Time Penalization",
-      "source": "https://arxiv.org/pdf/2607.11335v1",
-      "pages": 31,
-      "images": 2,
-      "figures_captioned": 3,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 42
-    },
-    {
-      "id": "2607.11328v1",
-      "title": "Strategic OTC market making with reputation feedback",
-      "source": "https://arxiv.org/pdf/2607.11328v1",
-      "pages": 11,
+      "id": "2607.13929v1",
+      "title": "VAIOM: Continuous-Input, Discrete-Output Decoder-Only Financial Sequence Modeling",
+      "source": "https://arxiv.org/pdf/2607.13929v1",
+      "pages": 40,
       "images": 0,
       "figures_captioned": 4,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 26
+      "chunks_indexed": 51
     },
     {
-      "id": "2607.10960v1",
-      "title": "Reinforcement Learning for Execution under Dynamic Fees in a Closed-Loop DEX Simulator",
-      "source": "https://arxiv.org/pdf/2607.10960v1",
-      "pages": 19,
-      "images": 12,
+      "id": "2607.13916v1",
+      "title": "Detecting unusual trading patterns on cryptocurrency exchanges by means of complexity measures",
+      "source": "https://arxiv.org/pdf/2607.13916v1",
+      "pages": 42,
+      "images": 26,
       "figures_captioned": 4,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 45
+      "chunks_indexed": 55
     },
     {
-      "id": "2607.10934v1",
-      "title": "Multidimensional stochastic liquidity in Kyle's model of informed trading",
-      "source": "https://arxiv.org/pdf/2607.10934v1",
-      "pages": 44,
+      "id": "2607.13353v1",
+      "title": "Is Deep Hedging Reinforcement Learning?",
+      "source": "https://arxiv.org/pdf/2607.13353v1",
+      "pages": 7,
       "images": 0,
       "figures_captioned": 0,
+      "tables": 0,
+      "has_math": false,
+      "ocr_used": false,
+      "chunks_indexed": 9
+    },
+    {
+      "id": "2607.12990v1",
+      "title": "A Noise-Aware Quantum Algorithm for Credit Valuation Adjustments on Real Quantum Hardware",
+      "source": "https://arxiv.org/pdf/2607.12990v1",
+      "pages": 56,
+      "images": 0,
+      "figures_captioned": 4,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 48
+    },
+    {
+      "id": "2607.13112v1",
+      "title": "Anchored Geodesic Analysis for Multivariate Extremes",
+      "source": "https://arxiv.org/pdf/2607.13112v1",
+      "pages": 97,
+      "images": 0,
+      "figures_captioned": 2,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 38
+    },
+    {
+      "id": "2607.12479v2",
+      "title": "Ito-Wentzell Formula and Dupire Stochastic PDE",
+      "source": "https://arxiv.org/pdf/2607.12479v2",
+      "pages": 6,
+      "images": 0,
+      "figures_captioned": 0,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 11
+    },
+    {
+      "id": "2607.12407v1",
+      "title": "Statistical Properties and Power Analysis of Divergence Measures for Credit Risk Model Monitoring",
+      "source": "https://arxiv.org/pdf/2607.12407v1",
+      "pages": 24,
+      "images": 3,
+      "figures_captioned": 4,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
       "chunks_indexed": 39
     },
     {
-      "id": "2607.10810v1",
-      "title": "Diachronic Sample Integration: Robust Tail-Risk Estimation with Generative Models",
-      "source": "https://arxiv.org/pdf/2607.10810v1",
-      "pages": 27,
-      "images": 0,
-      "figures_captioned": 4,
-      "tables": 1,
+      "id": "2607.12248v1",
+      "title": "When Directional Accuracy Lies: A Base-Rate-Honest Benchmark for LoRA-Adapted TimesFM on Equity Forecasting",
+      "source": "https://arxiv.org/pdf/2607.12248v1",
+      "pages": 10,
+      "images": 4,
+      "figures_captioned": 0,
+      "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 54
+      "chunks_indexed": 15
+    },
+    {
+      "id": "2607.12156v1",
+      "title": "(Early) AI Compute Asset Pricing",
+      "source": "https://arxiv.org/pdf/2607.12156v1",
+      "pages": 47,
+      "images": 3,
+      "figures_captioned": 0,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 38
+    },
+    {
+      "id": "2607.11335v1",
+      "title": "Minimizing Benchmark-Relative Drawdown Duration via Occupation Time Penalization",
+      "source": "https://arxiv.org/pdf/2607.11335v1",
+      "pages": 31,
+      "images": 2,
+      "figures_captioned": 0,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 39
     }
   ]
 }
