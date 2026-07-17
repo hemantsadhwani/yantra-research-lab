@@ -1,7 +1,7 @@
 {
   "_note": "Public run manifest of the Tier-3 agentic ingestion pipeline. Safe aggregates + provenance only; raw PDFs live in S3, not here.",
-  "run_id": "20260716T052122Z",
-  "generated_at": "2026-07-16T05:25:00+00:00",
+  "run_id": "20260717T052340Z",
+  "generated_at": "2026-07-17T05:27:43+00:00",
   "collection": "research_corpus",
   "embed_model": "BAAI/bge-small-en-v1.5",
   "dag": [
@@ -50,28 +50,136 @@
     "discovered": 10,
     "fetched": 10,
     "parsed": 10,
-    "chunks": 373,
-    "accepted": 343,
-    "rejected": 30,
-    "images": 38,
+    "chunks": 438,
+    "accepted": 397,
+    "rejected": 41,
+    "images": 43,
     "figures_captioned": 18,
-    "tables": 0,
+    "tables": 1,
     "with_math": 9,
-    "indexed": 343,
-    "spent_usd": 0.0312,
-    "duration_s": 218.4
+    "indexed": 397,
+    "spent_usd": 0.0314,
+    "duration_s": 243.2
   },
   "rejects_by_reason": {
-    "low-relevance": 30
+    "low-relevance": 41
   },
   "budget_usd": 3.0,
   "figures": [
+    {
+      "doc_id": "2607.15119v1",
+      "title": "Thermodynamic theory of voting and EU elections",
+      "page": 2,
+      "thumb": "/data/figures/2607.15119v1_p2_0.jpg",
+      "caption": "Fig. 1: (Color on-line) Left: Lorenz curves of EU elections of Germany (DE; top) and France (FR, bottom) since 1994. The x-axis corresponds to the cumulated fraction of house- holds/political parties (h) and the y-axis to the cumulated frac- tion of wealth/obtained votes (w). The dashed black line corre- sponds to the line of perfect equipartition w = h. The Gini co- efficients G and number of pol \u2014 This figure displays Lorenz curves for vote distribution inequality in German (DE) and French (FR",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.15119v1"
+    },
+    {
+      "doc_id": "2607.15119v1",
+      "title": "Thermodynamic theory of voting and EU elections",
+      "page": 3,
+      "thumb": "/data/figures/2607.15119v1_p3_1.jpg",
+      "caption": "Fig. 2: (Color on-line) As Fig. 1 for the EU 2024 elections of DE (top) and FR (bottom). In addition, to the real data (red points) also the (green) theoretical RJS Lorenz curves (left panels) are shown (see Table 1 for specific values of G, \u03b5 and Np). For the Pareto curves (right panels) the average \u27e8wm\u27e9is either 1/Np (real data) or \u03b5 (RJS curves). See also SupMat Figs. S1 and S2 for similar figu \u2014 This figure presents four subpanels comparing voting distributions for the 2024 EU elections in G",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.15119v1"
+    },
+    {
+      "doc_id": "2607.15119v1",
+      "title": "Thermodynamic theory of voting and EU elections",
+      "page": 4,
+      "thumb": "/data/figures/2607.15119v1_p4_2.jpg",
+      "caption": "Fig. 3: (Color on-line) Density color plot of Lorenz curves for 10 countries (2024 EU elections) obtained from the RJS model for the 6 countries DE, FR, IT, ES, NL, CZ and from the op- timal RJE model for the 4 countries PL, RO, BE, SE (cases with a visible difference between RJS and optimal RJE curve). The x-axis corresponds to the cumulated fraction of house- holds/political parties (h) and the  \u2014 This is a heatmap showing Lorenz curves for 10 European countries from the 2024 EU elections, wit",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.15119v1"
+    },
+    {
+      "doc_id": "2607.15119v1",
+      "title": "Thermodynamic theory of voting and EU elections",
+      "page": 5,
+      "thumb": "/data/figures/2607.15119v1_p5_3.jpg",
+      "caption": "Fig. 4: (Color on-line) Left: Dependence of the Gini coeffi- cient G for the EU elections of DE (red) and FR (blue) on the election year (using the same data as in Fig. 1). Right: Gini coefficient G for the EU elections 2024 for 10 European coun- tries (green) ordered with increasing size of population (from left to right; using the same data as in Fig. 3). \u2014 This figure displays Gini coefficients measuring income inequality in EU elections across two panels. The left panel is a line chart showi",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.15119v1"
+    },
+    {
+      "doc_id": "2607.14518v1",
+      "title": "Structure-Aware Variational State Preparation for Quantum Basket Option Pricing",
+      "page": 9,
+      "thumb": "/data/figures/2607.14518v1_p9_0.jpg",
+      "caption": "Fig. 1: General circuit architecture of the marginal-TT loader with a latent depen- dence block. The registers A1, . . . , Ad denote the d asset registers, with q uncertainty qubits assigned to each asset, and L denotes an auxiliary latent register with nL qubits. Ua(\u03b8\u2217 \u2014 This figure shows a quantum circuit diagram illustrating the architecture of a marginal-TT loader with a latent dependence block. The circuit consists of multiple input quantum registers (|0\u27e9_A^q for assets 1 to d, and |0\u27e9_L^n_",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.14518v1"
+    },
+    {
+      "doc_id": "2607.14518v1",
+      "title": "Structure-Aware Variational State Preparation for Quantum Basket Option Pricing",
+      "page": 11,
+      "thumb": "/data/figures/2607.14518v1_p11_1.jpg",
+      "caption": "Figure 1 summarizes the general circuit architecture for an arbitrary number of assets. Each asset register is first prepared by a TT-informed marginal loader, and the resulting product-marginal state is passed, together with an auxiliary latent register, through the latent dependence block. The latent outcome is marginalized out when computing the asset-register measurement distribution. Figure 2 \u2014 This section describes a quantum circuit architecture for basket option pricing that separates ma",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.14518v1"
+    },
+    {
+      "doc_id": "2607.14518v1",
+      "title": "Structure-Aware Variational State Preparation for Quantum Basket Option Pricing",
+      "page": 12,
+      "thumb": "/data/figures/2607.14518v1_p12_2.jpg",
+      "caption": "Fig. 2: Marginal-TT + latent basket-projection loader for a two-asset example with q = 3 uncertainty qubits per asset. TT-informed marginal loaders act locally on each asset register, followed by a latent-conditioned dependence layer. The auxiliary latent qubit z controls rotations on the asset qubits, while CNOT chains are restricted to individual asset registers. \u2014 This circuit diagram illustrates a hybrid quantum architecture combining tensor-train (TT) informed marginal loaders with a latent",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.14518v1"
+    },
+    {
+      "doc_id": "2607.14518v1",
+      "title": "Structure-Aware Variational State Preparation for Quantum Basket Option Pricing",
+      "page": 23,
+      "thumb": "/data/figures/2607.14518v1_p23_3.jpg",
+      "caption": "Fig. 3: Correlated-basket comparison for q = 2 uncertainty qubits per asset. (a) Relative pricing error at strike K = 55. (b) Transpiled state-preparation depth on a logarithmic scale. Exact loading is shown only in panel (b), since it prepares the discretized target state exactly. See Table D1 for the full results. \u2014 Panel (a) shows relative pricing error (%) versus dimension on a linear scale, comparing Direct TT Equicorr, Ours Equicorr, Direct TT Market sector, and Ours Market sector methods ",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.14518v1"
+    },
+    {
+      "doc_id": "2607.14361v1",
+      "title": "NeuralChaos: Optimal Adapted Approximation of Square Integrable Predictable Processes",
+      "page": 4,
+      "thumb": "/data/figures/2607.14361v1_p4_0.jpg",
+      "caption": "Figure 1. Our NeuralChaos architecture (for details cf. Section 3): The input Brownian path is first sampled at the time-points 0 = t0 < t1 < \u00b7 \u00b7 \u00b7 < tM = T. (cf. Figure 4a), producing the path-wise evaluations Wt0, . . . , WtM\u22121; notice that no iterated integrals are explicitly computed, only implicitly. Lifting Channels: These evaluations are mapped, via a sequence of K lower-triangular matrices \u2014 This diagram illustrates the NeuralChaos neural network architecture for approximating predictabl",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.14361v1"
+    },
+    {
+      "doc_id": "2607.14361v1",
+      "title": "NeuralChaos: Optimal Adapted Approximation of Square Integrable Predictable Processes",
+      "page": 6,
+      "thumb": "/data/figures/2607.14361v1_p6_1.jpg",
+      "caption": "Figure 2. A process which is easy for adaptive approximation methods to approximate but hard for non-adaptive methods. Evidently, at most two parameters are needed to exactly represent any of the illustrated processes: one parameter for the Brownian factor W\u00b7 and one pa- rameter for the higher-order chaos factor \u02dcX \u2217\u00b7; equivalently, each process is a two-term degree-10 polynomial in the Wiener-cha \u2014 This figure displays four time-series panels comparing approximation difficulty across different ",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.14361v1"
+    },
+    {
+      "doc_id": "2607.14361v1",
+      "title": "NeuralChaos: Optimal Adapted Approximation of Square Integrable Predictable Processes",
+      "page": 10,
+      "thumb": "/data/figures/2607.14361v1_p10_2.jpg",
+      "caption": "Figure 3. Compressibility vs. Incompressibility. A compressible process is one whose chaoslet expansion, cf. (9), can be rearranged to exhibit at least power-law coefficient decay, cf. (10). The left subfigure illustrates the expansion in the default chaoslet ordering of Call, cf. (7), while the middle subfigure illustrates the same expansion after sorting the chaoslets by coefficient magnitude; i \u2014 This figure compares compressibility in chaoslet expansions through three bar charts. Panel (a) s",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.14361v1"
+    },
+    {
+      "doc_id": "2607.14361v1",
+      "title": "NeuralChaos: Optimal Adapted Approximation of Square Integrable Predictable Processes",
+      "page": 13,
+      "thumb": "/data/figures/2607.14361v1_p13_3.jpg",
+      "caption": "Figure 4. Inputs and causal assembly in the NeuralChaos architecture. Panel 4a shows the sto- chastic input: the Brownian path is sampled at a finite ordered grid 0 = t0 < t1 < \u00b7 \u00b7 \u00b7 < tM = T producing the causally ordered samples These samples are processed by lower-triangular lifting matrices and row-wise neural heads, so that the mth random output is measurable with respect to the information a \u2014 Panel (a) displays three sampled Brownian motion paths (T\u2080, T\u2081, T\u2082) plotted as time-series agains",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.14361v1"
+    },
     {
       "doc_id": "2607.13929v1",
       "title": "VAIOM: Continuous-Input, Discrete-Output Decoder-Only Financial Sequence Modeling",
       "page": 7,
       "thumb": "/data/figures/2607.13929v1_p7_0.jpg",
-      "caption": "Figure 1 summarizes the split and information-flow rules. Recursive feature states continue causally across boundaries, but fitting ends with Train; the buffer is unscored, Validation selects the model and 2026 onward remains untouched. \u2014 This figure illustrates the data pipeline architecture for a financial forecasting model, showing three sequential phases: Train (fitting period), Validation (model selection period), and Test (held-out evaluation period spanning 2025). The diagram emphasizes c",
+      "caption": "Figure 1 summarizes the split and information-flow rules. Recursive feature states continue causally across boundaries, but fitting ends with Train; the buffer is unscored, Validation selects the model and 2026 onward remains untouched. \u2014 This text passage describes the data split methodology for a financial forecasting model rather than presenting a figure. It defines three dataset partitions: Train (for fitting tokenizers and parameters), Validation (for checkpoint selection and model diagnosi",
       "vision": true,
       "source": "https://arxiv.org/pdf/2607.13929v1"
     },
@@ -80,7 +188,7 @@
       "title": "VAIOM: Continuous-Input, Discrete-Output Decoder-Only Financial Sequence Modeling",
       "page": 8,
       "thumb": "/data/figures/2607.13929v1_p8_1.jpg",
-      "caption": "Figure 1: Chronological split and causal information flow. Train determines fitted quantities. Recursive states update from past observations across later intervals, but no fitting occurs after Train. \u2014 This figure illustrates a temporal data split for financial time series modeling with a horizontal timeline spanning from \"Train before 2024\" through \"2026+ reserved\". The diagram shows five sequential periods: a training buffer, two 2024 half-year validation periods (H1 and H2), two 2025 half-ye",
+      "caption": "Figure 1: Chronological split and causal information flow. Train determines fitted quantities. Recursive states update from past observations across later intervals, but no fitting occurs after Train. \u2014 This figure illustrates a temporal data split strategy for financial sequence modeling, displayed as a horizontal timeline bar. The timeline is divided into five segments: \"Train before 2024\" (blue), \"2024H1 buffer\" (green), \"2024H2 Validation\" (yellow), \"2025H1 Test\" (orange), and \"2025H2 Test\" ",
       "vision": true,
       "source": "https://arxiv.org/pdf/2607.13929v1"
     },
@@ -89,7 +197,7 @@
       "title": "VAIOM: Continuous-Input, Discrete-Output Decoder-Only Financial Sequence Modeling",
       "page": 10,
       "thumb": "/data/figures/2607.13929v1_p10_2.jpg",
-      "caption": "Figure 2 summarizes the three alternative input branches and the shared causal backbone. DiscIn and pure ContIn define the primary representation comparison; HybridContIn augments the continuous branch with static categorical metadata. \u2014 This figure presents three alternative input representation architectures for financial sequence modeling: DiscIn (discrete input), pure ContIn (continuous input), and HybridContIn (hybrid continuous input with categorical metadata). The diagram shows how each b",
+      "caption": "Figure 2 summarizes the three alternative input branches and the shared causal backbone. DiscIn and pure ContIn define the primary representation comparison; HybridContIn augments the continuous branch with static categorical metadata. \u2014 This figure illustrates three alternative input representation branches for a financial sequence model: DiscIn (discrete tokenized inputs), pure ContIn (continuous inputs), and HybridContIn (continuous inputs augmented with categorical metadata embeddings). The ",
       "vision": true,
       "source": "https://arxiv.org/pdf/2607.13929v1"
     },
@@ -98,7 +206,7 @@
       "title": "VAIOM: Continuous-Input, Discrete-Output Decoder-Only Financial Sequence Modeling",
       "page": 11,
       "thumb": "/data/figures/2607.13929v1_p11_3.jpg",
-      "caption": "Figure 2: VAIOM architecture. Alternative DiscIn, pure ContIn and HybridContIn encoders feed the same causal decoder, return head, auxiliary heads and supervision interface. \u2014 This architecture diagram illustrates a financial sequence modeling system with three alternative input encoding pathways (DiscIn, Pure ContIn, and HybridContIn) that converge into a shared processing pipeline. DiscIn processes 15 categorical fields with 8-d embeddings, Pure ContIn handles 25 continuous fields through MLPs",
+      "caption": "Figure 2: VAIOM architecture. Alternative DiscIn, pure ContIn and HybridContIn encoders feed the same causal decoder, return head, auxiliary heads and supervision interface. \u2014 This is a flowchart diagram showing the VAIOM neural network architecture for financial sequence modeling. The diagram displays three alternative input encoder paths (DiscIn, Pure ContIn, and HybridContIn) that converge into learned absolute positional embeddings, which then feed into a four-layer pre-normalized causal Tra",
       "vision": true,
       "source": "https://arxiv.org/pdf/2607.13929v1"
     },
@@ -107,7 +215,7 @@
       "title": "Detecting unusual trading patterns on cryptocurrency exchanges by means of complexity measures",
       "page": 7,
       "thumb": "/data/figures/2607.13916v1_p7_0.jpg",
-      "caption": "Figure 1. Evolution of the cumulative log-returns \u02c6R(t), trading volume V\u2206t=1min(t), and the number of trans- actions N\u2206t=1min(t) for BTC on Binance (top left), Bitget (top right), Kraken (bottom left), and KuCoin (bottom right). The period of increased transaction activity is marked by a red dashed ellipse. \u2014 This figure displays time series data for Bitcoin (BTC) across four major cryptocurrency exchanges (Binance, Bitget, Kraken, KuCoin) from April to July 2025. Each exchange panel contains t",
+      "caption": "Figure 1. Evolution of the cumulative log-returns \u02c6R(t), trading volume V\u2206t=1min(t), and the number of trans- actions N\u2206t=1min(t) for BTC on Binance (top left), Bitget (top right), Kraken (bottom left), and KuCoin (bottom right). The period of increased transaction activity is marked by a red dashed ellipse. \u2014 This figure displays time series data for Bitcoin trading on four cryptocurrency exchanges (Binance, Bitget, Kraken, and KuCoin) from April to July 2025, with three panels per exchange sho",
       "vision": true,
       "source": "https://arxiv.org/pdf/2607.13916v1"
     },
@@ -116,120 +224,84 @@
       "title": "Detecting unusual trading patterns on cryptocurrency exchanges by means of complexity measures",
       "page": 8,
       "thumb": "/data/figures/2607.13916v1_p8_1.jpg",
-      "caption": "Figure 2. The same as in Fig. 1, but for ETH. \u2014 This figure displays four subpanels showing Ethereum (ETH) trading data across four major cryptocurrency exchanges (Binance, Bitget, Kraken, and Kacoin) from April to July 2025. Each subpanel contains three time series stacked vertically: the log return (R\u209c) at the top, trading volume (V\u209c) in the middle, and number of trades (N\u209c) at the bottom. The key takeaway is that trading activity patterns, including volume spikes and transaction counts, vary ",
+      "caption": "Figure 2. The same as in Fig. 1, but for ETH. \u2014 This figure displays time series data for Ethereum (ETH) across four cryptocurrency exchanges (Binance, Bitget, Kraken, and Kacoin) from April to July 2025. Each panel contains three subplots showing price returns (R\u209a, top), trading volume (V\u209a, middle), and number of trades (N\u209a, bottom) over time. The key takeaway is the comparison of trading activity patterns and volatility across different exchanges, with notable spikes in volume and trade count ",
       "vision": true,
       "source": "https://arxiv.org/pdf/2607.13916v1"
-    },
-    {
-      "doc_id": "2607.13916v1",
-      "title": "Detecting unusual trading patterns on cryptocurrency exchanges by means of complexity measures",
-      "page": 9,
-      "thumb": "/data/figures/2607.13916v1_p9_2.jpg",
-      "caption": "Figure 3. The same as in Fig. 1, but for XRP. \u2014 This figure presents time series data for XRP (Ripple) across four major cryptocurrency exchanges\u2014Binance, Bitget, Kraken, and Kucoin\u2014from April to July 2025. Each panel contains three subplots showing returns (Rt), traded volume (Vt), and number of trades (Nt) over time, with the y-axis displaying these metrics and the x-axis showing the temporal progression. The key takeaway is that XRP exhibits similar volatility patterns and trading activity ac",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.13916v1"
-    },
-    {
-      "doc_id": "2607.13916v1",
-      "title": "Detecting unusual trading patterns on cryptocurrency exchanges by means of complexity measures",
-      "page": 10,
-      "thumb": "/data/figures/2607.13916v1_p10_3.jpg",
-      "caption": "Figure 4. Complementary cumulative distribution functions of standardised absolute log-returns |R| for BTC, ETH, and XRP on Binance, Bitget, Kraken, and KuCoin, together with the Gaussian and power-law (\u03b3 = 3) reference distributions. \u2014 This figure shows three panels displaying complementary cumulative distribution functions (CCDF) of standardized absolute log-returns for Bitcoin (BTC), Ethereum (ETH), and Ripple (XRP) across four cryptocurrency exchanges: Binance, Bitget, Kraken, and Kucoin. Th",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.13916v1"
-    },
-    {
-      "doc_id": "2607.12990v1",
-      "title": "A Noise-Aware Quantum Algorithm for Credit Valuation Adjustments on Real Quantum Hardware",
-      "page": 15,
-      "thumb": "/data/figures/2607.12990v1_p15_0.jpg",
-      "caption": "Figure 1: Quantum encoding of the discretised multi-asset CVA. The unitary GP prepares a coherent superposition over the full time\u2013market grid, while Rv, Rp, and Rq encode the positive exposure, discount factor, and default probability into three dedicated ancillas. The projector \u03a0111 selects the event in which all three ancillas are measured in state |1\u27e9. \u2014 This figure is a block diagram illustrating the quantum circuit architecture for computing Credit Valuation Adjustment (CVA) on a multi-ass",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.12990v1"
-    },
-    {
-      "doc_id": "2607.12990v1",
-      "title": "A Noise-Aware Quantum Algorithm for Credit Valuation Adjustments on Real Quantum Hardware",
-      "page": 21,
-      "thumb": "/data/figures/2607.12990v1_p21_1.jpg",
-      "caption": "Figure 2: Three-qubit circuit Atest used to validate CABIQAE. The final rotation angle \u03c6 is left free to generate different target amplitudes. \u2014 This figure shows a three-qubit quantum circuit diagram with three horizontal lines representing qubits labeled (0), (1), and (2). Each qubit undergoes a sequence of quantum gates including RY and RZ rotations, controlled operations (CX gates shown as dots connected by vertical lines), and final ZZ measurements, with a free rotation parameter \u03c6 used to ",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.12990v1"
-    },
-    {
-      "doc_id": "2607.12990v1",
-      "title": "A Noise-Aware Quantum Algorithm for Credit Valuation Adjustments on Real Quantum Hardware",
-      "page": 22,
-      "thumb": "/data/figures/2607.12990v1_p22_2.jpg",
-      "caption": "Figure 3: Hardware-compatible QCBM ansatz used for the six-qubit state-preparation block. Each variational block combines local single-qubit rotations with parametrised RZZ entanglers placed along a connectivity pattern chosen to respect the target heavy-hex hardware constraints. \u2014 This figure shows a quantum circuit diagram for a six-qubit state-preparation block using a hardware-compatible quantum circuit born machine (QCBM) ansatz. The circuit consists of six qubits (labeled t\u2080 through s\u2083) th",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.12990v1"
-    },
-    {
-      "doc_id": "2607.12990v1",
-      "title": "A Noise-Aware Quantum Algorithm for Credit Valuation Adjustments on Real Quantum Hardware",
-      "page": 23,
-      "thumb": "/data/figures/2607.12990v1_p23_3.jpg",
-      "caption": "Figure 4: Native-tree CRCA ansatz used for the time-dependent controlled rotations Rp and Rq. \u2014 This figure shows a quantum circuit diagram implementing a native-tree CRCA (Controlled Rotation Controlled Ansatz) architecture with three quantum registers. The circuit uses controlled rotation gates (Rx and Rz blocks) and ZZ entangling gates arranged in a tree-like structure to perform time-dependent controlled rotations. The key takeaway is that this native-tree topology minimizes the number of tw",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.12990v1"
-    },
-    {
-      "doc_id": "2607.13112v1",
-      "title": "Anchored Geodesic Analysis for Multivariate Extremes",
-      "page": 5,
-      "thumb": "/data/figures/2607.13112v1_p5_0.jpg",
-      "caption": "Figure 1: Sphere-level geometry in two controlled simulations. The left panel shows a low-dimensional angular law; the right panel shows a variable-specific near-axis regime. Each panel displays selected extreme directions, the canonical anchor and first AGC, and the Fr\u00e9chet anchor and first AGC. \u2014 This figure displays 3D sphere-level geometry for two multivariate extreme value models. The left panel (Model 1) illustrates a low-dimensional angular law with extreme directions clustering along a c",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.13112v1"
-    },
-    {
-      "doc_id": "2607.13112v1",
-      "title": "Anchored Geodesic Analysis for Multivariate Extremes",
-      "page": 9,
-      "thumb": "/data/figures/2607.13112v1_p9_1.jpg",
-      "caption": "Figure 2: Geometry of anchored geodesic component analysis. In the left panel, the open hemisphere H\u00b5 contains the positive Euclidean-spherical directions, and the anchored great subsphere M\u00b5(W) is the approximating set through the anchor. In the central panel, the gnomonic chart centered at \u00b5 sends the hemisphere H\u00b5 to the tangent affine hyperplane \u00b5 + \u00b5\u22a5, identified with \u00b5\u22a5, and maps the anchore \u2014 This figure illustrates the geometric framework of anchored geodesic component analysis for multi",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.13112v1"
-    },
-    {
-      "doc_id": "2607.12407v1",
-      "title": "Statistical Properties and Power Analysis of Divergence Measures for Credit Risk Model Monitoring",
-      "page": 9,
-      "thumb": "/data/figures/2607.12407v1_p9_0.jpg",
-      "caption": "Figure 1: Empirical Distributions of Divergence Indicators Histograms and Asymptotically Exact Densities \u2014 This figure displays empirical distributions and theoretical comparisons for three divergence measures (Hellinger, Kullback-Leibler, and Jensen-Shannon) used in credit risk monitoring. The left column shows histograms of empirical distributions (colored fills) overlaid with theoretical density curves (black lines), while the right column presents Q-Q plots comparing empirical quantiles agai",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.12407v1"
-    },
-    {
-      "doc_id": "2607.12407v1",
-      "title": "Statistical Properties and Power Analysis of Divergence Measures for Credit Risk Model Monitoring",
-      "page": 10,
-      "thumb": "/data/figures/2607.12407v1_p10_1.jpg",
-      "caption": "Figure 2: Divergence Indicator Empirical vs Exact CDF and Quantile Ratios \u2014 This figure presents six panels comparing empirical and theoretical cumulative distribution functions (CDFs) and quantile ratios for four divergence measures used in credit risk monitoring: Population Stability Index, Kullback-Leibler Divergence, Jensen-Shannon Divergence, and Cram\u00e9r-von Mises statistic. The top three panels display sigmoid-shaped empirical CDFs (colored curves) overlaid against theoretical CDFs (black c",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.12407v1"
-    },
-    {
-      "doc_id": "2607.12407v1",
-      "title": "Statistical Properties and Power Analysis of Divergence Measures for Credit Risk Model Monitoring",
-      "page": 10,
-      "thumb": "/data/figures/2607.12407v1_p10_2.jpg",
-      "caption": "Figure 2 confirms these theoretical discussion empirically: the JSD/PSI ratio \u2014 This figure displays six panels comparing empirical versus theoretical cumulative distribution functions (CDFs) and quantile ratios for divergence measures used in credit risk monitoring. The top three panels show cumulative probability curves plotting proportion of simulations (y-axis) against JSD/PSI ratio values (x-axis), comparing empirical distributions (blue, red, and black lines) to theoretical predictions wit",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.12407v1"
-    },
-    {
-      "doc_id": "2607.12407v1",
-      "title": "Statistical Properties and Power Analysis of Divergence Measures for Credit Risk Model Monitoring",
-      "page": 17,
-      "thumb": "/data/figures/2607.12407v1_p17_3.jpg",
-      "caption": "Figure 3: Default Models with respect to Time \u2014 This line chart displays the probability of default over time (0-14 units) for three different models: SVJ (blue), Merton with Jump (orange), and standard Merton (green). All three models show increasing default probability trajectories, with Merton with Jump producing the highest probability values, followed by SVJ, and standard Merton producing the lowest. The key takeaway is that incorporating jump components into structural default models signi",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.12407v1"
     }
   ],
   "docs": [
+    {
+      "id": "2607.15195v1",
+      "title": "SciPhy Reinforcement Learning for Portfolio Optimization",
+      "source": "https://arxiv.org/pdf/2607.15195v1",
+      "pages": 69,
+      "images": 0,
+      "figures_captioned": 0,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 64
+    },
+    {
+      "id": "2607.15119v1",
+      "title": "Thermodynamic theory of voting and EU elections",
+      "source": "https://arxiv.org/pdf/2607.15119v1",
+      "pages": 10,
+      "images": 1,
+      "figures_captioned": 4,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 27
+    },
+    {
+      "id": "2607.15057v1",
+      "title": "Existence and convergence of discrete-time Kyle models with multiple insiders",
+      "source": "https://arxiv.org/pdf/2607.15057v1",
+      "pages": 35,
+      "images": 0,
+      "figures_captioned": 0,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 26
+    },
+    {
+      "id": "2607.14518v1",
+      "title": "Structure-Aware Variational State Preparation for Quantum Basket Option Pricing",
+      "source": "https://arxiv.org/pdf/2607.14518v1",
+      "pages": 39,
+      "images": 0,
+      "figures_captioned": 4,
+      "tables": 1,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 38
+    },
+    {
+      "id": "2607.14373v1",
+      "title": "A Noise-Robust Elicit-to-Optimize Framework for Distortion Riskmetrics via Inverse Reinforcement Learning",
+      "source": "https://arxiv.org/pdf/2607.14373v1",
+      "pages": 35,
+      "images": 0,
+      "figures_captioned": 0,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 37
+    },
+    {
+      "id": "2607.14361v1",
+      "title": "NeuralChaos: Optimal Adapted Approximation of Square Integrable Predictable Processes",
+      "source": "https://arxiv.org/pdf/2607.14361v1",
+      "pages": 45,
+      "images": 6,
+      "figures_captioned": 4,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 70
+    },
     {
       "id": "2607.13929v1",
       "title": "VAIOM: Continuous-Input, Discrete-Output Decoder-Only Financial Sequence Modeling",
@@ -248,11 +320,23 @@
       "source": "https://arxiv.org/pdf/2607.13916v1",
       "pages": 42,
       "images": 26,
-      "figures_captioned": 4,
+      "figures_captioned": 2,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 55
+      "chunks_indexed": 53
+    },
+    {
+      "id": "2607.14174v1",
+      "title": "How Much of a 10-K Matters? Aggregation-Dependent Value of Full-Text versus Risk-Factor Sentiment",
+      "source": "https://arxiv.org/pdf/2607.14174v1",
+      "pages": 13,
+      "images": 10,
+      "figures_captioned": 0,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 22
     },
     {
       "id": "2607.13353v1",
@@ -265,90 +349,6 @@
       "has_math": false,
       "ocr_used": false,
       "chunks_indexed": 9
-    },
-    {
-      "id": "2607.12990v1",
-      "title": "A Noise-Aware Quantum Algorithm for Credit Valuation Adjustments on Real Quantum Hardware",
-      "source": "https://arxiv.org/pdf/2607.12990v1",
-      "pages": 56,
-      "images": 0,
-      "figures_captioned": 4,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 48
-    },
-    {
-      "id": "2607.13112v1",
-      "title": "Anchored Geodesic Analysis for Multivariate Extremes",
-      "source": "https://arxiv.org/pdf/2607.13112v1",
-      "pages": 97,
-      "images": 0,
-      "figures_captioned": 2,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 38
-    },
-    {
-      "id": "2607.12479v2",
-      "title": "Ito-Wentzell Formula and Dupire Stochastic PDE",
-      "source": "https://arxiv.org/pdf/2607.12479v2",
-      "pages": 6,
-      "images": 0,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 11
-    },
-    {
-      "id": "2607.12407v1",
-      "title": "Statistical Properties and Power Analysis of Divergence Measures for Credit Risk Model Monitoring",
-      "source": "https://arxiv.org/pdf/2607.12407v1",
-      "pages": 24,
-      "images": 3,
-      "figures_captioned": 4,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 39
-    },
-    {
-      "id": "2607.12248v1",
-      "title": "When Directional Accuracy Lies: A Base-Rate-Honest Benchmark for LoRA-Adapted TimesFM on Equity Forecasting",
-      "source": "https://arxiv.org/pdf/2607.12248v1",
-      "pages": 10,
-      "images": 4,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 15
-    },
-    {
-      "id": "2607.12156v1",
-      "title": "(Early) AI Compute Asset Pricing",
-      "source": "https://arxiv.org/pdf/2607.12156v1",
-      "pages": 47,
-      "images": 3,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 38
-    },
-    {
-      "id": "2607.11335v1",
-      "title": "Minimizing Benchmark-Relative Drawdown Duration via Occupation Time Penalization",
-      "source": "https://arxiv.org/pdf/2607.11335v1",
-      "pages": 31,
-      "images": 2,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 39
     }
   ]
 }
