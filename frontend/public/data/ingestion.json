@@ -1,7 +1,7 @@
 {
   "_note": "Public run manifest of the Tier-3 agentic ingestion pipeline. Safe aggregates + provenance only; raw PDFs live in S3, not here.",
-  "run_id": "20260719T053232Z",
-  "generated_at": "2026-07-19T05:36:21+00:00",
+  "run_id": "20260720T055033Z",
+  "generated_at": "2026-07-20T05:54:23+00:00",
   "collection": "research_corpus",
   "embed_model": "BAAI/bge-small-en-v1.5",
   "dag": [
@@ -50,28 +50,172 @@
     "discovered": 10,
     "fetched": 10,
     "parsed": 10,
-    "chunks": 438,
-    "accepted": 397,
-    "rejected": 41,
-    "images": 43,
+    "chunks": 460,
+    "accepted": 413,
+    "rejected": 47,
+    "images": 58,
     "figures_captioned": 18,
-    "tables": 1,
+    "tables": 3,
     "with_math": 9,
-    "indexed": 397,
-    "spent_usd": 0.032,
-    "duration_s": 229.4
+    "indexed": 413,
+    "spent_usd": 0.0324,
+    "duration_s": 230.1
   },
   "rejects_by_reason": {
-    "low-relevance": 41
+    "low-relevance": 47
   },
   "budget_usd": 3.0,
   "figures": [
+    {
+      "doc_id": "2607.15962v1",
+      "title": "Equilibrium analysis in a multi-agent reinsurance chain",
+      "page": 4,
+      "thumb": "/data/figures/2607.15962v1_p4_0.jpg",
+      "caption": "Fig. 1 The reinsurance chain of m insurers and n reinsurers \u2014 This diagram illustrates a reinsurance chain structure with two layers: m insurers (shown in yellow ovals on the left) and n reinsurers (shown in blue ovals on the right). The insurers are connected to the reinsurance layer, which forms a sequential chain where each reinsurer passes risk to the next reinsurer in the chain, with bidirectional arrows indicating two-way interactions between consecutive reinsurers. The key takeaway is the",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.15962v1"
+    },
+    {
+      "doc_id": "2607.15962v1",
+      "title": "Equilibrium analysis in a multi-agent reinsurance chain",
+      "page": 19,
+      "thumb": "/data/figures/2607.15962v1_p19_1.jpg",
+      "caption": "Fig. 2 The impact of swapping the positions of reinsurer R2 and R3 on the safety loading strategies \u2014 This figure displays six subplots for each of two reinsurance chains (a) First chain and (b) Second chain, comparing safety loading strategies before and after exchanging the positions of reinsurers R2 and R3. Each subplot plots safety loading \u03c6(t) against time t from 0 to 10, with solid lines representing the original chain and dashed lines representing the exchanged chain. The panels show diff",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.15962v1"
+    },
+    {
+      "doc_id": "2607.15962v1",
+      "title": "Equilibrium analysis in a multi-agent reinsurance chain",
+      "page": 19,
+      "thumb": "/data/figures/2607.15962v1_p19_2.jpg",
+      "caption": "Fig. 2 depicts the variation of safety loading strategies under different reinsurance chain structures. After the exchange of the reinsurer R2 and reinsurer R3, the safety loading strategy of reinsurer R1, R2, R3 decreases, whereas those of R4 and R5 increase. From the analysis of Theorem 4.5, when \u03b3R2 > \u03b3R3, the reinsurer R4 is confronted with a more risk \u2014 This figure displays six panels comparing safety loading strategies (\u03c1 values on y-axes) across time (t on x-axes) for two different reinsu",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.15962v1"
+    },
+    {
+      "doc_id": "2607.15962v1",
+      "title": "Equilibrium analysis in a multi-agent reinsurance chain",
+      "page": 20,
+      "thumb": "/data/figures/2607.15962v1_p20_3.jpg",
+      "caption": "Fig. 3 depicts the variation of reinsurance strategies under different reinsurance chain structures. The reinsurer R2 tends to increase its reinsurance strategy q3 \u2014 This figure illustrates how reinsurance strategies vary across different chain structures in a multi-agent reinsurance market. The chart shows the reinsurance strategy parameter q\u2083 for reinsurer R\u2082 as it responds to changes in the reinsurance chain configuration, demonstrating that R\u2082 increases its reinsurance business when facing a",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.15962v1"
+    },
+    {
+      "doc_id": "2607.15952v1",
+      "title": "Consistent pricing of bivariate interest rate exotics via constrained Schr\u00f6dinger optimal transport",
+      "page": 8,
+      "thumb": "/data/figures/2607.15952v1_p8_0.jpg",
+      "caption": "Figure 1: Calibration accuracy for 2Y CMS options for \u201cBase GC\u2019 with \u03c1 = 78%. \u2014 This line chart compares model-predicted versus market prices for 2-year CMS swaption volatilities across different strike levels. The x-axis represents strikes (ranging from -0.02 to 0.07), and the y-axis shows 2Y CMS volatility values (0.006 to 0.011). The green line with square markers represents the Base GC Rho 78 model calibration, which closely tracks the market data points (blue markers), with a vertical orang",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.15952v1"
+    },
+    {
+      "doc_id": "2607.15952v1",
+      "title": "Consistent pricing of bivariate interest rate exotics via constrained Schr\u00f6dinger optimal transport",
+      "page": 8,
+      "thumb": "/data/figures/2607.15952v1_p8_1.jpg",
+      "caption": "Figure 2: Calibration accuracy for 20Y CMS options for \u201cBase GC\u2019 with \u03c1 = 78%. \u2014 These line charts compare model-implied volatility against market volatility for 2-year and 20-year CMS (Constant Maturity Swap) swaptions across different strike levels. Each chart plots market data (blue), the Base GC Rho 78% model (green), and the ATM strike (yellow vertical line), with volatility on the y-axis and strikes on the x-axis. The model calibration closely tracks market volatility across the strike ran",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.15952v1"
+    },
+    {
+      "doc_id": "2607.15952v1",
+      "title": "Consistent pricing of bivariate interest rate exotics via constrained Schr\u00f6dinger optimal transport",
+      "page": 9,
+      "thumb": "/data/figures/2607.15952v1_p9_2.jpg",
+      "caption": "Figure 3: Calibration accuracy for 2s20s CMS spread options for \u201cBase GC\u2019 with \u03c1 = 78%. \u2014 This scatter plot compares model-predicted versus market 20y2y spread volatilities across different strikes for a CMS spread option. The x-axis shows strikes (ranging from -0.02 to 0.035), the y-axis shows spread volatility (0.0045 to 0.0075), with green circles representing the Base GC Rho 78% model and a yellow vertical line marking the ATM strike. The model demonstrates close calibration accuracy to mark",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.15952v1"
+    },
+    {
+      "doc_id": "2607.15952v1",
+      "title": "Consistent pricing of bivariate interest rate exotics via constrained Schr\u00f6dinger optimal transport",
+      "page": 9,
+      "thumb": "/data/figures/2607.15952v1_p9_3.jpg",
+      "caption": "Figure 4: Calibration accuracy for 2Y CMS options for \u201cLower GC\u2019 with \u03c1 = 78% and \u03b5 = 0.001 (payoff is an ATM option on X + Y as discussed in the text). \u2014 These two line charts compare model-predicted versus market implied volatilities for interest rate derivative options. The top panel shows 2s20s CMS spread option volatility across strikes (x-axis ranges from -0.02 to 0.035), while the bottom panel displays 2Y CMS option volatility across a similar strike range. Both charts plot market data (b",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.15952v1"
+    },
+    {
+      "doc_id": "2607.15872v1",
+      "title": "Existence of $q$-Bass martingales in the semidiscrete setting",
+      "page": 5,
+      "thumb": "/data/figures/2607.15872v1_p5_0.jpg",
+      "caption": "Figure 1: Convex order and irreducibility in terms of integrated quantile functions. \u2014 This figure displays two side-by-side line plots comparing integrated quantile functions U_\u03bd(x) (red) and U_\u03bc(x) (blue) across the domain [0,1]. The left panel (a) shows an irreducible pair of measures (\u03bc,\u03bd) where \u03bd dominates \u03bc in convex order, with the red curve lying above the blue curve throughout. The right panel (b) shows a non-irreducible pair where \u03bc \u2264_c \u03bd does not hold, despite using different distribu",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.15872v1"
+    },
+    {
+      "doc_id": "2607.15872v1",
+      "title": "Existence of $q$-Bass martingales in the semidiscrete setting",
+      "page": 18,
+      "thumb": "/data/figures/2607.15872v1_p18_1.jpg",
+      "caption": "Figure 2: Minimal diagonal gap and L-approximations of a convex polygonal chain C. \u2014 This figure compares a convex polygonal chain and its approximations through two related panels. The left panel (a) displays a polygonal chain C in red with a minimal-gap index of 3, marked by three corner points (C\u2081, C\u2082, C\u2083) and angles (\u03b4\u2081, \u03b4\u2082, \u03b4\u2083), plotted on axes from 0.0 to 1.0 horizontally and 0.0 to -0.6 vertically. The right panel (b) shows the 1/2-approximation C^(0) of chain C in green alongside the ori",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.15872v1"
+    },
+    {
+      "doc_id": "2607.15872v1",
+      "title": "Existence of $q$-Bass martingales in the semidiscrete setting",
+      "page": 20,
+      "thumb": "/data/figures/2607.15872v1_p20_2.jpg",
+      "caption": "Figure 3: Illustration of the algorithm in Theorem 3.7 and Lemma 3.15. \u2014 I cannot see a figure in the provided image\u2014only text from a mathematical paper discussing Lemma 3.15, Theorem 3.7, and Remark 3.14 regarding q-Bass maps and minimal-gap indices. The passage describes an algorithmic construction using successive approximations and limit points, but no actual figure, chart, or diagram is visible in this portion of the document. To caption \"Figure 3,\" the actual visual content would be needed",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.15872v1"
+    },
+    {
+      "doc_id": "2607.15872v1",
+      "title": "Existence of $q$-Bass martingales in the semidiscrete setting",
+      "page": 24,
+      "thumb": "/data/figures/2607.15872v1_p24_3.jpg",
+      "caption": "Figure 4: Example with i = 2. Definition 3.10 gives \u03b42 < \u03b4. Therefore, by Remark 2.4 and Proposition 3.6, f2(eh1, 0,eh3) \u2265C2. \u2014 This line plot displays three pricing functions f\u2081(h), f\u2082(h), and f\u2083(h) across the unit interval [0,1], with vertical dashed lines marking critical price points p\u2081*, p\u2082*, and p\u0304\u2083* = p\u2083*. The y-axis represents function values ranging from 0 to -0.6, while the x-axis represents h from 0 to 1.0. The figure demonstrates that f\u2082(h) achieves the minimum value at h\u22480.5, with t",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.15872v1"
+    },
+    {
+      "doc_id": "2607.15414v1",
+      "title": "AI Trading: Evaluating Large Language Models for Technical Market Analysis",
+      "page": 21,
+      "thumb": "/data/figures/2607.15414v1_p21_0.jpg",
+      "caption": "Figure 1 Sharpe Ratio Comparison Across LLM-Driven Trading Strategies vs. S&P 500 Benchmark (Simulated / Illustrative \u2014 This bar chart compares Sharpe ratios across five large language model-driven trading strategies over a 12-month backtesting period. The y-axis displays Sharpe ratio values from 0 to 1.6, while the x-axis shows five LLM models: GPT-4 Turbo (1.42), Claude 3 Opus (1.18), Gemini 1.5 Pro (0.97), Llama 3 70B (0.74), and FinGPT (1.31), with a green dashed line indicating the S&P 500 ",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.15414v1"
+    },
+    {
+      "doc_id": "2607.15414v1",
+      "title": "AI Trading: Evaluating Large Language Models for Technical Market Analysis",
+      "page": 21,
+      "thumb": "/data/figures/2607.15414v1_p21_1.jpg",
+      "caption": "Figure 2 Cumulative Portfolio Return (%) over 12-Month Backtesting Period (Simulated / Illustrative Data). GPT-4 Turbo \u2014 Figure 2 is a line chart showing cumulative portfolio returns (%) over a 12-month backtesting period for five LLM-driven trading strategies compared to the S&P 500 benchmark. The x-axis represents months (January through December) and the y-axis shows cumulative return percentage (0-30%). GPT-4 Turbo delivers the highest cumulative return at approximately 32%, followed by FinG",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.15414v1"
+    },
+    {
+      "doc_id": "2607.15414v1",
+      "title": "AI Trading: Evaluating Large Language Models for Technical Market Analysis",
+      "page": 22,
+      "thumb": "/data/figures/2607.15414v1_p22_2.jpg",
+      "caption": "Figure 3 Multi-Dimensional Model Performance Comparison (Normalized Scores, Simulated / Illustrative Data). \u2014 This radar chart compares five large language models (GPT-4 Turbo, Claude 3 Opus, Gemini 1.5 Pro, Llama 3 70B, and FinGPT) across six normalized performance dimensions: Speed, Accuracy, Cost Efficiency, Hallucination Resistance, Domain Knowledge, and Hallucination Resistance. Each model is represented by a colored polygon overlay, with normalized scores ranging from 0 to 1.0 on radial ax",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.15414v1"
+    },
+    {
+      "doc_id": "2607.15414v1",
+      "title": "AI Trading: Evaluating Large Language Models for Technical Market Analysis",
+      "page": 22,
+      "thumb": "/data/figures/2607.15414v1_p22_3.jpg",
+      "caption": "Figure 4 LLM-Based Trading Strategy Evaluation Pipeline Architecture. Data flows from raw OHLCV and document inputs \u2014 This radar chart compares normalized performance metrics across multiple large language models (Gemini 1.5 Pro, Claude 3 Opus, and FinGPT) on five dimensions: Accuracy, Speed, Cost Efficiency, Hallucination Resistance, and Domain Knowledge. The chart uses a multi-axis polygon visualization where each axis represents a normalized score from 0 to 1.0, with blue shaded regions indic",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.15414v1"
+    },
     {
       "doc_id": "2607.15119v1",
       "title": "Thermodynamic theory of voting and EU elections",
       "page": 2,
       "thumb": "/data/figures/2607.15119v1_p2_0.jpg",
-      "caption": "Fig. 1: (Color on-line) Left: Lorenz curves of EU elections of Germany (DE; top) and France (FR, bottom) since 1994. The x-axis corresponds to the cumulated fraction of house- holds/political parties (h) and the y-axis to the cumulated frac- tion of wealth/obtained votes (w). The dashed black line corre- sponds to the line of perfect equipartition w = h. The Gini co- efficients G and number of pol \u2014 This figure displays Lorenz curves comparing income/wealth inequality with political vote distrib",
+      "caption": "Fig. 1: (Color on-line) Left: Lorenz curves of EU elections of Germany (DE; top) and France (FR, bottom) since 1994. The x-axis corresponds to the cumulated fraction of house- holds/political parties (h) and the y-axis to the cumulated frac- tion of wealth/obtained votes (w). The dashed black line corre- sponds to the line of perfect equipartition w = h. The Gini co- efficients G and number of pol \u2014 This figure displays Lorenz curves comparing wealth inequality and political vote concentration i",
       "vision": true,
       "source": "https://arxiv.org/pdf/2607.15119v1"
     },
@@ -80,156 +224,60 @@
       "title": "Thermodynamic theory of voting and EU elections",
       "page": 3,
       "thumb": "/data/figures/2607.15119v1_p3_1.jpg",
-      "caption": "Fig. 2: (Color on-line) As Fig. 1 for the EU 2024 elections of DE (top) and FR (bottom). In addition, to the real data (red points) also the (green) theoretical RJS Lorenz curves (left panels) are shown (see Table 1 for specific values of G, \u03b5 and Np). For the Pareto curves (right panels) the average \u27e8wm\u27e9is either 1/Np (real data) or \u03b5 (RJS curves). See also SupMat Figs. S1 and S2 for similar figu \u2014 This figure displays analysis of the 2024 EU elections for Germany (DE) and France (FR), comparin",
+      "caption": "Fig. 2: (Color on-line) As Fig. 1 for the EU 2024 elections of DE (top) and FR (bottom). In addition, to the real data (red points) also the (green) theoretical RJS Lorenz curves (left panels) are shown (see Table 1 for specific values of G, \u03b5 and Np). For the Pareto curves (right panels) the average \u27e8wm\u27e9is either 1/Np (real data) or \u03b5 (RJS curves). See also SupMat Figs. S1 and S2 for similar figu \u2014 This figure displays a four-panel comparison of voting distribution analysis for EU 2024 election",
       "vision": true,
       "source": "https://arxiv.org/pdf/2607.15119v1"
-    },
-    {
-      "doc_id": "2607.15119v1",
-      "title": "Thermodynamic theory of voting and EU elections",
-      "page": 4,
-      "thumb": "/data/figures/2607.15119v1_p4_2.jpg",
-      "caption": "Fig. 3: (Color on-line) Density color plot of Lorenz curves for 10 countries (2024 EU elections) obtained from the RJS model for the 6 countries DE, FR, IT, ES, NL, CZ and from the op- timal RJE model for the 4 countries PL, RO, BE, SE (cases with a visible difference between RJS and optimal RJE curve). The x-axis corresponds to the cumulated fraction of house- holds/political parties (h) and the  \u2014 This heatmap displays Lorenz curves for 10 European countries' 2024 EU election results, with the",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.15119v1"
-    },
-    {
-      "doc_id": "2607.15119v1",
-      "title": "Thermodynamic theory of voting and EU elections",
-      "page": 5,
-      "thumb": "/data/figures/2607.15119v1_p5_3.jpg",
-      "caption": "Fig. 4: (Color on-line) Left: Dependence of the Gini coeffi- cient G for the EU elections of DE (red) and FR (blue) on the election year (using the same data as in Fig. 1). Right: Gini coefficient G for the EU elections 2024 for 10 European coun- tries (green) ordered with increasing size of population (from left to right; using the same data as in Fig. 3). \u2014 This figure displays the Gini coefficient as a measure of electoral inequality across European Union elections. The left panel is a line c",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.15119v1"
-    },
-    {
-      "doc_id": "2607.14518v1",
-      "title": "Structure-Aware Variational State Preparation for Quantum Basket Option Pricing",
-      "page": 9,
-      "thumb": "/data/figures/2607.14518v1_p9_0.jpg",
-      "caption": "Fig. 1: General circuit architecture of the marginal-TT loader with a latent depen- dence block. The registers A1, . . . , Ad denote the d asset registers, with q uncertainty qubits assigned to each asset, and L denotes an auxiliary latent register with nL qubits. Ua(\u03b8\u2217 \u2014 This diagram illustrates a quantum circuit architecture for a marginal-TT (tensor-train) loader with a latent dependence block. The circuit shows d asset registers (|0\u27e9_A^q through |0\u27e9_A^q) on the left, each fed through tensor-",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.14518v1"
-    },
-    {
-      "doc_id": "2607.14518v1",
-      "title": "Structure-Aware Variational State Preparation for Quantum Basket Option Pricing",
-      "page": 11,
-      "thumb": "/data/figures/2607.14518v1_p11_1.jpg",
-      "caption": "Figure 1 summarizes the general circuit architecture for an arbitrary number of assets. Each asset register is first prepared by a TT-informed marginal loader, and the resulting product-marginal state is passed, together with an auxiliary latent register, through the latent dependence block. The latent outcome is marginalized out when computing the asset-register measurement distribution. Figure 2 \u2014 This text excerpt describes a quantum circuit architecture for pricing basket options with multip",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.14518v1"
-    },
-    {
-      "doc_id": "2607.14518v1",
-      "title": "Structure-Aware Variational State Preparation for Quantum Basket Option Pricing",
-      "page": 12,
-      "thumb": "/data/figures/2607.14518v1_p12_2.jpg",
-      "caption": "Fig. 2: Marginal-TT + latent basket-projection loader for a two-asset example with q = 3 uncertainty qubits per asset. TT-informed marginal loaders act locally on each asset register, followed by a latent-conditioned dependence layer. The auxiliary latent qubit z controls rotations on the asset qubits, while CNOT chains are restricted to individual asset registers. \u2014 This figure depicts a quantum circuit architecture for a variational state preparation model combining tensor-train informed margi",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.14518v1"
-    },
-    {
-      "doc_id": "2607.14518v1",
-      "title": "Structure-Aware Variational State Preparation for Quantum Basket Option Pricing",
-      "page": 23,
-      "thumb": "/data/figures/2607.14518v1_p23_3.jpg",
-      "caption": "Fig. 3: Correlated-basket comparison for q = 2 uncertainty qubits per asset. (a) Relative pricing error at strike K = 55. (b) Transpiled state-preparation depth on a logarithmic scale. Exact loading is shown only in panel (b), since it prepares the discretized target state exactly. See Table D1 for the full results. \u2014 Figure 3 presents two line plots comparing quantum circuit methods for pricing a correlated basket option with 2 uncertainty qubits per asset. Panel (a) shows relative pricing erro",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.14518v1"
-    },
-    {
-      "doc_id": "2607.14361v1",
-      "title": "NeuralChaos: Optimal Adapted Approximation of Square Integrable Predictable Processes",
-      "page": 4,
-      "thumb": "/data/figures/2607.14361v1_p4_0.jpg",
-      "caption": "Figure 1. Our NeuralChaos architecture (for details cf. Section 3): The input Brownian path is first sampled at the time-points 0 = t0 < t1 < \u00b7 \u00b7 \u00b7 < tM = T. (cf. Figure 4a), producing the path-wise evaluations Wt0, . . . , WtM\u22121; notice that no iterated integrals are explicitly computed, only implicitly. Lifting Channels: These evaluations are mapped, via a sequence of K lower-triangular matrices \u2014 This figure illustrates the NeuralChaos neural network architecture for approximating square-inte",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.14361v1"
-    },
-    {
-      "doc_id": "2607.14361v1",
-      "title": "NeuralChaos: Optimal Adapted Approximation of Square Integrable Predictable Processes",
-      "page": 6,
-      "thumb": "/data/figures/2607.14361v1_p6_1.jpg",
-      "caption": "Figure 2. A process which is easy for adaptive approximation methods to approximate but hard for non-adaptive methods. Evidently, at most two parameters are needed to exactly represent any of the illustrated processes: one parameter for the Brownian factor W\u00b7 and one pa- rameter for the higher-order chaos factor \u02dcX \u2217\u00b7; equivalently, each process is a two-term degree-10 polynomial in the Wiener-cha \u2014 This figure displays four time-series panels comparing different process representations over the",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.14361v1"
-    },
-    {
-      "doc_id": "2607.14361v1",
-      "title": "NeuralChaos: Optimal Adapted Approximation of Square Integrable Predictable Processes",
-      "page": 10,
-      "thumb": "/data/figures/2607.14361v1_p10_2.jpg",
-      "caption": "Figure 3. Compressibility vs. Incompressibility. A compressible process is one whose chaoslet expansion, cf. (9), can be rearranged to exhibit at least power-law coefficient decay, cf. (10). The left subfigure illustrates the expansion in the default chaoslet ordering of Call, cf. (7), while the middle subfigure illustrates the same expansion after sorting the chaoslets by coefficient magnitude; i \u2014 This figure displays three bar charts comparing chaoslet coefficient distributions for compressib",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.14361v1"
-    },
-    {
-      "doc_id": "2607.14361v1",
-      "title": "NeuralChaos: Optimal Adapted Approximation of Square Integrable Predictable Processes",
-      "page": 13,
-      "thumb": "/data/figures/2607.14361v1_p13_3.jpg",
-      "caption": "Figure 4. Inputs and causal assembly in the NeuralChaos architecture. Panel 4a shows the sto- chastic input: the Brownian path is sampled at a finite ordered grid 0 = t0 < t1 < \u00b7 \u00b7 \u00b7 < tM = T producing the causally ordered samples These samples are processed by lower-triangular lifting matrices and row-wise neural heads, so that the mth random output is measurable with respect to the information a \u2014 This figure illustrates the inputs and causal processing mechanism in the NeuralChaos architectur",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.14361v1"
-    },
-    {
-      "doc_id": "2607.13929v1",
-      "title": "VAIOM: Continuous-Input, Discrete-Output Decoder-Only Financial Sequence Modeling",
-      "page": 7,
-      "thumb": "/data/figures/2607.13929v1_p7_0.jpg",
-      "caption": "Figure 1 summarizes the split and information-flow rules. Recursive feature states continue causally across boundaries, but fitting ends with Train; the buffer is unscored, Validation selects the model and 2026 onward remains untouched. \u2014 This figure presents a timeline diagram showing the data split structure and information flow rules for a financial forecasting model. The diagram illustrates three distinct phases\u2014Train, Validation, and Test\u2014separated by temporal boundaries, with annotations i",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.13929v1"
-    },
-    {
-      "doc_id": "2607.13929v1",
-      "title": "VAIOM: Continuous-Input, Discrete-Output Decoder-Only Financial Sequence Modeling",
-      "page": 8,
-      "thumb": "/data/figures/2607.13929v1_p8_1.jpg",
-      "caption": "Figure 1: Chronological split and causal information flow. Train determines fitted quantities. Recursive states update from past observations across later intervals, but no fitting occurs after Train. \u2014 This figure shows a horizontal timeline diagram illustrating the temporal split of data for training and evaluation of a financial sequence model. The timeline is divided into five segments: \"Train before 2024\" (blue), \"2024H1 buffer\" (green), \"2024H2 Validation\" (yellow), \"2025H1 Test\" (orange),",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.13929v1"
-    },
-    {
-      "doc_id": "2607.13929v1",
-      "title": "VAIOM: Continuous-Input, Discrete-Output Decoder-Only Financial Sequence Modeling",
-      "page": 10,
-      "thumb": "/data/figures/2607.13929v1_p10_2.jpg",
-      "caption": "Figure 2 summarizes the three alternative input branches and the shared causal backbone. DiscIn and pure ContIn define the primary representation comparison; HybridContIn augments the continuous branch with static categorical metadata. \u2014 This figure illustrates three alternative input representation architectures for a financial sequence model: DiscIn (discrete input), pure ContIn (continuous input), and HybridContIn (hybrid continuous input with metadata). The diagram shows how each branch proc",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.13929v1"
-    },
-    {
-      "doc_id": "2607.13929v1",
-      "title": "VAIOM: Continuous-Input, Discrete-Output Decoder-Only Financial Sequence Modeling",
-      "page": 11,
-      "thumb": "/data/figures/2607.13929v1_p11_3.jpg",
-      "caption": "Figure 2: VAIOM architecture. Alternative DiscIn, pure ContIn and HybridContIn encoders feed the same causal decoder, return head, auxiliary heads and supervision interface. \u2014 This is an architecture diagram showing three alternative input encoder pathways (DiscIn, Pure ContIn, and HybridContIn) that feed into a unified financial sequence modeling system. DiscIn processes 15 categorical fields through 8-d embeddings, Pure ContIn processes 22 continuous fields through an MLP, and HybridContIn com",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.13929v1"
-    },
-    {
-      "doc_id": "2607.13916v1",
-      "title": "Detecting unusual trading patterns on cryptocurrency exchanges by means of complexity measures",
-      "page": 7,
-      "thumb": "/data/figures/2607.13916v1_p7_0.jpg",
-      "caption": "Figure 1. Evolution of the cumulative log-returns \u02c6R(t), trading volume V\u2206t=1min(t), and the number of trans- actions N\u2206t=1min(t) for BTC on Binance (top left), Bitget (top right), Kraken (bottom left), and KuCoin (bottom right). The period of increased transaction activity is marked by a red dashed ellipse. \u2014 This figure displays time series data for Bitcoin trading across four cryptocurrency exchanges (Binance, Bitget, Kraken, and KuCoin) from April to July 2025, with three panels per exchange",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.13916v1"
-    },
-    {
-      "doc_id": "2607.13916v1",
-      "title": "Detecting unusual trading patterns on cryptocurrency exchanges by means of complexity measures",
-      "page": 8,
-      "thumb": "/data/figures/2607.13916v1_p8_1.jpg",
-      "caption": "Figure 2. The same as in Fig. 1, but for ETH. \u2014 This figure displays time series data for Ethereum (ETH) trading activity across four cryptocurrency exchanges: Binance, Bitget, Kraken, and Kacoin from April to July 2025. Each panel contains three subplots showing returns (R\u209c) on the top, trading volume (V\u209c) in the middle, and number of trades (N\u209c) on the bottom plotted against time on the x-axis. The key takeaway is that trading volume and frequency vary substantially across exchanges and over t",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.13916v1"
     }
   ],
   "docs": [
+    {
+      "id": "2607.15962v1",
+      "title": "Equilibrium analysis in a multi-agent reinsurance chain",
+      "source": "https://arxiv.org/pdf/2607.15962v1",
+      "pages": 43,
+      "images": 21,
+      "figures_captioned": 4,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 45
+    },
+    {
+      "id": "2607.15952v1",
+      "title": "Consistent pricing of bivariate interest rate exotics via constrained Schr\u00f6dinger optimal transport",
+      "source": "https://arxiv.org/pdf/2607.15952v1",
+      "pages": 13,
+      "images": 9,
+      "figures_captioned": 4,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 22
+    },
+    {
+      "id": "2607.15872v1",
+      "title": "Existence of $q$-Bass martingales in the semidiscrete setting",
+      "source": "https://arxiv.org/pdf/2607.15872v1",
+      "pages": 47,
+      "images": 23,
+      "figures_captioned": 4,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 63
+    },
+    {
+      "id": "2607.15414v1",
+      "title": "AI Trading: Evaluating Large Language Models for Technical Market Analysis",
+      "source": "https://arxiv.org/pdf/2607.15414v1",
+      "pages": 31,
+      "images": 4,
+      "figures_captioned": 4,
+      "tables": 2,
+      "has_math": false,
+      "ocr_used": false,
+      "chunks_indexed": 43
+    },
     {
       "id": "2607.15195v1",
       "title": "SciPhy Reinforcement Learning for Portfolio Optimization",
@@ -248,16 +296,16 @@
       "source": "https://arxiv.org/pdf/2607.15119v1",
       "pages": 10,
       "images": 1,
-      "figures_captioned": 4,
+      "figures_captioned": 2,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 27
+      "chunks_indexed": 25
     },
     {
-      "id": "2607.15057v1",
+      "id": "2607.15057v2",
       "title": "Existence and convergence of discrete-time Kyle models with multiple insiders",
-      "source": "https://arxiv.org/pdf/2607.15057v1",
+      "source": "https://arxiv.org/pdf/2607.15057v2",
       "pages": 35,
       "images": 0,
       "figures_captioned": 0,
@@ -267,16 +315,28 @@
       "chunks_indexed": 26
     },
     {
+      "id": "2607.15317v1",
+      "title": "Asymptotic fractional-order stochastic dominance with bounded relative risk aversion",
+      "source": "https://arxiv.org/pdf/2607.15317v1",
+      "pages": 26,
+      "images": 0,
+      "figures_captioned": 0,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 54
+    },
+    {
       "id": "2607.14518v1",
       "title": "Structure-Aware Variational State Preparation for Quantum Basket Option Pricing",
       "source": "https://arxiv.org/pdf/2607.14518v1",
       "pages": 39,
       "images": 0,
-      "figures_captioned": 4,
+      "figures_captioned": 0,
       "tables": 1,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 38
+      "chunks_indexed": 34
     },
     {
       "id": "2607.14373v1",
@@ -289,66 +349,6 @@
       "has_math": true,
       "ocr_used": false,
       "chunks_indexed": 37
-    },
-    {
-      "id": "2607.14361v1",
-      "title": "NeuralChaos: Optimal Adapted Approximation of Square Integrable Predictable Processes",
-      "source": "https://arxiv.org/pdf/2607.14361v1",
-      "pages": 45,
-      "images": 6,
-      "figures_captioned": 4,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 70
-    },
-    {
-      "id": "2607.13929v1",
-      "title": "VAIOM: Continuous-Input, Discrete-Output Decoder-Only Financial Sequence Modeling",
-      "source": "https://arxiv.org/pdf/2607.13929v1",
-      "pages": 40,
-      "images": 0,
-      "figures_captioned": 4,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 51
-    },
-    {
-      "id": "2607.13916v1",
-      "title": "Detecting unusual trading patterns on cryptocurrency exchanges by means of complexity measures",
-      "source": "https://arxiv.org/pdf/2607.13916v1",
-      "pages": 42,
-      "images": 26,
-      "figures_captioned": 2,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 53
-    },
-    {
-      "id": "2607.14174v1",
-      "title": "How Much of a 10-K Matters? Aggregation-Dependent Value of Full-Text versus Risk-Factor Sentiment",
-      "source": "https://arxiv.org/pdf/2607.14174v1",
-      "pages": 13,
-      "images": 10,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 22
-    },
-    {
-      "id": "2607.13353v1",
-      "title": "Is Deep Hedging Reinforcement Learning?",
-      "source": "https://arxiv.org/pdf/2607.13353v1",
-      "pages": 7,
-      "images": 0,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": false,
-      "ocr_used": false,
-      "chunks_indexed": 9
     }
   ]
 }
