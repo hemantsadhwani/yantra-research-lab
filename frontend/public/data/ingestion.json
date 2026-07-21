@@ -1,7 +1,7 @@
 {
   "_note": "Public run manifest of the Tier-3 agentic ingestion pipeline. Safe aggregates + provenance only; raw PDFs live in S3, not here.",
-  "run_id": "20260720T055033Z",
-  "generated_at": "2026-07-20T05:54:23+00:00",
+  "run_id": "20260721T053047Z",
+  "generated_at": "2026-07-21T05:34:17+00:00",
   "collection": "research_corpus",
   "embed_model": "BAAI/bge-small-en-v1.5",
   "dag": [
@@ -50,305 +50,305 @@
     "discovered": 10,
     "fetched": 10,
     "parsed": 10,
-    "chunks": 460,
-    "accepted": 413,
-    "rejected": 47,
-    "images": 58,
+    "chunks": 469,
+    "accepted": 429,
+    "rejected": 40,
+    "images": 16,
     "figures_captioned": 18,
-    "tables": 3,
-    "with_math": 9,
-    "indexed": 413,
-    "spent_usd": 0.0324,
-    "duration_s": 230.1
+    "tables": 2,
+    "with_math": 10,
+    "indexed": 429,
+    "spent_usd": 0.0331,
+    "duration_s": 210.6
   },
   "rejects_by_reason": {
-    "low-relevance": 47
+    "low-relevance": 40
   },
   "budget_usd": 3.0,
   "figures": [
     {
-      "doc_id": "2607.15962v1",
-      "title": "Equilibrium analysis in a multi-agent reinsurance chain",
-      "page": 4,
-      "thumb": "/data/figures/2607.15962v1_p4_0.jpg",
-      "caption": "Fig. 1 The reinsurance chain of m insurers and n reinsurers \u2014 This diagram illustrates a reinsurance chain structure with two layers: m insurers (shown in yellow ovals on the left) and n reinsurers (shown in blue ovals on the right). The insurers are connected to the reinsurance layer, which forms a sequential chain where each reinsurer passes risk to the next reinsurer in the chain, with bidirectional arrows indicating two-way interactions between consecutive reinsurers. The key takeaway is the",
+      "doc_id": "2607.18001v1",
+      "title": "AlphaZeroBeta: Deep Reinforcement Learning for Market-Neutral Portfolios",
+      "page": 7,
+      "thumb": "/data/figures/2607.18001v1_p7_0.jpg",
+      "caption": "Fig. 1 AlphaZeroBeta architecture: a three-stage pipeline. Data Loading aggregates twelve het- erogeneous market and alternative data sources. Feature Engineering derives four alpha-signal families (momentum, mean reversion, volatility, and skew/jump) over rolling windows and normalizes them per sector and index into the input tensor. Backtesting formalizes the MDP loop: a Recur- rent PPO trading  \u2014 This figure illustrates the AlphaZeroBeta system architecture as a three-stage pipeline flowchart",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.15962v1"
+      "source": "https://arxiv.org/pdf/2607.18001v1"
     },
     {
-      "doc_id": "2607.15962v1",
-      "title": "Equilibrium analysis in a multi-agent reinsurance chain",
-      "page": 19,
-      "thumb": "/data/figures/2607.15962v1_p19_1.jpg",
-      "caption": "Fig. 2 The impact of swapping the positions of reinsurer R2 and R3 on the safety loading strategies \u2014 This figure displays six subplots for each of two reinsurance chains (a) First chain and (b) Second chain, comparing safety loading strategies before and after exchanging the positions of reinsurers R2 and R3. Each subplot plots safety loading \u03c6(t) against time t from 0 to 10, with solid lines representing the original chain and dashed lines representing the exchanged chain. The panels show diff",
+      "doc_id": "2607.18001v1",
+      "title": "AlphaZeroBeta: Deep Reinforcement Learning for Market-Neutral Portfolios",
+      "page": 10,
+      "thumb": "/data/figures/2607.18001v1_p10_1.jpg",
+      "caption": "Fig. 2 AlphaZeroBeta neural architecture. Three multi-resolution observation tensors (daily, weekly, and monthly), each resampled at the same close, are stacked along the channel axis and processed by a sequential CNN (8/4/3 kernels, 4/2/1 strides, 32/64/64 filters). The flattened feature map feeds a GRU (512 hidden units) and a shared fully connected layer (512 units); the recurrent embedding the \u2014 This figure illustrates the neural network architecture for AlphaZeroBeta, a deep reinforcement l",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.15962v1"
+      "source": "https://arxiv.org/pdf/2607.18001v1"
     },
     {
-      "doc_id": "2607.15962v1",
-      "title": "Equilibrium analysis in a multi-agent reinsurance chain",
-      "page": 19,
-      "thumb": "/data/figures/2607.15962v1_p19_2.jpg",
-      "caption": "Fig. 2 depicts the variation of safety loading strategies under different reinsurance chain structures. After the exchange of the reinsurer R2 and reinsurer R3, the safety loading strategy of reinsurer R1, R2, R3 decreases, whereas those of R4 and R5 increase. From the analysis of Theorem 4.5, when \u03b3R2 > \u03b3R3, the reinsurer R4 is confronted with a more risk \u2014 This figure displays six panels comparing safety loading strategies (\u03c1 values on y-axes) across time (t on x-axes) for two different reinsu",
+      "doc_id": "2607.17991v1",
+      "title": "Optimal Market Making in Prediction Markets",
+      "page": 23,
+      "thumb": "/data/figures/2607.17991v1_p23_0.jpg",
+      "caption": "Figure 1 shows the spread at zero inventory for different price levels as a function of time. Since the bid-ask spread is symmetric around p = 1/2, we restrict our attention to p \u22641/2. The spread generally decreases over time, \u2014 This figure displays a line plot showing bid-ask spread versus price level over time for a market-making model in prediction markets. The x-axis represents price (p) from 0 to 0.5, the y-axis shows spread magnitude, and multiple curves represent different time periods fr",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.15962v1"
+      "source": "https://arxiv.org/pdf/2607.17991v1"
     },
     {
-      "doc_id": "2607.15962v1",
-      "title": "Equilibrium analysis in a multi-agent reinsurance chain",
-      "page": 20,
-      "thumb": "/data/figures/2607.15962v1_p20_3.jpg",
-      "caption": "Fig. 3 depicts the variation of reinsurance strategies under different reinsurance chain structures. The reinsurer R2 tends to increase its reinsurance strategy q3 \u2014 This figure illustrates how reinsurance strategies vary across different chain structures in a multi-agent reinsurance market. The chart shows the reinsurance strategy parameter q\u2083 for reinsurer R\u2082 as it responds to changes in the reinsurance chain configuration, demonstrating that R\u2082 increases its reinsurance business when facing a",
+      "doc_id": "2607.17991v1",
+      "title": "Optimal Market Making in Prediction Markets",
+      "page": 23,
+      "thumb": "/data/figures/2607.17991v1_p23_1.jpg",
+      "caption": "Figure 1. Bid-ask spread of the optimal quotes at flat in- ventory as a function of time t for several price levels p. \u2014 This line graph shows the bid-ask spread of optimal market maker quotes plotted against time t (x-axis from 0.0 to 1.0), with spread values on the y-axis ranging from 0.0400 to 0.0775. The figure displays six different lines representing varying price levels (p = 0.10, 0.15, 0.20, 0.25, 0.30, 0.50), each shown in a different color from dark purple to yellow. All spreads decrea",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.15962v1"
+      "source": "https://arxiv.org/pdf/2607.17991v1"
     },
     {
-      "doc_id": "2607.15952v1",
-      "title": "Consistent pricing of bivariate interest rate exotics via constrained Schr\u00f6dinger optimal transport",
-      "page": 8,
-      "thumb": "/data/figures/2607.15952v1_p8_0.jpg",
-      "caption": "Figure 1: Calibration accuracy for 2Y CMS options for \u201cBase GC\u2019 with \u03c1 = 78%. \u2014 This line chart compares model-predicted versus market prices for 2-year CMS swaption volatilities across different strike levels. The x-axis represents strikes (ranging from -0.02 to 0.07), and the y-axis shows 2Y CMS volatility values (0.006 to 0.011). The green line with square markers represents the Base GC Rho 78 model calibration, which closely tracks the market data points (blue markers), with a vertical orang",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.15952v1"
-    },
-    {
-      "doc_id": "2607.15952v1",
-      "title": "Consistent pricing of bivariate interest rate exotics via constrained Schr\u00f6dinger optimal transport",
-      "page": 8,
-      "thumb": "/data/figures/2607.15952v1_p8_1.jpg",
-      "caption": "Figure 2: Calibration accuracy for 20Y CMS options for \u201cBase GC\u2019 with \u03c1 = 78%. \u2014 These line charts compare model-implied volatility against market volatility for 2-year and 20-year CMS (Constant Maturity Swap) swaptions across different strike levels. Each chart plots market data (blue), the Base GC Rho 78% model (green), and the ATM strike (yellow vertical line), with volatility on the y-axis and strikes on the x-axis. The model calibration closely tracks market volatility across the strike ran",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.15952v1"
-    },
-    {
-      "doc_id": "2607.15952v1",
-      "title": "Consistent pricing of bivariate interest rate exotics via constrained Schr\u00f6dinger optimal transport",
-      "page": 9,
-      "thumb": "/data/figures/2607.15952v1_p9_2.jpg",
-      "caption": "Figure 3: Calibration accuracy for 2s20s CMS spread options for \u201cBase GC\u2019 with \u03c1 = 78%. \u2014 This scatter plot compares model-predicted versus market 20y2y spread volatilities across different strikes for a CMS spread option. The x-axis shows strikes (ranging from -0.02 to 0.035), the y-axis shows spread volatility (0.0045 to 0.0075), with green circles representing the Base GC Rho 78% model and a yellow vertical line marking the ATM strike. The model demonstrates close calibration accuracy to mark",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.15952v1"
-    },
-    {
-      "doc_id": "2607.15952v1",
-      "title": "Consistent pricing of bivariate interest rate exotics via constrained Schr\u00f6dinger optimal transport",
-      "page": 9,
-      "thumb": "/data/figures/2607.15952v1_p9_3.jpg",
-      "caption": "Figure 4: Calibration accuracy for 2Y CMS options for \u201cLower GC\u2019 with \u03c1 = 78% and \u03b5 = 0.001 (payoff is an ATM option on X + Y as discussed in the text). \u2014 These two line charts compare model-predicted versus market implied volatilities for interest rate derivative options. The top panel shows 2s20s CMS spread option volatility across strikes (x-axis ranges from -0.02 to 0.035), while the bottom panel displays 2Y CMS option volatility across a similar strike range. Both charts plot market data (b",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.15952v1"
-    },
-    {
-      "doc_id": "2607.15872v1",
-      "title": "Existence of $q$-Bass martingales in the semidiscrete setting",
-      "page": 5,
-      "thumb": "/data/figures/2607.15872v1_p5_0.jpg",
-      "caption": "Figure 1: Convex order and irreducibility in terms of integrated quantile functions. \u2014 This figure displays two side-by-side line plots comparing integrated quantile functions U_\u03bd(x) (red) and U_\u03bc(x) (blue) across the domain [0,1]. The left panel (a) shows an irreducible pair of measures (\u03bc,\u03bd) where \u03bd dominates \u03bc in convex order, with the red curve lying above the blue curve throughout. The right panel (b) shows a non-irreducible pair where \u03bc \u2264_c \u03bd does not hold, despite using different distribu",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.15872v1"
-    },
-    {
-      "doc_id": "2607.15872v1",
-      "title": "Existence of $q$-Bass martingales in the semidiscrete setting",
-      "page": 18,
-      "thumb": "/data/figures/2607.15872v1_p18_1.jpg",
-      "caption": "Figure 2: Minimal diagonal gap and L-approximations of a convex polygonal chain C. \u2014 This figure compares a convex polygonal chain and its approximations through two related panels. The left panel (a) displays a polygonal chain C in red with a minimal-gap index of 3, marked by three corner points (C\u2081, C\u2082, C\u2083) and angles (\u03b4\u2081, \u03b4\u2082, \u03b4\u2083), plotted on axes from 0.0 to 1.0 horizontally and 0.0 to -0.6 vertically. The right panel (b) shows the 1/2-approximation C^(0) of chain C in green alongside the ori",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.15872v1"
-    },
-    {
-      "doc_id": "2607.15872v1",
-      "title": "Existence of $q$-Bass martingales in the semidiscrete setting",
-      "page": 20,
-      "thumb": "/data/figures/2607.15872v1_p20_2.jpg",
-      "caption": "Figure 3: Illustration of the algorithm in Theorem 3.7 and Lemma 3.15. \u2014 I cannot see a figure in the provided image\u2014only text from a mathematical paper discussing Lemma 3.15, Theorem 3.7, and Remark 3.14 regarding q-Bass maps and minimal-gap indices. The passage describes an algorithmic construction using successive approximations and limit points, but no actual figure, chart, or diagram is visible in this portion of the document. To caption \"Figure 3,\" the actual visual content would be needed",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.15872v1"
-    },
-    {
-      "doc_id": "2607.15872v1",
-      "title": "Existence of $q$-Bass martingales in the semidiscrete setting",
+      "doc_id": "2607.17991v1",
+      "title": "Optimal Market Making in Prediction Markets",
       "page": 24,
-      "thumb": "/data/figures/2607.15872v1_p24_3.jpg",
-      "caption": "Figure 4: Example with i = 2. Definition 3.10 gives \u03b42 < \u03b4. Therefore, by Remark 2.4 and Proposition 3.6, f2(eh1, 0,eh3) \u2265C2. \u2014 This line plot displays three pricing functions f\u2081(h), f\u2082(h), and f\u2083(h) across the unit interval [0,1], with vertical dashed lines marking critical price points p\u2081*, p\u2082*, and p\u0304\u2083* = p\u2083*. The y-axis represents function values ranging from 0 to -0.6, while the x-axis represents h from 0 to 1.0. The figure demonstrates that f\u2082(h) achieves the minimum value at h\u22480.5, with t",
+      "thumb": "/data/figures/2607.17991v1_p24_2.jpg",
+      "caption": "Figure 2 shows the skew as a function of price for different inventory levels. At zero inventory, the skew is positive for prices below p = 1/2 and nega- tive for prices above it. Inventory shifts the skew in the expected direction as short positions move quotes upward, whereas long positions move them downward. Near the boundaries, the curves converge because risk vanishes as p(1 \u2212p) \u21920. \u2014 This figure is a line graph showing skew (vertical axis) as a function of price p (horizontal axis, rangin",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.15872v1"
+      "source": "https://arxiv.org/pdf/2607.17991v1"
     },
     {
-      "doc_id": "2607.15414v1",
-      "title": "AI Trading: Evaluating Large Language Models for Technical Market Analysis",
-      "page": 21,
-      "thumb": "/data/figures/2607.15414v1_p21_0.jpg",
-      "caption": "Figure 1 Sharpe Ratio Comparison Across LLM-Driven Trading Strategies vs. S&P 500 Benchmark (Simulated / Illustrative \u2014 This bar chart compares Sharpe ratios across five large language model-driven trading strategies over a 12-month backtesting period. The y-axis displays Sharpe ratio values from 0 to 1.6, while the x-axis shows five LLM models: GPT-4 Turbo (1.42), Claude 3 Opus (1.18), Gemini 1.5 Pro (0.97), Llama 3 70B (0.74), and FinGPT (1.31), with a green dashed line indicating the S&P 500 ",
+      "doc_id": "2607.17991v1",
+      "title": "Optimal Market Making in Prediction Markets",
+      "page": 24,
+      "thumb": "/data/figures/2607.17991v1_p24_3.jpg",
+      "caption": "Figure 2. Skew of the optimal quotes at time t = 0 as a function of price p for inventory levels q \u2208 {\u221250, \u221225, 0, 25, 50}. \u2014 This line plot displays the skew (y-axis, ranging from -0.015 to 0.015) of optimal bid-ask spreads as a function of market price p (x-axis, 0 to 1.0) for five different inventory levels q \u2208 {-50, -25, 0, 25, 50}. Each colored dashed line represents a different inventory level, showing how the market maker's optimal quoting strategy varies with both price and inventory pos",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.15414v1"
+      "source": "https://arxiv.org/pdf/2607.17991v1"
     },
     {
-      "doc_id": "2607.15414v1",
-      "title": "AI Trading: Evaluating Large Language Models for Technical Market Analysis",
-      "page": 21,
-      "thumb": "/data/figures/2607.15414v1_p21_1.jpg",
-      "caption": "Figure 2 Cumulative Portfolio Return (%) over 12-Month Backtesting Period (Simulated / Illustrative Data). GPT-4 Turbo \u2014 Figure 2 is a line chart showing cumulative portfolio returns (%) over a 12-month backtesting period for five LLM-driven trading strategies compared to the S&P 500 benchmark. The x-axis represents months (January through December) and the y-axis shows cumulative return percentage (0-30%). GPT-4 Turbo delivers the highest cumulative return at approximately 32%, followed by FinG",
+      "doc_id": "2607.17428v1",
+      "title": "Uniform-Loss Automated Market Making for Prediction Markets",
+      "page": 16,
+      "thumb": "/data/figures/2607.17428v1_p16_0.jpg",
+      "caption": "Figure 1 compares these canonical AMMs with the PM-AMMs constructed from the Gaussian- score and most-exciting-game profiles. \u2014 This section presents mathematical formulations for two automated market maker (AMM) examples with uniform loss-value ratios. For the Constant Product Market Maker (CPMM), the pool-value function is V(p) = 2L\u221ap(1-p), and the resulting price dynamics follow dP_t = P_t(1-P_t)/h(t) dW_t. For the Logarithmic Market Scoring Rule (LMSR), the pool-value function is V(p) = LH(p",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.15414v1"
+      "source": "https://arxiv.org/pdf/2607.17428v1"
     },
     {
-      "doc_id": "2607.15414v1",
-      "title": "AI Trading: Evaluating Large Language Models for Technical Market Analysis",
-      "page": 22,
-      "thumb": "/data/figures/2607.15414v1_p22_2.jpg",
-      "caption": "Figure 3 Multi-Dimensional Model Performance Comparison (Normalized Scores, Simulated / Illustrative Data). \u2014 This radar chart compares five large language models (GPT-4 Turbo, Claude 3 Opus, Gemini 1.5 Pro, Llama 3 70B, and FinGPT) across six normalized performance dimensions: Speed, Accuracy, Cost Efficiency, Hallucination Resistance, Domain Knowledge, and Hallucination Resistance. Each model is represented by a colored polygon overlay, with normalized scores ranging from 0 to 1.0 on radial ax",
+      "doc_id": "2607.17428v1",
+      "title": "Uniform-Loss Automated Market Making for Prediction Markets",
+      "page": 17,
+      "thumb": "/data/figures/2607.17428v1_p17_1.jpg",
+      "caption": "Figure 1 Comparison of the pool-value functions (top left), invariant functions (top right), YES-token demand function (bottom left), and NO-token demand function (bottom right) for the CPMM, LMSR, and the PM-AMMs for Gaussian score dynamics and \u201cthe most exciting game.\u201d \u2014 This figure compares four mathematical properties across three automated market maker (AMM) designs: the Constant Product Market Maker (CPMM), Logarithmic Market Scoring Rule (LMSR), and two variants of prediction market AMMs.",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.15414v1"
+      "source": "https://arxiv.org/pdf/2607.17428v1"
     },
     {
-      "doc_id": "2607.15414v1",
-      "title": "AI Trading: Evaluating Large Language Models for Technical Market Analysis",
-      "page": 22,
-      "thumb": "/data/figures/2607.15414v1_p22_3.jpg",
-      "caption": "Figure 4 LLM-Based Trading Strategy Evaluation Pipeline Architecture. Data flows from raw OHLCV and document inputs \u2014 This radar chart compares normalized performance metrics across multiple large language models (Gemini 1.5 Pro, Claude 3 Opus, and FinGPT) on five dimensions: Accuracy, Speed, Cost Efficiency, Hallucination Resistance, and Domain Knowledge. The chart uses a multi-axis polygon visualization where each axis represents a normalized score from 0 to 1.0, with blue shaded regions indic",
+      "doc_id": "2607.17428v1",
+      "title": "Uniform-Loss Automated Market Making for Prediction Markets",
+      "page": 17,
+      "thumb": "/data/figures/2607.17428v1_p17_2.jpg",
+      "caption": "Figure 2 Absolute and relative YES-side market depth as functions of the price p. The left panel plots the local depth |X\u2032(p)|, measuring YES reserve capacity per unit price move. The right panel plots the inventory-normalized depth |X\u2032(p)|/X(p), measuring depth relative to the YES reserves available at price p. \u2014 This figure compares absolute and relative market depth for YES tokens across four different automated market maker (AMM) designs plotted against price p from 0 to 1. The left panel sh",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.15414v1"
+      "source": "https://arxiv.org/pdf/2607.17428v1"
     },
     {
-      "doc_id": "2607.15119v1",
-      "title": "Thermodynamic theory of voting and EU elections",
-      "page": 2,
-      "thumb": "/data/figures/2607.15119v1_p2_0.jpg",
-      "caption": "Fig. 1: (Color on-line) Left: Lorenz curves of EU elections of Germany (DE; top) and France (FR, bottom) since 1994. The x-axis corresponds to the cumulated fraction of house- holds/political parties (h) and the y-axis to the cumulated frac- tion of wealth/obtained votes (w). The dashed black line corre- sponds to the line of perfect equipartition w = h. The Gini co- efficients G and number of pol \u2014 This figure displays Lorenz curves comparing wealth inequality and political vote concentration i",
+      "doc_id": "2607.17427v1",
+      "title": "Abliteration Is Not a Scalpel: Off-Target Effects of Refusal Removal on Decision Disposition Across Model Families",
+      "page": 5,
+      "thumb": "/data/figures/2607.17427v1_p5_0.jpg",
+      "caption": "Figure 1. Abliteration deltas (abl \u2212base) with 95% bootstrap CIs (weeks as clusters). Optimism shift and confession verbosity share sign across families; mean confidence reverses sign, and the family CIs do not overlap. \u2014 This figure displays a forest plot showing abliteration deltas (differences between ablated and baseline models) with 95% bootstrap confidence intervals across two model families (Gemma in blue, Qwen in teal). The plot measures four behavioral metrics: Bullrate (pp), Mean confi",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.15119v1"
+      "source": "https://arxiv.org/pdf/2607.17427v1"
     },
     {
-      "doc_id": "2607.15119v1",
-      "title": "Thermodynamic theory of voting and EU elections",
-      "page": 3,
-      "thumb": "/data/figures/2607.15119v1_p3_1.jpg",
-      "caption": "Fig. 2: (Color on-line) As Fig. 1 for the EU 2024 elections of DE (top) and FR (bottom). In addition, to the real data (red points) also the (green) theoretical RJS Lorenz curves (left panels) are shown (see Table 1 for specific values of G, \u03b5 and Np). For the Pareto curves (right panels) the average \u27e8wm\u27e9is either 1/Np (real data) or \u03b5 (RJS curves). See also SupMat Figs. S1 and S2 for similar figu \u2014 This figure displays a four-panel comparison of voting distribution analysis for EU 2024 election",
+      "doc_id": "2607.17427v1",
+      "title": "Abliteration Is Not a Scalpel: Off-Target Effects of Refusal Removal on Decision Disposition Across Model Families",
+      "page": 6,
+      "thumb": "/data/figures/2607.17427v1_p6_1.jpg",
+      "caption": "Figure 2. Confidence distributions per arm. Gemma-abliterated shifts mass toward lower confidence; Qwen- abliterated shifts higher \u2014 the sign reversal. \u2014 This figure displays two histograms comparing confidence distributions for Gemma and Qwen models in their base versus abliterated (refusal-removed) versions. The x-axis represents confidence scores from 0.40 to 0.90, while the y-axis shows the percentage of decisions per 0.05 bin interval. The key finding is that abliteration produces opposite ",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.15119v1"
+      "source": "https://arxiv.org/pdf/2607.17427v1"
+    },
+    {
+      "doc_id": "2607.17427v1",
+      "title": "Abliteration Is Not a Scalpel: Off-Target Effects of Refusal Removal on Decision Disposition Across Model Families",
+      "page": 6,
+      "thumb": "/data/figures/2607.17427v1_p6_2.jpg",
+      "caption": "Figure 3. Optimism rate per week and arm. The abliterated arm sits above its base in both families, with \u2014 This figure comprises two parts comparing base versus abliterated model behavior across Gamma and Owen model families. The top panel shows confidence distributions as histograms, with Gamma displaying a leftward shift (lower confidence) under abliteration while Owen shows a rightward shift (higher confidence), demonstrating opposite effects of the abliteration intervention. The bottom panel",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.17427v1"
+    },
+    {
+      "doc_id": "2607.17427v1",
+      "title": "Abliteration Is Not a Scalpel: Off-Target Effects of Refusal Removal on Decision Disposition Across Model Families",
+      "page": 7,
+      "thumb": "/data/figures/2607.17427v1_p7_3.jpg",
+      "caption": "Figure 4. Horizon distributions: Qwen-abliterated opens the horizon (\u224895% \u2192\u224855% at 1w); both Gemma arms are collapsed at 1w. \u2014 This stacked bar chart displays time-horizon distributions across four model variants: Gamma base, Gamma abliterated, Owen base, and Owen abliterated. The y-axis represents the proportion of responses at different time horizons (1w for one week and 2w for two weeks), while each bar shows the percentage distribution. The key finding is that abliteration causes divergent e",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.17427v1"
+    },
+    {
+      "doc_id": "2607.17381v1",
+      "title": "Determining Insolvency Regions in Banks: A Stochastic Dynamic Approach Integrating Liquidity and Credit Risk",
+      "page": 4,
+      "thumb": "/data/figures/2607.17381v1_p4_0.jpg",
+      "caption": "Figure 1: Logical structure and computational workflow of the proposed model. \u2014 This flowchart illustrates the computational workflow for determining bank insolvency boundaries using stochastic optimization. The process begins with input data from CODAL databases and market data, flows through an optimization engine (SDP/RL) that maximizes an objective function subject to liquidity and solvency constraints, and produces an optimal value function. The output then branches into two parallel paths:",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.17381v1"
+    },
+    {
+      "doc_id": "2607.17381v1",
+      "title": "Determining Insolvency Regions in Banks: A Stochastic Dynamic Approach Integrating Liquidity and Credit Risk",
+      "page": 4,
+      "thumb": "/data/figures/2607.17381v1_p4_1.jpg",
+      "caption": "Fig. 2 illustrates the co-evolution of the Liquidity Coverage Ratio (LCR) and the NPL ratio. The critical empirical observation is the inverse relationship: Iranian \u2014 This flowchart depicts the computational workflow for a bank insolvency modeling framework. It shows how CODAL database and market data feed into an optimization engine (SDP/RL) that maximizes a value function subject to constraints, producing an optimal value function output. The framework then branches into two parallel paths: an",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.17381v1"
+    },
+    {
+      "doc_id": "2607.17381v1",
+      "title": "Determining Insolvency Regions in Banks: A Stochastic Dynamic Approach Integrating Liquidity and Credit Risk",
+      "page": 5,
+      "thumb": "/data/figures/2607.17381v1_p5_2.jpg",
+      "caption": "Figure 2: The evolution of LCR and NPL ratio in major Iranian banks (Source: CODAL). Note the simultaneous deterioration of liquidity buffers and credit quality. \u2014 This line chart displays the quarterly evolution of two key banking metrics in major Iranian banks from 1Q01 to 3Q09, sourced from CODAL. The Liquidity Coverage Ratio (LCR) is shown in blue and declines from approximately 135% to 85% over the period, while the Non-Performing Loan (NPL) ratio is shown in red and increases from roughly ",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.17381v1"
+    },
+    {
+      "doc_id": "2607.17381v1",
+      "title": "Determining Insolvency Regions in Banks: A Stochastic Dynamic Approach Integrating Liquidity and Credit Risk",
+      "page": 6,
+      "thumb": "/data/figures/2607.17381v1_p6_3.jpg",
+      "caption": "Figure 3: Correlation between monthly change in liquidity gap (SCO/SCI) and credit provisions. The upward slope indicates the joint incidence of liquidity and credit stress. \u2014 This scatter plot displays the relationship between changes in the liquidity gap (SCO/SCI %) on the x-axis and changes in credit provisions (%) on the y-axis, with a fitted regression line showing a correlation coefficient of \u03c1 = 0.35. The plot contains approximately 70 monthly observations represented as blue dots, with t",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.17381v1"
+    },
+    {
+      "doc_id": "2607.16970v1",
+      "title": "Herding and Liquidity in Order-Book Markets. II. Fundamental Anchoring and the Resilience of Liquidity",
+      "page": 9,
+      "thumb": "/data/figures/2607.16970v1_p9_0.jpg",
+      "caption": "Figure 1: The withdrawal mechanism is real. As the shared-risk weight \u03bb rises, the market maker pulls quoted depth (left) and widens its half-spread (right) in the calm receiver B, and does so more strongly when the source market A is genuinely stressed than when A is calm. The maker withdraws liquidity from a calm market because a different market is stressed\u2013yet the anchored receiver\u2019s realised  \u2014 This figure displays two line charts illustrating market maker behavior in response to stress tra",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.16970v1"
     }
   ],
   "docs": [
     {
-      "id": "2607.15962v1",
-      "title": "Equilibrium analysis in a multi-agent reinsurance chain",
-      "source": "https://arxiv.org/pdf/2607.15962v1",
-      "pages": 43,
-      "images": 21,
-      "figures_captioned": 4,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 45
-    },
-    {
-      "id": "2607.15952v1",
-      "title": "Consistent pricing of bivariate interest rate exotics via constrained Schr\u00f6dinger optimal transport",
-      "source": "https://arxiv.org/pdf/2607.15952v1",
-      "pages": 13,
-      "images": 9,
-      "figures_captioned": 4,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 22
-    },
-    {
-      "id": "2607.15872v1",
-      "title": "Existence of $q$-Bass martingales in the semidiscrete setting",
-      "source": "https://arxiv.org/pdf/2607.15872v1",
-      "pages": 47,
-      "images": 23,
-      "figures_captioned": 4,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 63
-    },
-    {
-      "id": "2607.15414v1",
-      "title": "AI Trading: Evaluating Large Language Models for Technical Market Analysis",
-      "source": "https://arxiv.org/pdf/2607.15414v1",
-      "pages": 31,
-      "images": 4,
-      "figures_captioned": 4,
-      "tables": 2,
-      "has_math": false,
-      "ocr_used": false,
-      "chunks_indexed": 43
-    },
-    {
-      "id": "2607.15195v1",
-      "title": "SciPhy Reinforcement Learning for Portfolio Optimization",
-      "source": "https://arxiv.org/pdf/2607.15195v1",
-      "pages": 69,
+      "id": "2607.18001v1",
+      "title": "AlphaZeroBeta: Deep Reinforcement Learning for Market-Neutral Portfolios",
+      "source": "https://arxiv.org/pdf/2607.18001v1",
+      "pages": 59,
       "images": 0,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 64
-    },
-    {
-      "id": "2607.15119v1",
-      "title": "Thermodynamic theory of voting and EU elections",
-      "source": "https://arxiv.org/pdf/2607.15119v1",
-      "pages": 10,
-      "images": 1,
       "figures_captioned": 2,
+      "tables": 2,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 48
+    },
+    {
+      "id": "2607.17991v1",
+      "title": "Optimal Market Making in Prediction Markets",
+      "source": "https://arxiv.org/pdf/2607.17991v1",
+      "pages": 42,
+      "images": 0,
+      "figures_captioned": 4,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 25
+      "chunks_indexed": 41
     },
     {
-      "id": "2607.15057v2",
-      "title": "Existence and convergence of discrete-time Kyle models with multiple insiders",
-      "source": "https://arxiv.org/pdf/2607.15057v2",
-      "pages": 35,
+      "id": "2607.17502v1",
+      "title": "Mean-field equilibrium price formation under single-default risk",
+      "source": "https://arxiv.org/pdf/2607.17502v1",
+      "pages": 46,
       "images": 0,
       "figures_captioned": 0,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 44
+    },
+    {
+      "id": "2607.17428v1",
+      "title": "Uniform-Loss Automated Market Making for Prediction Markets",
+      "source": "https://arxiv.org/pdf/2607.17428v1",
+      "pages": 34,
+      "images": 3,
+      "figures_captioned": 3,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 50
+    },
+    {
+      "id": "2607.17427v1",
+      "title": "Abliteration Is Not a Scalpel: Off-Target Effects of Refusal Removal on Decision Disposition Across Model Families",
+      "source": "https://arxiv.org/pdf/2607.17427v1",
+      "pages": 11,
+      "images": 0,
+      "figures_captioned": 4,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
       "chunks_indexed": 26
     },
     {
-      "id": "2607.15317v1",
-      "title": "Asymptotic fractional-order stochastic dominance with bounded relative risk aversion",
-      "source": "https://arxiv.org/pdf/2607.15317v1",
-      "pages": 26,
+      "id": "2607.17381v1",
+      "title": "Determining Insolvency Regions in Banks: A Stochastic Dynamic Approach Integrating Liquidity and Credit Risk",
+      "source": "https://arxiv.org/pdf/2607.17381v1",
+      "pages": 25,
+      "images": 8,
+      "figures_captioned": 4,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 39
+    },
+    {
+      "id": "2607.17212v1",
+      "title": "A General Model for Continuous Time Principal-Agent Problem Under Hidden Action",
+      "source": "https://arxiv.org/pdf/2607.17212v1",
+      "pages": 28,
       "images": 0,
       "figures_captioned": 0,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 54
+      "chunks_indexed": 36
     },
     {
-      "id": "2607.14518v1",
-      "title": "Structure-Aware Variational State Preparation for Quantum Basket Option Pricing",
-      "source": "https://arxiv.org/pdf/2607.14518v1",
-      "pages": 39,
-      "images": 0,
-      "figures_captioned": 0,
-      "tables": 1,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 34
-    },
-    {
-      "id": "2607.14373v1",
-      "title": "A Noise-Robust Elicit-to-Optimize Framework for Distortion Riskmetrics via Inverse Reinforcement Learning",
-      "source": "https://arxiv.org/pdf/2607.14373v1",
-      "pages": 35,
+      "id": "2607.17020v1",
+      "title": "Risk Measures on Lipschitz Spaces",
+      "source": "https://arxiv.org/pdf/2607.17020v1",
+      "pages": 23,
       "images": 0,
       "figures_captioned": 0,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 37
+      "chunks_indexed": 48
+    },
+    {
+      "id": "2607.16970v1",
+      "title": "Herding and Liquidity in Order-Book Markets. II. Fundamental Anchoring and the Resilience of Liquidity",
+      "source": "https://arxiv.org/pdf/2607.16970v1",
+      "pages": 17,
+      "images": 5,
+      "figures_captioned": 1,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 35
+    },
+    {
+      "id": "2607.16935v1",
+      "title": "Robust Control for Marked Point Processes under Transition-Rate Uncertainty",
+      "source": "https://arxiv.org/pdf/2607.16935v1",
+      "pages": 50,
+      "images": 0,
+      "figures_captioned": 0,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 62
     }
   ]
 }
