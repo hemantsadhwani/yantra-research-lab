@@ -1,7 +1,7 @@
 {
   "_note": "Public run manifest of the Tier-3 agentic ingestion pipeline. Safe aggregates + provenance only; raw PDFs live in S3, not here.",
-  "run_id": "20260722T053001Z",
-  "generated_at": "2026-07-22T05:33:42+00:00",
+  "run_id": "20260723T053508Z",
+  "generated_at": "2026-07-23T05:39:25+00:00",
   "collection": "research_corpus",
   "embed_model": "BAAI/bge-small-en-v1.5",
   "dag": [
@@ -50,28 +50,136 @@
     "discovered": 10,
     "fetched": 10,
     "parsed": 10,
-    "chunks": 490,
-    "accepted": 453,
-    "rejected": 37,
-    "images": 36,
+    "chunks": 501,
+    "accepted": 479,
+    "rejected": 22,
+    "images": 43,
     "figures_captioned": 18,
-    "tables": 3,
+    "tables": 8,
     "with_math": 10,
-    "indexed": 453,
-    "spent_usd": 0.0321,
-    "duration_s": 221.3
+    "indexed": 479,
+    "spent_usd": 0.0338,
+    "duration_s": 256.8
   },
   "rejects_by_reason": {
-    "low-relevance": 37
+    "low-relevance": 22
   },
   "budget_usd": 3.0,
   "figures": [
+    {
+      "doc_id": "2607.20415v1",
+      "title": "Flux-Corrected Diagonal Frog: second order and positivity at all time steps",
+      "page": 17,
+      "thumb": "/data/figures/2607.20415v1_p17_0.jpg",
+      "caption": "Figure 1 compares the three key theoretical thresholds, the Picard contraction threshold \u03b3pic, the backward Euler resolvent positivity threshold \u03b30, and the Pad\u00e9(0,2) positivity threshold \u03b3r, as functions of the mesh size h on the Ornstein\u2013Uhlenbeck benchmark, determining whether the coverage conditions of Corollary 4 hold. \u2014 This table presents coverage thresholds on the Ornstein-Uhlenbeck (OU) benchmark for three finite element schemes (rows labeled 101, 201, 401 representing different mesh re",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.20415v1"
+    },
+    {
+      "doc_id": "2607.20415v1",
+      "title": "Flux-Corrected Diagonal Frog: second order and positivity at all time steps",
+      "page": 18,
+      "thumb": "/data/figures/2607.20415v1_p18_1.jpg",
+      "caption": "Figure 1: Coverage thresholds against the mesh on the OU benchmark. The Picard threshold falls linearly \u2014 This figure plots three threshold measures against mesh size h on a logarithmic scale for the Ornstein-Uhlenbeck (OU) benchmark problem. The y_\u03bc = h/2\u03b2 threshold (blue circles) and y_0 resolvent threshold (red squares) increase gradually and nearly linearly as h increases from 10^-2 to 10^-1. The y_r Pad\u00e9 threshold (teal triangles) exhibits a dramatic decrease from approximately 10^5 at h=10",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.20415v1"
+    },
+    {
+      "doc_id": "2607.20415v1",
+      "title": "Flux-Corrected Diagonal Frog: second order and positivity at all time steps",
+      "page": 19,
+      "thumb": "/data/figures/2607.20415v1_p19_2.jpg",
+      "caption": "Figure 2 visualizes the spatial localization of the flux limiter on a logarithmic density scale for the \u2014 This figure displays a logarithmic density plot showing the spatial localization of the flux limiter in a one-dimensional simulation, with position on the horizontal axis and density (log scale) on the vertical axis. The plot demonstrates that the limiter activates only in narrow regions near density discontinuities where the solution transitions from high to low density values, confirming t",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.20415v1"
+    },
+    {
+      "doc_id": "2607.20415v1",
+      "title": "Flux-Corrected Diagonal Frog: second order and positivity at all time steps",
+      "page": 20,
+      "thumb": "/data/figures/2607.20415v1_p20_3.jpg",
+      "caption": "Figure 2: Limiter activity at an unresolved front, D = 10\u22124 and n = 801, on a logarithmic density \u2014 This figure displays a line plot on a semi-logarithmic scale showing the probability density (p) versus position (x) for the FCDP-B numerical scheme applied to an advection problem with an unresolved front. The y-axis uses logarithmic scale from 10^-12 to 10^0, while the x-axis ranges from 0.0 to 1.0. The plot shows a sharp transition at x\u22480.38 (marked \"peak 3.38\") with the limiter active (shaded ",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.20415v1"
+    },
+    {
+      "doc_id": "2607.20168v1",
+      "title": "Quantum Kernels and the Cross-Section of Stock Returns: Anatomy of a Vanishing Advantage",
+      "page": 9,
+      "thumb": "/data/figures/2607.20168v1_p9_0.jpg",
+      "caption": "Figure 1: Main evaluation, 170 windows. Top: 12-window rolling mean out-of-sample rank IC. Bottom: rolling quantum-minus-classical IC differentials. \u2014 This figure presents two time-series plots evaluating quantum versus classical machine learning models for stock return prediction from 2012-2025 using 170 rolling windows. The top panel shows 12-window rolling mean out-of-sample rank information coefficient (IC) for four methods: QKERR Fidelity, KRR-RBF control, QKERR, and Poly(2) ridge, with val",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.20168v1"
+    },
+    {
+      "doc_id": "2607.20168v1",
+      "title": "Quantum Kernels and the Cross-Section of Stock Returns: Anatomy of a Vanishing Advantage",
+      "page": 13,
+      "thumb": "/data/figures/2607.20168v1_p13_1.jpg",
+      "caption": "Figure 2: Short-sample study, 60 windows. Top: regularized geometric difference g between quantum kernels and the tuned RBF control. Bottom: within-window validation rank ICs of the three kernels. \u2014 This figure displays a time-series comparison of quantum kernel performance versus a tuned RBF control across 60 rolling windows from 2021 to 2026. The top panel shows the geometric difference in regularized form, with the fidelity RBF kernel (blue) and projected RBF kernel (orange) compared against ",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.20168v1"
+    },
+    {
+      "doc_id": "2607.20093v1",
+      "title": "Retail Trader's Ruin: An Anatomy of Popular Signal Failure",
+      "page": 7,
+      "thumb": "/data/figures/2607.20093v1_p7_0.jpg",
+      "caption": "Figure 1: Joint falsification map: each family\u2019s statistical/economic gate outcome plotted against its liquidation probability under the headline survival scenario. Four of six candidates are REFUTED, two are INCONCLU- SIVE, none is SUPPORTED. \u2014 This scatter plot displays joint viability assessment results for five trading signal families, plotting their forced liquidation probability (x-axis, ranging 0.0 to 1.0 at 2x leverage with fixed margin) against each strategy on the y-axis. The five stra",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.20093v1"
+    },
+    {
+      "doc_id": "2607.20093v1",
+      "title": "Retail Trader's Ruin: An Anatomy of Popular Signal Failure",
+      "page": 8,
+      "thumb": "/data/figures/2607.20093v1_p8_1.jpg",
+      "caption": "Figure 2: Left: EU replication grid (six country ETFs \u00d7 three indicators), Sharpe-gap point estimates and 95% CIs. Right: momentum calibration benchmark\u2019s crash diagnostics \u2014 drawdowns amplify sharply under 2x/3x leverage stress, consistent with known momentum crash risk. \u2014 The left panel shows a heatmap of Sharpe ratio gaps across six EU countries (France, Germany, Italy, Spain, Switzerland, UK) and three technical indicators (Momentum, RSI, MACD), with color-coded point estimates ranging from ",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.20093v1"
+    },
+    {
+      "doc_id": "2607.19497v1",
+      "title": "The Science and Practice of Trend-Following Systems",
+      "page": 6,
+      "thumb": "/data/figures/2607.19497v1_p6_0.jpg",
+      "caption": "Figure 2.1: Values of EWMA long-short filter applied to the unit-impulse sequence (1, 0, 0, . . .) using long span N1 such that \u03bd1 = 1\u22122/(N1+1) and short span N2 such that \u03bd2 = 1\u22122/(N2+1) for three combinations: (N1 = 50, N2 = 0), (N1 = 250, N2 = 0), (N1 = 250, N2 = 50), where N2 = 0 denotes the single-filter case without the short leg \u2014 This line chart displays the propagation of a unit impulse through exponentially weighted moving average (EWMA) filters at time t=1, with the y-axis showing fil",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.19497v1"
+    },
+    {
+      "doc_id": "2607.19497v1",
+      "title": "The Science and Practice of Trend-Following Systems",
+      "page": 9,
+      "thumb": "/data/figures/2607.19497v1_p9_1.jpg",
+      "caption": "Figure 4.1: Panels (A1) and (A2) show time series and histogram of EWMA long-short filters applied on volatility-normalized returns. Panels (B1) and (B2) show time series of weights with volatility target of 15%. Panels (C1) and (C2) show the cumulative P&L and daily returns multiplied by \u221aa with a = 260. Fast, medium, and slow long-short EWMA filters are computed using long spans of 30, 125, and  \u2014 This figure displays trend-following system analysis with six panels comparing fast, medium, and ",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.19497v1"
+    },
+    {
+      "doc_id": "2607.19497v1",
+      "title": "The Science and Practice of Trend-Following Systems",
+      "page": 19,
+      "thumb": "/data/figures/2607.19497v1_p19_2.jpg",
+      "caption": "Figure 6.1: Expected annual return, gross Sharpe ratio, and net Sharpe ratio of the European TF system on the white noise process in equation (6.2), as functions of the annualized drift \u00b5z \u2014 This figure shows three line plots displaying the performance metrics of a European trend-following system applied to a white noise process with drift, across different signal spans (1 week to 2 years). Panel (A) displays expected annual return of the TF system ranging from near 0% to 5%, Panel (B) shows gro",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.19497v1"
+    },
+    {
+      "doc_id": "2607.19497v1",
+      "title": "The Science and Practice of Trend-Following Systems",
+      "page": 21,
+      "thumb": "/data/figures/2607.19497v1_p21_3.jpg",
+      "caption": "Figure 6.2: Expected annual return, gross Sharpe ratio, and net Sharpe ratio of the European TF system for the zero-drift AR-1 process in equation (6.6) with \u03d5 = {\u22120.05, 0.05}. Panel layout, cost level, and analytic and MC conventions as in Figure 6.1 \u2014 This figure displays three panels comparing performance metrics of a trend-following (TF) system applied to a zero-drift AR-1 process with two correlation coefficients (\u03d5 = \u22120.05 and 0.05). Panel (A) shows expected annual returns ranging from app",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.19497v1"
+    },
     {
       "doc_id": "2607.19279v1",
       "title": "Gaussian Boson Sampling for Asset Clustering in Statistical Arbitrage Portfolios",
       "page": 3,
       "thumb": "/data/figures/2607.19279v1_p3_0.jpg",
-      "caption": "Figure 1: Overview of the GBS-driven StatArb framework. (a) Stock data is processed to construct a residual-return correlation matrix. Zeroing the main diagonal yields the adjacency matrix of the correlation graph. (b) The GBS clustering procedure. The correlation graph is encoded into a GBS device through its adjacency matrix. The device generates subgraph samples, which are evaluated against an  \u2014 Figure 1 presents a three-panel overview of a Gaussian Boson Sampling (GBS) framework for statist",
+      "caption": "Figure 1: Overview of the GBS-driven StatArb framework. (a) Stock data is processed to construct a residual-return correlation matrix. Zeroing the main diagonal yields the adjacency matrix of the correlation graph. (b) The GBS clustering procedure. The correlation graph is encoded into a GBS device through its adjacency matrix. The device generates subgraph samples, which are evaluated against an  \u2014 This figure illustrates a Gaussian Boson Sampling (GBS)-driven statistical arbitrage framework wi",
       "vision": true,
       "source": "https://arxiv.org/pdf/2607.19279v1"
     },
@@ -80,7 +188,7 @@
       "title": "Gaussian Boson Sampling for Asset Clustering in Statistical Arbitrage Portfolios",
       "page": 5,
       "thumb": "/data/figures/2607.19279v1_p5_1.jpg",
-      "caption": "Figure 2: Overview of the GBS Roots process. (a) An initial correlation graph G, with specific correlations and stock labels omitted for clarity. (b) The correlation graph is sampled using a GBS device to generate candidate subgraphs. (c) The weighted density of the samples is calculated. A cluster U = S \u2014 This figure illustrates the Gaussian Boson Sampling (GBS) Roots process for graph clustering, progressing through seven stages (a-g). Panel (a) shows an input correlation graph of assets, whic",
+      "caption": "Figure 2: Overview of the GBS Roots process. (a) An initial correlation graph G, with specific correlations and stock labels omitted for clarity. (b) The correlation graph is sampled using a GBS device to generate candidate subgraphs. (c) The weighted density of the samples is calculated. A cluster U = S \u2014 This figure illustrates the GBS Roots clustering process for financial asset portfolios, displayed as a workflow diagram with seven labeled steps (a-g). The process begins with an input correl",
       "vision": true,
       "source": "https://arxiv.org/pdf/2607.19279v1"
     },
@@ -89,7 +197,7 @@
       "title": "Gaussian Boson Sampling for Asset Clustering in Statistical Arbitrage Portfolios",
       "page": 7,
       "thumb": "/data/figures/2607.19279v1_p7_2.jpg",
-      "caption": "Figure 3: Cumulative PnL trajectories and standard deviations (coloured bands) for each algorithm. Based on a 60-day beta estimation and a 5-day correlation matrix lookback (Appendix A), the effective trading period begins in April 2020. GBS Boost, GBS Roots, and QIC-GBS utilised 0.7N log N, 0.6N log N, and N log N samples (See Appendix G) per GBS call, respectively. \u2014 This line chart shows cumulative profit and loss (PnL) in percentage terms from April 2020 to December 2020 for five asset clust",
+      "caption": "Figure 3: Cumulative PnL trajectories and standard deviations (coloured bands) for each algorithm. Based on a 60-day beta estimation and a 5-day correlation matrix lookback (Appendix A), the effective trading period begins in April 2020. GBS Boost, GBS Roots, and QIC-GBS utilised 0.7N log N, 0.6N log N, and N log N samples (See Appendix G) per GBS call, respectively. \u2014 This line chart displays cumulative profit-and-loss (PnL) trajectories for five asset clustering algorithms (Spectral, SPONGE, G",
       "vision": true,
       "source": "https://arxiv.org/pdf/2607.19279v1"
     },
@@ -98,7 +206,7 @@
       "title": "Gaussian Boson Sampling for Asset Clustering in Statistical Arbitrage Portfolios",
       "page": 8,
       "thumb": "/data/figures/2607.19279v1_p8_3.jpg",
-      "caption": "Figure 4: Performance of GBS-inspired clustering methods under photon loss, with and without displacement compensation. Quantum methods underwent 50 runs per loss rate (H = 0.7N log N samples per GBS call); classical methods underwent 100-200 runs. The stock universe is N = 50. The top row (a-c) displays uncompensated loss results, while the bottom row (d-f) incorporates displacement compensation. \u2014 This figure compares clustering performance of quantum and classical methods under increasing pho",
+      "caption": "Figure 4: Performance of GBS-inspired clustering methods under photon loss, with and without displacement compensation. Quantum methods underwent 50 runs per loss rate (H = 0.7N log N samples per GBS call); classical methods underwent 100-200 runs. The stock universe is N = 50. The top row (a-c) displays uncompensated loss results, while the bottom row (d-f) incorporates displacement compensation. \u2014 This figure comprises six line plots comparing quantum and classical clustering methods for asset",
       "vision": true,
       "source": "https://arxiv.org/pdf/2607.19279v1"
     },
@@ -107,7 +215,7 @@
       "title": "Denoising Subordinated Probabilistic Models: Diffusion with a Tempered-Stable Volatility Clock, and What the Noise Mechanism Actually Controls",
       "page": 8,
       "thumb": "/data/figures/2607.19218v1_p8_0.jpg",
-      "caption": "Figure 1: Sampler validation. Left: empirical vs. exact Laplace transform, TS(0.7, 1.0, 0.3). Right: tempering suppresses the far tail while preserving the stable body. \u2014 This figure validates a tempered-stable subordinator sampler and illustrates tail behavior modification. The left panel shows the Laplace transform for TS(0.7, 1.0, 0.3) parameters, comparing theoretical values (black line) against empirical estimates from 2M draws (red dashed line), demonstrating close agreement across the dom",
+      "caption": "Figure 1: Sampler validation. Left: empirical vs. exact Laplace transform, TS(0.7, 1.0, 0.3). Right: tempering suppresses the far tail while preserving the stable body. \u2014 The left panel shows a line plot comparing the theoretical Laplace transform (black solid line) against empirical results from 2M draws (red dashed line) for a Tempered Stable distribution with parameters \u03b1=0.7, \u03b8=1.0, \u03b4=0.3, plotted on linear axes with u on the x-axis and E[e^(-uX)] on the y-axis; both curves overlap closely, ",
       "vision": true,
       "source": "https://arxiv.org/pdf/2607.19218v1"
     },
@@ -116,120 +224,72 @@
       "title": "Denoising Subordinated Probabilistic Models: Diffusion with a Tempered-Stable Volatility Clock, and What the Noise Mechanism Actually Controls",
       "page": 9,
       "thumb": "/data/figures/2607.19218v1_p9_1.jpg",
-      "caption": "Figure 2: Left: exact ACF (7) vs. Monte Carlo. Middle: recovered ( \u02c6\u03c6, \u02c6\u03b8) over 200 replications (star = truth). Right: noise path ri = \u221aAizi with latent \u221aAi\u2014clustering before any learning. \u2014 This figure demonstrates parameter recovery and noise structure in a subordinated probabilistic model with three panels. The left panel compares theoretical autocorrelation function (ACF) from equation (7) against Monte Carlo simulation estimates, showing close agreement that decays as log h. The middle pan",
+      "caption": "Figure 2: Left: exact ACF (7) vs. Monte Carlo. Middle: recovered ( \u02c6\u03c6, \u02c6\u03b8) over 200 replications (star = truth). Right: noise path ri = \u221aAizi with latent \u221aAi\u2014clustering before any learning. \u2014 This figure demonstrates parameter recovery and noise structure in a subordinated probabilistic model with three panels. The left panel compares theoretical autocorrelation function (ACF) from equation (7) against Monte Carlo simulation results, showing excellent agreement as lag h increases. The middle pan",
       "vision": true,
       "source": "https://arxiv.org/pdf/2607.19218v1"
-    },
-    {
-      "doc_id": "2607.19218v1",
-      "title": "Denoising Subordinated Probabilistic Models: Diffusion with a Tempered-Stable Volatility Clock, and What the Noise Mechanism Actually Controls",
-      "page": 10,
-      "thumb": "/data/figures/2607.19218v1_p10_2.jpg",
-      "caption": "Figure 3: Conditioned comparison. Left: pooled marginals (log scale). Middle: pooled ACF of squared returns. Right: sample paths. \u2014 This figure compares statistical properties of financial return models across four approaches: data, DSPM (Gaussian), DSPM (subordinated), shared \u03bd, and DPRM (75/25 mix). The left panel shows pooled marginal distributions on a log scale, revealing fat tails characteristic of financial returns. The middle panel displays autocorrelation functions of squared returns ac",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.19218v1"
-    },
-    {
-      "doc_id": "2607.19218v1",
-      "title": "Denoising Subordinated Probabilistic Models: Diffusion with a Tempered-Stable Volatility Clock, and What the Noise Mechanism Actually Controls",
-      "page": 10,
-      "thumb": "/data/figures/2607.19218v1_p10_3.jpg",
-      "caption": "Figure 4: Invariance under interventions. Left: amplitude envelopes under the three designed A scenarios coincide, far from the naive \u2014 This figure demonstrates the invariance properties of a denoising subordinated probabilistic model under different intervention scenarios. The left panel plots amplitude envelopes (|H_t|) on a linear scale across 60 data time steps for three intervention cases: shock at t=5, shock at t=15, and naive A scaling, showing that all three envelopes overlap and remain ",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.19218v1"
-    },
-    {
-      "doc_id": "2607.19030v1",
-      "title": "Pricing options on illiquid assets using liquid market benchmarks: an application to energy markets",
-      "page": 7,
-      "thumb": "/data/figures/2607.19030v1_p7_0.jpg",
-      "caption": "Figure 1: An example of a piecewise-constant volatility function \u03c3i \u2014 This figure displays a piecewise-constant volatility function \u03c3_i,M(t) plotted against time t as a step function. The y-axis represents volatility values ranging from 0.17 to 0.26, while the x-axis shows time intervals marked by points T\u2081, T\u2082, ..., T_{M-1}, T_M. The volatility remains constant within each time interval and jumps discretely at predetermined time points, illustrating how volatility is modeled as a sequence of co",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.19030v1"
-    },
-    {
-      "doc_id": "2607.19030v1",
-      "title": "Pricing options on illiquid assets using liquid market benchmarks: an application to energy markets",
-      "page": 12,
-      "thumb": "/data/figures/2607.19030v1_p12_1.jpg",
-      "caption": "Figure 2: Scatter plot of the rolling average crack spread \u00afS(t, T3) versus the historical volatility spread V (t, T3). Each point corresponds to one historical observation date. Colors identify the clusters obtained from the k-means procedure, while black crosses denote the corresponding cluster centroids. \u2014 This scatter plot shows the projection of multi-tenor clusters on tensor M3, with Crack M3 on the x-axis (ranging from 0 to 50) and Vol Spread M3 on the y-axis (ranging from -0.5 to 2.5). S",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.19030v1"
-    },
-    {
-      "doc_id": "2607.19030v1",
-      "title": "Pricing options on illiquid assets using liquid market benchmarks: an application to energy markets",
-      "page": 19,
-      "thumb": "/data/figures/2607.19030v1_p19_2.jpg",
-      "caption": "Figure 3: Brent market smiles, Gasoil market smiles and model-implied Gasoil smiles on February 2, 2026. \u2014 This figure displays four line graphs comparing implied volatility smiles across different maturities (T2, T3, T6, and T11) for Brent crude oil and Gasoil markets. Each subplot plots volatility (y-axis) against standard deviations from at-the-money (ATM) strikes (x-axis), with three lines representing the Gasoil model, Gasoil market, and Brent model. The key takeaway is that the model-impli",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.19030v1"
-    },
-    {
-      "doc_id": "2607.19030v1",
-      "title": "Pricing options on illiquid assets using liquid market benchmarks: an application to energy markets",
-      "page": 20,
-      "thumb": "/data/figures/2607.19030v1_p20_3.jpg",
-      "caption": "Figure 4: Brent market smiles, Gasoil market smiles and model-implied Gasoil smiles on April 21, 2026. \u2014 This figure displays four line charts comparing implied volatility smiles across different maturities (T\u2082, T\u2083, T\u2086, and T\u2081\u2081) for Brent crude oil and Gasoil markets. Each subplot plots volatility (y-axis) against standard deviations from at-the-money (ATM) strikes (x-axis), with three lines representing the Gasoil model, Gasoil market, and Brent market observations. The key takeaway is that the",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.19030v1"
-    },
-    {
-      "doc_id": "2607.19005v1",
-      "title": "Observable Matrix Dynamics of Stocks",
-      "page": 5,
-      "thumb": "/data/figures/2607.19005v1_p5_0.jpg",
-      "caption": "Figure 1 shows the spectrum itself, the eigenvalue magnitudes of M(t) ranked on a log-log scale at three phases of each crisis, one year before onset, the crisis peak, and one year after, for the raw distance matrix (top) and the market-removed residual (bottom). The single Perron eigenvalue \u039b1 sits well above the rest at rank one, and the delocalised branch decays as the power law |\u03bbK| \u223cK\u2212\u03b2 over  \u2014 This figure displays a log-log plot of eigenvalue magnitudes of the distance matrix M(t) ranked b",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.19005v1"
-    },
-    {
-      "doc_id": "2607.19005v1",
-      "title": "Observable Matrix Dynamics of Stocks",
-      "page": 5,
-      "thumb": "/data/figures/2607.19005v1_p5_1.jpg",
-      "caption": "Figure 1: BBS spectrum of the distance matrix M(t), two-year lookback, raw (top) and market- removed (bottom), one column per period. Each panel shows the eigenvalue magnitudes |\u03bbK| ranked on a log-log scale at three phases: one year before onset (blue), the crisis peak (red), and one year after (green). The Perron eigenvalue \u039b1 is the isolated point at rank one, and the delocalised branch |\u03bbK| \u223cK \u2014 This figure displays six log-log plots showing the eigenvalue spectra of distance matrices for st",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.19005v1"
-    },
-    {
-      "doc_id": "2607.19005v1",
-      "title": "Observable Matrix Dynamics of Stocks",
-      "page": 6,
-      "thumb": "/data/figures/2607.19005v1_p6_2.jpg",
-      "caption": "Figure 2: A learning system can relax its distance-matrix geometry, and the market does not. (a) The grokking transformer of [7]: the train distance-matrix spectrum at initialisation, memorisation, and after grokking, the exponent rising from \u03b2 \u22480.68 through 0.39 to \u03b2 \u22481.65 as a shoulder near K = \u2014 This figure shows four log-log plots comparing distance-matrix spectra across different systems, with the x-axis showing \"eigenvalue rank (by magnitude)\" and y-axis showing \"eigenvalue.\" Each subplot ",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.19005v1"
-    },
-    {
-      "doc_id": "2607.19005v1",
-      "title": "Observable Matrix Dynamics of Stocks",
-      "page": 7,
-      "thumb": "/data/figures/2607.19005v1_p7_3.jpg",
-      "caption": "Figure 3 aligns the three crises on a common time-to-onset axis. The 2008 and 2020 crises share the same signature: a sharp drop in the effective factor count and a jump in the market- factor share at t = 0. The 2001 dot-com period is the opposite. There the participation ratio peaks and the market-factor share dips near the onset. The bust was a dispersed, decorrelated unwind in which technology  \u2014 This figure displays the behavior of three financial crises (2001 dot-com, 2008 financial crisis,",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.19005v1"
-    },
-    {
-      "doc_id": "2607.18815v1",
-      "title": "Cloud failure and cyber insurance: calibration of stress scenarios and diversification",
-      "page": 10,
-      "thumb": "/data/figures/2607.18815v1_p10_0.jpg",
-      "caption": "Figure 1: Timeline of a cloud-related business interruption of provider j. In scenario A, \u2014 This figure shows a timeline diagram illustrating two scenarios (A and B) of cloud-related business interruption for a service provider. The horizontal axes represent time, with key phases marked: service interruption (red), kickoff of backup plan (orange), problem resolution (green), and resumption of activities at full capacity (blue). Each scenario displays daily costs and durations for different phase",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.18815v1"
-    },
-    {
-      "doc_id": "2607.18815v1",
-      "title": "Cloud failure and cyber insurance: calibration of stress scenarios and diversification",
-      "page": 23,
-      "thumb": "/data/figures/2607.18815v1_p23_1.jpg",
-      "caption": "Figure 2 shows plots of financial losses as a function of interruption durations for vari- \u2014 This figure displays the relationship between interruption duration and financial losses in cloud service failures, comparing how different probability distribution shape parameters affect loss outcomes. The x-axis represents interruption duration while the y-axis represents average financial loss, illustrating the trade-off between tail risk and concentration of probability mass. The key takeaway is tha",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.18815v1"
     }
   ],
   "docs": [
+    {
+      "id": "2607.20415v1",
+      "title": "Flux-Corrected Diagonal Frog: second order and positivity at all time steps",
+      "source": "https://arxiv.org/pdf/2607.20415v1",
+      "pages": 30,
+      "images": 0,
+      "figures_captioned": 4,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 71
+    },
+    {
+      "id": "2607.20343v1",
+      "title": "Model Risk via Signature-Induced Optimal Transport",
+      "source": "https://arxiv.org/pdf/2607.20343v1",
+      "pages": 30,
+      "images": 0,
+      "figures_captioned": 0,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 65
+    },
+    {
+      "id": "2607.20168v1",
+      "title": "Quantum Kernels and the Cross-Section of Stock Returns: Anatomy of a Vanishing Advantage",
+      "source": "https://arxiv.org/pdf/2607.20168v1",
+      "pages": 16,
+      "images": 2,
+      "figures_captioned": 2,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 30
+    },
+    {
+      "id": "2607.20093v1",
+      "title": "Retail Trader's Ruin: An Anatomy of Popular Signal Failure",
+      "source": "https://arxiv.org/pdf/2607.20093v1",
+      "pages": 12,
+      "images": 1,
+      "figures_captioned": 2,
+      "tables": 1,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 31
+    },
+    {
+      "id": "2607.19497v1",
+      "title": "The Science and Practice of Trend-Following Systems",
+      "source": "https://arxiv.org/pdf/2607.19497v1",
+      "pages": 46,
+      "images": 5,
+      "figures_captioned": 4,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 60
+    },
     {
       "id": "2607.19279v1",
       "title": "Gaussian Boson Sampling for Asset Clustering in Statistical Arbitrage Portfolios",
@@ -248,11 +308,23 @@
       "source": "https://arxiv.org/pdf/2607.19218v1",
       "pages": 14,
       "images": 0,
-      "figures_captioned": 4,
+      "figures_captioned": 2,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 35
+      "chunks_indexed": 33
+    },
+    {
+      "id": "2607.19453v1",
+      "title": "Predictive Extrema, Unprofitable Policies: An AI-Assisted Audit of Candle-Based Binance Spot Timing Models",
+      "source": "https://arxiv.org/pdf/2607.19453v1",
+      "pages": 23,
+      "images": 0,
+      "figures_captioned": 0,
+      "tables": 6,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 34
     },
     {
       "id": "2607.19030v1",
@@ -260,95 +332,23 @@
       "source": "https://arxiv.org/pdf/2607.19030v1",
       "pages": 26,
       "images": 11,
-      "figures_captioned": 4,
+      "figures_captioned": 0,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 40
+      "chunks_indexed": 36
     },
     {
-      "id": "2607.19005v1",
+      "id": "2607.19005v2",
       "title": "Observable Matrix Dynamics of Stocks",
-      "source": "https://arxiv.org/pdf/2607.19005v1",
+      "source": "https://arxiv.org/pdf/2607.19005v2",
       "pages": 32,
       "images": 17,
-      "figures_captioned": 4,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 55
-    },
-    {
-      "id": "2607.18815v1",
-      "title": "Cloud failure and cyber insurance: calibration of stress scenarios and diversification",
-      "source": "https://arxiv.org/pdf/2607.18815v1",
-      "pages": 45,
-      "images": 1,
-      "figures_captioned": 2,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 46
-    },
-    {
-      "id": "2607.18813v1",
-      "title": "Mixing-Law Uncertainty in Multivariate Normal Mean-Variance Mixtures: Semi-parametric Estimation and Robust Cumulative-Prospect Decisions",
-      "source": "https://arxiv.org/pdf/2607.18813v1",
-      "pages": 33,
-      "images": 0,
       "figures_captioned": 0,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 28
-    },
-    {
-      "id": "2607.18705v1",
-      "title": "Pathwise Portfolio Theory and Market Viability",
-      "source": "https://arxiv.org/pdf/2607.18705v1",
-      "pages": 34,
-      "images": 0,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 54
-    },
-    {
-      "id": "2607.18001v1",
-      "title": "AlphaZeroBeta: Deep Reinforcement Learning for Market-Neutral Portfolios",
-      "source": "https://arxiv.org/pdf/2607.18001v1",
-      "pages": 59,
-      "images": 0,
-      "figures_captioned": 0,
-      "tables": 2,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 46
-    },
-    {
-      "id": "2607.17991v1",
-      "title": "Optimal Market Making in Prediction Markets",
-      "source": "https://arxiv.org/pdf/2607.17991v1",
-      "pages": 42,
-      "images": 0,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 37
-    },
-    {
-      "id": "2607.17502v1",
-      "title": "Mean-field equilibrium price formation under single-default risk",
-      "source": "https://arxiv.org/pdf/2607.17502v1",
-      "pages": 46,
-      "images": 0,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 44
+      "chunks_indexed": 51
     }
   ]
 }
