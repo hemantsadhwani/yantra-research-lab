@@ -1,7 +1,7 @@
 {
   "_note": "Public run manifest of the Tier-3 agentic ingestion pipeline. Safe aggregates + provenance only; raw PDFs live in S3, not here.",
-  "run_id": "20260723T053508Z",
-  "generated_at": "2026-07-23T05:39:25+00:00",
+  "run_id": "20260724T053025Z",
+  "generated_at": "2026-07-24T05:34:39+00:00",
   "collection": "research_corpus",
   "embed_model": "BAAI/bge-small-en-v1.5",
   "dag": [
@@ -50,28 +50,100 @@
     "discovered": 10,
     "fetched": 10,
     "parsed": 10,
-    "chunks": 501,
-    "accepted": 479,
-    "rejected": 22,
-    "images": 43,
+    "chunks": 525,
+    "accepted": 492,
+    "rejected": 33,
+    "images": 37,
     "figures_captioned": 18,
     "tables": 8,
     "with_math": 10,
-    "indexed": 479,
-    "spent_usd": 0.0338,
-    "duration_s": 256.8
+    "indexed": 492,
+    "spent_usd": 0.0317,
+    "duration_s": 253.6
   },
   "rejects_by_reason": {
-    "low-relevance": 22
+    "low-relevance": 33
   },
   "budget_usd": 3.0,
   "figures": [
+    {
+      "doc_id": "2607.21170v1",
+      "title": "Portfolio Optimization under Dynamic Rebalancing via Topological Data Analysis and News Sentiments",
+      "page": 5,
+      "thumb": "/data/figures/2607.21170v1_p5_0.jpg",
+      "caption": "Figure 1: Flowchart for sentiment score computation from news headlines. Google Gemini was used to refine and enhance the visual presentation of a flowchart developed by the author. The resulting figure was subsequently reviewed, modified, and finalized by the author. \u2014 This flowchart illustrates a pipeline for computing sentiment scores from news headlines for financial applications. Starting with textual data collection from Reuters and Bloomberg during a reflective platform sample period, the",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.21170v1"
+    },
+    {
+      "doc_id": "2607.21170v1",
+      "title": "Portfolio Optimization under Dynamic Rebalancing via Topological Data Analysis and News Sentiments",
+      "page": 7,
+      "thumb": "/data/figures/2607.21170v1_p7_1.jpg",
+      "caption": "Figure 2: Illustration of agglomerative clustering. \u2014 This figure illustrates the hierarchical agglomerative clustering process through a dendrogram-style tree diagram showing how individual elements merge into clusters across successive steps. The chart displays four steps of bottom-up clustering where leaf nodes (p, q, r, s, t) progressively combine into larger clusters, with intermediate nodes labeled by their constituent elements (such as p,q and r,s,t), ultimately resulting in 2 final clust",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.21170v1"
+    },
+    {
+      "doc_id": "2607.21170v1",
+      "title": "Portfolio Optimization under Dynamic Rebalancing via Topological Data Analysis and News Sentiments",
+      "page": 8,
+      "thumb": "/data/figures/2607.21170v1_p8_2.jpg",
+      "caption": "Figure 3 illustrates the overall asset selection framework, from data collection and preprocessing to clustering and final asset selection. \u2014 Figure 3 is a flowchart diagram showing the complete asset selection pipeline for portfolio optimization. The process flows from \"Market Data\" at the top through sequential stages including data preprocessing (orange boxes), agglomerative clustering (green boxes), Sharpe ratio computation (blue box), asset selection with mean-variance optimization (purple ",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.21170v1"
+    },
+    {
+      "doc_id": "2607.21170v1",
+      "title": "Portfolio Optimization under Dynamic Rebalancing via Topological Data Analysis and News Sentiments",
+      "page": 8,
+      "thumb": "/data/figures/2607.21170v1_p8_3.jpg",
+      "caption": "Figure 3: Flowchart of the proposed asset selection framework integrating data preprocessing, agglomerative clustering, and final asset selection. The initial flowchart concept was devel- oped by the author and subsequently enhanced using Google Gemini to improve its visual presentation. The final figure was carefully reviewed and edited by the author. \u2014 This flowchart diagram illustrates the end-to-end pipeline for portfolio asset selection, beginning with Stocks Data at the top that branches i",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.21170v1"
+    },
+    {
+      "doc_id": "2607.20762v1",
+      "title": "Quantifying Sub-Optimality in Routing for Automated Market Makers",
+      "page": 9,
+      "thumb": "/data/figures/2607.20762v1_p9_0.jpg",
+      "caption": "Fig. 1. Suboptimality relative to different optima. The box plot indicates the 25th, 50th, and 75th percentiles, while the triangle indicates the mean of each sample. \u2014 This figure displays suboptimality gaps (y-axis, in bps) across three different optimal routing benchmarks for automated market makers: SCO (active-set, no gas), FVO (all pools, no gas), and G-FVO (all pools, gas-aware). Each subplot uses a box plot (showing 25th, 50th, and 75th percentiles) with overlaid triangles indicating sam",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.20762v1"
+    },
+    {
+      "doc_id": "2607.20762v1",
+      "title": "Quantifying Sub-Optimality in Routing for Automated Market Makers",
+      "page": 10,
+      "thumb": "/data/figures/2607.20762v1_p10_1.jpg",
+      "caption": "Fig. 2. Suboptimality vs. trade size (relative to FVO). \u2014 These side-by-side box plots compare suboptimality metrics across different trade size categories relative to FVO (Fair Value Spread Overlap). The left panel shows \"Suboptimality by Trade Size Compared with FVO\" and the right panel shows \"Suboptimality by Trade Size Compared with G-FVO\", with trade size categories on the x-axis (100-1K, 1K-10K, 10K-100K, >100K) and suboptimality percentage on the y-axis. The key takeaway is that suboptima",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.20762v1"
+    },
+    {
+      "doc_id": "2607.20762v1",
+      "title": "Quantifying Sub-Optimality in Routing for Automated Market Makers",
+      "page": 12,
+      "thumb": "/data/figures/2607.20762v1_p12_2.jpg",
+      "caption": "Fig. 3. Effect of delayed state on performance (relative to FVO and G-FVO). The gap between N = 0 and N = 1 quantifies the cost of one-block staleness (oracle vs. implementable planning), while the monotone drift as N increases captures the growing loss from routing on progressively older snapshots. \u2014 This figure compares the performance of FVO (Fresh Value Oracle) and G-FVO (Gas-aware FVO) routing strategies across planning horizons with varying state staleness. The top two panels are line char",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.20762v1"
+    },
+    {
+      "doc_id": "2607.20762v1",
+      "title": "Quantifying Sub-Optimality in Routing for Automated Market Makers",
+      "page": 13,
+      "thumb": "/data/figures/2607.20762v1_p13_3.jpg",
+      "caption": "Fig. 4. Suboptimality of realized routes against optima at \u03c9N, evaluated also at \u03c9N. \u2014 This figure displays two line charts comparing routing suboptimality across different pool configurations in automated market makers. Both panels (FVO on the left, G-FVO on the right) plot mean suboptimality in bps on the y-axis against number of hops (0-4) on the x-axis, with separate lines for different routing strategies (Uniswap v3, SushiSwap, Curve, 1inch, and Uniform router). The key takeaway is that sub",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.20762v1"
+    },
     {
       "doc_id": "2607.20415v1",
       "title": "Flux-Corrected Diagonal Frog: second order and positivity at all time steps",
       "page": 17,
       "thumb": "/data/figures/2607.20415v1_p17_0.jpg",
-      "caption": "Figure 1 compares the three key theoretical thresholds, the Picard contraction threshold \u03b3pic, the backward Euler resolvent positivity threshold \u03b30, and the Pad\u00e9(0,2) positivity threshold \u03b3r, as functions of the mesh size h on the Ornstein\u2013Uhlenbeck benchmark, determining whether the coverage conditions of Corollary 4 hold. \u2014 This table presents coverage thresholds on the Ornstein-Uhlenbeck (OU) benchmark for three finite element schemes (rows labeled 101, 201, 401 representing different mesh re",
+      "caption": "Figure 1 compares the three key theoretical thresholds, the Picard contraction threshold \u03b3pic, the backward Euler resolvent positivity threshold \u03b30, and the Pad\u00e9(0,2) positivity threshold \u03b3r, as functions of the mesh size h on the Ornstein\u2013Uhlenbeck benchmark, determining whether the coverage conditions of Corollary 4 hold. \u2014 This table presents coverage thresholds for the Ornstein-Uhlenbeck (OU) benchmark across three mesh refinement levels (101, 201, 401), comparing three critical thresholds: ",
       "vision": true,
       "source": "https://arxiv.org/pdf/2607.20415v1"
     },
@@ -80,7 +152,7 @@
       "title": "Flux-Corrected Diagonal Frog: second order and positivity at all time steps",
       "page": 18,
       "thumb": "/data/figures/2607.20415v1_p18_1.jpg",
-      "caption": "Figure 1: Coverage thresholds against the mesh on the OU benchmark. The Picard threshold falls linearly \u2014 This figure plots three threshold measures against mesh size h on a logarithmic scale for the Ornstein-Uhlenbeck (OU) benchmark problem. The y_\u03bc = h/2\u03b2 threshold (blue circles) and y_0 resolvent threshold (red squares) increase gradually and nearly linearly as h increases from 10^-2 to 10^-1. The y_r Pad\u00e9 threshold (teal triangles) exhibits a dramatic decrease from approximately 10^5 at h=10",
+      "caption": "Figure 1: Coverage thresholds against the mesh on the OU benchmark. The Picard threshold falls linearly \u2014 This log-log plot compares three threshold measures (y_un = h/2\u03b2, y_0 (resolvent), and y_r (Pad\u00e9)) as functions of mesh size h on the Ornstein-Uhlenbeck benchmark problem. The y-axis shows threshold values on a logarithmic scale from 10^-3 to 10^5, while the x-axis shows mesh parameter h from 10^-2 to 10^-1. The key takeaway is that the Pad\u00e9 threshold (green triangles) decreases dramatically",
       "vision": true,
       "source": "https://arxiv.org/pdf/2607.20415v1"
     },
@@ -89,7 +161,7 @@
       "title": "Flux-Corrected Diagonal Frog: second order and positivity at all time steps",
       "page": 19,
       "thumb": "/data/figures/2607.20415v1_p19_2.jpg",
-      "caption": "Figure 2 visualizes the spatial localization of the flux limiter on a logarithmic density scale for the \u2014 This figure displays a logarithmic density plot showing the spatial localization of the flux limiter in a one-dimensional simulation, with position on the horizontal axis and density (log scale) on the vertical axis. The plot demonstrates that the limiter activates only in narrow regions near density discontinuities where the solution transitions from high to low density values, confirming t",
+      "caption": "Figure 2 visualizes the spatial localization of the flux limiter on a logarithmic density scale for the \u2014 This figure displays a spatial cross-section of density on a logarithmic scale, showing the localization of the flux limiter in a one-dimensional convection-dominated flow problem. The plot uses a logarithmic y-axis to visualize how the limiter activates only in regions where density drops to truncation level, with the maximum density adjacent to limited interfaces at 9.9\u00d710\u207b\u00b3 compared to an",
       "vision": true,
       "source": "https://arxiv.org/pdf/2607.20415v1"
     },
@@ -98,7 +170,7 @@
       "title": "Flux-Corrected Diagonal Frog: second order and positivity at all time steps",
       "page": 20,
       "thumb": "/data/figures/2607.20415v1_p20_3.jpg",
-      "caption": "Figure 2: Limiter activity at an unresolved front, D = 10\u22124 and n = 801, on a logarithmic density \u2014 This figure displays a line plot on a semi-logarithmic scale showing the probability density (p) versus position (x) for the FCDP-B numerical scheme applied to an advection problem with an unresolved front. The y-axis uses logarithmic scale from 10^-12 to 10^0, while the x-axis ranges from 0.0 to 1.0. The plot shows a sharp transition at x\u22480.38 (marked \"peak 3.38\") with the limiter active (shaded ",
+      "caption": "Figure 2: Limiter activity at an unresolved front, D = 10\u22124 and n = 801, on a logarithmic density \u2014 This figure is a line plot with logarithmic y-axis showing the limiter activity profile for the Flux-Corrected Diagonal Frog (FCDF-B) scheme applied to an unresolved front. The x-axis represents spatial position (0 to 1) and the y-axis represents probability p on a logarithmic scale from 10^-12 to 10^0. The limiter remains inactive (p \u2248 0) across most of the domain but activates sharply between x ",
       "vision": true,
       "source": "https://arxiv.org/pdf/2607.20415v1"
     },
@@ -107,7 +179,7 @@
       "title": "Quantum Kernels and the Cross-Section of Stock Returns: Anatomy of a Vanishing Advantage",
       "page": 9,
       "thumb": "/data/figures/2607.20168v1_p9_0.jpg",
-      "caption": "Figure 1: Main evaluation, 170 windows. Top: 12-window rolling mean out-of-sample rank IC. Bottom: rolling quantum-minus-classical IC differentials. \u2014 This figure presents two time-series plots evaluating quantum versus classical machine learning models for stock return prediction from 2012-2025 using 170 rolling windows. The top panel shows 12-window rolling mean out-of-sample rank information coefficient (IC) for four methods: QKERR Fidelity, KRR-RBF control, QKERR, and Poly(2) ridge, with val",
+      "caption": "Figure 1: Main evaluation, 170 windows. Top: 12-window rolling mean out-of-sample rank IC. Bottom: rolling quantum-minus-classical IC differentials. \u2014 This figure presents two time-series plots comparing quantum and classical machine learning models for stock return prediction from 2012-2025 using 170 rolling windows. The top panel shows rolling 12-window mean out-of-sample rank information coefficient (IC) for four methods: Qkrr Fidelity, KRR-RBF control, QKNN, and Poly(2) Ridge, with IC values",
       "vision": true,
       "source": "https://arxiv.org/pdf/2607.20168v1"
     },
@@ -116,7 +188,7 @@
       "title": "Quantum Kernels and the Cross-Section of Stock Returns: Anatomy of a Vanishing Advantage",
       "page": 13,
       "thumb": "/data/figures/2607.20168v1_p13_1.jpg",
-      "caption": "Figure 2: Short-sample study, 60 windows. Top: regularized geometric difference g between quantum kernels and the tuned RBF control. Bottom: within-window validation rank ICs of the three kernels. \u2014 This figure displays a time-series comparison of quantum kernel performance versus a tuned RBF control across 60 rolling windows from 2021 to 2026. The top panel shows the geometric difference in regularized form, with the fidelity RBF kernel (blue) and projected RBF kernel (orange) compared against ",
+      "caption": "Figure 2: Short-sample study, 60 windows. Top: regularized geometric difference g between quantum kernels and the tuned RBF control. Bottom: within-window validation rank ICs of the three kernels. \u2014 This figure compares quantum kernel performance against a classical RBF baseline across 60 rolling windows from 2021 to 2026. The top panel shows the geometric difference between the quantum (gfidelity) and projected RBF kernels, with the orange line (projected) exhibiting much larger spikes than the",
       "vision": true,
       "source": "https://arxiv.org/pdf/2607.20168v1"
     },
@@ -125,7 +197,7 @@
       "title": "Retail Trader's Ruin: An Anatomy of Popular Signal Failure",
       "page": 7,
       "thumb": "/data/figures/2607.20093v1_p7_0.jpg",
-      "caption": "Figure 1: Joint falsification map: each family\u2019s statistical/economic gate outcome plotted against its liquidation probability under the headline survival scenario. Four of six candidates are REFUTED, two are INCONCLU- SIVE, none is SUPPORTED. \u2014 This scatter plot displays joint viability assessment results for five trading signal families, plotting their forced liquidation probability (x-axis, ranging 0.0 to 1.0 at 2x leverage with fixed margin) against each strategy on the y-axis. The five stra",
+      "caption": "Figure 1: Joint falsification map: each family\u2019s statistical/economic gate outcome plotted against its liquidation probability under the headline survival scenario. Four of six candidates are REFUTED, two are INCONCLU- SIVE, none is SUPPORTED. \u2014 This figure is a scatter plot showing the joint viability of trading signal families at maximum retail leverage, with the x-axis representing P(forced liquidation) at 2x leverage with fixed margin and the y-axis listing five trading signal strategies (Mo",
       "vision": true,
       "source": "https://arxiv.org/pdf/2607.20093v1"
     },
@@ -134,7 +206,7 @@
       "title": "Retail Trader's Ruin: An Anatomy of Popular Signal Failure",
       "page": 8,
       "thumb": "/data/figures/2607.20093v1_p8_1.jpg",
-      "caption": "Figure 2: Left: EU replication grid (six country ETFs \u00d7 three indicators), Sharpe-gap point estimates and 95% CIs. Right: momentum calibration benchmark\u2019s crash diagnostics \u2014 drawdowns amplify sharply under 2x/3x leverage stress, consistent with known momentum crash risk. \u2014 The left panel shows a heatmap of Sharpe ratio gaps across six EU countries (France, Germany, Italy, Spain, Switzerland, UK) and three technical indicators (Momentum, RSI, MACD), with color-coded point estimates ranging from ",
+      "caption": "Figure 2: Left: EU replication grid (six country ETFs \u00d7 three indicators), Sharpe-gap point estimates and 95% CIs. Right: momentum calibration benchmark\u2019s crash diagnostics \u2014 drawdowns amplify sharply under 2x/3x leverage stress, consistent with known momentum crash risk. \u2014 The left panel shows a heatmap of Sharpe ratio gaps across six EU country ETFs (France, Germany, Italy, Spain, Switzerland, UK) and three technical indicators (Carry/Trend, Mean Reversion, Momentum), with color-coded point es",
       "vision": true,
       "source": "https://arxiv.org/pdf/2607.20093v1"
     },
@@ -143,7 +215,7 @@
       "title": "The Science and Practice of Trend-Following Systems",
       "page": 6,
       "thumb": "/data/figures/2607.19497v1_p6_0.jpg",
-      "caption": "Figure 2.1: Values of EWMA long-short filter applied to the unit-impulse sequence (1, 0, 0, . . .) using long span N1 such that \u03bd1 = 1\u22122/(N1+1) and short span N2 such that \u03bd2 = 1\u22122/(N2+1) for three combinations: (N1 = 50, N2 = 0), (N1 = 250, N2 = 0), (N1 = 250, N2 = 50), where N2 = 0 denotes the single-filter case without the short leg \u2014 This line chart displays the propagation of a unit impulse through exponentially weighted moving average (EWMA) filters at time t=1, with the y-axis showing fil",
+      "caption": "Figure 2.1: Values of EWMA long-short filter applied to the unit-impulse sequence (1, 0, 0, . . .) using long span N1 such that \u03bd1 = 1\u22122/(N1+1) and short span N2 such that \u03bd2 = 1\u22122/(N2+1) for three combinations: (N1 = 50, N2 = 0), (N1 = 250, N2 = 0), (N1 = 250, N2 = 50), where N2 = 0 denotes the single-filter case without the short leg \u2014 This line chart shows the propagation of a unit impulse through exponential weighted moving average (EWMA) filters at time t=1, with the y-axis displaying filte",
       "vision": true,
       "source": "https://arxiv.org/pdf/2607.19497v1"
     },
@@ -152,84 +224,36 @@
       "title": "The Science and Practice of Trend-Following Systems",
       "page": 9,
       "thumb": "/data/figures/2607.19497v1_p9_1.jpg",
-      "caption": "Figure 4.1: Panels (A1) and (A2) show time series and histogram of EWMA long-short filters applied on volatility-normalized returns. Panels (B1) and (B2) show time series of weights with volatility target of 15%. Panels (C1) and (C2) show the cumulative P&L and daily returns multiplied by \u221aa with a = 260. Fast, medium, and slow long-short EWMA filters are computed using long spans of 30, 125, and  \u2014 This figure displays trend-following system analysis with six panels comparing fast, medium, and ",
+      "caption": "Figure 4.1: Panels (A1) and (A2) show time series and histogram of EWMA long-short filters applied on volatility-normalized returns. Panels (B1) and (B2) show time series of weights with volatility target of 15%. Panels (C1) and (C2) show the cumulative P&L and daily returns multiplied by \u221aa with a = 260. Fast, medium, and slow long-short EWMA filters are computed using long spans of 30, 125, and  \u2014 This figure displays the components and performance of trend-following EWMA (Exponentially Weight",
       "vision": true,
       "source": "https://arxiv.org/pdf/2607.19497v1"
-    },
-    {
-      "doc_id": "2607.19497v1",
-      "title": "The Science and Practice of Trend-Following Systems",
-      "page": 19,
-      "thumb": "/data/figures/2607.19497v1_p19_2.jpg",
-      "caption": "Figure 6.1: Expected annual return, gross Sharpe ratio, and net Sharpe ratio of the European TF system on the white noise process in equation (6.2), as functions of the annualized drift \u00b5z \u2014 This figure shows three line plots displaying the performance metrics of a European trend-following system applied to a white noise process with drift, across different signal spans (1 week to 2 years). Panel (A) displays expected annual return of the TF system ranging from near 0% to 5%, Panel (B) shows gro",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.19497v1"
-    },
-    {
-      "doc_id": "2607.19497v1",
-      "title": "The Science and Practice of Trend-Following Systems",
-      "page": 21,
-      "thumb": "/data/figures/2607.19497v1_p21_3.jpg",
-      "caption": "Figure 6.2: Expected annual return, gross Sharpe ratio, and net Sharpe ratio of the European TF system for the zero-drift AR-1 process in equation (6.6) with \u03d5 = {\u22120.05, 0.05}. Panel layout, cost level, and analytic and MC conventions as in Figure 6.1 \u2014 This figure displays three panels comparing performance metrics of a trend-following (TF) system applied to a zero-drift AR-1 process with two correlation coefficients (\u03d5 = \u22120.05 and 0.05). Panel (A) shows expected annual returns ranging from app",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.19497v1"
-    },
-    {
-      "doc_id": "2607.19279v1",
-      "title": "Gaussian Boson Sampling for Asset Clustering in Statistical Arbitrage Portfolios",
-      "page": 3,
-      "thumb": "/data/figures/2607.19279v1_p3_0.jpg",
-      "caption": "Figure 1: Overview of the GBS-driven StatArb framework. (a) Stock data is processed to construct a residual-return correlation matrix. Zeroing the main diagonal yields the adjacency matrix of the correlation graph. (b) The GBS clustering procedure. The correlation graph is encoded into a GBS device through its adjacency matrix. The device generates subgraph samples, which are evaluated against an  \u2014 This figure illustrates a Gaussian Boson Sampling (GBS)-driven statistical arbitrage framework wi",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.19279v1"
-    },
-    {
-      "doc_id": "2607.19279v1",
-      "title": "Gaussian Boson Sampling for Asset Clustering in Statistical Arbitrage Portfolios",
-      "page": 5,
-      "thumb": "/data/figures/2607.19279v1_p5_1.jpg",
-      "caption": "Figure 2: Overview of the GBS Roots process. (a) An initial correlation graph G, with specific correlations and stock labels omitted for clarity. (b) The correlation graph is sampled using a GBS device to generate candidate subgraphs. (c) The weighted density of the samples is calculated. A cluster U = S \u2014 This figure illustrates the GBS Roots clustering process for financial asset portfolios, displayed as a workflow diagram with seven labeled steps (a-g). The process begins with an input correl",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.19279v1"
-    },
-    {
-      "doc_id": "2607.19279v1",
-      "title": "Gaussian Boson Sampling for Asset Clustering in Statistical Arbitrage Portfolios",
-      "page": 7,
-      "thumb": "/data/figures/2607.19279v1_p7_2.jpg",
-      "caption": "Figure 3: Cumulative PnL trajectories and standard deviations (coloured bands) for each algorithm. Based on a 60-day beta estimation and a 5-day correlation matrix lookback (Appendix A), the effective trading period begins in April 2020. GBS Boost, GBS Roots, and QIC-GBS utilised 0.7N log N, 0.6N log N, and N log N samples (See Appendix G) per GBS call, respectively. \u2014 This line chart displays cumulative profit-and-loss (PnL) trajectories for five asset clustering algorithms (Spectral, SPONGE, G",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.19279v1"
-    },
-    {
-      "doc_id": "2607.19279v1",
-      "title": "Gaussian Boson Sampling for Asset Clustering in Statistical Arbitrage Portfolios",
-      "page": 8,
-      "thumb": "/data/figures/2607.19279v1_p8_3.jpg",
-      "caption": "Figure 4: Performance of GBS-inspired clustering methods under photon loss, with and without displacement compensation. Quantum methods underwent 50 runs per loss rate (H = 0.7N log N samples per GBS call); classical methods underwent 100-200 runs. The stock universe is N = 50. The top row (a-c) displays uncompensated loss results, while the bottom row (d-f) incorporates displacement compensation. \u2014 This figure comprises six line plots comparing quantum and classical clustering methods for asset",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.19279v1"
-    },
-    {
-      "doc_id": "2607.19218v1",
-      "title": "Denoising Subordinated Probabilistic Models: Diffusion with a Tempered-Stable Volatility Clock, and What the Noise Mechanism Actually Controls",
-      "page": 8,
-      "thumb": "/data/figures/2607.19218v1_p8_0.jpg",
-      "caption": "Figure 1: Sampler validation. Left: empirical vs. exact Laplace transform, TS(0.7, 1.0, 0.3). Right: tempering suppresses the far tail while preserving the stable body. \u2014 The left panel shows a line plot comparing the theoretical Laplace transform (black solid line) against empirical results from 2M draws (red dashed line) for a Tempered Stable distribution with parameters \u03b1=0.7, \u03b8=1.0, \u03b4=0.3, plotted on linear axes with u on the x-axis and E[e^(-uX)] on the y-axis; both curves overlap closely, ",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.19218v1"
-    },
-    {
-      "doc_id": "2607.19218v1",
-      "title": "Denoising Subordinated Probabilistic Models: Diffusion with a Tempered-Stable Volatility Clock, and What the Noise Mechanism Actually Controls",
-      "page": 9,
-      "thumb": "/data/figures/2607.19218v1_p9_1.jpg",
-      "caption": "Figure 2: Left: exact ACF (7) vs. Monte Carlo. Middle: recovered ( \u02c6\u03c6, \u02c6\u03b8) over 200 replications (star = truth). Right: noise path ri = \u221aAizi with latent \u221aAi\u2014clustering before any learning. \u2014 This figure demonstrates parameter recovery and noise structure in a subordinated probabilistic model with three panels. The left panel compares theoretical autocorrelation function (ACF) from equation (7) against Monte Carlo simulation results, showing excellent agreement as lag h increases. The middle pan",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.19218v1"
     }
   ],
   "docs": [
+    {
+      "id": "2607.21170v1",
+      "title": "Portfolio Optimization under Dynamic Rebalancing via Topological Data Analysis and News Sentiments",
+      "source": "https://arxiv.org/pdf/2607.21170v1",
+      "pages": 28,
+      "images": 22,
+      "figures_captioned": 4,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 64
+    },
+    {
+      "id": "2607.20762v1",
+      "title": "Quantifying Sub-Optimality in Routing for Automated Market Makers",
+      "source": "https://arxiv.org/pdf/2607.20762v1",
+      "pages": 21,
+      "images": 0,
+      "figures_captioned": 4,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 43
+    },
     {
       "id": "2607.20415v1",
       "title": "Flux-Corrected Diagonal Frog: second order and positivity at all time steps",
@@ -243,16 +267,16 @@
       "chunks_indexed": 71
     },
     {
-      "id": "2607.20343v1",
-      "title": "Model Risk via Signature-Induced Optimal Transport",
-      "source": "https://arxiv.org/pdf/2607.20343v1",
+      "id": "2607.20343v2",
+      "title": "Path-Space Model Risk via Signature-Induced Optimal Transport",
+      "source": "https://arxiv.org/pdf/2607.20343v2",
       "pages": 30,
       "images": 0,
       "figures_captioned": 0,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 65
+      "chunks_indexed": 66
     },
     {
       "id": "2607.20168v1",
@@ -284,11 +308,11 @@
       "source": "https://arxiv.org/pdf/2607.19497v1",
       "pages": 46,
       "images": 5,
-      "figures_captioned": 4,
+      "figures_captioned": 2,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 60
+      "chunks_indexed": 58
     },
     {
       "id": "2607.19279v1",
@@ -296,11 +320,11 @@
       "source": "https://arxiv.org/pdf/2607.19279v1",
       "pages": 23,
       "images": 7,
-      "figures_captioned": 4,
+      "figures_captioned": 0,
       "tables": 1,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 68
+      "chunks_indexed": 64
     },
     {
       "id": "2607.19218v1",
@@ -308,11 +332,11 @@
       "source": "https://arxiv.org/pdf/2607.19218v1",
       "pages": 14,
       "images": 0,
-      "figures_captioned": 2,
+      "figures_captioned": 0,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 33
+      "chunks_indexed": 31
     },
     {
       "id": "2607.19453v1",
@@ -325,30 +349,6 @@
       "has_math": true,
       "ocr_used": false,
       "chunks_indexed": 34
-    },
-    {
-      "id": "2607.19030v1",
-      "title": "Pricing options on illiquid assets using liquid market benchmarks: an application to energy markets",
-      "source": "https://arxiv.org/pdf/2607.19030v1",
-      "pages": 26,
-      "images": 11,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 36
-    },
-    {
-      "id": "2607.19005v2",
-      "title": "Observable Matrix Dynamics of Stocks",
-      "source": "https://arxiv.org/pdf/2607.19005v2",
-      "pages": 32,
-      "images": 17,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 51
     }
   ]
 }
