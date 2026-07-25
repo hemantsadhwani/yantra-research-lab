@@ -1,7 +1,7 @@
 {
   "_note": "Public run manifest of the Tier-3 agentic ingestion pipeline. Safe aggregates + provenance only; raw PDFs live in S3, not here.",
-  "run_id": "20260724T053025Z",
-  "generated_at": "2026-07-24T05:34:39+00:00",
+  "run_id": "20260725T052455Z",
+  "generated_at": "2026-07-25T05:28:50+00:00",
   "collection": "research_corpus",
   "embed_model": "BAAI/bge-small-en-v1.5",
   "dag": [
@@ -58,8 +58,8 @@
     "tables": 8,
     "with_math": 10,
     "indexed": 492,
-    "spent_usd": 0.0317,
-    "duration_s": 253.6
+    "spent_usd": 0.0324,
+    "duration_s": 235.4
   },
   "rejects_by_reason": {
     "low-relevance": 33
@@ -71,7 +71,7 @@
       "title": "Portfolio Optimization under Dynamic Rebalancing via Topological Data Analysis and News Sentiments",
       "page": 5,
       "thumb": "/data/figures/2607.21170v1_p5_0.jpg",
-      "caption": "Figure 1: Flowchart for sentiment score computation from news headlines. Google Gemini was used to refine and enhance the visual presentation of a flowchart developed by the author. The resulting figure was subsequently reviewed, modified, and finalized by the author. \u2014 This flowchart illustrates a pipeline for computing sentiment scores from news headlines for financial applications. Starting with textual data collection from Reuters and Bloomberg during a reflective platform sample period, the",
+      "caption": "Figure 1: Flowchart for sentiment score computation from news headlines. Google Gemini was used to refine and enhance the visual presentation of a flowchart developed by the author. The resulting figure was subsequently reviewed, modified, and finalized by the author. \u2014 This flowchart depicts a pipeline for computing sentiment scores from financial news headlines. The process flows sequentially from textual data collection (Reuters feed with daily reflection period) through text preprocessing (s",
       "vision": true,
       "source": "https://arxiv.org/pdf/2607.21170v1"
     },
@@ -80,7 +80,7 @@
       "title": "Portfolio Optimization under Dynamic Rebalancing via Topological Data Analysis and News Sentiments",
       "page": 7,
       "thumb": "/data/figures/2607.21170v1_p7_1.jpg",
-      "caption": "Figure 2: Illustration of agglomerative clustering. \u2014 This figure illustrates the hierarchical agglomerative clustering process through a dendrogram-style tree diagram showing how individual elements merge into clusters across successive steps. The chart displays four steps of bottom-up clustering where leaf nodes (p, q, r, s, t) progressively combine into larger clusters, with intermediate nodes labeled by their constituent elements (such as p,q and r,s,t), ultimately resulting in 2 final clust",
+      "caption": "Figure 2: Illustration of agglomerative clustering. \u2014 This figure illustrates the hierarchical agglomerative clustering process through a dendrogram-style tree diagram. The chart shows how individual data points (p, q, r, s, t) progressively merge into larger clusters across four steps, with the vertical axis representing agglomerativeness (distance or dissimilarity measure) and the horizontal organization showing the hierarchical grouping structure. The key takeaway is that agglomerative cluste",
       "vision": true,
       "source": "https://arxiv.org/pdf/2607.21170v1"
     },
@@ -89,7 +89,7 @@
       "title": "Portfolio Optimization under Dynamic Rebalancing via Topological Data Analysis and News Sentiments",
       "page": 8,
       "thumb": "/data/figures/2607.21170v1_p8_2.jpg",
-      "caption": "Figure 3 illustrates the overall asset selection framework, from data collection and preprocessing to clustering and final asset selection. \u2014 Figure 3 is a flowchart diagram showing the complete asset selection pipeline for portfolio optimization. The process flows from \"Market Data\" at the top through sequential stages including data preprocessing (orange boxes), agglomerative clustering (green boxes), Sharpe ratio computation (blue box), asset selection with mean-variance optimization (purple ",
+      "caption": "Figure 3 illustrates the overall asset selection framework, from data collection and preprocessing to clustering and final asset selection. \u2014 Figure 3 is a flowchart depicting an asset selection pipeline that flows from left to right, starting with \"Stock Data\" at the top and branching through multiple processing stages including data preprocessing (shown in orange boxes), agglomerative clustering (green boxes), and final asset selection (purple and orange boxes at the bottom). The diagram illus",
       "vision": true,
       "source": "https://arxiv.org/pdf/2607.21170v1"
     },
@@ -98,7 +98,7 @@
       "title": "Portfolio Optimization under Dynamic Rebalancing via Topological Data Analysis and News Sentiments",
       "page": 8,
       "thumb": "/data/figures/2607.21170v1_p8_3.jpg",
-      "caption": "Figure 3: Flowchart of the proposed asset selection framework integrating data preprocessing, agglomerative clustering, and final asset selection. The initial flowchart concept was devel- oped by the author and subsequently enhanced using Google Gemini to improve its visual presentation. The final figure was carefully reviewed and edited by the author. \u2014 This flowchart diagram illustrates the end-to-end pipeline for portfolio asset selection, beginning with Stocks Data at the top that branches i",
+      "caption": "Figure 3: Flowchart of the proposed asset selection framework integrating data preprocessing, agglomerative clustering, and final asset selection. The initial flowchart concept was devel- oped by the author and subsequently enhanced using Google Gemini to improve its visual presentation. The final figure was carefully reviewed and edited by the author. \u2014 This flowchart diagram illustrates a multi-stage asset selection framework that begins with stocks data at the top and flows through sequential",
       "vision": true,
       "source": "https://arxiv.org/pdf/2607.21170v1"
     },
@@ -107,7 +107,7 @@
       "title": "Quantifying Sub-Optimality in Routing for Automated Market Makers",
       "page": 9,
       "thumb": "/data/figures/2607.20762v1_p9_0.jpg",
-      "caption": "Fig. 1. Suboptimality relative to different optima. The box plot indicates the 25th, 50th, and 75th percentiles, while the triangle indicates the mean of each sample. \u2014 This figure displays suboptimality gaps (y-axis, in bps) across three different optimal routing benchmarks for automated market makers: SCO (active-set, no gas), FVO (all pools, no gas), and G-FVO (all pools, gas-aware). Each subplot uses a box plot (showing 25th, 50th, and 75th percentiles) with overlaid triangles indicating sam",
+      "caption": "Fig. 1. Suboptimality relative to different optima. The box plot indicates the 25th, 50th, and 75th percentiles, while the triangle indicates the mean of each sample. \u2014 This figure comprises three box-and-whisker plots comparing suboptimality (pps, or percentage points) across different routing strategies and pool configurations in automated market makers. The three panels show suboptimality metrics for SCO (active-set, no gas), FVO (all pools, no gas), and G-FVO (all pools, gas-aware), each tes",
       "vision": true,
       "source": "https://arxiv.org/pdf/2607.20762v1"
     },
@@ -116,7 +116,7 @@
       "title": "Quantifying Sub-Optimality in Routing for Automated Market Makers",
       "page": 10,
       "thumb": "/data/figures/2607.20762v1_p10_1.jpg",
-      "caption": "Fig. 2. Suboptimality vs. trade size (relative to FVO). \u2014 These side-by-side box plots compare suboptimality metrics across different trade size categories relative to FVO (Fair Value Spread Overlap). The left panel shows \"Suboptimality by Trade Size Compared with FVO\" and the right panel shows \"Suboptimality by Trade Size Compared with G-FVO\", with trade size categories on the x-axis (100-1K, 1K-10K, 10K-100K, >100K) and suboptimality percentage on the y-axis. The key takeaway is that suboptima",
+      "caption": "Fig. 2. Suboptimality vs. trade size (relative to FVO). \u2014 These two box plots compare suboptimality percentages across different trade size buckets (100-1K, 1K-10K, 10K-100K, and 100K+ USDC operations), with the left panel showing suboptimality relative to FVO (Fair Value Oracle) and the right panel showing suboptimality relative to G-FVO (a variant measure). Both charts display median values as horizontal lines within boxes, with triangular markers indicating outliers or individual data points.",
       "vision": true,
       "source": "https://arxiv.org/pdf/2607.20762v1"
     },
@@ -125,7 +125,7 @@
       "title": "Quantifying Sub-Optimality in Routing for Automated Market Makers",
       "page": 12,
       "thumb": "/data/figures/2607.20762v1_p12_2.jpg",
-      "caption": "Fig. 3. Effect of delayed state on performance (relative to FVO and G-FVO). The gap between N = 0 and N = 1 quantifies the cost of one-block staleness (oracle vs. implementable planning), while the monotone drift as N increases captures the growing loss from routing on progressively older snapshots. \u2014 This figure compares the performance of FVO (Fresh Value Oracle) and G-FVO (Gas-aware FVO) routing strategies across planning horizons with varying state staleness. The top two panels are line char",
+      "caption": "Fig. 3. Effect of delayed state on performance (relative to FVO and G-FVO). The gap between N = 0 and N = 1 quantifies the cost of one-block staleness (oracle vs. implementable planning), while the monotone drift as N increases captures the growing loss from routing on progressively older snapshots. \u2014 This figure compares the performance of FVO (Free Volatility Optimization) and G-FVO (Gas-aware FVO) routing strategies under delayed blockchain state conditions. The top two line plots show mean s",
       "vision": true,
       "source": "https://arxiv.org/pdf/2607.20762v1"
     },
@@ -134,7 +134,7 @@
       "title": "Quantifying Sub-Optimality in Routing for Automated Market Makers",
       "page": 13,
       "thumb": "/data/figures/2607.20762v1_p13_3.jpg",
-      "caption": "Fig. 4. Suboptimality of realized routes against optima at \u03c9N, evaluated also at \u03c9N. \u2014 This figure displays two line charts comparing routing suboptimality across different pool configurations in automated market makers. Both panels (FVO on the left, G-FVO on the right) plot mean suboptimality in bps on the y-axis against number of hops (0-4) on the x-axis, with separate lines for different routing strategies (Uniswap v3, SushiSwap, Curve, 1inch, and Uniform router). The key takeaway is that sub",
+      "caption": "Fig. 4. Suboptimality of realized routes against optima at \u03c9N, evaluated also at \u03c9N. \u2014 This figure compares mean suboptimality (in basis points) across different routing strategies for automated market makers, shown in two line charts side-by-side: FVO (all pools, no gas) and G-FVO (all pools, gas-aware). Both charts display suboptimality on the y-axis (0-4 bps) versus time periods on the x-axis (0-4), with five colored lines representing different strategies: UniV3 v1, UniV3 v2, CoW Swap, 1inch",
       "vision": true,
       "source": "https://arxiv.org/pdf/2607.20762v1"
     },
@@ -143,7 +143,7 @@
       "title": "Flux-Corrected Diagonal Frog: second order and positivity at all time steps",
       "page": 17,
       "thumb": "/data/figures/2607.20415v1_p17_0.jpg",
-      "caption": "Figure 1 compares the three key theoretical thresholds, the Picard contraction threshold \u03b3pic, the backward Euler resolvent positivity threshold \u03b30, and the Pad\u00e9(0,2) positivity threshold \u03b3r, as functions of the mesh size h on the Ornstein\u2013Uhlenbeck benchmark, determining whether the coverage conditions of Corollary 4 hold. \u2014 This table presents coverage thresholds for the Ornstein-Uhlenbeck (OU) benchmark across three mesh refinement levels (101, 201, 401), comparing three critical thresholds: ",
+      "caption": "Figure 1 compares the three key theoretical thresholds, the Picard contraction threshold \u03b3pic, the backward Euler resolvent positivity threshold \u03b30, and the Pad\u00e9(0,2) positivity threshold \u03b3r, as functions of the mesh size h on the Ornstein\u2013Uhlenbeck benchmark, determining whether the coverage conditions of Corollary 4 hold. \u2014 This table presents coverage thresholds on the Ornstein-Uhlenbeck (OU) benchmark for three numerical schemes (101, 201, 401), displaying critical threshold values \u03b3_pic, \u03b3_",
       "vision": true,
       "source": "https://arxiv.org/pdf/2607.20415v1"
     },
@@ -152,7 +152,7 @@
       "title": "Flux-Corrected Diagonal Frog: second order and positivity at all time steps",
       "page": 18,
       "thumb": "/data/figures/2607.20415v1_p18_1.jpg",
-      "caption": "Figure 1: Coverage thresholds against the mesh on the OU benchmark. The Picard threshold falls linearly \u2014 This log-log plot compares three threshold measures (y_un = h/2\u03b2, y_0 (resolvent), and y_r (Pad\u00e9)) as functions of mesh size h on the Ornstein-Uhlenbeck benchmark problem. The y-axis shows threshold values on a logarithmic scale from 10^-3 to 10^5, while the x-axis shows mesh parameter h from 10^-2 to 10^-1. The key takeaway is that the Pad\u00e9 threshold (green triangles) decreases dramatically",
+      "caption": "Figure 1: Coverage thresholds against the mesh on the OU benchmark. The Picard threshold falls linearly \u2014 This figure is a log-log plot comparing three threshold measures against mesh size h on the Ornstein-Uhlenbeck (OU) benchmark. The three curves shown are: y_\u03bcN = h/2\u03b2 (dark blue circles), y\u2080 (resolvent, red squares), and y_r (Pad\u00e9, teal triangles). The key takeaway is that the Pad\u00e9 threshold (y_r) exhibits a dramatic initial decline from approximately 10^5 to 1 as h increases from 10^-2 to 1",
       "vision": true,
       "source": "https://arxiv.org/pdf/2607.20415v1"
     },
@@ -161,7 +161,7 @@
       "title": "Flux-Corrected Diagonal Frog: second order and positivity at all time steps",
       "page": 19,
       "thumb": "/data/figures/2607.20415v1_p19_2.jpg",
-      "caption": "Figure 2 visualizes the spatial localization of the flux limiter on a logarithmic density scale for the \u2014 This figure displays a spatial cross-section of density on a logarithmic scale, showing the localization of the flux limiter in a one-dimensional convection-dominated flow problem. The plot uses a logarithmic y-axis to visualize how the limiter activates only in regions where density drops to truncation level, with the maximum density adjacent to limited interfaces at 9.9\u00d710\u207b\u00b3 compared to an",
+      "caption": "Figure 2 visualizes the spatial localization of the flux limiter on a logarithmic density scale for the \u2014 This figure displays a logarithmic-scale spatial plot showing the localization of the flux limiter in a one-dimensional convection-dominated problem at P\u00e9clet number 3.8. The x-axis represents spatial position across the domain [0.1, 0.4], and the y-axis shows density on a logarithmic scale, with the plot illustrating where the limiter is active (approximately 38% of interfaces) and its effe",
       "vision": true,
       "source": "https://arxiv.org/pdf/2607.20415v1"
     },
@@ -170,7 +170,7 @@
       "title": "Flux-Corrected Diagonal Frog: second order and positivity at all time steps",
       "page": 20,
       "thumb": "/data/figures/2607.20415v1_p20_3.jpg",
-      "caption": "Figure 2: Limiter activity at an unresolved front, D = 10\u22124 and n = 801, on a logarithmic density \u2014 This figure is a line plot with logarithmic y-axis showing the limiter activity profile for the Flux-Corrected Diagonal Frog (FCDF-B) scheme applied to an unresolved front. The x-axis represents spatial position (0 to 1) and the y-axis represents probability p on a logarithmic scale from 10^-12 to 10^0. The limiter remains inactive (p \u2248 0) across most of the domain but activates sharply between x ",
+      "caption": "Figure 2: Limiter activity at an unresolved front, D = 10\u22124 and n = 801, on a logarithmic density \u2014 This figure shows a line plot of limiter activity (p) on a logarithmic y-axis versus spatial position (x) on a linear x-axis, tracking where the flux-corrected diagonal transport (FCDF-B) limiter becomes active during an unresolved front simulation. The limiter activity exhibits a sharp rise around x = 0.2, maintains a plateau at unity (p = 1) across the interval [0.25, 0.6], then drops sharply ba",
       "vision": true,
       "source": "https://arxiv.org/pdf/2607.20415v1"
     },
@@ -179,7 +179,7 @@
       "title": "Quantum Kernels and the Cross-Section of Stock Returns: Anatomy of a Vanishing Advantage",
       "page": 9,
       "thumb": "/data/figures/2607.20168v1_p9_0.jpg",
-      "caption": "Figure 1: Main evaluation, 170 windows. Top: 12-window rolling mean out-of-sample rank IC. Bottom: rolling quantum-minus-classical IC differentials. \u2014 This figure presents two time-series plots comparing quantum and classical machine learning models for stock return prediction from 2012-2025 using 170 rolling windows. The top panel shows rolling 12-window mean out-of-sample rank information coefficient (IC) for four methods: Qkrr Fidelity, KRR-RBF control, QKNN, and Poly(2) Ridge, with IC values",
+      "caption": "Figure 1: Main evaluation, 170 windows. Top: 12-window rolling mean out-of-sample rank IC. Bottom: rolling quantum-minus-classical IC differentials. \u2014 This figure displays the out-of-sample performance comparison of quantum kernel methods versus classical machine learning approaches for stock return prediction using an extended point-in-time sample from 2012-2025 with 170 rolling windows. The top panel is a line chart showing 12-window rolling mean rank information coefficient (IC) for four meth",
       "vision": true,
       "source": "https://arxiv.org/pdf/2607.20168v1"
     },
@@ -188,7 +188,7 @@
       "title": "Quantum Kernels and the Cross-Section of Stock Returns: Anatomy of a Vanishing Advantage",
       "page": 13,
       "thumb": "/data/figures/2607.20168v1_p13_1.jpg",
-      "caption": "Figure 2: Short-sample study, 60 windows. Top: regularized geometric difference g between quantum kernels and the tuned RBF control. Bottom: within-window validation rank ICs of the three kernels. \u2014 This figure compares quantum kernel performance against a classical RBF baseline across 60 rolling windows from 2021 to 2026. The top panel shows the geometric difference between the quantum (gfidelity) and projected RBF kernels, with the orange line (projected) exhibiting much larger spikes than the",
+      "caption": "Figure 2: Short-sample study, 60 windows. Top: regularized geometric difference g between quantum kernels and the tuned RBF control. Bottom: within-window validation rank ICs of the three kernels. \u2014 This figure displays the performance comparison between quantum kernels and a classical RBF control across 60 rolling windows from 2021 to 2026. The top panel shows a line chart of geometric difference (g) on the y-axis versus time windows, with the fidelity RBF kernel (blue) and projected RBF kernel",
       "vision": true,
       "source": "https://arxiv.org/pdf/2607.20168v1"
     },
@@ -197,7 +197,7 @@
       "title": "Retail Trader's Ruin: An Anatomy of Popular Signal Failure",
       "page": 7,
       "thumb": "/data/figures/2607.20093v1_p7_0.jpg",
-      "caption": "Figure 1: Joint falsification map: each family\u2019s statistical/economic gate outcome plotted against its liquidation probability under the headline survival scenario. Four of six candidates are REFUTED, two are INCONCLU- SIVE, none is SUPPORTED. \u2014 This figure is a scatter plot showing the joint viability of trading signal families at maximum retail leverage, with the x-axis representing P(forced liquidation) at 2x leverage with fixed margin and the y-axis listing five trading signal strategies (Mo",
+      "caption": "Figure 1: Joint falsification map: each family\u2019s statistical/economic gate outcome plotted against its liquidation probability under the headline survival scenario. Four of six candidates are REFUTED, two are INCONCLU- SIVE, none is SUPPORTED. \u2014 This scatter plot displays the joint viability assessment of six trading signal families, plotting their forced liquidation probability (x-axis, ranging 0.0 to 1.0) against their P(forced liquidation) values at maximum retail leverage with a 2x leverage ",
       "vision": true,
       "source": "https://arxiv.org/pdf/2607.20093v1"
     },
@@ -206,7 +206,7 @@
       "title": "Retail Trader's Ruin: An Anatomy of Popular Signal Failure",
       "page": 8,
       "thumb": "/data/figures/2607.20093v1_p8_1.jpg",
-      "caption": "Figure 2: Left: EU replication grid (six country ETFs \u00d7 three indicators), Sharpe-gap point estimates and 95% CIs. Right: momentum calibration benchmark\u2019s crash diagnostics \u2014 drawdowns amplify sharply under 2x/3x leverage stress, consistent with known momentum crash risk. \u2014 The left panel shows a heatmap of Sharpe ratio gaps across six EU country ETFs (France, Germany, Italy, Spain, Switzerland, UK) and three technical indicators (Carry/Trend, Mean Reversion, Momentum), with color-coded point es",
+      "caption": "Figure 2: Left: EU replication grid (six country ETFs \u00d7 three indicators), Sharpe-gap point estimates and 95% CIs. Right: momentum calibration benchmark\u2019s crash diagnostics \u2014 drawdowns amplify sharply under 2x/3x leverage stress, consistent with known momentum crash risk. \u2014 Left panel: A heatmap showing Sharpe ratio gaps for six EU country ETFs (France, Germany, Italy, Spain, Switzerland, UK) across three technical indicators (Carryforward, RSI, and MACD), with values ranging from approximately ",
       "vision": true,
       "source": "https://arxiv.org/pdf/2607.20093v1"
     },
@@ -215,7 +215,7 @@
       "title": "The Science and Practice of Trend-Following Systems",
       "page": 6,
       "thumb": "/data/figures/2607.19497v1_p6_0.jpg",
-      "caption": "Figure 2.1: Values of EWMA long-short filter applied to the unit-impulse sequence (1, 0, 0, . . .) using long span N1 such that \u03bd1 = 1\u22122/(N1+1) and short span N2 such that \u03bd2 = 1\u22122/(N2+1) for three combinations: (N1 = 50, N2 = 0), (N1 = 250, N2 = 0), (N1 = 250, N2 = 50), where N2 = 0 denotes the single-filter case without the short leg \u2014 This line chart shows the propagation of a unit impulse through exponential weighted moving average (EWMA) filters at time t=1, with the y-axis displaying filte",
+      "caption": "Figure 2.1: Values of EWMA long-short filter applied to the unit-impulse sequence (1, 0, 0, . . .) using long span N1 such that \u03bd1 = 1\u22122/(N1+1) and short span N2 such that \u03bd2 = 1\u22122/(N2+1) for three combinations: (N1 = 50, N2 = 0), (N1 = 250, N2 = 0), (N1 = 250, N2 = 50), where N2 = 0 denotes the single-filter case without the short leg \u2014 This line chart displays the propagation of a unit impulse through exponentially weighted moving average (EWMA) filters at time t=1, comparing single-filter and",
       "vision": true,
       "source": "https://arxiv.org/pdf/2607.19497v1"
     },
@@ -224,7 +224,7 @@
       "title": "The Science and Practice of Trend-Following Systems",
       "page": 9,
       "thumb": "/data/figures/2607.19497v1_p9_1.jpg",
-      "caption": "Figure 4.1: Panels (A1) and (A2) show time series and histogram of EWMA long-short filters applied on volatility-normalized returns. Panels (B1) and (B2) show time series of weights with volatility target of 15%. Panels (C1) and (C2) show the cumulative P&L and daily returns multiplied by \u221aa with a = 260. Fast, medium, and slow long-short EWMA filters are computed using long spans of 30, 125, and  \u2014 This figure displays the components and performance of trend-following EWMA (Exponentially Weight",
+      "caption": "Figure 4.1: Panels (A1) and (A2) show time series and histogram of EWMA long-short filters applied on volatility-normalized returns. Panels (B1) and (B2) show time series of weights with volatility target of 15%. Panels (C1) and (C2) show the cumulative P&L and daily returns multiplied by \u221aa with a = 260. Fast, medium, and slow long-short EWMA filters are computed using long spans of 30, 125, and  \u2014 This figure displays the components of a trend-following system using exponentially weighted movi",
       "vision": true,
       "source": "https://arxiv.org/pdf/2607.19497v1"
     }
