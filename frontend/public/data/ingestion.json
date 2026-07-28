@@ -1,7 +1,7 @@
 {
   "_note": "Public run manifest of the Tier-3 agentic ingestion pipeline. Safe aggregates + provenance only; raw PDFs live in S3, not here.",
-  "run_id": "20260727T060053Z",
-  "generated_at": "2026-07-27T06:04:58+00:00",
+  "run_id": "20260728T052548Z",
+  "generated_at": "2026-07-28T05:29:25+00:00",
   "collection": "research_corpus",
   "embed_model": "BAAI/bge-small-en-v1.5",
   "dag": [
@@ -50,197 +50,281 @@
     "discovered": 10,
     "fetched": 10,
     "parsed": 10,
-    "chunks": 493,
-    "accepted": 461,
-    "rejected": 32,
-    "images": 33,
+    "chunks": 476,
+    "accepted": 440,
+    "rejected": 36,
+    "images": 24,
     "figures_captioned": 18,
-    "tables": 13,
+    "tables": 12,
     "with_math": 10,
-    "indexed": 461,
+    "indexed": 440,
     "spent_usd": 0.0321,
-    "duration_s": 245.0
+    "duration_s": 217.4
   },
   "rejects_by_reason": {
-    "low-relevance": 32
+    "low-relevance": 36
   },
   "budget_usd": 3.0,
   "figures": [
     {
-      "doc_id": "2607.22317v1",
-      "title": "Latent Fragility and Clustered Withdrawals in Dynamic Banks Runs",
-      "page": 13,
-      "thumb": "/data/figures/2607.22317v1_p13_0.jpg",
-      "caption": "Figure 1: Equilibrium withdrawn share \u2014 This figure shows two cumulative withdrawal curves plotting the equilibrium withdrawn share against time, with the y-axis representing the fraction withdrawn (ranging from 0 to 1) and the x-axis representing time (labeled as $\\tilde{t}$). The solid curves follow exponential-type functions $1-e^{-(v+\\theta_t)\\mu t}$ and $1-e^{-\\mu t}$, demonstrating how withdrawal behavior accelerates over time before asymptotically approaching full withdrawal. The dashed r",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.22317v1"
-    },
-    {
-      "doc_id": "2607.22317v1",
-      "title": "Latent Fragility and Clustered Withdrawals in Dynamic Banks Runs",
-      "page": 17,
-      "thumb": "/data/figures/2607.22317v1_p17_1.jpg",
-      "caption": "Figure 2: Multiple clustered withdrawals \u2014 Panel (A) shows a line graph tracking the proportion m of withdrawing agents over time, comparing two scenarios: one with multiple clustered withdrawals (solid line) and one without (dotted line), both approaching approximately 0.95 by time 10. Panel (B) displays the aggregate state trajectory Z over the same time period as a volatile time series, fluctuating between roughly -1.5 and +0.5, demonstrating how systemic fragility evolves during clustered wi",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.22317v1"
-    },
-    {
-      "doc_id": "2607.22317v1",
-      "title": "Latent Fragility and Clustered Withdrawals in Dynamic Banks Runs",
-      "page": 17,
-      "thumb": "/data/figures/2607.22317v1_p17_2.jpg",
-      "caption": "Figure 2 illustrates an example of multiple clustered withdrawals. After the aggregate state hits \u2014 Panel (A) is a line graph showing the dynamics of withdrawal share (m_t) over time, comparing two scenarios with different parameters; the withdrawal share increases sharply around time 2, then plateaus near 1.0, with the dotted line showing a slightly steeper initial trajectory than the solid line. Panel (B) is a time series plot displaying the aggregate state trajectory (Z_t), which exhibits vol",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.22317v1"
-    },
-    {
-      "doc_id": "2607.22317v1",
-      "title": "Latent Fragility and Clustered Withdrawals in Dynamic Banks Runs",
-      "page": 19,
-      "thumb": "/data/figures/2607.22317v1_p19_3.jpg",
-      "caption": "Figure 3 illustrates this mechanism. In the earliest-run equilibrium, the solid black lines in \u2014 I can see this is an academic text page with equations and theoretical discussion about bank runs and withdrawal dynamics, but there is no figure visible in the provided image. The text references \"Figure 3\" in the printed caption at the bottom, but the actual figure is not shown in this excerpt. To provide an accurate caption describing the figure's content, chart type, axes, and key takeaway, I wou",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.22317v1"
-    },
-    {
-      "doc_id": "2607.22085v1",
-      "title": "Neilson's Weak vs. Strong Loss Aversion: A Characterization and a Generalized CPT-Utility Function",
-      "page": 16,
-      "thumb": "/data/figures/2607.22085v1_p16_0.jpg",
-      "caption": "Fig. 1: Schematic counterexample: a utility function satisfying Neilson\u2019s weak loss aversion while \u2014 This line plot displays three curves representing utility functions across the domain of gains and losses (x-axis ranging from -6 to 6), with utility values (y-axis) ranging from -30 to 30. The red solid curve shows a standard utility function, the green solid curve represents a utility function satisfying weak loss aversion, and the magenta dashed curve depicts a comparison case. The key takeawa",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.22085v1"
-    },
-    {
-      "doc_id": "2607.21826v1",
-      "title": "Are cryptocurrencies real financial bubbles? Evidence from quantitative analyses",
+      "doc_id": "2607.24680v1",
+      "title": "One Other Option Pricing Scheme",
       "page": 5,
-      "thumb": "/data/figures/2607.21826v1_p5_0.jpg",
-      "caption": "Figure 1. Top panels: prices and market capitalizations for Bitcoin (left) and Ether (right). Middle panels: exchange traded volumes. Source: Coinmarketcap. Bottom left panel: historical volatilities of gold spot price (from Bloomberg XAU BGN Curncy), EUR/USD exchange rate (from Bloomberg: EURUSD BGN Curncy), Bitcoin (from Bloomberg: XBTUSD Curncy) and Ether (from Etherscan), calculated with rolli \u2014 This figure displays six panels tracking Bitcoin and Ether from 2013-2018, comparing their market",
+      "thumb": "/data/figures/2607.24680v1_p5_0.jpg",
+      "caption": "Figure 1: Segmentally constructing quantile functions. \u2014 This figure shows three panels displaying the construction of quantile functions through segmental approximation. Each panel plots quantile functions (Q-) on the y-axis against a normalized variable (labeled 0 to 1) on the x-axis, with red curves representing lower quantile estimates and blue curves representing upper quantile estimates. The shaded regions between red and blue curves represent uncertainty bands, with vertical dotted lines ",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.21826v1"
+      "source": "https://arxiv.org/pdf/2607.24680v1"
     },
     {
-      "doc_id": "2607.21826v1",
-      "title": "Are cryptocurrencies real financial bubbles? Evidence from quantitative analyses",
+      "doc_id": "2607.24680v1",
+      "title": "One Other Option Pricing Scheme",
       "page": 9,
-      "thumb": "/data/figures/2607.21826v1_p9_1.jpg",
-      "caption": "Figure 2: Bitcoin results: the first three panels starting from the top show JLS model results for each calibration technique (OLS, GLS and MLE). The left axis refers to the asset value (blue), while the right axis counts the number of LPPL signals represented by bars (black) in correspondence of the critical time tc. One LPPL fit is also shown (red) as an example of valid JLS signal. The last two \u2014 This figure displays two time-series panels comparing Bitcoin price (blue line, left axis) with s",
+      "thumb": "/data/figures/2607.24680v1_p9_1.jpg",
+      "caption": "Figure 1 (center) illustrates the two-segment construction. \ud835\udc44has exponential tails (2.1) in the tail segments \u2014 This figure demonstrates a piecewise quantile function construction using two knots to split the lower tail Q^- and upper tail Q^+ into segments with different functional forms. The construction combines exponential-type behavior in outer tail segments with power-law behavior (controlled by parameter \u03b3\u00b1) in inner segments, creating a flexible quantile function Q(u) that can improve the",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.21826v1"
+      "source": "https://arxiv.org/pdf/2607.24680v1"
     },
     {
-      "doc_id": "2607.21826v1",
-      "title": "Are cryptocurrencies real financial bubbles? Evidence from quantitative analyses",
-      "page": 11,
-      "thumb": "/data/figures/2607.21826v1_p11_2.jpg",
-      "caption": "Figure 3: Ether results. Description as in Figure 2. Source: Etherscan. \u2014 These two time-series panels display ETH/USD price (blue line, left axis) and BSADF test statistics (green line, right axis) for Ethereum from December 2016 to February 2018, with a 95% confidence level threshold (red line) to identify explosive behavior. The top panel uses the standard BSADF test while the bottom panel employs BSADF*, a modified version accounting for multiple comparisons. The key takeaway is that both te",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.21826v1"
-    },
-    {
-      "doc_id": "2607.21687v1",
-      "title": "Optimal Surplus Management for Insurers under Stochastic Interest Rates and Jump-Driven Liabilities",
-      "page": 21,
-      "thumb": "/data/figures/2607.21687v1_p21_0.jpg",
-      "caption": "Figure 1 displays simulated trajectories of the CIR short-rate process under the baseline pa- \u2014 This text passage discusses numerical grid specifications and boundary conditions for a finite-difference computational framework rather than displaying a figure. The authors specify a baseline grid with N=500 time steps and M=100 space steps, an upper boundary of r_max=0.20 for the short-rate domain, and discuss the admissibility constraint that the margin A_t must satisfy \u03b6 - \u03b5_\u03be, noting that risk-a",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.21687v1"
-    },
-    {
-      "doc_id": "2607.21687v1",
-      "title": "Optimal Surplus Management for Insurers under Stochastic Interest Rates and Jump-Driven Liabilities",
-      "page": 21,
-      "thumb": "/data/figures/2607.21687v1_p21_1.jpg",
-      "caption": "Figure 1: Simulated CIR short-rate trajectories over a 10-year horizon. \u2014 This line chart displays five simulated paths of the CIR (Cox-Ingersoll-Ross) short-rate model over a 10-year time horizon, along with the long-run mean. The y-axis represents the short rate (ranging from 0 to 0.10) and the x-axis represents time in years (0 to 10). The five colored paths (Paths 1-5) show stochastic trajectories of interest rates under the CIR process, with considerable volatility and mean reversion behavi",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.21687v1"
-    },
-    {
-      "doc_id": "2607.21687v1",
-      "title": "Optimal Surplus Management for Insurers under Stochastic Interest Rates and Jump-Driven Liabilities",
-      "page": 21,
-      "thumb": "/data/figures/2607.21687v1_p21_2.jpg",
-      "caption": "Figure 2 compares illustrative surplus trajectories under two investment policies: a baseline \u2014 This line chart displays five simulated sample paths of CIR (Cox-Ingersoll-Ross) short-rate trajectories over a 10-year time horizon, with the short rate on the y-axis (ranging from 0 to 0.10) and time on the x-axis (0 to 10 years). Each colored line represents a different sample path (Paths 1-5), along with a dashed line indicating the long-run mean. The key takeaway is that the CIR model generates m",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.21687v1"
-    },
-    {
-      "doc_id": "2607.21687v1",
-      "title": "Optimal Surplus Management for Insurers under Stochastic Interest Rates and Jump-Driven Liabilities",
-      "page": 22,
-      "thumb": "/data/figures/2607.21687v1_p22_3.jpg",
-      "caption": "Figure 2: Surplus trajectories: constant allocation vs. projected strategy. \u2014 This line chart compares two surplus trajectory strategies for an insurance company over a 10-year period, with time in years on the x-axis and surplus level on the y-axis. The blue solid line represents a constant policy that maintains relatively stable surplus around 0.5\u20131.0 after an initial decline, while the red dashed line shows a projected optimal strategy that starts higher (~4.5) but declines more steeply, reac",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.21687v1"
-    },
-    {
-      "doc_id": "2607.21170v1",
-      "title": "Portfolio Optimization under Dynamic Rebalancing via Topological Data Analysis and News Sentiments",
-      "page": 5,
-      "thumb": "/data/figures/2607.21170v1_p5_0.jpg",
-      "caption": "Figure 1: Flowchart for sentiment score computation from news headlines. Google Gemini was used to refine and enhance the visual presentation of a flowchart developed by the author. The resulting figure was subsequently reviewed, modified, and finalized by the author. \u2014 This flowchart illustrates a five-stage pipeline for computing sentiment scores from news headlines. The process begins with textual data collection from Reuters and Bloomberg during a specific sample period, followed by text pre",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.21170v1"
-    },
-    {
-      "doc_id": "2607.21170v1",
-      "title": "Portfolio Optimization under Dynamic Rebalancing via Topological Data Analysis and News Sentiments",
-      "page": 7,
-      "thumb": "/data/figures/2607.21170v1_p7_1.jpg",
-      "caption": "Figure 2: Illustration of agglomerative clustering. \u2014 This figure illustrates the hierarchical agglomerative clustering process through a dendrogram-style tree diagram. The chart shows how individual data points (p, q, r, s, t) are successively merged into larger clusters across four steps, with the y-axis representing the agglomerative distance metric and the x-axis showing the clustering progression. The key takeaway is that agglomerative clustering builds a hierarchy from bottom-up by iterati",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.21170v1"
-    },
-    {
-      "doc_id": "2607.21170v1",
-      "title": "Portfolio Optimization under Dynamic Rebalancing via Topological Data Analysis and News Sentiments",
-      "page": 8,
-      "thumb": "/data/figures/2607.21170v1_p8_2.jpg",
-      "caption": "Figure 3 illustrates the overall asset selection framework, from data collection and preprocessing to clustering and final asset selection. \u2014 Figure 3 is a flowchart depicting a multi-stage asset selection pipeline for portfolio construction. The diagram shows sequential processing steps: beginning with market data input, proceeding through data preprocessing modules (including sentiment analysis and feature extraction), agglomerative clustering to group assets, Sharpe Ratio (SR) computation for",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.21170v1"
-    },
-    {
-      "doc_id": "2607.21170v1",
-      "title": "Portfolio Optimization under Dynamic Rebalancing via Topological Data Analysis and News Sentiments",
-      "page": 8,
-      "thumb": "/data/figures/2607.21170v1_p8_3.jpg",
-      "caption": "Figure 3: Flowchart of the proposed asset selection framework integrating data preprocessing, agglomerative clustering, and final asset selection. The initial flowchart concept was devel- oped by the author and subsequently enhanced using Google Gemini to improve its visual presentation. The final figure was carefully reviewed and edited by the author. \u2014 This flowchart illustrates a data processing pipeline for asset selection that begins with stocks data at the top, flows through preprocessing ",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.21170v1"
-    },
-    {
-      "doc_id": "2607.20762v1",
-      "title": "Quantifying Sub-Optimality in Routing for Automated Market Makers",
-      "page": 9,
-      "thumb": "/data/figures/2607.20762v1_p9_0.jpg",
-      "caption": "Fig. 1. Suboptimality relative to different optima. The box plot indicates the 25th, 50th, and 75th percentiles, while the triangle indicates the mean of each sample. \u2014 This figure presents three box plots comparing suboptimality levels (y-axis in bps) across different optimization benchmarks for automated market makers: SCO (active-set, no gas), FVO (all pools, no gas), and G-FVO (all pools, gas-aware). Each subplot displays results across six routing scenarios (x-axis: Uniswap v3, Curve Financ",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.20762v1"
-    },
-    {
-      "doc_id": "2607.20762v1",
-      "title": "Quantifying Sub-Optimality in Routing for Automated Market Makers",
+      "doc_id": "2607.24680v1",
+      "title": "One Other Option Pricing Scheme",
       "page": 10,
-      "thumb": "/data/figures/2607.20762v1_p10_1.jpg",
-      "caption": "Fig. 2. Suboptimality vs. trade size (relative to FVO). \u2014 These side-by-side box plots compare suboptimality percentages across different trade size categories relative to FVO (Fair Value Obligation), with the left panel showing comparison against FVO and the right panel showing comparison against G-FVO. The x-axes display trade size bins (100-1K, 1K-10K, 10K-100K, >100K in USDC equivalent), while the y-axes measure suboptimality percentage (0-10% on left, 0-100% on right). The key takeaway is t",
+      "thumb": "/data/figures/2607.24680v1_p10_2.jpg",
+      "caption": "Figure 2: Implied volatility of risk neutral quantiles (2.8). The base case uses parameters {\ud835\udf0d, \ud835\udc62\u2212, \ud835\udc62+, \ud835\udefe\u2212, \ud835\udefe+} = \u2014 This figure displays six line plots showing implied volatility across different moneyness levels (x-axis from -1 to 1) under various parameter configurations. Each panel uses multiple colored curves representing different parameter values, with the top row showing three variables (\u03b3, \u03b3, \u03b3\u207a) and the bottom row showing three others (u, u, u\u207a), demonstrating how implied volatility cur",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.20762v1"
+      "source": "https://arxiv.org/pdf/2607.24680v1"
+    },
+    {
+      "doc_id": "2607.24680v1",
+      "title": "One Other Option Pricing Scheme",
+      "page": 10,
+      "thumb": "/data/figures/2607.24680v1_p10_3.jpg",
+      "caption": "Figure 2 demonstrates how the five intuitive parameters - \ud835\udf0dcontrols global curve level, \ud835\udc62\u00b1 determine \u2014 This figure displays six subplots of implied volatility curves for risk-neutral quantiles across different parameter variations in an option pricing model. Each subplot shows implied volatility (y-axis) plotted against moneyness or a normalized variable (x-axis from -1 to 1), with multiple colored curves representing different parameter values. The top row varies the risk aversion parameter \u03b3, ",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.24680v1"
+    },
+    {
+      "doc_id": "2607.24410v1",
+      "title": "The Fundamental Structure of Risk: From Characteristics to Covariance",
+      "page": 3,
+      "thumb": "/data/figures/2607.24410v1_p3_0.jpg",
+      "caption": "Figure 1: End-to-end architecture of CD-DFM. Firm characteristics Xt are mapped by an encoder to a shared latent representation \u02dcXt. Two linear heads produce the soft factor memberships Zt (constrained to the simplex) and the signed loadings \u03b2t. The factor model reconstructs returns (\u02c6rt = \u03b2tft) and assembles the forward covariance \u2014 This figure presents the architecture of the CD-DFM (Characteristic-Driven Dynamic Factor Model) as a block diagram flowing left to right. The model takes firm char",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.24410v1"
+    },
+    {
+      "doc_id": "2607.24410v1",
+      "title": "The Fundamental Structure of Risk: From Characteristics to Covariance",
+      "page": 12,
+      "thumb": "/data/figures/2607.24410v1_p12_1.jpg",
+      "caption": "Figure 2: Feature statistics on the processed panel. Left: lag-1 autocorrelation, the features are highly persistent (fundamentals near 1). Right: mean absolute correlation between each feature and the same-day return, near zero for every feature, confirming the inputs carry no direct market information. \u2014 This figure contains two horizontal bar charts comparing feature statistics for financial variables. The left panel shows lag-1 autocorrelation values (x-axis: 0 to 1.0) for features ranked by",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.24410v1"
+    },
+    {
+      "doc_id": "2607.24410v1",
+      "title": "The Fundamental Structure of Risk: From Characteristics to Covariance",
+      "page": 15,
+      "thumb": "/data/figures/2607.24410v1_p15_2.jpg",
+      "caption": "Figure 3: Two-dimensional views of the test-date-averaged latent embedding \u02dcxi, coloured by GICS sector, obtained by PCA (left) and t-SNE (right). Sectors form clean, well- separated clusters in both projections. \u2014 This figure presents two-dimensional dimensionality reduction visualizations of latent embeddings colored by GICS sector classification. The left panel shows PCA projection with sectors displaying moderate separation, while the right panel shows t-SNE projection with more pronounced, ",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.24410v1"
+    },
+    {
+      "doc_id": "2607.24410v1",
+      "title": "The Fundamental Structure of Risk: From Characteristics to Covariance",
+      "page": 16,
+      "thumb": "/data/figures/2607.24410v1_p16_3.jpg",
+      "caption": "Figure 4: Cosine similarity between the test-date-averaged latent embeddings \u02dcxi (com- mon mode removed), assets ordered by GICS sector. Red diagonal blocks show high same-sector similarity and off-diagonal pairs are near zero. The blocks are not uniform, and within a sector such as Information Technology firms with different fundamentals stay apart, so the geometry captures more than the sector l \u2014 This heatmap displays cosine similarity between latent embeddings of assets across 12 GICS sector",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.24410v1"
+    },
+    {
+      "doc_id": "2607.24150v1",
+      "title": "Approximation of stochastic insurer balance-sheet results using signatures of economic scenarios",
+      "page": 9,
+      "thumb": "/data/figures/2607.24150v1_p9_0.jpg",
+      "caption": "Figure 1: Signature-based model: Gsig. Parameters of the model: \u00b5, D, \u03b20, \u03b2. Hyper-parameters of the model: \u03c6, N. The blocks circled in red correspond to the components of the model that are optimized during training, whereas the blocks circled in gray correspond to components specified prior to the training phase. \u2014 This figure shows a signature-based neural network architecture for modeling stochastic insurer balance-sheet results. The pipeline flows left-to-right through five main blocks: a r",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.24150v1"
+    },
+    {
+      "doc_id": "2607.24150v1",
+      "title": "Approximation of stochastic insurer balance-sheet results using signatures of economic scenarios",
+      "page": 16,
+      "thumb": "/data/figures/2607.24150v1_p16_1.jpg",
+      "caption": "Figure 2: Empirical study of cashflow replication. These results are obtained with a truncation order equal to 4, without lead-lag transform, with cumulative transform and with a Ridge regularization. \u2014 This figure validates cashflow replication accuracy across three panels: panel (a) is a scatter plot comparing predicted cashflows (CF\u0302) against actual cashflows (CF) with a marginal distribution histogram, showing strong linear alignment; panel (b) displays empirical probability density distribu",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.24150v1"
+    },
+    {
+      "doc_id": "2607.24150v1",
+      "title": "Approximation of stochastic insurer balance-sheet results using signatures of economic scenarios",
+      "page": 16,
+      "thumb": "/data/figures/2607.24150v1_p16_2.jpg",
+      "caption": "Figure 3: Empirical study of residuals. These results are obtained with a truncation order equal to 4, without lead-lag transform, with cumulative transform and with a Ridge regularization. \u2014 Figure 3 presents a diagnostic analysis of residuals from cashflow replication modeling using three panels. Panel (a) is a scatter plot of predicted cashflows versus residuals, showing no systematic structure. Panel (b) is a Q-Q plot comparing the empirical distribution of standardized residuals against a s",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.24150v1"
+    },
+    {
+      "doc_id": "2607.24150v1",
+      "title": "Approximation of stochastic insurer balance-sheet results using signatures of economic scenarios",
+      "page": 19,
+      "thumb": "/data/figures/2607.24150v1_p19_3.jpg",
+      "caption": "Figure 4: Predictive performance versus computational cost across methods under the central ESG distribution. Each point represents a model, with the base-10 logarithm of training time (in seconds) on the horizontal axis and the out-of-sample R2 (in %) on the vertical axis. Signature-based models (Ridge and Lasso regularization, truncation orders N \u2208{2, 3, 4, 5}) correspond to the best-performing  \u2014 This scatter plot compares predictive performance (R\u00b2 on vertical axis, in %) against computation",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.24150v1"
+    },
+    {
+      "doc_id": "2607.24114v1",
+      "title": "Optimal Control with Expectation Constraint in a Smooth Boundary Case",
+      "page": 21,
+      "thumb": "/data/figures/2607.24114v1_p21_0.jpg",
+      "caption": "Figure 1: Diffusion of the state process X \u02dc\u03bd\u03b8,\u03d6,j,j with neural network \u02dcnu,\u03d6 \u2014 This diagram illustrates a recurrent neural network architecture for modeling a state diffusion process over time steps t\u2080 to t\u2099. Each time step shows an update operation where the state variable X\u0303\u1d5b\u03b8,j,j is transformed using weight updates \u0394W, with intermediate hidden states h propagated through the network layers (indicated by vertical dotted arrows). The key takeaway is the sequential propagation of neural networ",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.24114v1"
+    },
+    {
+      "doc_id": "2607.24065v1",
+      "title": "Variational Quantum Conditional Boltzmann Machines for Time-Series Forecasting: Architectures, Symmetric Hyperparameter Evaluation, and a Nonlinear Benchmark",
+      "page": 22,
+      "thumb": "/data/figures/2607.24065v1_p22_0.jpg",
+      "caption": "Figure 1: Exp. 1: RMSE heatmap (H, \u03c3) for GP (left) and NARMA-10 (right) and mean values of k. \u2014 These heatmaps display Root Mean Square Error (RMSE) results for two forecasting experiments: SE-GP (left) and NARMA10 (right), with axes representing the hidden state dimension H (rows: 1-4) and scaling parameter \u03c3 (columns: 0.1, 0.5, 1.0). The left panel shows RMSE values ranging from 586 to 1500 for the Gaussian Process benchmark, while the right panel shows normalized RMSE values ranging from 0.0",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.24065v1"
+    },
+    {
+      "doc_id": "2607.23068v1",
+      "title": "Neural Network-Driven Volatility Drag Mitigation under Aggressive Leverage",
+      "page": 5,
+      "thumb": "/data/figures/2607.23068v1_p5_0.jpg",
+      "caption": "Fig. 1 compares the NLV of the neural estimator (upper panel) and the HRP benchmark (lower panel) at \u2113= 3.4. Vertical red dot- ted lines denote intraday margin-call-induced liquidations. Despite operating at high leverage, the neural strategy delays its first forced liquidation and experiences markedly fewer subsequent liquida- tions than HRP, proving better drawdown control under extreme market s \u2014 This figure presents two time-series plots comparing net liquidation value (NLV) on a logarithmic",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.23068v1"
+    },
+    {
+      "doc_id": "2607.23068v1",
+      "title": "Neural Network-Driven Volatility Drag Mitigation under Aggressive Leverage",
+      "page": 5,
+      "thumb": "/data/figures/2607.23068v1_p5_1.jpg",
+      "caption": "Fig. 2 plot the compound log-growth rate and the Sharpe ratio (computed on log returns) as functions of leverage over a 25-year simulation. In both metrics, the neural estimator consistently out- performs all competing methods, converting additional leverage into incremental return more efficiently while containing volatility drag. \u2014 This figure shows two time-series plots comparing the Net Liquidation Value (NLV) of neural network (NN) and HRP benchmark strategies from 2000 to 2024 on the top 1",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.23068v1"
+    },
+    {
+      "doc_id": "2607.23068v1",
+      "title": "Neural Network-Driven Volatility Drag Mitigation under Aggressive Leverage",
+      "page": 5,
+      "thumb": "/data/figures/2607.23068v1_p5_2.jpg",
+      "caption": "Figure 1: NLV of two high-leverage strategies for NN and HRP on the top 1000 high-capitalized US stocks. The dotted lines represent intraday liquidations. The simulations do not include any market impact. \u2014 This figure displays two semi-log line charts comparing net liquidation value (NLV) over time for Neural Network (NN) and Hierarchical Risk Parity (HRP) strategies applied to the top 1000 US stocks, with the y-axis showing NLV in USD on a logarithmic scale (10^1 to 10^10) and the x-axis spann",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.23068v1"
+    },
+    {
+      "doc_id": "2607.23068v1",
+      "title": "Neural Network-Driven Volatility Drag Mitigation under Aggressive Leverage",
+      "page": 6,
+      "thumb": "/data/figures/2607.23068v1_p6_3.jpg",
+      "caption": "Figure 2: The upper panel represents the out-of-sample log growth rate (see Eq. (3)) measured from the realized NLV of Eq. 18 for different values of the leverage. The lower panel is the Sharpe ratio computed from log returns of the realized NLV as a function of the leverage. Both plots refer to a 25- year simulation of the top 1000 high-capitalized US stocks. \u2014 This figure compares four portfolio strategies (NN, HRP, MLE, MCW) across different leverage levels using data from 25 years of the top",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.23068v1"
     }
   ],
   "docs": [
+    {
+      "id": "2607.24680v1",
+      "title": "One Other Option Pricing Scheme",
+      "source": "https://arxiv.org/pdf/2607.24680v1",
+      "pages": 34,
+      "images": 1,
+      "figures_captioned": 4,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 45
+    },
+    {
+      "id": "2607.24410v1",
+      "title": "The Fundamental Structure of Risk: From Characteristics to Covariance",
+      "source": "https://arxiv.org/pdf/2607.24410v1",
+      "pages": 32,
+      "images": 8,
+      "figures_captioned": 4,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 53
+    },
+    {
+      "id": "2607.24150v1",
+      "title": "Approximation of stochastic insurer balance-sheet results using signatures of economic scenarios",
+      "source": "https://arxiv.org/pdf/2607.24150v1",
+      "pages": 26,
+      "images": 10,
+      "figures_captioned": 4,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 63
+    },
+    {
+      "id": "2607.24114v1",
+      "title": "Optimal Control with Expectation Constraint in a Smooth Boundary Case",
+      "source": "https://arxiv.org/pdf/2607.24114v1",
+      "pages": 42,
+      "images": 1,
+      "figures_captioned": 1,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 49
+    },
+    {
+      "id": "2607.24065v1",
+      "title": "Variational Quantum Conditional Boltzmann Machines for Time-Series Forecasting: Architectures, Symmetric Hyperparameter Evaluation, and a Nonlinear Benchmark",
+      "source": "https://arxiv.org/pdf/2607.24065v1",
+      "pages": 45,
+      "images": 0,
+      "figures_captioned": 1,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 53
+    },
+    {
+      "id": "2607.23161v1",
+      "title": "Risk Aversion in the Small and in the Large: Beyond Arrow-Pratt A Wiener Chaos Hierarchy of Dynamic Risk Premia",
+      "source": "https://arxiv.org/pdf/2607.23161v1",
+      "pages": 47,
+      "images": 0,
+      "figures_captioned": 0,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 38
+    },
+    {
+      "id": "2607.23068v1",
+      "title": "Neural Network-Driven Volatility Drag Mitigation under Aggressive Leverage",
+      "source": "https://arxiv.org/pdf/2607.23068v1",
+      "pages": 7,
+      "images": 0,
+      "figures_captioned": 4,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 27
+    },
     {
       "id": "2607.22317v1",
       "title": "Latent Fragility and Clustered Withdrawals in Dynamic Banks Runs",
       "source": "https://arxiv.org/pdf/2607.22317v1",
       "pages": 67,
       "images": 0,
-      "figures_captioned": 4,
+      "figures_captioned": 0,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 49
+      "chunks_indexed": 45
     },
     {
       "id": "2607.22085v1",
@@ -248,11 +332,11 @@
       "source": "https://arxiv.org/pdf/2607.22085v1",
       "pages": 41,
       "images": 1,
-      "figures_captioned": 1,
+      "figures_captioned": 0,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 39
+      "chunks_indexed": 38
     },
     {
       "id": "2607.21826v1",
@@ -260,92 +344,8 @@
       "source": "https://arxiv.org/pdf/2607.21826v1",
       "pages": 14,
       "images": 3,
-      "figures_captioned": 3,
+      "figures_captioned": 0,
       "tables": 12,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 32
-    },
-    {
-      "id": "2607.21687v1",
-      "title": "Optimal Surplus Management for Insurers under Stochastic Interest Rates and Jump-Driven Liabilities",
-      "source": "https://arxiv.org/pdf/2607.21687v1",
-      "pages": 35,
-      "images": 4,
-      "figures_captioned": 4,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 46
-    },
-    {
-      "id": "2607.21170v1",
-      "title": "Portfolio Optimization under Dynamic Rebalancing via Topological Data Analysis and News Sentiments",
-      "source": "https://arxiv.org/pdf/2607.21170v1",
-      "pages": 28,
-      "images": 22,
-      "figures_captioned": 4,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 64
-    },
-    {
-      "id": "2607.20762v1",
-      "title": "Quantifying Sub-Optimality in Routing for Automated Market Makers",
-      "source": "https://arxiv.org/pdf/2607.20762v1",
-      "pages": 21,
-      "images": 0,
-      "figures_captioned": 2,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 41
-    },
-    {
-      "id": "2607.20415v1",
-      "title": "Flux-Corrected Diagonal Frog: second order and positivity at all time steps",
-      "source": "https://arxiv.org/pdf/2607.20415v1",
-      "pages": 30,
-      "images": 0,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 67
-    },
-    {
-      "id": "2607.20343v2",
-      "title": "Path-Space Model Risk via Signature-Induced Optimal Transport",
-      "source": "https://arxiv.org/pdf/2607.20343v2",
-      "pages": 30,
-      "images": 0,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 66
-    },
-    {
-      "id": "2607.20168v1",
-      "title": "Quantum Kernels and the Cross-Section of Stock Returns: Anatomy of a Vanishing Advantage",
-      "source": "https://arxiv.org/pdf/2607.20168v1",
-      "pages": 16,
-      "images": 2,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 28
-    },
-    {
-      "id": "2607.20093v1",
-      "title": "Retail Trader's Ruin: An Anatomy of Popular Signal Failure",
-      "source": "https://arxiv.org/pdf/2607.20093v1",
-      "pages": 12,
-      "images": 1,
-      "figures_captioned": 0,
-      "tables": 1,
       "has_math": true,
       "ocr_used": false,
       "chunks_indexed": 29
