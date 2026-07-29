@@ -1,7 +1,7 @@
 {
   "_note": "Public run manifest of the Tier-3 agentic ingestion pipeline. Safe aggregates + provenance only; raw PDFs live in S3, not here.",
-  "run_id": "20260728T052548Z",
-  "generated_at": "2026-07-28T05:29:25+00:00",
+  "run_id": "20260729T053224Z",
+  "generated_at": "2026-07-29T05:36:02+00:00",
   "collection": "research_corpus",
   "embed_model": "BAAI/bge-small-en-v1.5",
   "dag": [
@@ -50,197 +50,293 @@
     "discovered": 10,
     "fetched": 10,
     "parsed": 10,
-    "chunks": 476,
-    "accepted": 440,
-    "rejected": 36,
-    "images": 24,
+    "chunks": 446,
+    "accepted": 406,
+    "rejected": 40,
+    "images": 25,
     "figures_captioned": 18,
-    "tables": 12,
+    "tables": 0,
     "with_math": 10,
-    "indexed": 440,
-    "spent_usd": 0.0321,
-    "duration_s": 217.4
+    "indexed": 406,
+    "spent_usd": 0.0338,
+    "duration_s": 218.2
   },
   "rejects_by_reason": {
-    "low-relevance": 36
+    "low-relevance": 40
   },
   "budget_usd": 3.0,
   "figures": [
     {
-      "doc_id": "2607.24680v1",
-      "title": "One Other Option Pricing Scheme",
+      "doc_id": "2607.25459v1",
+      "title": "Emergent Latent-State Computation under Stochastic Volatility",
       "page": 5,
-      "thumb": "/data/figures/2607.24680v1_p5_0.jpg",
-      "caption": "Figure 1: Segmentally constructing quantile functions. \u2014 This figure shows three panels displaying the construction of quantile functions through segmental approximation. Each panel plots quantile functions (Q-) on the y-axis against a normalized variable (labeled 0 to 1) on the x-axis, with red curves representing lower quantile estimates and blue curves representing upper quantile estimates. The shaded regions between red and blue curves represent uncertainty bands, with vertical dotted lines ",
+      "thumb": "/data/figures/2607.25459v1_p5_0.jpg",
+      "caption": "Figure 1: Stage-wise emergence and causal relevance of latent-state decodability in the Transformer. Left: latent-state decodability emerges at different architectural stages depending on the volatility period \u03c9. Right: for \u03c9 = 365, ablating the post-\u21132-norm representation produces the strongest downstream collapse in decodability, identifying it as the earliest causally relevant stage. \u2014 The left panel is a line chart showing the emergence of latent-state decodability (R\u00b2 on y-axis, ranging 0\u20131",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.24680v1"
+      "source": "https://arxiv.org/pdf/2607.25459v1"
     },
     {
-      "doc_id": "2607.24680v1",
-      "title": "One Other Option Pricing Scheme",
-      "page": 9,
-      "thumb": "/data/figures/2607.24680v1_p9_1.jpg",
-      "caption": "Figure 1 (center) illustrates the two-segment construction. \ud835\udc44has exponential tails (2.1) in the tail segments \u2014 This figure demonstrates a piecewise quantile function construction using two knots to split the lower tail Q^- and upper tail Q^+ into segments with different functional forms. The construction combines exponential-type behavior in outer tail segments with power-law behavior (controlled by parameter \u03b3\u00b1) in inner segments, creating a flexible quantile function Q(u) that can improve the",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.24680v1"
-    },
-    {
-      "doc_id": "2607.24680v1",
-      "title": "One Other Option Pricing Scheme",
-      "page": 10,
-      "thumb": "/data/figures/2607.24680v1_p10_2.jpg",
-      "caption": "Figure 2: Implied volatility of risk neutral quantiles (2.8). The base case uses parameters {\ud835\udf0d, \ud835\udc62\u2212, \ud835\udc62+, \ud835\udefe\u2212, \ud835\udefe+} = \u2014 This figure displays six line plots showing implied volatility across different moneyness levels (x-axis from -1 to 1) under various parameter configurations. Each panel uses multiple colored curves representing different parameter values, with the top row showing three variables (\u03b3, \u03b3, \u03b3\u207a) and the bottom row showing three others (u, u, u\u207a), demonstrating how implied volatility cur",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.24680v1"
-    },
-    {
-      "doc_id": "2607.24680v1",
-      "title": "One Other Option Pricing Scheme",
-      "page": 10,
-      "thumb": "/data/figures/2607.24680v1_p10_3.jpg",
-      "caption": "Figure 2 demonstrates how the five intuitive parameters - \ud835\udf0dcontrols global curve level, \ud835\udc62\u00b1 determine \u2014 This figure displays six subplots of implied volatility curves for risk-neutral quantiles across different parameter variations in an option pricing model. Each subplot shows implied volatility (y-axis) plotted against moneyness or a normalized variable (x-axis from -1 to 1), with multiple colored curves representing different parameter values. The top row varies the risk aversion parameter \u03b3, ",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.24680v1"
-    },
-    {
-      "doc_id": "2607.24410v1",
-      "title": "The Fundamental Structure of Risk: From Characteristics to Covariance",
-      "page": 3,
-      "thumb": "/data/figures/2607.24410v1_p3_0.jpg",
-      "caption": "Figure 1: End-to-end architecture of CD-DFM. Firm characteristics Xt are mapped by an encoder to a shared latent representation \u02dcXt. Two linear heads produce the soft factor memberships Zt (constrained to the simplex) and the signed loadings \u03b2t. The factor model reconstructs returns (\u02c6rt = \u03b2tft) and assembles the forward covariance \u2014 This figure presents the architecture of the CD-DFM (Characteristic-Driven Dynamic Factor Model) as a block diagram flowing left to right. The model takes firm char",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.24410v1"
-    },
-    {
-      "doc_id": "2607.24410v1",
-      "title": "The Fundamental Structure of Risk: From Characteristics to Covariance",
+      "doc_id": "2607.25459v1",
+      "title": "Emergent Latent-State Computation under Stochastic Volatility",
       "page": 12,
-      "thumb": "/data/figures/2607.24410v1_p12_1.jpg",
-      "caption": "Figure 2: Feature statistics on the processed panel. Left: lag-1 autocorrelation, the features are highly persistent (fundamentals near 1). Right: mean absolute correlation between each feature and the same-day return, near zero for every feature, confirming the inputs carry no direct market information. \u2014 This figure contains two horizontal bar charts comparing feature statistics for financial variables. The left panel shows lag-1 autocorrelation values (x-axis: 0 to 1.0) for features ranked by",
+      "thumb": "/data/figures/2607.25459v1_p12_1.jpg",
+      "caption": "Figure 2: Probe R2 and linear head R2 for decoding hT +1 from the final representation under MSE training, shown across volatility periods for the Transformer and MLP (median over n = 10 seeds). In both architectures, probe R2 remains above head R2 across all periods, with smaller in long-cycle regimes. The R2 in Transformer are consistently higher. \u2014 This grouped bar chart compares probe R\u00b2 versus readout R\u00b2 values for Transformer and MLP models across five volatility periods (30, 90, 178, 365,",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.24410v1"
+      "source": "https://arxiv.org/pdf/2607.25459v1"
     },
     {
-      "doc_id": "2607.24410v1",
-      "title": "The Fundamental Structure of Risk: From Characteristics to Covariance",
-      "page": 15,
-      "thumb": "/data/figures/2607.24410v1_p15_2.jpg",
-      "caption": "Figure 3: Two-dimensional views of the test-date-averaged latent embedding \u02dcxi, coloured by GICS sector, obtained by PCA (left) and t-SNE (right). Sectors form clean, well- separated clusters in both projections. \u2014 This figure presents two-dimensional dimensionality reduction visualizations of latent embeddings colored by GICS sector classification. The left panel shows PCA projection with sectors displaying moderate separation, while the right panel shows t-SNE projection with more pronounced, ",
+      "doc_id": "2607.25459v1",
+      "title": "Emergent Latent-State Computation under Stochastic Volatility",
+      "page": 13,
+      "thumb": "/data/figures/2607.25459v1_p13_2.jpg",
+      "caption": "Figure 3: Stage-wise ridge probe R2 for decoding hT +1 from intermediate MLP representations across volatility periods. Unlike the Transformer, the MLP exhibits a smoother and less localized rise in decodability, with weaker dependence on volatility period. \u2014 This line plot displays MLP decodability of h_{t+1} across processing stages for five different volatility periods (k = 5, 21, 50, 178, 365), measured by ridge regression R\u00b2 scores on the y-axis (ranging 0 to 1). The x-axis shows eight stag",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.24410v1"
+      "source": "https://arxiv.org/pdf/2607.25459v1"
     },
     {
-      "doc_id": "2607.24410v1",
-      "title": "The Fundamental Structure of Risk: From Characteristics to Covariance",
-      "page": 16,
-      "thumb": "/data/figures/2607.24410v1_p16_3.jpg",
-      "caption": "Figure 4: Cosine similarity between the test-date-averaged latent embeddings \u02dcxi (com- mon mode removed), assets ordered by GICS sector. Red diagonal blocks show high same-sector similarity and off-diagonal pairs are near zero. The blocks are not uniform, and within a sector such as Information Technology firms with different fundamentals stay apart, so the geometry captures more than the sector l \u2014 This heatmap displays cosine similarity between latent embeddings of assets across 12 GICS sector",
+      "doc_id": "2607.25459v1",
+      "title": "Emergent Latent-State Computation under Stochastic Volatility",
+      "page": 13,
+      "thumb": "/data/figures/2607.25459v1_p13_3.jpg",
+      "caption": "Figure 4: Stage-wise ridge probe R2 for decoding hT +1 in an MLP with \u21132 normalization after the initial linear layer. \u2014 Figure 4 is a line chart showing stage-wise ridge probe R\u00b2 values for decoding h_{T+1} across network layers in an MLP with \u21132 normalization, with the x-axis representing network stages (Baseline through Pre-head) and y-axis showing R\u00b2 values from 0 to 1.0, stratified by volatility period (k = 5, 21, 90, 178, 252, 365 days). The figure demonstrates that with \u21132 normalization, ",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.24410v1"
+      "source": "https://arxiv.org/pdf/2607.25459v1"
     },
     {
-      "doc_id": "2607.24150v1",
-      "title": "Approximation of stochastic insurer balance-sheet results using signatures of economic scenarios",
+      "doc_id": "2607.25353v1",
+      "title": "How Likely and How Deep? Sharp Joint Bounds on Risk-Neutral Crash Probability and Conditional Depth from Option Bid-Ask Quotes",
+      "page": 11,
+      "thumb": "/data/figures/2607.25353v1_p11_0.jpg",
+      "caption": "Figure 1 displays the representative case used for the dual certificate: the short-horizon panel dated 5 July 2017, with maturity 19 July 2017 and \ud835\udc3e= 0.90. It satisfies the original quote constraints and Assumption 4.1. \u2014 # Table 1: Identification Gains Summary\n\nTable 1 presents identification gains achieved through complete-wing option contracts across four horizon-threshold cells in a primary sample. The table shows that complete wing contracts reduce the area of local ambiguity by 5.35% to 18",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.25353v1"
+    },
+    {
+      "doc_id": "2607.25353v1",
+      "title": "How Likely and How Deep? Sharp Joint Bounds on Risk-Neutral Crash Probability and Conditional Depth from Option Bid-Ask Quotes",
+      "page": 12,
+      "thumb": "/data/figures/2607.25353v1_p12_1.jpg",
+      "caption": "Figure 1: Sharp joint frontiers and primary-sample identification gains. The representative case is also used for the dual certificate in Figure 3. Filled regions in panels (a) and (b) correspond to the vertical pair, local eight, and complete put wing; panel (b) zooms the depth range on a log-\ud835\udc5daxis and its inset restores the full range. Panel (c) reports primary-sample median area reductions and  \u2014 This figure displays three panels analyzing risk-neutral crash probability and conditional depth ",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.25353v1"
+    },
+    {
+      "doc_id": "2607.25353v1",
+      "title": "How Likely and How Deep? Sharp Joint Bounds on Risk-Neutral Crash Probability and Conditional Depth from Option Bid-Ask Quotes",
+      "page": 13,
+      "thumb": "/data/figures/2607.25353v1_p13_2.jpg",
+      "caption": "Figure 2: Outcome-grid accuracy and computation time. Panel (a) first takes the median support error over directions within each case, then reports the median of those values across cases. In panel (b), lines report the 95th percentile of each case\u2019s maximum support error over directions, and crosses report sample maxima; panel (c) reports median computation time. Synthetic threshold-atom designs  \u2014 This figure compares three performance metrics across outcome-grid node counts (51 to 401) for tw",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.25353v1"
+    },
+    {
+      "doc_id": "2607.25353v1",
+      "title": "How Likely and How Deep? Sharp Joint Bounds on Risk-Neutral Crash Probability and Conditional Depth from Option Bid-Ask Quotes",
+      "page": 13,
+      "thumb": "/data/figures/2607.25353v1_p13_3.jpg",
+      "caption": "Figure 3: Representative trade-off dual certificate for direction \ud835\udc62\u2605= (1, \u22121) in the representative frontier, shown at its original scale. Axis labels identify each quote by strike and endpoint; only material quote weights are displayed. \u2014 This figure displays three line charts comparing outcome-grid accuracy and computational performance across different grid configurations. Panel (a) shows median support error on a log scale across outcome-grid nodes (5-40), comparing K centered in cell versus",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.25353v1"
+    },
+    {
+      "doc_id": "2607.25258v1",
+      "title": "Robust Hedging Valuation Adjustment for Deep Hedging Policies under Market Frictions",
       "page": 9,
-      "thumb": "/data/figures/2607.24150v1_p9_0.jpg",
-      "caption": "Figure 1: Signature-based model: Gsig. Parameters of the model: \u00b5, D, \u03b20, \u03b2. Hyper-parameters of the model: \u03c6, N. The blocks circled in red correspond to the components of the model that are optimized during training, whereas the blocks circled in gray correspond to components specified prior to the training phase. \u2014 This figure shows a signature-based neural network architecture for modeling stochastic insurer balance-sheet results. The pipeline flows left-to-right through five main blocks: a r",
+      "thumb": "/data/figures/2607.25258v1_p9_0.jpg",
+      "caption": "Figure 1 plots the classical-width curves and the learned-specification points. The figure highlights that sparse learned execution improves the strict Low Liquidity comparison, but once the classical width is tuned, a classical policy achieves the best relaxed-budget cost-risk trade-off in Low Liquidity. \u2014 This table presents backtesting results comparing different hedging policies across three liquidity environments (High, Middle, Low) using three independently trained networks per market-path",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.24150v1"
+      "source": "https://arxiv.org/pdf/2607.25258v1"
     },
     {
-      "doc_id": "2607.24150v1",
-      "title": "Approximation of stochastic insurer balance-sheet results using signatures of economic scenarios",
-      "page": 16,
-      "thumb": "/data/figures/2607.24150v1_p16_1.jpg",
-      "caption": "Figure 2: Empirical study of cashflow replication. These results are obtained with a truncation order equal to 4, without lead-lag transform, with cumulative transform and with a Ridge regularization. \u2014 This figure validates cashflow replication accuracy across three panels: panel (a) is a scatter plot comparing predicted cashflows (CF\u0302) against actual cashflows (CF) with a marginal distribution histogram, showing strong linear alignment; panel (b) displays empirical probability density distribu",
+      "doc_id": "2607.25258v1",
+      "title": "Robust Hedging Valuation Adjustment for Deep Hedging Policies under Market Frictions",
+      "page": 9,
+      "thumb": "/data/figures/2607.25258v1_p9_1.jpg",
+      "caption": "Figure 1: Out-of-validation full-lifecycle robust total adjustment against tracking-loss CVaR. Classical lines trace the fixed seven-point base-width grid. \u2014 This figure shows three scatter plots comparing robust total adjustment (y-axis) against tracking-loss CVaR (x-axis) across three liquidity regimes: High Liquidity, Middle Liquidity, and Low Liquidity. Each panel plots multiple hedging methods (Back-Scholes, Optimal, Nested 0.75, Nested 0.95, and Anchor) as colored points, with classical re",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.24150v1"
+      "source": "https://arxiv.org/pdf/2607.25258v1"
     },
     {
-      "doc_id": "2607.24150v1",
-      "title": "Approximation of stochastic insurer balance-sheet results using signatures of economic scenarios",
-      "page": 16,
-      "thumb": "/data/figures/2607.24150v1_p16_2.jpg",
-      "caption": "Figure 3: Empirical study of residuals. These results are obtained with a truncation order equal to 4, without lead-lag transform, with cumulative transform and with a Ridge regularization. \u2014 Figure 3 presents a diagnostic analysis of residuals from cashflow replication modeling using three panels. Panel (a) is a scatter plot of predicted cashflows versus residuals, showing no systematic structure. Panel (b) is a Q-Q plot comparing the empirical distribution of standardized residuals against a s",
+      "doc_id": "2607.25258v1",
+      "title": "Robust Hedging Valuation Adjustment for Deep Hedging Policies under Market Frictions",
+      "page": 10,
+      "thumb": "/data/figures/2607.25258v1_p10_2.jpg",
+      "caption": "Figure 2 plots, for each validation-selected specification, the resulting percentage change in total adjustment on the test seeds relative to the reference policy. A cross marks a specification whose test-sample risk exceeds the same risk budget it was selected under. Appendix A shows how each classical width in the grid performs at relaxed budgets. \u2014 This table presents validation-selected deep hedging specifications and their out-of-sample test performance across three liquidity environments (",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.24150v1"
+      "source": "https://arxiv.org/pdf/2607.25258v1"
     },
     {
-      "doc_id": "2607.24150v1",
-      "title": "Approximation of stochastic insurer balance-sheet results using signatures of economic scenarios",
+      "doc_id": "2607.25258v1",
+      "title": "Robust Hedging Valuation Adjustment for Deep Hedging Policies under Market Frictions",
+      "page": 10,
+      "thumb": "/data/figures/2607.25258v1_p10_3.jpg",
+      "caption": "Figure 2: Out-of-validation total-adjustment change for each specification selected under the validation rule. \u2014 This figure displays three line charts showing total-adjustment changes across high, middle, and low liquidity regimes as a function of tracking CVaR budget multiplier c. Each panel plots the out-of-validation total-adjustment metric (y-axis) against tracking CVaR budget multiplier c values from 1.0 to 1.5 (x-axis), with different specifications labeled on each line (gamma-adr and har",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.25258v1"
+    },
+    {
+      "doc_id": "2607.25199v1",
+      "title": "RIDGE: An Autonomous Framework for Validation and Method Discovery in LLM-Generated Option Pricing",
+      "page": 4,
+      "thumb": "/data/figures/2607.25199v1_p4_0.jpg",
+      "caption": "Figure 1: Information flow of a RIDGE validation iteration. A blueprint, pricing implementation, and repository define the current iteration. Measurement produces an evidence record, diagnosis interprets this evidence and updates both the repository and, when necessary, the blueprint and implementation. The revised state either initiates the next iteration or terminates the validation process. \u2014 This flowchart depicts the iterative validation cycle of the RIDGE framework for LLM-generated option",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.25199v1"
+    },
+    {
+      "doc_id": "2607.25199v1",
+      "title": "RIDGE: An Autonomous Framework for Validation and Method Discovery in LLM-Generated Option Pricing",
       "page": 19,
-      "thumb": "/data/figures/2607.24150v1_p19_3.jpg",
-      "caption": "Figure 4: Predictive performance versus computational cost across methods under the central ESG distribution. Each point represents a model, with the base-10 logarithm of training time (in seconds) on the horizontal axis and the out-of-sample R2 (in %) on the vertical axis. Signature-based models (Ridge and Lasso regularization, truncation orders N \u2208{2, 3, 4, 5}) correspond to the best-performing  \u2014 This scatter plot compares predictive performance (R\u00b2 on vertical axis, in %) against computation",
+      "thumb": "/data/figures/2607.25199v1_p19_1.jpg",
+      "caption": "Figure 2 compares, for both models at T = 0.5, the mean implied-volatility error across the central strike grid against the per-maturity CPU time. Each implementation traces an accuracy\u2013cost frontier obtained by varying a single numerical parameter: the Monte Carlo implementation by its number of simulated paths, the final CCF-PDE solver by its grid resolution, and the iteration-4 implementation b \u2014 This figure displays a comparison table of methodology-development iterations for option pricing ",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.24150v1"
+      "source": "https://arxiv.org/pdf/2607.25199v1"
     },
     {
-      "doc_id": "2607.24114v1",
-      "title": "Optimal Control with Expectation Constraint in a Smooth Boundary Case",
-      "page": 21,
-      "thumb": "/data/figures/2607.24114v1_p21_0.jpg",
-      "caption": "Figure 1: Diffusion of the state process X \u02dc\u03bd\u03b8,\u03d6,j,j with neural network \u02dcnu,\u03d6 \u2014 This diagram illustrates a recurrent neural network architecture for modeling a state diffusion process over time steps t\u2080 to t\u2099. Each time step shows an update operation where the state variable X\u0303\u1d5b\u03b8,j,j is transformed using weight updates \u0394W, with intermediate hidden states h propagated through the network layers (indicated by vertical dotted arrows). The key takeaway is the sequential propagation of neural networ",
+      "doc_id": "2607.25199v1",
+      "title": "RIDGE: An Autonomous Framework for Validation and Method Discovery in LLM-Generated Option Pricing",
+      "page": 19,
+      "thumb": "/data/figures/2607.25199v1_p19_2.jpg",
+      "caption": "Figure 2 shows the performance gains resulting from the methodological developments of Section 4.3. For both HHW and G-SVJD, the final CCF-PDE formulation achieves sub-basis-point implied-volatility errors in a few hundred milliseconds and delivers errors between one and three orders of magnitude smaller than those of the Monte Carlo implementation at comparable computational cost. \u2014 This figure compares mean implied-volatility errors across the central strike grid at T=0.5 for two pricing model",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.24114v1"
+      "source": "https://arxiv.org/pdf/2607.25199v1"
     },
     {
-      "doc_id": "2607.24065v1",
-      "title": "Variational Quantum Conditional Boltzmann Machines for Time-Series Forecasting: Architectures, Symmetric Hyperparameter Evaluation, and a Nonlinear Benchmark",
-      "page": 22,
-      "thumb": "/data/figures/2607.24065v1_p22_0.jpg",
-      "caption": "Figure 1: Exp. 1: RMSE heatmap (H, \u03c3) for GP (left) and NARMA-10 (right) and mean values of k. \u2014 These heatmaps display Root Mean Square Error (RMSE) results for two forecasting experiments: SE-GP (left) and NARMA10 (right), with axes representing the hidden state dimension H (rows: 1-4) and scaling parameter \u03c3 (columns: 0.1, 0.5, 1.0). The left panel shows RMSE values ranging from 586 to 1500 for the Gaussian Process benchmark, while the right panel shows normalized RMSE values ranging from 0.0",
+      "doc_id": "2607.25199v1",
+      "title": "RIDGE: An Autonomous Framework for Validation and Method Discovery in LLM-Generated Option Pricing",
+      "page": 20,
+      "thumb": "/data/figures/2607.25199v1_p20_3.jpg",
+      "caption": "Figure 2: Speed and accuracy at T = 0.5 for HHW (left) and G-SVJD (right): mean implied-volatility error across the central strike grid K \u2208[90, 110] against per-maturity CPU time, timed single-threaded on one virtualized Intel Xeon core at 2.80 GHz. Each method is represented by its accuracy\u2013cost frontier obtained from a common geometric sequence of refinements, with the converged CCF-PDE solution \u2014 These two log-log scatter plots compare computational efficiency and accuracy of option pricing m",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.24065v1"
+      "source": "https://arxiv.org/pdf/2607.25199v1"
     },
     {
-      "doc_id": "2607.23068v1",
-      "title": "Neural Network-Driven Volatility Drag Mitigation under Aggressive Leverage",
-      "page": 5,
-      "thumb": "/data/figures/2607.23068v1_p5_0.jpg",
-      "caption": "Fig. 1 compares the NLV of the neural estimator (upper panel) and the HRP benchmark (lower panel) at \u2113= 3.4. Vertical red dot- ted lines denote intraday margin-call-induced liquidations. Despite operating at high leverage, the neural strategy delays its first forced liquidation and experiences markedly fewer subsequent liquida- tions than HRP, proving better drawdown control under extreme market s \u2014 This figure presents two time-series plots comparing net liquidation value (NLV) on a logarithmic",
+      "doc_id": "2607.25189v1",
+      "title": "Long-memory GARCH via a two-dimensional Markov chain",
+      "page": 4,
+      "thumb": "/data/figures/2607.25189v1_p4_0.jpg",
+      "caption": "Figure 1: Power-law kernel and the volatility state update \u2014 This figure illustrates a power-law kernel function and the volatility state update mechanism in a two-dimensional Markov chain model. The plot shows the decay of the kernel function h_n-1(t) over time \u03c4, with the y-axis representing volatility level (ranging from near zero to a peak) and the x-axis showing time progression across periods t_{n-1}, t_n, and t_{n+1}. At each time step, the conditional variance \u03c3\u00b2_n follows a mean-reverti",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.23068v1"
+      "source": "https://arxiv.org/pdf/2607.25189v1"
     },
     {
-      "doc_id": "2607.23068v1",
-      "title": "Neural Network-Driven Volatility Drag Mitigation under Aggressive Leverage",
-      "page": 5,
-      "thumb": "/data/figures/2607.23068v1_p5_1.jpg",
-      "caption": "Fig. 2 plot the compound log-growth rate and the Sharpe ratio (computed on log returns) as functions of leverage over a 25-year simulation. In both metrics, the neural estimator consistently out- performs all competing methods, converting additional leverage into incremental return more efficiently while containing volatility drag. \u2014 This figure shows two time-series plots comparing the Net Liquidation Value (NLV) of neural network (NN) and HRP benchmark strategies from 2000 to 2024 on the top 1",
+      "doc_id": "2607.25189v1",
+      "title": "Long-memory GARCH via a two-dimensional Markov chain",
+      "page": 10,
+      "thumb": "/data/figures/2607.25189v1_p10_1.jpg",
+      "caption": "Figure 2 illustrates the envelope in the Gaussian case U \u223c\u03c72(1). Each light curve shows \u2206c(x, \u00b7) for a fixed x. As x \u2192\u221e, the curves increase pointwise to S(c). The curve S(c) crosses zero, and its first sign-crossing threshold is denoted by \u2014 This figure displays mathematical derivations and proofs related to a volatility specification function S(c) in a GARCH model. The equations show that S(c) < 0 if and only if a specific inequality involving \u03b3r(c), p, \u03be, c, and h(\u03ba*) holds (Equations 21-22).",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.23068v1"
-    },
-    {
-      "doc_id": "2607.23068v1",
-      "title": "Neural Network-Driven Volatility Drag Mitigation under Aggressive Leverage",
-      "page": 5,
-      "thumb": "/data/figures/2607.23068v1_p5_2.jpg",
-      "caption": "Figure 1: NLV of two high-leverage strategies for NN and HRP on the top 1000 high-capitalized US stocks. The dotted lines represent intraday liquidations. The simulations do not include any market impact. \u2014 This figure displays two semi-log line charts comparing net liquidation value (NLV) over time for Neural Network (NN) and Hierarchical Risk Parity (HRP) strategies applied to the top 1000 US stocks, with the y-axis showing NLV in USD on a logarithmic scale (10^1 to 10^10) and the x-axis spann",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.23068v1"
-    },
-    {
-      "doc_id": "2607.23068v1",
-      "title": "Neural Network-Driven Volatility Drag Mitigation under Aggressive Leverage",
-      "page": 6,
-      "thumb": "/data/figures/2607.23068v1_p6_3.jpg",
-      "caption": "Figure 2: The upper panel represents the out-of-sample log growth rate (see Eq. (3)) measured from the realized NLV of Eq. 18 for different values of the leverage. The lower panel is the Sharpe ratio computed from log returns of the realized NLV as a function of the leverage. Both plots refer to a 25- year simulation of the top 1000 high-capitalized US stocks. \u2014 This figure compares four portfolio strategies (NN, HRP, MLE, MCW) across different leverage levels using data from 25 years of the top",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.23068v1"
+      "source": "https://arxiv.org/pdf/2607.25189v1"
     }
   ],
   "docs": [
+    {
+      "id": "2607.25599v1",
+      "title": "An Analytic COS Method for Compound Option Valuation",
+      "source": "https://arxiv.org/pdf/2607.25599v1",
+      "pages": 31,
+      "images": 0,
+      "figures_captioned": 0,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 48
+    },
+    {
+      "id": "2607.25459v1",
+      "title": "Emergent Latent-State Computation under Stochastic Volatility",
+      "source": "https://arxiv.org/pdf/2607.25459v1",
+      "pages": 17,
+      "images": 8,
+      "figures_captioned": 4,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 34
+    },
+    {
+      "id": "2607.25353v1",
+      "title": "How Likely and How Deep? Sharp Joint Bounds on Risk-Neutral Crash Probability and Conditional Depth from Option Bid-Ask Quotes",
+      "source": "https://arxiv.org/pdf/2607.25353v1",
+      "pages": 21,
+      "images": 0,
+      "figures_captioned": 4,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 45
+    },
+    {
+      "id": "2607.25258v1",
+      "title": "Robust Hedging Valuation Adjustment for Deep Hedging Policies under Market Frictions",
+      "source": "https://arxiv.org/pdf/2607.25258v1",
+      "pages": 16,
+      "images": 2,
+      "figures_captioned": 4,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 37
+    },
+    {
+      "id": "2607.25199v1",
+      "title": "RIDGE: An Autonomous Framework for Validation and Method Discovery in LLM-Generated Option Pricing",
+      "source": "https://arxiv.org/pdf/2607.25199v1",
+      "pages": 31,
+      "images": 3,
+      "figures_captioned": 4,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 57
+    },
+    {
+      "id": "2607.25189v1",
+      "title": "Long-memory GARCH via a two-dimensional Markov chain",
+      "source": "https://arxiv.org/pdf/2607.25189v1",
+      "pages": 39,
+      "images": 0,
+      "figures_captioned": 2,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 41
+    },
+    {
+      "id": "2607.25162v1",
+      "title": "Quantum Transformer BSDE Solver via Multi-Layer Fully-Connected Variational Quantum Circuits",
+      "source": "https://arxiv.org/pdf/2607.25162v1",
+      "pages": 4,
+      "images": 3,
+      "figures_captioned": 0,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 11
+    },
+    {
+      "id": "2607.24973v1",
+      "title": "Discrete dividends after maturity adjust the stock and strike prices",
+      "source": "https://arxiv.org/pdf/2607.24973v1",
+      "pages": 20,
+      "images": 0,
+      "figures_captioned": 0,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 43
+    },
     {
       "id": "2607.24680v1",
       "title": "One Other Option Pricing Scheme",
       "source": "https://arxiv.org/pdf/2607.24680v1",
       "pages": 34,
       "images": 1,
-      "figures_captioned": 4,
+      "figures_captioned": 0,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 45
+      "chunks_indexed": 41
     },
     {
       "id": "2607.24410v1",
@@ -248,107 +344,11 @@
       "source": "https://arxiv.org/pdf/2607.24410v1",
       "pages": 32,
       "images": 8,
-      "figures_captioned": 4,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 53
-    },
-    {
-      "id": "2607.24150v1",
-      "title": "Approximation of stochastic insurer balance-sheet results using signatures of economic scenarios",
-      "source": "https://arxiv.org/pdf/2607.24150v1",
-      "pages": 26,
-      "images": 10,
-      "figures_captioned": 4,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 63
-    },
-    {
-      "id": "2607.24114v1",
-      "title": "Optimal Control with Expectation Constraint in a Smooth Boundary Case",
-      "source": "https://arxiv.org/pdf/2607.24114v1",
-      "pages": 42,
-      "images": 1,
-      "figures_captioned": 1,
+      "figures_captioned": 0,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
       "chunks_indexed": 49
-    },
-    {
-      "id": "2607.24065v1",
-      "title": "Variational Quantum Conditional Boltzmann Machines for Time-Series Forecasting: Architectures, Symmetric Hyperparameter Evaluation, and a Nonlinear Benchmark",
-      "source": "https://arxiv.org/pdf/2607.24065v1",
-      "pages": 45,
-      "images": 0,
-      "figures_captioned": 1,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 53
-    },
-    {
-      "id": "2607.23161v1",
-      "title": "Risk Aversion in the Small and in the Large: Beyond Arrow-Pratt A Wiener Chaos Hierarchy of Dynamic Risk Premia",
-      "source": "https://arxiv.org/pdf/2607.23161v1",
-      "pages": 47,
-      "images": 0,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 38
-    },
-    {
-      "id": "2607.23068v1",
-      "title": "Neural Network-Driven Volatility Drag Mitigation under Aggressive Leverage",
-      "source": "https://arxiv.org/pdf/2607.23068v1",
-      "pages": 7,
-      "images": 0,
-      "figures_captioned": 4,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 27
-    },
-    {
-      "id": "2607.22317v1",
-      "title": "Latent Fragility and Clustered Withdrawals in Dynamic Banks Runs",
-      "source": "https://arxiv.org/pdf/2607.22317v1",
-      "pages": 67,
-      "images": 0,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 45
-    },
-    {
-      "id": "2607.22085v1",
-      "title": "Neilson's Weak vs. Strong Loss Aversion: A Characterization and a Generalized CPT-Utility Function",
-      "source": "https://arxiv.org/pdf/2607.22085v1",
-      "pages": 41,
-      "images": 1,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 38
-    },
-    {
-      "id": "2607.21826v1",
-      "title": "Are cryptocurrencies real financial bubbles? Evidence from quantitative analyses",
-      "source": "https://arxiv.org/pdf/2607.21826v1",
-      "pages": 14,
-      "images": 3,
-      "figures_captioned": 0,
-      "tables": 12,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 29
     }
   ]
 }
