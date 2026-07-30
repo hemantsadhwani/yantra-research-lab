@@ -1,7 +1,7 @@
 {
   "_note": "Public run manifest of the Tier-3 agentic ingestion pipeline. Safe aggregates + provenance only; raw PDFs live in S3, not here.",
-  "run_id": "20260729T053224Z",
-  "generated_at": "2026-07-29T05:36:02+00:00",
+  "run_id": "20260730T051911Z",
+  "generated_at": "2026-07-30T05:22:57+00:00",
   "collection": "research_corpus",
   "embed_model": "BAAI/bge-small-en-v1.5",
   "dag": [
@@ -50,305 +50,305 @@
     "discovered": 10,
     "fetched": 10,
     "parsed": 10,
-    "chunks": 446,
-    "accepted": 406,
-    "rejected": 40,
-    "images": 25,
+    "chunks": 397,
+    "accepted": 366,
+    "rejected": 31,
+    "images": 63,
     "figures_captioned": 18,
-    "tables": 0,
+    "tables": 7,
     "with_math": 10,
-    "indexed": 406,
-    "spent_usd": 0.0338,
-    "duration_s": 218.2
+    "indexed": 366,
+    "spent_usd": 0.0314,
+    "duration_s": 226.1
   },
   "rejects_by_reason": {
-    "low-relevance": 40
+    "low-relevance": 31
   },
   "budget_usd": 3.0,
   "figures": [
     {
-      "doc_id": "2607.25459v1",
-      "title": "Emergent Latent-State Computation under Stochastic Volatility",
+      "doc_id": "2607.27188v1",
+      "title": "Inverse Learning of Latent Risk-Neutral Densities from Irregular Option Quotes",
+      "page": 1,
+      "thumb": "/data/figures/2607.27188v1_p1_0.jpg",
+      "caption": "Figure 1: Inverse learning of latent risk-neutral densities. Irregular option quotes provide sparse observations across strikes and maturities (left), but distinct latent densities can produce nearly identical prices over the observed strike range (cen- ter). Estimator performance depends on the evaluation target (right): a well-specified lognormal mixture leads the aggregate synthetic density and \u2014 This figure illustrates a three-stage inverse learning pipeline for extracting risk-neutral densi",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.27188v1"
+    },
+    {
+      "doc_id": "2607.27188v1",
+      "title": "Inverse Learning of Latent Risk-Neutral Densities from Irregular Option Quotes",
+      "page": 3,
+      "thumb": "/data/figures/2607.27188v1_p3_1.jpg",
+      "caption": "Figure 2: Left: constrained singular spectrum of the dis- cretized pricing operator. Right: two nonnegative, mass- and forward-matched densities that differ below the lowest ob- served strike. Their integrated \ud835\udc3f1 distance is 0.061, while their prices agree to machine precision at every covered strike. \u2014 The left panel shows a log-scale plot of the constrained pricing spectrum (singular values) versus singular value index, demonstrating the ill-posed nature of the inverse pricing problem with rap",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.27188v1"
+    },
+    {
+      "doc_id": "2607.27188v1",
+      "title": "Inverse Learning of Latent Risk-Neutral Densities from Irregular Option Quotes",
       "page": 5,
-      "thumb": "/data/figures/2607.25459v1_p5_0.jpg",
-      "caption": "Figure 1: Stage-wise emergence and causal relevance of latent-state decodability in the Transformer. Left: latent-state decodability emerges at different architectural stages depending on the volatility period \u03c9. Right: for \u03c9 = 365, ablating the post-\u21132-norm representation produces the strongest downstream collapse in decodability, identifying it as the earliest causally relevant stage. \u2014 The left panel is a line chart showing the emergence of latent-state decodability (R\u00b2 on y-axis, ranging 0\u20131",
+      "thumb": "/data/figures/2607.27188v1_p5_2.jpg",
+      "caption": "Figure 3: Evaluation pipeline. Simulator densities are available only to synthetic training and latent evaluation. Real-market evaluation withholds observable quotes and creates no latent labels. \u2014 This figure is a flow diagram illustrating an evaluation pipeline for learning risk-neutral densities from option quotes. The process begins with an irregular quote set at continuous locations, feeds through a matched backbone using DeepONet/FNO transformer architecture, then splits into two parallel ",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.25459v1"
+      "source": "https://arxiv.org/pdf/2607.27188v1"
     },
     {
-      "doc_id": "2607.25459v1",
-      "title": "Emergent Latent-State Computation under Stochastic Volatility",
-      "page": 12,
-      "thumb": "/data/figures/2607.25459v1_p12_1.jpg",
-      "caption": "Figure 2: Probe R2 and linear head R2 for decoding hT +1 from the final representation under MSE training, shown across volatility periods for the Transformer and MLP (median over n = 10 seeds). In both architectures, probe R2 remains above head R2 across all periods, with smaller in long-cycle regimes. The R2 in Transformer are consistently higher. \u2014 This grouped bar chart compares probe R\u00b2 versus readout R\u00b2 values for Transformer and MLP models across five volatility periods (30, 90, 178, 365,",
+      "doc_id": "2607.27188v1",
+      "title": "Inverse Learning of Latent Risk-Neutral Densities from Irregular Option Quotes",
+      "page": 5,
+      "thumb": "/data/figures/2607.27188v1_p5_3.jpg",
+      "caption": "Figure 4: Left: changing only the training objective lowers \ud835\udc3f1 for all four learned backbones. Right: aggregate \ud835\udc3f1 and 1% quantile error select different methods; points show seed means and 95% intervals. \u2014 This figure compares the performance of different neural network training objectives and methods for learning risk-neutral density functions from option data. The left panel is a line chart showing that switching from density-MSE to density-L1 supervision reduces the L1 error metric across al",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.25459v1"
+      "source": "https://arxiv.org/pdf/2607.27188v1"
     },
     {
-      "doc_id": "2607.25459v1",
-      "title": "Emergent Latent-State Computation under Stochastic Volatility",
-      "page": 13,
-      "thumb": "/data/figures/2607.25459v1_p13_2.jpg",
-      "caption": "Figure 3: Stage-wise ridge probe R2 for decoding hT +1 from intermediate MLP representations across volatility periods. Unlike the Transformer, the MLP exhibits a smoother and less localized rise in decodability, with weaker dependence on volatility period. \u2014 This line plot displays MLP decodability of h_{t+1} across processing stages for five different volatility periods (k = 5, 21, 50, 178, 365), measured by ridge regression R\u00b2 scores on the y-axis (ranging 0 to 1). The x-axis shows eight stag",
+      "doc_id": "2607.27099v1",
+      "title": "Rainfall is rough",
+      "page": 15,
+      "thumb": "/data/figures/2607.27099v1_p15_0.jpg",
+      "caption": "Figure 1: Relative difference (monthly, %) of the scores in the second-order contrast method across scales between: Hawkes model with a power-law approximation kernel (16), Bartlett-Lewis model, Neyman-Scott model, and the score obtained by the Hawkes fits for an exponential kernel for different weather stations. Blue: Hawkes with power-law approximation kernel (16), Orange: Bartlett-Lewis, Green: \u2014 This figure presents five line charts comparing relative differences (in percentages) of scores a",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.25459v1"
+      "source": "https://arxiv.org/pdf/2607.27099v1"
     },
     {
-      "doc_id": "2607.25459v1",
-      "title": "Emergent Latent-State Computation under Stochastic Volatility",
-      "page": 13,
-      "thumb": "/data/figures/2607.25459v1_p13_3.jpg",
-      "caption": "Figure 4: Stage-wise ridge probe R2 for decoding hT +1 in an MLP with \u21132 normalization after the initial linear layer. \u2014 Figure 4 is a line chart showing stage-wise ridge probe R\u00b2 values for decoding h_{T+1} across network layers in an MLP with \u21132 normalization, with the x-axis representing network stages (Baseline through Pre-head) and y-axis showing R\u00b2 values from 0 to 1.0, stratified by volatility period (k = 5, 21, 90, 178, 252, 365 days). The figure demonstrates that with \u21132 normalization, ",
+      "doc_id": "2607.27099v1",
+      "title": "Rainfall is rough",
+      "page": 15,
+      "thumb": "/data/figures/2607.27099v1_p15_1.jpg",
+      "caption": "Figure 2: Difference (monthly) of spectral AIC scores between: Hawkes model for the power-law approximation (16), Bartlett-Lewis model, Neyman-Scott model model, and the AIC obtained by the Hawkes fits for an exponential kernel for different weather stations. Blue: Hawkes with power- law approximation kernel (16), Orange: Bartlett-Lewis, Green: Neyman-Scott. The Hawkes model with a simple exponent \u2014 This figure displays line plots comparing monthly differences in spectral AIC (Akaike Information",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.25459v1"
+      "source": "https://arxiv.org/pdf/2607.27099v1"
     },
     {
-      "doc_id": "2607.25353v1",
-      "title": "How Likely and How Deep? Sharp Joint Bounds on Risk-Neutral Crash Probability and Conditional Depth from Option Bid-Ask Quotes",
-      "page": 11,
-      "thumb": "/data/figures/2607.25353v1_p11_0.jpg",
-      "caption": "Figure 1 displays the representative case used for the dual certificate: the short-horizon panel dated 5 July 2017, with maturity 19 July 2017 and \ud835\udc3e= 0.90. It satisfies the original quote constraints and Assumption 4.1. \u2014 # Table 1: Identification Gains Summary\n\nTable 1 presents identification gains achieved through complete-wing option contracts across four horizon-threshold cells in a primary sample. The table shows that complete wing contracts reduce the area of local ambiguity by 5.35% to 18",
+      "doc_id": "2607.27099v1",
+      "title": "Rainfall is rough",
+      "page": 17,
+      "thumb": "/data/figures/2607.27099v1_p17_2.jpg",
+      "caption": "Figure 3: log( \u00b5T 1\u2212\u2225\u03c6\u22251 )/(2 log(T)) as a function of \u03b1 in the Hawkes multiscale model with pa- rameters estimated on Bochum dataset, month by month, with the moment method (o) and the spectral method (\u25bd). Blue: winter months (October to March), Orange: summer months (April to September). For the second-order contrast method, we discard the very few months for which the considered model does not  \u2014 This scatter plot displays the relationship between the parameter \u03b1 (x-axis) and log(\u00b5T(1\u2212\u2225\u03c6\u2225\u2081))/",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.25353v1"
+      "source": "https://arxiv.org/pdf/2607.27099v1"
     },
     {
-      "doc_id": "2607.25353v1",
-      "title": "How Likely and How Deep? Sharp Joint Bounds on Risk-Neutral Crash Probability and Conditional Depth from Option Bid-Ask Quotes",
-      "page": 12,
-      "thumb": "/data/figures/2607.25353v1_p12_1.jpg",
-      "caption": "Figure 1: Sharp joint frontiers and primary-sample identification gains. The representative case is also used for the dual certificate in Figure 3. Filled regions in panels (a) and (b) correspond to the vertical pair, local eight, and complete put wing; panel (b) zooms the depth range on a log-\ud835\udc5daxis and its inset restores the full range. Panel (c) reports primary-sample median area reductions and  \u2014 This figure displays three panels analyzing risk-neutral crash probability and conditional depth ",
+      "doc_id": "2607.27099v1",
+      "title": "Rainfall is rough",
+      "page": 17,
+      "thumb": "/data/figures/2607.27099v1_p17_3.jpg",
+      "caption": "Figure 4: log( \u00b5T 1\u2212\u2225\u03c6\u22251 )/(2 log(T)) as a function of \u03b1 in the Hawkes multiscale model with param- eters estimated on the different dataset, month by month, with the moment method (left) or the spectral method (right) for the five datasets. Blue: winter months (October to March), Orange: summer months (April to September). For the second-order contrast method, we discard the very few months for w \u2014 This figure displays three scatter plots comparing model fit across datasets in the Hawkes multis",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.25353v1"
+      "source": "https://arxiv.org/pdf/2607.27099v1"
     },
     {
-      "doc_id": "2607.25353v1",
-      "title": "How Likely and How Deep? Sharp Joint Bounds on Risk-Neutral Crash Probability and Conditional Depth from Option Bid-Ask Quotes",
-      "page": 13,
-      "thumb": "/data/figures/2607.25353v1_p13_2.jpg",
-      "caption": "Figure 2: Outcome-grid accuracy and computation time. Panel (a) first takes the median support error over directions within each case, then reports the median of those values across cases. In panel (b), lines report the 95th percentile of each case\u2019s maximum support error over directions, and crosses report sample maxima; panel (c) reports median computation time. Synthetic threshold-atom designs  \u2014 This figure compares three performance metrics across outcome-grid node counts (51 to 401) for tw",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.25353v1"
-    },
-    {
-      "doc_id": "2607.25353v1",
-      "title": "How Likely and How Deep? Sharp Joint Bounds on Risk-Neutral Crash Probability and Conditional Depth from Option Bid-Ask Quotes",
-      "page": 13,
-      "thumb": "/data/figures/2607.25353v1_p13_3.jpg",
-      "caption": "Figure 3: Representative trade-off dual certificate for direction \ud835\udc62\u2605= (1, \u22121) in the representative frontier, shown at its original scale. Axis labels identify each quote by strike and endpoint; only material quote weights are displayed. \u2014 This figure displays three line charts comparing outcome-grid accuracy and computational performance across different grid configurations. Panel (a) shows median support error on a log scale across outcome-grid nodes (5-40), comparing K centered in cell versus",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.25353v1"
-    },
-    {
-      "doc_id": "2607.25258v1",
-      "title": "Robust Hedging Valuation Adjustment for Deep Hedging Policies under Market Frictions",
-      "page": 9,
-      "thumb": "/data/figures/2607.25258v1_p9_0.jpg",
-      "caption": "Figure 1 plots the classical-width curves and the learned-specification points. The figure highlights that sparse learned execution improves the strict Low Liquidity comparison, but once the classical width is tuned, a classical policy achieves the best relaxed-budget cost-risk trade-off in Low Liquidity. \u2014 This table presents backtesting results comparing different hedging policies across three liquidity environments (High, Middle, Low) using three independently trained networks per market-path",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.25258v1"
-    },
-    {
-      "doc_id": "2607.25258v1",
-      "title": "Robust Hedging Valuation Adjustment for Deep Hedging Policies under Market Frictions",
-      "page": 9,
-      "thumb": "/data/figures/2607.25258v1_p9_1.jpg",
-      "caption": "Figure 1: Out-of-validation full-lifecycle robust total adjustment against tracking-loss CVaR. Classical lines trace the fixed seven-point base-width grid. \u2014 This figure shows three scatter plots comparing robust total adjustment (y-axis) against tracking-loss CVaR (x-axis) across three liquidity regimes: High Liquidity, Middle Liquidity, and Low Liquidity. Each panel plots multiple hedging methods (Back-Scholes, Optimal, Nested 0.75, Nested 0.95, and Anchor) as colored points, with classical re",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.25258v1"
-    },
-    {
-      "doc_id": "2607.25258v1",
-      "title": "Robust Hedging Valuation Adjustment for Deep Hedging Policies under Market Frictions",
-      "page": 10,
-      "thumb": "/data/figures/2607.25258v1_p10_2.jpg",
-      "caption": "Figure 2 plots, for each validation-selected specification, the resulting percentage change in total adjustment on the test seeds relative to the reference policy. A cross marks a specification whose test-sample risk exceeds the same risk budget it was selected under. Appendix A shows how each classical width in the grid performs at relaxed budgets. \u2014 This table presents validation-selected deep hedging specifications and their out-of-sample test performance across three liquidity environments (",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.25258v1"
-    },
-    {
-      "doc_id": "2607.25258v1",
-      "title": "Robust Hedging Valuation Adjustment for Deep Hedging Policies under Market Frictions",
-      "page": 10,
-      "thumb": "/data/figures/2607.25258v1_p10_3.jpg",
-      "caption": "Figure 2: Out-of-validation total-adjustment change for each specification selected under the validation rule. \u2014 This figure displays three line charts showing total-adjustment changes across high, middle, and low liquidity regimes as a function of tracking CVaR budget multiplier c. Each panel plots the out-of-validation total-adjustment metric (y-axis) against tracking CVaR budget multiplier c values from 1.0 to 1.5 (x-axis), with different specifications labeled on each line (gamma-adr and har",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.25258v1"
-    },
-    {
-      "doc_id": "2607.25199v1",
-      "title": "RIDGE: An Autonomous Framework for Validation and Method Discovery in LLM-Generated Option Pricing",
+      "doc_id": "2607.27070v1",
+      "title": "Where does the criticality live? Early-warning signals are event-heterogeneous across seven crypto-perpetual liquidation cascades",
       "page": 4,
-      "thumb": "/data/figures/2607.25199v1_p4_0.jpg",
-      "caption": "Figure 1: Information flow of a RIDGE validation iteration. A blueprint, pricing implementation, and repository define the current iteration. Measurement produces an evidence record, diagnosis interprets this evidence and updates both the repository and, when necessary, the blueprint and implementation. The revised state either initiates the next iteration or terminates the validation process. \u2014 This flowchart depicts the iterative validation cycle of the RIDGE framework for LLM-generated option",
+      "thumb": "/data/figures/2607.27070v1_p4_0.jpg",
+      "caption": "Figure 1: 60-minute rolling volatility of BTCUSDT perp around the cascade. Source: EXP-000. \u2014 This line chart displays the 60-minute rolling volatility (in percentage) of BTCUSDT perpetual futures from September through November 2025, with a vertical green line marking the cascade onset at 20:50 UTC. The volatility metric fluctuates primarily between 0.05% and 0.2%, with notable spikes reaching approximately 0.2% occurring sporadically throughout the period, including a pronounced spike near the",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.25199v1"
+      "source": "https://arxiv.org/pdf/2607.27070v1"
     },
     {
-      "doc_id": "2607.25199v1",
-      "title": "RIDGE: An Autonomous Framework for Validation and Method Discovery in LLM-Generated Option Pricing",
-      "page": 19,
-      "thumb": "/data/figures/2607.25199v1_p19_1.jpg",
-      "caption": "Figure 2 compares, for both models at T = 0.5, the mean implied-volatility error across the central strike grid against the per-maturity CPU time. Each implementation traces an accuracy\u2013cost frontier obtained by varying a single numerical parameter: the Monte Carlo implementation by its number of simulated paths, the final CCF-PDE solver by its grid resolution, and the iteration-4 implementation b \u2014 This figure displays a comparison table of methodology-development iterations for option pricing ",
+      "doc_id": "2607.27070v1",
+      "title": "Where does the criticality live? Early-warning signals are event-heterogeneous across seven crypto-perpetual liquidation cascades",
+      "page": 5,
+      "thumb": "/data/figures/2607.27070v1_p5_1.jpg",
+      "caption": "Figure 2: EWS on open interest (5-minute). Detrended-residual variance and lag-1 autocorrelation into the cascade onset (red). Source: EXP-002. \u2014 This figure displays three panels tracking the October 2025 crash of EWS on open interest for Binance 5m Bitcoin perpetuals. The top panel shows the S-unit time series fluctuating between 9-13 with a sharp drop around the crash event (marked in red/beige). The middle panel plots detrended-residual variance, which spikes dramatically at the crash onset,",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.25199v1"
+      "source": "https://arxiv.org/pdf/2607.27070v1"
     },
     {
-      "doc_id": "2607.25199v1",
-      "title": "RIDGE: An Autonomous Framework for Validation and Method Discovery in LLM-Generated Option Pricing",
-      "page": 19,
-      "thumb": "/data/figures/2607.25199v1_p19_2.jpg",
-      "caption": "Figure 2 shows the performance gains resulting from the methodological developments of Section 4.3. For both HHW and G-SVJD, the final CCF-PDE formulation achieves sub-basis-point implied-volatility errors in a few hundred milliseconds and delivers errors between one and three orders of magnitude smaller than those of the Monte Carlo implementation at comparable computational cost. \u2014 This figure compares mean implied-volatility errors across the central strike grid at T=0.5 for two pricing model",
+      "doc_id": "2607.27070v1",
+      "title": "Where does the criticality live? Early-warning signals are event-heterogeneous across seven crypto-perpetual liquidation cascades",
+      "page": 6,
+      "thumb": "/data/figures/2607.27070v1_p6_2.jpg",
+      "caption": "Figure 3: EWS on price (1-minute). The variance spike is coincident with the cascade, with no pre-cascade build-up; autocorrelation does not rise. Source: EXP-001. \u2014 This figure displays three time-series panels for the October 2025 cryptocurrency crash showing EWS (early-warning signals) metrics on 1-minute price data for a Bitcoin perpetual contract. The top panel shows price movements in finance.im ranging from approximately 105,000 to 125,000; the middle panel shows variance with a dramatic ",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.25199v1"
+      "source": "https://arxiv.org/pdf/2607.27070v1"
     },
     {
-      "doc_id": "2607.25199v1",
-      "title": "RIDGE: An Autonomous Framework for Validation and Method Discovery in LLM-Generated Option Pricing",
-      "page": 20,
-      "thumb": "/data/figures/2607.25199v1_p20_3.jpg",
-      "caption": "Figure 2: Speed and accuracy at T = 0.5 for HHW (left) and G-SVJD (right): mean implied-volatility error across the central strike grid K \u2208[90, 110] against per-maturity CPU time, timed single-threaded on one virtualized Intel Xeon core at 2.80 GHz. Each method is represented by its accuracy\u2013cost frontier obtained from a common geometric sequence of refinements, with the converged CCF-PDE solution \u2014 These two log-log scatter plots compare computational efficiency and accuracy of option pricing m",
+      "doc_id": "2607.27070v1",
+      "title": "Where does the criticality live? Early-warning signals are event-heterogeneous across seven crypto-perpetual liquidation cascades",
+      "page": 7,
+      "thumb": "/data/figures/2607.27070v1_p7_3.jpg",
+      "caption": "Figure 4: In-sample (October 2025) robustness across 39 configurations per variable. Right (lag-1 autocorrelation): price straddles/below zero while the leverage/flow variables sit above zero\u2014the pattern that fails to replicate in Fig. 5. Left (variance): non-discriminating. Source: EXP-004. \u2014 This figure displays box plots comparing early warning signal (EWS) robustness across five price and leverage/flow variables (price, open_interest, b_liquidator, b_signaler, taker_ratio) in two panels meas",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.25199v1"
+      "source": "https://arxiv.org/pdf/2607.27070v1"
     },
     {
-      "doc_id": "2607.25189v1",
-      "title": "Long-memory GARCH via a two-dimensional Markov chain",
+      "doc_id": "2607.27063v1",
+      "title": "Herding, Momentum, and Reversal in China's A-Share Market: An Agent-Based Network Model with Information Diffusion",
+      "page": 3,
+      "thumb": "/data/figures/2607.27063v1_p3_0.jpg",
+      "caption": "Figure 1: Buy and sell probabilities conditional on the candidate price. \u2014 This line chart displays the probability density of buy and sell orders as a function of asset price, with price on the x-axis (ranging from 2800 to 3100) and probability on the y-axis (0 to 0.0035). Two overlapping curves show Prob_of_Sell (blue) peaking near 2950 and Prob_of_Buy (orange) peaking near 3050, both following smooth, approximately normal-like distributions. The key takeaway is that agents exhibit asymmetric ",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.27063v1"
+    },
+    {
+      "doc_id": "2607.27063v1",
+      "title": "Herding, Momentum, and Reversal in China's A-Share Market: An Agent-Based Network Model with Information Diffusion",
       "page": 4,
-      "thumb": "/data/figures/2607.25189v1_p4_0.jpg",
-      "caption": "Figure 1: Power-law kernel and the volatility state update \u2014 This figure illustrates a power-law kernel function and the volatility state update mechanism in a two-dimensional Markov chain model. The plot shows the decay of the kernel function h_n-1(t) over time \u03c4, with the y-axis representing volatility level (ranging from near zero to a peak) and the x-axis showing time progression across periods t_{n-1}, t_n, and t_{n+1}. At each time step, the conditional variance \u03c3\u00b2_n follows a mean-reverti",
+      "thumb": "/data/figures/2607.27063v1_p4_1.jpg",
+      "caption": "Figure 2: 4 \u00d7 4 von Neumann and Moore networks. \u2014 This figure shows two network topology structures used in agent-based modeling: (a) a Von Neumann network where each node (circle) connects only to its four orthogonal neighbors (up, down, left, right) in a grid formation, and (b) a Moore network where each node connects to eight neighbors including diagonal connections. Both are displayed as 4\u00d74 grids of circular nodes with lines indicating connections between neighboring agents, illustrating di",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.25189v1"
+      "source": "https://arxiv.org/pdf/2607.27063v1"
     },
     {
-      "doc_id": "2607.25189v1",
-      "title": "Long-memory GARCH via a two-dimensional Markov chain",
-      "page": 10,
-      "thumb": "/data/figures/2607.25189v1_p10_1.jpg",
-      "caption": "Figure 2 illustrates the envelope in the Gaussian case U \u223c\u03c72(1). Each light curve shows \u2206c(x, \u00b7) for a fixed x. As x \u2192\u221e, the curves increase pointwise to S(c). The curve S(c) crosses zero, and its first sign-crossing threshold is denoted by \u2014 This figure displays mathematical derivations and proofs related to a volatility specification function S(c) in a GARCH model. The equations show that S(c) < 0 if and only if a specific inequality involving \u03b3r(c), p, \u03be, c, and h(\u03ba*) holds (Equations 21-22).",
+      "doc_id": "2607.27063v1",
+      "title": "Herding, Momentum, and Reversal in China's A-Share Market: An Agent-Based Network Model with Information Diffusion",
+      "page": 6,
+      "thumb": "/data/figures/2607.27063v1_p6_2.jpg",
+      "caption": "Figure 3: Simulated return distributions over 500 periods under different herding intensities. \u2014 Three histograms showing simulated return distributions across 500 periods under varying levels of herding intensity (\u03b3 = 0.1, 0.3, and 0.5). The x-axis represents returns and the y-axis represents frequency, with each subplot displaying the distribution shape as herding intensity increases. The key takeaway is that higher herding intensity produces more leptokurtic (peaked with fatter tails) distrib",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.25189v1"
+      "source": "https://arxiv.org/pdf/2607.27063v1"
+    },
+    {
+      "doc_id": "2607.27063v1",
+      "title": "Herding, Momentum, and Reversal in China's A-Share Market: An Agent-Based Network Model with Information Diffusion",
+      "page": 6,
+      "thumb": "/data/figures/2607.27063v1_p6_3.jpg",
+      "caption": "Figure 4: Cluster trading patterns under different herding intensities. \u2014 Figure 4 displays three heatmaps showing spatial clustering patterns of agent trading behavior across a network under different herding intensities (\u03b3 = 0.1, 0.3, and 0.5). Each heatmap uses color coding (blue, yellow, green, red) to represent different trading states or positions of agents arranged in a two-dimensional grid structure over 500 simulation periods. The key takeaway is that higher herding intensity (\u03b3 = 0.5) ",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.27063v1"
+    },
+    {
+      "doc_id": "2607.26859v1",
+      "title": "No Data Is Not No Risk: Visibility Aware Graph-Based Inference of Business Conduct Risk",
+      "page": 3,
+      "thumb": "/data/figures/2607.26859v1_p3_0.jpg",
+      "caption": "Figure 1: \u201cNo risk versus no data\u201d problem. Missing incident records may indicate either low underlying risk or limited observability, while inter-firm relations provide an additional source of information. \u2014 This figure illustrates the data coverage problem in business conduct risk assessment through two panels. Panel (a) shows a network graph with entities (nodes with eye symbols) and their interconnections, where some entities have recorded incident histories (marked with fire symbols) while ",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.26859v1"
+    },
+    {
+      "doc_id": "2607.26859v1",
+      "title": "No Data Is Not No Risk: Visibility Aware Graph-Based Inference of Business Conduct Risk",
+      "page": 6,
+      "thumb": "/data/figures/2607.26859v1_p6_1.jpg",
+      "caption": "Figure 3 provides an illustrative target-level explanation of this phenomenon. Edge thickness represents gradient based attribution, whereas node shading indicates known risk. In this example, the lower ownership path has a stronger contribution to the target prediction than the upper path. This difference is consistent with \u2014 Figure 2 is a line chart showing Lift@10%data (y-axis) versus number of removed edges (x-axis) for different relation types in a graph-based prediction model. The chart tr",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.26859v1"
     }
   ],
   "docs": [
     {
-      "id": "2607.25599v1",
-      "title": "An Analytic COS Method for Compound Option Valuation",
-      "source": "https://arxiv.org/pdf/2607.25599v1",
-      "pages": 31,
+      "id": "2607.27188v1",
+      "title": "Inverse Learning of Latent Risk-Neutral Densities from Irregular Option Quotes",
+      "source": "https://arxiv.org/pdf/2607.27188v1",
+      "pages": 7,
+      "images": 1,
+      "figures_captioned": 4,
+      "tables": 2,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 23
+    },
+    {
+      "id": "2607.27099v1",
+      "title": "Rainfall is rough",
+      "source": "https://arxiv.org/pdf/2607.27099v1",
+      "pages": 47,
+      "images": 25,
+      "figures_captioned": 4,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 54
+    },
+    {
+      "id": "2607.27070v1",
+      "title": "Where does the criticality live? Early-warning signals are event-heterogeneous across seven crypto-perpetual liquidation cascades",
+      "source": "https://arxiv.org/pdf/2607.27070v1",
+      "pages": 13,
+      "images": 7,
+      "figures_captioned": 4,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 24
+    },
+    {
+      "id": "2607.27063v1",
+      "title": "Herding, Momentum, and Reversal in China's A-Share Market: An Agent-Based Network Model with Information Diffusion",
+      "source": "https://arxiv.org/pdf/2607.27063v1",
+      "pages": 12,
+      "images": 5,
+      "figures_captioned": 4,
+      "tables": 1,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 21
+    },
+    {
+      "id": "2607.27039v1",
+      "title": "Forcing and duality-corrected contracts for volatility control",
+      "source": "https://arxiv.org/pdf/2607.27039v1",
+      "pages": 25,
       "images": 0,
       "figures_captioned": 0,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 48
+      "chunks_indexed": 66
     },
     {
-      "id": "2607.25459v1",
-      "title": "Emergent Latent-State Computation under Stochastic Volatility",
-      "source": "https://arxiv.org/pdf/2607.25459v1",
-      "pages": 17,
-      "images": 8,
-      "figures_captioned": 4,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 34
-    },
-    {
-      "id": "2607.25353v1",
-      "title": "How Likely and How Deep? Sharp Joint Bounds on Risk-Neutral Crash Probability and Conditional Depth from Option Bid-Ask Quotes",
-      "source": "https://arxiv.org/pdf/2607.25353v1",
-      "pages": 21,
+      "id": "2607.27019v1",
+      "title": "Multi-Asset Liquidation in Dark Pools with Adverse Selection",
+      "source": "https://arxiv.org/pdf/2607.27019v1",
+      "pages": 35,
       "images": 0,
-      "figures_captioned": 4,
+      "figures_captioned": 0,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 45
+      "chunks_indexed": 51
     },
     {
-      "id": "2607.25258v1",
-      "title": "Robust Hedging Valuation Adjustment for Deep Hedging Policies under Market Frictions",
-      "source": "https://arxiv.org/pdf/2607.25258v1",
-      "pages": 16,
-      "images": 2,
-      "figures_captioned": 4,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 37
-    },
-    {
-      "id": "2607.25199v1",
-      "title": "RIDGE: An Autonomous Framework for Validation and Method Discovery in LLM-Generated Option Pricing",
-      "source": "https://arxiv.org/pdf/2607.25199v1",
-      "pages": 31,
-      "images": 3,
-      "figures_captioned": 4,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 57
-    },
-    {
-      "id": "2607.25189v1",
-      "title": "Long-memory GARCH via a two-dimensional Markov chain",
-      "source": "https://arxiv.org/pdf/2607.25189v1",
-      "pages": 39,
-      "images": 0,
+      "id": "2607.26859v1",
+      "title": "No Data Is Not No Risk: Visibility Aware Graph-Based Inference of Business Conduct Risk",
+      "source": "https://arxiv.org/pdf/2607.26859v1",
+      "pages": 8,
+      "images": 5,
       "figures_captioned": 2,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 41
+      "chunks_indexed": 25
     },
     {
-      "id": "2607.25162v1",
-      "title": "Quantum Transformer BSDE Solver via Multi-Layer Fully-Connected Variational Quantum Circuits",
-      "source": "https://arxiv.org/pdf/2607.25162v1",
-      "pages": 4,
-      "images": 3,
+      "id": "2607.26792v1",
+      "title": "Crossing-Free Probabilistic K-Line Forecasts Without Retraining",
+      "source": "https://arxiv.org/pdf/2607.26792v1",
+      "pages": 8,
+      "images": 13,
+      "figures_captioned": 0,
+      "tables": 3,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 22
+    },
+    {
+      "id": "2607.26405v1",
+      "title": "Multi-Currency AMMs for Decentralized FOREX Markets: Feasibility & Optimal Design",
+      "source": "https://arxiv.org/pdf/2607.26405v1",
+      "pages": 24,
+      "images": 7,
       "figures_captioned": 0,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 11
+      "chunks_indexed": 52
     },
     {
-      "id": "2607.24973v1",
-      "title": "Discrete dividends after maturity adjust the stock and strike prices",
-      "source": "https://arxiv.org/pdf/2607.24973v1",
-      "pages": 20,
+      "id": "2607.26245v1",
+      "title": "OpenMarket: A Synchronized Polymarket-Binance Dataset for High-Frequency Prediction-Market Research",
+      "source": "https://arxiv.org/pdf/2607.26245v1",
+      "pages": 23,
       "images": 0,
       "figures_captioned": 0,
-      "tables": 0,
+      "tables": 1,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 43
-    },
-    {
-      "id": "2607.24680v1",
-      "title": "One Other Option Pricing Scheme",
-      "source": "https://arxiv.org/pdf/2607.24680v1",
-      "pages": 34,
-      "images": 1,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 41
-    },
-    {
-      "id": "2607.24410v1",
-      "title": "The Fundamental Structure of Risk: From Characteristics to Covariance",
-      "source": "https://arxiv.org/pdf/2607.24410v1",
-      "pages": 32,
-      "images": 8,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 49
+      "chunks_indexed": 28
     }
   ]
 }
