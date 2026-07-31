@@ -1,7 +1,7 @@
 {
   "_note": "Public run manifest of the Tier-3 agentic ingestion pipeline. Safe aggregates + provenance only; raw PDFs live in S3, not here.",
-  "run_id": "20260730T051911Z",
-  "generated_at": "2026-07-30T05:22:57+00:00",
+  "run_id": "20260731T054614Z",
+  "generated_at": "2026-07-31T05:49:45+00:00",
   "collection": "research_corpus",
   "embed_model": "BAAI/bge-small-en-v1.5",
   "dag": [
@@ -50,305 +50,305 @@
     "discovered": 10,
     "fetched": 10,
     "parsed": 10,
-    "chunks": 397,
-    "accepted": 366,
-    "rejected": 31,
-    "images": 63,
+    "chunks": 436,
+    "accepted": 391,
+    "rejected": 45,
+    "images": 35,
     "figures_captioned": 18,
-    "tables": 7,
-    "with_math": 10,
-    "indexed": 366,
-    "spent_usd": 0.0314,
-    "duration_s": 226.1
+    "tables": 9,
+    "with_math": 9,
+    "indexed": 391,
+    "spent_usd": 0.0328,
+    "duration_s": 211.5
   },
   "rejects_by_reason": {
-    "low-relevance": 31
+    "low-relevance": 45
   },
   "budget_usd": 3.0,
   "figures": [
     {
-      "doc_id": "2607.27188v1",
-      "title": "Inverse Learning of Latent Risk-Neutral Densities from Irregular Option Quotes",
+      "doc_id": "2607.28577v1",
+      "title": "Train Often, Deploy Selectively: Forward-Gated Model Replacement in Crypto Markets",
+      "page": 2,
+      "thumb": "/data/figures/2607.28577v1_p2_0.jpg",
+      "caption": "Figure 1: SBS decision flow and pseudocode. The challenger remains off the serving path until forward labels mature. Deep copies prevent shared mutable state; the deployed head updater is momentum-free SGD. \u2014 This figure presents a flowchart and pseudocode for the SBS (Shadow-Branch Strategy) implementation procedure for model replacement in cryptocurrency trading. The flowchart (top) shows five sequential steps: Train clone, Shadow, Labels mature, Compare NLL, and Promote or retain, illustratin",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.28577v1"
+    },
+    {
+      "doc_id": "2607.28577v1",
+      "title": "Train Often, Deploy Selectively: Forward-Gated Model Replacement in Crypto Markets",
+      "page": 5,
+      "thumb": "/data/figures/2607.28577v1_p5_1.jpg",
+      "caption": "Figure 2: Selective replacement replicates. (a) Episode and stratified relative effects; green annotations give exact pooled absolute NLL reductions in 10\u22123 units. Whiskers are pointwise 95% four-week block intervals. (b) All seed-specific effects are positive in both episodes. (c) Discrete one-, two-, and three-week trial budgets remain positive; points are intentionally not joined because durati \u2014 This figure presents three panels comparing model replacement strategies in cryptocurrency market",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.28577v1"
+    },
+    {
+      "doc_id": "2607.28577v1",
+      "title": "Train Often, Deploy Selectively: Forward-Gated Model Replacement in Crypto Markets",
+      "page": 6,
+      "thumb": "/data/figures/2607.28577v1_p6_2.jpg",
+      "caption": "Figure 3: What the forward trial measures. (a) Binned density of one-week paired trial gain and three-week future challenger value across 288 decisions; color gives the number of decisions in each cell, and the dashed line is the development-selected, locked threshold. (b) Duration-specific rank association, sign agreement, and mean local hindsight regret on separate scales. Higher rank and sign a \u2014 Panel (a) shows a 2D histogram of paired trial gains versus three-week future cumulative returns ",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.28577v1"
+    },
+    {
+      "doc_id": "2607.28577v1",
+      "title": "Train Often, Deploy Selectively: Forward-Gated Model Replacement in Crypto Markets",
+      "page": 6,
+      "thumb": "/data/figures/2607.28577v1_p6_3.jpg",
+      "caption": "Figure 4: Breadth evidence. Primary time breadth, earlier 20-asset breadth, and topology-matched objective transfer with pointwise 95% four-week block intervals. \u2014 Figure 4 presents a horizontal bar chart comparing relative NLL (negative log-likelihood) reduction across three dimensions: 48-week time breadth, 20-asset breadth, and supervised objective, each tested under three conditions (Calendar, Blind, and Maint.). The x-axis shows relative NLL reduction in percentage terms (0.00 to 0.16%), wh",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.28577v1"
+    },
+    {
+      "doc_id": "2607.28410v1",
+      "title": "Can Large Language Models Execute Parent Orders?",
       "page": 1,
-      "thumb": "/data/figures/2607.27188v1_p1_0.jpg",
-      "caption": "Figure 1: Inverse learning of latent risk-neutral densities. Irregular option quotes provide sparse observations across strikes and maturities (left), but distinct latent densities can produce nearly identical prices over the observed strike range (cen- ter). Estimator performance depends on the evaluation target (right): a well-specified lognormal mixture leads the aggregate synthetic density and \u2014 This figure illustrates a three-stage inverse learning pipeline for extracting risk-neutral densi",
+      "thumb": "/data/figures/2607.28410v1_p1_0.jpg",
+      "caption": "Figure 1: Decomposition of a stock price series into its un- derlying long-horizon trend and residual short-horizon fluc- tuation using the HP filter (Hodrick and Prescott 1997). \u2014 This figure displays the Hodrick-Prescott (HP) filter decomposition of intraday stock price movements into three time series panels. The top panel shows the long-horizon trend component, the middle panel shows the cyclical component, and the bottom panel shows the short-horizon residual fluctuations, all plotted again",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.27188v1"
+      "source": "https://arxiv.org/pdf/2607.28410v1"
     },
     {
-      "doc_id": "2607.27188v1",
-      "title": "Inverse Learning of Latent Risk-Neutral Densities from Irregular Option Quotes",
+      "doc_id": "2607.28410v1",
+      "title": "Can Large Language Models Execute Parent Orders?",
       "page": 3,
-      "thumb": "/data/figures/2607.27188v1_p3_1.jpg",
-      "caption": "Figure 2: Left: constrained singular spectrum of the dis- cretized pricing operator. Right: two nonnegative, mass- and forward-matched densities that differ below the lowest ob- served strike. Their integrated \ud835\udc3f1 distance is 0.061, while their prices agree to machine precision at every covered strike. \u2014 The left panel shows a log-scale plot of the constrained pricing spectrum (singular values) versus singular value index, demonstrating the ill-posed nature of the inverse pricing problem with rap",
+      "thumb": "/data/figures/2607.28410v1_p3_1.jpg",
+      "caption": "Figure 2: Overview of PACE. The lower row gives an example data flow across the three main stages for a parent order that sells 6,000 shares of stock 300308 from 10:30 to 11:00. Here, N = 6 denotes the number of sub-plans in this example. \u2014 This figure shows a block diagram of PACE (Planner-Executor-Matcher-Evaluator), a system architecture for executing parent orders in stock trading. The diagram has three main sections: (a) Inputs including data flows for parent order, market history, and TWAP",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.27188v1"
+      "source": "https://arxiv.org/pdf/2607.28410v1"
     },
     {
-      "doc_id": "2607.27188v1",
-      "title": "Inverse Learning of Latent Risk-Neutral Densities from Irregular Option Quotes",
+      "doc_id": "2607.28410v1",
+      "title": "Can Large Language Models Execute Parent Orders?",
       "page": 5,
-      "thumb": "/data/figures/2607.27188v1_p5_2.jpg",
-      "caption": "Figure 3: Evaluation pipeline. Simulator densities are available only to synthetic training and latent evaluation. Real-market evaluation withholds observable quotes and creates no latent labels. \u2014 This figure is a flow diagram illustrating an evaluation pipeline for learning risk-neutral densities from option quotes. The process begins with an irregular quote set at continuous locations, feeds through a matched backbone using DeepONet/FNO transformer architecture, then splits into two parallel ",
+      "thumb": "/data/figures/2607.28410v1_p5_2.jpg",
+      "caption": "Figure 3: Gain of PACE (DS-v4-f) over the TWAP strategy across parent-order characteristics. Window length denotes the execution window length in minutes, and Quantity de- notes the parent-order quantity in thousand shares. \u2014 This bar chart compares the performance gain of PACE (DS-v4-f) over the TWAP strategy across different parent-order characteristics. The x-axis shows six categories: BUY/SELL order type and five order duration windows (0-30, 30-60, 0-5, and 5-10 minutes) plus quantity bucke",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.27188v1"
+      "source": "https://arxiv.org/pdf/2607.28410v1"
     },
     {
-      "doc_id": "2607.27188v1",
-      "title": "Inverse Learning of Latent Risk-Neutral Densities from Irregular Option Quotes",
-      "page": 5,
-      "thumb": "/data/figures/2607.27188v1_p5_3.jpg",
-      "caption": "Figure 4: Left: changing only the training objective lowers \ud835\udc3f1 for all four learned backbones. Right: aggregate \ud835\udc3f1 and 1% quantile error select different methods; points show seed means and 95% intervals. \u2014 This figure compares the performance of different neural network training objectives and methods for learning risk-neutral density functions from option data. The left panel is a line chart showing that switching from density-MSE to density-L1 supervision reduces the L1 error metric across al",
+      "doc_id": "2607.28410v1",
+      "title": "Can Large Language Models Execute Parent Orders?",
+      "page": 6,
+      "thumb": "/data/figures/2607.28410v1_p6_3.jpg",
+      "caption": "Figure 4: Hyperparameter sensitivity of \u03bb, \u03b3, and \u03c4 under the aggressive setting, where the y-axis reports wbp in bps. \u2014 This figure contains three line plots showing hyperparameter sensitivity analysis under an aggressive trading setting. Panel (a) shows sensitivity to parameter \u03bb across values 0 to 1.0, panel (b) shows sensitivity to \u03b3 across the same range, and panel (c) shows sensitivity to \u03c4 across parameter values from 2 to 15, with the y-axis in all cases measuring weighted basis points (",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.27188v1"
+      "source": "https://arxiv.org/pdf/2607.28410v1"
     },
     {
-      "doc_id": "2607.27099v1",
-      "title": "Rainfall is rough",
-      "page": 15,
-      "thumb": "/data/figures/2607.27099v1_p15_0.jpg",
-      "caption": "Figure 1: Relative difference (monthly, %) of the scores in the second-order contrast method across scales between: Hawkes model with a power-law approximation kernel (16), Bartlett-Lewis model, Neyman-Scott model, and the score obtained by the Hawkes fits for an exponential kernel for different weather stations. Blue: Hawkes with power-law approximation kernel (16), Orange: Bartlett-Lewis, Green: \u2014 This figure presents five line charts comparing relative differences (in percentages) of scores a",
+      "doc_id": "2607.28323v1",
+      "title": "Optimal Execution with Passive Market Impact",
+      "page": 8,
+      "thumb": "/data/figures/2607.28323v1_p8_0.jpg",
+      "caption": "Figure 1 shows the optimal quote depth \u03b4\u22c6(t, q) as a function of time. Each curve corresponds to a different inventory level q. The figure shows how the quote posted by the trader changes over the trading horizon and how this depends on the remaining inventory. Lighter colours indicate larger remaining inventories. We see that the optimal quote is closer to the midprice when the remaining inventor \u2014 This table displays the model parameter values used in numerical simulations for an optimal execu",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.27099v1"
+      "source": "https://arxiv.org/pdf/2607.28323v1"
     },
     {
-      "doc_id": "2607.27099v1",
-      "title": "Rainfall is rough",
-      "page": 15,
-      "thumb": "/data/figures/2607.27099v1_p15_1.jpg",
-      "caption": "Figure 2: Difference (monthly) of spectral AIC scores between: Hawkes model for the power-law approximation (16), Bartlett-Lewis model, Neyman-Scott model model, and the AIC obtained by the Hawkes fits for an exponential kernel for different weather stations. Blue: Hawkes with power- law approximation kernel (16), Orange: Bartlett-Lewis, Green: Neyman-Scott. The Hawkes model with a simple exponent \u2014 This figure displays line plots comparing monthly differences in spectral AIC (Akaike Information",
+      "doc_id": "2607.28323v1",
+      "title": "Optimal Execution with Passive Market Impact",
+      "page": 8,
+      "thumb": "/data/figures/2607.28323v1_p8_1.jpg",
+      "caption": "Figure 1: Optimal quote depth \u03b4\u22c6(t, q) over time for different inventory levels q. \u2014 This line plot displays optimal quote depth \u03b4*(t,q) as a function of time, with multiple curves representing different inventory levels q (ranging from 1 to 20, indicated by the color bar). The x-axis represents time (0 to 300) and the y-axis shows optimal quote depth (0 to 0.12). The curves demonstrate that quote depth decreases over time for all inventory levels, with higher inventory levels (yellow/green line",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.27099v1"
+      "source": "https://arxiv.org/pdf/2607.28323v1"
     },
     {
-      "doc_id": "2607.27099v1",
-      "title": "Rainfall is rough",
-      "page": 17,
-      "thumb": "/data/figures/2607.27099v1_p17_2.jpg",
-      "caption": "Figure 3: log( \u00b5T 1\u2212\u2225\u03c6\u22251 )/(2 log(T)) as a function of \u03b1 in the Hawkes multiscale model with pa- rameters estimated on Bochum dataset, month by month, with the moment method (o) and the spectral method (\u25bd). Blue: winter months (October to March), Orange: summer months (April to September). For the second-order contrast method, we discard the very few months for which the considered model does not  \u2014 This scatter plot displays the relationship between the parameter \u03b1 (x-axis) and log(\u00b5T(1\u2212\u2225\u03c6\u2225\u2081))/",
+      "doc_id": "2607.28323v1",
+      "title": "Optimal Execution with Passive Market Impact",
+      "page": 9,
+      "thumb": "/data/figures/2607.28323v1_p9_2.jpg",
+      "caption": "Figure 2: Effect of the passive impact parameter \u03b7 on the optimal quote depth \u03b4\u22c6(t, 20). \u2014 This contour plot illustrates how the passive impact parameter \u03b7 affects the optimal quote depth \u03b4*(t, 20) over time, with time on the x-axis (0 to 300), quote depth on the y-axis (0.025 to 0.150), and \u03b7 values represented by color intensity (0.002 to 0.010). The figure shows that quote depth remains relatively stable at low levels until approximately time 200, after which it increases sharply and monotoni",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.27099v1"
+      "source": "https://arxiv.org/pdf/2607.28323v1"
     },
     {
-      "doc_id": "2607.27099v1",
-      "title": "Rainfall is rough",
-      "page": 17,
-      "thumb": "/data/figures/2607.27099v1_p17_3.jpg",
-      "caption": "Figure 4: log( \u00b5T 1\u2212\u2225\u03c6\u22251 )/(2 log(T)) as a function of \u03b1 in the Hawkes multiscale model with param- eters estimated on the different dataset, month by month, with the moment method (left) or the spectral method (right) for the five datasets. Blue: winter months (October to March), Orange: summer months (April to September). For the second-order contrast method, we discard the very few months for w \u2014 This figure displays three scatter plots comparing model fit across datasets in the Hawkes multis",
+      "doc_id": "2607.28323v1",
+      "title": "Optimal Execution with Passive Market Impact",
+      "page": 9,
+      "thumb": "/data/figures/2607.28323v1_p9_3.jpg",
+      "caption": "Figure 2 compares the optimal quote depth \u03b4\u22c6(t, 20) across different values of the passive impact parameter \u03b7. Each curve corresponds to a different value of \u03b7, with darker curves representing larger passive impact. The figure shows that increasing \u03b7 shifts the optimal quote depth upwards. This means that when passive impact is stronger, the trader quotes less aggressively in order to reduce the p \u2014 This contour plot shows the effect of passive impact parameter \u03b7 on the optimal quote depth \u03b4*(t,",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.27099v1"
+      "source": "https://arxiv.org/pdf/2607.28323v1"
     },
     {
-      "doc_id": "2607.27070v1",
-      "title": "Where does the criticality live? Early-warning signals are event-heterogeneous across seven crypto-perpetual liquidation cascades",
+      "doc_id": "2607.28230v1",
+      "title": "Boundary-Induced Apparent Risk Aversion in Nonergodic Multiplicative Growth",
       "page": 4,
-      "thumb": "/data/figures/2607.27070v1_p4_0.jpg",
-      "caption": "Figure 1: 60-minute rolling volatility of BTCUSDT perp around the cascade. Source: EXP-000. \u2014 This line chart displays the 60-minute rolling volatility (in percentage) of BTCUSDT perpetual futures from September through November 2025, with a vertical green line marking the cascade onset at 20:50 UTC. The volatility metric fluctuates primarily between 0.05% and 0.2%, with notable spikes reaching approximately 0.2% occurring sporadically throughout the period, including a pronounced spike near the",
+      "thumb": "/data/figures/2607.28230v1_p4_0.jpg",
+      "caption": "FIG 1. Model geometry under a common return sequence and fixed exposure \ud835\udc53= 0.10. The near-boundary trajectory is absorbed when its wealth first reaches or falls below \ud835\udc3f. After absorption, the trajectory is assigned the \u2014 This line chart displays wealth evolution over time for two trajectories under identical return sequences with fixed exposure f=0.10, plotted on a logarithmic scale. The blue line (d=1.5 far) shows a far-boundary trajectory reaching wealth W\u2080\u2248448.2, while the orange line (d=0.1 ",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.27070v1"
+      "source": "https://arxiv.org/pdf/2607.28230v1"
     },
     {
-      "doc_id": "2607.27070v1",
-      "title": "Where does the criticality live? Early-warning signals are event-heterogeneous across seven crypto-perpetual liquidation cascades",
+      "doc_id": "2607.28230v1",
+      "title": "Boundary-Induced Apparent Risk Aversion in Nonergodic Multiplicative Growth",
       "page": 5,
-      "thumb": "/data/figures/2607.27070v1_p5_1.jpg",
-      "caption": "Figure 2: EWS on open interest (5-minute). Detrended-residual variance and lag-1 autocorrelation into the cascade onset (red). Source: EXP-002. \u2014 This figure displays three panels tracking the October 2025 crash of EWS on open interest for Binance 5m Bitcoin perpetuals. The top panel shows the S-unit time series fluctuating between 9-13 with a sharp drop around the crash event (marked in red/beige). The middle panel plots detrended-residual variance, which spikes dramatically at the crash onset,",
+      "thumb": "/data/figures/2607.28230v1_p5_1.jpg",
+      "caption": "FIG 2. End-horizon survival probability \ud835\udc43(\ud835\udf0f\u0bc5> \ud835\udc47) as a function of fixed exposure \ud835\udc53 for selected initial log \u2014 This line plot shows the end-horizon survival probability P(\u03c4_L > T) versus risk exposure f for five different debt-to-wealth ratios d (0.10, 0.40, 0.80, 1.40, and 2.50), with corresponding initial wealth W_0 values ranging from 110.5 to 1218.2. The x-axis represents risk exposure from 0 to 0.30, and the y-axis represents survival probability from 0 to 1.0, with a vertical reference line",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.27070v1"
+      "source": "https://arxiv.org/pdf/2607.28230v1"
     },
     {
-      "doc_id": "2607.27070v1",
-      "title": "Where does the criticality live? Early-warning signals are event-heterogeneous across seven crypto-perpetual liquidation cascades",
+      "doc_id": "2607.28230v1",
+      "title": "Boundary-Induced Apparent Risk Aversion in Nonergodic Multiplicative Growth",
+      "page": 5,
+      "thumb": "/data/figures/2607.28230v1_p5_2.jpg",
+      "caption": "FIG 3. Boundary-constrained optimal fixed exposure \ud835\udc53\u2217(\ud835\udc51) under the benchmark parameterization. \u2014 The figure comprises two panels showing the relationship between risk exposure and survival probability in a multiplicative wealth growth model with an absorbing boundary.\n\nThe top panel displays end-horizon survival probability P(\u03c4_L > T) as a function of fixed risk exposure f, with five curves representing different initial log-distances d to the absorbing boundary (ranging from 0.10 to 2.50). Each",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.28230v1"
+    },
+    {
+      "doc_id": "2607.28230v1",
+      "title": "Boundary-Induced Apparent Risk Aversion in Nonergodic Multiplicative Growth",
       "page": 6,
-      "thumb": "/data/figures/2607.27070v1_p6_2.jpg",
-      "caption": "Figure 3: EWS on price (1-minute). The variance spike is coincident with the cascade, with no pre-cascade build-up; autocorrelation does not rise. Source: EXP-001. \u2014 This figure displays three time-series panels for the October 2025 cryptocurrency crash showing EWS (early-warning signals) metrics on 1-minute price data for a Bitcoin perpetual contract. The top panel shows price movements in finance.im ranging from approximately 105,000 to 125,000; the middle panel shows variance with a dramatic ",
+      "thumb": "/data/figures/2607.28230v1_p6_3.jpg",
+      "caption": "FIG 4. Benchmark-implied apparent CRRA coefficient \ud835\udefe\u0b5f\u0b6e\u0b6e(\ud835\udc51), obtained by mapping the boundary-constrained \u2014 This line chart plots the benchmark-implied apparent risk aversion coefficient \u03b3_app(d) on a logarithmic y-axis against the initial distance to an absorbing boundary d on the x-axis. The solid blue curve shows \u03b3_app(d) declining sharply from approximately 100 at d=0 to near 1 as d increases beyond 2, while the dashed horizontal line at y=1 represents the no-boundary log-growth benchmark. Th",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.27070v1"
+      "source": "https://arxiv.org/pdf/2607.28230v1"
     },
     {
-      "doc_id": "2607.27070v1",
-      "title": "Where does the criticality live? Early-warning signals are event-heterogeneous across seven crypto-perpetual liquidation cascades",
-      "page": 7,
-      "thumb": "/data/figures/2607.27070v1_p7_3.jpg",
-      "caption": "Figure 4: In-sample (October 2025) robustness across 39 configurations per variable. Right (lag-1 autocorrelation): price straddles/below zero while the leverage/flow variables sit above zero\u2014the pattern that fails to replicate in Fig. 5. Left (variance): non-discriminating. Source: EXP-004. \u2014 This figure displays box plots comparing early warning signal (EWS) robustness across five price and leverage/flow variables (price, open_interest, b_liquidator, b_signaler, taker_ratio) in two panels meas",
+      "doc_id": "2607.28215v1",
+      "title": "Almost stochastic dominance via optimal transport",
+      "page": 12,
+      "thumb": "/data/figures/2607.28215v1_p12_0.jpg",
+      "caption": "Figure 1: Global horizontal irradiation in Siegen and Rome in 2020. \u2014 These line charts display hourly global horizontal irradiation (GHI) measurements from 4:00-22:00 in 2020 for two European cities: Siegen (left) and Roma (right). The x-axis shows hours of the day (4-22), the y-axis shows irradiation in W/m\u00b2 (0-1000), and each blue line represents one day's irradiation pattern across all measured days in the year, with a red line indicating the mean. Both cities exhibit characteristic bell-sha",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.27070v1"
+      "source": "https://arxiv.org/pdf/2607.28215v1"
     },
     {
-      "doc_id": "2607.27063v1",
-      "title": "Herding, Momentum, and Reversal in China's A-Share Market: An Agent-Based Network Model with Information Diffusion",
-      "page": 3,
-      "thumb": "/data/figures/2607.27063v1_p3_0.jpg",
-      "caption": "Figure 1: Buy and sell probabilities conditional on the candidate price. \u2014 This line chart displays the probability density of buy and sell orders as a function of asset price, with price on the x-axis (ranging from 2800 to 3100) and probability on the y-axis (0 to 0.0035). Two overlapping curves show Prob_of_Sell (blue) peaking near 2950 and Prob_of_Buy (orange) peaking near 3050, both following smooth, approximately normal-like distributions. The key takeaway is that agents exhibit asymmetric ",
+      "doc_id": "2607.28215v1",
+      "title": "Almost stochastic dominance via optimal transport",
+      "page": 14,
+      "thumb": "/data/figures/2607.28215v1_p14_1.jpg",
+      "caption": "Figure 2: Coefficient \u03b3\u2217for yearly sunshine data Rome vs Siegen, 2004-2024 \u2014 This line chart displays the coefficient \u03b3* (gamma star) measuring almost stochastic dominance between Rome and Siegen sunshine data across years 2004\u20132024. The y-axis represents the coefficient values ranging from approximately 0.11 to 0.16, while the x-axis shows the calendar years. The time series exhibits considerable volatility with a notable peak around 2022 (reaching ~0.165) and generally lower values in the 2005",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.27063v1"
-    },
-    {
-      "doc_id": "2607.27063v1",
-      "title": "Herding, Momentum, and Reversal in China's A-Share Market: An Agent-Based Network Model with Information Diffusion",
-      "page": 4,
-      "thumb": "/data/figures/2607.27063v1_p4_1.jpg",
-      "caption": "Figure 2: 4 \u00d7 4 von Neumann and Moore networks. \u2014 This figure shows two network topology structures used in agent-based modeling: (a) a Von Neumann network where each node (circle) connects only to its four orthogonal neighbors (up, down, left, right) in a grid formation, and (b) a Moore network where each node connects to eight neighbors including diagonal connections. Both are displayed as 4\u00d74 grids of circular nodes with lines indicating connections between neighboring agents, illustrating di",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.27063v1"
-    },
-    {
-      "doc_id": "2607.27063v1",
-      "title": "Herding, Momentum, and Reversal in China's A-Share Market: An Agent-Based Network Model with Information Diffusion",
-      "page": 6,
-      "thumb": "/data/figures/2607.27063v1_p6_2.jpg",
-      "caption": "Figure 3: Simulated return distributions over 500 periods under different herding intensities. \u2014 Three histograms showing simulated return distributions across 500 periods under varying levels of herding intensity (\u03b3 = 0.1, 0.3, and 0.5). The x-axis represents returns and the y-axis represents frequency, with each subplot displaying the distribution shape as herding intensity increases. The key takeaway is that higher herding intensity produces more leptokurtic (peaked with fatter tails) distrib",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.27063v1"
-    },
-    {
-      "doc_id": "2607.27063v1",
-      "title": "Herding, Momentum, and Reversal in China's A-Share Market: An Agent-Based Network Model with Information Diffusion",
-      "page": 6,
-      "thumb": "/data/figures/2607.27063v1_p6_3.jpg",
-      "caption": "Figure 4: Cluster trading patterns under different herding intensities. \u2014 Figure 4 displays three heatmaps showing spatial clustering patterns of agent trading behavior across a network under different herding intensities (\u03b3 = 0.1, 0.3, and 0.5). Each heatmap uses color coding (blue, yellow, green, red) to represent different trading states or positions of agents arranged in a two-dimensional grid structure over 500 simulation periods. The key takeaway is that higher herding intensity (\u03b3 = 0.5) ",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.27063v1"
-    },
-    {
-      "doc_id": "2607.26859v1",
-      "title": "No Data Is Not No Risk: Visibility Aware Graph-Based Inference of Business Conduct Risk",
-      "page": 3,
-      "thumb": "/data/figures/2607.26859v1_p3_0.jpg",
-      "caption": "Figure 1: \u201cNo risk versus no data\u201d problem. Missing incident records may indicate either low underlying risk or limited observability, while inter-firm relations provide an additional source of information. \u2014 This figure illustrates the data coverage problem in business conduct risk assessment through two panels. Panel (a) shows a network graph with entities (nodes with eye symbols) and their interconnections, where some entities have recorded incident histories (marked with fire symbols) while ",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.26859v1"
-    },
-    {
-      "doc_id": "2607.26859v1",
-      "title": "No Data Is Not No Risk: Visibility Aware Graph-Based Inference of Business Conduct Risk",
-      "page": 6,
-      "thumb": "/data/figures/2607.26859v1_p6_1.jpg",
-      "caption": "Figure 3 provides an illustrative target-level explanation of this phenomenon. Edge thickness represents gradient based attribution, whereas node shading indicates known risk. In this example, the lower ownership path has a stronger contribution to the target prediction than the upper path. This difference is consistent with \u2014 Figure 2 is a line chart showing Lift@10%data (y-axis) versus number of removed edges (x-axis) for different relation types in a graph-based prediction model. The chart tr",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.26859v1"
+      "source": "https://arxiv.org/pdf/2607.28215v1"
     }
   ],
   "docs": [
     {
-      "id": "2607.27188v1",
-      "title": "Inverse Learning of Latent Risk-Neutral Densities from Irregular Option Quotes",
-      "source": "https://arxiv.org/pdf/2607.27188v1",
-      "pages": 7,
-      "images": 1,
+      "id": "2607.28577v1",
+      "title": "Train Often, Deploy Selectively: Forward-Gated Model Replacement in Crypto Markets",
+      "source": "https://arxiv.org/pdf/2607.28577v1",
+      "pages": 9,
+      "images": 0,
       "figures_captioned": 4,
-      "tables": 2,
+      "tables": 5,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 29
+    },
+    {
+      "id": "2607.28410v1",
+      "title": "Can Large Language Models Execute Parent Orders?",
+      "source": "https://arxiv.org/pdf/2607.28410v1",
+      "pages": 13,
+      "images": 0,
+      "figures_captioned": 4,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 36
+    },
+    {
+      "id": "2607.28323v1",
+      "title": "Optimal Execution with Passive Market Impact",
+      "source": "https://arxiv.org/pdf/2607.28323v1",
+      "pages": 31,
+      "images": 4,
+      "figures_captioned": 4,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 53
+    },
+    {
+      "id": "2607.28294v1",
+      "title": "Bootstrap inference in autoregressive duration models",
+      "source": "https://arxiv.org/pdf/2607.28294v1",
+      "pages": 33,
+      "images": 0,
+      "figures_captioned": 0,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 44
+    },
+    {
+      "id": "2607.28230v1",
+      "title": "Boundary-Induced Apparent Risk Aversion in Nonergodic Multiplicative Growth",
+      "source": "https://arxiv.org/pdf/2607.28230v1",
+      "pages": 11,
+      "images": 12,
+      "figures_captioned": 4,
+      "tables": 0,
       "has_math": true,
       "ocr_used": false,
       "chunks_indexed": 23
     },
     {
-      "id": "2607.27099v1",
-      "title": "Rainfall is rough",
-      "source": "https://arxiv.org/pdf/2607.27099v1",
-      "pages": 47,
-      "images": 25,
-      "figures_captioned": 4,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 54
-    },
-    {
-      "id": "2607.27070v1",
-      "title": "Where does the criticality live? Early-warning signals are event-heterogeneous across seven crypto-perpetual liquidation cascades",
-      "source": "https://arxiv.org/pdf/2607.27070v1",
-      "pages": 13,
-      "images": 7,
-      "figures_captioned": 4,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 24
-    },
-    {
-      "id": "2607.27063v1",
-      "title": "Herding, Momentum, and Reversal in China's A-Share Market: An Agent-Based Network Model with Information Diffusion",
-      "source": "https://arxiv.org/pdf/2607.27063v1",
-      "pages": 12,
-      "images": 5,
-      "figures_captioned": 4,
-      "tables": 1,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 21
-    },
-    {
-      "id": "2607.27039v1",
-      "title": "Forcing and duality-corrected contracts for volatility control",
-      "source": "https://arxiv.org/pdf/2607.27039v1",
-      "pages": 25,
-      "images": 0,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 66
-    },
-    {
-      "id": "2607.27019v1",
-      "title": "Multi-Asset Liquidation in Dark Pools with Adverse Selection",
-      "source": "https://arxiv.org/pdf/2607.27019v1",
-      "pages": 35,
-      "images": 0,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 51
-    },
-    {
-      "id": "2607.26859v1",
-      "title": "No Data Is Not No Risk: Visibility Aware Graph-Based Inference of Business Conduct Risk",
-      "source": "https://arxiv.org/pdf/2607.26859v1",
-      "pages": 8,
-      "images": 5,
+      "id": "2607.28215v1",
+      "title": "Almost stochastic dominance via optimal transport",
+      "source": "https://arxiv.org/pdf/2607.28215v1",
+      "pages": 27,
+      "images": 2,
       "figures_captioned": 2,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 25
+      "chunks_indexed": 45
     },
     {
-      "id": "2607.26792v1",
-      "title": "Crossing-Free Probabilistic K-Line Forecasts Without Retraining",
-      "source": "https://arxiv.org/pdf/2607.26792v1",
+      "id": "2607.28127v1",
+      "title": "FinSMART: Financial Sentiment Analysis for Algorithmic Trading through Market-Aligned Reinforcement Learning",
+      "source": "https://arxiv.org/pdf/2607.28127v1",
       "pages": 8,
-      "images": 13,
+      "images": 15,
       "figures_captioned": 0,
-      "tables": 3,
-      "has_math": true,
+      "tables": 4,
+      "has_math": false,
       "ocr_used": false,
-      "chunks_indexed": 22
+      "chunks_indexed": 24
     },
     {
-      "id": "2607.26405v1",
-      "title": "Multi-Currency AMMs for Decentralized FOREX Markets: Feasibility & Optimal Design",
-      "source": "https://arxiv.org/pdf/2607.26405v1",
-      "pages": 24,
-      "images": 7,
+      "id": "2607.27853v1",
+      "title": "FinanceHarness: Autonomous Financial Deep Research Framework",
+      "source": "https://arxiv.org/pdf/2607.27853v1",
+      "pages": 54,
+      "images": 2,
       "figures_captioned": 0,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 52
+      "chunks_indexed": 46
     },
     {
-      "id": "2607.26245v1",
-      "title": "OpenMarket: A Synchronized Polymarket-Binance Dataset for High-Frequency Prediction-Market Research",
-      "source": "https://arxiv.org/pdf/2607.26245v1",
-      "pages": 23,
+      "id": "2607.27814v1",
+      "title": "Pricing and Semi-static Hedging of Green Pay-as-produced Power Purchase Agreements",
+      "source": "https://arxiv.org/pdf/2607.27814v1",
+      "pages": 48,
       "images": 0,
       "figures_captioned": 0,
-      "tables": 1,
+      "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 28
+      "chunks_indexed": 57
+    },
+    {
+      "id": "2607.27649v1",
+      "title": "Multi-maturity consistency of option prices under bounded bid-ask spreads: a minimal obstruction and an exact two-date basket operator",
+      "source": "https://arxiv.org/pdf/2607.27649v1",
+      "pages": 21,
+      "images": 0,
+      "figures_captioned": 0,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 34
     }
   ]
 }
