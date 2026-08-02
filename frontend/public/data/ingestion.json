@@ -1,7 +1,7 @@
 {
   "_note": "Public run manifest of the Tier-3 agentic ingestion pipeline. Safe aggregates + provenance only; raw PDFs live in S3, not here.",
-  "run_id": "20260801T053654Z",
-  "generated_at": "2026-08-01T05:40:06+00:00",
+  "run_id": "20260802T053735Z",
+  "generated_at": "2026-08-02T05:40:56+00:00",
   "collection": "research_corpus",
   "embed_model": "BAAI/bge-small-en-v1.5",
   "dag": [
@@ -58,8 +58,8 @@
     "tables": 9,
     "with_math": 9,
     "indexed": 391,
-    "spent_usd": 0.0317,
-    "duration_s": 191.6
+    "spent_usd": 0.0326,
+    "duration_s": 200.9
   },
   "rejects_by_reason": {
     "low-relevance": 45
@@ -71,7 +71,7 @@
       "title": "Train Often, Deploy Selectively: Forward-Gated Model Replacement in Crypto Markets",
       "page": 2,
       "thumb": "/data/figures/2607.28577v1_p2_0.jpg",
-      "caption": "Figure 1: SBS decision flow and pseudocode. The challenger remains off the serving path until forward labels mature. Deep copies prevent shared mutable state; the deployed head updater is momentum-free SGD. \u2014 This figure shows a flowchart and pseudocode for an implementation procedure of a model replacement strategy in machine learning systems. The chart type is a process flow diagram with accompanying numbered pseudocode steps, displaying the sequence: Train clone \u2192 Shadow \u2192 Labels mature \u2192 Com",
+      "caption": "Figure 1: SBS decision flow and pseudocode. The challenger remains off the serving path until forward labels mature. Deep copies prevent shared mutable state; the deployed head updater is momentum-free SGD. \u2014 This figure illustrates a model replacement procedure with a flow diagram and implementation pseudocode for a machine learning system in cryptocurrency markets. The diagram shows a sequential pipeline: Train clone \u2192 Shadow \u2192 Labels mature \u2192 Compare NLL \u2192 Promote or retain, with each step pr",
       "vision": true,
       "source": "https://arxiv.org/pdf/2607.28577v1"
     },
@@ -80,7 +80,7 @@
       "title": "Train Often, Deploy Selectively: Forward-Gated Model Replacement in Crypto Markets",
       "page": 5,
       "thumb": "/data/figures/2607.28577v1_p5_1.jpg",
-      "caption": "Figure 2: Selective replacement replicates. (a) Episode and stratified relative effects; green annotations give exact pooled absolute NLL reductions in 10\u22123 units. Whiskers are pointwise 95% four-week block intervals. (b) All seed-specific effects are positive in both episodes. (c) Discrete one-, two-, and three-week trial budgets remain positive; points are intentionally not joined because durati \u2014 This figure presents three panels comparing model replacement strategies in crypto markets using ",
+      "caption": "Figure 2: Selective replacement replicates. (a) Episode and stratified relative effects; green annotations give exact pooled absolute NLL reductions in 10\u22123 units. Whiskers are pointwise 95% four-week block intervals. (b) All seed-specific effects are positive in both episodes. (c) Discrete one-, two-, and three-week trial budgets remain positive; points are intentionally not joined because durati \u2014 This figure displays three panels comparing model replacement strategies in cryptocurrency market",
       "vision": true,
       "source": "https://arxiv.org/pdf/2607.28577v1"
     },
@@ -89,7 +89,7 @@
       "title": "Train Often, Deploy Selectively: Forward-Gated Model Replacement in Crypto Markets",
       "page": 6,
       "thumb": "/data/figures/2607.28577v1_p6_2.jpg",
-      "caption": "Figure 3: What the forward trial measures. (a) Binned density of one-week paired trial gain and three-week future challenger value across 288 decisions; color gives the number of decisions in each cell, and the dashed line is the development-selected, locked threshold. (b) Duration-specific rank association, sign agreement, and mean local hindsight regret on separate scales. Higher rank and sign a \u2014 Figure 3 shows evaluation metrics for a forward trial methodology in cryptocurrency trading model",
+      "caption": "Figure 3: What the forward trial measures. (a) Binned density of one-week paired trial gain and three-week future challenger value across 288 decisions; color gives the number of decisions in each cell, and the dashed line is the development-selected, locked threshold. (b) Duration-specific rank association, sign agreement, and mean local hindsight regret on separate scales. Higher rank and sign a \u2014 Panel (a) shows a 2D histogram of paired trial gain (x-axis, in units of 10^-3 NLL) versus three-",
       "vision": true,
       "source": "https://arxiv.org/pdf/2607.28577v1"
     },
@@ -98,7 +98,7 @@
       "title": "Train Often, Deploy Selectively: Forward-Gated Model Replacement in Crypto Markets",
       "page": 6,
       "thumb": "/data/figures/2607.28577v1_p6_3.jpg",
-      "caption": "Figure 4: Breadth evidence. Primary time breadth, earlier 20-asset breadth, and topology-matched objective transfer with pointwise 95% four-week block intervals. \u2014 Figure 4 displays a horizontal bar chart with error bars showing relative NLL reduction (%) across three dimensions: 48-week time breadth, 20-asset breadth, and supervised objective, each tested under three conditions (Calendar, Blind, and Maint.). The chart demonstrates that forward-gated model replacement achieves consistent perform",
+      "caption": "Figure 4: Breadth evidence. Primary time breadth, earlier 20-asset breadth, and topology-matched objective transfer with pointwise 95% four-week block intervals. \u2014 Figure 4 displays a horizontal bar chart comparing relative NLL (negative log-likelihood) reduction across three robustness dimensions: 48-week time breadth, 20-asset breadth, and supervised objective, with three conditions per metric (Calendar, Blind, and Maint.) shown as separate colored points and confidence intervals. The x-axis m",
       "vision": true,
       "source": "https://arxiv.org/pdf/2607.28577v1"
     },
@@ -107,7 +107,7 @@
       "title": "Can Large Language Models Execute Parent Orders?",
       "page": 1,
       "thumb": "/data/figures/2607.28410v1_p1_0.jpg",
-      "caption": "Figure 1: Decomposition of a stock price series into its un- derlying long-horizon trend and residual short-horizon fluc- tuation using the HP filter (Hodrick and Prescott 1997). \u2014 This figure displays a time-series decomposition of intraday stock price data using the Hodrick-Prescott (HP) filter, shown as three vertically stacked line charts covering trading hours from 9:30 to 15:00. The top panel shows the long-horizon trend (smoothed price path), the middle panel shows the cyclical component ",
+      "caption": "Figure 1: Decomposition of a stock price series into its un- derlying long-horizon trend and residual short-horizon fluc- tuation using the HP filter (Hodrick and Prescott 1997). \u2014 This figure displays a time-series decomposition of stock price movement using the Hodrick-Prescott (HP) filter, separated into three line charts stacked vertically. The top panel shows the long-horizon trend component, which exhibits a smooth bell-shaped curve peaking around midday. The middle panel presents the shor",
       "vision": true,
       "source": "https://arxiv.org/pdf/2607.28410v1"
     },
@@ -116,7 +116,7 @@
       "title": "Can Large Language Models Execute Parent Orders?",
       "page": 3,
       "thumb": "/data/figures/2607.28410v1_p3_1.jpg",
-      "caption": "Figure 2: Overview of PACE. The lower row gives an example data flow across the three main stages for a parent order that sells 6,000 shares of stock 300308 from 10:30 to 11:00. Here, N = 6 denotes the number of sub-plans in this example. \u2014 This figure is a block diagram showing the PACE (Planner-Executor-Backtester) system architecture for executing parent orders using large language models. The diagram contains three main sections: (a) Inputs including Data Flow and Module Flow components like",
+      "caption": "Figure 2: Overview of PACE. The lower row gives an example data flow across the three main stages for a parent order that sells 6,000 shares of stock 300308 from 10:30 to 11:00. Here, N = 6 denotes the number of sub-plans in this example. \u2014 This figure shows a flow diagram of PACE (Planner-Executor-Backtesting system) for executing parent orders using large language models. The architecture has three main stages: (a) Inputs including parent order details and market data, (b) PACE with a Planner ",
       "vision": true,
       "source": "https://arxiv.org/pdf/2607.28410v1"
     },
@@ -125,7 +125,7 @@
       "title": "Can Large Language Models Execute Parent Orders?",
       "page": 5,
       "thumb": "/data/figures/2607.28410v1_p5_2.jpg",
-      "caption": "Figure 3: Gain of PACE (DS-v4-f) over the TWAP strategy across parent-order characteristics. Window length denotes the execution window length in minutes, and Quantity de- notes the parent-order quantity in thousand shares. \u2014 This bar chart compares the performance gains of PACE (DS-v4-f) over TWAP strategy across different parent-order characteristics, measured on the y-axis in basis points (bps). The chart displays paired blue and orange bars across six categorical groupings: BUY vs SELL order",
+      "caption": "Figure 3: Gain of PACE (DS-v4-f) over the TWAP strategy across parent-order characteristics. Window length denotes the execution window length in minutes, and Quantity de- notes the parent-order quantity in thousand shares. \u2014 This bar chart compares the performance gains of PACE (DS-v4-f) over TWAP strategy across different parent-order characteristics. The chart displays grouped bars for six categories: BUY/SELL (binary execution direction), time windows 0-30, 30-60 minutes, and order quantitie",
       "vision": true,
       "source": "https://arxiv.org/pdf/2607.28410v1"
     },
@@ -134,7 +134,7 @@
       "title": "Can Large Language Models Execute Parent Orders?",
       "page": 6,
       "thumb": "/data/figures/2607.28410v1_p6_3.jpg",
-      "caption": "Figure 4: Hyperparameter sensitivity of \u03bb, \u03b3, and \u03c4 under the aggressive setting, where the y-axis reports wbp in bps. \u2014 This figure shows three line charts (panels a, b, c) displaying hyperparameter sensitivity analysis for \u03bb, \u03b3, and \u03c4 respectively, with the y-axis measuring weighted basis points (wbp) and x-axis showing parameter values ranging from 0 to 1.0 or 2 to 15. Each parameter exhibits a peak performance at intermediate values\u2014\u03bb at 0.5, \u03b3 at 0.5, and \u03c4 at 5\u2014indicating optimal balance i",
+      "caption": "Figure 4: Hyperparameter sensitivity of \u03bb, \u03b3, and \u03c4 under the aggressive setting, where the y-axis reports wbp in bps. \u2014 Figure 4 displays three line plots showing hyperparameter sensitivity analysis under an aggressive trading setting, with the y-axis measuring weighted basis points (wbp). Panel (a) shows sensitivity to parameter \u03bb across values 0 to 1.0, exhibiting an inverted U-shape peaking around 0.5. Panel (b) illustrates \u03b3 sensitivity over the same range, displaying a similar curved patte",
       "vision": true,
       "source": "https://arxiv.org/pdf/2607.28410v1"
     },
@@ -143,7 +143,7 @@
       "title": "Optimal Execution with Passive Market Impact",
       "page": 8,
       "thumb": "/data/figures/2607.28323v1_p8_0.jpg",
-      "caption": "Figure 1 shows the optimal quote depth \u03b4\u22c6(t, q) as a function of time. Each curve corresponds to a different inventory level q. The figure shows how the quote posted by the trader changes over the trading horizon and how this depends on the remaining inventory. Lighter colours indicate larger remaining inventories. We see that the optimal quote is closer to the midprice when the remaining inventor \u2014 Table 1 presents model parameter values used in numerical simulations for an optimal execution pr",
+      "caption": "Figure 1 shows the optimal quote depth \u03b4\u22c6(t, q) as a function of time. Each curve corresponds to a different inventory level q. The figure shows how the quote posted by the trader changes over the trading horizon and how this depends on the remaining inventory. Lighter colours indicate larger remaining inventories. We see that the optimal quote is closer to the midprice when the remaining inventor \u2014 This table lists model parameter values used in optimal execution simulations. The parameters inc",
       "vision": true,
       "source": "https://arxiv.org/pdf/2607.28323v1"
     },
@@ -152,7 +152,7 @@
       "title": "Optimal Execution with Passive Market Impact",
       "page": 8,
       "thumb": "/data/figures/2607.28323v1_p8_1.jpg",
-      "caption": "Figure 1: Optimal quote depth \u03b4\u22c6(t, q) over time for different inventory levels q. \u2014 This line chart displays optimal quote depth \u03b4*(t,q) as a function of time, with multiple curves representing different inventory levels q (shown by color gradient from 1 to 20). The x-axis represents time from 0 to 300, while the y-axis shows optimal quote depth ranging from 0.02 to 0.12. The curves demonstrate that quote depth decreases over time for all inventory levels, with higher initial inventory levels (",
+      "caption": "Figure 1: Optimal quote depth \u03b4\u22c6(t, q) over time for different inventory levels q. \u2014 This figure displays a line plot showing how optimal quote depth (\u03b4*(t,q)) varies over time for multiple inventory levels q, with time on the horizontal axis (0 to 300) and optimal quote depth on the vertical axis (0.02 to 0.12). The curves are color-coded by inventory level q ranging from 1 to 20, where darker purple represents lower inventory and yellow represents higher inventory. The key takeaway is that opt",
       "vision": true,
       "source": "https://arxiv.org/pdf/2607.28323v1"
     },
@@ -161,7 +161,7 @@
       "title": "Optimal Execution with Passive Market Impact",
       "page": 9,
       "thumb": "/data/figures/2607.28323v1_p9_2.jpg",
-      "caption": "Figure 2: Effect of the passive impact parameter \u03b7 on the optimal quote depth \u03b4\u22c6(t, 20). \u2014 This contour plot illustrates how the passive impact parameter \u03b7 affects the optimal quote depth \u03b4*(t, 20) over time, with time on the x-axis (0 to 300) and quote depth on the y-axis (0.025 to 0.150). The color gradient from dark blue to yellow represents increasing values of \u03b7 (0.002 to 0.010), with each colored line showing the optimal quote depth trajectory for a different \u03b7 level. The key takeaway is t",
+      "caption": "Figure 2: Effect of the passive impact parameter \u03b7 on the optimal quote depth \u03b4\u22c6(t, 20). \u2014 This contour plot shows how the optimal bid-ask spread depth \u03b4*(t, 20) evolves over time for varying levels of passive market impact parameter \u03b7. The x-axis represents time (0 to 300) and the y-axis represents the quote depth \u03b4*(t, 20) (0.025 to 0.150), with color intensity indicating \u03b7 values ranging from 0.002 to 0.010. The figure demonstrates that quote depth remains relatively stable at low levels unti",
       "vision": true,
       "source": "https://arxiv.org/pdf/2607.28323v1"
     },
@@ -170,7 +170,7 @@
       "title": "Optimal Execution with Passive Market Impact",
       "page": 9,
       "thumb": "/data/figures/2607.28323v1_p9_3.jpg",
-      "caption": "Figure 2 compares the optimal quote depth \u03b4\u22c6(t, 20) across different values of the passive impact parameter \u03b7. Each curve corresponds to a different value of \u03b7, with darker curves representing larger passive impact. The figure shows that increasing \u03b7 shifts the optimal quote depth upwards. This means that when passive impact is stronger, the trader quotes less aggressively in order to reduce the p \u2014 This contour plot displays how the optimal quote depth \u03b4*(t, 20) varies over time (0 to 300) for ",
+      "caption": "Figure 2 compares the optimal quote depth \u03b4\u22c6(t, 20) across different values of the passive impact parameter \u03b7. Each curve corresponds to a different value of \u03b7, with darker curves representing larger passive impact. The figure shows that increasing \u03b7 shifts the optimal quote depth upwards. This means that when passive impact is stronger, the trader quotes less aggressively in order to reduce the p \u2014 This contour plot displays how the optimal quote depth \u03b4*(t, 20) evolves over time for varying le",
       "vision": true,
       "source": "https://arxiv.org/pdf/2607.28323v1"
     },
@@ -179,7 +179,7 @@
       "title": "Boundary-Induced Apparent Risk Aversion in Nonergodic Multiplicative Growth",
       "page": 4,
       "thumb": "/data/figures/2607.28230v1_p4_0.jpg",
-      "caption": "FIG 1. Model geometry under a common return sequence and fixed exposure \ud835\udc53= 0.10. The near-boundary trajectory is absorbed when its wealth first reaches or falls below \ud835\udc3f. After absorption, the trajectory is assigned the \u2014 This log-scale time series plot compares wealth trajectories for two different distance parameters in a multiplicative growth model: d=1.5 (far, blue line) and d=0.1 (near boundary, orange line). The y-axis shows wealth W_t on a logarithmic scale, and the x-axis shows time steps",
+      "caption": "FIG 1. Model geometry under a common return sequence and fixed exposure \ud835\udc53= 0.10. The near-boundary trajectory is absorbed when its wealth first reaches or falls below \ud835\udc3f. After absorption, the trajectory is assigned the \u2014 This line graph displays wealth evolution over time (0-40 time steps) on a log scale for two different distance parameters in a multiplicative growth model. The blue line represents the far-boundary case (d=1.5, initial wealth W\u2080=448.2) showing exponential wealth growth, while t",
       "vision": true,
       "source": "https://arxiv.org/pdf/2607.28230v1"
     },
@@ -188,7 +188,7 @@
       "title": "Boundary-Induced Apparent Risk Aversion in Nonergodic Multiplicative Growth",
       "page": 5,
       "thumb": "/data/figures/2607.28230v1_p5_1.jpg",
-      "caption": "FIG 2. End-horizon survival probability \ud835\udc43(\ud835\udf0f\u0bc5> \ud835\udc47) as a function of fixed exposure \ud835\udc53 for selected initial log \u2014 This line chart displays end-horizon survival probability P(\u03c4_L > T) on the y-axis versus risk exposure f on the x-axis for a multiplicative growth process with an absorbing boundary. Five colored curves represent different log-wealth distances d (ranging from 0.10 to 2.50), each with corresponding initial wealth W\u2080 values, showing how survival probability decreases as risk exposure incr",
+      "caption": "FIG 2. End-horizon survival probability \ud835\udc43(\ud835\udf0f\u0bc5> \ud835\udc47) as a function of fixed exposure \ud835\udc53 for selected initial log \u2014 This line chart displays survival probability P(\u03c4_L > T) (probability of not hitting a lower boundary before time T) on the y-axis versus risk exposure f on the x-axis for a multiplicative growth process. Five curves represent different leverage values d (0.10, 0.40, 0.80, 1.40, and 2.50) with their corresponding initial wealths W_0, plus a reference line for unconstrained Kelly strategy",
       "vision": true,
       "source": "https://arxiv.org/pdf/2607.28230v1"
     },
@@ -197,7 +197,7 @@
       "title": "Boundary-Induced Apparent Risk Aversion in Nonergodic Multiplicative Growth",
       "page": 5,
       "thumb": "/data/figures/2607.28230v1_p5_2.jpg",
-      "caption": "FIG 3. Boundary-constrained optimal fixed exposure \ud835\udc53\u2217(\ud835\udc51) under the benchmark parameterization. \u2014 Figure 3 consists of two panels examining optimal risk exposure under a boundary constraint in a multiplicative growth framework. The top panel is a line chart showing end-horizon survival probability P(\u03c4_L > T) versus risk exposure f for five different initial log-distances d (ranging from 0.10 to 2.50), with corresponding wealth parameters W_0 listed in the legend; survival probability decreases as",
+      "caption": "FIG 3. Boundary-constrained optimal fixed exposure \ud835\udc53\u2217(\ud835\udc51) under the benchmark parameterization. \u2014 The figure comprises two subpanels analyzing survival probability and optimal risk exposure. The top panel shows end-horizon survival probability P(\u03c4_L > T) plotted against risk exposure f for five different initial log-distances d (ranging from 0.10 to 2.50), with curves declining more steeply for smaller d values. The bottom panel displays optimal risk exposure f*(d) as a function of initial log-di",
       "vision": true,
       "source": "https://arxiv.org/pdf/2607.28230v1"
     },
@@ -206,7 +206,7 @@
       "title": "Boundary-Induced Apparent Risk Aversion in Nonergodic Multiplicative Growth",
       "page": 6,
       "thumb": "/data/figures/2607.28230v1_p6_3.jpg",
-      "caption": "FIG 4. Benchmark-implied apparent CRRA coefficient \ud835\udefe\u0b5f\u0b6e\u0b6e(\ud835\udc51), obtained by mapping the boundary-constrained \u2014 This line chart displays the benchmark-implied apparent risk aversion coefficient (y_app) on a logarithmic y-axis versus the initial log-distance to an absorbing boundary (d) on the x-axis. The blue solid curve shows y_app(d) decreasing sharply from approximately 100 at d=0 to converging toward 1 at d\u22652, while the black dashed horizontal line represents y=1, the no-boundary log-growth bench",
+      "caption": "FIG 4. Benchmark-implied apparent CRRA coefficient \ud835\udefe\u0b5f\u0b6e\u0b6e(\ud835\udc51), obtained by mapping the boundary-constrained \u2014 This line chart displays the benchmark-implied apparent CRRA coefficient \u03b3_app(d) as a function of initial lod distance to an absorbing boundary d = log(W/L), plotted on a log scale. The solid blue curve shows exponential decay from approximately 100 at d=0 to near 1 at d=3, while the dashed black line represents y=1 (the no-boundary log-growth benchmark) as a reference. The key takeaway is",
       "vision": true,
       "source": "https://arxiv.org/pdf/2607.28230v1"
     },
@@ -215,7 +215,7 @@
       "title": "Almost stochastic dominance via optimal transport",
       "page": 12,
       "thumb": "/data/figures/2607.28215v1_p12_0.jpg",
-      "caption": "Figure 1: Global horizontal irradiation in Siegen and Rome in 2020. \u2014 These two line charts show hourly global horizontal irradiation (GHI) measurements in Siegen, Germany (left) and Roma, Italy (right) during daylight hours (4:00-22:00) throughout 2020. The x-axis represents hour of day and y-axis represents irradiation intensity (0-1000 units), with each blue line representing one day's irradiation profile and a red line indicating the median daily pattern. The key takeaway is that Roma exhibi",
+      "caption": "Figure 1: Global horizontal irradiation in Siegen and Rome in 2020. \u2014 These line plots display hourly global horizontal irradiation (GHI) measurements for Siegen, Germany (left) and Rome, Italy (right) during daylight hours (4:00-22:00) across all days in 2020. Each blue line represents one day's irradiation profile, with the x-axis showing hours of the day (4-22) and y-axis showing irradiance in W/m\u00b2 (0-1000). The red dashed lines overlay the median daily profile for each location, revealing th",
       "vision": true,
       "source": "https://arxiv.org/pdf/2607.28215v1"
     },
@@ -224,7 +224,7 @@
       "title": "Almost stochastic dominance via optimal transport",
       "page": 14,
       "thumb": "/data/figures/2607.28215v1_p14_1.jpg",
-      "caption": "Figure 2: Coefficient \u03b3\u2217for yearly sunshine data Rome vs Siegen, 2004-2024 \u2014 This line chart displays the coefficient \u03b3* computed from yearly sunshine data comparing Rome and Siegen from 2004 to 2024. The y-axis represents the coefficient values ranging from approximately 0.11 to 0.16, while the x-axis shows years across the two-decade period. The coefficient exhibits considerable year-to-year volatility, with a notable peak around 2022 (approximately 0.163) and generally lower values in the mid",
+      "caption": "Figure 2: Coefficient \u03b3\u2217for yearly sunshine data Rome vs Siegen, 2004-2024 \u2014 This line chart displays the coefficient \u03b3* measuring the degree of almost stochastic dominance between Rome and Siegen sunshine data from 2004 to 2023. The y-axis shows coefficient values ranging from approximately 0.11 to 0.16, while the x-axis represents years. The plot reveals substantial year-to-year variation in the coefficient, with notable peaks in 2022 (reaching ~0.162) and a general trend of increasing volatil",
       "vision": true,
       "source": "https://arxiv.org/pdf/2607.28215v1"
     }
