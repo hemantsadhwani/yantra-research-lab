@@ -1,7 +1,7 @@
 {
   "_note": "Public run manifest of the Tier-3 agentic ingestion pipeline. Safe aggregates + provenance only; raw PDFs live in S3, not here.",
-  "run_id": "20260802T053735Z",
-  "generated_at": "2026-08-02T05:40:56+00:00",
+  "run_id": "20260803T055325Z",
+  "generated_at": "2026-08-03T05:56:57+00:00",
   "collection": "research_corpus",
   "embed_model": "BAAI/bge-small-en-v1.5",
   "dag": [
@@ -50,28 +50,136 @@
     "discovered": 10,
     "fetched": 10,
     "parsed": 10,
-    "chunks": 436,
-    "accepted": 391,
-    "rejected": 45,
-    "images": 35,
+    "chunks": 452,
+    "accepted": 397,
+    "rejected": 55,
+    "images": 21,
     "figures_captioned": 18,
-    "tables": 9,
-    "with_math": 9,
-    "indexed": 391,
-    "spent_usd": 0.0326,
-    "duration_s": 200.9
+    "tables": 7,
+    "with_math": 10,
+    "indexed": 397,
+    "spent_usd": 0.0314,
+    "duration_s": 212.2
   },
   "rejects_by_reason": {
-    "low-relevance": 45
+    "low-relevance": 55
   },
   "budget_usd": 3.0,
   "figures": [
+    {
+      "doc_id": "2607.29583v1",
+      "title": "Fund Competition under Conflicting ESG Rating Methodologies",
+      "page": 23,
+      "thumb": "/data/figures/2607.29583v1_p23_0.jpg",
+      "caption": "Figure 1 plots fixed-margin effort and score components. Common portfolio effort and common score component fall. Provider-specific effort and absolute score tilt rise. Both \u2014 This is a text section describing baseline parameter values for numerical comparative statics analysis. The section specifies parameter settings including t = \u03ba = 1, m = 0.8, \u03b1 = 0.5, \u03bb = 0.3, h = 0.6, \u03bd = 0.75, v = 0.4, \u03b8u = 0.8, and trust radius R = 0.4, along with distributions for Fund A's attachments (uniform on [0.55",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.29583v1"
+    },
+    {
+      "doc_id": "2607.29583v1",
+      "title": "Fund Competition under Conflicting ESG Rating Methodologies",
+      "page": 23,
+      "thumb": "/data/figures/2607.29583v1_p23_1.jpg",
+      "caption": "Figure 1: Systematic disagreement, portfolio effort, and score components. Common effort x and common score g decline, while provider-specific effort |r| and absolute score tilt |d| rise. \u2014 This line plot shows how four equilibrium variables respond to increasing methodology disagreement (\u0394) between ESG rating providers. The y-axis displays equilibrium values ranging from 0 to 0.22, while the x-axis measures methodology disagreement from 0 to 1. Common effort xe (blue line) and common score gT (",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.29583v1"
+    },
+    {
+      "doc_id": "2607.29583v1",
+      "title": "Fund Competition under Conflicting ESG Rating Methodologies",
+      "page": 23,
+      "thumb": "/data/figures/2607.29583v1_p23_2.jpg",
+      "caption": "Figure 2 evaluates the endogenous-fee equilibrium. Normalised fees, participation, and \u2014 This line chart shows how four equilibrium components vary with methodology disagreement (\u0394) on the x-axis from 0 to 1, with equilibrium values on the y-axis from 0 to 0.25. The blue line (common effort x\u209a) and green line (common score g\u209a) both decline as disagreement increases, while the orange line (provider-specific effort |r|) and red line (score tilt |d|) both increase. The figure demonstrates that grea",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.29583v1"
+    },
+    {
+      "doc_id": "2607.29583v1",
+      "title": "Fund Competition under Conflicting ESG Rating Methodologies",
+      "page": 24,
+      "thumb": "/data/figures/2607.29583v1_p24_3.jpg",
+      "caption": "Figure 2: Endogenous-fee equilibrium, normalised to one at \u2206= 0.05. Fees, total participation, and common holdings-based exposure fall with systematic disagreement. \u2014 This line chart shows how three equilibrium outcomes change as methodology disagreement (\u0394) increases from 0 to 0.9 in an ESG fund competition model. The y-axis displays an index normalized to 1 at \u0394=0.05, while the x-axis represents methodology disagreement. Fee (blue line) remains relatively stable near 1.0, participation (orange",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.29583v1"
+    },
+    {
+      "doc_id": "2607.29220v1",
+      "title": "Decoupled Probabilistic Forecasting and Arbitrage-Aware Refinement of Implied Volatility Surfaces",
+      "page": 2,
+      "thumb": "/data/figures/2607.29220v1_p2_0.jpg",
+      "caption": "Fig. 1 Typical implied volatility surface (IVS) for CSI 300 options. The z-axis denotes the volatility level. \u2014 This is a 3D surface plot showing the implied volatility surface for CSI 300 index options. The axes represent moneyness (x-axis, ranging from 0.6 to 1.4), time to maturity in days (y-axis, ranging from 0 to 320), and implied volatility level (z-axis, ranging from approximately 0.175 to 0.325). The surface exhibits the characteristic smile or skew pattern typical of equity index option",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.29220v1"
+    },
+    {
+      "doc_id": "2607.29220v1",
+      "title": "Decoupled Probabilistic Forecasting and Arbitrage-Aware Refinement of Implied Volatility Surfaces",
+      "page": 8,
+      "thumb": "/data/figures/2607.29220v1_p8_1.jpg",
+      "caption": "Fig. 2 Overall architecture of the proposed decoupled IVS framework. \u2014 This figure depicts a hierarchical flowchart showing the architecture of a decoupled implied volatility surface (IVS) framework. The diagram flows from top boxes (Future IVS Target, Behavioral Indices, Behavioral Indices Inputs) through intermediate processing stages (Conditional Actin Forecasts, Conditional Action Sampling) to lower-level components (Problem IVS Forecasts, Scam Action Selection, Refined Recommendation Series",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.29220v1"
+    },
+    {
+      "doc_id": "2607.29220v1",
+      "title": "Decoupled Probabilistic Forecasting and Arbitrage-Aware Refinement of Implied Volatility Surfaces",
+      "page": 11,
+      "thumb": "/data/figures/2607.29220v1_p11_2.jpg",
+      "caption": "Fig. 3 Empirical density of observed option contracts over the moneyness and maturity domain for CSI 300 index options. \u2014 This 3D surface density plot shows the distribution of implied volatility samples across two dimensions: moneyness (x-axis, ranging from -0.6 to 0.2) and time to maturity (y-axis, ranging from 0 to 1.0), with density on the z-axis. The peak density (shown in yellow) occurs around moneyness of 0.0 and intermediate maturities, while density decreases toward the extremes of both",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.29220v1"
+    },
+    {
+      "doc_id": "2607.29220v1",
+      "title": "Decoupled Probabilistic Forecasting and Arbitrage-Aware Refinement of Implied Volatility Surfaces",
+      "page": 15,
+      "thumb": "/data/figures/2607.29220v1_p15_3.jpg",
+      "caption": "Fig. 4 Temporal persistence of static no-arbitrage residual violations in CSI 300 index options based on raw daily observations. \u2014 This figure displays three time-series plots showing arbitrage violation metrics for CSI 300 index options from 2010 to 2013, with the y-axis representing violations (0 to 1.00) and the x-axis showing dates. Panel (a) Calendar Spread shows near-zero violations throughout the period with a spike at the end (\u03bc=0.005), panel (b) Butterfly shows persistent low-level viol",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.29220v1"
+    },
+    {
+      "doc_id": "2607.28847v1",
+      "title": "Effort-Centric Fairness in Lending Decisions",
+      "page": 22,
+      "thumb": "/data/figures/2607.28847v1_p22_0.jpg",
+      "caption": "Figure 1: Distribution of effort (distance to boundary) under the SP model. \u2014 This figure displays a histogram comparing the distribution of effort measured in decibels (dB) under two conditions: S=0 (blue bars) and S=1 (tan/orange bars). The x-axis represents effort ranging from 0.0 to approximately 0.5 dB, while the y-axis shows density from 0 to 15.00. Both distributions are heavily right-skewed with the highest density concentrated between 0.05 and 0.15 dB, indicating that most observations ",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.28847v1"
+    },
+    {
+      "doc_id": "2607.28847v1",
+      "title": "Effort-Centric Fairness in Lending Decisions",
+      "page": 23,
+      "thumb": "/data/figures/2607.28847v1_p23_1.jpg",
+      "caption": "Figure 2: Trade-off between predictive performance and effort disparity reduction under feature-independent effort parity. \u2014 Panel (a) shows a line plot with error bars depicting fairness improvement (endogenous reductions in %) on the y-axis versus regularization weight \u03bb on the x-axis, demonstrating that fairness gains increase monotonically from approximately 10% to 60% as \u03bb increases from 0.04 to 0.8. Panel (b) displays a line plot showing model performance stability across four metrics (AUC",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.28847v1"
+    },
+    {
+      "doc_id": "2607.28847v1",
+      "title": "Effort-Centric Fairness in Lending Decisions",
+      "page": 23,
+      "thumb": "/data/figures/2607.28847v1_p23_2.jpg",
+      "caption": "Fig. 3 shows how the effort distributions change as \u03bb increases. At baseline (\u03bb = 0.00), \u2014 Panel (a) shows fairness improvement (effort disparity reduction in %) versus regularization weight \u03bb (0.04 to 0.8) as a line plot with error bars, demonstrating that fairness gains increase from near 0% to approximately 80% as \u03bb increases. Panel (b) displays model performance stability across the same \u03bb values using a line plot with three metrics (AUC, Accuracy, and F1), showing that all three performance",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.28847v1"
+    },
+    {
+      "doc_id": "2607.28847v1",
+      "title": "Effort-Centric Fairness in Lending Decisions",
+      "page": 24,
+      "thumb": "/data/figures/2607.28847v1_p24_3.jpg",
+      "caption": "Figure 3: Evolution of effort (distance to boundary) distributions under feature-independent effort parity. \u2014 This figure displays five histograms showing the distribution of effort (measured in DHB units on the y-axis) across different effort levels on the x-axis, comparing two groups (S=0 in blue and S=1 in orange) under feature-independent effort parity constraints. Each panel corresponds to a different constraint parameter (\u03bb values: 0.00, 0.04, 0.40, and 0.80), demonstrating how the effort ",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2607.28847v1"
+    },
     {
       "doc_id": "2607.28577v1",
       "title": "Train Often, Deploy Selectively: Forward-Gated Model Replacement in Crypto Markets",
       "page": 2,
       "thumb": "/data/figures/2607.28577v1_p2_0.jpg",
-      "caption": "Figure 1: SBS decision flow and pseudocode. The challenger remains off the serving path until forward labels mature. Deep copies prevent shared mutable state; the deployed head updater is momentum-free SGD. \u2014 This figure illustrates a model replacement procedure with a flow diagram and implementation pseudocode for a machine learning system in cryptocurrency markets. The diagram shows a sequential pipeline: Train clone \u2192 Shadow \u2192 Labels mature \u2192 Compare NLL \u2192 Promote or retain, with each step pr",
+      "caption": "Figure 1: SBS decision flow and pseudocode. The challenger remains off the serving path until forward labels mature. Deep copies prevent shared mutable state; the deployed head updater is momentum-free SGD. \u2014 This figure presents a flowchart and pseudocode for an implementation procedure called \"Train Often, Deploy Selectively\" (SBS). The diagram shows a sequential pipeline: Train clone \u2192 Shadow \u2192 Labels mature \u2192 Compare NLL \u2192 Promote or retain, illustrating the decision flow for model replaceme",
       "vision": true,
       "source": "https://arxiv.org/pdf/2607.28577v1"
     },
@@ -80,7 +188,7 @@
       "title": "Train Often, Deploy Selectively: Forward-Gated Model Replacement in Crypto Markets",
       "page": 5,
       "thumb": "/data/figures/2607.28577v1_p5_1.jpg",
-      "caption": "Figure 2: Selective replacement replicates. (a) Episode and stratified relative effects; green annotations give exact pooled absolute NLL reductions in 10\u22123 units. Whiskers are pointwise 95% four-week block intervals. (b) All seed-specific effects are positive in both episodes. (c) Discrete one-, two-, and three-week trial budgets remain positive; points are intentionally not joined because durati \u2014 This figure displays three panels comparing model replacement strategies in cryptocurrency market",
+      "caption": "Figure 2: Selective replacement replicates. (a) Episode and stratified relative effects; green annotations give exact pooled absolute NLL reductions in 10\u22123 units. Whiskers are pointwise 95% four-week block intervals. (b) All seed-specific effects are positive in both episodes. (c) Discrete one-, two-, and three-week trial budgets remain positive; points are intentionally not joined because durati \u2014 This figure presents three panels evaluating selective model replacement effects in a cryptocurre",
       "vision": true,
       "source": "https://arxiv.org/pdf/2607.28577v1"
     },
@@ -89,7 +197,7 @@
       "title": "Train Often, Deploy Selectively: Forward-Gated Model Replacement in Crypto Markets",
       "page": 6,
       "thumb": "/data/figures/2607.28577v1_p6_2.jpg",
-      "caption": "Figure 3: What the forward trial measures. (a) Binned density of one-week paired trial gain and three-week future challenger value across 288 decisions; color gives the number of decisions in each cell, and the dashed line is the development-selected, locked threshold. (b) Duration-specific rank association, sign agreement, and mean local hindsight regret on separate scales. Higher rank and sign a \u2014 Panel (a) shows a 2D histogram of paired trial gain (x-axis, in units of 10^-3 NLL) versus three-",
+      "caption": "Figure 3: What the forward trial measures. (a) Binned density of one-week paired trial gain and three-week future challenger value across 288 decisions; color gives the number of decisions in each cell, and the dashed line is the development-selected, locked threshold. (b) Duration-specific rank association, sign agreement, and mean local hindsight regret on separate scales. Higher rank and sign a \u2014 Panel (a) is a 2D histogram showing the relationship between paired trial gain (x-axis, in 10^-3 ",
       "vision": true,
       "source": "https://arxiv.org/pdf/2607.28577v1"
     },
@@ -98,7 +206,7 @@
       "title": "Train Often, Deploy Selectively: Forward-Gated Model Replacement in Crypto Markets",
       "page": 6,
       "thumb": "/data/figures/2607.28577v1_p6_3.jpg",
-      "caption": "Figure 4: Breadth evidence. Primary time breadth, earlier 20-asset breadth, and topology-matched objective transfer with pointwise 95% four-week block intervals. \u2014 Figure 4 displays a horizontal bar chart comparing relative NLL (negative log-likelihood) reduction across three robustness dimensions: 48-week time breadth, 20-asset breadth, and supervised objective, with three conditions per metric (Calendar, Blind, and Maint.) shown as separate colored points and confidence intervals. The x-axis m",
+      "caption": "Figure 4: Breadth evidence. Primary time breadth, earlier 20-asset breadth, and topology-matched objective transfer with pointwise 95% four-week block intervals. \u2014 Figure 4 displays a horizontal bar chart comparing relative NLL (Negative Log-Likelihood) reduction across three dimensions: 48-week time breadth, 20-asset breadth, and supervised objective, with three conditions per dimension (Calendar, Blind, and Maint.). Each bar represents a point estimate with 95% confidence intervals shown as er",
       "vision": true,
       "source": "https://arxiv.org/pdf/2607.28577v1"
     },
@@ -107,7 +215,7 @@
       "title": "Can Large Language Models Execute Parent Orders?",
       "page": 1,
       "thumb": "/data/figures/2607.28410v1_p1_0.jpg",
-      "caption": "Figure 1: Decomposition of a stock price series into its un- derlying long-horizon trend and residual short-horizon fluc- tuation using the HP filter (Hodrick and Prescott 1997). \u2014 This figure displays a time-series decomposition of stock price movement using the Hodrick-Prescott (HP) filter, separated into three line charts stacked vertically. The top panel shows the long-horizon trend component, which exhibits a smooth bell-shaped curve peaking around midday. The middle panel presents the shor",
+      "caption": "Figure 1: Decomposition of a stock price series into its un- derlying long-horizon trend and residual short-horizon fluc- tuation using the HP filter (Hodrick and Prescott 1997). \u2014 This figure shows the Hodrick-Prescott (HP) filter decomposition of intraday stock price data into three components displayed as time series plots. The top panel shows the long-horizon trend (smooth upward then downward movement), the middle panel displays the cyclical component (blue oscillations around the trend), a",
       "vision": true,
       "source": "https://arxiv.org/pdf/2607.28410v1"
     },
@@ -116,120 +224,60 @@
       "title": "Can Large Language Models Execute Parent Orders?",
       "page": 3,
       "thumb": "/data/figures/2607.28410v1_p3_1.jpg",
-      "caption": "Figure 2: Overview of PACE. The lower row gives an example data flow across the three main stages for a parent order that sells 6,000 shares of stock 300308 from 10:30 to 11:00. Here, N = 6 denotes the number of sub-plans in this example. \u2014 This figure shows a flow diagram of PACE (Planner-Executor-Backtesting system) for executing parent orders using large language models. The architecture has three main stages: (a) Inputs including parent order details and market data, (b) PACE with a Planner ",
+      "caption": "Figure 2: Overview of PACE. The lower row gives an example data flow across the three main stages for a parent order that sells 6,000 shares of stock 300308 from 10:30 to 11:00. Here, N = 6 denotes the number of sub-plans in this example. \u2014 This figure illustrates the architecture of PACE (a system for executing parent orders), organized in three stages: Inputs, PACE processing, and Backtesting Environment. The diagram shows data flow (lower row) through five main modules: Data \u2192 Planner \u2192 Execu",
       "vision": true,
       "source": "https://arxiv.org/pdf/2607.28410v1"
-    },
-    {
-      "doc_id": "2607.28410v1",
-      "title": "Can Large Language Models Execute Parent Orders?",
-      "page": 5,
-      "thumb": "/data/figures/2607.28410v1_p5_2.jpg",
-      "caption": "Figure 3: Gain of PACE (DS-v4-f) over the TWAP strategy across parent-order characteristics. Window length denotes the execution window length in minutes, and Quantity de- notes the parent-order quantity in thousand shares. \u2014 This bar chart compares the performance gains of PACE (DS-v4-f) over TWAP strategy across different parent-order characteristics. The chart displays grouped bars for six categories: BUY/SELL (binary execution direction), time windows 0-30, 30-60 minutes, and order quantitie",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.28410v1"
-    },
-    {
-      "doc_id": "2607.28410v1",
-      "title": "Can Large Language Models Execute Parent Orders?",
-      "page": 6,
-      "thumb": "/data/figures/2607.28410v1_p6_3.jpg",
-      "caption": "Figure 4: Hyperparameter sensitivity of \u03bb, \u03b3, and \u03c4 under the aggressive setting, where the y-axis reports wbp in bps. \u2014 Figure 4 displays three line plots showing hyperparameter sensitivity analysis under an aggressive trading setting, with the y-axis measuring weighted basis points (wbp). Panel (a) shows sensitivity to parameter \u03bb across values 0 to 1.0, exhibiting an inverted U-shape peaking around 0.5. Panel (b) illustrates \u03b3 sensitivity over the same range, displaying a similar curved patte",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.28410v1"
-    },
-    {
-      "doc_id": "2607.28323v1",
-      "title": "Optimal Execution with Passive Market Impact",
-      "page": 8,
-      "thumb": "/data/figures/2607.28323v1_p8_0.jpg",
-      "caption": "Figure 1 shows the optimal quote depth \u03b4\u22c6(t, q) as a function of time. Each curve corresponds to a different inventory level q. The figure shows how the quote posted by the trader changes over the trading horizon and how this depends on the remaining inventory. Lighter colours indicate larger remaining inventories. We see that the optimal quote is closer to the midprice when the remaining inventor \u2014 This table lists model parameter values used in optimal execution simulations. The parameters inc",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.28323v1"
-    },
-    {
-      "doc_id": "2607.28323v1",
-      "title": "Optimal Execution with Passive Market Impact",
-      "page": 8,
-      "thumb": "/data/figures/2607.28323v1_p8_1.jpg",
-      "caption": "Figure 1: Optimal quote depth \u03b4\u22c6(t, q) over time for different inventory levels q. \u2014 This figure displays a line plot showing how optimal quote depth (\u03b4*(t,q)) varies over time for multiple inventory levels q, with time on the horizontal axis (0 to 300) and optimal quote depth on the vertical axis (0.02 to 0.12). The curves are color-coded by inventory level q ranging from 1 to 20, where darker purple represents lower inventory and yellow represents higher inventory. The key takeaway is that opt",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.28323v1"
-    },
-    {
-      "doc_id": "2607.28323v1",
-      "title": "Optimal Execution with Passive Market Impact",
-      "page": 9,
-      "thumb": "/data/figures/2607.28323v1_p9_2.jpg",
-      "caption": "Figure 2: Effect of the passive impact parameter \u03b7 on the optimal quote depth \u03b4\u22c6(t, 20). \u2014 This contour plot shows how the optimal bid-ask spread depth \u03b4*(t, 20) evolves over time for varying levels of passive market impact parameter \u03b7. The x-axis represents time (0 to 300) and the y-axis represents the quote depth \u03b4*(t, 20) (0.025 to 0.150), with color intensity indicating \u03b7 values ranging from 0.002 to 0.010. The figure demonstrates that quote depth remains relatively stable at low levels unti",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.28323v1"
-    },
-    {
-      "doc_id": "2607.28323v1",
-      "title": "Optimal Execution with Passive Market Impact",
-      "page": 9,
-      "thumb": "/data/figures/2607.28323v1_p9_3.jpg",
-      "caption": "Figure 2 compares the optimal quote depth \u03b4\u22c6(t, 20) across different values of the passive impact parameter \u03b7. Each curve corresponds to a different value of \u03b7, with darker curves representing larger passive impact. The figure shows that increasing \u03b7 shifts the optimal quote depth upwards. This means that when passive impact is stronger, the trader quotes less aggressively in order to reduce the p \u2014 This contour plot displays how the optimal quote depth \u03b4*(t, 20) evolves over time for varying le",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.28323v1"
-    },
-    {
-      "doc_id": "2607.28230v1",
-      "title": "Boundary-Induced Apparent Risk Aversion in Nonergodic Multiplicative Growth",
-      "page": 4,
-      "thumb": "/data/figures/2607.28230v1_p4_0.jpg",
-      "caption": "FIG 1. Model geometry under a common return sequence and fixed exposure \ud835\udc53= 0.10. The near-boundary trajectory is absorbed when its wealth first reaches or falls below \ud835\udc3f. After absorption, the trajectory is assigned the \u2014 This line graph displays wealth evolution over time (0-40 time steps) on a log scale for two different distance parameters in a multiplicative growth model. The blue line represents the far-boundary case (d=1.5, initial wealth W\u2080=448.2) showing exponential wealth growth, while t",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.28230v1"
-    },
-    {
-      "doc_id": "2607.28230v1",
-      "title": "Boundary-Induced Apparent Risk Aversion in Nonergodic Multiplicative Growth",
-      "page": 5,
-      "thumb": "/data/figures/2607.28230v1_p5_1.jpg",
-      "caption": "FIG 2. End-horizon survival probability \ud835\udc43(\ud835\udf0f\u0bc5> \ud835\udc47) as a function of fixed exposure \ud835\udc53 for selected initial log \u2014 This line chart displays survival probability P(\u03c4_L > T) (probability of not hitting a lower boundary before time T) on the y-axis versus risk exposure f on the x-axis for a multiplicative growth process. Five curves represent different leverage values d (0.10, 0.40, 0.80, 1.40, and 2.50) with their corresponding initial wealths W_0, plus a reference line for unconstrained Kelly strategy",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.28230v1"
-    },
-    {
-      "doc_id": "2607.28230v1",
-      "title": "Boundary-Induced Apparent Risk Aversion in Nonergodic Multiplicative Growth",
-      "page": 5,
-      "thumb": "/data/figures/2607.28230v1_p5_2.jpg",
-      "caption": "FIG 3. Boundary-constrained optimal fixed exposure \ud835\udc53\u2217(\ud835\udc51) under the benchmark parameterization. \u2014 The figure comprises two subpanels analyzing survival probability and optimal risk exposure. The top panel shows end-horizon survival probability P(\u03c4_L > T) plotted against risk exposure f for five different initial log-distances d (ranging from 0.10 to 2.50), with curves declining more steeply for smaller d values. The bottom panel displays optimal risk exposure f*(d) as a function of initial log-di",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.28230v1"
-    },
-    {
-      "doc_id": "2607.28230v1",
-      "title": "Boundary-Induced Apparent Risk Aversion in Nonergodic Multiplicative Growth",
-      "page": 6,
-      "thumb": "/data/figures/2607.28230v1_p6_3.jpg",
-      "caption": "FIG 4. Benchmark-implied apparent CRRA coefficient \ud835\udefe\u0b5f\u0b6e\u0b6e(\ud835\udc51), obtained by mapping the boundary-constrained \u2014 This line chart displays the benchmark-implied apparent CRRA coefficient \u03b3_app(d) as a function of initial lod distance to an absorbing boundary d = log(W/L), plotted on a log scale. The solid blue curve shows exponential decay from approximately 100 at d=0 to near 1 at d=3, while the dashed black line represents y=1 (the no-boundary log-growth benchmark) as a reference. The key takeaway is",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.28230v1"
-    },
-    {
-      "doc_id": "2607.28215v1",
-      "title": "Almost stochastic dominance via optimal transport",
-      "page": 12,
-      "thumb": "/data/figures/2607.28215v1_p12_0.jpg",
-      "caption": "Figure 1: Global horizontal irradiation in Siegen and Rome in 2020. \u2014 These line plots display hourly global horizontal irradiation (GHI) measurements for Siegen, Germany (left) and Rome, Italy (right) during daylight hours (4:00-22:00) across all days in 2020. Each blue line represents one day's irradiation profile, with the x-axis showing hours of the day (4-22) and y-axis showing irradiance in W/m\u00b2 (0-1000). The red dashed lines overlay the median daily profile for each location, revealing th",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.28215v1"
-    },
-    {
-      "doc_id": "2607.28215v1",
-      "title": "Almost stochastic dominance via optimal transport",
-      "page": 14,
-      "thumb": "/data/figures/2607.28215v1_p14_1.jpg",
-      "caption": "Figure 2: Coefficient \u03b3\u2217for yearly sunshine data Rome vs Siegen, 2004-2024 \u2014 This line chart displays the coefficient \u03b3* measuring the degree of almost stochastic dominance between Rome and Siegen sunshine data from 2004 to 2023. The y-axis shows coefficient values ranging from approximately 0.11 to 0.16, while the x-axis represents years. The plot reveals substantial year-to-year variation in the coefficient, with notable peaks in 2022 (reaching ~0.162) and a general trend of increasing volatil",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.28215v1"
     }
   ],
   "docs": [
+    {
+      "id": "2607.29583v1",
+      "title": "Fund Competition under Conflicting ESG Rating Methodologies",
+      "source": "https://arxiv.org/pdf/2607.29583v1",
+      "pages": 40,
+      "images": 0,
+      "figures_captioned": 4,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 34
+    },
+    {
+      "id": "2607.29220v1",
+      "title": "Decoupled Probabilistic Forecasting and Arbitrage-Aware Refinement of Implied Volatility Surfaces",
+      "source": "https://arxiv.org/pdf/2607.29220v1",
+      "pages": 35,
+      "images": 3,
+      "figures_captioned": 4,
+      "tables": 2,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 46
+    },
+    {
+      "id": "2607.29024v1",
+      "title": "A Policy Iteration Scheme for Semilinear Stochastic Hamilton-Jacobi-Bellman Equations with Exponential Convergence",
+      "source": "https://arxiv.org/pdf/2607.29024v1",
+      "pages": 25,
+      "images": 0,
+      "figures_captioned": 0,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 47
+    },
+    {
+      "id": "2607.28847v1",
+      "title": "Effort-Centric Fairness in Lending Decisions",
+      "source": "https://arxiv.org/pdf/2607.28847v1",
+      "pages": 58,
+      "images": 0,
+      "figures_captioned": 4,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 52
+    },
     {
       "id": "2607.28577v1",
       "title": "Train Often, Deploy Selectively: Forward-Gated Model Replacement in Crypto Markets",
@@ -248,11 +296,11 @@
       "source": "https://arxiv.org/pdf/2607.28410v1",
       "pages": 13,
       "images": 0,
-      "figures_captioned": 4,
+      "figures_captioned": 2,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 36
+      "chunks_indexed": 34
     },
     {
       "id": "2607.28323v1",
@@ -260,11 +308,11 @@
       "source": "https://arxiv.org/pdf/2607.28323v1",
       "pages": 31,
       "images": 4,
-      "figures_captioned": 4,
+      "figures_captioned": 0,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 53
+      "chunks_indexed": 49
     },
     {
       "id": "2607.28294v1",
@@ -284,11 +332,11 @@
       "source": "https://arxiv.org/pdf/2607.28230v1",
       "pages": 11,
       "images": 12,
-      "figures_captioned": 4,
+      "figures_captioned": 0,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 23
+      "chunks_indexed": 19
     },
     {
       "id": "2607.28215v1",
@@ -296,59 +344,11 @@
       "source": "https://arxiv.org/pdf/2607.28215v1",
       "pages": 27,
       "images": 2,
-      "figures_captioned": 2,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 45
-    },
-    {
-      "id": "2607.28127v1",
-      "title": "FinSMART: Financial Sentiment Analysis for Algorithmic Trading through Market-Aligned Reinforcement Learning",
-      "source": "https://arxiv.org/pdf/2607.28127v1",
-      "pages": 8,
-      "images": 15,
-      "figures_captioned": 0,
-      "tables": 4,
-      "has_math": false,
-      "ocr_used": false,
-      "chunks_indexed": 24
-    },
-    {
-      "id": "2607.27853v1",
-      "title": "FinanceHarness: Autonomous Financial Deep Research Framework",
-      "source": "https://arxiv.org/pdf/2607.27853v1",
-      "pages": 54,
-      "images": 2,
       "figures_captioned": 0,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 46
-    },
-    {
-      "id": "2607.27814v1",
-      "title": "Pricing and Semi-static Hedging of Green Pay-as-produced Power Purchase Agreements",
-      "source": "https://arxiv.org/pdf/2607.27814v1",
-      "pages": 48,
-      "images": 0,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 57
-    },
-    {
-      "id": "2607.27649v1",
-      "title": "Multi-maturity consistency of option prices under bounded bid-ask spreads: a minimal obstruction and an exact two-date basket operator",
-      "source": "https://arxiv.org/pdf/2607.27649v1",
-      "pages": 21,
-      "images": 0,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 34
+      "chunks_indexed": 43
     }
   ]
 }
