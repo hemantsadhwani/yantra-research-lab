@@ -1,7 +1,7 @@
 {
   "_note": "Public run manifest of the Tier-3 agentic ingestion pipeline. Safe aggregates + provenance only; raw PDFs live in S3, not here.",
-  "run_id": "20260803T055325Z",
-  "generated_at": "2026-08-03T05:56:57+00:00",
+  "run_id": "20260804T052555Z",
+  "generated_at": "2026-08-04T05:29:39+00:00",
   "collection": "research_corpus",
   "embed_model": "BAAI/bge-small-en-v1.5",
   "dag": [
@@ -50,305 +50,305 @@
     "discovered": 10,
     "fetched": 10,
     "parsed": 10,
-    "chunks": 452,
-    "accepted": 397,
-    "rejected": 55,
-    "images": 21,
+    "chunks": 475,
+    "accepted": 454,
+    "rejected": 21,
+    "images": 18,
     "figures_captioned": 18,
-    "tables": 7,
+    "tables": 2,
     "with_math": 10,
-    "indexed": 397,
-    "spent_usd": 0.0314,
-    "duration_s": 212.2
+    "indexed": 454,
+    "spent_usd": 0.0337,
+    "duration_s": 223.8
   },
   "rejects_by_reason": {
-    "low-relevance": 55
+    "low-relevance": 21
   },
   "budget_usd": 3.0,
   "figures": [
     {
-      "doc_id": "2607.29583v1",
-      "title": "Fund Competition under Conflicting ESG Rating Methodologies",
-      "page": 23,
-      "thumb": "/data/figures/2607.29583v1_p23_0.jpg",
-      "caption": "Figure 1 plots fixed-margin effort and score components. Common portfolio effort and common score component fall. Provider-specific effort and absolute score tilt rise. Both \u2014 This is a text section describing baseline parameter values for numerical comparative statics analysis. The section specifies parameter settings including t = \u03ba = 1, m = 0.8, \u03b1 = 0.5, \u03bb = 0.3, h = 0.6, \u03bd = 0.75, v = 0.4, \u03b8u = 0.8, and trust radius R = 0.4, along with distributions for Fund A's attachments (uniform on [0.55",
+      "doc_id": "2608.02355v1",
+      "title": "Path Portfolio Optimization: Defect, Lift, and the Price of Path Complexity",
+      "page": 12,
+      "thumb": "/data/figures/2608.02355v1_p12_0.jpg",
+      "caption": "Figure 1: Median realized certainty equivalent as a fraction of the oracle, against sample size in units of the parameter count, from the runs behind Tables 1 and 2. Left: the pair. Right: the cross section, on a symmetric-logarithmic scale because the unregularized plug-in is two orders of magnitude below zero at M/p = 1.19. Shading is the interquartile range of the plug-in. Grey lines mark the o \u2014 This figure presents two side-by-side plots comparing the median realized certainty equivalent (a",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.29583v1"
+      "source": "https://arxiv.org/pdf/2608.02355v1"
     },
     {
-      "doc_id": "2607.29583v1",
-      "title": "Fund Competition under Conflicting ESG Rating Methodologies",
-      "page": 23,
-      "thumb": "/data/figures/2607.29583v1_p23_1.jpg",
-      "caption": "Figure 1: Systematic disagreement, portfolio effort, and score components. Common effort x and common score g decline, while provider-specific effort |r| and absolute score tilt |d| rise. \u2014 This line plot shows how four equilibrium variables respond to increasing methodology disagreement (\u0394) between ESG rating providers. The y-axis displays equilibrium values ranging from 0 to 0.22, while the x-axis measures methodology disagreement from 0 to 1. Common effort xe (blue line) and common score gT (",
+      "doc_id": "2608.02355v1",
+      "title": "Path Portfolio Optimization: Defect, Lift, and the Price of Path Complexity",
+      "page": 13,
+      "thumb": "/data/figures/2608.02355v1_p13_1.jpg",
+      "caption": "Figure 2: Oracle certainty equivalent of each level-\u22642 sub-basis, as a multiple of the level-one value, on the two calibrations. The antisymmetric words add exactly nothing at either cross- sectional width \u2014 the bar is 1.00\u00d7 to sixteen digits \u2014 while the diagonal words carry most of the gain and the two symmetric halves are strongly super-additive at d = 20. \u2014 This figure is a horizontal bar chart comparing oracle certainty equivalent values across different portfolio basis configurations, measu",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.29583v1"
+      "source": "https://arxiv.org/pdf/2608.02355v1"
     },
     {
-      "doc_id": "2607.29583v1",
-      "title": "Fund Competition under Conflicting ESG Rating Methodologies",
-      "page": 23,
-      "thumb": "/data/figures/2607.29583v1_p23_2.jpg",
-      "caption": "Figure 2 evaluates the endogenous-fee equilibrium. Normalised fees, participation, and \u2014 This line chart shows how four equilibrium components vary with methodology disagreement (\u0394) on the x-axis from 0 to 1, with equilibrium values on the y-axis from 0 to 0.25. The blue line (common effort x\u209a) and green line (common score g\u209a) both decline as disagreement increases, while the orange line (provider-specific effort |r|) and red line (score tilt |d|) both increase. The figure demonstrates that grea",
+      "doc_id": "2608.02355v1",
+      "title": "Path Portfolio Optimization: Defect, Lift, and the Price of Path Complexity",
+      "page": 17,
+      "thumb": "/data/figures/2608.02355v1_p17_2.jpg",
+      "caption": "Figure 3: Table 4 drawn: the first two moments of NT against the branching ratio, on a logarithmic scale. The stationary limit and the integrated closure agree while the horizon spans many relaxation times and part company as criticality approaches; the integrated closure tracks the simulation across the whole range, and at n = 0.9 the stationary variance is almost five times the realized one. The \u2014 This figure displays two log-scale plots comparing statistical moments against branching ratio n,",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.29583v1"
+      "source": "https://arxiv.org/pdf/2608.02355v1"
     },
     {
-      "doc_id": "2607.29583v1",
-      "title": "Fund Competition under Conflicting ESG Rating Methodologies",
-      "page": 24,
-      "thumb": "/data/figures/2607.29583v1_p24_3.jpg",
-      "caption": "Figure 2: Endogenous-fee equilibrium, normalised to one at \u2206= 0.05. Fees, total participation, and common holdings-based exposure fall with systematic disagreement. \u2014 This line chart shows how three equilibrium outcomes change as methodology disagreement (\u0394) increases from 0 to 0.9 in an ESG fund competition model. The y-axis displays an index normalized to 1 at \u0394=0.05, while the x-axis represents methodology disagreement. Fee (blue line) remains relatively stable near 1.0, participation (orange",
+      "doc_id": "2608.02311v1",
+      "title": "AI Governance for Institutional Readiness in Finance",
+      "page": 10,
+      "thumb": "/data/figures/2608.02311v1_p10_0.jpg",
+      "caption": "Figure 1: Top: observed cost shock ct and decision signal \u02c6\u03c0t; the true (monitor-unobserved) drift onset at t = 300 is marked. Bottom: the resulting rolling regret-covariance statistic, computed from the observed series alone, rises sharply at drift onset. \u2014 This figure contains two time-series plots illustrating drift detection in a financial monitoring context. The top panel shows the observed cost shock (blue) and decision signal (gray) over 500 time periods, with a marked vertical dashed lin",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.29583v1"
+      "source": "https://arxiv.org/pdf/2608.02311v1"
     },
     {
-      "doc_id": "2607.29220v1",
-      "title": "Decoupled Probabilistic Forecasting and Arbitrage-Aware Refinement of Implied Volatility Surfaces",
-      "page": 2,
-      "thumb": "/data/figures/2607.29220v1_p2_0.jpg",
-      "caption": "Fig. 1 Typical implied volatility surface (IVS) for CSI 300 options. The z-axis denotes the volatility level. \u2014 This is a 3D surface plot showing the implied volatility surface for CSI 300 index options. The axes represent moneyness (x-axis, ranging from 0.6 to 1.4), time to maturity in days (y-axis, ranging from 0 to 320), and implied volatility level (z-axis, ranging from approximately 0.175 to 0.325). The surface exhibits the characteristic smile or skew pattern typical of equity index option",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.29220v1"
-    },
-    {
-      "doc_id": "2607.29220v1",
-      "title": "Decoupled Probabilistic Forecasting and Arbitrage-Aware Refinement of Implied Volatility Surfaces",
-      "page": 8,
-      "thumb": "/data/figures/2607.29220v1_p8_1.jpg",
-      "caption": "Fig. 2 Overall architecture of the proposed decoupled IVS framework. \u2014 This figure depicts a hierarchical flowchart showing the architecture of a decoupled implied volatility surface (IVS) framework. The diagram flows from top boxes (Future IVS Target, Behavioral Indices, Behavioral Indices Inputs) through intermediate processing stages (Conditional Actin Forecasts, Conditional Action Sampling) to lower-level components (Problem IVS Forecasts, Scam Action Selection, Refined Recommendation Series",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.29220v1"
-    },
-    {
-      "doc_id": "2607.29220v1",
-      "title": "Decoupled Probabilistic Forecasting and Arbitrage-Aware Refinement of Implied Volatility Surfaces",
+      "doc_id": "2608.02311v1",
+      "title": "AI Governance for Institutional Readiness in Finance",
       "page": 11,
-      "thumb": "/data/figures/2607.29220v1_p11_2.jpg",
-      "caption": "Fig. 3 Empirical density of observed option contracts over the moneyness and maturity domain for CSI 300 index options. \u2014 This 3D surface density plot shows the distribution of implied volatility samples across two dimensions: moneyness (x-axis, ranging from -0.6 to 0.2) and time to maturity (y-axis, ranging from 0 to 1.0), with density on the z-axis. The peak density (shown in yellow) occurs around moneyness of 0.0 and intermediate maturities, while density decreases toward the extremes of both",
+      "thumb": "/data/figures/2608.02311v1_p11_1.jpg",
+      "caption": "Figure 2: Joint return distribution of two agents under the calm regime (left) and stress regime (right), n = 4,000 simulated draws shown. Points in the lower-left (joint drawdown) quadrant are highlighted; the increase in density there reflects the rise in shared-factor loading \u03b2, not a change in either agent\u2019s marginal risk in isolation. \u2014 This figure consists of two scatter plots comparing joint return distributions between two agents under different market regimes. The left panel shows the c",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.29220v1"
+      "source": "https://arxiv.org/pdf/2608.02311v1"
     },
     {
-      "doc_id": "2607.29220v1",
-      "title": "Decoupled Probabilistic Forecasting and Arbitrage-Aware Refinement of Implied Volatility Surfaces",
-      "page": 15,
-      "thumb": "/data/figures/2607.29220v1_p15_3.jpg",
-      "caption": "Fig. 4 Temporal persistence of static no-arbitrage residual violations in CSI 300 index options based on raw daily observations. \u2014 This figure displays three time-series plots showing arbitrage violation metrics for CSI 300 index options from 2010 to 2013, with the y-axis representing violations (0 to 1.00) and the x-axis showing dates. Panel (a) Calendar Spread shows near-zero violations throughout the period with a spike at the end (\u03bc=0.005), panel (b) Butterfly shows persistent low-level viol",
+      "doc_id": "2608.02311v1",
+      "title": "AI Governance for Institutional Readiness in Finance",
+      "page": 12,
+      "thumb": "/data/figures/2608.02311v1_p12_2.jpg",
+      "caption": "Figure 3: Joint drawdown probability as a continuous function of the common-factor loading \u03b2 (stress-regime mean shift held fixed). The two calibrated calm/stress points from Table 4 are marked. \u2014 This line chart displays joint drawdown probability on the y-axis (ranging from 0.4 to 0.8) against crowding intensity \u03b2 on the x-axis (ranging from 0.0 to 1.0), with stress-regime mean shift held constant. The red curve shows a nonlinear relationship where joint drawdown probability remains relatively",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.29220v1"
+      "source": "https://arxiv.org/pdf/2608.02311v1"
     },
     {
-      "doc_id": "2607.28847v1",
-      "title": "Effort-Centric Fairness in Lending Decisions",
-      "page": 22,
-      "thumb": "/data/figures/2607.28847v1_p22_0.jpg",
-      "caption": "Figure 1: Distribution of effort (distance to boundary) under the SP model. \u2014 This figure displays a histogram comparing the distribution of effort measured in decibels (dB) under two conditions: S=0 (blue bars) and S=1 (tan/orange bars). The x-axis represents effort ranging from 0.0 to approximately 0.5 dB, while the y-axis shows density from 0 to 15.00. Both distributions are heavily right-skewed with the highest density concentrated between 0.05 and 0.15 dB, indicating that most observations ",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.28847v1"
-    },
-    {
-      "doc_id": "2607.28847v1",
-      "title": "Effort-Centric Fairness in Lending Decisions",
-      "page": 23,
-      "thumb": "/data/figures/2607.28847v1_p23_1.jpg",
-      "caption": "Figure 2: Trade-off between predictive performance and effort disparity reduction under feature-independent effort parity. \u2014 Panel (a) shows a line plot with error bars depicting fairness improvement (endogenous reductions in %) on the y-axis versus regularization weight \u03bb on the x-axis, demonstrating that fairness gains increase monotonically from approximately 10% to 60% as \u03bb increases from 0.04 to 0.8. Panel (b) displays a line plot showing model performance stability across four metrics (AUC",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.28847v1"
-    },
-    {
-      "doc_id": "2607.28847v1",
-      "title": "Effort-Centric Fairness in Lending Decisions",
-      "page": 23,
-      "thumb": "/data/figures/2607.28847v1_p23_2.jpg",
-      "caption": "Fig. 3 shows how the effort distributions change as \u03bb increases. At baseline (\u03bb = 0.00), \u2014 Panel (a) shows fairness improvement (effort disparity reduction in %) versus regularization weight \u03bb (0.04 to 0.8) as a line plot with error bars, demonstrating that fairness gains increase from near 0% to approximately 80% as \u03bb increases. Panel (b) displays model performance stability across the same \u03bb values using a line plot with three metrics (AUC, Accuracy, and F1), showing that all three performance",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.28847v1"
-    },
-    {
-      "doc_id": "2607.28847v1",
-      "title": "Effort-Centric Fairness in Lending Decisions",
-      "page": 24,
-      "thumb": "/data/figures/2607.28847v1_p24_3.jpg",
-      "caption": "Figure 3: Evolution of effort (distance to boundary) distributions under feature-independent effort parity. \u2014 This figure displays five histograms showing the distribution of effort (measured in DHB units on the y-axis) across different effort levels on the x-axis, comparing two groups (S=0 in blue and S=1 in orange) under feature-independent effort parity constraints. Each panel corresponds to a different constraint parameter (\u03bb values: 0.00, 0.04, 0.40, and 0.80), demonstrating how the effort ",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.28847v1"
-    },
-    {
-      "doc_id": "2607.28577v1",
-      "title": "Train Often, Deploy Selectively: Forward-Gated Model Replacement in Crypto Markets",
-      "page": 2,
-      "thumb": "/data/figures/2607.28577v1_p2_0.jpg",
-      "caption": "Figure 1: SBS decision flow and pseudocode. The challenger remains off the serving path until forward labels mature. Deep copies prevent shared mutable state; the deployed head updater is momentum-free SGD. \u2014 This figure presents a flowchart and pseudocode for an implementation procedure called \"Train Often, Deploy Selectively\" (SBS). The diagram shows a sequential pipeline: Train clone \u2192 Shadow \u2192 Labels mature \u2192 Compare NLL \u2192 Promote or retain, illustrating the decision flow for model replaceme",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2607.28577v1"
-    },
-    {
-      "doc_id": "2607.28577v1",
-      "title": "Train Often, Deploy Selectively: Forward-Gated Model Replacement in Crypto Markets",
+      "doc_id": "2608.02002v1",
+      "title": "Hawkes-Driven OTC Market Making: Volterra-Riccati Approximation",
       "page": 5,
-      "thumb": "/data/figures/2607.28577v1_p5_1.jpg",
-      "caption": "Figure 2: Selective replacement replicates. (a) Episode and stratified relative effects; green annotations give exact pooled absolute NLL reductions in 10\u22123 units. Whiskers are pointwise 95% four-week block intervals. (b) All seed-specific effects are positive in both episodes. (c) Discrete one-, two-, and three-week trial budgets remain positive; points are intentionally not joined because durati \u2014 This figure presents three panels evaluating selective model replacement effects in a cryptocurre",
+      "thumb": "/data/figures/2608.02002v1_p5_0.jpg",
+      "caption": "Figure 1: Cumulative fitted RFQ memory response for GBPUSD. The kernel was estimated from two-way RFQ request arrivals after filtering and transforming to activity time, as described in the text. \u2014 This line chart displays the cumulative kernel response of an RFQ (Request For Quote) memory model fitted to GBPUSD currency pair data, with lag time in minutes on the x-axis (0-200) and cumulative kernel mass on the y-axis (0-1.0). The curve shows rapid initial decay from 0 to approximately 25 minute",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.28577v1"
+      "source": "https://arxiv.org/pdf/2608.02002v1"
     },
     {
-      "doc_id": "2607.28577v1",
-      "title": "Train Often, Deploy Selectively: Forward-Gated Model Replacement in Crypto Markets",
-      "page": 6,
-      "thumb": "/data/figures/2607.28577v1_p6_2.jpg",
-      "caption": "Figure 3: What the forward trial measures. (a) Binned density of one-week paired trial gain and three-week future challenger value across 288 decisions; color gives the number of decisions in each cell, and the dashed line is the development-selected, locked threshold. (b) Duration-specific rank association, sign agreement, and mean local hindsight regret on separate scales. Higher rank and sign a \u2014 Panel (a) is a 2D histogram showing the relationship between paired trial gain (x-axis, in 10^-3 ",
+      "doc_id": "2608.02002v1",
+      "title": "Hawkes-Driven OTC Market Making: Volterra-Riccati Approximation",
+      "page": 12,
+      "thumb": "/data/figures/2608.02002v1_p12_1.jpg",
+      "caption": "Figure 2: Approximation hierarchy. The modelling problem is Hawkes-driven and generally non-Markovian. The exact lifted HJB is used only as a validation benchmark in kernels where such a lift is finite-dimensional; the Poisson model is a misspecified comparator. \u2014 This flowchart illustrates a hierarchical sequence of approximations for solving a Hawkes-driven market-making problem, starting from a Poisson benchmark at the top and progressively adding complexity downward. The diagram shows four m",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.28577v1"
+      "source": "https://arxiv.org/pdf/2608.02002v1"
     },
     {
-      "doc_id": "2607.28577v1",
-      "title": "Train Often, Deploy Selectively: Forward-Gated Model Replacement in Crypto Markets",
-      "page": 6,
-      "thumb": "/data/figures/2607.28577v1_p6_3.jpg",
-      "caption": "Figure 4: Breadth evidence. Primary time breadth, earlier 20-asset breadth, and topology-matched objective transfer with pointwise 95% four-week block intervals. \u2014 Figure 4 displays a horizontal bar chart comparing relative NLL (Negative Log-Likelihood) reduction across three dimensions: 48-week time breadth, 20-asset breadth, and supervised objective, with three conditions per dimension (Calendar, Blind, and Maint.). Each bar represents a point estimate with 95% confidence intervals shown as er",
+      "doc_id": "2608.02002v1",
+      "title": "Hawkes-Driven OTC Market Making: Volterra-Riccati Approximation",
+      "page": 12,
+      "thumb": "/data/figures/2608.02002v1_p12_2.jpg",
+      "caption": "Figure 2 summarizes the approximation hierarchy. \u2014 This figure presents a hierarchical flowchart showing the progression of modeling approaches for Hawkes-driven market making, from a simple Poisson benchmark at the top through increasingly sophisticated Volterra-Riccati variants to an exact lifted HJB validation benchmark at the bottom. The chart displays four main modeling stages: (1) Poisson benchmark with deterministic baseline intensity and no Hawkes memory, (2) Mean Volterra-Riccati using ",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.28577v1"
+      "source": "https://arxiv.org/pdf/2608.02002v1"
     },
     {
-      "doc_id": "2607.28410v1",
-      "title": "Can Large Language Models Execute Parent Orders?",
-      "page": 1,
-      "thumb": "/data/figures/2607.28410v1_p1_0.jpg",
-      "caption": "Figure 1: Decomposition of a stock price series into its un- derlying long-horizon trend and residual short-horizon fluc- tuation using the HP filter (Hodrick and Prescott 1997). \u2014 This figure shows the Hodrick-Prescott (HP) filter decomposition of intraday stock price data into three components displayed as time series plots. The top panel shows the long-horizon trend (smooth upward then downward movement), the middle panel displays the cyclical component (blue oscillations around the trend), a",
+      "doc_id": "2608.02002v1",
+      "title": "Hawkes-Driven OTC Market Making: Volterra-Riccati Approximation",
+      "page": 14,
+      "thumb": "/data/figures/2608.02002v1_p14_3.jpg",
+      "caption": "Figure 3: Relative paired regret against the exact lifted HJB across the three exponential Hawkes validation regimes. The Poisson policy is exact within the misspecified memory-free model. The Volterra\u2013Riccati policies progressively add mean forecasting, intensity uncertainty correction and realized memory state feedback. State feedback gives the closest approximation, particularly in the directio \u2014 This figure displays relative paired regret (log scale) comparing different market-making policie",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.28410v1"
+      "source": "https://arxiv.org/pdf/2608.02002v1"
     },
     {
-      "doc_id": "2607.28410v1",
-      "title": "Can Large Language Models Execute Parent Orders?",
-      "page": 3,
-      "thumb": "/data/figures/2607.28410v1_p3_1.jpg",
-      "caption": "Figure 2: Overview of PACE. The lower row gives an example data flow across the three main stages for a parent order that sells 6,000 shares of stock 300308 from 10:30 to 11:00. Here, N = 6 denotes the number of sub-plans in this example. \u2014 This figure illustrates the architecture of PACE (a system for executing parent orders), organized in three stages: Inputs, PACE processing, and Backtesting Environment. The diagram shows data flow (lower row) through five main modules: Data \u2192 Planner \u2192 Execu",
+      "doc_id": "2608.01607v1",
+      "title": "AI Financial Advice: Supply, Demand, and Life Cycle Implications",
+      "page": 17,
+      "thumb": "/data/figures/2608.01607v1_p17_0.jpg",
+      "caption": "Figure 4 plots the median consumption and equity share by age for individuals following the LLM\u2019s advice, along with 25th\u201375th percentile bands.7 Table E3 presents additional summary statistics. \u2014 This figure is a line chart with percentile bands displaying median consumption and equity share (as separate panels) plotted against age on the x-axis. The chart shows the recommended allocation patterns from an LLM financial advisor across different life stages, with shaded regions representing the 2",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2607.28410v1"
+      "source": "https://arxiv.org/pdf/2608.01607v1"
+    },
+    {
+      "doc_id": "2608.01494v1",
+      "title": "Conformal Kelly: Conformal Prediction Intervals as the Scale in Fractional Kelly Position Sizing",
+      "page": 23,
+      "thumb": "/data/figures/2608.01494v1_p23_0.jpg",
+      "caption": "Figure 1: DEV wealth (log scale) and drawdown for Config A and Config B, against the harness-capped SPY bar (0.75x), true unlevered SPY, and the post-hoc 4-equity book. \u2014 This figure displays a dual-panel time series comparison of DEV strategy performance from 2016-2021 against multiple benchmarks. The top panel shows wealth growth on a logarithmic scale, with Config A and Config B (solid lines) outperforming SPY benchmarks and a 4-equity ETF portfolio, while the bottom panel tracks maximum draw",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.01494v1"
+    },
+    {
+      "doc_id": "2608.01494v1",
+      "title": "Conformal Kelly: Conformal Prediction Intervals as the Scale in Fractional Kelly Position Sizing",
+      "page": 24,
+      "thumb": "/data/figures/2608.01494v1_p24_1.jpg",
+      "caption": "Figure 2: DEV monthly net return distributions, Config A and Config B (n = 72). \u2014 This figure displays two side-by-side histograms comparing monthly net return distributions for a DEV strategy across 72 months under different configurations. Config A (left, metric-best growth) shows a mean return of +2.61% with standard deviation 6.87% and minimum -11.93%, while Config B (right, drawdown dial with \u03b2=1) shows a mean return of +2.34% with standard deviation 5.81% and the same minimum of -11.93%. B",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.01494v1"
+    },
+    {
+      "doc_id": "2608.01494v1",
+      "title": "Conformal Kelly: Conformal Prediction Intervals as the Scale in Fractional Kelly Position Sizing",
+      "page": 24,
+      "thumb": "/data/figures/2608.01494v1_p24_2.jpg",
+      "caption": "Figure 3: Growth-drawdown frontier over the downside-miscoverage weight, with the constant-leverage control and the placebo range. \u2014 This figure shows three panels analyzing the relationship between drawdown constraints and portfolio performance metrics. Panel (a) is a scatter plot with trend line displaying log growth versus maximum drawdown (DEV), with annotations indicating the constant-leverage constraint boundary and placebo range. Panel (b) is a line chart showing minimum log growth as a f",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.01494v1"
+    },
+    {
+      "doc_id": "2608.01479v1",
+      "title": "The VIX-Derived Volatility Model: A VIX-first Joint SPX-VIX Framework",
+      "page": 9,
+      "thumb": "/data/figures/2608.01479v1_p9_0.jpg",
+      "caption": "Figure 1: Pricing VIX options and SPX options in the GBM VDV Model: The backward equation leads to consistent paths. \u2014 This figure displays six subplots comparing VIX option pricing and SPX option pricing using the GBM VDV (Volatility-Derived Volatility) model across different time horizons (T = 8/12, 8/12, and 10/12 years for top row; T = 8/12, 8/12, and 10/12 years for bottom row). The top three plots show implied volatility (y-axis, in %) versus strike price relative to ATM (x-axis), comparin",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.01479v1"
+    },
+    {
+      "doc_id": "2608.01479v1",
+      "title": "The VIX-Derived Volatility Model: A VIX-first Joint SPX-VIX Framework",
+      "page": 16,
+      "thumb": "/data/figures/2608.01479v1_p16_1.jpg",
+      "caption": "Figure 2: Visualization of a coupling function \u2014 This is a 3D surface plot showing a coupling function \u03bc(Xt) with two independent variables: Time (t) on the x-axis ranging from 0.0 to 0.5, and VIX(Xt) on the y-axis ranging from 0 to 500. The z-axis displays \u03bc(Xt) values ranging from 0 to approximately 3.5 million, represented by a color gradient from dark blue (low values) to yellow (high values). The surface demonstrates how the coupling function evolves as both time and VIX levels change, reve",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.01479v1"
+    },
+    {
+      "doc_id": "2608.01479v1",
+      "title": "The VIX-Derived Volatility Model: A VIX-first Joint SPX-VIX Framework",
+      "page": 16,
+      "thumb": "/data/figures/2608.01479v1_p16_2.jpg",
+      "caption": "Figure 3: VIX Sample paths for two values of k, calibrated to same marginal distribu- tions: Left-hand side: k = 1, Right-hand side: k = 12. \u2014 This figure displays two line plots comparing simulated VIX sample paths under the LV-VIX model for different coupling parameter values (k=1 on the left, k=12 on the right), with time on the x-axis (0 to 0.5) and VIX levels on the y-axis (0 to 60-120). Both panels show multiple colored trajectories calibrated to preserve identical marginal distributions o",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.01479v1"
+    },
+    {
+      "doc_id": "2608.01479v1",
+      "title": "The VIX-Derived Volatility Model: A VIX-first Joint SPX-VIX Framework",
+      "page": 17,
+      "thumb": "/data/figures/2608.01479v1_p17_3.jpg",
+      "caption": "Figure 4: Local vol functions \u03c3LV across time and space. Parameter k \u2208 {1, 3, 5, 8, 10, 12} \u2014 This figure displays local volatility functions across two dimensions using line plots. The left panel shows local volatility versus strike price (x-axis, 20-120), demonstrating an upward-sloping volatility curve that flattens at higher strikes, with six different parameter values (k=1,3,5,8,10,12) producing nearly overlapping trajectories. The right panel plots local volatility versus time to maturity ",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.01479v1"
     }
   ],
   "docs": [
     {
-      "id": "2607.29583v1",
-      "title": "Fund Competition under Conflicting ESG Rating Methodologies",
-      "source": "https://arxiv.org/pdf/2607.29583v1",
-      "pages": 40,
+      "id": "2608.02475v1",
+      "title": "Methodology for Modelling Token Economies and Performing Event Impact Analysis with DeTEcT",
+      "source": "https://arxiv.org/pdf/2608.02475v1",
+      "pages": 36,
       "images": 0,
-      "figures_captioned": 4,
+      "figures_captioned": 0,
+      "tables": 1,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 49
+    },
+    {
+      "id": "2608.02355v1",
+      "title": "Path Portfolio Optimization: Defect, Lift, and the Price of Path Complexity",
+      "source": "https://arxiv.org/pdf/2608.02355v1",
+      "pages": 23,
+      "images": 0,
+      "figures_captioned": 3,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 34
+      "chunks_indexed": 57
     },
     {
-      "id": "2607.29220v1",
-      "title": "Decoupled Probabilistic Forecasting and Arbitrage-Aware Refinement of Implied Volatility Surfaces",
-      "source": "https://arxiv.org/pdf/2607.29220v1",
-      "pages": 35,
+      "id": "2608.02311v1",
+      "title": "AI Governance for Institutional Readiness in Finance",
+      "source": "https://arxiv.org/pdf/2608.02311v1",
+      "pages": 21,
       "images": 3,
-      "figures_captioned": 4,
-      "tables": 2,
+      "figures_captioned": 3,
+      "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 46
+      "chunks_indexed": 40
     },
     {
-      "id": "2607.29024v1",
-      "title": "A Policy Iteration Scheme for Semilinear Stochastic Hamilton-Jacobi-Bellman Equations with Exponential Convergence",
-      "source": "https://arxiv.org/pdf/2607.29024v1",
-      "pages": 25,
+      "id": "2608.02002v1",
+      "title": "Hawkes-Driven OTC Market Making: Volterra-Riccati Approximation",
+      "source": "https://arxiv.org/pdf/2608.02002v1",
+      "pages": 23,
+      "images": 0,
+      "figures_captioned": 4,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 57
+    },
+    {
+      "id": "2608.01607v1",
+      "title": "AI Financial Advice: Supply, Demand, and Life Cycle Implications",
+      "source": "https://arxiv.org/pdf/2608.01607v1",
+      "pages": 92,
+      "images": 2,
+      "figures_captioned": 1,
+      "tables": 1,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 45
+    },
+    {
+      "id": "2608.01554v1",
+      "title": "P-Bubbles, Q-Bubbles, and Risk Premia",
+      "source": "https://arxiv.org/pdf/2608.01554v1",
+      "pages": 36,
       "images": 0,
       "figures_captioned": 0,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 47
+      "chunks_indexed": 37
     },
     {
-      "id": "2607.28847v1",
-      "title": "Effort-Centric Fairness in Lending Decisions",
-      "source": "https://arxiv.org/pdf/2607.28847v1",
-      "pages": 58,
+      "id": "2608.01494v1",
+      "title": "Conformal Kelly: Conformal Prediction Intervals as the Scale in Fractional Kelly Position Sizing",
+      "source": "https://arxiv.org/pdf/2608.01494v1",
+      "pages": 30,
       "images": 0,
-      "figures_captioned": 4,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 52
-    },
-    {
-      "id": "2607.28577v1",
-      "title": "Train Often, Deploy Selectively: Forward-Gated Model Replacement in Crypto Markets",
-      "source": "https://arxiv.org/pdf/2607.28577v1",
-      "pages": 9,
-      "images": 0,
-      "figures_captioned": 4,
-      "tables": 5,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 29
-    },
-    {
-      "id": "2607.28410v1",
-      "title": "Can Large Language Models Execute Parent Orders?",
-      "source": "https://arxiv.org/pdf/2607.28410v1",
-      "pages": 13,
-      "images": 0,
-      "figures_captioned": 2,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 34
-    },
-    {
-      "id": "2607.28323v1",
-      "title": "Optimal Execution with Passive Market Impact",
-      "source": "https://arxiv.org/pdf/2607.28323v1",
-      "pages": 31,
-      "images": 4,
-      "figures_captioned": 0,
+      "figures_captioned": 3,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
       "chunks_indexed": 49
     },
     {
-      "id": "2607.28294v1",
-      "title": "Bootstrap inference in autoregressive duration models",
-      "source": "https://arxiv.org/pdf/2607.28294v1",
-      "pages": 33,
+      "id": "2608.01479v1",
+      "title": "The VIX-Derived Volatility Model: A VIX-first Joint SPX-VIX Framework",
+      "source": "https://arxiv.org/pdf/2608.01479v1",
+      "pages": 27,
+      "images": 9,
+      "figures_captioned": 4,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 62
+    },
+    {
+      "id": "2608.01294v1",
+      "title": "An Information-Geometric Framework for Bayesian Credit Risk Monitoring",
+      "source": "https://arxiv.org/pdf/2608.01294v1",
+      "pages": 27,
       "images": 0,
       "figures_captioned": 0,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 44
+      "chunks_indexed": 28
     },
     {
-      "id": "2607.28230v1",
-      "title": "Boundary-Induced Apparent Risk Aversion in Nonergodic Multiplicative Growth",
-      "source": "https://arxiv.org/pdf/2607.28230v1",
-      "pages": 11,
-      "images": 12,
+      "id": "2608.01217v1",
+      "title": "Amortizing the Calibration Triple: A Projection-Consistent Neural Operator for Local-Stochastic Volatility",
+      "source": "https://arxiv.org/pdf/2608.01217v1",
+      "pages": 16,
+      "images": 4,
       "figures_captioned": 0,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 19
-    },
-    {
-      "id": "2607.28215v1",
-      "title": "Almost stochastic dominance via optimal transport",
-      "source": "https://arxiv.org/pdf/2607.28215v1",
-      "pages": 27,
-      "images": 2,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 43
+      "chunks_indexed": 30
     }
   ]
 }
