@@ -1,7 +1,7 @@
 {
   "_note": "Public run manifest of the Tier-3 agentic ingestion pipeline. Safe aggregates + provenance only; raw PDFs live in S3, not here.",
-  "run_id": "20260805T052525Z",
-  "generated_at": "2026-08-05T05:28:58+00:00",
+  "run_id": "20260806T052744Z",
+  "generated_at": "2026-08-06T05:31:21+00:00",
   "collection": "research_corpus",
   "embed_model": "BAAI/bge-small-en-v1.5",
   "dag": [
@@ -50,305 +50,305 @@
     "discovered": 10,
     "fetched": 10,
     "parsed": 10,
-    "chunks": 471,
-    "accepted": 457,
-    "rejected": 14,
-    "images": 24,
+    "chunks": 477,
+    "accepted": 447,
+    "rejected": 30,
+    "images": 10,
     "figures_captioned": 18,
-    "tables": 1,
-    "with_math": 10,
-    "indexed": 457,
-    "spent_usd": 0.031,
-    "duration_s": 213.6
+    "tables": 24,
+    "with_math": 9,
+    "indexed": 447,
+    "spent_usd": 0.0314,
+    "duration_s": 217.7
   },
   "rejects_by_reason": {
-    "low-relevance": 14
+    "low-relevance": 30
   },
   "budget_usd": 3.0,
   "figures": [
     {
-      "doc_id": "2608.03925v1",
-      "title": "Option Pricing with Time-Changed Fractional Brownian Motion: A Fractional Variance Gamma Model",
-      "page": 11,
-      "thumb": "/data/figures/2608.03925v1_p11_0.jpg",
-      "caption": "Figure 1(a) plots the autocorrelation function \u03c1h(n)/\u03c1h(0) for various combinations of H and v up to lag n = 30, where h = 1/252 corresponds to the average length of a trading day expressed in years and \u03c1h(n) is given by Equation (11). The autocorrelation profiles indicate the presence of LRD in the increments of X when H > 0.5, as demonstrated by the slow decay of the autocorrelation function. In \u2014 This mathematical text presents formulas for a fractional variance gamma model used in option pri",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.03925v1"
-    },
-    {
-      "doc_id": "2608.03925v1",
-      "title": "Option Pricing with Time-Changed Fractional Brownian Motion: A Fractional Variance Gamma Model",
-      "page": 11,
-      "thumb": "/data/figures/2608.03925v1_p11_1.jpg",
-      "caption": "Figure 1(b) shows the PDF of X(1), where fX(t)(x) is given in Equation (10). Since the overall scale may obscure important features of the distribution, two supplementary visualizations are provided. Figure 1(c) displays the same PDF with the domain restricted to x \u2208[\u22121, 1], thereby emphasizing the behavior around the peak, while Figure 1(d) presents the logarithm of the PDF to better illustrate t \u2014 Figure 1(a) displays autocorrelation functions \u03c1\u2099(n)/\u03c1\u2099(0) plotted against lag n (up to 30) for v",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.03925v1"
-    },
-    {
-      "doc_id": "2608.03925v1",
-      "title": "Option Pricing with Time-Changed Fractional Brownian Motion: A Fractional Variance Gamma Model",
-      "page": 12,
-      "thumb": "/data/figures/2608.03925v1_p12_2.jpg",
-      "caption": "Figure 1: Autocorrelation of the increments in X and PDF of X across various v, H \u2014 This four-panel figure displays properties of a fractional variance gamma process across different parameter values. Panel (a) shows autocorrelation of increments in X versus time (days), demonstrating decay patterns for different Hurst parameters H (0.4, 0.5, 0.6); panel (b) presents the probability density function of X for the same H values, showing bell-shaped distributions. Panel (c) displays the PDF of X re",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.03925v1"
-    },
-    {
-      "doc_id": "2608.03925v1",
-      "title": "Option Pricing with Time-Changed Fractional Brownian Motion: A Fractional Variance Gamma Model",
-      "page": 13,
-      "thumb": "/data/figures/2608.03925v1_p13_3.jpg",
-      "caption": "Figure 2: Simulated sample paths of X under various v, H \u2014 This line chart displays simulated sample paths of a stochastic process X over 300 days under different parameter combinations of volatility (v) and Hurst exponent (H). The figure contains three solid lines (v = 0.01, 0.4, 0.6) and three dotted lines representing variations in H, with the y-axis showing realized volatility (ranging from approximately 0.9 to 2.6) and the x-axis showing time in days. The key takeaway is that both v and H p",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.03925v1"
-    },
-    {
-      "doc_id": "2608.03616v1",
-      "title": "Measuring the engine of a liquidation cascade: subcritical branching inside a first-order transition",
+      "doc_id": "2608.04987v1",
+      "title": "Portfolio Allocation under Heterogeneous Scales and Multifractality",
       "page": 6,
-      "thumb": "/data/figures/2608.03616v1_p6_0.jpg",
-      "caption": "Figure 1: The fabric transition, event by event: order parameter \u00afc (top row) and susceptibility proxy \u03c7 (bottom row) in one-day rolling windows stepped 2 h, over [\u22127, +3] days around onset (dotted line). At onset \u00afc jumps into the near-fully-ordered phase in six of seven events\u2014May 2022, already ordered, is the grind exception\u2014while \u03c7 collapses rather than diverges; October 2025 is the outlier, d \u2014 This figure displays time-series data around market stress events using two metrics across seven ",
+      "thumb": "/data/figures/2608.04987v1_p6_0.jpg",
+      "caption": "FIG. 1. (a) Cross-correlations between scale-dependent simulated series generated by the two-component ARFIMA model. The coefficients are weak at short scales because the innovations are independent (\u03b5t\u0338 = \u03b5\u2032 \u2014 Panel (a) is a line plot showing cross-correlation coefficients versus scale (log scale, 10\u00b9 to 10\u2076) for three different parameter sets (q = 0.5, 2, 5) of an ARFIMA model, with error bars indicating uncertainty. Panels (b), (c), and (d) are efficiency frontier plots displaying expected re",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2608.03616v1"
+      "source": "https://arxiv.org/pdf/2608.04987v1"
     },
     {
-      "doc_id": "2608.03616v1",
-      "title": "Measuring the engine of a liquidation cascade: subcritical branching inside a first-order transition",
+      "doc_id": "2608.04987v1",
+      "title": "Portfolio Allocation under Heterogeneous Scales and Multifractality",
       "page": 7,
-      "thumb": "/data/figures/2608.03616v1_p7_1.jpg",
-      "caption": "Figure 2: Finite-size behavior under subsampling (N = 8\u201328, 40 draws per size): \u03c7 is extensive in every regime (top; base / pre / cascade), and the onset jump in base-regime sd units is N-invariant (bottom). No critical scaling appears at any size. Source: EXP-016. \u2014 This figure displays six panels showing finite-size scaling analysis across different market regimes (May 22, Nov 23, Aug 24, Dec 24, Feb 23, and Oct 23), each with sample sizes N ranging from 8 to 28. The top row shows scatter plot",
+      "thumb": "/data/figures/2608.04987v1_p7_1.jpg",
+      "caption": "FIG. 2. (a) Cross-correlations between multifractal simulated series generated by the Markov-switching multifractal model. The qDCCA coefficients are calculated at specific scales s = 10, 100, 1000. The coefficients are strongly positive for small fluctuations, whereas they remain positive but become weaker for large fluctuations. (b) (c) (d) Efficient frontiers of the two types of fractal portfol \u2014 Figure 2 displays four panels analyzing portfolio allocation under multifractal market conditions",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2608.03616v1"
+      "source": "https://arxiv.org/pdf/2608.04987v1"
     },
     {
-      "doc_id": "2608.03616v1",
-      "title": "Measuring the engine of a liquidation cascade: subcritical branching inside a first-order transition",
-      "page": 8,
-      "thumb": "/data/figures/2608.03616v1_p8_2.jpg",
-      "caption": "Figure 3: The in-cascade liquidity signature, on two venues and two instruments. Top: Hyperliquid BTC through the October 2025 cascade (per-minute archive)\u2014open interest, quoted impact spread (log scale) and perp premium around onset (dotted line); faint traces are per-minute values, solid lines a 15-minute rolling mean. Bottom: the regressed Binance Kyle impact k(t) for all seven events, each nor \u2014 This figure displays liquidity dynamics during a liquidation cascade in Bitcoin futures across mu",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.03616v1"
-    },
-    {
-      "doc_id": "2608.03616v1",
-      "title": "Measuring the engine of a liquidation cascade: subcritical branching inside a first-order transition",
-      "page": 9,
-      "thumb": "/data/figures/2608.03616v1_p9_3.jpg",
-      "caption": "Figure 4: The severity test (price-conditioned design, n = 157): realized amplification A against \u03bbpre, with the zero-parameter branching prediction A \u221d1/(1 \u2212\u03bb) (curve), binned medians (IQR), and the seven documented cascades (stars); the binned medians are flat where the model requires them to rise. (b) The same test with k measured from Hyperliquid quoted impact prices, over the grid of scales f \u2014 Figure 4 presents two panels testing liquidation cascade severity in financial markets. Panel (a)",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.03616v1"
-    },
-    {
-      "doc_id": "2608.03088v1",
-      "title": "A New Approach to Goodness of Fit for Ergodic Markov Processes",
-      "page": 4,
-      "thumb": "/data/figures/2608.03088v1_p4_0.jpg",
-      "caption": "FIGURE 1.\u2014 Reject if 1 \u2014 This figure is a circular diagram illustrating a rejection region for a goodness-of-fit test for ergodic Markov processes. The diagram shows a circle with a ray extending from the origin, labeled with \u03c8 on the vertical axis and r_n = O(n^{-1/2}) on the horizontal axis, indicating the boundary of the rejection region scales at rate n^{-1/2}. The key takeaway is that the test rejects the null hypothesis when the test statistic falls outside this specified boundary, which s",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.03088v1"
-    },
-    {
-      "doc_id": "2608.03088v1",
-      "title": "A New Approach to Goodness of Fit for Ergodic Markov Processes",
-      "page": 12,
-      "thumb": "/data/figures/2608.03088v1_p12_1.jpg",
-      "caption": "FIGURE 2.\u2014 The function \u03b6(y, y\u2032) for the Vasicek model \u2014 This figure displays a 3D surface plot of the function \u03b6(y, y\u2032) for the Vasicek interest rate model, with the two independent variables (y and y\u2032) represented on the horizontal axes and the function value on the vertical axis. The surface exhibits a characteristic saddle-point or bimodal shape with peaks in opposite corners and a valley running through the center, illustrating the asymmetric dependence structure of this ergodic Markov proc",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.03088v1"
-    },
-    {
-      "doc_id": "2608.03088v1",
-      "title": "A New Approach to Goodness of Fit for Ergodic Markov Processes",
-      "page": 17,
-      "thumb": "/data/figures/2608.03088v1_p17_2.jpg",
-      "caption": "FIGURE 3.\u2014Rejection frequency, nonstationary alternative \u2014 This line chart displays rejection frequency on the y-axis (ranging from 0.4 to 1.0) plotted against data size or time series length on the x-axis (ranging from 80 to 200). The curve shows rejection frequency increasing from approximately 0.47 at n=80 to nearly 1.0 at n=200, with a steeper slope between n=80 and n=140 that gradually flattens as sample size increases. The key takeaway is that the goodness-of-fit test demonstrates increasi",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.03088v1"
-    },
-    {
-      "doc_id": "2608.03088v1",
-      "title": "A New Approach to Goodness of Fit for Ergodic Markov Processes",
-      "page": 22,
-      "thumb": "/data/figures/2608.03088v1_p22_3.jpg",
-      "caption": "FIGURE 4.\u2014Rejection frequency, regime switching alternative \u2014 This line chart displays rejection frequencies for two statistical tests plotted against gamma (\u03b3) ranging from 0 to 0.010 on the x-axis and rejection frequency from 0 to 1.0 on the y-axis. The solid line represents the LAE (Laplace approximation estimator) test, which rises steeply from near zero and plateaus around 0.95 rejection frequency, while the dashed line represents the conditional moment test, which increases gradually and r",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.03088v1"
-    },
-    {
-      "doc_id": "2608.02917v1",
-      "title": "Mandate without Managers: Automated Market Makers as Verifiable Portfolio Products",
-      "page": 8,
-      "thumb": "/data/figures/2608.02917v1_p8_0.jpg",
-      "caption": "Figure 1: Performance of the G3M against VBIAX on tracking a 60-40 portfolio from January 2, 2014 through June 30, 2026. \u2014 These line charts compare the tracking error (TE in basis points) of the G3M automated market maker against VBIAX (Vanguard Balanced Index Fund) in replicating a 60-40 stock-bond portfolio over the study period from 2014-2026. Panel (a) shows daily tracking error and panel (b) shows monthly tracking error, with the solid blue line representing G3M (dynamic) and the dashed re",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.02917v1"
-    },
-    {
-      "doc_id": "2608.02917v1",
-      "title": "Mandate without Managers: Automated Market Makers as Verifiable Portfolio Products",
-      "page": 8,
-      "thumb": "/data/figures/2608.02917v1_p8_1.jpg",
-      "caption": "Figure 1 displays the frontier of CAGR vs. TE for these simulated G3M positions over the range of fees \u2014 This figure displays two line charts comparing the Cumulative Annual Growth Rate (CAGR) on the y-axis against Tracking Error (TE) on the x-axis for a G3M (simulated automated market maker) strategy versus VBIAX benchmark on a 60-40 equity-bond portfolio from January 2014 to June 2026. Panel (a) shows daily tracking error results, while panel (b) shows monthly tracking error results, with soli",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.02917v1"
-    },
-    {
-      "doc_id": "2608.02917v1",
-      "title": "Mandate without Managers: Automated Market Makers as Verifiable Portfolio Products",
-      "page": 9,
-      "thumb": "/data/figures/2608.02917v1_p9_2.jpg",
-      "caption": "Figure 2: Performance of the G3M against EQL on tracking an equal-sector portfolio from June 19, 2018 through May 29, 2026. \u2014 These two line charts compare tracking error (TE) for the G3M mechanism versus an EQL benchmark when replicating an equal-sector portfolio over an 8-year period. Panel (a) plots TE in basis points against the underlying index, while panel (b) plots TE against the economic mandate, with both showing TE increasing sharply at lower rebalance frequencies (TE in days) before s",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.02917v1"
-    },
-    {
-      "doc_id": "2608.02917v1",
-      "title": "Mandate without Managers: Automated Market Makers as Verifiable Portfolio Products",
+      "doc_id": "2608.04987v1",
+      "title": "Portfolio Allocation under Heterogeneous Scales and Multifractality",
       "page": 10,
-      "thumb": "/data/figures/2608.02917v1_p10_3.jpg",
-      "caption": "Figure 3: Performance of the G3M against EDOW on tracking an equal-weighted DJIA portfolio from November 11, 2024 through June 29, 2026. \u2014 Figure 3 displays two line charts comparing tracking error (TE) performance of the G3M automated market maker against EDOW (an equal-weighted Dow-30 portfolio). The left panel (a) plots TE in basis points against TE in basis points relative to the underlying index, while the right panel (b) plots TE against the economic mandate measured in basis points. Both ",
+      "thumb": "/data/figures/2608.04987v1_p10_2.jpg",
+      "caption": "FIG. 3. Scaling properties of empirical return series. The main panels show ln F(q, s) against ln s for (a) Nikkei, (b) S&P500, (c) WTI, and (d) XAU. The inset panels show the corresponding generalized Hurst exponent h(q). \u2014 This figure displays four panels (a-d) showing scaling properties of empirical return series for different financial assets (Nikkei, S&P500, WTI crude oil, and XAU gold) using multifractal detrended fluctuation analysis (MFDFA). Each main panel plots ln F(q,s) against ln s f",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2608.02917v1"
+      "source": "https://arxiv.org/pdf/2608.04987v1"
     },
     {
-      "doc_id": "2608.02854v1",
-      "title": "Preference robust distortion risk measures",
-      "page": 9,
-      "thumb": "/data/figures/2608.02854v1_p9_0.jpg",
-      "caption": "Figure 2 displays an illustration in the case when Y is normally distributed (Panel A) and Y is \u2014 This image shows equations and text from a quantitative finance paper on distortion risk measures, not a figure with visual data. The passage defines a proportional hazard distortion function \u03b3\u2080(u) = \u03b2u^(\u03b2-1) and provides quantile function formulas for normal and Pareto distributions of the random variable Y. The key takeaway is that the shape of best-case and worst-case weight functions \u03b3^bc and \u03b3^",
+      "doc_id": "2608.04987v1",
+      "title": "Portfolio Allocation under Heterogeneous Scales and Multifractality",
+      "page": 10,
+      "thumb": "/data/figures/2608.04987v1_p10_3.jpg",
+      "caption": "FIG. 4. Cross-correlation properties of empirical return series. (a) The DCCA coefficient calculated across scales for each pair of daily returns over the entire period. The coefficients show scale-dependent patterns. (b) The qDCCA coefficient calculated across fluctuation orders q at fixed scale s = 100 for each pair of daily returns over the entire period. The coefficients vary with q, indicatin \u2014 Figure 4 displays cross-correlation analysis of empirical return series across multiple financial",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2608.02854v1"
+      "source": "https://arxiv.org/pdf/2608.04987v1"
     },
     {
-      "doc_id": "2608.02854v1",
-      "title": "Preference robust distortion risk measures",
-      "page": 15,
-      "thumb": "/data/figures/2608.02854v1_p15_1.jpg",
-      "caption": "Figure 4 Illustration of the bounds \u03b3bc and \u03b3wc obtained in Theorem 3.3 and Theorem 3.4 (Wasserstein \u2014 These two side-by-side line plots display distortion risk measure bounds as functions of the variable u on the horizontal axis (ranging 0 to 1), with y(u) on the vertical axis (ranging 0 to 3). Each plot shows three curves representing \u03b3(u) (solid red), \u03b3^bc(u) (dashed blue), and \u03b3^wc(u) (dashed black), illustrating best-case and worst-case bounds under Wasserstein distance constraints. The lef",
+      "doc_id": "2608.04929v1",
+      "title": "Open Information: A Defining Perspective on Web Datasets for Carbon Pricing",
+      "page": 4,
+      "thumb": "/data/figures/2608.04929v1_p4_0.jpg",
+      "caption": "Fig 1: Carbon Prices Represented by EUA Spot Close Prices \u2014 This line chart displays the EUA (European Union Allowance) spot close prices from 2014 to 2024, measured in euros per ton on the y-axis (ranging from 0 to 100). The time series shows carbon prices remaining relatively flat and near zero through 2017, then beginning a gradual upward trend from 2018 onwards, with accelerating growth from 2020 onward and reaching approximately 80-90 euros per ton by 2023-2024. The sharp rise in recent yea",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2608.02854v1"
+      "source": "https://arxiv.org/pdf/2608.04929v1"
+    },
+    {
+      "doc_id": "2608.04929v1",
+      "title": "Open Information: A Defining Perspective on Web Datasets for Carbon Pricing",
+      "page": 4,
+      "thumb": "/data/figures/2608.04929v1_p4_1.jpg",
+      "caption": "Fig 2: Open Information Represented by Count of Selected Headlines \u2014 The figure consists of two time-series plots from 2014 to 2024. The top panel shows EU carbon allowance (EUA) spot close prices in euros per tonne, displaying a dramatic increase from near zero in 2014-2017 to approximately 90 euros by 2024, with accelerated growth after 2020. The bottom panel displays the count of selected headlines related to carbon pricing over the same period, showing high frequency observations concentrate",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.04929v1"
+    },
+    {
+      "doc_id": "2608.04929v1",
+      "title": "Open Information: A Defining Perspective on Web Datasets for Carbon Pricing",
+      "page": 4,
+      "thumb": "/data/figures/2608.04929v1_p4_2.jpg",
+      "caption": "Fig 3: Public Information Represented by Count of Selected Headlines \u2014 Figure 3 is a scatter plot with time on the x-axis (2014-2024) and count of selected headlines on the y-axis (0-300), displaying the frequency of publicly available news headlines related to carbon pricing over a decade. The data shows a baseline of roughly 50-150 headlines per time period with occasional spikes reaching up to 300, indicating episodic increases in media coverage of carbon-related topics. The key takeaway is t",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.04929v1"
+    },
+    {
+      "doc_id": "2608.04929v1",
+      "title": "Open Information: A Defining Perspective on Web Datasets for Carbon Pricing",
+      "page": 5,
+      "thumb": "/data/figures/2608.04929v1_p5_3.jpg",
+      "caption": "Fig. 4: Cross-correlation Between Log(Ou,t) AND |rt| with the Lag k Indicating the Correlation Between Log(Ou,t+k) and |rt|. \u2014 This bar chart displays cross-correlation coefficients between log-transformed trading volume and absolute returns across different time lags, with the x-axis showing lag values ranging from approximately -30 to +30 periods and the y-axis showing correlation coefficients from 0 to 0.12. The distribution is roughly symmetric around lag zero, with a notable peak near lag z",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.04929v1"
+    },
+    {
+      "doc_id": "2608.04832v1",
+      "title": "Robust Control under Stationary Ambiguity",
+      "page": 1,
+      "thumb": "/data/figures/2608.04832v1_p1_0.jpg",
+      "caption": "Figure 1: Ambiguity decay leads to robustness decay in a hedging problem with uncertain volatility. We train one pol- icy in a simulator with vanishing ambiguity and one in a sim- ulator with stationary ambiguity. Left: simulation-induced ambiguity over time; under stationary ambiguity, the level settles in steady state (dashed) after warm-up. Right: worst- case loss in a regime-shift stress test. \u2014 This figure displays two line charts comparing hedging performance under different ambiguity cond",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.04832v1"
+    },
+    {
+      "doc_id": "2608.04832v1",
+      "title": "Robust Control under Stationary Ambiguity",
+      "page": 4,
+      "thumb": "/data/figures/2608.04832v1_p4_1.jpg",
+      "caption": "Figure 2: Vanishing ambiguity leads to specialization of optimal investment. Left: drift ambiguity, measured by Var(X | Gt) under static randomization and Var(Xt | Gt) under dynamic randomization; known drift has zero ambiguity. Right: 10\u201390% interval of the optimal investment U \u22c6 \u2014 The figure consists of two panels illustrating the relationship between ambiguity and portfolio specialization over a 10-year horizon. The left panel is a line plot showing drift ambiguity (measured in units of 10^-7",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.04832v1"
+    },
+    {
+      "doc_id": "2608.04832v1",
+      "title": "Robust Control under Stationary Ambiguity",
+      "page": 5,
+      "thumb": "/data/figures/2608.04832v1_p5_2.jpg",
+      "caption": "Figure 3: Static randomization policy fails to adapt to a regime switch. We evaluate the policies on scenarios where the latent drift switches from x+ to x\u2212at time t\u2217, where x+ and x\u2212are the 90% and 10% quantiles of N(\u00afx, \u03c4 2). Top: mean and 10\u201390% interval of Ut across draws of Y . Bottom: mean and 10\u201390% interval of cumulative utility P \u2014 This figure compares three control policies (static randomization, dynamic randomization, and oracle) across a regime-switching scenario where latent drift s",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.04832v1"
+    },
+    {
+      "doc_id": "2608.04832v1",
+      "title": "Robust Control under Stationary Ambiguity",
+      "page": 11,
+      "thumb": "/data/figures/2608.04832v1_p11_3.jpg",
+      "caption": "Figure 4: Neural hedging policies learn to filter. We probe the recurrent state ht of policies trained under the SLM and RLM by predicting log Xt from ht. Left: held-out probe error for E0 = E[Var(log X0 | h0)] during hedging training; dashed lines show the minimal practically achievable tracking errors within each simulator. Middle: after training, Et decreases over time for the SLM policy but le \u2014 This figure compares how neural hedging policies trained under different market models (SLM and R",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.04832v1"
+    },
+    {
+      "doc_id": "2608.04547v1",
+      "title": "Attributing Differences Between Forecast Runs to Input Changes, With Applications to CCAR and CECL Exercises",
+      "page": 2,
+      "thumb": "/data/figures/2608.04547v1_p2_0.jpg",
+      "caption": "Figure 1 illustrates this sequential replacement process. At each underlying step, exactly one input is changed and the resulting forecast change is assigned to that input; intermediate hybrid runs are suppressed in the diagram for compactness. Summing the contributions yields the telescoping identity \u2014 This figure demonstrates a walk analysis methodology for decomposing forecast changes across sequential input replacements. It shows how a total forecast gap between two model runs can be systema",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.04547v1"
+    },
+    {
+      "doc_id": "2608.04547v1",
+      "title": "Attributing Differences Between Forecast Runs to Input Changes, With Applications to CCAR and CECL Exercises",
+      "page": 2,
+      "thumb": "/data/figures/2608.04547v1_p2_1.jpg",
+      "caption": "Figure 1: Walk analysis for an ordering \u03c0. Starting from the first-run inputs, one input is replaced at each underlying step. The resulting forecast changes telescope to the total gap between the two runs. \u2014 This figure illustrates a walk analysis methodology that decomposes forecast differences between two runs by sequentially replacing inputs one at a time. The diagram shows a flow process with a baseline first run (x^\u03c00 = x^(1)), followed by j hybrid runs where one input is changed at each st",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.04547v1"
+    },
+    {
+      "doc_id": "2608.04547v1",
+      "title": "Attributing Differences Between Forecast Runs to Input Changes, With Applications to CCAR and CECL Exercises",
+      "page": 3,
+      "thumb": "/data/figures/2608.04547v1_p3_2.jpg",
+      "caption": "Figure 2 makes this calculation explicit for three inputs. Each node is one coalition, and an edge from S to S \u222a{i} is the marginal contribution obtained by switching input i. The highlighted edges are the four possible marginal contributions of input 2. Their weights depend only on the size of its predecessor coalition and sum to one. \u2014 This figure illustrates the Shapley value calculation through a coalition formation graph for three inputs. The nodes represent coalitions (subsets of inputs), ",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.04547v1"
+    },
+    {
+      "doc_id": "2608.04547v1",
+      "title": "Attributing Differences Between Forecast Runs to Input Changes, With Applications to CCAR and CECL Exercises",
+      "page": 4,
+      "thumb": "/data/figures/2608.04547v1_p4_3.jpg",
+      "caption": "Figure 2: Exact Shapley calculation for a three-input forecasting system. Gray edges complete the coalition lattice; red edges are the marginal contributions from adding input 2. Averaging these contributions with the Shapley weights shown gives \u03d52. The same calculation applies to each other input. \u2014 This diagram illustrates the Shapley value calculation method for attributing forecast differences to individual input changes in a three-input system. The chart is a directed acyclic graph (coaliti",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.04547v1"
+    },
+    {
+      "doc_id": "2608.04532v1",
+      "title": "Optimal Life Insurance Decision in Mean-Variance DC Management with Mortality Improvements",
+      "page": 13,
+      "thumb": "/data/figures/2608.04532v1_p13_0.jpg",
+      "caption": "Figure 1 shows how the e\ufb03cient frontier changes with the market prices of risk \u03bbr and \u03bbS, together with the labor-income growth parameter \u03be0. When the parameters are \ufb01xed, the volatility \u03c3YT is linear in the expected payo\ufb00E[Y \u2217 \u2014 Table 2 presents estimation results for a Gompertz mortality model GM(2,3) fitted to force of mortality data, with parameters a\u2081 through a\u2085 estimated via maximum likelihood. The table shows the model achieves a BIC value of 258,111.64, with estimated coefficients includ",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.04532v1"
+    },
+    {
+      "doc_id": "2608.04532v1",
+      "title": "Optimal Life Insurance Decision in Mean-Variance DC Management with Mortality Improvements",
+      "page": 13,
+      "thumb": "/data/figures/2608.04532v1_p13_1.jpg",
+      "caption": "Figure 1. Three-dimensional e\ufb03cient frontier surfaces with respect to the market prices of risk and the contribution growth parameter. \u2014 This figure displays three 3D surface plots showing efficient frontiers in a defined contribution pension framework. Panel (a) shows interest-rate risk price \u03bb\u1d63 on the z-axis declining as it varies with z[Y] and \u03bb\u209b; panel (b) shows equity risk price \u03bb\u209b similarly declining across parameter space; panel (c) shows contribution growth \u03be\u2080 increasing across variation",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.04532v1"
     }
   ],
   "docs": [
     {
-      "id": "2608.03925v1",
-      "title": "Option Pricing with Time-Changed Fractional Brownian Motion: A Fractional Variance Gamma Model",
-      "source": "https://arxiv.org/pdf/2608.03925v1",
-      "pages": 39,
-      "images": 3,
-      "figures_captioned": 4,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 61
-    },
-    {
-      "id": "2608.03616v1",
-      "title": "Measuring the engine of a liquidation cascade: subcritical branching inside a first-order transition",
-      "source": "https://arxiv.org/pdf/2608.03616v1",
-      "pages": 13,
-      "images": 5,
-      "figures_captioned": 4,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 33
-    },
-    {
-      "id": "2608.03466v1",
-      "title": "A unifying perspective on the collapse to the mean for law-invariant functionals",
-      "source": "https://arxiv.org/pdf/2608.03466v1",
-      "pages": 21,
+      "id": "2608.04987v1",
+      "title": "Portfolio Allocation under Heterogeneous Scales and Multifractality",
+      "source": "https://arxiv.org/pdf/2608.04987v1",
+      "pages": 14,
       "images": 0,
-      "figures_captioned": 0,
-      "tables": 0,
+      "figures_captioned": 4,
+      "tables": 5,
       "has_math": true,
       "ocr_used": false,
       "chunks_indexed": 43
     },
     {
-      "id": "2608.03088v1",
-      "title": "A New Approach to Goodness of Fit for Ergodic Markov Processes",
-      "source": "https://arxiv.org/pdf/2608.03088v1",
-      "pages": 40,
-      "images": 0,
+      "id": "2608.04929v1",
+      "title": "Open Information: A Defining Perspective on Web Datasets for Carbon Pricing",
+      "source": "https://arxiv.org/pdf/2608.04929v1",
+      "pages": 8,
+      "images": 4,
       "figures_captioned": 4,
-      "tables": 0,
+      "tables": 12,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 55
+      "chunks_indexed": 30
     },
     {
-      "id": "2608.02917v1",
-      "title": "Mandate without Managers: Automated Market Makers as Verifiable Portfolio Products",
-      "source": "https://arxiv.org/pdf/2608.02917v1",
+      "id": "2608.04832v1",
+      "title": "Robust Control under Stationary Ambiguity",
+      "source": "https://arxiv.org/pdf/2608.04832v1",
+      "pages": 46,
+      "images": 1,
+      "figures_captioned": 4,
+      "tables": 2,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 83
+    },
+    {
+      "id": "2608.04547v1",
+      "title": "Attributing Differences Between Forecast Runs to Input Changes, With Applications to CCAR and CECL Exercises",
+      "source": "https://arxiv.org/pdf/2608.04547v1",
       "pages": 14,
       "images": 0,
       "figures_captioned": 4,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 28
+      "chunks_indexed": 32
     },
     {
-      "id": "2608.02854v1",
-      "title": "Preference robust distortion risk measures",
-      "source": "https://arxiv.org/pdf/2608.02854v1",
-      "pages": 44,
-      "images": 16,
+      "id": "2608.04532v1",
+      "title": "Optimal Life Insurance Decision in Mean-Variance DC Management with Mortality Improvements",
+      "source": "https://arxiv.org/pdf/2608.04532v1",
+      "pages": 28,
+      "images": 0,
       "figures_captioned": 2,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 54
+      "chunks_indexed": 35
     },
     {
-      "id": "2608.02828v1",
-      "title": "Proper-score observation-driven filters: local geometry, estimation, and continuous-time limits",
-      "source": "https://arxiv.org/pdf/2608.02828v1",
-      "pages": 88,
+      "id": "2608.04529v1",
+      "title": "Low-rank and graphon limits for dynamic threshold distress contagion in heterogeneous financial networks",
+      "source": "https://arxiv.org/pdf/2608.04529v1",
+      "pages": 62,
       "images": 0,
+      "figures_captioned": 0,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 61
+    },
+    {
+      "id": "2608.04373v1",
+      "title": "Public Trader Identity: Adverse Selection and Return Predictability",
+      "source": "https://arxiv.org/pdf/2608.04373v1",
+      "pages": 40,
+      "images": 0,
+      "figures_captioned": 0,
+      "tables": 2,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 38
+    },
+    {
+      "id": "2608.04305v1",
+      "title": "Adaptive Finite-Budget Training for CVaR Risk-Aware Q-Learning",
+      "source": "https://arxiv.org/pdf/2608.04305v1",
+      "pages": 8,
+      "images": 0,
+      "figures_captioned": 0,
+      "tables": 2,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 25
+    },
+    {
+      "id": "2608.04200v1",
+      "title": "From Financial Sentiment Classification to Return Predictability: A QLoRA Benchmark of Large Language Models",
+      "source": "https://arxiv.org/pdf/2608.04200v1",
+      "pages": 17,
+      "images": 2,
+      "figures_captioned": 0,
+      "tables": 1,
+      "has_math": false,
+      "ocr_used": false,
+      "chunks_indexed": 43
+    },
+    {
+      "id": "2608.03925v1",
+      "title": "Option Pricing with Time-Changed Fractional Brownian Motion: A Fractional Variance Gamma Model",
+      "source": "https://arxiv.org/pdf/2608.03925v1",
+      "pages": 39,
+      "images": 3,
       "figures_captioned": 0,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
       "chunks_indexed": 57
-    },
-    {
-      "id": "2608.02778v1",
-      "title": "Neural Networks with Local Converging Inputs for Efficient Options Pricing Models",
-      "source": "https://arxiv.org/pdf/2608.02778v1",
-      "pages": 15,
-      "images": 0,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 23
-    },
-    {
-      "id": "2608.02475v1",
-      "title": "Methodology for Modelling Token Economies and Performing Event Impact Analysis with DeTEcT",
-      "source": "https://arxiv.org/pdf/2608.02475v1",
-      "pages": 36,
-      "images": 0,
-      "figures_captioned": 0,
-      "tables": 1,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 49
-    },
-    {
-      "id": "2608.02355v1",
-      "title": "Path Portfolio Optimization: Defect, Lift, and the Price of Path Complexity",
-      "source": "https://arxiv.org/pdf/2608.02355v1",
-      "pages": 23,
-      "images": 0,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 54
     }
   ]
 }
