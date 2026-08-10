@@ -1,7 +1,7 @@
 {
   "_note": "Public run manifest of the Tier-3 agentic ingestion pipeline. Safe aggregates + provenance only; raw PDFs live in S3, not here.",
-  "run_id": "20260809T035327Z",
-  "generated_at": "2026-08-09T03:56:34+00:00",
+  "run_id": "20260810T040808Z",
+  "generated_at": "2026-08-10T04:11:55+00:00",
   "collection": "research_corpus",
   "embed_model": "BAAI/bge-small-en-v1.5",
   "dag": [
@@ -50,28 +50,100 @@
     "discovered": 10,
     "fetched": 10,
     "parsed": 10,
-    "chunks": 422,
-    "accepted": 374,
-    "rejected": 48,
-    "images": 37,
+    "chunks": 399,
+    "accepted": 352,
+    "rejected": 47,
+    "images": 42,
     "figures_captioned": 18,
-    "tables": 25,
+    "tables": 10,
     "with_math": 9,
-    "indexed": 374,
-    "spent_usd": 0.0304,
-    "duration_s": 187.3
+    "indexed": 352,
+    "spent_usd": 0.0316,
+    "duration_s": 227.2
   },
   "rejects_by_reason": {
-    "low-relevance": 48
+    "low-relevance": 47
   },
   "budget_usd": 3.0,
   "figures": [
+    {
+      "doc_id": "2608.07032v1",
+      "title": "Certified High-Dimensional Wasserstein Robust Portfolio Optimization",
+      "page": 15,
+      "thumb": "/data/figures/2608.07032v1_p15_0.jpg",
+      "caption": "Figure 1: Optimal Portfolio Weights for 10 Risky Assets and 1 Risk-Free Asset. \u2014 This figure displays three stacked area charts showing optimal portfolio weights across different optimization methods (RF, RPM, DRO-Wasserstein, SOCP, JNJ, UKM, GOOGL, MSFT, AMZN, MSFT, AAPL) as a function of the robustness parameter \u03b5 on a logarithmic scale from 10^-5 to 10^0. Each panel represents a different portfolio optimization approach: DRO_DRO (left), DRO_s3 (center), and ROMEDROs (right). The key takeaway ",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.07032v1"
+    },
+    {
+      "doc_id": "2608.07032v1",
+      "title": "Certified High-Dimensional Wasserstein Robust Portfolio Optimization",
+      "page": 18,
+      "thumb": "/data/figures/2608.07032v1_p18_1.jpg",
+      "caption": "Figure 2: Out-of-Sample Account-Value Trajectories of the S&P 500 Port- folio with Time-Varying Weights over 2021\u20132025. \u2014 This line chart displays out-of-sample portfolio account value trajectories from January 2021 to December 2025 for S&P 500 portfolios with time-varying weights. The y-axis shows portfolio value (ranging from 1 to 6), and the x-axis shows the date. The figure compares five robustness parameter settings (\u03b5 = 10\u207b\u2074, 10\u207b\u00b3, 10\u207b\u00b2, 10\u207b\u00b9, and 10\u2070) alongside benchmark strategies includ",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.07032v1"
+    },
+    {
+      "doc_id": "2608.07032v1",
+      "title": "Certified High-Dimensional Wasserstein Robust Portfolio Optimization",
+      "page": 21,
+      "thumb": "/data/figures/2608.07032v1_p21_2.jpg",
+      "caption": "Figure 3: Average Portfolio Weights. \u2014 This figure displays three stacked area charts showing average portfolio weights as a function of regularization parameter \u03b5 (log scale) for three different portfolio sizes: N=10, N=100, and N=500. Each chart uses color gradients from dark blue to light yellow to represent the proportion of wealth allocated to different assets, with the y-axis showing weights from 0.0 to 1.0. The key takeaway is that as \u03b5 increases (moving left to right), portfolio concentr",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.07032v1"
+    },
+    {
+      "doc_id": "2608.07032v1",
+      "title": "Certified High-Dimensional Wasserstein Robust Portfolio Optimization",
+      "page": 21,
+      "thumb": "/data/figures/2608.07032v1_p21_3.jpg",
+      "caption": "Figure 4: Out-of-Sample Performance versus \u03b5. \u2014 Figure 4 is a line plot showing out-of-sample portfolio performance as a function of the robustness parameter \u03b5 on a logarithmic x-axis (ranging from 10^-4 to 10^0). The y-axis represents normalized loss utility (0 to 1.0), and the chart compares multiple methods: SAA (Scenario Approximation) with varying sample sizes (N=50, 100, 500) and DRO_WPS (Distributionally Robust Optimization) with corresponding sample sizes. The key takeaway is that DRO me",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.07032v1"
+    },
+    {
+      "doc_id": "2608.06618v1",
+      "title": "Beyond Co-Movement: Locality by Exposures Enables a Joint Factor-Graph Framework for Portfolio Diversification",
+      "page": 3,
+      "thumb": "/data/figures/2608.06618v1_p3_0.jpg",
+      "caption": "Figure 1: The proposed MINGLE framework jointly learns a factor model, \u02c6X \u2248BF, and a graph topology, W, from the raw asset returns, X \u2208R\ud835\udc5d\u00d7\ud835\udc47. In the factor model, B \u2208R\ud835\udc5d\u00d7\ud835\udc58encodes the exposure profiles to \ud835\udc58latent risk drivers, whereby the height of the bar reflects the exposure magnitude and its colour reflects the corresponding factor, and F \u2208R\ud835\udc58\u00d7\ud835\udc47captures the corresponding factor dynamics. These exp \u2014 This figure illustrates the MINGLE framework for joint factor-graph learning in portfolio analysi",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.06618v1"
+    },
+    {
+      "doc_id": "2608.06618v1",
+      "title": "Beyond Co-Movement: Locality by Exposures Enables a Joint Factor-Graph Framework for Portfolio Diversification",
+      "page": 5,
+      "thumb": "/data/figures/2608.06618v1_p5_1.jpg",
+      "caption": "Figure 2: Learnt weight matrices of the exposure similarity graph across six consecutive rebalancing windows, with assets held in a fixed reference ordering to reflect genuine topological changes. The block diagonal structure persists across rebalancings, with a temporal Normalised Mutual Information (NMI) of 0.768 over the full backtest period. \u2014 This figure displays six heatmaps showing learned weight matrices of an exposure similarity graph across consecutive monthly rebalancing dates from Ju",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.06618v1"
+    },
+    {
+      "doc_id": "2608.06618v1",
+      "title": "Beyond Co-Movement: Locality by Exposures Enables a Joint Factor-Graph Framework for Portfolio Diversification",
+      "page": 6,
+      "thumb": "/data/figures/2608.06618v1_p6_2.jpg",
+      "caption": "Figure 3: Cumulative returns of allocations on the learnt representation (Contagion Cut, Adaptive CutV on \u02c6\ud835\udeba\ud835\udc45) against the benchmarks (Adaptive CutV on \u02c6\ud835\udeba\ud835\udc35and \u02c6\ud835\udeba\ud835\udc46, Equal weight), over the Jan 2019\u2013March 2026 backtest period. The proposed Contagion Cut consistently outperforms its covariance-based counterparts, followed by Adaptive CutV on \u02c6\ud835\udeba\ud835\udc45. \u2014 This line chart displays cumulative returns from January 2019 to March 2026 for multiple portfolio allocation strategies, with the y-axis showing cumula",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.06618v1"
+    },
+    {
+      "doc_id": "2608.06618v1",
+      "title": "Beyond Co-Movement: Locality by Exposures Enables a Joint Factor-Graph Framework for Portfolio Diversification",
+      "page": 6,
+      "thumb": "/data/figures/2608.06618v1_p6_3.jpg",
+      "caption": "Figure 4: Weight matrices of the learnt exposure similarity graph, W\ud835\udc35, and the correlation similarity graph, | \u02c6\ud835\udeba\ud835\udc46|, for the S&P500, reordered by GICS membership. The learnt topology aligned better with established economic taxonomy, with the improved alignment persisting across all CBOE VIX-defined market regimes. Specifically, the within-cluster edge weights were 5.30\u00d7 stronger than between-clus \u2014 This figure displays four heatmaps and two supplementary plots analyzing the learnt exposure simi",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.06618v1"
+    },
     {
       "doc_id": "2608.06048v1",
       "title": "Thermodynamic statistics of given names in USA and France",
       "page": 1,
       "thumb": "/data/figures/2608.06048v1_p1_0.jpg",
-      "caption": "FIG. 1: Year dependence of the number of given names in the data sets of [3, 4] for the four cases of FR and US, both for female (F) and male (M) names. See also Appendix Fig. A1, where normalized values of this number with respect to the year 1960 are shown. \u2014 This line chart displays the cumulative number of given names over time from 1880 to 2020 for four populations: French female (FR F), French male (FR M), US female (US F), and US male (US M) names. The y-axis shows the count of names (N/1",
+      "caption": "FIG. 1: Year dependence of the number of given names in the data sets of [3, 4] for the four cases of FR and US, both for female (F) and male (M) names. See also Appendix Fig. A1, where normalized values of this number with respect to the year 1960 are shown. \u2014 This line chart displays the temporal evolution of the number of given names from 1880 to 2020 for four populations: French females (FR F), French males (FR M), US females (US F), and US males (US M). The y-axis shows the count of names (",
       "vision": true,
       "source": "https://arxiv.org/pdf/2608.06048v1"
     },
@@ -80,7 +152,7 @@
       "title": "Thermodynamic statistics of given names in USA and France",
       "page": 3,
       "thumb": "/data/figures/2608.06048v1_p3_1.jpg",
-      "caption": "FIG. 2: Left: US female name Lorenz curves for the 6 years 1975, 1985, 1995, 2005, 2015, 2025 (top) and the 7 years 1880, 1905, 1940, 1965, 1990, 2005, 2025 (bot- tom). The x-axis corresponds to the cumulated fraction of households/names (h) and the y-axis to the cumulated fraction of wealth/name frequency (w). The dashed black line corresponds to the line of perfect equipartition w = h. The Gini  \u2014 This figure displays Lorenz curves for US female names across multiple years, showing the cumulat",
+      "caption": "FIG. 2: Left: US female name Lorenz curves for the 6 years 1975, 1985, 1995, 2005, 2015, 2025 (top) and the 7 years 1880, 1905, 1940, 1965, 1990, 2005, 2025 (bot- tom). The x-axis corresponds to the cumulated fraction of households/names (h) and the y-axis to the cumulated fraction of wealth/name frequency (w). The dashed black line corresponds to the line of perfect equipartition w = h. The Gini  \u2014 This figure presents Lorenz curves analyzing the distribution of US female names across different",
       "vision": true,
       "source": "https://arxiv.org/pdf/2608.06048v1"
     },
@@ -89,7 +161,7 @@
       "title": "Thermodynamic statistics of given names in USA and France",
       "page": 3,
       "thumb": "/data/figures/2608.06048v1_p3_2.jpg",
-      "caption": "FIG. 3: FR female name Lorenz and Pareto curves for the 6 years 1975, 1985, 1995, 2005, 2015, 2023 (top) and the 6 years 1990, 1925, 1950, 1975, 2000, 2023 (bottom) in the same style as Fig. 2. The Gini coefficients for the years 1975 to 2023 (1900 to 2023) are G = 0.931, 0.925, 0.916, 0.898, 0.877, 0.866 (G = 0.923, 0.934, 0.934, 0.931, 0.914, 0.866) and the values of \u27e8wm\u27e9= ws are \u27e8wm\u27e9= 130, 103, \u2014 This figure displays Lorenz curves and Pareto distributions (log-log plots) for French female nam",
+      "caption": "FIG. 3: FR female name Lorenz and Pareto curves for the 6 years 1975, 1985, 1995, 2005, 2015, 2023 (top) and the 6 years 1990, 1925, 1950, 1975, 2000, 2023 (bottom) in the same style as Fig. 2. The Gini coefficients for the years 1975 to 2023 (1900 to 2023) are G = 0.931, 0.925, 0.916, 0.898, 0.877, 0.866 (G = 0.923, 0.934, 0.934, 0.931, 0.914, 0.866) and the values of \u27e8wm\u27e9= ws are \u27e8wm\u27e9= 130, 103, \u2014 This figure displays Lorenz and Pareto curves for French female names across selected years (1975",
       "vision": true,
       "source": "https://arxiv.org/pdf/2608.06048v1"
     },
@@ -98,7 +170,7 @@
       "title": "Thermodynamic statistics of given names in USA and France",
       "page": 4,
       "thumb": "/data/figures/2608.06048v1_p4_3.jpg",
-      "caption": "FIG. 4: Comparison of Lorenz curves (left panels) and Pareto curves (right panels) between female names (red curves) and male names (blue curves). Top (bottom) panels correspond to data of US 2025 (FR 2023). See also Appendix Fig. A4 for the cases of US 1880 and FR 1990. \u2014 This figure compares the distribution inequality of given names in the USA (2025) and France (2023) using Lorenz curves (left panels) and Pareto curves (right panels), with blue lines representing male names and red lines repr",
+      "caption": "FIG. 4: Comparison of Lorenz curves (left panels) and Pareto curves (right panels) between female names (red curves) and male names (blue curves). Top (bottom) panels correspond to data of US 2025 (FR 2023). See also Appendix Fig. A4 for the cases of US 1880 and FR 1990. \u2014 This figure displays inequality measures for name distributions in the USA (2025) and France (2023), comparing male and female naming patterns. The left panels show Lorenz curves plotting cumulative proportion of population ag",
       "vision": true,
       "source": "https://arxiv.org/pdf/2608.06048v1"
     },
@@ -107,7 +179,7 @@
       "title": "Knowledge-Optimising Investment Decisions with Informative Datasets",
       "page": 3,
       "thumb": "/data/figures/2608.05991v1_p3_0.jpg",
-      "caption": "Figure 1: (a) The Throughput Model for Decisions. (b) The Extension with Informative Datasets as the Source for Information. \u2014 This figure presents two causal flow diagrams illustrating decision-making processes in investment contexts. The left diagram shows a basic throughput model where Perception and Information feed into Judgment, which leads to Decision. The right diagram extends this model by replacing the generic Information node with Informative Datasets as the source, and adds Investabl",
+      "caption": "Figure 1: (a) The Throughput Model for Decisions. (b) The Extension with Informative Datasets as the Source for Information. \u2014 This figure displays two directed acyclic graph (DAG) diagrams illustrating decision-making frameworks in investment contexts. The left panel shows a basic throughput model where Perception and Information flow into Judgment, which leads to Decision. The right panel extends this framework by replacing the generic Information node with Investable Securities and Informativ",
       "vision": true,
       "source": "https://arxiv.org/pdf/2608.05991v1"
     },
@@ -116,7 +188,7 @@
       "title": "From Value Bounds to Policy-Distance and Active-Face Certificates: Same-Grid Duality for Constrained Dynamic Portfolios",
       "page": 2,
       "thumb": "/data/figures/2608.05901v1_p2_0.jpg",
-      "caption": "Figure 1 summarizes these external audits. A solved five-asset Merton benchmark validates residual precision, coordinate radii, exact exclusions, and leakage bounds. In a one-asset predictable- return problem, all ten locked policy radii cover independently refined errors; a difficult seed is correctly withheld at a predeclared tolerance. A two-asset incomplete market contains two no-short faces a \u2014 This figure summarizes validation results from constrained dynamic portfolio optimization problem",
+      "caption": "Figure 1 summarizes these external audits. A solved five-asset Merton benchmark validates residual precision, coordinate radii, exact exclusions, and leakage bounds. In a one-asset predictable- return problem, all ten locked policy radii cover independently refined errors; a difficult seed is correctly withheld at a predeclared tolerance. A two-asset incomplete market contains two no-short faces a \u2014 This figure presents numerical validation results for a constrained portfolio optimization method",
       "vision": true,
       "source": "https://arxiv.org/pdf/2608.05901v1"
     },
@@ -125,7 +197,7 @@
       "title": "From Value Bounds to Policy-Distance and Active-Face Certificates: Same-Grid Duality for Constrained Dynamic Portfolios",
       "page": 3,
       "thumb": "/data/figures/2608.05901v1_p3_1.jpg",
-      "caption": "Figure 1: Residual precision translates into policy and structural certification. Panel (a) follows the solved Merton checkpoint trajectory. Panels (b)\u2013(c) use the locked one-asset ten-seed audit. Smaller residual bounds coincide with tighter policy localization and more certified excluded states; analytical and dynamic-program references enter only after certification. \u2014 This figure presents three panels showing the relationship between residual precision and policy certification in portfolio o",
+      "caption": "Figure 1: Residual precision translates into policy and structural certification. Panel (a) follows the solved Merton checkpoint trajectory. Panels (b)\u2013(c) use the locked one-asset ten-seed audit. Smaller residual bounds coincide with tighter policy localization and more certified excluded states; analytical and dynamic-program references enter only after certification. \u2014 This three-panel figure demonstrates the relationship between residual precision and certification quality in constrained por",
       "vision": true,
       "source": "https://arxiv.org/pdf/2608.05901v1"
     },
@@ -134,7 +206,7 @@
       "title": "From Value Bounds to Policy-Distance and Active-Face Certificates: Same-Grid Duality for Constrained Dynamic Portfolios",
       "page": 20,
       "thumb": "/data/figures/2608.05901v1_p20_2.jpg",
-      "caption": "Figure 2: Doob compensation makes the Merton residual and the induced policy radius operational across frozen-policy checkpoints. Nonpositive uncompensated CRN upper bounds are omitted on the log scale rather than clipped. \u2014 This figure compares three methods (Separate, CRN, and Compensated) for bounding portfolio optimization errors across checkpoint iterations. Panel (a) shows residual upper bounds on a log scale against checkpoint number, where the Compensated method achieves exponential deca",
+      "caption": "Figure 2: Doob compensation makes the Merton residual and the induced policy radius operational across frozen-policy checkpoints. Nonpositive uncompensated CRN upper bounds are omitted on the log scale rather than clipped. \u2014 This figure compares three methods (Separate, CRN, and Compensated) across two metrics as a function of checkpoint number in a constrained dynamic portfolio optimization problem. Panel (a) shows residual upper bounds on a log scale, demonstrating that the Compensated approac",
       "vision": true,
       "source": "https://arxiv.org/pdf/2608.05901v1"
     },
@@ -143,7 +215,7 @@
       "title": "From Value Bounds to Policy-Distance and Active-Face Certificates: Same-Grid Duality for Constrained Dynamic Portfolios",
       "page": 20,
       "thumb": "/data/figures/2608.05901v1_p20_3.jpg",
-      "caption": "Figure 2 shows final-checkpoint coverage of all five occupancy-weighted coordinate RMS errors. The mean radius is 0.01409 under compensation versus 0.10385 under separate evaluation; the actual coordinate RMS errors range from 8.4 \u00d7 10\u22125 to 5.52 \u00d7 10\u22123. Repeated audits at checkpoints 500, 1000, and 2500 preserve coordinate coverage throughout and attain nominal 95% residual-UCB coverage in 228/240 \u2014 Panel (a) displays residual upper bounds (log scale, y-axis) across checkpoints (x-axis) for thre",
+      "caption": "Figure 2 shows final-checkpoint coverage of all five occupancy-weighted coordinate RMS errors. The mean radius is 0.01409 under compensation versus 0.10385 under separate evaluation; the actual coordinate RMS errors range from 8.4 \u00d7 10\u22125 to 5.52 \u00d7 10\u22123. Repeated audits at checkpoints 500, 1000, and 2500 preserve coordinate coverage throughout and attain nominal 95% residual-UCB coverage in 228/240 \u2014 Panel (a) shows residual upper bounds on a log scale across 2500 checkpoints, comparing three app",
       "vision": true,
       "source": "https://arxiv.org/pdf/2608.05901v1"
     },
@@ -152,84 +224,48 @@
       "title": "Cross-Sectional Heterogeneity in LSTM Networks for Financial Time Series",
       "page": 5,
       "thumb": "/data/figures/2608.05755v1_p5_0.jpg",
-      "caption": "Figure 1: Data Split into Training, Validation and Test for First 3 Study Periods. \u2014 This figure shows a timeline chart displaying three different data-splitting schemes for training, validation (Val), and test periods across calendar years 1995-2001. Each of the three study periods uses an 80/20 split where approximately 80% of data is allocated to training and 20% to validation/test combined, with the validation and test sets positioned sequentially at the end of each period. The chart illustr",
+      "caption": "Figure 1: Data Split into Training, Validation and Test for First 3 Study Periods. \u2014 This figure shows a Gantt-style chart illustrating how financial time series data is partitioned into training, validation, and test sets across three study periods from 1995-2001. Each horizontal bar represents one study period, with the dark blue section showing the training period (80% of data), light blue showing the validation period, and green showing the test period (20% of data), demonstrating a rolling-",
       "vision": true,
       "source": "https://arxiv.org/pdf/2608.05755v1"
-    },
-    {
-      "doc_id": "2608.05755v1",
-      "title": "Cross-Sectional Heterogeneity in LSTM Networks for Financial Time Series",
-      "page": 6,
-      "thumb": "/data/figures/2608.05755v1_p6_1.jpg",
-      "caption": "Figure 2: LSTM Cell. \u2014 This diagram shows the internal architecture of a Long Short-Term Memory (LSTM) cell, a type of recurrent neural network unit used in sequential data processing. The circuit illustrates the key components including forget gate (f_t), input gate (i_t), cell candidate (\u0169_t), output gate (o_t), with sigmoid (\u03c3) and tanh activation functions controlling information flow between previous cell state (c_{t-1}), hidden state (h_{t-1}), input (x_t), and outputs (c_t, h_t). The LSTM",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.05755v1"
-    },
-    {
-      "doc_id": "2608.05755v1",
-      "title": "Cross-Sectional Heterogeneity in LSTM Networks for Financial Time Series",
-      "page": 7,
-      "thumb": "/data/figures/2608.05755v1_p7_2.jpg",
-      "caption": "Figure 3: LSTM Architecture with 2 hidden layers. \u2014 This figure illustrates the architecture of a two-layer LSTM neural network for financial time series prediction, showing the detailed cell structure and information flow across time steps. The diagram displays two LSTM cell layers (1st and 2nd hidden layers) with standard LSTM components including input gates, forget gates, output gates, and cell state updates, with inputs flowing from time t=1 through t=T and producing hidden state outputs h\u2081",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.05755v1"
-    },
-    {
-      "doc_id": "2608.05755v1",
-      "title": "Cross-Sectional Heterogeneity in LSTM Networks for Financial Time Series",
-      "page": 9,
-      "thumb": "/data/figures/2608.05755v1_p9_3.jpg",
-      "caption": "Figure 4: Incorporating sector embeddings into the output layer. \u2014 This diagram illustrates a neural network architecture that incorporates sector embeddings into the LSTM output layer. The architecture shows hidden state h_t and sector embedding e_c as inputs that are transformed through weight matrices W_h and W_e respectively, then combined to produce logit outputs z_0 (Short) and z_1 (Long) for classification. The key takeaway is that sector information is integrated directly into the final ",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.05755v1"
-    },
-    {
-      "doc_id": "2608.05623v1",
-      "title": "Non-concave Corporate Management with Option Incentives under Value-at-Risk Constraint",
-      "page": 7,
-      "thumb": "/data/figures/2608.05623v1_p7_0.jpg",
-      "caption": "Figure 1: Concave Envelope \u2014 This line plot compares an original utility objective function U\u2080(x) (solid blue line) with its concave envelope U\u2081(x) (dashed red line) across the x-axis. The original objective exhibits a kinked non-concave shape with a flat region until point K, then curves upward, while the concave envelope provides a smooth concave upper bound. The key takeaway is that the concave envelope linearizes the non-concave objective function in the initial region and provides the tight",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.05623v1"
-    },
-    {
-      "doc_id": "2608.05623v1",
-      "title": "Non-concave Corporate Management with Option Incentives under Value-at-Risk Constraint",
-      "page": 12,
-      "thumb": "/data/figures/2608.05623v1_p12_1.jpg",
-      "caption": "Figure 2: 9 Regimes based on (V , \u03b1) \u2014 This phase diagram partitions the two-dimensional parameter space into nine distinct regimes labeled (a) through (i), with the horizontal axis representing \u03b1 (ranging from 0 to 1) and the vertical axis representing V (ranging from 0.6 to 2.2). Each colored region corresponds to a different optimal management strategy or equilibrium outcome under value-at-risk constraints with option incentives. The boundaries between regimes are determined by the interplay ",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.05623v1"
-    },
-    {
-      "doc_id": "2608.05623v1",
-      "title": "Non-concave Corporate Management with Option Incentives under Value-at-Risk Constraint",
-      "page": 14,
-      "thumb": "/data/figures/2608.05623v1_p14_2.jpg",
-      "caption": "Figure 3: Optimal terminal \ufb01rm value in the six VaR-active regimes. Each panel plots the benchmark payo\ufb00V0(T) and the VaR-constrained payo\ufb00VVaR(T) as functions of the pricing kernel Z(T), for a representative parameterization of one of the six cases in Proposition 3.3 in which the VaR constraint is active. \u2014 This figure displays six panels comparing optimal terminal firm value V(T) under a VaR constraint versus a benchmark case across different regimes, with the pricing kernel Z(T) on the x-axis",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.05623v1"
-    },
-    {
-      "doc_id": "2608.05623v1",
-      "title": "Non-concave Corporate Management with Option Incentives under Value-at-Risk Constraint",
-      "page": 15,
-      "thumb": "/data/figures/2608.05623v1_p15_3.jpg",
-      "caption": "Figure 4: Case (g): V \u2265\u03be1, P(VVaR(T) = 0) < P(V0(T) = 0) \u2014 This line graph displays the value function V(T) against the state variable Z(T) under a Value-at-Risk constraint, comparing two scenarios: a VaR-constrained policy (solid blue line) and a benchmark unconstrained policy (dashed red line). The VaR constraint creates a discontinuity at Z_VaR,2, where the constrained value drops sharply to a lower level V/\u03be1, while the benchmark declines more gradually. The key takeaway is that the VaR cons",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.05623v1"
-    },
-    {
-      "doc_id": "2608.05373v1",
-      "title": "Velocity- and Regime-Aware Detection of Intraday Options Market Manipulation, with Explainable Attribution",
-      "page": 3,
-      "thumb": "/data/figures/2608.05373v1_p3_0.jpg",
-      "caption": "Figure 1: The signature, real and idealized. Top: one-minute BANKNIFTY index on January 17, 2024 (project data): a 600- point pump in minutes toward the pinned 47,200 strike, then a day-long reversal. Bottom: the idealized Mountain in Put- Delta space that the detector\u2019s velocity feature targets. The event is dynamic; its price level never leaves the plausible range. \u2014 This figure demonstrates a market manipulation event captured in both real price data and an idealized model representation. The",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.05373v1"
     }
   ],
   "docs": [
+    {
+      "id": "2608.07122v1",
+      "title": "Lambda-quantiles under the microscope",
+      "source": "https://arxiv.org/pdf/2608.07122v1",
+      "pages": 31,
+      "images": 0,
+      "figures_captioned": 0,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 58
+    },
+    {
+      "id": "2608.07032v1",
+      "title": "Certified High-Dimensional Wasserstein Robust Portfolio Optimization",
+      "source": "https://arxiv.org/pdf/2608.07032v1",
+      "pages": 38,
+      "images": 0,
+      "figures_captioned": 4,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 42
+    },
+    {
+      "id": "2608.06618v1",
+      "title": "Beyond Co-Movement: Locality by Exposures Enables a Joint Factor-Graph Framework for Portfolio Diversification",
+      "source": "https://arxiv.org/pdf/2608.06618v1",
+      "pages": 9,
+      "images": 10,
+      "figures_captioned": 4,
+      "tables": 4,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 30
+    },
     {
       "id": "2608.06048v1",
       "title": "Thermodynamic statistics of given names in USA and France",
@@ -272,11 +308,11 @@
       "source": "https://arxiv.org/pdf/2608.05755v1",
       "pages": 31,
       "images": 16,
-      "figures_captioned": 4,
+      "figures_captioned": 1,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 55
+      "chunks_indexed": 52
     },
     {
       "id": "2608.05623v1",
@@ -284,11 +320,11 @@
       "source": "https://arxiv.org/pdf/2608.05623v1",
       "pages": 33,
       "images": 6,
-      "figures_captioned": 4,
+      "figures_captioned": 0,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 38
+      "chunks_indexed": 34
     },
     {
       "id": "2608.05373v1",
@@ -296,11 +332,11 @@
       "source": "https://arxiv.org/pdf/2608.05373v1",
       "pages": 8,
       "images": 2,
-      "figures_captioned": 1,
+      "figures_captioned": 0,
       "tables": 3,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 25
+      "chunks_indexed": 24
     },
     {
       "id": "2608.05357v1",
@@ -313,42 +349,6 @@
       "has_math": true,
       "ocr_used": false,
       "chunks_indexed": 12
-    },
-    {
-      "id": "2608.04987v1",
-      "title": "Portfolio Allocation under Heterogeneous Scales and Multifractality",
-      "source": "https://arxiv.org/pdf/2608.04987v1",
-      "pages": 14,
-      "images": 0,
-      "figures_captioned": 0,
-      "tables": 5,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 39
-    },
-    {
-      "id": "2608.04929v1",
-      "title": "Open Information: A Defining Perspective on Web Datasets for Carbon Pricing",
-      "source": "https://arxiv.org/pdf/2608.04929v1",
-      "pages": 8,
-      "images": 4,
-      "figures_captioned": 0,
-      "tables": 12,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 26
-    },
-    {
-      "id": "2608.04832v1",
-      "title": "Robust Control under Stationary Ambiguity",
-      "source": "https://arxiv.org/pdf/2608.04832v1",
-      "pages": 46,
-      "images": 1,
-      "figures_captioned": 0,
-      "tables": 2,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 79
     }
   ]
 }
