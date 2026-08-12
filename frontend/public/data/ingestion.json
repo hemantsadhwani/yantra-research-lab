@@ -1,7 +1,7 @@
 {
   "_note": "Public run manifest of the Tier-3 agentic ingestion pipeline. Safe aggregates + provenance only; raw PDFs live in S3, not here.",
-  "run_id": "20260811T035518Z",
-  "generated_at": "2026-08-11T04:00:41+00:00",
+  "run_id": "20260812T041842Z",
+  "generated_at": "2026-08-12T04:23:08+00:00",
   "collection": "research_corpus",
   "embed_model": "BAAI/bge-small-en-v1.5",
   "dag": [
@@ -50,264 +50,264 @@
     "discovered": 10,
     "fetched": 10,
     "parsed": 10,
-    "chunks": 449,
-    "accepted": 407,
-    "rejected": 42,
-    "images": 72,
+    "chunks": 501,
+    "accepted": 477,
+    "rejected": 24,
+    "images": 76,
     "figures_captioned": 18,
-    "tables": 2,
-    "with_math": 10,
-    "indexed": 407,
-    "spent_usd": 0.0329,
-    "duration_s": 323.0
+    "tables": 7,
+    "with_math": 9,
+    "indexed": 477,
+    "spent_usd": 0.0333,
+    "duration_s": 266.2
   },
   "rejects_by_reason": {
-    "low-relevance": 42
+    "low-relevance": 24
   },
   "budget_usd": 3.0,
   "figures": [
     {
-      "doc_id": "2608.09859v1",
-      "title": "Nash Peer-to-Peer Insurance Bargaining under Price Fairness and Coalitional Stability",
-      "page": 20,
-      "thumb": "/data/figures/2608.09859v1_p20_0.jpg",
-      "caption": "Figure 1: Optimal premium and P2P reinsurer\u2019s certainty-equivalent net profit with price fairness (PF) and without price fairness (NPF). \u2014 This figure presents two line graphs comparing optimal premiums (P*) and certainty-equivalent net profits (\u03a0) under price fairness (PF) and no-price-fairness (NPF) conditions. Panel (a) shows the impact of parameter \u03b4_R (ranging from 0.60 to 0.85) on these metrics, while panel (b) examines the impact of parameter \u03b8 (ranging from 0.38 to 0.43), with dual y-axe",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.09859v1"
-    },
-    {
-      "doc_id": "2608.09859v1",
-      "title": "Nash Peer-to-Peer Insurance Bargaining under Price Fairness and Coalitional Stability",
-      "page": 20,
-      "thumb": "/data/figures/2608.09859v1_p20_1.jpg",
-      "caption": "Fig. 2 plots all peers\u2019 CE loadings against \u03b4R and \u03b8. In general, all peers\u2019 CE loadings increase with \u2014 This figure contains two line charts comparing optimal premium (P*, left y-axis) and certainty-equivalent net profit (\u03a0, right y-axis) for a P2P reinsurer under price fairness (PF) and non-price-fairness (NPF) conditions. Panel (a) shows the impact of bargaining power \u03b4_R (x-axis ranging from 0.60 to 0.85), while panel (b) shows the impact of risk parameter \u03b8 (x-axis ranging from 0.38 to 0.43",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.09859v1"
-    },
-    {
-      "doc_id": "2608.09859v1",
-      "title": "Nash Peer-to-Peer Insurance Bargaining under Price Fairness and Coalitional Stability",
-      "page": 21,
-      "thumb": "/data/figures/2608.09859v1_p21_2.jpg",
-      "caption": "Figure 2: Certainty-equivalent loadings. \u2014 This figure presents four line graphs comparing certainty-equivalent loadings (\u03a6) across three peer groups under different parameter variations and fairness conditions. Panels (a) and (c) show results with price fairness constraints, while panels (b) and (d) show results without price fairness; the top panels vary the risk parameter \u03b4_R from 0.60 to 0.85, while the bottom panels vary the bargaining parameter \u03b8 from 0.38 to 0.43. The key takeaway is that",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.09859v1"
-    },
-    {
-      "doc_id": "2608.09859v1",
-      "title": "Nash Peer-to-Peer Insurance Bargaining under Price Fairness and Coalitional Stability",
-      "page": 22,
-      "thumb": "/data/figures/2608.09859v1_p22_3.jpg",
-      "caption": "Figure 3: Impact of the pool size n on the agents\u2019 bargaining power. \u2014 These line plots illustrate how pool size n affects bargaining power parameters \u03b8\u2099 (dashed line) and \u03b4 (solid line) under two different fairness parameters: \u03b1 = 0.5 (left panel) and \u03b1 = 0.999 (right panel). Both parameters decline monotonically as pool size increases from n=5 to n=60, with steeper decreases at smaller pool sizes and convergence toward stable values at larger pools. The key takeaway is that individual agents' ",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.09859v1"
-    },
-    {
-      "doc_id": "2608.09641v1",
-      "title": "Lower spectrum of financial correlation matrices: a new perspective on market synchronization",
-      "page": 12,
-      "thumb": "/data/figures/2608.09641v1_p12_0.jpg",
-      "caption": "Figure 1: Daily average returns of the S&P500 index from 1990 to 2020 (bottom panel); m\u2212(central panel) and m+ (top panel) computed on SPsector dataset, w = 20. Circles highlight the peaks of m\u2212associated with periods of market distress. Global events according to S\u00fcmer (2023): 1. Gulf War or the US Savings and Loans Crisis (1989-1991), 2. East Asian Economic crisis (1997), 3. Subprime crisis (200 \u2014 This three-panel time series figure displays financial market data from 1990 to 2020 for the S&P ",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.09641v1"
-    },
-    {
-      "doc_id": "2608.09641v1",
-      "title": "Lower spectrum of financial correlation matrices: a new perspective on market synchronization",
-      "page": 12,
-      "thumb": "/data/figures/2608.09641v1_p12_1.jpg",
-      "caption": "Figure 1 depicts the time evolution of the lower-spectrum indicator (cen- tral panel) together with the daily average returns of the market index (bot- tom panel). This allows us to relate changes in the e\ufb00ective dimensionality of the market correlation structure with the events of market distress. The measure m+ (top panel) is used as a benchmark. First, we observe that the value of m\u2212ranges betw \u2014 This figure displays three time series panels from 1990 to 2020 showing market dynamics of the S&",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.09641v1"
-    },
-    {
-      "doc_id": "2608.09641v1",
-      "title": "Lower spectrum of financial correlation matrices: a new perspective on market synchronization",
-      "page": 14,
-      "thumb": "/data/figures/2608.09641v1_p14_2.jpg",
-      "caption": "Figure 2: SPsector, w = 20, distributions of the index daily average returns conditioned to the values of m\u2212(left panel) and m+ (right panel). \u2014 The figure displays two panels of violin plots showing probability distributions of index daily average returns conditioned on eigenvalue multiplicity measures from financial correlation matrices. The left panel shows distributions across 8 values of m\u2212 (ranging from 0 to 8 on the x-axis) with returns on the y-axis spanning approximately -0.03 to 0.015,",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.09641v1"
-    },
-    {
-      "doc_id": "2608.09641v1",
-      "title": "Lower spectrum of financial correlation matrices: a new perspective on market synchronization",
-      "page": 15,
-      "thumb": "/data/figures/2608.09641v1_p15_3.jpg",
-      "caption": "Figure 3: Daily average returns of the S&P500 index from 01-03-2008 to 30-10-2016 (bot- tom panel); m\u2212(top panel) computed on SPstocks, w = 754. \u2014 This figure displays a two-panel time series analysis from 2008 to 2016. The top panel shows the S&P 500 index level (ranging from approximately 40 to 100 on the y-axis), exhibiting a sharp drop in 2008-2009 followed by recovery and stabilization through 2016. The bottom panel presents the daily average returns (y-axis ranging from -0.02 to 0.01) and ",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.09641v1"
-    },
-    {
-      "doc_id": "2608.09576v1",
-      "title": "Anomaly detection in European cryptocurrency exchange-traded products",
+      "doc_id": "2608.10852v1",
+      "title": "Universality and Heterogeneity of Stylized Facts in Cryptocurrency and Equity Markets",
       "page": 4,
-      "thumb": "/data/figures/2608.09576v1_p4_0.jpg",
-      "caption": "Figure 1: The 200 cryptocurrency ETPs grouped by their main trading venue. Each instrument is assigned to the venue where it had the highest trading volume during the sample period. \u2014 This donut chart displays the distribution of 200 cryptocurrency ETPs across four major European trading venues based on highest trading volume allocation. Xetra dominates with 46.6% of ETPs, followed by Nasdaq Stockholm (17.3%), SIX Swiss Exchange (16.8%), Euronext Paris (13.6%), and Other venues (5.7%). The visua",
+      "thumb": "/data/figures/2608.10852v1_p4_0.jpg",
+      "caption": "Figure 1 illustrates the HVG construction. A directed edge was assigned from node \ud835\udc56to \ud835\udc57(\ud835\udc56< \ud835\udc57) if no intermediate observation blocked their horizontal line-of-sight: \u2014 This section describes mathematical formulas and methods for analyzing time-series dynamics. Equation (6) defines normalized permutation entropy H[P] as a measure of disorder in a permutation pattern, scaled by the logarithm of possible states D!. Equation (7) defines statistical complexity C[P] as the product of normalized Jensen-",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2608.09576v1"
+      "source": "https://arxiv.org/pdf/2608.10852v1"
     },
     {
-      "doc_id": "2608.09576v1",
-      "title": "Anomaly detection in European cryptocurrency exchange-traded products",
+      "doc_id": "2608.10852v1",
+      "title": "Universality and Heterogeneity of Stylized Facts in Cryptocurrency and Equity Markets",
       "page": 5,
-      "thumb": "/data/figures/2608.09576v1_p5_1.jpg",
-      "caption": "Figure 2: Top 20 cryptocurrency ETPs by trading value over the full sample period. The instruments selected for further analysis are shown in yellow. \u2014 This horizontal bar chart ranks the top 20 cryptocurrency exchange-traded products (ETPs) by total trading value in EUR billions over the full sample period. The x-axis shows trading value from 0 to 16 billion EUR, while the y-axis lists individual ETPs, with bars color-coded to distinguish studied instruments (yellow) from other crypto ETPs (blu",
+      "thumb": "/data/figures/2608.10852v1_p5_1.jpg",
+      "caption": "Figure 1: Construction of the directed horizontal visibility graph. Horizontal visibility links are established between nodes \ud835\udc56and \ud835\udc57if min(\ud835\udc5f\ud835\udc56, \ud835\udc5f\ud835\udc57) > max\ud835\udc56<\ud835\udc58<\ud835\udc57\ud835\udc5f\ud835\udc58, and are oriented following the arrow of time. The blue incoming and orange outgoing arrows show the visible neighbors of node 4, giving \ud835\udc58in(4) = 2 and \ud835\udc58out(4) = 4. The dashed gray candidate link from node 4 to node 7 is blocked by node 6 b \u2014 This figure illustrates the construction of a directed horizontal visibility graph applied to a t",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2608.09576v1"
+      "source": "https://arxiv.org/pdf/2608.10852v1"
     },
     {
-      "doc_id": "2608.09576v1",
-      "title": "Anomaly detection in European cryptocurrency exchange-traded products",
+      "doc_id": "2608.10852v1",
+      "title": "Universality and Heterogeneity of Stylized Facts in Cryptocurrency and Equity Markets",
       "page": 6,
-      "thumb": "/data/figures/2608.09576v1_p6_2.jpg",
-      "caption": "Figure 3: Weekly closing price and weekly aggregate trade volume for the four cryptocurrency ETPs over the sample period. Price is defined as the last available one-minute closing price within each calendar week. Volume is the sum of all one-minute trade volumes within the week, expressed in units traded. \u2014 This figure displays four subplots (a-d) showing weekly closing prices and aggregate trade volumes for four cryptocurrency exchange-traded products (VBTC.XE, VETH.XE, VIRBTC.ST, VIRSETHS.ST) ",
+      "thumb": "/data/figures/2608.10852v1_p6_2.jpg",
+      "caption": "Figure 2: Complementary cumulative distribution functions (CCDFs) of absolute returns for cryptocurrencies and the S&P 500 benchmark, with power-law fits. (a) CCDFs for one-minute returns. The horizontal axis represents the absolute return threshold \ud835\udc65normalized by the standard deviation, and the vertical axis represents the cumulative probability \ud835\udc43(|\ud835\udc5f| > \ud835\udc65). Fat tails are observed for all assets,  \u2014 This figure displays complementary cumulative distribution functions (CCDFs) of absolute returns ",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2608.09576v1"
+      "source": "https://arxiv.org/pdf/2608.10852v1"
     },
     {
-      "doc_id": "2608.09576v1",
-      "title": "Anomaly detection in European cryptocurrency exchange-traded products",
-      "page": 8,
-      "thumb": "/data/figures/2608.09576v1_p8_3.jpg",
-      "caption": "Figure 4: Left tails of the empirical and fitted analytical distribution functions. The plots are presented on the log-log scale. \u2014 This figure displays four log-log plots comparing empirical left tail distributions of cryptocurrency exchange-traded products (VBTC.XE, VETH.XE, VIRBTC.ST, VIRSETHS.ST) against fitted analytical distributions including Student's t, Normal Inverse Gaussian (NIG), generalized normal, Normal-Cauchy Mixture (NCT), Double Weibull, and Empirical. The x-axis represents lo",
+      "doc_id": "2608.10852v1",
+      "title": "Universality and Heterogeneity of Stylized Facts in Cryptocurrency and Equity Markets",
+      "page": 6,
+      "thumb": "/data/figures/2608.10852v1_p6_3.jpg",
+      "caption": "Figure 2 summarizes these tail characteristics, plotting the cumulative probability \ud835\udc43(|\u0303\ud835\udc5f| > \ud835\udc65) against the return threshold \ud835\udc65on a double-logarithmic scale. As shown in panel (a), the one-minute empirical complementary cumulative distribution functions (CCDFs) of all four assets decay much slower than a Gaussian (black solid line), confirming the presence of heavy-tailed returns. The tail exponent \u2014 This figure presents complementary cumulative distribution functions (CCDFs) of absolute returns ",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2608.09576v1"
+      "source": "https://arxiv.org/pdf/2608.10852v1"
     },
     {
-      "doc_id": "2608.09456v1",
-      "title": "Climate-Conditioned Cascade Modeling for Multi-Peril Reinsurance: Analysis and Controlled Numerical Applications",
-      "page": 3,
-      "thumb": "/data/figures/2608.09456v1_p3_0.jpg",
-      "caption": "Figure 1. Computational architecture of the CCRN. Exogenous event-window shocks and climate-conditioned edge hazards generate the cascade closure; the bounded loss map and annual frequency model then determine the contract loss. \u2014 This figure illustrates a joint dependence modeling architecture and cascade framework for multi-peril risk analysis. The left panel shows a copula/joint distribution connecting three dependent hazards (wildfire, flood, debris flow) through an aggregation link, while t",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.09456v1"
-    },
-    {
-      "doc_id": "2608.09456v1",
-      "title": "Climate-Conditioned Cascade Modeling for Multi-Peril Reinsurance: Analysis and Controlled Numerical Applications",
-      "page": 3,
-      "thumb": "/data/figures/2608.09456v1_p3_1.jpg",
-      "caption": "Figure 1 summarizes the full computational flow. The left panel represents the benchmark view in which peril outcomes enter a joint dependence model and are mapped directly to an aggregate-loss law. The right panel makes the event ordering explicit: the climate state modifies the fuel-aridity-to-wildfire and wildfire-rainfall-to- debris-flow channels, the directed graph determines which transition \u2014 This figure illustrates the computational architecture of the Climate-Conditioned Cascade Reinsur",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.09456v1"
-    },
-    {
-      "doc_id": "2608.09456v1",
-      "title": "Climate-Conditioned Cascade Modeling for Multi-Peril Reinsurance: Analysis and Controlled Numerical Applications",
-      "page": 18,
-      "thumb": "/data/figures/2608.09456v1_p18_2.jpg",
-      "caption": "Figure 2. Matched event-marginal comparison of annual aggregate ground-up loss. The dashed line marks attachment and the dotted line marks exhaustion. \u2014 This figure compares three probability distribution models (Gaussian, Student-t, and CCRN) for annual aggregate ground-up loss in reinsurance. The left panel shows empirical CDF curves plotting probability of loss (0 to 1.0) against annual aggregate ground-up loss in USD billions, with vertical dashed and dotted lines indicating attachment and e",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.09456v1"
-    },
-    {
-      "doc_id": "2608.09456v1",
-      "title": "Climate-Conditioned Cascade Modeling for Multi-Peril Reinsurance: Analysis and Controlled Numerical Applications",
-      "page": 20,
-      "thumb": "/data/figures/2608.09456v1_p20_3.jpg",
-      "caption": "Figure 3. Sensitivity of the copula benchmarks to Student-t degrees of freedom and exogenous equicorrelation. \u2014 This figure displays two line charts comparing copula-based premium benchmarks under different model specifications. The left panel shows how premiums vary with Student-t degrees of freedom (2.5 to 20), comparing pure premium and TVaR metrics, both declining as degrees of freedom increase. The right panel illustrates premium sensitivity to equicorrelation (0.20 to 0.60), showing four p",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.09456v1"
-    },
-    {
-      "doc_id": "2608.09378v1",
-      "title": "Scaling laws of Stablecoin Transactions: Evidence from USDT and USDC on the Ethereum blockchain",
-      "page": 8,
-      "thumb": "/data/figures/2608.09378v1_p8_0.jpg",
-      "caption": "Figure 1 shows the complementary cumulative distribution functions (CCDFs) of stablecoin transaction values for USDT and USDC across the six periods, estimated using a fitting sample size of \ud835\udc41= 200,000. The solid lines in the figure 1 represent the empirical CCDFs, while the dashed lines show the power-law fits obtained using the maximum- likelihood method for data above the lower cut-off, \ud835\udc65min. T \u2014 This figure displays complementary cumulative distribution functions (CCDFs) comparing empirical ",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.09378v1"
-    },
-    {
-      "doc_id": "2608.09378v1",
-      "title": "Scaling laws of Stablecoin Transactions: Evidence from USDT and USDC on the Ethereum blockchain",
+      "doc_id": "2608.10788v1",
+      "title": "The Triadic Stress Index in Financial Markets",
       "page": 9,
-      "thumb": "/data/figures/2608.09378v1_p9_1.jpg",
-      "caption": "Figure 2 shows the temporal evolution of the estimated scaling exponent, \ud835\udefc, across the six periods and five fitting sample sizes. Each sample-size panel presents USDT and USDC side by side. The coloured solid lines represent the mean exponents of the EOA-EOA, EOA-SC, SC-EOA, and SC-SC categories, while the dashed line represents the mean exponents of the overall category. Each marker denotes the m \u2014 This figure displays line charts showing the temporal evolution of power-law exponents (\u03b1) for st",
+      "thumb": "/data/figures/2608.10788v1_p9_0.jpg",
+      "caption": "Figure 1: Attribution accuracy as the number of simultaneous epicentres varies. The triangle rule is flat across regimes because it has no parameter to misspecify. The spectral rule depends entirely on how k is chosen: the Marchenko-Pastur rule ties the triangle rule everywhere, a fixed k = 2 costs a quarter of the accuracy when it is wrong, and the equally standard Kaiser rule collapses. The spre \u2014 This stacked bar chart shows node attribution accuracy (y-axis, 0-1.0 scale) across four scenario",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2608.09378v1"
+      "source": "https://arxiv.org/pdf/2608.10788v1"
+    },
+    {
+      "doc_id": "2608.10788v1",
+      "title": "The Triadic Stress Index in Financial Markets",
+      "page": 10,
+      "thumb": "/data/figures/2608.10788v1_p10_1.jpg",
+      "caption": "Figure 2: Out-of-sample crisis detection, each metric read raw (pale) and under the same per- sistence filter (solid). TSI outperforms the Absorption Ratio by a wide margin in both readings, but the sharper spectral baselines sit within its confidence interval in both. The advantage over the industry standard is real; the advantage over a properly sharpened spectral measure is not, and giving the  \u2014 This bar chart compares out-of-sample crisis detection performance across five financial stress m",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.10788v1"
+    },
+    {
+      "doc_id": "2608.10788v1",
+      "title": "The Triadic Stress Index in Financial Markets",
+      "page": 15,
+      "thumb": "/data/figures/2608.10788v1_p15_2.jpg",
+      "caption": "Figure 3: Cross-correlation against the OFR Financial Stress Index. TSI with its persistence filter is in dark blue, raw TSI in green, and the Absorption Ratio in red. (a) In levels, TSI peaks at or just before zero lag and decays symmetrically. (b) In first differences the same conclusion sharpens: at positive lags, where a leading indicator would show its peak, the correlation lies inside the no \u2014 This figure displays the cross-correlation between the Triadic Stress Index (TSI) and the OFR Fin",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.10788v1"
+    },
+    {
+      "doc_id": "2608.10711v1",
+      "title": "Optimal Pricing and Hedging of SOFR Derivatives",
+      "page": 8,
+      "thumb": "/data/figures/2608.10711v1_p8_0.jpg",
+      "caption": "Figure 1: The quarterly development of the medians and 90% and 99% confidence bands of the simulated values of the underlyings of the SOFR derivatives in Section 2.1. The upper plot compares simulated three-month SOFR averages against the three-month futures quotes (the vertical bars). The lower plot compares the simulated three-month futures rates against the strikes of the listed options on thre \u2014 This figure displays two stacked area charts tracking three-month SOFR (Secured Overnight Financi",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.10711v1"
+    },
+    {
+      "doc_id": "2608.10711v1",
+      "title": "Optimal Pricing and Hedging of SOFR Derivatives",
+      "page": 19,
+      "thumb": "/data/figures/2608.10711v1_p19_1.jpg",
+      "caption": "Figure 3 compares the payouts of the hedging strategies with the payouts of the OIS being priced. The blue dots give the payouts of the hedging portfolio against the value of the floating leg in different scenarios. The orange curves give the payouts of the swaps. Exact replication of the OIS is not possible with the considered 47 hedging instruments, but the payout of the constructed hedging stra \u2014 This figure compares hedging strategy payoffs versus OIS swap payoffs across different market sce",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.10711v1"
+    },
+    {
+      "doc_id": "2608.10711v1",
+      "title": "Optimal Pricing and Hedging of SOFR Derivatives",
+      "page": 19,
+      "thumb": "/data/figures/2608.10711v1_p19_2.jpg",
+      "caption": "Figure 2: Hedging strategies for a two-month SOFR OIS for a short position (left) and a long position (right) obtained with a risk aversion parameter \u03c1 = 100 and a notional of $500,000 on 28 August 2024. The OIS indifference sell rate is 5.23544% while the buy rate is 5.23177%. Cash is expressed in USD. \u2014 This figure displays two sets of box plots comparing optimal hedging strategies for SOFR OIS derivatives under short and long swap positions. Each side shows four panels: a distribution plot on",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.10711v1"
+    },
+    {
+      "doc_id": "2608.10711v1",
+      "title": "Optimal Pricing and Hedging of SOFR Derivatives",
+      "page": 20,
+      "thumb": "/data/figures/2608.10711v1_p20_3.jpg",
+      "caption": "Figure 3: The payouts of the hedging strategies (in Figure 2) compared with the payout of a two-month SOFR OIS as a function of the OIS variable leg R(T0, T)\u03b4(T \u2212T0) for a short position (left) and a long position (right) on 28 August 2024. The OIS notional is $500,000 while the risk aversion parameter is \u03c1 = 100. The OIS indifference sell rate is 5.23544% while the buy rate is 5.23177%. The payou \u2014 This figure displays two scatter plots comparing hedging strategy payouts against SOFR OIS swap p",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.10711v1"
+    },
+    {
+      "doc_id": "2608.10693v1",
+      "title": "When the Fed Speaks: Dynamics and Forecasts of the Volatility Surface",
+      "page": 10,
+      "thumb": "/data/figures/2608.10693v1_p10_0.jpg",
+      "caption": "Figure 1: The implied volatility surface fitted using linear interpolation and linear extrapola- tion of wings - call options on S&P 500 index as observed at 2pm on 16 May 2024. \u2014 This is a 3D surface plot showing the implied volatility (IV) surface for S&P 500 index call options on May 16, 2024 at 2pm. The axes represent moneyness (log-moneyness on the x-axis ranging from approximately -0.2 to 0.2), maturity in days (y-axis ranging from 0 to 250+ days), and implied volatility (z-axis ranging fr",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.10693v1"
+    },
+    {
+      "doc_id": "2608.10693v1",
+      "title": "When the Fed Speaks: Dynamics and Forecasts of the Volatility Surface",
+      "page": 11,
+      "thumb": "/data/figures/2608.10693v1_p11_1.jpg",
+      "caption": "Figure 2: The implied volatility surface with fitted AHBS model - call options on S&P 500 index as observed at 2pm on 16 May 2024. \u2014 This figure is a 3D surface plot showing the implied volatility (IV) surface for S&P 500 index call options on May 16, 2024. The axes represent moneyness (log-moneyness, ranging from approximately -0.2 to 0.2), maturity in days (ranging from 50 to 250 days), and implied volatility (ranging from 0.2 to 1.0). The surface is fitted with the AHBS model and displays a c",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.10693v1"
+    },
+    {
+      "doc_id": "2608.10693v1",
+      "title": "When the Fed Speaks: Dynamics and Forecasts of the Volatility Surface",
+      "page": 12,
+      "thumb": "/data/figures/2608.10693v1_p12_2.jpg",
+      "caption": "Figure 3: The implied volatility surface with fitted SVI model - call options on S&P 500 index as observed at 2pm on 16 May 2024. \u2014 This is a 3D surface plot showing the implied volatility (IV) surface for S&P 500 index call options on May 16, 2024 at 2pm. The axes represent moneyness (x-axis, ranging from approximately -0.200 to 0.2) and log-moneyness or time-to-maturity (y-axis), with implied volatility on the z-axis (ranging from 0.5 to 3.5). The surface, fitted using the SVI (Stochastic Vola",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.10693v1"
+    },
+    {
+      "doc_id": "2608.10693v1",
+      "title": "When the Fed Speaks: Dynamics and Forecasts of the Volatility Surface",
+      "page": 18,
+      "thumb": "/data/figures/2608.10693v1_p18_3.jpg",
+      "caption": "Figure 4: Average ATM Implied and Realised Volatility for call options expiring on the day of announcement denoted by T0. The ribbon is the standard 95% confidence interval. \u2014 This line chart displays implied volatility (IV) and realized volatility (RV) for at-the-money call options across days leading up to and including a Federal Reserve announcement at T0 (announcement day). The x-axis shows time measured in days to expiration (DTE) from T-10 through T0, while the y-axis measures implied vola",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.10693v1"
+    },
+    {
+      "doc_id": "2608.10410v1",
+      "title": "Objective-oriented quantitative investment: A specification-driven framework for automated synthesis of trading strategy pipelines",
+      "page": 10,
+      "thumb": "/data/figures/2608.10410v1_p10_0.jpg",
+      "caption": "Figure 1: The OOQI stack. Specifications flow down; assemblies are proposed and verified in the contracted design space; satisfaction evidence flows back for attribution and iteration. \u2014 This figure illustrates a three-layer software architecture stack for automated trading strategy synthesis, displayed as a vertical flow diagram. The demand layer at the top specifies strategy profiles using 8 families, hard/soft clauses, priorities, and interaction algebra; the compiler in the middle translates",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.10410v1"
+    },
+    {
+      "doc_id": "2608.10410v1",
+      "title": "Objective-oriented quantitative investment: A specification-driven framework for automated synthesis of trading strategy pipelines",
+      "page": 12,
+      "thumb": "/data/figures/2608.10410v1_p12_1.jpg",
+      "caption": "Figure 2: (a) All 32 assemblies in the score\u2013identity plane; shading marks the style-purity region. Result-oriented selection picks A (top in-sample IR, outside the spec region); objective-oriented selection picks B (best IR within the feasible set). (b) Clause-wise satisfaction: A satisfies only the turnover clause in-sample (25%); B satisfies the full specification (100%), with one held-out clau \u2014 Panel (a) shows a scatter plot of 32 pipeline assemblies plotted by style exposure (x-axis) versu",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.10410v1"
+    },
+    {
+      "doc_id": "2608.10321v1",
+      "title": "Multi-Credit Calibration via Elastically Stopped L\u00e9vy Processes",
+      "page": 14,
+      "thumb": "/data/figures/2608.10321v1_p14_0.jpg",
+      "caption": "Figure 1: The structural separation of Lemmas 2.7 and 2.8. Top: a BB name whose observed forward hazards hump at 5\u20137y and roll over; the fitted subordinator climbs through the data towards its plateau \u03c6(1), while the fitted Cram\u00b4er\u2013Lundberg rolls over with the curve. Bottom: the frequency of decreasing forward-hazard segments in the bootstrapped curve panels, by index and segment, computed over th \u2014 The top panel shows observed forward hazards (black, bootstrapped) for a BB-rated name with a hum",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.10321v1"
     }
   ],
   "docs": [
     {
-      "id": "2608.09859v1",
-      "title": "Nash Peer-to-Peer Insurance Bargaining under Price Fairness and Coalitional Stability",
-      "source": "https://arxiv.org/pdf/2608.09859v1",
-      "pages": 36,
-      "images": 12,
+      "id": "2608.10852v1",
+      "title": "Universality and Heterogeneity of Stylized Facts in Cryptocurrency and Equity Markets",
+      "source": "https://arxiv.org/pdf/2608.10852v1",
+      "pages": 24,
+      "images": 3,
       "figures_captioned": 4,
-      "tables": 0,
+      "tables": 4,
       "has_math": true,
       "ocr_used": false,
       "chunks_indexed": 60
     },
     {
-      "id": "2608.09641v1",
-      "title": "Lower spectrum of financial correlation matrices: a new perspective on market synchronization",
-      "source": "https://arxiv.org/pdf/2608.09641v1",
-      "pages": 33,
-      "images": 16,
+      "id": "2608.10788v1",
+      "title": "The Triadic Stress Index in Financial Markets",
+      "source": "https://arxiv.org/pdf/2608.10788v1",
+      "pages": 21,
+      "images": 0,
+      "figures_captioned": 3,
+      "tables": 3,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 51
+    },
+    {
+      "id": "2608.10711v1",
+      "title": "Optimal Pricing and Hedging of SOFR Derivatives",
+      "source": "https://arxiv.org/pdf/2608.10711v1",
+      "pages": 28,
+      "images": 20,
       "figures_captioned": 4,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 40
+      "chunks_indexed": 47
     },
     {
-      "id": "2608.09576v1",
-      "title": "Anomaly detection in European cryptocurrency exchange-traded products",
-      "source": "https://arxiv.org/pdf/2608.09576v1",
-      "pages": 27,
-      "images": 36,
+      "id": "2608.10693v1",
+      "title": "When the Fed Speaks: Dynamics and Forecasts of the Volatility Surface",
+      "source": "https://arxiv.org/pdf/2608.10693v1",
+      "pages": 130,
+      "images": 3,
       "figures_captioned": 4,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 42
+      "chunks_indexed": 39
     },
     {
-      "id": "2608.09456v1",
-      "title": "Climate-Conditioned Cascade Modeling for Multi-Peril Reinsurance: Analysis and Controlled Numerical Applications",
-      "source": "https://arxiv.org/pdf/2608.09456v1",
-      "pages": 35,
-      "images": 7,
-      "figures_captioned": 4,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 49
-    },
-    {
-      "id": "2608.09378v1",
-      "title": "Scaling laws of Stablecoin Transactions: Evidence from USDT and USDC on the Ethereum blockchain",
-      "source": "https://arxiv.org/pdf/2608.09378v1",
-      "pages": 14,
-      "images": 1,
+      "id": "2608.10410v1",
+      "title": "Objective-oriented quantitative investment: A specification-driven framework for automated synthesis of trading strategy pipelines",
+      "source": "https://arxiv.org/pdf/2608.10410v1",
+      "pages": 83,
+      "images": 0,
       "figures_captioned": 2,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 32
+      "chunks_indexed": 64
     },
     {
-      "id": "2608.09188v1",
-      "title": "When Cross-Venue Agreement Is Not Price Discovery: Disclosure Frontiers for 24/7 Equity-Perpetual Oracles",
-      "source": "https://arxiv.org/pdf/2608.09188v1",
-      "pages": 16,
-      "images": 0,
-      "figures_captioned": 0,
+      "id": "2608.10321v1",
+      "title": "Multi-Credit Calibration via Elastically Stopped L\u00e9vy Processes",
+      "source": "https://arxiv.org/pdf/2608.10321v1",
+      "pages": 36,
+      "images": 2,
+      "figures_captioned": 1,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 33
+      "chunks_indexed": 56
     },
     {
-      "id": "2608.09087v1",
-      "title": "Joint Lyapunov Certificates for K-Agent Generative AI Governance: Stochastic Stability, Emergent Ensemble Risk, and Zero-Knowledge Governance Attestation",
-      "source": "https://arxiv.org/pdf/2608.09087v1",
-      "pages": 43,
-      "images": 0,
+      "id": "2608.10197v1",
+      "title": "An Optimal Energy Production Problem with Energy Source Switching and Load Following Nuclear Power Plants",
+      "source": "https://arxiv.org/pdf/2608.10197v1",
+      "pages": 29,
+      "images": 20,
       "figures_captioned": 0,
       "tables": 0,
       "has_math": true,
@@ -315,40 +315,40 @@
       "chunks_indexed": 45
     },
     {
-      "id": "2608.09069v1",
-      "title": "Telemetry and Concealment in Self-Adapting Generative AI: Logging Architecture, Adversarial Model Hiding, and the Limits of Detection",
-      "source": "https://arxiv.org/pdf/2608.09069v1",
-      "pages": 43,
+      "id": "2608.10175v1",
+      "title": "Beyond Cash Flows: A Multi-Agent AI Framework for Valuing Clinical-Stage, Cross-Border Biotechnology",
+      "source": "https://arxiv.org/pdf/2608.10175v1",
+      "pages": 11,
       "images": 0,
+      "figures_captioned": 0,
+      "tables": 0,
+      "has_math": false,
+      "ocr_used": false,
+      "chunks_indexed": 23
+    },
+    {
+      "id": "2608.09859v1",
+      "title": "Nash Peer-to-Peer Insurance Bargaining under Price Fairness and Coalitional Stability",
+      "source": "https://arxiv.org/pdf/2608.09859v1",
+      "pages": 36,
+      "images": 12,
       "figures_captioned": 0,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 57
+      "chunks_indexed": 56
     },
     {
-      "id": "2608.08900v1",
-      "title": "High-Order Expansions of the Optimizer Map via Bell Polynomials",
-      "source": "https://arxiv.org/pdf/2608.08900v1",
+      "id": "2608.09641v1",
+      "title": "Lower spectrum of financial correlation matrices: a new perspective on market synchronization",
+      "source": "https://arxiv.org/pdf/2608.09641v1",
       "pages": 33,
-      "images": 0,
+      "images": 16,
       "figures_captioned": 0,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 29
-    },
-    {
-      "id": "2608.08825v1",
-      "title": "Hybrid Neural-Classical Correction for Frozen Time Series Foundation Models: A Comprehensive Ablation Study on High-Frequency Stock Prediction",
-      "source": "https://arxiv.org/pdf/2608.08825v1",
-      "pages": 8,
-      "images": 0,
-      "figures_captioned": 0,
-      "tables": 2,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 20
+      "chunks_indexed": 36
     }
   ]
 }
