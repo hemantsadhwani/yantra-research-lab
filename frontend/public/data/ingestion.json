@@ -1,7 +1,7 @@
 {
   "_note": "Public run manifest of the Tier-3 agentic ingestion pipeline. Safe aggregates + provenance only; raw PDFs live in S3, not here.",
-  "run_id": "20260812T041842Z",
-  "generated_at": "2026-08-12T04:23:08+00:00",
+  "run_id": "20260813T042143Z",
+  "generated_at": "2026-08-13T04:26:33+00:00",
   "collection": "research_corpus",
   "embed_model": "BAAI/bge-small-en-v1.5",
   "dag": [
@@ -50,197 +50,293 @@
     "discovered": 10,
     "fetched": 10,
     "parsed": 10,
-    "chunks": 501,
-    "accepted": 477,
-    "rejected": 24,
-    "images": 76,
+    "chunks": 429,
+    "accepted": 400,
+    "rejected": 29,
+    "images": 39,
     "figures_captioned": 18,
-    "tables": 7,
-    "with_math": 9,
-    "indexed": 477,
-    "spent_usd": 0.0333,
-    "duration_s": 266.2
+    "tables": 12,
+    "with_math": 10,
+    "indexed": 400,
+    "spent_usd": 0.0307,
+    "duration_s": 290.2
   },
   "rejects_by_reason": {
-    "low-relevance": 24
+    "low-relevance": 29
   },
   "budget_usd": 3.0,
   "figures": [
     {
-      "doc_id": "2608.10852v1",
-      "title": "Universality and Heterogeneity of Stylized Facts in Cryptocurrency and Equity Markets",
-      "page": 4,
-      "thumb": "/data/figures/2608.10852v1_p4_0.jpg",
-      "caption": "Figure 1 illustrates the HVG construction. A directed edge was assigned from node \ud835\udc56to \ud835\udc57(\ud835\udc56< \ud835\udc57) if no intermediate observation blocked their horizontal line-of-sight: \u2014 This section describes mathematical formulas and methods for analyzing time-series dynamics. Equation (6) defines normalized permutation entropy H[P] as a measure of disorder in a permutation pattern, scaled by the logarithm of possible states D!. Equation (7) defines statistical complexity C[P] as the product of normalized Jensen-",
+      "doc_id": "2608.12283v1",
+      "title": "Large Language Model-Driven Small-Capitalization Trading: Integrating Financial News Sentiment, Macroeconomic Indicators, and Technical Signals",
+      "page": 2,
+      "thumb": "/data/figures/2608.12283v1_p2_0.jpg",
+      "caption": "Figure 1: Holding-period sweep at 100 bps. Pure alpha leads at 5, 10, and 60 days; pure beta leads at 20 and 40 days. \u2014 This line chart displays Sharpe ratio performance across holding periods from 5 to 60 days for a small-cap trading strategy tested with 100 basis points transaction costs. Three strategies are compared: Pure Alpha (magenta), Pure Beta (orange dashed), and their 50/50 blend (blue dotted). Pure Alpha achieves the highest Sharpe ratios at 5, 10, and 60-day holding periods, while P",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2608.10852v1"
+      "source": "https://arxiv.org/pdf/2608.12283v1"
     },
     {
-      "doc_id": "2608.10852v1",
-      "title": "Universality and Heterogeneity of Stylized Facts in Cryptocurrency and Equity Markets",
+      "doc_id": "2608.12283v1",
+      "title": "Large Language Model-Driven Small-Capitalization Trading: Integrating Financial News Sentiment, Macroeconomic Indicators, and Technical Signals",
+      "page": 3,
+      "thumb": "/data/figures/2608.12283v1_p3_1.jpg",
+      "caption": "Figure 2: End-to-end trading pipeline. The experiment begins with a Russell 2000 price and news panel, resolves a tradable cross-section using one of three macro-beta trigger legs, clusters related articles into news-summary sentiment features, and trains a return-distribution network that outputs both expected returns and predictive covariance. The same predicted moments are then passed to six al \u2014 This figure presents a four-stage end-to-end trading pipeline for small-cap stock selection and p",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.12283v1"
+    },
+    {
+      "doc_id": "2608.12283v1",
+      "title": "Large Language Model-Driven Small-Capitalization Trading: Integrating Financial News Sentiment, Macroeconomic Indicators, and Technical Signals",
+      "page": 6,
+      "thumb": "/data/figures/2608.12283v1_p6_2.jpg",
+      "caption": "Figure 1 summarizes the conservative 100 bps benchmark. The main result is that the separated pure-alpha and pure-beta legs are more useful than the beta intersection. Pure alpha leads at 5, 10, and 60 trading days; pure beta leads at 20 and 40 days. The one-day result is cost-sensitive: pure beta is strongest at low costs, but the edge disappears un- der the 100 bps stress case (Appendix D). \u2014 This line chart displays cumulative returns over time for multiple trading strategies, with four lines",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.12283v1"
+    },
+    {
+      "doc_id": "2608.12283v1",
+      "title": "Large Language Model-Driven Small-Capitalization Trading: Integrating Financial News Sentiment, Macroeconomic Indicators, and Technical Signals",
+      "page": 6,
+      "thumb": "/data/figures/2608.12283v1_p6_3.jpg",
+      "caption": "Figure 3: Cumulative net-return paths for the filtered se- lection regimes at 100 bps transaction cost and a 60-day holding period, compared with Buy-and-Hold, an equal- weight (EW) portfolio, and the Russell benchmark in- dex. The longer-horizon results favor pure alpha, while pure beta remains positive and the beta-intersection strat- egy exhibits weaker performance. \u2014 This line chart displays cumulative returns from 2024 to 2026 for multiple portfolio selection strategies, including Pure Alph",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.12283v1"
+    },
+    {
+      "doc_id": "2608.12259v1",
+      "title": "Calibration Bets on the Past: Post-Training Quantization for Financial Time-Series Forecasting",
+      "page": 2,
+      "thumb": "/data/figures/2608.12259v1_p2_0.jpg",
+      "caption": "Figure 1: The resolution\u2013range trade-off at 4 bits. Both panels show the same activation distribution quantized with the 15 representable values; only the range \ud835\udc34differs. A narrow \ud835\udc34 reduces the step size \ud835\udc60but clips the tails, whereas a wide \ud835\udc34 eliminates clipping at the cost of coarser spacing throughout. \u2014 This figure illustrates the quantization resolution-range trade-off for 4-bit post-training quantization of neural network activations. The left panel (Narrow A) shows a narrow quantization ra",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.12259v1"
+    },
+    {
+      "doc_id": "2608.12259v1",
+      "title": "Calibration Bets on the Past: Post-Training Quantization for Financial Time-Series Forecasting",
       "page": 5,
-      "thumb": "/data/figures/2608.10852v1_p5_1.jpg",
-      "caption": "Figure 1: Construction of the directed horizontal visibility graph. Horizontal visibility links are established between nodes \ud835\udc56and \ud835\udc57if min(\ud835\udc5f\ud835\udc56, \ud835\udc5f\ud835\udc57) > max\ud835\udc56<\ud835\udc58<\ud835\udc57\ud835\udc5f\ud835\udc58, and are oriented following the arrow of time. The blue incoming and orange outgoing arrows show the visible neighbors of node 4, giving \ud835\udc58in(4) = 2 and \ud835\udc58out(4) = 4. The dashed gray candidate link from node 4 to node 7 is blocked by node 6 b \u2014 This figure illustrates the construction of a directed horizontal visibility graph applied to a t",
+      "thumb": "/data/figures/2608.12259v1_p5_1.jpg",
+      "caption": "Figure 2: Activation-range sweep for W4A4, averaged over eight walk-forward folds and ten seeds per fold. Moving left narrows the range, improving in-range resolution while increasing clipping. The star marker indicates the lowest- damage setting for each architecture. \u2014 This figure displays four line plots showing activation-range sweep results for W4A4 quantization across different neural network architectures (TSMixer, Transformer, SeqRNN, and TimeMixer) used for financial time-series forecas",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2608.10852v1"
+      "source": "https://arxiv.org/pdf/2608.12259v1"
     },
     {
-      "doc_id": "2608.10852v1",
-      "title": "Universality and Heterogeneity of Stylized Facts in Cryptocurrency and Equity Markets",
+      "doc_id": "2608.12259v1",
+      "title": "Calibration Bets on the Past: Post-Training Quantization for Financial Time-Series Forecasting",
+      "page": 5,
+      "thumb": "/data/figures/2608.12259v1_p5_2.jpg",
+      "caption": "Figure 2 shows this trade-off. We focus this analysis on the four architectures with the largest default W4A4 damage: TSMixer, Transformer, SegRNN, and TimeMixer. For all four, default abs-max calibration lies on the high-damage side of the curve. Damage first decreases as the range narrows, reaching a minimum somewhere between p98 and p99.9 depending on the architecture. For TSMixer, Transformer, \u2014 This figure displays activation-range sweeps for W4A4 quantization across four neural network arc",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.12259v1"
+    },
+    {
+      "doc_id": "2608.12259v1",
+      "title": "Calibration Bets on the Past: Post-Training Quantization for Financial Time-Series Forecasting",
       "page": 6,
-      "thumb": "/data/figures/2608.10852v1_p6_2.jpg",
-      "caption": "Figure 2: Complementary cumulative distribution functions (CCDFs) of absolute returns for cryptocurrencies and the S&P 500 benchmark, with power-law fits. (a) CCDFs for one-minute returns. The horizontal axis represents the absolute return threshold \ud835\udc65normalized by the standard deviation, and the vertical axis represents the cumulative probability \ud835\udc43(|\ud835\udc5f| > \ud835\udc65). Fat tails are observed for all assets,  \u2014 This figure displays complementary cumulative distribution functions (CCDFs) of absolute returns ",
+      "thumb": "/data/figures/2608.12259v1_p6_3.jpg",
+      "caption": "Figure 3: Daily cross-sectional return dispersion \ud835\udf0e\ud835\udc61(gray) against the calibration envelope (dashed blue) for each walk- forward fold. Each envelope segment is the maximum \ud835\udf0e\ud835\udc61 observed during the validation year that precedes it and is held fixed while evaluating the following test year (orange markers indicate days that exceed it). \u2014 This line chart shows daily cross-sectional return dispersion over time from 2017 to 2026, with gray noise representing actual dispersion values and a dashed blue l",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2608.10852v1"
+      "source": "https://arxiv.org/pdf/2608.12259v1"
     },
     {
-      "doc_id": "2608.10852v1",
-      "title": "Universality and Heterogeneity of Stylized Facts in Cryptocurrency and Equity Markets",
+      "doc_id": "2608.12251v1",
+      "title": "Regime-Gated Residual Mixture-of-Experts for Cross-Sectional Volatility Forecasting",
+      "page": 3,
+      "thumb": "/data/figures/2608.12251v1_p3_0.jpg",
+      "caption": "Figure 1: Architectures of the baseline MLP-L(+\ud835\udc67) (left) and proposed RG-ResMoE (right). \u2014 This figure compares two neural network architectures for volatility forecasting. The left panel shows MLP-L(+z), a baseline model that processes stock features x and regime variables z through a multi-layer perceptron to produce volatility forecast \u0177, with regime variables constructed from market volatility and idiosyncratic volatility components. The right panel illustrates RG-ResMoE, the proposed regime",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.12251v1"
+    },
+    {
+      "doc_id": "2608.12251v1",
+      "title": "Regime-Gated Residual Mixture-of-Experts for Cross-Sectional Volatility Forecasting",
+      "page": 5,
+      "thumb": "/data/figures/2608.12251v1_p5_1.jpg",
+      "caption": "Figure 2: Per-window comparison of input and gate integra- tion across the 30 walk-forward windows. Lines show seed- averaged paired differences within each evaluation window. Positive values indicate improvement for \u0394IC and deteriora- tion for \u0394RMSE. \u2014 This figure shows a time-series line plot comparing the integration performance of input and gate pathways across 30 walk-forward windows from 2019 to 2025. The chart displays three metrics (\u0394IC, \u0394RMSE, and \u0394Loss) as paired differences between me",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.12251v1"
+    },
+    {
+      "doc_id": "2608.12251v1",
+      "title": "Regime-Gated Residual Mixture-of-Experts for Cross-Sectional Volatility Forecasting",
       "page": 6,
-      "thumb": "/data/figures/2608.10852v1_p6_3.jpg",
-      "caption": "Figure 2 summarizes these tail characteristics, plotting the cumulative probability \ud835\udc43(|\u0303\ud835\udc5f| > \ud835\udc65) against the return threshold \ud835\udc65on a double-logarithmic scale. As shown in panel (a), the one-minute empirical complementary cumulative distribution functions (CCDFs) of all four assets decay much slower than a Gaussian (black solid line), confirming the presence of heavy-tailed returns. The tail exponent \u2014 This figure presents complementary cumulative distribution functions (CCDFs) of absolute returns ",
+      "thumb": "/data/figures/2608.12251v1_p6_2.jpg",
+      "caption": "Figure 3: Gate behavior of RG-ResMoE across 30 random seeds. (a) Distribution of the maximum routing weight as- signed to any expert for each observation. Uniform routing corresponds to 0.25 and hard routing to 1. (b) Correlations between expert weights and the two regime variables after within-seed sorting. Whiskers denote across-seed standard deviations. \u2014 Figure 3 displays the gating mechanism behavior of a Regime-Gated Residual Mixture-of-Experts model across 30 random seeds. Panel (a) is a ",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2608.10852v1"
+      "source": "https://arxiv.org/pdf/2608.12251v1"
     },
     {
-      "doc_id": "2608.10788v1",
-      "title": "The Triadic Stress Index in Financial Markets",
-      "page": 9,
-      "thumb": "/data/figures/2608.10788v1_p9_0.jpg",
-      "caption": "Figure 1: Attribution accuracy as the number of simultaneous epicentres varies. The triangle rule is flat across regimes because it has no parameter to misspecify. The spectral rule depends entirely on how k is chosen: the Marchenko-Pastur rule ties the triangle rule everywhere, a fixed k = 2 costs a quarter of the accuracy when it is wrong, and the equally standard Kaiser rule collapses. The spre \u2014 This stacked bar chart shows node attribution accuracy (y-axis, 0-1.0 scale) across four scenario",
+      "doc_id": "2608.12251v1",
+      "title": "Regime-Gated Residual Mixture-of-Experts for Cross-Sectional Volatility Forecasting",
+      "page": 7,
+      "thumb": "/data/figures/2608.12251v1_p7_3.jpg",
+      "caption": "Figure 4: Training stability across random initializations. Each point shows the mean test QLIKE for one training seed. The dashed line marks the collapse threshold (QLIKE = 2), and the numbers on the right report the number of collapsed runs. \u2014 This scatter plot on a log scale displays training stability across random initializations for various volatility forecasting models, with mean test QLIKE (Quasi-Likelihood) per seed on the x-axis and different model variants on the y-axis. Each point re",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2608.10788v1"
+      "source": "https://arxiv.org/pdf/2608.12251v1"
     },
     {
-      "doc_id": "2608.10788v1",
-      "title": "The Triadic Stress Index in Financial Markets",
-      "page": 10,
-      "thumb": "/data/figures/2608.10788v1_p10_1.jpg",
-      "caption": "Figure 2: Out-of-sample crisis detection, each metric read raw (pale) and under the same per- sistence filter (solid). TSI outperforms the Absorption Ratio by a wide margin in both readings, but the sharper spectral baselines sit within its confidence interval in both. The advantage over the industry standard is real; the advantage over a properly sharpened spectral measure is not, and giving the  \u2014 This bar chart compares out-of-sample crisis detection performance across five financial stress m",
+      "doc_id": "2608.12023v1",
+      "title": "Sectoral inter-dependencies drive the loss of structural balance in signed financial networks",
+      "page": 3,
+      "thumb": "/data/figures/2608.12023v1_p3_0.jpg",
+      "caption": "Figure 1: Four possible signed triadic configurations in structural balance theory. Blue edges denote positive correlations and magenta edges denote negative correlations between asset time series. Triads with an even number of negative edges, (+++) and (+\u2212\u2212), are structurally balanced, whereas triads with an odd number of negative edges, (+ + \u2212) and (\u2212\u2212\u2212), are structurally unbalanced (frustrated) \u2014 This figure illustrates four possible signed triadic configurations in a financial network, repre",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2608.10788v1"
+      "source": "https://arxiv.org/pdf/2608.12023v1"
     },
     {
-      "doc_id": "2608.10788v1",
-      "title": "The Triadic Stress Index in Financial Markets",
-      "page": 15,
-      "thumb": "/data/figures/2608.10788v1_p15_2.jpg",
-      "caption": "Figure 3: Cross-correlation against the OFR Financial Stress Index. TSI with its persistence filter is in dark blue, raw TSI in green, and the Absorption Ratio in red. (a) In levels, TSI peaks at or just before zero lag and decays symmetrically. (b) In first differences the same conclusion sharpens: at positive lags, where a leading indicator would show its peak, the correlation lies inside the no \u2014 This figure displays the cross-correlation between the Triadic Stress Index (TSI) and the OFR Fin",
+      "doc_id": "2608.12023v1",
+      "title": "Sectoral inter-dependencies drive the loss of structural balance in signed financial networks",
+      "page": 6,
+      "thumb": "/data/figures/2608.12023v1_p6_1.jpg",
+      "caption": "Figure 2: Comparison of the eigenvalue spectra of the empirical correlation matrix (blue histogram), the Marchenko\u2013Pastur (MP) dis- tribution (dashed black curve), and the randomized (shuffled) correlation matrix (orange histogram) for a window during the onset of the COVID-19 crisis (dated April 09, 2021\u2013April 06, 2022). The insets display the complete eigenvalue spectrum, highlighting the 8 devi \u2014 This figure compares eigenvalue spectra from three sources using a histogram and curve plot: the ",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2608.10788v1"
+      "source": "https://arxiv.org/pdf/2608.12023v1"
     },
     {
-      "doc_id": "2608.10711v1",
-      "title": "Optimal Pricing and Hedging of SOFR Derivatives",
+      "doc_id": "2608.12023v1",
+      "title": "Sectoral inter-dependencies drive the loss of structural balance in signed financial networks",
+      "page": 7,
+      "thumb": "/data/figures/2608.12023v1_p7_2.jpg",
+      "caption": "Figure 3: Structure of the largest (u1i) and second-largest eigenvector components (u2i) of the S&P 500 cross-correlation matrix C during the period April 09, 2021\u2013April 06, 2022. Panel (a) displays the eigenvector associated with the largest eigenvalue, and panel (b) displays that associated with the second-largest eigenvalue. Colors denote the sector affiliation of the constituent stocks. A: Bas \u2014 This figure shows the eigenvector components of the S&P 500 cross-correlation matrix during April",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.12023v1"
+    },
+    {
+      "doc_id": "2608.12023v1",
+      "title": "Sectoral inter-dependencies drive the loss of structural balance in signed financial networks",
       "page": 8,
-      "thumb": "/data/figures/2608.10711v1_p8_0.jpg",
-      "caption": "Figure 1: The quarterly development of the medians and 90% and 99% confidence bands of the simulated values of the underlyings of the SOFR derivatives in Section 2.1. The upper plot compares simulated three-month SOFR averages against the three-month futures quotes (the vertical bars). The lower plot compares the simulated three-month futures rates against the strikes of the listed options on thre \u2014 This figure displays two stacked area charts tracking three-month SOFR (Secured Overnight Financi",
+      "thumb": "/data/figures/2608.12023v1_p8_3.jpg",
+      "caption": "Figure 4: Temporal evolution of balanced N(\u2206Bal) and frustrated N(\u2206Frust) triads, resolved into intra-sector and inter-sector configurations. (a) shows the total number of balanced triads, N+, along with the numbers of inter-sector (Ninter \u2014 This figure displays time series plots tracking the evolution of balanced and frustrated triads in a signed financial network from July 2010 to July 2023. Panel (a) shows the total number of balanced triads N(+) on a logarithmic scale alongside inter-sector ",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2608.10711v1"
+      "source": "https://arxiv.org/pdf/2608.12023v1"
     },
     {
-      "doc_id": "2608.10711v1",
-      "title": "Optimal Pricing and Hedging of SOFR Derivatives",
-      "page": 19,
-      "thumb": "/data/figures/2608.10711v1_p19_1.jpg",
-      "caption": "Figure 3 compares the payouts of the hedging strategies with the payouts of the OIS being priced. The blue dots give the payouts of the hedging portfolio against the value of the floating leg in different scenarios. The orange curves give the payouts of the swaps. Exact replication of the OIS is not possible with the considered 47 hedging instruments, but the payout of the constructed hedging stra \u2014 This figure compares hedging strategy payoffs versus OIS swap payoffs across different market sce",
+      "doc_id": "2608.12016v1",
+      "title": "Term structure shapes in the Hull-White model with Svensson-parameterized initial yield curves",
+      "page": 8,
+      "thumb": "/data/figures/2608.12016v1_p8_0.jpg",
+      "caption": "Figure 1. Samples from the family F. Highlighted are \u03b60 \u2014 This figure displays stochastic evolution paths of yield curves over time using the Hull-White interest rate model with Svensson parameterization. The x-axis represents time t and the y-axis represents yield r, with multiple sample paths shown as shaded regions bounded by blue curves (upper envelope) and red/black curves (lower envelope), demonstrating the range of possible term structure trajectories. The key takeaway is that the model g",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2608.10711v1"
+      "source": "https://arxiv.org/pdf/2608.12016v1"
     },
     {
-      "doc_id": "2608.10711v1",
-      "title": "Optimal Pricing and Hedging of SOFR Derivatives",
-      "page": 19,
-      "thumb": "/data/figures/2608.10711v1_p19_2.jpg",
-      "caption": "Figure 2: Hedging strategies for a two-month SOFR OIS for a short position (left) and a long position (right) obtained with a risk aversion parameter \u03c1 = 100 and a notional of $500,000 on 28 August 2024. The OIS indifference sell rate is 5.23544% while the buy rate is 5.23177%. Cash is expressed in USD. \u2014 This figure displays two sets of box plots comparing optimal hedging strategies for SOFR OIS derivatives under short and long swap positions. Each side shows four panels: a distribution plot on",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.10711v1"
-    },
-    {
-      "doc_id": "2608.10711v1",
-      "title": "Optimal Pricing and Hedging of SOFR Derivatives",
-      "page": 20,
-      "thumb": "/data/figures/2608.10711v1_p20_3.jpg",
-      "caption": "Figure 3: The payouts of the hedging strategies (in Figure 2) compared with the payout of a two-month SOFR OIS as a function of the OIS variable leg R(T0, T)\u03b4(T \u2212T0) for a short position (left) and a long position (right) on 28 August 2024. The OIS notional is $500,000 while the risk aversion parameter is \u03c1 = 100. The OIS indifference sell rate is 5.23544% while the buy rate is 5.23177%. The payou \u2014 This figure displays two scatter plots comparing hedging strategy payouts against SOFR OIS swap p",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.10711v1"
-    },
-    {
-      "doc_id": "2608.10693v1",
-      "title": "When the Fed Speaks: Dynamics and Forecasts of the Volatility Surface",
-      "page": 10,
-      "thumb": "/data/figures/2608.10693v1_p10_0.jpg",
-      "caption": "Figure 1: The implied volatility surface fitted using linear interpolation and linear extrapola- tion of wings - call options on S&P 500 index as observed at 2pm on 16 May 2024. \u2014 This is a 3D surface plot showing the implied volatility (IV) surface for S&P 500 index call options on May 16, 2024 at 2pm. The axes represent moneyness (log-moneyness on the x-axis ranging from approximately -0.2 to 0.2), maturity in days (y-axis ranging from 0 to 250+ days), and implied volatility (z-axis ranging fr",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.10693v1"
-    },
-    {
-      "doc_id": "2608.10693v1",
-      "title": "When the Fed Speaks: Dynamics and Forecasts of the Volatility Surface",
-      "page": 11,
-      "thumb": "/data/figures/2608.10693v1_p11_1.jpg",
-      "caption": "Figure 2: The implied volatility surface with fitted AHBS model - call options on S&P 500 index as observed at 2pm on 16 May 2024. \u2014 This figure is a 3D surface plot showing the implied volatility (IV) surface for S&P 500 index call options on May 16, 2024. The axes represent moneyness (log-moneyness, ranging from approximately -0.2 to 0.2), maturity in days (ranging from 50 to 250 days), and implied volatility (ranging from 0.2 to 1.0). The surface is fitted with the AHBS model and displays a c",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.10693v1"
-    },
-    {
-      "doc_id": "2608.10693v1",
-      "title": "When the Fed Speaks: Dynamics and Forecasts of the Volatility Surface",
-      "page": 12,
-      "thumb": "/data/figures/2608.10693v1_p12_2.jpg",
-      "caption": "Figure 3: The implied volatility surface with fitted SVI model - call options on S&P 500 index as observed at 2pm on 16 May 2024. \u2014 This is a 3D surface plot showing the implied volatility (IV) surface for S&P 500 index call options on May 16, 2024 at 2pm. The axes represent moneyness (x-axis, ranging from approximately -0.200 to 0.2) and log-moneyness or time-to-maturity (y-axis), with implied volatility on the z-axis (ranging from 0.5 to 3.5). The surface, fitted using the SVI (Stochastic Vola",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.10693v1"
-    },
-    {
-      "doc_id": "2608.10693v1",
-      "title": "When the Fed Speaks: Dynamics and Forecasts of the Volatility Surface",
-      "page": 18,
-      "thumb": "/data/figures/2608.10693v1_p18_3.jpg",
-      "caption": "Figure 4: Average ATM Implied and Realised Volatility for call options expiring on the day of announcement denoted by T0. The ribbon is the standard 95% confidence interval. \u2014 This line chart displays implied volatility (IV) and realized volatility (RV) for at-the-money call options across days leading up to and including a Federal Reserve announcement at T0 (announcement day). The x-axis shows time measured in days to expiration (DTE) from T-10 through T0, while the y-axis measures implied vola",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.10693v1"
-    },
-    {
-      "doc_id": "2608.10410v1",
-      "title": "Objective-oriented quantitative investment: A specification-driven framework for automated synthesis of trading strategy pipelines",
-      "page": 10,
-      "thumb": "/data/figures/2608.10410v1_p10_0.jpg",
-      "caption": "Figure 1: The OOQI stack. Specifications flow down; assemblies are proposed and verified in the contracted design space; satisfaction evidence flows back for attribution and iteration. \u2014 This figure illustrates a three-layer software architecture stack for automated trading strategy synthesis, displayed as a vertical flow diagram. The demand layer at the top specifies strategy profiles using 8 families, hard/soft clauses, priorities, and interaction algebra; the compiler in the middle translates",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.10410v1"
-    },
-    {
-      "doc_id": "2608.10410v1",
-      "title": "Objective-oriented quantitative investment: A specification-driven framework for automated synthesis of trading strategy pipelines",
-      "page": 12,
-      "thumb": "/data/figures/2608.10410v1_p12_1.jpg",
-      "caption": "Figure 2: (a) All 32 assemblies in the score\u2013identity plane; shading marks the style-purity region. Result-oriented selection picks A (top in-sample IR, outside the spec region); objective-oriented selection picks B (best IR within the feasible set). (b) Clause-wise satisfaction: A satisfies only the turnover clause in-sample (25%); B satisfies the full specification (100%), with one held-out clau \u2014 Panel (a) shows a scatter plot of 32 pipeline assemblies plotted by style exposure (x-axis) versu",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.10410v1"
-    },
-    {
-      "doc_id": "2608.10321v1",
-      "title": "Multi-Credit Calibration via Elastically Stopped L\u00e9vy Processes",
+      "doc_id": "2608.12016v1",
+      "title": "Term structure shapes in the Hull-White model with Svensson-parameterized initial yield curves",
       "page": 14,
-      "thumb": "/data/figures/2608.10321v1_p14_0.jpg",
-      "caption": "Figure 1: The structural separation of Lemmas 2.7 and 2.8. Top: a BB name whose observed forward hazards hump at 5\u20137y and roll over; the fitted subordinator climbs through the data towards its plateau \u03c6(1), while the fitted Cram\u00b4er\u2013Lundberg rolls over with the curve. Bottom: the frequency of decreasing forward-hazard segments in the bootstrapped curve panels, by index and segment, computed over th \u2014 The top panel shows observed forward hazards (black, bootstrapped) for a BB-rated name with a hum",
+      "thumb": "/data/figures/2608.12016v1_p14_1.jpg",
+      "caption": "Figure 2. Shapes of the term structure for flat initial \u2014 These diagrams illustrate term structure shapes evolving over time in the Hull-White model under flat initial yield curve conditions. Panel (A) shows the forward curve with three paths branching from an initial forward rate \u03b8\u2080, with upper path labeled \u03b8\u2080 + \u03c3\u00b2/2\u03bb\u00b2, middle path h, and lower path \u03b8\u2080 - \u03c3\u00b2/2\u03bb\u00b2. Panel (B) shows the corresponding yield curve with similar diverging paths labeled \u03b8\u2080 + \u03c3\u00b2/2\u03bb\u00b2, h, and \u03b8\u2080 - \u03c3\u00b2/4\u03bb\u2074. Both panels have t",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2608.10321v1"
+      "source": "https://arxiv.org/pdf/2608.12016v1"
     }
   ],
   "docs": [
+    {
+      "id": "2608.12283v1",
+      "title": "Large Language Model-Driven Small-Capitalization Trading: Integrating Financial News Sentiment, Macroeconomic Indicators, and Technical Signals",
+      "source": "https://arxiv.org/pdf/2608.12283v1",
+      "pages": 18,
+      "images": 8,
+      "figures_captioned": 4,
+      "tables": 2,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 40
+    },
+    {
+      "id": "2608.12259v1",
+      "title": "Calibration Bets on the Past: Post-Training Quantization for Financial Time-Series Forecasting",
+      "source": "https://arxiv.org/pdf/2608.12259v1",
+      "pages": 8,
+      "images": 4,
+      "figures_captioned": 4,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 28
+    },
+    {
+      "id": "2608.12251v1",
+      "title": "Regime-Gated Residual Mixture-of-Experts for Cross-Sectional Volatility Forecasting",
+      "source": "https://arxiv.org/pdf/2608.12251v1",
+      "pages": 8,
+      "images": 4,
+      "figures_captioned": 4,
+      "tables": 3,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 28
+    },
+    {
+      "id": "2608.12023v1",
+      "title": "Sectoral inter-dependencies drive the loss of structural balance in signed financial networks",
+      "source": "https://arxiv.org/pdf/2608.12023v1",
+      "pages": 25,
+      "images": 16,
+      "figures_captioned": 4,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 57
+    },
+    {
+      "id": "2608.12016v1",
+      "title": "Term structure shapes in the Hull-White model with Svensson-parameterized initial yield curves",
+      "source": "https://arxiv.org/pdf/2608.12016v1",
+      "pages": 45,
+      "images": 0,
+      "figures_captioned": 2,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 38
+    },
+    {
+      "id": "2608.11505v1",
+      "title": "Does a Structural Model Add Anything to the Closing Price? Calibrated forecasting, incremental information, and match leverage in the Italian Serie A",
+      "source": "https://arxiv.org/pdf/2608.11505v1",
+      "pages": 16,
+      "images": 0,
+      "figures_captioned": 0,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 27
+    },
+    {
+      "id": "2608.11344v1",
+      "title": "Governing Agentic AI in FinTech",
+      "source": "https://arxiv.org/pdf/2608.11344v1",
+      "pages": 58,
+      "images": 4,
+      "figures_captioned": 0,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 53
+    },
+    {
+      "id": "2608.11327v1",
+      "title": "Long-Horizon Forecasting of Complete Financial Statements with Forma",
+      "source": "https://arxiv.org/pdf/2608.11327v1",
+      "pages": 46,
+      "images": 0,
+      "figures_captioned": 0,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 25
+    },
     {
       "id": "2608.10852v1",
       "title": "Universality and Heterogeneity of Stylized Facts in Cryptocurrency and Equity Markets",
       "source": "https://arxiv.org/pdf/2608.10852v1",
       "pages": 24,
       "images": 3,
-      "figures_captioned": 4,
+      "figures_captioned": 0,
       "tables": 4,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 60
+      "chunks_indexed": 56
     },
     {
       "id": "2608.10788v1",
@@ -248,107 +344,11 @@
       "source": "https://arxiv.org/pdf/2608.10788v1",
       "pages": 21,
       "images": 0,
-      "figures_captioned": 3,
+      "figures_captioned": 0,
       "tables": 3,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 51
-    },
-    {
-      "id": "2608.10711v1",
-      "title": "Optimal Pricing and Hedging of SOFR Derivatives",
-      "source": "https://arxiv.org/pdf/2608.10711v1",
-      "pages": 28,
-      "images": 20,
-      "figures_captioned": 4,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 47
-    },
-    {
-      "id": "2608.10693v1",
-      "title": "When the Fed Speaks: Dynamics and Forecasts of the Volatility Surface",
-      "source": "https://arxiv.org/pdf/2608.10693v1",
-      "pages": 130,
-      "images": 3,
-      "figures_captioned": 4,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 39
-    },
-    {
-      "id": "2608.10410v1",
-      "title": "Objective-oriented quantitative investment: A specification-driven framework for automated synthesis of trading strategy pipelines",
-      "source": "https://arxiv.org/pdf/2608.10410v1",
-      "pages": 83,
-      "images": 0,
-      "figures_captioned": 2,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 64
-    },
-    {
-      "id": "2608.10321v1",
-      "title": "Multi-Credit Calibration via Elastically Stopped L\u00e9vy Processes",
-      "source": "https://arxiv.org/pdf/2608.10321v1",
-      "pages": 36,
-      "images": 2,
-      "figures_captioned": 1,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 56
-    },
-    {
-      "id": "2608.10197v1",
-      "title": "An Optimal Energy Production Problem with Energy Source Switching and Load Following Nuclear Power Plants",
-      "source": "https://arxiv.org/pdf/2608.10197v1",
-      "pages": 29,
-      "images": 20,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 45
-    },
-    {
-      "id": "2608.10175v1",
-      "title": "Beyond Cash Flows: A Multi-Agent AI Framework for Valuing Clinical-Stage, Cross-Border Biotechnology",
-      "source": "https://arxiv.org/pdf/2608.10175v1",
-      "pages": 11,
-      "images": 0,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": false,
-      "ocr_used": false,
-      "chunks_indexed": 23
-    },
-    {
-      "id": "2608.09859v1",
-      "title": "Nash Peer-to-Peer Insurance Bargaining under Price Fairness and Coalitional Stability",
-      "source": "https://arxiv.org/pdf/2608.09859v1",
-      "pages": 36,
-      "images": 12,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 56
-    },
-    {
-      "id": "2608.09641v1",
-      "title": "Lower spectrum of financial correlation matrices: a new perspective on market synchronization",
-      "source": "https://arxiv.org/pdf/2608.09641v1",
-      "pages": 33,
-      "images": 16,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 36
+      "chunks_indexed": 48
     }
   ]
 }
