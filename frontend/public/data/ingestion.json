@@ -1,7 +1,7 @@
 {
   "_note": "Public run manifest of the Tier-3 agentic ingestion pipeline. Safe aggregates + provenance only; raw PDFs live in S3, not here.",
-  "run_id": "20260814T041905Z",
-  "generated_at": "2026-08-14T04:22:44+00:00",
+  "run_id": "20260815T030612Z",
+  "generated_at": "2026-08-15T03:09:39+00:00",
   "collection": "research_corpus",
   "embed_model": "BAAI/bge-small-en-v1.5",
   "dag": [
@@ -58,8 +58,8 @@
     "tables": 2,
     "with_math": 9,
     "indexed": 375,
-    "spent_usd": 0.0343,
-    "duration_s": 218.9
+    "spent_usd": 0.0341,
+    "duration_s": 206.7
   },
   "rejects_by_reason": {
     "low-relevance": 14
@@ -71,7 +71,7 @@
       "title": "Fee Implied Volatility on Uniswap v3: A DEX Native Proxy and Its Limits",
       "page": 12,
       "thumb": "/data/figures/2608.13340v1_p12_0.jpg",
-      "caption": "Figure 1: IV (= \u03c3fee) for the ETH/USDC 30bps pool plotted against RV of ETH spot over the same window, daily observations from January 2023 to July 2026. \u2014 This time-series plot compares implied volatility (IV, shown in blue) and realized volatility (RV, shown in cyan) for the ETH/USDC 30 basis point Uniswap v3 pool from January 2023 to July 2026, with the left y-axis showing annualized volatility in percentage and the right y-axis showing levels up to 300. The chart reveals that realized volati",
+      "caption": "Figure 1: IV (= \u03c3fee) for the ETH/USDC 30bps pool plotted against RV of ETH spot over the same window, daily observations from January 2023 to July 2026. \u2014 This line chart displays the ETH/USDC 30 basis points pool's implied volatility (blue line) versus realized volatility (green area) from January 2023 to July 2026 on daily observations. The left y-axis shows annualized volatility in percentage, while the right y-axis shows values up to 300. The figure demonstrates that implied volatility from",
       "vision": true,
       "source": "https://arxiv.org/pdf/2608.13340v1"
     },
@@ -80,7 +80,7 @@
       "title": "Fee Implied Volatility on Uniswap v3: A DEX Native Proxy and Its Limits",
       "page": 14,
       "thumb": "/data/figures/2608.13340v1_p14_1.jpg",
-      "caption": "Figure 2: b\u03b1RV(t) = (IV(t)/RV(t))2 over the same window as Figure 1. \u2014 This time-series chart displays the implied fee capture ratio (\u03b1\u0302_RV(t)) for the ETH/USDC 30 basis point pool on Uniswap v3 from July 2023 to January 2026. The y-axis shows the ratio ranging from 0 to 10.0, while the x-axis represents time in monthly intervals, with a yellow reference line marking \u03b1\u0302_RV = 1. The figure reveals highly volatile spikes in the fee capture ratio, particularly around January 2024 and January 2025, ",
+      "caption": "Figure 2: b\u03b1RV(t) = (IV(t)/RV(t))2 over the same window as Figure 1. \u2014 This time-series chart displays the implied fee capture ratio (\u03b1\u0302RV(t)) for the ETH/USDC 30 basis point pool on Uniswap v3 from July 2023 to January 2026, calculated as the squared ratio of implied volatility to realized volatility. The y-axis shows \u03b1\u0302RV(t) values ranging from 0 to 10.0, while the x-axis marks time in monthly intervals, with a reference line at \u03b1\u0302RV = 1 (shown in yellow dashed line). The key takeaway is that ",
       "vision": true,
       "source": "https://arxiv.org/pdf/2608.13340v1"
     },
@@ -89,7 +89,7 @@
       "title": "FlowLOB: Efficient and Controllable Limit Order Book Generation with Flow Matching",
       "page": 4,
       "thumb": "/data/figures/2608.13096v1_p4_0.jpg",
-      "caption": "Figure 1: Sample quality versus inference cost. \ud835\udc4a1 distance to the real pooled price (left) and volume (right) marginals at the three sam- pling frequencies (rows), against NFE on a log\u2013log scale. Solid: flow matching; dashed: diffusion; one curve per solver; the star marks the best point per panel. Flow with Euler at \ud835\udc41=10 \u2014 the cheapest configuration in the sweep \u2014 is the best point in four of si \u2014 This figure compares the sample quality versus computational cost of different generative models ",
+      "caption": "Figure 1: Sample quality versus inference cost. \ud835\udc4a1 distance to the real pooled price (left) and volume (right) marginals at the three sam- pling frequencies (rows), against NFE on a log\u2013log scale. Solid: flow matching; dashed: diffusion; one curve per solver; the star marks the best point per panel. Flow with Euler at \ud835\udc41=10 \u2014 the cheapest configuration in the sweep \u2014 is the best point in four of si \u2014 This figure compares sample quality versus computational cost across six panels using log-log plo",
       "vision": true,
       "source": "https://arxiv.org/pdf/2608.13096v1"
     },
@@ -98,7 +98,7 @@
       "title": "FlowLOB: Efficient and Controllable Limit Order Book Generation with Flow Matching",
       "page": 5,
       "thumb": "/data/figures/2608.13096v1_p5_1.jpg",
-      "caption": "Figure 2: Realism diagnostics beyond pooled marginals. Top subplot is about Mid-price return and bid\u2013ask spread distributions. Bottom subplot is about cross-level correlation of volumes and volume changes across the 20 book levels (A10\u2013A1, B1\u2013B10). Real versus FlowLOB, for 700.HK and the held-out 9999.HK across the three sampling frequencies. \u2014 This figure compares realism diagnostics between real market data and FlowLOB-generated limit order book data across two stocks (700.HK and 9999.HK) at t",
+      "caption": "Figure 2: Realism diagnostics beyond pooled marginals. Top subplot is about Mid-price return and bid\u2013ask spread distributions. Bottom subplot is about cross-level correlation of volumes and volume changes across the 20 book levels (A10\u2013A1, B1\u2013B10). Real versus FlowLOB, for 700.HK and the held-out 9999.HK across the three sampling frequencies. \u2014 This figure compares realism diagnostics between real market data and FlowLOB-generated limit order book (LOB) data across two stocks (700.HK and 9999.HK",
       "vision": true,
       "source": "https://arxiv.org/pdf/2608.13096v1"
     },
@@ -107,7 +107,7 @@
       "title": "FlowLOB: Efficient and Controllable Limit Order Book Generation with Flow Matching",
       "page": 7,
       "thumb": "/data/figures/2608.13096v1_p7_2.jpg",
-      "caption": "Figure 3: Ablation results at 1s. We compare the proposed transformer configuration against a parameter-matched UNet and two learning-rate variants. Bars show distances between generated and real pooled price and volume marginals for the in-distribution symbol 700.HK and the held-out symbol 9999.HK; lower is better. \u2014 This figure displays ablation study results comparing model configurations for limit order book generation, measured at 1-second intervals. The visualization contains 8 subplots or",
+      "caption": "Figure 3: Ablation results at 1s. We compare the proposed transformer configuration against a parameter-matched UNet and two learning-rate variants. Bars show distances between generated and real pooled price and volume marginals for the in-distribution symbol 700.HK and the held-out symbol 9999.HK; lower is better. \u2014 This figure presents an ablation study comparing model architectures and hyperparameters for limit order book generation at 1-second horizons. It displays eight subpanels showing p",
       "vision": true,
       "source": "https://arxiv.org/pdf/2608.13096v1"
     },
@@ -116,7 +116,7 @@
       "title": "FlowLOB: Efficient and Controllable Limit Order Book Generation with Flow Matching",
       "page": 7,
       "thumb": "/data/figures/2608.13096v1_p7_3.jpg",
-      "caption": "Figure 3 shows that the transformer backbone is important, es- pecially out of distribution. A parameter-matched UNet trails the proposed model on most price and volume metrics, and the degra- dation is largest on the held-out 9999.HK symbol. This suggests that attending over the level\u2013time grid helps the model use the shared tick-relative representation for cross-symbol generalization, rather tha \u2014 This figure compares ablation results across four Hong Kong stock symbols (WF, K-S, KL, JS) showi",
+      "caption": "Figure 3 shows that the transformer backbone is important, es- pecially out of distribution. A parameter-matched UNet trails the proposed model on most price and volume metrics, and the degra- dation is largest on the held-out 9999.HK symbol. This suggests that attending over the level\u2013time grid helps the model use the shared tick-relative representation for cross-symbol generalization, rather tha \u2014 This figure presents ablation results comparing a proposed transformer-based model against a para",
       "vision": true,
       "source": "https://arxiv.org/pdf/2608.13096v1"
     },
@@ -125,7 +125,7 @@
       "title": "LOB-ID: Evaluating Synthetic Market Data by Inception Distances",
       "page": 4,
       "thumb": "/data/figures/2608.13082v1_p4_0.jpg",
-      "caption": "Figure 1: Pairwise MIND distances between all stock-days in the test period (five stocks, six dates each). Each 6\u00d76 diagonal block compares different days of the same stock, while the off-diagonal blocks compare different stocks. Darker colours indicate smaller distances; the white main diagonal marks each stock-day compared with itself, where MIND is zero. \u2014 This heatmap displays pairwise MIND (Inception Distance) values comparing 30 stock-days across five stocks with six trading dates each. Th",
+      "caption": "Figure 1: Pairwise MIND distances between all stock-days in the test period (five stocks, six dates each). Each 6\u00d76 diagonal block compares different days of the same stock, while the off-diagonal blocks compare different stocks. Darker colours indicate smaller distances; the white main diagonal marks each stock-day compared with itself, where MIND is zero. \u2014 This is a heatmap showing pairwise MIND (Inception Distance) values between 30 stock-day observations (5 stocks \u00d7 6 dates each), with rows",
       "vision": true,
       "source": "https://arxiv.org/pdf/2608.13082v1"
     },
@@ -134,7 +134,7 @@
       "title": "LOB-ID: Evaluating Synthetic Market Data by Inception Distances",
       "page": 5,
       "thumb": "/data/figures/2608.13082v1_p5_1.jpg",
-      "caption": "Figure 2: MIND as a function of perturbation strength \ud835\udf00for the four perturbation mechanisms: a) linear trend, b) random walk, c) price jump, and d) row deletion. Top: example mid-price paths for a single stock-day (0700.HK, 22 December 2025) at increasing \ud835\udf00, with the historical unperturbed path in dark green. Bottom: mean MIND (log scale) across stock-days, with shaded bands showing \u00b11 standard de \u2014 This figure demonstrates how the Inception Distance (MIND) metric responds to four different pert",
+      "caption": "Figure 2: MIND as a function of perturbation strength \ud835\udf00for the four perturbation mechanisms: a) linear trend, b) random walk, c) price jump, and d) row deletion. Top: example mid-price paths for a single stock-day (0700.HK, 22 December 2025) at increasing \ud835\udf00, with the historical unperturbed path in dark green. Bottom: mean MIND (log scale) across stock-days, with shaded bands showing \u00b11 standard de \u2014 This figure evaluates the Inception Distance (MIND) metric across four perturbation mechanisms ap",
       "vision": true,
       "source": "https://arxiv.org/pdf/2608.13082v1"
     },
@@ -143,7 +143,7 @@
       "title": "LOB-ID: Evaluating Synthetic Market Data by Inception Distances",
       "page": 5,
       "thumb": "/data/figures/2608.13082v1_p5_2.jpg",
-      "caption": "Figure 2 shows the mean MIND score for the four perturbation mechanisms, with shaded bands representing one standard devi- ation across stock-days. For all four perturbations, MIND is zero when \ud835\udf00= 0 and rises steadily as the distortion becomes stronger, with no reversals. The perturbations are deliberately kept subtle to test whether MIND can detect small deviations from the real data. Accordingly \u2014 Figure 2 displays MIND (mean Inception Distance) as a function of perturbation strength \u03b5 for fou",
+      "caption": "Figure 2 shows the mean MIND score for the four perturbation mechanisms, with shaded bands representing one standard devi- ation across stock-days. For all four perturbations, MIND is zero when \ud835\udf00= 0 and rises steadily as the distortion becomes stronger, with no reversals. The perturbations are deliberately kept subtle to test whether MIND can detect small deviations from the real data. Accordingly \u2014 Figure 2 displays MIND (mean inception distance) as a function of perturbation strength \u03b5 for fou",
       "vision": true,
       "source": "https://arxiv.org/pdf/2608.13082v1"
     },
@@ -152,7 +152,7 @@
       "title": "LOB-ID: Evaluating Synthetic Market Data by Inception Distances",
       "page": 6,
       "thumb": "/data/figures/2608.13082v1_p6_3.jpg",
-      "caption": "Figure 3: Effect of inception-network training on LOB-ID. Left: DeepLOB training loss (log scale) over training steps, with five evaluation checkpoints C1\u2013C5 at different stages of training. Right: MIND (log scale) between historical data and synthetic data from each one of five generative models, computed at the same five checkpoints; error bars show \u00b11 standard error of the mean. \u2014 The left panel shows DeepLOB training loss (log scale) decreasing over 50k training steps with five checkpoint ma",
+      "caption": "Figure 3: Effect of inception-network training on LOB-ID. Left: DeepLOB training loss (log scale) over training steps, with five evaluation checkpoints C1\u2013C5 at different stages of training. Right: MIND (log scale) between historical data and synthetic data from each one of five generative models, computed at the same five checkpoints; error bars show \u00b11 standard error of the mean. \u2014 The left panel shows a line graph of DeepLOB training loss on a log scale over 50k training steps, with five labe",
       "vision": true,
       "source": "https://arxiv.org/pdf/2608.13082v1"
     },
@@ -161,7 +161,7 @@
       "title": "Simulating Stress Laws under Extremal Dependence: Characterizing What Generative Models Must Preserve",
       "page": 17,
       "thumb": "/data/figures/2608.13056v1_p17_0.jpg",
-      "caption": "Figure 1 compares scaled samples from the true stressed law and from the population SS- GEN approximation. As u increases, the scaled stress region approaches its limiting shape, and the two conditional sample clouds align more closely. This illustrates the conditional-law convergence in Corollary 1: the intermediate-threshold splice captures the relevant joint-tail geometry even when the target s \u2014 This figure displays a comparison of scaled conditional samples from the true stressed law versus",
+      "caption": "Figure 1 compares scaled samples from the true stressed law and from the population SS- GEN approximation. As u increases, the scaled stress region approaches its limiting shape, and the two conditional sample clouds align more closely. This illustrates the conditional-law convergence in Corollary 1: the intermediate-threshold splice captures the relevant joint-tail geometry even when the target s \u2014 This figure is a set of scatter plots comparing conditional samples from the true stressed law ve",
       "vision": true,
       "source": "https://arxiv.org/pdf/2608.13056v1"
     },
@@ -170,7 +170,7 @@
       "title": "Simulating Stress Laws under Extremal Dependence: Characterizing What Generative Models Must Preserve",
       "page": 18,
       "thumb": "/data/figures/2608.13056v1_p18_1.jpg",
-      "caption": "Figure 1. Scaled stressed samples under the true model and the population SSGEN approximation, together with the scaled stress boundary u\u22121\u2202S(u; J ). The SSGEN splice is formed at the intermediate threshold t = 3, where pt \u22480.06, while the target stress probabilities are approximately 10\u22122, 10\u22123, and 10\u22124 \u2014 This figure shows three scatter plots (A, B, C) comparing truth data versus SSGEN approximation for scaled stressed samples at stress levels u = 5, 15, and 25 respectively. Each plot displays",
+      "caption": "Figure 1. Scaled stressed samples under the true model and the population SSGEN approximation, together with the scaled stress boundary u\u22121\u2202S(u; J ). The SSGEN splice is formed at the intermediate threshold t = 3, where pt \u22480.06, while the target stress probabilities are approximately 10\u22122, 10\u22123, and 10\u22124 \u2014 This figure displays three scatter plots comparing scaled stressed samples from a truth model (red dots) versus a population SSGEN approximation (blue dots) under different stress levels. Eac",
       "vision": true,
       "source": "https://arxiv.org/pdf/2608.13056v1"
     },
@@ -179,7 +179,7 @@
       "title": "Simulating Stress Laws under Extremal Dependence: Characterizing What Generative Models Must Preserve",
       "page": 18,
       "thumb": "/data/figures/2608.13056v1_p18_2.jpg",
-      "caption": "Figure 2. Empirical CDFs of downstream stress summaries under the true stressed law and the population SSGEN approximation at u = 15. From left to right: aggregate stressed loss, breadth of materially affected institutions, and HHI-type concentration of stressed losses. \u2014 This figure compares empirical cumulative distribution functions (CDFs) between the true stressed model and SSGEN approximation across three stress-testing metrics at u=15. The three panels show: (A) aggregate stressed loss on ",
+      "caption": "Figure 2. Empirical CDFs of downstream stress summaries under the true stressed law and the population SSGEN approximation at u = 15. From left to right: aggregate stressed loss, breadth of materially affected institutions, and HHI-type concentration of stressed losses. \u2014 The figure displays three empirical cumulative distribution functions (CDFs) comparing the true stressed law against the SSGEN approximation at stress level u=15. The left panel shows aggregate stressed loss on the x-axis (scal",
       "vision": true,
       "source": "https://arxiv.org/pdf/2608.13056v1"
     },
@@ -188,7 +188,7 @@
       "title": "Simulating Stress Laws under Extremal Dependence: Characterizing What Generative Models Must Preserve",
       "page": 19,
       "thumb": "/data/figures/2608.13056v1_p19_3.jpg",
-      "caption": "Figure 3. Reverse stress testing in the reinsurance example for u = 5, 15, 25. The contours are level sets of the scaled likelihood objective over the scaled state space, and the markers indicate the reverse-stress solutions under the true model and under the population SSGEN approximation. \u2014 This figure displays three contour plots (panels A, B, C) showing level sets of a scaled likelihood objective in stress-testing analysis for a reinsurance example at increasing threshold levels (u = 5, 15, ",
+      "caption": "Figure 3. Reverse stress testing in the reinsurance example for u = 5, 15, 25. The contours are level sets of the scaled likelihood objective over the scaled state space, and the markers indicate the reverse-stress solutions under the true model and under the population SSGEN approximation. \u2014 This figure displays three contour plots showing reverse stress testing results for a reinsurance model at different threshold levels (u = 5, 15, 25). Each subplot shows level sets of a scaled likelihood ob",
       "vision": true,
       "source": "https://arxiv.org/pdf/2608.13056v1"
     },
@@ -197,7 +197,7 @@
       "title": "Physical Extinction and Long-Run Pricing under Time-Varying Beliefs",
       "page": 11,
       "thumb": "/data/figures/2608.12777v1_p11_0.jpg",
-      "caption": "Figure 1: Finite-maturity pricing under fading and alternating disagreement. Panel (a) varies \u03b70 with \u03c3 = 15%. Panel (b) varies \u03c3 with \u03b70 = \u22121.5. Panels (c) and (d) show the paths in (48), with \u03c3 = 15% and L = 20 years. The parameter values for the named cases appear in Table 1. The time-zero consumption share is s0 = 5%. The dotted line in each valuation-weight panel marks this benchmark. \u2014 This figure displays four panels analyzing finite-maturity bond pricing under disagreement between invest",
+      "caption": "Figure 1: Finite-maturity pricing under fading and alternating disagreement. Panel (a) varies \u03b70 with \u03c3 = 15%. Panel (b) varies \u03c3 with \u03b70 = \u22121.5. Panels (c) and (d) show the paths in (48), with \u03c3 = 15% and L = 20 years. The parameter values for the named cases appear in Table 1. The time-zero consumption share is s0 = 5%. The dotted line in each valuation-weight panel marks this benchmark. \u2014 This figure illustrates finite-maturity bond pricing under disagreement between agents with fading versus",
       "vision": true,
       "source": "https://arxiv.org/pdf/2608.12777v1"
     },
@@ -206,7 +206,7 @@
       "title": "The Price of Permission: Classification Uncertainty in Constrained Capital Markets",
       "page": 17,
       "thumb": "/data/figures/2608.12634v1_p17_0.jpg",
-      "caption": "Figure 1: Average eligibility rates by implemented screening standard. The spread across standards illustrates that permitted universes differ materially even when the broad Shariah objective is common. \u2014 This horizontal bar chart displays average eligibility rates across seven Islamic screening standards, with the mean eligibility rate (%) shown on the x-axis ranging from 24% to 30%. AAIOIFI shows the highest eligibility rate at 29.29%, followed by SC Malaysia at 29.26%, while FTSE/Yasaar has t",
+      "caption": "Figure 1: Average eligibility rates by implemented screening standard. The spread across standards illustrates that permitted universes differ materially even when the broad Shariah objective is common. \u2014 This horizontal bar chart displays average eligibility rates across seven Islamic and conventional screening standards, ranging from 24% to 30% on the x-axis. The standards shown are AAOIFI, SC Malaysia, MSCI main, DJIM, MSCI M-Series, S&P, and FTSE/Yasaar, with AAOIFI highest at 29.29% and FTS",
       "vision": true,
       "source": "https://arxiv.org/pdf/2608.12634v1"
     },
@@ -215,7 +215,7 @@
       "title": "What Makes a Peer? Valuation-Anchored Similarity in Private Markets",
       "page": 6,
       "thumb": "/data/figures/2608.12594v1_p6_0.jpg",
-      "caption": "Figure 1 illustrates conformal prediction intervals across funding stages. The intervals capture a substantial proportion of observed valuations while providing calibrated uncertainty estimates around each prediction. Interval widths generally increase in later funding \u2014 Figure 1 is a line chart with confidence band showing conformal prediction intervals across deal stages, with the x-axis displaying funding stages (from early to late stage) and dual y-axes representing prediction interval width",
+      "caption": "Figure 1 illustrates conformal prediction intervals across funding stages. The intervals capture a substantial proportion of observed valuations while providing calibrated uncertainty estimates around each prediction. Interval widths generally increase in later funding \u2014 Figure 1 displays conformal prediction intervals for deal valuations across successive funding stages, with a line chart showing predicted valuations (y-axis, in log scale) against deal stage (x-axis). The shaded blue band aroun",
       "vision": true,
       "source": "https://arxiv.org/pdf/2608.12594v1"
     },
@@ -224,7 +224,7 @@
       "title": "What Makes a Peer? Valuation-Anchored Similarity in Private Markets",
       "page": 6,
       "thumb": "/data/figures/2608.12594v1_p6_1.jpg",
-      "caption": "Figure 1: Conformal Prediction Intervals by Deal Stage \u2014 This figure displays point predictions and conformal prediction intervals for deal valuation across six deal stages, using a dual-axis line and bar chart format. The left y-axis shows CI (Conformal Interval) width in millions, while the right y-axis shows Deal Type count; deal stages progress along the x-axis from Seed through Series F. The line with shaded confidence bands represents predicted valuations (in millions), while gray bars ind",
+      "caption": "Figure 1: Conformal Prediction Intervals by Deal Stage \u2014 This figure displays point predictions and 90% conformal prediction intervals for deal valuation across seven deal stages, using a combination of bar chart and line plot with confidence bands. The left y-axis shows the predicted value in billions (0 to 2.5), the right y-axis shows deal count (0 to 6000), and the x-axis lists deal types from Series A through Series I. The gray bars represent deal frequency (count) which increases substantia",
       "vision": true,
       "source": "https://arxiv.org/pdf/2608.12594v1"
     }
