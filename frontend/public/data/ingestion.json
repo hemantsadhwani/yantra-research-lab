@@ -1,7 +1,7 @@
 {
   "_note": "Public run manifest of the Tier-3 agentic ingestion pipeline. Safe aggregates + provenance only; raw PDFs live in S3, not here.",
-  "run_id": "20260816T031358Z",
-  "generated_at": "2026-08-16T03:17:27+00:00",
+  "run_id": "20260817T031337Z",
+  "generated_at": "2026-08-17T03:16:55+00:00",
   "collection": "research_corpus",
   "embed_model": "BAAI/bge-small-en-v1.5",
   "dag": [
@@ -50,28 +50,136 @@
     "discovered": 10,
     "fetched": 10,
     "parsed": 10,
-    "chunks": 389,
-    "accepted": 375,
-    "rejected": 14,
-    "images": 48,
+    "chunks": 409,
+    "accepted": 373,
+    "rejected": 36,
+    "images": 34,
     "figures_captioned": 18,
-    "tables": 2,
+    "tables": 9,
     "with_math": 9,
-    "indexed": 375,
-    "spent_usd": 0.034,
-    "duration_s": 208.6
+    "indexed": 373,
+    "spent_usd": 0.0336,
+    "duration_s": 198.1
   },
   "rejects_by_reason": {
-    "low-relevance": 14
+    "low-relevance": 36
   },
   "budget_usd": 3.0,
   "figures": [
+    {
+      "doc_id": "2608.14323v1",
+      "title": "Dependence-Informed Sparse Neural Architecture for Stock Return Prediction",
+      "page": 3,
+      "thumb": "/data/figures/2608.14323v1_p3_0.jpg",
+      "caption": "Figure 1 illustrates how the MFCF is translated into an HNN [21, 31]. The cliques and their subsets become the neural units of the network, and set inclusion becomes its connectivity. \u2014 This figure illustrates the transformation of a maximum clique factor (MFCF) into a hierarchical neural network (HNN) architecture for stock return prediction. The diagram shows how cliques and their subsets from the dependence matrix are mapped to neural units, with set inclusion relationships determining networ",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.14323v1"
+    },
+    {
+      "doc_id": "2608.14323v1",
+      "title": "Dependence-Informed Sparse Neural Architecture for Stock Return Prediction",
+      "page": 4,
+      "thumb": "/data/figures/2608.14323v1_p4_1.jpg",
+      "caption": "Figure 1: Dependence-informed HNN construction. MFCF filters training-only characteristic dependence into overlapping cliques. Retained subsets form ordered neural units, set inclusion determines sparse connections, and summaries from all non-input layers form the excess-return forecast. Adapted from Lin et al. [21]. \u2014 This figure illustrates a neural network architecture pipeline for stock return prediction that incorporates dependency structure. The flow begins with input data X, applies featu",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.14323v1"
+    },
+    {
+      "doc_id": "2608.14323v1",
+      "title": "Dependence-Informed Sparse Neural Architecture for Stock Return Prediction",
+      "page": 6,
+      "thumb": "/data/figures/2608.14323v1_p6_2.jpg",
+      "caption": "Figure 2: Economic ranking and cost sensitivity. Panel (a) reports HNN (marginal) equal-weighted decile returns with 95% HAC intervals (six lags). Panel (b) reports equal-weighted long-short spreads under uniform costs, using Equation (12). \u2014 Panel (a) is a bar chart showing mean monthly excess returns (%) across ten deciles of HNN (marginal) model predictions, with error bars representing 95% HAC confidence intervals; returns increase monotonically from decile 1 (low prediction) to decile 10 (h",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.14323v1"
+    },
+    {
+      "doc_id": "2608.14323v1",
+      "title": "Dependence-Informed Sparse Neural Architecture for Stock Return Prediction",
+      "page": 7,
+      "thumb": "/data/figures/2608.14323v1_p7_3.jpg",
+      "caption": "Figure 3: Pooled and decade-level predictive performance. Panel (a) reports full-period \ud835\udc452 \u2014 Panel (a) is a horizontal bar chart showing pooled R\u00b2oos (%) values for six models predicting stock returns, with NN3 achieving the highest performance at 0.475%, followed by HNN (marginal) at 0.509% and HNN (m-s) at 0.511%, while PCR and Huber-3 perform substantially worse. Panel (b) is a grouped bar chart displaying predictive performance across three decades (1987-96, 1997-06, 2007-16) comparing NN3, ",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.14323v1"
+    },
+    {
+      "doc_id": "2608.14014v1",
+      "title": "Buy the Rumor, Sell the News: When Is News Priced In?",
+      "page": 4,
+      "thumb": "/data/figures/2608.14014v1_p4_0.jpg",
+      "caption": "Figure 4 and the adjusted columns of Table 2 give the residual struc- ture, and it is orderly. On the continuation side sit the quantified fun- damental tags: capital returns +0.35%, earnings +0.22%, guidance +0.13%, analyst actions +0.10% over days +6 to +20, all significant; the earnings figure is the familiar post-earnings-announcement drift recovered at corpus scale from tagged news alone. On  \u2014 This figure presents a tag map showing the residual structure of stock price reactions to news ev",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.14014v1"
+    },
+    {
+      "doc_id": "2608.14014v1",
+      "title": "Buy the Rumor, Sell the News: When Is News Priced In?",
+      "page": 5,
+      "thumb": "/data/figures/2608.14014v1_p5_1.jpg",
+      "caption": "Figure 1: Cumulative abnormal return in the news direction around publication (day 0), five event tags plus the neutral placebo. Left: raw. Right: net of the background drift. Bands are \u00b12 date-clustered standard errors. Raw curves show the priced-in signature (the move precedes publication) and near-universal post-news decay tracking the placebo. Adjusted curves separate genuine continuation (ear \u2014 This figure displays cumulative abnormal returns (CARs) around news publication dates across six ",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.14014v1"
+    },
+    {
+      "doc_id": "2608.14014v1",
+      "title": "Buy the Rumor, Sell the News: When Is News Priced In?",
+      "page": 6,
+      "thumb": "/data/figures/2608.14014v1_p6_2.jpg",
+      "caption": "Figure 2: The background drift: abnormal returns of stocks receiving neutral news, by window and size group. Quiet stock-days with no recent news drift similarly (Section 5.2): the drift is the residual of the single-beta benchmark over this sample, not an effect of publicity, and the placebo adjust- ment removes it either way. \u2014 Figure 2 is a bar chart showing abnormal returns (in percent) across different time windows relative to neutral news events, stratified by dollar-volume groups (small, ",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.14014v1"
+    },
+    {
+      "doc_id": "2608.14014v1",
+      "title": "Buy the Rumor, Sell the News: When Is News Priced In?",
+      "page": 6,
+      "thumb": "/data/figures/2608.14014v1_p6_3.jpg",
+      "caption": "Figure 3: The asymmetry illusion. Raw post-news drift sug- gests good news reverses and bad news continues. Once the baseline is subtracted, both collapse to zero: the apparent asymmetry is the baseline interacting with the 73% positive share of news sentiment. \u2014 Figure 3 displays a bar chart comparing raw abnormal returns (gray bars) versus net-of-background-drift returns (blue bars) for positive and negative news events over days +6 to +20. The chart demonstrates that raw post-news drift appea",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.14014v1"
+    },
+    {
+      "doc_id": "2608.13732v1",
+      "title": "On the First Hitting Time Problems for Diffusion Processes: Local Time-Space Approach",
+      "page": 8,
+      "thumb": "/data/figures/2608.13732v1_p8_0.jpg",
+      "caption": "Figure 1: Bessel process: cumulative distribution function (left) and probability density func- tion (right) of hitting time. Effect of dimension d . Parameters: T = 5 , X0 = 1 , b = 2 (constant upper barrier). Details of the numerical scheme to solve the corresponding VIE are in Section 5. The number of time steps used is m = 28 . \u2014 This figure displays the cumulative distribution function (left panel) and probability density function (right panel) of first hitting times for Bessel processes wi",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.13732v1"
+    },
+    {
+      "doc_id": "2608.13732v1",
+      "title": "On the First Hitting Time Problems for Diffusion Processes: Local Time-Space Approach",
+      "page": 10,
+      "thumb": "/data/figures/2608.13732v1_p10_1.jpg",
+      "caption": "Figure 2 illustrates the solution for this example. \u2014 This image displays mathematical equations rather than a figure. Equations (4.17) show two expressions: u = \u03bbx^(2-\u03b8) e^(\u03bc(2-\u03b2)(x-t)) and v = \u03bby^(2-\u03b8), which represent solutions in a first hitting time problem for diffusion processes using local time-space methods. These equations define the functional forms of the solution components u and v in terms of parameters \u03bb, \u03b8, \u03b2, \u03bc and variables x, y, t.",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.13732v1"
+    },
+    {
+      "doc_id": "2608.13732v1",
+      "title": "On the First Hitting Time Problems for Diffusion Processes: Local Time-Space Approach",
+      "page": 10,
+      "thumb": "/data/figures/2608.13732v1_p10_2.jpg",
+      "caption": "Figure 2: CEV process: cumulative distribution function (left) and probability density function (right) of the hitting time of two constant barriers b1 < b2 for Problem A. Effect of \u03b2 . Parameters: T = 2 , X0 = 5 , b1 = 4 , b2 = 7 , \u00b5 = 0.5 , \u03c3 = 0.5 . The number of time steps used is m = 28 . \u2014 Figure 2 displays the hitting time distribution for a Constant Elasticity of Variance (CEV) process with two constant barriers. The left panel shows the cumulative distribution function (CDF) and the rig",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.13732v1"
+    },
+    {
+      "doc_id": "2608.13732v1",
+      "title": "On the First Hitting Time Problems for Diffusion Processes: Local Time-Space Approach",
+      "page": 15,
+      "thumb": "/data/figures/2608.13732v1_p15_3.jpg",
+      "caption": "Figure 3: Convergence analysis for Example 5.4: log-log plot of the error (left) and comparison of numerical and exact solutions for f(t) (right). The number of time steps used in the right panel is m = 28 . \u2014 The figure presents convergence analysis results with two panels. Panel (a) is a log-log plot showing L\u221e error and L2 error versus log step size \u0394t, demonstrating first-order convergence with both error metrics decreasing linearly as step size decreases. Panel (b) compares analytical and n",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.13732v1"
+    },
     {
       "doc_id": "2608.13340v1",
       "title": "Fee Implied Volatility on Uniswap v3: A DEX Native Proxy and Its Limits",
       "page": 12,
       "thumb": "/data/figures/2608.13340v1_p12_0.jpg",
-      "caption": "Figure 1: IV (= \u03c3fee) for the ETH/USDC 30bps pool plotted against RV of ETH spot over the same window, daily observations from January 2023 to July 2026. \u2014 This line chart displays the relationship between implied volatility (IV) derived from Uniswap v3 fees and realized volatility (RV) for the ETH/USDC 30 basis point pool from January 2023 to July 2026. The x-axis shows time progression across the three-year period, while the y-axis measures annualized volatility (%) on a scale from 0 to 300%. ",
+      "caption": "Figure 1: IV (= \u03c3fee) for the ETH/USDC 30bps pool plotted against RV of ETH spot over the same window, daily observations from January 2023 to July 2026. \u2014 This is a time series area chart comparing implied volatility (blue line) and realized volatility (green filled area) for the ETH/USDC 30 basis points Uniswap v3 pool from January 2023 to July 2026. The left y-axis shows annualized volatility in percentage (0-300%), while the x-axis displays the time period with monthly markers. The chart rev",
       "vision": true,
       "source": "https://arxiv.org/pdf/2608.13340v1"
     },
@@ -80,7 +188,7 @@
       "title": "Fee Implied Volatility on Uniswap v3: A DEX Native Proxy and Its Limits",
       "page": 14,
       "thumb": "/data/figures/2608.13340v1_p14_1.jpg",
-      "caption": "Figure 2: b\u03b1RV(t) = (IV(t)/RV(t))2 over the same window as Figure 1. \u2014 This time-series chart displays the implied fee capture ratio (\u03b1\u0302RV(t)) for the ETH/USDC 30 basis point Uniswap v3 pool from July 2023 to January 2026, measuring the squared ratio of implied volatility to realized volatility. The y-axis shows \u03b1\u0302RV(t) values ranging from 0 to 10.0, while the x-axis represents time in monthly intervals. The blue histogram reveals that the fee capture ratio fluctuates substantially around a base",
+      "caption": "Figure 2: b\u03b1RV(t) = (IV(t)/RV(t))2 over the same window as Figure 1. \u2014 This line chart displays the implied fee capture ratio (\u03b1_RV(t)) for the ETH/USDC 30 basis point liquidity pool on Uniswap v3 from July 2023 to January 2026, where the ratio equals (IV(t)/RV(t))\u00b2. The y-axis represents the fee capture ratio ranging from 0 to 10.0, and the x-axis shows the time period with marked intervals at July, January of each year. The plot shows that the ratio typically hovers around 1-2.5 with a yellow ",
       "vision": true,
       "source": "https://arxiv.org/pdf/2608.13340v1"
     },
@@ -89,7 +197,7 @@
       "title": "FlowLOB: Efficient and Controllable Limit Order Book Generation with Flow Matching",
       "page": 4,
       "thumb": "/data/figures/2608.13096v1_p4_0.jpg",
-      "caption": "Figure 1: Sample quality versus inference cost. \ud835\udc4a1 distance to the real pooled price (left) and volume (right) marginals at the three sam- pling frequencies (rows), against NFE on a log\u2013log scale. Solid: flow matching; dashed: diffusion; one curve per solver; the star marks the best point per panel. Flow with Euler at \ud835\udc41=10 \u2014 the cheapest configuration in the sweep \u2014 is the best point in four of si \u2014 This figure compares sample quality versus computational cost for generative models of limit orde",
+      "caption": "Figure 1: Sample quality versus inference cost. \ud835\udc4a1 distance to the real pooled price (left) and volume (right) marginals at the three sam- pling frequencies (rows), against NFE on a log\u2013log scale. Solid: flow matching; dashed: diffusion; one curve per solver; the star marks the best point per panel. Flow with Euler at \ud835\udc41=10 \u2014 the cheapest configuration in the sweep \u2014 is the best point in four of si \u2014 This figure compares the sample quality versus computational cost of different generative models ",
       "vision": true,
       "source": "https://arxiv.org/pdf/2608.13096v1"
     },
@@ -98,7 +206,7 @@
       "title": "FlowLOB: Efficient and Controllable Limit Order Book Generation with Flow Matching",
       "page": 5,
       "thumb": "/data/figures/2608.13096v1_p5_1.jpg",
-      "caption": "Figure 2: Realism diagnostics beyond pooled marginals. Top subplot is about Mid-price return and bid\u2013ask spread distributions. Bottom subplot is about cross-level correlation of volumes and volume changes across the 20 book levels (A10\u2013A1, B1\u2013B10). Real versus FlowLOB, for 700.HK and the held-out 9999.HK across the three sampling frequencies. \u2014 This figure compares realism diagnostics between real market data and FlowLOB-generated limit order book data across two stocks (700.HK and 9999.HK) at t",
+      "caption": "Figure 2: Realism diagnostics beyond pooled marginals. Top subplot is about Mid-price return and bid\u2013ask spread distributions. Bottom subplot is about cross-level correlation of volumes and volume changes across the 20 book levels (A10\u2013A1, B1\u2013B10). Real versus FlowLOB, for 700.HK and the held-out 9999.HK across the three sampling frequencies. \u2014 This figure compares realism diagnostics between real data (orange) and FlowLOB-generated data (blue) across two stocks (700.HK and 9999.HK) and three ti",
       "vision": true,
       "source": "https://arxiv.org/pdf/2608.13096v1"
     },
@@ -107,7 +215,7 @@
       "title": "FlowLOB: Efficient and Controllable Limit Order Book Generation with Flow Matching",
       "page": 7,
       "thumb": "/data/figures/2608.13096v1_p7_2.jpg",
-      "caption": "Figure 3: Ablation results at 1s. We compare the proposed transformer configuration against a parameter-matched UNet and two learning-rate variants. Bars show distances between generated and real pooled price and volume marginals for the in-distribution symbol 700.HK and the held-out symbol 9999.HK; lower is better. \u2014 This figure displays an ablation study comparing four model configurations (proposed, UNet, lr 5e-4, and lr 5e-5) across four Hong Kong stock symbols (WF, K-S, KL, JS), with separa",
+      "caption": "Figure 3: Ablation results at 1s. We compare the proposed transformer configuration against a parameter-matched UNet and two learning-rate variants. Bars show distances between generated and real pooled price and volume marginals for the in-distribution symbol 700.HK and the held-out symbol 9999.HK; lower is better. \u2014 This figure shows ablation study results comparing model architectures for limit order book generation, with 8 subpanels arranged in a 2\u00d74 grid. The top row displays price metrics ",
       "vision": true,
       "source": "https://arxiv.org/pdf/2608.13096v1"
     },
@@ -116,120 +224,84 @@
       "title": "FlowLOB: Efficient and Controllable Limit Order Book Generation with Flow Matching",
       "page": 7,
       "thumb": "/data/figures/2608.13096v1_p7_3.jpg",
-      "caption": "Figure 3 shows that the transformer backbone is important, es- pecially out of distribution. A parameter-matched UNet trails the proposed model on most price and volume metrics, and the degra- dation is largest on the held-out 9999.HK symbol. This suggests that attending over the level\u2013time grid helps the model use the shared tick-relative representation for cross-symbol generalization, rather tha \u2014 Figure 3 presents an ablation study comparing a proposed transformer-based model against a parame",
+      "caption": "Figure 3 shows that the transformer backbone is important, es- pecially out of distribution. A parameter-matched UNet trails the proposed model on most price and volume metrics, and the degra- dation is largest on the held-out 9999.HK symbol. This suggests that attending over the level\u2013time grid helps the model use the shared tick-relative representation for cross-symbol generalization, rather tha \u2014 This figure presents an ablation study comparing the proposed transformer-based model against a p",
       "vision": true,
       "source": "https://arxiv.org/pdf/2608.13096v1"
-    },
-    {
-      "doc_id": "2608.13082v1",
-      "title": "LOB-ID: Evaluating Synthetic Market Data by Inception Distances",
-      "page": 4,
-      "thumb": "/data/figures/2608.13082v1_p4_0.jpg",
-      "caption": "Figure 1: Pairwise MIND distances between all stock-days in the test period (five stocks, six dates each). Each 6\u00d76 diagonal block compares different days of the same stock, while the off-diagonal blocks compare different stocks. Darker colours indicate smaller distances; the white main diagonal marks each stock-day compared with itself, where MIND is zero. \u2014 This figure is a heatmap showing pairwise Market Inception Distance (MIND) between 30 stock-days (5 stocks \u00d7 6 dates each) in a test perio",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.13082v1"
-    },
-    {
-      "doc_id": "2608.13082v1",
-      "title": "LOB-ID: Evaluating Synthetic Market Data by Inception Distances",
-      "page": 5,
-      "thumb": "/data/figures/2608.13082v1_p5_1.jpg",
-      "caption": "Figure 2: MIND as a function of perturbation strength \ud835\udf00for the four perturbation mechanisms: a) linear trend, b) random walk, c) price jump, and d) row deletion. Top: example mid-price paths for a single stock-day (0700.HK, 22 December 2025) at increasing \ud835\udf00, with the historical unperturbed path in dark green. Bottom: mean MIND (log scale) across stock-days, with shaded bands showing \u00b11 standard de \u2014 This figure evaluates a metric called MIND (Inception Distance) across four perturbation mechanis",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.13082v1"
-    },
-    {
-      "doc_id": "2608.13082v1",
-      "title": "LOB-ID: Evaluating Synthetic Market Data by Inception Distances",
-      "page": 5,
-      "thumb": "/data/figures/2608.13082v1_p5_2.jpg",
-      "caption": "Figure 2 shows the mean MIND score for the four perturbation mechanisms, with shaded bands representing one standard devi- ation across stock-days. For all four perturbations, MIND is zero when \ud835\udf00= 0 and rises steadily as the distortion becomes stronger, with no reversals. The perturbations are deliberately kept subtle to test whether MIND can detect small deviations from the real data. Accordingly \u2014 This figure displays MIND (mean inception distance) scores as a function of perturbation strength",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.13082v1"
-    },
-    {
-      "doc_id": "2608.13082v1",
-      "title": "LOB-ID: Evaluating Synthetic Market Data by Inception Distances",
-      "page": 6,
-      "thumb": "/data/figures/2608.13082v1_p6_3.jpg",
-      "caption": "Figure 3: Effect of inception-network training on LOB-ID. Left: DeepLOB training loss (log scale) over training steps, with five evaluation checkpoints C1\u2013C5 at different stages of training. Right: MIND (log scale) between historical data and synthetic data from each one of five generative models, computed at the same five checkpoints; error bars show \u00b11 standard error of the mean. \u2014 This figure shows two panels evaluating how inception network training affects LOB-ID metric performance. The lef",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.13082v1"
-    },
-    {
-      "doc_id": "2608.13056v1",
-      "title": "Simulating Stress Laws under Extremal Dependence: Characterizing What Generative Models Must Preserve",
-      "page": 17,
-      "thumb": "/data/figures/2608.13056v1_p17_0.jpg",
-      "caption": "Figure 1 compares scaled samples from the true stressed law and from the population SS- GEN approximation. As u increases, the scaled stress region approaches its limiting shape, and the two conditional sample clouds align more closely. This illustrates the conditional-law convergence in Corollary 1: the intermediate-threshold splice captures the relevant joint-tail geometry even when the target s \u2014 This figure presents a comparison of scaled conditional samples from the true stressed law versus",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.13056v1"
-    },
-    {
-      "doc_id": "2608.13056v1",
-      "title": "Simulating Stress Laws under Extremal Dependence: Characterizing What Generative Models Must Preserve",
-      "page": 18,
-      "thumb": "/data/figures/2608.13056v1_p18_1.jpg",
-      "caption": "Figure 1. Scaled stressed samples under the true model and the population SSGEN approximation, together with the scaled stress boundary u\u22121\u2202S(u; J ). The SSGEN splice is formed at the intermediate threshold t = 3, where pt \u22480.06, while the target stress probabilities are approximately 10\u22122, 10\u22123, and 10\u22124 \u2014 This figure displays three scatter plots comparing truth data (red dots) against a SSGEN (Scaled Stress GENeration) approximation model (blue dots) across different stress levels u = 5, 15, a",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.13056v1"
-    },
-    {
-      "doc_id": "2608.13056v1",
-      "title": "Simulating Stress Laws under Extremal Dependence: Characterizing What Generative Models Must Preserve",
-      "page": 18,
-      "thumb": "/data/figures/2608.13056v1_p18_2.jpg",
-      "caption": "Figure 2. Empirical CDFs of downstream stress summaries under the true stressed law and the population SSGEN approximation at u = 15. From left to right: aggregate stressed loss, breadth of materially affected institutions, and HHI-type concentration of stressed losses. \u2014 Figure 2 displays three empirical cumulative distribution functions (CDFs) comparing the true stressed law against the SSGEN approximation at u=15. The left panel shows aggregate stressed loss on the x-axis with CDF on the y-ax",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.13056v1"
-    },
-    {
-      "doc_id": "2608.13056v1",
-      "title": "Simulating Stress Laws under Extremal Dependence: Characterizing What Generative Models Must Preserve",
-      "page": 19,
-      "thumb": "/data/figures/2608.13056v1_p19_3.jpg",
-      "caption": "Figure 3. Reverse stress testing in the reinsurance example for u = 5, 15, 25. The contours are level sets of the scaled likelihood objective over the scaled state space, and the markers indicate the reverse-stress solutions under the true model and under the population SSGEN approximation. \u2014 This figure displays three contour plots showing reverse stress testing results for a reinsurance example at increasing threshold levels u = 5, 15, and 25. Each panel presents level sets of a scaled likelih",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.13056v1"
-    },
-    {
-      "doc_id": "2608.12777v1",
-      "title": "Physical Extinction and Long-Run Pricing under Time-Varying Beliefs",
-      "page": 11,
-      "thumb": "/data/figures/2608.12777v1_p11_0.jpg",
-      "caption": "Figure 1: Finite-maturity pricing under fading and alternating disagreement. Panel (a) varies \u03b70 with \u03c3 = 15%. Panel (b) varies \u03c3 with \u03b70 = \u22121.5. Panels (c) and (d) show the paths in (48), with \u03c3 = 15% and L = 20 years. The parameter values for the named cases appear in Table 1. The time-zero consumption share is s0 = 5%. The dotted line in each valuation-weight panel marks this benchmark. \u2014 This figure examines finite-maturity bond pricing under disagreement about extinction risk, with four pan",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.12777v1"
-    },
-    {
-      "doc_id": "2608.12634v1",
-      "title": "The Price of Permission: Classification Uncertainty in Constrained Capital Markets",
-      "page": 17,
-      "thumb": "/data/figures/2608.12634v1_p17_0.jpg",
-      "caption": "Figure 1: Average eligibility rates by implemented screening standard. The spread across standards illustrates that permitted universes differ materially even when the broad Shariah objective is common. \u2014 This horizontal bar chart displays average eligibility rates across seven different Islamic screening standards, measured as percentages on the x-axis ranging from 24% to 30%. The standards compared are AAOIFI, SC Malaysia, MSCI main, DJIM, MSCI M-Series, S&P, and FTSE/Yasaar, with eligibility ",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.12634v1"
-    },
-    {
-      "doc_id": "2608.12594v1",
-      "title": "What Makes a Peer? Valuation-Anchored Similarity in Private Markets",
-      "page": 6,
-      "thumb": "/data/figures/2608.12594v1_p6_0.jpg",
-      "caption": "Figure 1 illustrates conformal prediction intervals across funding stages. The intervals capture a substantial proportion of observed valuations while providing calibrated uncertainty estimates around each prediction. Interval widths generally increase in later funding \u2014 Figure 1 is a line chart with confidence bands showing conformal prediction intervals across deal stages (from Series A through Series E+), with the left y-axis displaying APE (%) ranging from 0 to 2.0 and right y-axis showing C",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.12594v1"
-    },
-    {
-      "doc_id": "2608.12594v1",
-      "title": "What Makes a Peer? Valuation-Anchored Similarity in Private Markets",
-      "page": 6,
-      "thumb": "/data/figures/2608.12594v1_p6_1.jpg",
-      "caption": "Figure 1: Conformal Prediction Intervals by Deal Stage \u2014 This figure displays point predictions and 90% conformal prediction intervals for deal valuations across different deal stages, using a dual-axis format. The left y-axis shows Log(Q) values (ranging 0-2.5) representing predicted valuations, while the right y-axis shows deal count (0-6000) represented by gray bars. The x-axis categorizes deal types from Series A through Series J, with a light blue band indicating the prediction interval wid",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.12594v1"
     }
   ],
   "docs": [
+    {
+      "id": "2608.14323v1",
+      "title": "Dependence-Informed Sparse Neural Architecture for Stock Return Prediction",
+      "source": "https://arxiv.org/pdf/2608.14323v1",
+      "pages": 8,
+      "images": 1,
+      "figures_captioned": 4,
+      "tables": 2,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 27
+    },
+    {
+      "id": "2608.14256v1",
+      "title": "An ergodic theorem for multi-period mutual insurance",
+      "source": "https://arxiv.org/pdf/2608.14256v1",
+      "pages": 139,
+      "images": 0,
+      "figures_captioned": 0,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 37
+    },
+    {
+      "id": "2608.14134v1",
+      "title": "Photonic Quantum Computing vs. Classical Solvers in Constrained Factor Portfolio Optimization",
+      "source": "https://arxiv.org/pdf/2608.14134v1",
+      "pages": 29,
+      "images": 3,
+      "figures_captioned": 0,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 40
+    },
+    {
+      "id": "2608.14014v1",
+      "title": "Buy the Rumor, Sell the News: When Is News Priced In?",
+      "source": "https://arxiv.org/pdf/2608.14014v1",
+      "pages": 9,
+      "images": 0,
+      "figures_captioned": 4,
+      "tables": 4,
+      "has_math": false,
+      "ocr_used": false,
+      "chunks_indexed": 31
+    },
+    {
+      "id": "2608.13745v1",
+      "title": "Dynamic Physical Hedging amid Jump Losses, Reconstruction-Price Uncertainty, Population Interactions",
+      "source": "https://arxiv.org/pdf/2608.13745v1",
+      "pages": 65,
+      "images": 0,
+      "figures_captioned": 0,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 49
+    },
+    {
+      "id": "2608.13732v1",
+      "title": "On the First Hitting Time Problems for Diffusion Processes: Local Time-Space Approach",
+      "source": "https://arxiv.org/pdf/2608.13732v1",
+      "pages": 30,
+      "images": 1,
+      "figures_captioned": 4,
+      "tables": 2,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 44
+    },
     {
       "id": "2608.13340v1",
       "title": "Fee Implied Volatility on Uniswap v3: A DEX Native Proxy and Its Limits",
@@ -260,11 +332,11 @@
       "source": "https://arxiv.org/pdf/2608.13082v1",
       "pages": 8,
       "images": 3,
-      "figures_captioned": 4,
+      "figures_captioned": 0,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 31
+      "chunks_indexed": 27
     },
     {
       "id": "2608.13056v1",
@@ -272,83 +344,11 @@
       "source": "https://arxiv.org/pdf/2608.13056v1",
       "pages": 56,
       "images": 0,
-      "figures_captioned": 4,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 63
-    },
-    {
-      "id": "2608.12777v1",
-      "title": "Physical Extinction and Long-Run Pricing under Time-Varying Beliefs",
-      "source": "https://arxiv.org/pdf/2608.12777v1",
-      "pages": 12,
-      "images": 0,
-      "figures_captioned": 1,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 32
-    },
-    {
-      "id": "2608.12634v1",
-      "title": "The Price of Permission: Classification Uncertainty in Constrained Capital Markets",
-      "source": "https://arxiv.org/pdf/2608.12634v1",
-      "pages": 67,
-      "images": 0,
-      "figures_captioned": 1,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 38
-    },
-    {
-      "id": "2608.12594v1",
-      "title": "What Makes a Peer? Valuation-Anchored Similarity in Private Markets",
-      "source": "https://arxiv.org/pdf/2608.12594v1",
-      "pages": 9,
-      "images": 4,
-      "figures_captioned": 2,
-      "tables": 0,
-      "has_math": false,
-      "ocr_used": false,
-      "chunks_indexed": 23
-    },
-    {
-      "id": "2608.12587v1",
-      "title": "DYSANOS Generative Dynamic Smooth Arbitrage-free Non-parametric Option Surfaces",
-      "source": "https://arxiv.org/pdf/2608.12587v1",
-      "pages": 31,
-      "images": 14,
       "figures_captioned": 0,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 48
-    },
-    {
-      "id": "2608.12583v1",
-      "title": "Diffusion Models in Finance: A Survey",
-      "source": "https://arxiv.org/pdf/2608.12583v1",
-      "pages": 8,
-      "images": 1,
-      "figures_captioned": 0,
-      "tables": 1,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 29
-    },
-    {
-      "id": "2608.12493v1",
-      "title": "Beyond the Skew-Stickiness Ratio: Transport Geometry of Spot-Driven Variance Surface Dynamics",
-      "source": "https://arxiv.org/pdf/2608.12493v1",
-      "pages": 42,
-      "images": 0,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 52
+      "chunks_indexed": 59
     }
   ]
 }
