@@ -1,7 +1,7 @@
 {
   "_note": "Public run manifest of the Tier-3 agentic ingestion pipeline. Safe aggregates + provenance only; raw PDFs live in S3, not here.",
-  "run_id": "20260817T031337Z",
-  "generated_at": "2026-08-17T03:16:55+00:00",
+  "run_id": "20260818T030910Z",
+  "generated_at": "2026-08-18T03:15:26+00:00",
   "collection": "research_corpus",
   "embed_model": "BAAI/bge-small-en-v1.5",
   "dag": [
@@ -50,252 +50,216 @@
     "discovered": 10,
     "fetched": 10,
     "parsed": 10,
-    "chunks": 409,
-    "accepted": 373,
-    "rejected": 36,
-    "images": 34,
+    "chunks": 447,
+    "accepted": 391,
+    "rejected": 56,
+    "images": 9,
     "figures_captioned": 18,
-    "tables": 9,
-    "with_math": 9,
-    "indexed": 373,
-    "spent_usd": 0.0336,
-    "duration_s": 198.1
+    "tables": 4,
+    "with_math": 10,
+    "indexed": 391,
+    "spent_usd": 0.031,
+    "duration_s": 376.0
   },
   "rejects_by_reason": {
-    "low-relevance": 36
+    "low-relevance": 56
   },
   "budget_usd": 3.0,
   "figures": [
     {
-      "doc_id": "2608.14323v1",
-      "title": "Dependence-Informed Sparse Neural Architecture for Stock Return Prediction",
-      "page": 3,
-      "thumb": "/data/figures/2608.14323v1_p3_0.jpg",
-      "caption": "Figure 1 illustrates how the MFCF is translated into an HNN [21, 31]. The cliques and their subsets become the neural units of the network, and set inclusion becomes its connectivity. \u2014 This figure illustrates the transformation of a maximum clique factor (MFCF) into a hierarchical neural network (HNN) architecture for stock return prediction. The diagram shows how cliques and their subsets from the dependence matrix are mapped to neural units, with set inclusion relationships determining networ",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.14323v1"
-    },
-    {
-      "doc_id": "2608.14323v1",
-      "title": "Dependence-Informed Sparse Neural Architecture for Stock Return Prediction",
+      "doc_id": "2608.16856v1",
+      "title": "zLend: A Dual-Scope Cash-Flow Reconstruction Framework for On-Chain Credit Underwriting",
       "page": 4,
-      "thumb": "/data/figures/2608.14323v1_p4_1.jpg",
-      "caption": "Figure 1: Dependence-informed HNN construction. MFCF filters training-only characteristic dependence into overlapping cliques. Retained subsets form ordered neural units, set inclusion determines sparse connections, and summaries from all non-input layers form the excess-return forecast. Adapted from Lin et al. [21]. \u2014 This figure illustrates a neural network architecture pipeline for stock return prediction that incorporates dependency structure. The flow begins with input data X, applies featu",
+      "thumb": "/data/figures/2608.16856v1_p4_0.jpg",
+      "caption": "Figure 1 summarizes the construction. \u2014 This image shows text from a research paper discussing the \"Daily Spine\" section of a reconstruction framework for on-chain financial data. The text defines offset semantics for opening balances (\u03c9\u03c3) and describes how scope-level day sets are projected onto a contiguous calendar spanning from earliest to latest transfer day. Proposition 1 presents computational complexity analysis, stating that reconstruction costs O(T log T + D) time and O(D) space, with ",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2608.14323v1"
+      "source": "https://arxiv.org/pdf/2608.16856v1"
     },
     {
-      "doc_id": "2608.14323v1",
-      "title": "Dependence-Informed Sparse Neural Architecture for Stock Return Prediction",
-      "page": 6,
-      "thumb": "/data/figures/2608.14323v1_p6_2.jpg",
-      "caption": "Figure 2: Economic ranking and cost sensitivity. Panel (a) reports HNN (marginal) equal-weighted decile returns with 95% HAC intervals (six lags). Panel (b) reports equal-weighted long-short spreads under uniform costs, using Equation (12). \u2014 Panel (a) is a bar chart showing mean monthly excess returns (%) across ten deciles of HNN (marginal) model predictions, with error bars representing 95% HAC confidence intervals; returns increase monotonically from decile 1 (low prediction) to decile 10 (h",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.14323v1"
-    },
-    {
-      "doc_id": "2608.14323v1",
-      "title": "Dependence-Informed Sparse Neural Architecture for Stock Return Prediction",
-      "page": 7,
-      "thumb": "/data/figures/2608.14323v1_p7_3.jpg",
-      "caption": "Figure 3: Pooled and decade-level predictive performance. Panel (a) reports full-period \ud835\udc452 \u2014 Panel (a) is a horizontal bar chart showing pooled R\u00b2oos (%) values for six models predicting stock returns, with NN3 achieving the highest performance at 0.475%, followed by HNN (marginal) at 0.509% and HNN (m-s) at 0.511%, while PCR and Huber-3 perform substantially worse. Panel (b) is a grouped bar chart displaying predictive performance across three decades (1987-96, 1997-06, 2007-16) comparing NN3, ",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.14323v1"
-    },
-    {
-      "doc_id": "2608.14014v1",
-      "title": "Buy the Rumor, Sell the News: When Is News Priced In?",
-      "page": 4,
-      "thumb": "/data/figures/2608.14014v1_p4_0.jpg",
-      "caption": "Figure 4 and the adjusted columns of Table 2 give the residual struc- ture, and it is orderly. On the continuation side sit the quantified fun- damental tags: capital returns +0.35%, earnings +0.22%, guidance +0.13%, analyst actions +0.10% over days +6 to +20, all significant; the earnings figure is the familiar post-earnings-announcement drift recovered at corpus scale from tagged news alone. On  \u2014 This figure presents a tag map showing the residual structure of stock price reactions to news ev",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.14014v1"
-    },
-    {
-      "doc_id": "2608.14014v1",
-      "title": "Buy the Rumor, Sell the News: When Is News Priced In?",
+      "doc_id": "2608.16856v1",
+      "title": "zLend: A Dual-Scope Cash-Flow Reconstruction Framework for On-Chain Credit Underwriting",
       "page": 5,
-      "thumb": "/data/figures/2608.14014v1_p5_1.jpg",
-      "caption": "Figure 1: Cumulative abnormal return in the news direction around publication (day 0), five event tags plus the neutral placebo. Left: raw. Right: net of the background drift. Bands are \u00b12 date-clustered standard errors. Raw curves show the priced-in signature (the move precedes publication) and near-universal post-news decay tracking the placebo. Adjusted curves separate genuine continuation (ear \u2014 This figure displays cumulative abnormal returns (CARs) around news publication dates across six ",
+      "thumb": "/data/figures/2608.16856v1_p5_1.jpg",
+      "caption": "Figure 1: Reconstruction pipeline, executed independently and identically for the stablecoin and total-wealth scopes. \u2014 This flowchart depicts a data processing pipeline for on-chain cash-flow reconstruction with two parallel scopes. Raw fungible transfers are first filtered using a scope definition, then aggregated daily via Equation (1) to produce cumulative net flow. A contiguous spine algorithm processes this flow to extract liquidity, cash-flow, risk, and trend signals for credit underwriti",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2608.14014v1"
+      "source": "https://arxiv.org/pdf/2608.16856v1"
     },
     {
-      "doc_id": "2608.14014v1",
-      "title": "Buy the Rumor, Sell the News: When Is News Priced In?",
-      "page": 6,
-      "thumb": "/data/figures/2608.14014v1_p6_2.jpg",
-      "caption": "Figure 2: The background drift: abnormal returns of stocks receiving neutral news, by window and size group. Quiet stock-days with no recent news drift similarly (Section 5.2): the drift is the residual of the single-beta benchmark over this sample, not an effect of publicity, and the placebo adjust- ment removes it either way. \u2014 Figure 2 is a bar chart showing abnormal returns (in percent) across different time windows relative to neutral news events, stratified by dollar-volume groups (small, ",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.14014v1"
-    },
-    {
-      "doc_id": "2608.14014v1",
-      "title": "Buy the Rumor, Sell the News: When Is News Priced In?",
-      "page": 6,
-      "thumb": "/data/figures/2608.14014v1_p6_3.jpg",
-      "caption": "Figure 3: The asymmetry illusion. Raw post-news drift sug- gests good news reverses and bad news continues. Once the baseline is subtracted, both collapse to zero: the apparent asymmetry is the baseline interacting with the 73% positive share of news sentiment. \u2014 Figure 3 displays a bar chart comparing raw abnormal returns (gray bars) versus net-of-background-drift returns (blue bars) for positive and negative news events over days +6 to +20. The chart demonstrates that raw post-news drift appea",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.14014v1"
-    },
-    {
-      "doc_id": "2608.13732v1",
-      "title": "On the First Hitting Time Problems for Diffusion Processes: Local Time-Space Approach",
+      "doc_id": "2608.16856v1",
+      "title": "zLend: A Dual-Scope Cash-Flow Reconstruction Framework for On-Chain Credit Underwriting",
       "page": 8,
-      "thumb": "/data/figures/2608.13732v1_p8_0.jpg",
-      "caption": "Figure 1: Bessel process: cumulative distribution function (left) and probability density func- tion (right) of hitting time. Effect of dimension d . Parameters: T = 5 , X0 = 1 , b = 2 (constant upper barrier). Details of the numerical scheme to solve the corresponding VIE are in Section 5. The number of time steps used is m = 28 . \u2014 This figure displays the cumulative distribution function (left panel) and probability density function (right panel) of first hitting times for Bessel processes wi",
+      "thumb": "/data/figures/2608.16856v1_p8_2.jpg",
+      "caption": "Figure 2 traces the full decision path. \u2014 This is a table showing tier assignment criteria for credit classification in an on-chain lending framework, with rows for \"Primary (sc)\" and \"Context (tw)\" scopes and columns defining thresholds for \"Supportive,\" \"Cautionary,\" and \"Neutral\" tiers using metrics like coverage ratios (\u22650.80), drawdown measures (\u03c6<0.50), and maximum drawdown (MDD>0.75). The key takeaway is that primary-tier criteria are conjunctive and non-substitutable (all must be met), w",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2608.13732v1"
+      "source": "https://arxiv.org/pdf/2608.16856v1"
     },
     {
-      "doc_id": "2608.13732v1",
-      "title": "On the First Hitting Time Problems for Diffusion Processes: Local Time-Space Approach",
-      "page": 10,
-      "thumb": "/data/figures/2608.13732v1_p10_1.jpg",
-      "caption": "Figure 2 illustrates the solution for this example. \u2014 This image displays mathematical equations rather than a figure. Equations (4.17) show two expressions: u = \u03bbx^(2-\u03b8) e^(\u03bc(2-\u03b2)(x-t)) and v = \u03bby^(2-\u03b8), which represent solutions in a first hitting time problem for diffusion processes using local time-space methods. These equations define the functional forms of the solution components u and v in terms of parameters \u03bb, \u03b8, \u03b2, \u03bc and variables x, y, t.",
+      "doc_id": "2608.16856v1",
+      "title": "zLend: A Dual-Scope Cash-Flow Reconstruction Framework for On-Chain Credit Underwriting",
+      "page": 9,
+      "thumb": "/data/figures/2608.16856v1_p9_3.jpg",
+      "caption": "Figure 2: Decision flow. The two scopes are scored independently into parallel signals; mismatch flags are computed from cross-scope ratios and qualify, but never override, the stablecoin-derived primary tier. \u2014 This figure displays a decision flow diagram for an on-chain credit underwriting framework with two parallel analysis scopes. The left side shows SC (stablecoin) series and TW (token wrapper) series inputs, each processed for coverage, MDD, zero events, and trend to generate Primary Sign",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2608.13732v1"
+      "source": "https://arxiv.org/pdf/2608.16856v1"
     },
     {
-      "doc_id": "2608.13732v1",
-      "title": "On the First Hitting Time Problems for Diffusion Processes: Local Time-Space Approach",
-      "page": 10,
-      "thumb": "/data/figures/2608.13732v1_p10_2.jpg",
-      "caption": "Figure 2: CEV process: cumulative distribution function (left) and probability density function (right) of the hitting time of two constant barriers b1 < b2 for Problem A. Effect of \u03b2 . Parameters: T = 2 , X0 = 5 , b1 = 4 , b2 = 7 , \u00b5 = 0.5 , \u03c3 = 0.5 . The number of time steps used is m = 28 . \u2014 Figure 2 displays the hitting time distribution for a Constant Elasticity of Variance (CEV) process with two constant barriers. The left panel shows the cumulative distribution function (CDF) and the rig",
+      "doc_id": "2608.16749v1",
+      "title": "Rough Volatility Across Assets",
+      "page": 6,
+      "thumb": "/data/figures/2608.16749v1_p6_0.jpg",
+      "caption": "Figure 1 shows the object being fitted, for SPY and the ES front-month series (TSRV). The log-log plot is linear on the short-lag window, with lag-10 estimates of 0.186 (SPY) and 0.201 (ES). Extending the window to 40 lags lowers the fit to 0.161 and 0.162, and on lags 40 to 250 the curve flattens toward slopes of 0.076 and 0.092. Section 4.4 quantifies this behavior, which is due to mean reversio \u2014 This is a log-log plot showing the relationship between log-realized variance increments m(2,\u0394) a",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2608.13732v1"
+      "source": "https://arxiv.org/pdf/2608.16749v1"
     },
     {
-      "doc_id": "2608.13732v1",
-      "title": "On the First Hitting Time Problems for Diffusion Processes: Local Time-Space Approach",
+      "doc_id": "2608.16749v1",
+      "title": "Rough Volatility Across Assets",
+      "page": 7,
+      "thumb": "/data/figures/2608.16749v1_p7_1.jpg",
+      "caption": "Figure 1: log(m(2, \u2206)) as a function of log(\u2206) with OLS fits on different window lags \u2206\u226410, \u2206\u226440 and 40 \u2264\u2206\u2264250; (a) SPY, May 2018 to December 2025, (b) ES front-month, June 2010 to December 2025 \u2014 These line plots display the scaling behavior of realized volatility across different time scales for two equity indices: SPY (panel a) and ES futures (panel b). Each panel shows log(m(2,\u0394)) plotted against log(\u0394), where \u0394 represents time intervals in seconds, with empirical data (blue) overlaid with t",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.16749v1"
+    },
+    {
+      "doc_id": "2608.16749v1",
+      "title": "Rough Volatility Across Assets",
       "page": 15,
-      "thumb": "/data/figures/2608.13732v1_p15_3.jpg",
-      "caption": "Figure 3: Convergence analysis for Example 5.4: log-log plot of the error (left) and comparison of numerical and exact solutions for f(t) (right). The number of time steps used in the right panel is m = 28 . \u2014 The figure presents convergence analysis results with two panels. Panel (a) is a log-log plot showing L\u221e error and L2 error versus log step size \u0394t, demonstrating first-order convergence with both error metrics decreasing linearly as step size decreases. Panel (b) compares analytical and n",
+      "thumb": "/data/figures/2608.16749v1_p15_2.jpg",
+      "caption": "Figure 2: Scaling of the second moment at H = 0.5 for \u03ba \u2208{0, 0.010, 0.035}. Second moment from true log-variance, with the short-lag slope 2H = 1 (grey dotted line) and the mean- reversion bend at long lags for \u03ba > 0. Second moment is measured from five-minute realized variance on the simulated returns (dashed with markers). \u2014 This figure displays log-log plots comparing true log-variance second moments with measured five-minute realized variance (RV) second moments for a Hurst parameter H=0.5 a",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2608.13732v1"
+      "source": "https://arxiv.org/pdf/2608.16749v1"
     },
     {
-      "doc_id": "2608.13340v1",
-      "title": "Fee Implied Volatility on Uniswap v3: A DEX Native Proxy and Its Limits",
+      "doc_id": "2608.16749v1",
+      "title": "Rough Volatility Across Assets",
+      "page": 16,
+      "thumb": "/data/figures/2608.16749v1_p16_3.jpg",
+      "caption": "Figure 3: Distribution of the realized Hurst parameter (TSRV, lag-10) across 3,926 Nasdaq stocks, all stocks, and a quality subset. Dashed vertical lines are the medians. \u2014 This is a histogram showing the distribution of realized Hurst exponent (H) values computed using time-series realized volatility (TSRV) with lag-10 across Nasdaq stocks. The figure displays two overlaid distributions: all stocks (gray, n=3,926) and a quality subset (red, n=1,488), with dashed vertical lines marking their res",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.16749v1"
+    },
+    {
+      "doc_id": "2608.15841v1",
+      "title": "Self-Supervised Auxiliary Task Discovery for Stable Reinforcement Learning in Stock Trading",
       "page": 12,
-      "thumb": "/data/figures/2608.13340v1_p12_0.jpg",
-      "caption": "Figure 1: IV (= \u03c3fee) for the ETH/USDC 30bps pool plotted against RV of ETH spot over the same window, daily observations from January 2023 to July 2026. \u2014 This is a time series area chart comparing implied volatility (blue line) and realized volatility (green filled area) for the ETH/USDC 30 basis points Uniswap v3 pool from January 2023 to July 2026. The left y-axis shows annualized volatility in percentage (0-300%), while the x-axis displays the time period with monthly markers. The chart rev",
+      "thumb": "/data/figures/2608.15841v1_p12_0.jpg",
+      "caption": "Figure 1: The two-network architecture of the proposed QUESTrader. \u2014 This figure shows the neural network architecture of QUESTrader, a reinforcement learning system for stock trading, presented as two separate network diagrams. Panel (a) displays the Main/Answer Network that takes Stock data and Event-driven Information as inputs, processes them through an Encoder/Decoder module, and produces three outputs: Policy Head (actor), Value Head (critic), and Auxiliary Head (AUX) for auxiliary task le",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2608.13340v1"
+      "source": "https://arxiv.org/pdf/2608.15841v1"
     },
     {
-      "doc_id": "2608.13340v1",
-      "title": "Fee Implied Volatility on Uniswap v3: A DEX Native Proxy and Its Limits",
-      "page": 14,
-      "thumb": "/data/figures/2608.13340v1_p14_1.jpg",
-      "caption": "Figure 2: b\u03b1RV(t) = (IV(t)/RV(t))2 over the same window as Figure 1. \u2014 This line chart displays the implied fee capture ratio (\u03b1_RV(t)) for the ETH/USDC 30 basis point liquidity pool on Uniswap v3 from July 2023 to January 2026, where the ratio equals (IV(t)/RV(t))\u00b2. The y-axis represents the fee capture ratio ranging from 0 to 10.0, and the x-axis shows the time period with marked intervals at July, January of each year. The plot shows that the ratio typically hovers around 1-2.5 with a yellow ",
+      "doc_id": "2608.15841v1",
+      "title": "Self-Supervised Auxiliary Task Discovery for Stable Reinforcement Learning in Stock Trading",
+      "page": 24,
+      "thumb": "/data/figures/2608.15841v1_p24_1.jpg",
+      "caption": "Figure 6 displays, for each dataset, a scatter of models in mean\u2013variance space: the x-axis is annualized volatility (risk), the y-axis is annualized mean return, and the colour encodes the Sharpe ratio. This visual is important because it places every method on the same risk\u2013reward canvas. On DJI, \u2014 This figure displays a risk-return scatter plot across three financial datasets (DJI, FTSE, Sensex, and TAIEX), with annualized volatility on the x-axis, annualized mean return on the y-axis, and Sh",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2608.13340v1"
+      "source": "https://arxiv.org/pdf/2608.15841v1"
     },
     {
-      "doc_id": "2608.13096v1",
-      "title": "FlowLOB: Efficient and Controllable Limit Order Book Generation with Flow Matching",
+      "doc_id": "2608.15743v1",
+      "title": "Behavioral Participating Insurance: Optimal Investment under Probability Distortion and Aspiration Constraints",
+      "page": 21,
+      "thumb": "/data/figures/2608.15743v1_p21_0.jpg",
+      "caption": "Figure 1: Three cases corresponding to cU < Lg \u2014 This figure displays three line plots comparing two curves (solid purple and dashed red) across different parameter scenarios, with x-axes ranging from 0 to 3.5 and y-axes from 0 to 1.2. Each subplot represents a different case satisfying the constraint cU < Lg, illustrating how probability distortion and aspiration levels affect optimal investment behavior in participating insurance contracts. The curves demonstrate the relationship between a con",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.15743v1"
+    },
+    {
+      "doc_id": "2608.15743v1",
+      "title": "Behavioral Participating Insurance: Optimal Investment under Probability Distortion and Aspiration Constraints",
+      "page": 22,
+      "thumb": "/data/figures/2608.15743v1_p22_1.jpg",
+      "caption": "Figure 2: The parameters for the upper figure are given by \u00b5 = 0.07, r = 0.01, \u03c3 = 0.15, T = 1, a = 1.17, b = 0.86, \u00afz = 0.33, Lg \u2014 This figure displays six line charts comparing risky investment percentages across wealth levels under different time horizons (T=0.1, 0.3, 0.5, 1.0) and mortality probability distortions. Each subplot shows wealth on the x-axis (ranging from w\u2080 to 2\u0101\u2082) and risky investment percentage on the y-axis, with solid black lines representing the baseline allocation and dot",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.15743v1"
+    },
+    {
+      "doc_id": "2608.15743v1",
+      "title": "Behavioral Participating Insurance: Optimal Investment under Probability Distortion and Aspiration Constraints",
+      "page": 24,
+      "thumb": "/data/figures/2608.15743v1_p24_2.jpg",
+      "caption": "Figure 3: Optimal investment strategies with and without probability distortion starting at each time points. The parameters for the upper figure are given by \u00b5 = 0.07, r = 0.01, \u03c3 = 0.15, T = 1, a = 1.17, b = 0.86, \u2014 This figure displays six line charts comparing optimal investment strategies with and without probability distortion across different time points and wealth levels. Each chart plots wealth on the x-axis against either risky investment percentage or risky investment percentage on th",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.15743v1"
+    },
+    {
+      "doc_id": "2608.15640v1",
+      "title": "A contribution to the critique of blockchain censorship",
+      "page": 16,
+      "thumb": "/data/figures/2608.15640v1_p16_0.jpg",
+      "caption": "Fig. 1. Fitting the stretched exponential distribution to Ethereum real world data in the plot on the left, and Solana in the plot on the right. The green dashed line: w = \u2308\u03bb\u2309 is chosen as the whale count for each dataset. \u2014 This figure displays rank-size distributions for cryptocurrency transaction data fitted to stretched exponential functions. The left panel shows Ethereum blockchain data (48 entities) with rank on the x-axis and market share distribution on the y-axis, while the right panel ",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.15640v1"
+    },
+    {
+      "doc_id": "2608.15640v1",
+      "title": "A contribution to the critique of blockchain censorship",
+      "page": 16,
+      "thumb": "/data/figures/2608.15640v1_p16_1.jpg",
+      "caption": "Fig. 2. \u03a6(k, t = 1/2) vs. attack coalition size k. The plot on the left (resp. right) depicts the result for Ethereum (resp. Solana). The blue curve shows the estimation using real world whale stake numbers, and the orange curve shows the estimation using assuming all whales have the same stake. The red curve depicts the baseline whale fair play value. \u2014 Figure 2 displays two line plots showing the censorship power metric \u03a6(k, t=1/2) as a function of committee size k for Ethereum (left) and Sola",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.15640v1"
+    },
+    {
+      "doc_id": "2608.15597v1",
+      "title": "Toward Decentralized Carbon Trading in Indonesia: A Public-Blockchain Architecture for Tokenized Real-World Assets",
       "page": 4,
-      "thumb": "/data/figures/2608.13096v1_p4_0.jpg",
-      "caption": "Figure 1: Sample quality versus inference cost. \ud835\udc4a1 distance to the real pooled price (left) and volume (right) marginals at the three sam- pling frequencies (rows), against NFE on a log\u2013log scale. Solid: flow matching; dashed: diffusion; one curve per solver; the star marks the best point per panel. Flow with Euler at \ud835\udc41=10 \u2014 the cheapest configuration in the sweep \u2014 is the best point in four of si \u2014 This figure compares the sample quality versus computational cost of different generative models ",
+      "thumb": "/data/figures/2608.15597v1_p4_0.jpg",
+      "caption": "Figure 1 summarizes this institutional structure. The figure distinguishes the processes that establish the carbon unit and its authoritative registry state from the channels through which the unit may be traded. \u2014 This figure is a block diagram illustrating Indonesia's carbon trading institutional structure, showing the separation between carbon unit creation/registry processes and trading channels. The diagram displays the regulatory framework involving OJK (Financial Services Authority), the ",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2608.13096v1"
+      "source": "https://arxiv.org/pdf/2608.15597v1"
     },
     {
-      "doc_id": "2608.13096v1",
-      "title": "FlowLOB: Efficient and Controllable Limit Order Book Generation with Flow Matching",
+      "doc_id": "2608.15597v1",
+      "title": "Toward Decentralized Carbon Trading in Indonesia: A Public-Blockchain Architecture for Tokenized Real-World Assets",
       "page": 5,
-      "thumb": "/data/figures/2608.13096v1_p5_1.jpg",
-      "caption": "Figure 2: Realism diagnostics beyond pooled marginals. Top subplot is about Mid-price return and bid\u2013ask spread distributions. Bottom subplot is about cross-level correlation of volumes and volume changes across the 20 book levels (A10\u2013A1, B1\u2013B10). Real versus FlowLOB, for 700.HK and the held-out 9999.HK across the three sampling frequencies. \u2014 This figure compares realism diagnostics between real data (orange) and FlowLOB-generated data (blue) across two stocks (700.HK and 9999.HK) and three ti",
+      "thumb": "/data/figures/2608.15597v1_p5_1.jpg",
+      "caption": "Figure 1: Simplified institutional structure of Indonesian carbon trading. Carbon transactions may occur through direct trading or a regulated Carbon Exchange, with transaction information recorded through SRUK. Jejakin illustrates a commercial facilitation interface for SPE-GRK transactions sourced and transacted through IDXCarbon. \u2014 This figure is a flowchart depicting the institutional and operational structure of Indonesia's carbon trading system. The diagram shows the flow from mitigation p",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2608.13096v1"
+      "source": "https://arxiv.org/pdf/2608.15597v1"
     },
     {
-      "doc_id": "2608.13096v1",
-      "title": "FlowLOB: Efficient and Controllable Limit Order Book Generation with Flow Matching",
-      "page": 7,
-      "thumb": "/data/figures/2608.13096v1_p7_2.jpg",
-      "caption": "Figure 3: Ablation results at 1s. We compare the proposed transformer configuration against a parameter-matched UNet and two learning-rate variants. Bars show distances between generated and real pooled price and volume marginals for the in-distribution symbol 700.HK and the held-out symbol 9999.HK; lower is better. \u2014 This figure shows ablation study results comparing model architectures for limit order book generation, with 8 subpanels arranged in a 2\u00d74 grid. The top row displays price metrics ",
+      "doc_id": "2608.15597v1",
+      "title": "Toward Decentralized Carbon Trading in Indonesia: A Public-Blockchain Architecture for Tokenized Real-World Assets",
+      "page": 13,
+      "thumb": "/data/figures/2608.15597v1_p13_2.jpg",
+      "caption": "Figure 2 presents the proposed architecture. It comprises four logical layers: the authoritative carbon layer, the interoperability and tokenization layer, the public-blockchain RWA layer, and the market and application layer. The layers are connected through controlled interfaces so that changes in the token state remain consistent with the corresponding carbon-unit state. \u2014 Figure 2 presents a four-layer architecture diagram for public-blockchain carbon trading in Indonesia: the authoritative ",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2608.13096v1"
-    },
-    {
-      "doc_id": "2608.13096v1",
-      "title": "FlowLOB: Efficient and Controllable Limit Order Book Generation with Flow Matching",
-      "page": 7,
-      "thumb": "/data/figures/2608.13096v1_p7_3.jpg",
-      "caption": "Figure 3 shows that the transformer backbone is important, es- pecially out of distribution. A parameter-matched UNet trails the proposed model on most price and volume metrics, and the degra- dation is largest on the held-out 9999.HK symbol. This suggests that attending over the level\u2013time grid helps the model use the shared tick-relative representation for cross-symbol generalization, rather tha \u2014 This figure presents an ablation study comparing the proposed transformer-based model against a p",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.13096v1"
+      "source": "https://arxiv.org/pdf/2608.15597v1"
     }
   ],
   "docs": [
     {
-      "id": "2608.14323v1",
-      "title": "Dependence-Informed Sparse Neural Architecture for Stock Return Prediction",
-      "source": "https://arxiv.org/pdf/2608.14323v1",
-      "pages": 8,
-      "images": 1,
+      "id": "2608.16856v1",
+      "title": "zLend: A Dual-Scope Cash-Flow Reconstruction Framework for On-Chain Credit Underwriting",
+      "source": "https://arxiv.org/pdf/2608.16856v1",
+      "pages": 15,
+      "images": 0,
       "figures_captioned": 4,
       "tables": 2,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 27
+      "chunks_indexed": 33
     },
     {
-      "id": "2608.14256v1",
-      "title": "An ergodic theorem for multi-period mutual insurance",
-      "source": "https://arxiv.org/pdf/2608.14256v1",
-      "pages": 139,
+      "id": "2608.16842v1",
+      "title": "When ratios fall: A dynamic approach to contingent convertibles",
+      "source": "https://arxiv.org/pdf/2608.16842v1",
+      "pages": 44,
       "images": 0,
       "figures_captioned": 0,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 37
+      "chunks_indexed": 52
     },
     {
-      "id": "2608.14134v1",
-      "title": "Photonic Quantum Computing vs. Classical Solvers in Constrained Factor Portfolio Optimization",
-      "source": "https://arxiv.org/pdf/2608.14134v1",
+      "id": "2608.16749v1",
+      "title": "Rough Volatility Across Assets",
+      "source": "https://arxiv.org/pdf/2608.16749v1",
       "pages": 29,
-      "images": 3,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 40
-    },
-    {
-      "id": "2608.14014v1",
-      "title": "Buy the Rumor, Sell the News: When Is News Priced In?",
-      "source": "https://arxiv.org/pdf/2608.14014v1",
-      "pages": 9,
       "images": 0,
-      "figures_captioned": 4,
-      "tables": 4,
-      "has_math": false,
-      "ocr_used": false,
-      "chunks_indexed": 31
-    },
-    {
-      "id": "2608.13745v1",
-      "title": "Dynamic Physical Hedging amid Jump Losses, Reconstruction-Price Uncertainty, Population Interactions",
-      "source": "https://arxiv.org/pdf/2608.13745v1",
-      "pages": 65,
-      "images": 0,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 49
-    },
-    {
-      "id": "2608.13732v1",
-      "title": "On the First Hitting Time Problems for Diffusion Processes: Local Time-Space Approach",
-      "source": "https://arxiv.org/pdf/2608.13732v1",
-      "pages": 30,
-      "images": 1,
       "figures_captioned": 4,
       "tables": 2,
       "has_math": true,
@@ -303,9 +267,45 @@
       "chunks_indexed": 44
     },
     {
-      "id": "2608.13340v1",
-      "title": "Fee Implied Volatility on Uniswap v3: A DEX Native Proxy and Its Limits",
-      "source": "https://arxiv.org/pdf/2608.13340v1",
+      "id": "2608.15841v1",
+      "title": "Self-Supervised Auxiliary Task Discovery for Stable Reinforcement Learning in Stock Trading",
+      "source": "https://arxiv.org/pdf/2608.15841v1",
+      "pages": 36,
+      "images": 0,
+      "figures_captioned": 2,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 32
+    },
+    {
+      "id": "2608.15743v1",
+      "title": "Behavioral Participating Insurance: Optimal Investment under Probability Distortion and Aspiration Constraints",
+      "source": "https://arxiv.org/pdf/2608.15743v1",
+      "pages": 38,
+      "images": 7,
+      "figures_captioned": 3,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 41
+    },
+    {
+      "id": "2608.15667v1",
+      "title": "Scalable Pontryagin-Guided Adjoint-to-Control Recovery for Constrained Dynamic Portfolio Choice",
+      "source": "https://arxiv.org/pdf/2608.15667v1",
+      "pages": 57,
+      "images": 0,
+      "figures_captioned": 0,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 48
+    },
+    {
+      "id": "2608.15640v1",
+      "title": "A contribution to the critique of blockchain censorship",
+      "source": "https://arxiv.org/pdf/2608.15640v1",
       "pages": 20,
       "images": 2,
       "figures_captioned": 2,
@@ -315,40 +315,40 @@
       "chunks_indexed": 30
     },
     {
-      "id": "2608.13096v1",
-      "title": "FlowLOB: Efficient and Controllable Limit Order Book Generation with Flow Matching",
-      "source": "https://arxiv.org/pdf/2608.13096v1",
-      "pages": 8,
-      "images": 24,
-      "figures_captioned": 4,
-      "tables": 1,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 29
-    },
-    {
-      "id": "2608.13082v1",
-      "title": "LOB-ID: Evaluating Synthetic Market Data by Inception Distances",
-      "source": "https://arxiv.org/pdf/2608.13082v1",
-      "pages": 8,
-      "images": 3,
-      "figures_captioned": 0,
+      "id": "2608.15597v1",
+      "title": "Toward Decentralized Carbon Trading in Indonesia: A Public-Blockchain Architecture for Tokenized Real-World Assets",
+      "source": "https://arxiv.org/pdf/2608.15597v1",
+      "pages": 23,
+      "images": 0,
+      "figures_captioned": 3,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 27
+      "chunks_indexed": 46
     },
     {
-      "id": "2608.13056v1",
-      "title": "Simulating Stress Laws under Extremal Dependence: Characterizing What Generative Models Must Preserve",
-      "source": "https://arxiv.org/pdf/2608.13056v1",
-      "pages": 56,
+      "id": "2608.15447v1",
+      "title": "Detecting Money Laundering in Rwandan Mobile Money: A Machine Learning Framework",
+      "source": "https://arxiv.org/pdf/2608.15447v1",
+      "pages": 24,
       "images": 0,
       "figures_captioned": 0,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 59
+      "chunks_indexed": 38
+    },
+    {
+      "id": "2608.15212v1",
+      "title": "Is the medium the message? Social disclosure channels and firm risk",
+      "source": "https://arxiv.org/pdf/2608.15212v1",
+      "pages": 51,
+      "images": 0,
+      "figures_captioned": 0,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 27
     }
   ]
 }
