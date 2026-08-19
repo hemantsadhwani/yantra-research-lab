@@ -1,7 +1,7 @@
 {
   "_note": "Public run manifest of the Tier-3 agentic ingestion pipeline. Safe aggregates + provenance only; raw PDFs live in S3, not here.",
-  "run_id": "20260818T030910Z",
-  "generated_at": "2026-08-18T03:15:26+00:00",
+  "run_id": "20260819T031207Z",
+  "generated_at": "2026-08-19T03:18:46+00:00",
   "collection": "research_corpus",
   "embed_model": "BAAI/bge-small-en-v1.5",
   "dag": [
@@ -50,28 +50,163 @@
     "discovered": 10,
     "fetched": 10,
     "parsed": 10,
-    "chunks": 447,
-    "accepted": 391,
-    "rejected": 56,
-    "images": 9,
+    "chunks": 471,
+    "accepted": 427,
+    "rejected": 44,
+    "images": 24,
     "figures_captioned": 18,
-    "tables": 4,
+    "tables": 7,
     "with_math": 10,
-    "indexed": 391,
-    "spent_usd": 0.031,
-    "duration_s": 376.0
+    "indexed": 427,
+    "spent_usd": 0.0302,
+    "duration_s": 398.5
   },
   "rejects_by_reason": {
-    "low-relevance": 56
+    "low-relevance": 44
   },
   "budget_usd": 3.0,
   "figures": [
+    {
+      "doc_id": "2608.17715v1",
+      "title": "Communicating Credit Risk with Large Language Models: Evaluation of Explanations from Standard and Alternative Data-Based Models",
+      "page": 9,
+      "thumb": "/data/figures/2608.17715v1_p9_0.jpg",
+      "caption": "Figure 1: The architecture of the three explanation pipelines. \u2014 This figure presents three machine learning pipeline architectures for generating explanations about credit risk using large language models (LLMs). Panel (a) shows a tabular-based pipeline that processes tabular data through XGB, SHAP, and an LLM to produce explanations. Panel (b) shows a network-based pipeline that uses graph data processed through GAT, OMNIexplainer, and an LLM for predictions. Panel (c) shows a bimodal pipeline",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.17715v1"
+    },
+    {
+      "doc_id": "2608.17715v1",
+      "title": "Communicating Credit Risk with Large Language Models: Evaluation of Explanations from Standard and Alternative Data-Based Models",
+      "page": 12,
+      "thumb": "/data/figures/2608.17715v1_p12_1.jpg",
+      "caption": "Figure 2: Workflow for fine-tuning Gemma 3 and DeepSeek R1 using LoRA-based instruction tuning on 8-bit quan- tised base models. SHAP and GNNExplainer outputs are paired with ChatGPT-4o-generated explanations to create the synthetic supervision dataset. \u2014 This figure illustrates a workflow diagram for fine-tuning large language models (Gemma 3 and DeepSeek R1) for credit risk explanation tasks. The process begins with two data sources\u2014tabular loan records and graph-structured loan data\u2014which fee",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.17715v1"
+    },
+    {
+      "doc_id": "2608.17715v1",
+      "title": "Communicating Credit Risk with Large Language Models: Evaluation of Explanations from Standard and Alternative Data-Based Models",
+      "page": 20,
+      "thumb": "/data/figures/2608.17715v1_p20_2.jpg",
+      "caption": "Figure 3: Between-cohort comparisons by LLM. \u2014 This figure displays box plots comparing Lyman-Skeel ratings across eight different financial metrics (UND, TRU, INS, SAT, CON, CVN, COM, USB) for three large language models: Gemma 3 (a), DeepSeek R1 (b), and Gemini 2.5 (c). Each subplot shows the distribution of ratings with 25th percentile (Q1), median, and 75th percentile (Q3) marked by the box, whiskers extending to show range, and outliers depicted as dots. The key takeaway is that all three L",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.17715v1"
+    },
+    {
+      "doc_id": "2608.17715v1",
+      "title": "Communicating Credit Risk with Large Language Models: Evaluation of Explanations from Standard and Alternative Data-Based Models",
+      "page": 24,
+      "thumb": "/data/figures/2608.17715v1_p24_3.jpg",
+      "caption": "Figure 4: Cohen\u2019s d effect sizes comparing linguistic features in high-rated (top quartile) and low-rated (bottom quartile) explanations across quality metrics. Positive values (red) indicate features more prevalent in high-rated explanations; negative values (blue) indicate the reverse. \u2014 This heatmap displays Cohen's d effect sizes measuring the relationship between linguistic features (rows) and explanation quality metrics (columns) in credit risk communication. The chart uses a diverging col",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.17715v1"
+    },
+    {
+      "doc_id": "2608.17636v1",
+      "title": "COS-TT-CHF: A Tensor-Train Characteristic-Function COS Method for Multi-Asset Option Pricing",
+      "page": 9,
+      "thumb": "/data/figures/2608.17636v1_p9_0.jpg",
+      "caption": "Figure 1: Tensor-network representation of the COS\u2013TT\u2013CHF construction. (a) The joint char- acteristic function sampled on the tensor-product frequency grid defines the tensor \u03a6, which is approximated by TT-cross as b\u03a6 with TT cores Gm. (b) The one-dimensional CHF-to-COS map Mm is applied locally to the physical frequency leg of each core, producing the COS-coefficient core Bm. (c) For arithmetic  \u2014 This figure shows tensor-network diagrams illustrating the COS-TT-CHF algorithm for multi-asset o",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.17636v1"
+    },
+    {
+      "doc_id": "2608.17636v1",
+      "title": "COS-TT-CHF: A Tensor-Train Characteristic-Function COS Method for Multi-Asset Option Pricing",
+      "page": 15,
+      "thumb": "/data/figures/2608.17636v1_p15_1.jpg",
+      "caption": "Figure 2: Component Vega decomposition for a stylized five-asset GBM basket call. The bas- ket has Si(0) = 100, equal weights wi = 0.2, T = 1, r = 2%, K \u2208{80, 100, 120}, volatili- ties \u03c3 = (10, 15, 22, 28, 32)%, and Toeplitz correlation \u03c1ij = 0.7|i\u2212j|. Bars show the volatility- weighted component contributions \u03c3i \u2202C(K)/\u2202\u03c3i, which sum to the common volatility-scale Vega \u2202C(K; \u03b7\u03c3)/\u2202\u03b7|\u03b7=1. Labels rep \u2014 This stacked bar chart displays component vega shifts across three strike prices (80, 100, 120) f",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.17636v1"
+    },
+    {
+      "doc_id": "2608.17636v1",
+      "title": "COS-TT-CHF: A Tensor-Train Characteristic-Function COS Method for Multi-Asset Option Pricing",
+      "page": 15,
+      "thumb": "/data/figures/2608.17636v1_p15_2.jpg",
+      "caption": "Figure 2 illustrates the common-volatility decomposition for a stylized five-name basket. In this example the basket weights and initial spots are identical, so the variation in the decomposition \u2014 This stacked bar chart shows component Vega decomposition for a five-asset GBM basket call across three strike levels (K=80, 100, 120). Each bar is divided into five colored segments representing the percentage contribution of each asset to the total volatility-scale Vega, with contributions summing t",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.17636v1"
+    },
+    {
+      "doc_id": "2608.17481v1",
+      "title": "A generic nonparametric value-at-risk estimator for high dimensions",
+      "page": 4,
+      "thumb": "/data/figures/2608.17481v1_p4_0.jpg",
+      "caption": "Figure 1: 2D Visualization of the VaR estimation Equation 6. \u2014 This scatter plot displays the relationship between two financial instruments' historical returns normalized by recent volatility, with approximately 2,000 data points shown in blue. The x-axis represents \"Instrument 1 historical return / recent vol\" and the y-axis represents \"Instrument 2 historical return / recent vol\", both centered around zero with ranges from roughly -8 to +8. A red dashed line indicates a fitted trend or bounda",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.17481v1"
+    },
+    {
+      "doc_id": "2608.17481v1",
+      "title": "A generic nonparametric value-at-risk estimator for high dimensions",
+      "page": 5,
+      "thumb": "/data/figures/2608.17481v1_p5_1.jpg",
+      "caption": "Figure 2: 2D Visualization of Equation 6 for two correlated instruments. \u2014 This scatter plot displays the relationship between two correlated financial instruments' historical returns, with Instrument 1's recent volatility (x-axis) and Instrument 2's historical return (y-axis) each normalized by recent and historical volatility respectively. The blue points represent individual observation pairs, with a notable concentration in the center-right region indicating a strong negative correlation bet",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.17481v1"
+    },
+    {
+      "doc_id": "2608.17481v1",
+      "title": "A generic nonparametric value-at-risk estimator for high dimensions",
+      "page": 6,
+      "thumb": "/data/figures/2608.17481v1_p6_2.jpg",
+      "caption": "Figure 3: 2D Visualization of Equation 6 for live cattle and feeder cattle front month futures. \u2014 This scatter plot visualizes the relationship between feeder cattle and live cattle futures returns, displaying 2D data points from two correlated commodity markets. The x-axis shows feeder cattle front month historical return/recent volatility, while the y-axis shows live cattle front month historical return/recent volatility, with a fitted red regression line indicating the linear relationship bet",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.17481v1"
+    },
+    {
+      "doc_id": "2608.17481v1",
+      "title": "A generic nonparametric value-at-risk estimator for high dimensions",
+      "page": 8,
+      "thumb": "/data/figures/2608.17481v1_p8_3.jpg",
+      "caption": "Figure 4: Example portfolio\u2019s daily return vs 99% VaR. \u2014 This figure displays a time series plot comparing daily returns to daily 99% Value-at-Risk (VaR) estimates for Portfolio 289 from 2012 to 2024. The chart uses a stacked area and line visualization where blue bars represent daily returns, an orange line shows the daily 99% VaR threshold, and red bars highlight instances where daily losses exceeded the VaR estimate. The key takeaway is that the VaR model occasionally underestimates tail risk",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.17481v1"
+    },
+    {
+      "doc_id": "2608.17363v1",
+      "title": "Conservation of Short-term Flows: Signed Optimal Transport",
+      "page": 2,
+      "thumb": "/data/figures/2608.17363v1_p2_0.jpg",
+      "caption": "Figure 1.1: Signed Optimal Transport \u2014 This figure displays two 3D surface plots comparing flow patterns during normal times versus financial crises, with time on the horizontal axis and two additional dimensions represented by the colored surfaces. Panel (a) shows normal market conditions with smoother, more regular undulating patterns in blue and beige tones, while panel (b) shows financial crisis periods with more volatile and jagged surface variations in purple, magenta, and orange tones. Th",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.17363v1"
+    },
+    {
+      "doc_id": "2608.17363v1",
+      "title": "Conservation of Short-term Flows: Signed Optimal Transport",
+      "page": 5,
+      "thumb": "/data/figures/2608.17363v1_p5_1.jpg",
+      "caption": "Figure 1.2 presents the overall framework of this paper. \u2014 This image is a text excerpt from a research paper discussing mathematical formulations for optimal transport problems. It presents equation 1.3 (Kz = d) and explains the theoretical framework for convergence of the Richardson iteration and error propagation equations, with particular focus on the bi-marginal structure of signed optimal transport and spectral radius conditions. The key takeaway is that the paper reduces the original tran",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.17363v1"
+    },
+    {
+      "doc_id": "2608.17363v1",
+      "title": "Conservation of Short-term Flows: Signed Optimal Transport",
+      "page": 5,
+      "thumb": "/data/figures/2608.17363v1_p5_2.jpg",
+      "caption": "Figure 1.2: Framework \u2014 This figure is a flow diagram illustrating a three-step framework for signed optimal transport analysis. The diagram shows \"Harmonic Analysis\" at the top connecting downward to \"Optimal Coupling\" in the center, which then branches rightward to \"Empirical Analysis\" and leftward to \"Marginal Distribution.\" The key takeaway is that optimal coupling serves as the central methodological bridge connecting harmonic analysis techniques with empirical applications and marginal dis",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.17363v1"
+    },
+    {
+      "doc_id": "2608.17363v1",
+      "title": "Conservation of Short-term Flows: Signed Optimal Transport",
+      "page": 10,
+      "thumb": "/data/figures/2608.17363v1_p10_3.jpg",
+      "caption": "Figure 2.1: Comparison of Flatness \u2014 This figure presents two 3D surface plots comparing different topological characteristics on identical domains. The left plot (a) labeled \"Highly Folded\" shows a rugged surface with sharp peaks and valleys in purple-to-red coloring, while the right plot (b) labeled \"Smooth\" displays a smoother, more gradual terrain in blue-to-green coloring. Both surfaces are defined over the same x-y coordinate ranges (approximately -4 to 4), illustrating the contrast betwee",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.17363v1"
+    },
     {
       "doc_id": "2608.16856v1",
       "title": "zLend: A Dual-Scope Cash-Flow Reconstruction Framework for On-Chain Credit Underwriting",
       "page": 4,
       "thumb": "/data/figures/2608.16856v1_p4_0.jpg",
-      "caption": "Figure 1 summarizes the construction. \u2014 This image shows text from a research paper discussing the \"Daily Spine\" section of a reconstruction framework for on-chain financial data. The text defines offset semantics for opening balances (\u03c9\u03c3) and describes how scope-level day sets are projected onto a contiguous calendar spanning from earliest to latest transfer day. Proposition 1 presents computational complexity analysis, stating that reconstruction costs O(T log T + D) time and O(D) space, with ",
+      "caption": "Figure 1 summarizes the construction. \u2014 This section defines offset semantics and presents the Daily Spine construction method for reconstructing cash flows across sparse transaction data. Definition 2 formally introduces \u03c9\u03c3 as the smallest opening balance consistent with observed history without becoming negative, serving as a lower bound derived from data rather than an estimate. Proposition 1 establishes the computational complexity of the reconstruction pipeline: O(T log T + D) time and O(D)",
       "vision": true,
       "source": "https://arxiv.org/pdf/2608.16856v1"
     },
@@ -80,7 +215,7 @@
       "title": "zLend: A Dual-Scope Cash-Flow Reconstruction Framework for On-Chain Credit Underwriting",
       "page": 5,
       "thumb": "/data/figures/2608.16856v1_p5_1.jpg",
-      "caption": "Figure 1: Reconstruction pipeline, executed independently and identically for the stablecoin and total-wealth scopes. \u2014 This flowchart depicts a data processing pipeline for on-chain cash-flow reconstruction with two parallel scopes. Raw fungible transfers are first filtered using a scope definition, then aggregated daily via Equation (1) to produce cumulative net flow. A contiguous spine algorithm processes this flow to extract liquidity, cash-flow, risk, and trend signals for credit underwriti",
+      "caption": "Figure 1: Reconstruction pipeline, executed independently and identically for the stablecoin and total-wealth scopes. \u2014 This flow diagram illustrates a data processing pipeline for reconstructing on-chain cash flows. Raw fungible transfers are first filtered according to Definition 1, then aggregated daily using Equation (1) to produce cumulative net flow data. The pipeline subsequently applies Algorithm 1 (contiguous spine identification) to extract three key outputs: liquidity signals, cash-fl",
       "vision": true,
       "source": "https://arxiv.org/pdf/2608.16856v1"
     },
@@ -89,158 +224,95 @@
       "title": "zLend: A Dual-Scope Cash-Flow Reconstruction Framework for On-Chain Credit Underwriting",
       "page": 8,
       "thumb": "/data/figures/2608.16856v1_p8_2.jpg",
-      "caption": "Figure 2 traces the full decision path. \u2014 This is a table showing tier assignment criteria for credit classification in an on-chain lending framework, with rows for \"Primary (sc)\" and \"Context (tw)\" scopes and columns defining thresholds for \"Supportive,\" \"Cautionary,\" and \"Neutral\" tiers using metrics like coverage ratios (\u22650.80), drawdown measures (\u03c6<0.50), and maximum drawdown (MDD>0.75). The key takeaway is that primary-tier criteria are conjunctive and non-substitutable (all must be met), w",
+      "caption": "Figure 2 traces the full decision path. \u2014 This image shows a table specifying tier assignment criteria for credit evaluation in the zLend framework. The table uses two scopes\u2014Primary (sc) and Context (tw)\u2014with three tiers each (Supportive, Moderate/Cautionary, and Weak/Neutral), defining thresholds for metrics like coverage ratios (\u22650.80, \u22650.50), drawdown measures (\u22641, \u22640.65), and conditions involving phi (\u03c6) values and maximum drawdown (MDD). The key takeaway is that primary-tier criteria are c",
       "vision": true,
       "source": "https://arxiv.org/pdf/2608.16856v1"
-    },
-    {
-      "doc_id": "2608.16856v1",
-      "title": "zLend: A Dual-Scope Cash-Flow Reconstruction Framework for On-Chain Credit Underwriting",
-      "page": 9,
-      "thumb": "/data/figures/2608.16856v1_p9_3.jpg",
-      "caption": "Figure 2: Decision flow. The two scopes are scored independently into parallel signals; mismatch flags are computed from cross-scope ratios and qualify, but never override, the stablecoin-derived primary tier. \u2014 This figure displays a decision flow diagram for an on-chain credit underwriting framework with two parallel analysis scopes. The left side shows SC (stablecoin) series and TW (token wrapper) series inputs, each processed for coverage, MDD, zero events, and trend to generate Primary Sign",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.16856v1"
-    },
-    {
-      "doc_id": "2608.16749v1",
-      "title": "Rough Volatility Across Assets",
-      "page": 6,
-      "thumb": "/data/figures/2608.16749v1_p6_0.jpg",
-      "caption": "Figure 1 shows the object being fitted, for SPY and the ES front-month series (TSRV). The log-log plot is linear on the short-lag window, with lag-10 estimates of 0.186 (SPY) and 0.201 (ES). Extending the window to 40 lags lowers the fit to 0.161 and 0.162, and on lags 40 to 250 the curve flattens toward slopes of 0.076 and 0.092. Section 4.4 quantifies this behavior, which is due to mean reversio \u2014 This is a log-log plot showing the relationship between log-realized variance increments m(2,\u0394) a",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.16749v1"
-    },
-    {
-      "doc_id": "2608.16749v1",
-      "title": "Rough Volatility Across Assets",
-      "page": 7,
-      "thumb": "/data/figures/2608.16749v1_p7_1.jpg",
-      "caption": "Figure 1: log(m(2, \u2206)) as a function of log(\u2206) with OLS fits on different window lags \u2206\u226410, \u2206\u226440 and 40 \u2264\u2206\u2264250; (a) SPY, May 2018 to December 2025, (b) ES front-month, June 2010 to December 2025 \u2014 These line plots display the scaling behavior of realized volatility across different time scales for two equity indices: SPY (panel a) and ES futures (panel b). Each panel shows log(m(2,\u0394)) plotted against log(\u0394), where \u0394 represents time intervals in seconds, with empirical data (blue) overlaid with t",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.16749v1"
-    },
-    {
-      "doc_id": "2608.16749v1",
-      "title": "Rough Volatility Across Assets",
-      "page": 15,
-      "thumb": "/data/figures/2608.16749v1_p15_2.jpg",
-      "caption": "Figure 2: Scaling of the second moment at H = 0.5 for \u03ba \u2208{0, 0.010, 0.035}. Second moment from true log-variance, with the short-lag slope 2H = 1 (grey dotted line) and the mean- reversion bend at long lags for \u03ba > 0. Second moment is measured from five-minute realized variance on the simulated returns (dashed with markers). \u2014 This figure displays log-log plots comparing true log-variance second moments with measured five-minute realized variance (RV) second moments for a Hurst parameter H=0.5 a",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.16749v1"
-    },
-    {
-      "doc_id": "2608.16749v1",
-      "title": "Rough Volatility Across Assets",
-      "page": 16,
-      "thumb": "/data/figures/2608.16749v1_p16_3.jpg",
-      "caption": "Figure 3: Distribution of the realized Hurst parameter (TSRV, lag-10) across 3,926 Nasdaq stocks, all stocks, and a quality subset. Dashed vertical lines are the medians. \u2014 This is a histogram showing the distribution of realized Hurst exponent (H) values computed using time-series realized volatility (TSRV) with lag-10 across Nasdaq stocks. The figure displays two overlaid distributions: all stocks (gray, n=3,926) and a quality subset (red, n=1,488), with dashed vertical lines marking their res",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.16749v1"
-    },
-    {
-      "doc_id": "2608.15841v1",
-      "title": "Self-Supervised Auxiliary Task Discovery for Stable Reinforcement Learning in Stock Trading",
-      "page": 12,
-      "thumb": "/data/figures/2608.15841v1_p12_0.jpg",
-      "caption": "Figure 1: The two-network architecture of the proposed QUESTrader. \u2014 This figure shows the neural network architecture of QUESTrader, a reinforcement learning system for stock trading, presented as two separate network diagrams. Panel (a) displays the Main/Answer Network that takes Stock data and Event-driven Information as inputs, processes them through an Encoder/Decoder module, and produces three outputs: Policy Head (actor), Value Head (critic), and Auxiliary Head (AUX) for auxiliary task le",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.15841v1"
-    },
-    {
-      "doc_id": "2608.15841v1",
-      "title": "Self-Supervised Auxiliary Task Discovery for Stable Reinforcement Learning in Stock Trading",
-      "page": 24,
-      "thumb": "/data/figures/2608.15841v1_p24_1.jpg",
-      "caption": "Figure 6 displays, for each dataset, a scatter of models in mean\u2013variance space: the x-axis is annualized volatility (risk), the y-axis is annualized mean return, and the colour encodes the Sharpe ratio. This visual is important because it places every method on the same risk\u2013reward canvas. On DJI, \u2014 This figure displays a risk-return scatter plot across three financial datasets (DJI, FTSE, Sensex, and TAIEX), with annualized volatility on the x-axis, annualized mean return on the y-axis, and Sh",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.15841v1"
-    },
-    {
-      "doc_id": "2608.15743v1",
-      "title": "Behavioral Participating Insurance: Optimal Investment under Probability Distortion and Aspiration Constraints",
-      "page": 21,
-      "thumb": "/data/figures/2608.15743v1_p21_0.jpg",
-      "caption": "Figure 1: Three cases corresponding to cU < Lg \u2014 This figure displays three line plots comparing two curves (solid purple and dashed red) across different parameter scenarios, with x-axes ranging from 0 to 3.5 and y-axes from 0 to 1.2. Each subplot represents a different case satisfying the constraint cU < Lg, illustrating how probability distortion and aspiration levels affect optimal investment behavior in participating insurance contracts. The curves demonstrate the relationship between a con",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.15743v1"
-    },
-    {
-      "doc_id": "2608.15743v1",
-      "title": "Behavioral Participating Insurance: Optimal Investment under Probability Distortion and Aspiration Constraints",
-      "page": 22,
-      "thumb": "/data/figures/2608.15743v1_p22_1.jpg",
-      "caption": "Figure 2: The parameters for the upper figure are given by \u00b5 = 0.07, r = 0.01, \u03c3 = 0.15, T = 1, a = 1.17, b = 0.86, \u00afz = 0.33, Lg \u2014 This figure displays six line charts comparing risky investment percentages across wealth levels under different time horizons (T=0.1, 0.3, 0.5, 1.0) and mortality probability distortions. Each subplot shows wealth on the x-axis (ranging from w\u2080 to 2\u0101\u2082) and risky investment percentage on the y-axis, with solid black lines representing the baseline allocation and dot",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.15743v1"
-    },
-    {
-      "doc_id": "2608.15743v1",
-      "title": "Behavioral Participating Insurance: Optimal Investment under Probability Distortion and Aspiration Constraints",
-      "page": 24,
-      "thumb": "/data/figures/2608.15743v1_p24_2.jpg",
-      "caption": "Figure 3: Optimal investment strategies with and without probability distortion starting at each time points. The parameters for the upper figure are given by \u00b5 = 0.07, r = 0.01, \u03c3 = 0.15, T = 1, a = 1.17, b = 0.86, \u2014 This figure displays six line charts comparing optimal investment strategies with and without probability distortion across different time points and wealth levels. Each chart plots wealth on the x-axis against either risky investment percentage or risky investment percentage on th",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.15743v1"
-    },
-    {
-      "doc_id": "2608.15640v1",
-      "title": "A contribution to the critique of blockchain censorship",
-      "page": 16,
-      "thumb": "/data/figures/2608.15640v1_p16_0.jpg",
-      "caption": "Fig. 1. Fitting the stretched exponential distribution to Ethereum real world data in the plot on the left, and Solana in the plot on the right. The green dashed line: w = \u2308\u03bb\u2309 is chosen as the whale count for each dataset. \u2014 This figure displays rank-size distributions for cryptocurrency transaction data fitted to stretched exponential functions. The left panel shows Ethereum blockchain data (48 entities) with rank on the x-axis and market share distribution on the y-axis, while the right panel ",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.15640v1"
-    },
-    {
-      "doc_id": "2608.15640v1",
-      "title": "A contribution to the critique of blockchain censorship",
-      "page": 16,
-      "thumb": "/data/figures/2608.15640v1_p16_1.jpg",
-      "caption": "Fig. 2. \u03a6(k, t = 1/2) vs. attack coalition size k. The plot on the left (resp. right) depicts the result for Ethereum (resp. Solana). The blue curve shows the estimation using real world whale stake numbers, and the orange curve shows the estimation using assuming all whales have the same stake. The red curve depicts the baseline whale fair play value. \u2014 Figure 2 displays two line plots showing the censorship power metric \u03a6(k, t=1/2) as a function of committee size k for Ethereum (left) and Sola",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.15640v1"
-    },
-    {
-      "doc_id": "2608.15597v1",
-      "title": "Toward Decentralized Carbon Trading in Indonesia: A Public-Blockchain Architecture for Tokenized Real-World Assets",
-      "page": 4,
-      "thumb": "/data/figures/2608.15597v1_p4_0.jpg",
-      "caption": "Figure 1 summarizes this institutional structure. The figure distinguishes the processes that establish the carbon unit and its authoritative registry state from the channels through which the unit may be traded. \u2014 This figure is a block diagram illustrating Indonesia's carbon trading institutional structure, showing the separation between carbon unit creation/registry processes and trading channels. The diagram displays the regulatory framework involving OJK (Financial Services Authority), the ",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.15597v1"
-    },
-    {
-      "doc_id": "2608.15597v1",
-      "title": "Toward Decentralized Carbon Trading in Indonesia: A Public-Blockchain Architecture for Tokenized Real-World Assets",
-      "page": 5,
-      "thumb": "/data/figures/2608.15597v1_p5_1.jpg",
-      "caption": "Figure 1: Simplified institutional structure of Indonesian carbon trading. Carbon transactions may occur through direct trading or a regulated Carbon Exchange, with transaction information recorded through SRUK. Jejakin illustrates a commercial facilitation interface for SPE-GRK transactions sourced and transacted through IDXCarbon. \u2014 This figure is a flowchart depicting the institutional and operational structure of Indonesia's carbon trading system. The diagram shows the flow from mitigation p",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.15597v1"
-    },
-    {
-      "doc_id": "2608.15597v1",
-      "title": "Toward Decentralized Carbon Trading in Indonesia: A Public-Blockchain Architecture for Tokenized Real-World Assets",
-      "page": 13,
-      "thumb": "/data/figures/2608.15597v1_p13_2.jpg",
-      "caption": "Figure 2 presents the proposed architecture. It comprises four logical layers: the authoritative carbon layer, the interoperability and tokenization layer, the public-blockchain RWA layer, and the market and application layer. The layers are connected through controlled interfaces so that changes in the token state remain consistent with the corresponding carbon-unit state. \u2014 Figure 2 presents a four-layer architecture diagram for public-blockchain carbon trading in Indonesia: the authoritative ",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.15597v1"
     }
   ],
   "docs": [
+    {
+      "id": "2608.18022v1",
+      "title": "Entropic Value-at-Risk portfolio optimization for tempered stable L\u00e9vy processes",
+      "source": "https://arxiv.org/pdf/2608.18022v1",
+      "pages": 37,
+      "images": 0,
+      "figures_captioned": 0,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 41
+    },
+    {
+      "id": "2608.17808v1",
+      "title": "Self-Consistent Adjoint Policy Iteration for Constrained Dynamic Portfolio Choice",
+      "source": "https://arxiv.org/pdf/2608.17808v1",
+      "pages": 52,
+      "images": 0,
+      "figures_captioned": 0,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 56
+    },
+    {
+      "id": "2608.17715v1",
+      "title": "Communicating Credit Risk with Large Language Models: Evaluation of Explanations from Standard and Alternative Data-Based Models",
+      "source": "https://arxiv.org/pdf/2608.17715v1",
+      "pages": 48,
+      "images": 8,
+      "figures_captioned": 4,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 35
+    },
+    {
+      "id": "2608.17636v1",
+      "title": "COS-TT-CHF: A Tensor-Train Characteristic-Function COS Method for Multi-Asset Option Pricing",
+      "source": "https://arxiv.org/pdf/2608.17636v1",
+      "pages": 35,
+      "images": 0,
+      "figures_captioned": 3,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 46
+    },
+    {
+      "id": "2608.17481v1",
+      "title": "A generic nonparametric value-at-risk estimator for high dimensions",
+      "source": "https://arxiv.org/pdf/2608.17481v1",
+      "pages": 15,
+      "images": 14,
+      "figures_captioned": 4,
+      "tables": 2,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 35
+    },
+    {
+      "id": "2608.17363v1",
+      "title": "Conservation of Short-term Flows: Signed Optimal Transport",
+      "source": "https://arxiv.org/pdf/2608.17363v1",
+      "pages": 38,
+      "images": 2,
+      "figures_captioned": 4,
+      "tables": 1,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 60
+    },
     {
       "id": "2608.16856v1",
       "title": "zLend: A Dual-Scope Cash-Flow Reconstruction Framework for On-Chain Credit Underwriting",
       "source": "https://arxiv.org/pdf/2608.16856v1",
       "pages": 15,
       "images": 0,
-      "figures_captioned": 4,
+      "figures_captioned": 3,
       "tables": 2,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 33
+      "chunks_indexed": 32
     },
     {
       "id": "2608.16842v1",
@@ -260,11 +332,11 @@
       "source": "https://arxiv.org/pdf/2608.16749v1",
       "pages": 29,
       "images": 0,
-      "figures_captioned": 4,
+      "figures_captioned": 0,
       "tables": 2,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 44
+      "chunks_indexed": 40
     },
     {
       "id": "2608.15841v1",
@@ -272,83 +344,11 @@
       "source": "https://arxiv.org/pdf/2608.15841v1",
       "pages": 36,
       "images": 0,
-      "figures_captioned": 2,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 32
-    },
-    {
-      "id": "2608.15743v1",
-      "title": "Behavioral Participating Insurance: Optimal Investment under Probability Distortion and Aspiration Constraints",
-      "source": "https://arxiv.org/pdf/2608.15743v1",
-      "pages": 38,
-      "images": 7,
-      "figures_captioned": 3,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 41
-    },
-    {
-      "id": "2608.15667v1",
-      "title": "Scalable Pontryagin-Guided Adjoint-to-Control Recovery for Constrained Dynamic Portfolio Choice",
-      "source": "https://arxiv.org/pdf/2608.15667v1",
-      "pages": 57,
-      "images": 0,
       "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 48
-    },
-    {
-      "id": "2608.15640v1",
-      "title": "A contribution to the critique of blockchain censorship",
-      "source": "https://arxiv.org/pdf/2608.15640v1",
-      "pages": 20,
-      "images": 2,
-      "figures_captioned": 2,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
       "chunks_indexed": 30
-    },
-    {
-      "id": "2608.15597v1",
-      "title": "Toward Decentralized Carbon Trading in Indonesia: A Public-Blockchain Architecture for Tokenized Real-World Assets",
-      "source": "https://arxiv.org/pdf/2608.15597v1",
-      "pages": 23,
-      "images": 0,
-      "figures_captioned": 3,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 46
-    },
-    {
-      "id": "2608.15447v1",
-      "title": "Detecting Money Laundering in Rwandan Mobile Money: A Machine Learning Framework",
-      "source": "https://arxiv.org/pdf/2608.15447v1",
-      "pages": 24,
-      "images": 0,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 38
-    },
-    {
-      "id": "2608.15212v1",
-      "title": "Is the medium the message? Social disclosure channels and firm risk",
-      "source": "https://arxiv.org/pdf/2608.15212v1",
-      "pages": 51,
-      "images": 0,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 27
     }
   ]
 }
