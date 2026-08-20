@@ -1,7 +1,7 @@
 {
   "_note": "Public run manifest of the Tier-3 agentic ingestion pipeline. Safe aggregates + provenance only; raw PDFs live in S3, not here.",
-  "run_id": "20260819T031207Z",
-  "generated_at": "2026-08-19T03:18:46+00:00",
+  "run_id": "20260820T031110Z",
+  "generated_at": "2026-08-20T03:18:12+00:00",
   "collection": "research_corpus",
   "embed_model": "BAAI/bge-small-en-v1.5",
   "dag": [
@@ -50,28 +50,127 @@
     "discovered": 10,
     "fetched": 10,
     "parsed": 10,
-    "chunks": 471,
-    "accepted": 427,
-    "rejected": 44,
-    "images": 24,
+    "chunks": 491,
+    "accepted": 456,
+    "rejected": 35,
+    "images": 29,
     "figures_captioned": 18,
-    "tables": 7,
+    "tables": 6,
     "with_math": 10,
-    "indexed": 427,
-    "spent_usd": 0.0302,
-    "duration_s": 398.5
+    "indexed": 456,
+    "spent_usd": 0.0322,
+    "duration_s": 421.9
   },
   "rejects_by_reason": {
-    "low-relevance": 44
+    "low-relevance": 35
   },
   "budget_usd": 3.0,
   "figures": [
+    {
+      "doc_id": "2608.18783v1",
+      "title": "When to Sell an Asset? - A Distribution Builder Approach",
+      "page": 7,
+      "thumb": "/data/figures/2608.18783v1_p7_0.jpg",
+      "caption": "Figure 1: Az\u00b4ema\u2013Yor barrier function \u03a8\u00b5,\u03c3 \u2014 The left panel shows time series plots of three quantities (K_t^* in red, M_t^* in blue, and \u03a8_\u03bc,\u03c3^2(X_t) in green) over a time horizon from 0 to 20, with the blue and red series converging to horizontal asymptotes around 100 and 150 respectively, while the green series exhibits high volatility. The right panel is a scatter plot with x-axis ranging from 60 to 160 and y-axis from 125 to 275, showing two curves labeled \"Path {x_t,M_t}\" in blue and \"Barr",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.18783v1"
+    },
+    {
+      "doc_id": "2608.18783v1",
+      "title": "When to Sell an Asset? - A Distribution Builder Approach",
+      "page": 8,
+      "thumb": "/data/figures/2608.18783v1_p8_1.jpg",
+      "caption": "Figure 2: Az\u00b4ema\u2013Yor barrier function \u03a8\u00b5,\u03c3 \u2014 The left panel shows three time series (X\u1d57 in red, M\u1d57 in blue, and \u03a8\u00b2\u03bc,\u03c3(X\u1d57) in green) plotted against time t from 0 to 3, with values ranging from approximately 100 to 500. The right panel is a scatter plot comparing the A\u017c\u00e9ma\u2013Yor barrier function (green line labeled \"Path |x\u1d57|\u00b7M\u00b2\") against a Barrier Y\u03bc,\u03c3(X) (blue shaded region) with x-axis from 100 to 400 and y-axis from 100 to 500. The key takeaway demonstrates how the A\u017c\u00e9ma\u2013Yor barrier function tr",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.18783v1"
+    },
+    {
+      "doc_id": "2608.18783v1",
+      "title": "When to Sell an Asset? - A Distribution Builder Approach",
+      "page": 10,
+      "thumb": "/data/figures/2608.18783v1_p10_2.jpg",
+      "caption": "Figure 3: Attainable frontiers (mean-standard deviation trade-off) for different distributions and A = 0.2 (blue), A = 0.5 (orange), and A = 0.8 (green) (with x = 1 throughout): log-normal, Pareto, and gamma distributions. \u2014 This figure displays three side-by-side mean-standard deviation (efficient frontier) plots comparing attainable frontiers across log-normal, Pareto, and gamma distributions. Each panel shows the tradeoff between mean return (y-axis, ranging 1.00\u20131.25) and standard deviation ",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.18783v1"
+    },
+    {
+      "doc_id": "2608.18299v1",
+      "title": "The Market's Conditioning Representation: Equilibrium, Crowding, and Convention Multiplicity",
+      "page": 2,
+      "thumb": "/data/figures/2608.18299v1_p2_0.jpg",
+      "caption": "Figure 1: Two overlaps, two congestions. Portfolios that share holdings execute against the same depth, so market impact prices their positional overlap. Portfolios that share drivers can erode the value of the same information even when their books do not coincide; this informational overlap is distinct from execution congestion. \u2014 This figure illustrates two distinct types of portfolio overlap through a directed graph with two parallel structures. On the left, portfolios 1 and 2 converge to \"s",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.18299v1"
+    },
+    {
+      "doc_id": "2608.18299v1",
+      "title": "The Market's Conditioning Representation: Equilibrium, Crowding, and Convention Multiplicity",
+      "page": 3,
+      "thumb": "/data/figures/2608.18299v1_p3_1.jpg",
+      "caption": "Figure 2: What clears in a representation equilibrium. The premium determines which representations are worth carrying, the configuration determines how crowded each is, and the capital those choices deploy moves the premium that started the loop. The equilibrium problem is to determine whether this loop has a fixed point and under what conditions that fixed point is determinate. \u2014 This diagram illustrates a three-component feedback loop in representation equilibrium consisting of boxes connecte",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.18299v1"
+    },
+    {
+      "doc_id": "2608.18299v1",
+      "title": "The Market's Conditioning Representation: Equilibrium, Crowding, and Convention Multiplicity",
+      "page": 8,
+      "thumb": "/data/figures/2608.18299v1_p8_2.jpg",
+      "caption": "Figure 4 shows the geometry these objects live in. The model has an information layer and a value layer. The information layer is the Grassmannian Gr(m, D) of m dimensional driver subspaces; the value layer is the space of premia and covariances; and the map between them assigns to each representation its potential. \u2014 This figure illustrates a two-layer geometric framework connecting information structure to asset pricing: the information layer consists of the Grassmannian Gr(m, D) representing ",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.18299v1"
+    },
+    {
+      "doc_id": "2608.18299v1",
+      "title": "The Market's Conditioning Representation: Equilibrium, Crowding, and Convention Multiplicity",
+      "page": 9,
+      "thumb": "/data/figures/2608.18299v1_p9_3.jpg",
+      "caption": "Figure 4: The geometry, drawn in asset space. Left: the potential is the squared length, in the metric of the conditional covariance, of the projection of the premium onto the exposures E(S) = \u0398S that the representation induces, so a representation is worth what its exposures capture of the premium and nothing else. Right: a switch is a rotation, and the distance travelled is the principal angle,  \u2014 This figure shows two diagrams illustrating geometric concepts in asset space. The left panel is ",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.18299v1"
+    },
+    {
+      "doc_id": "2608.18195v1",
+      "title": "Multi-Level Market Making with Reinforcement Learning",
+      "page": 5,
+      "thumb": "/data/figures/2608.18195v1_p5_0.jpg",
+      "caption": "Figure 1: Order book before and after the action an has been taken. The blue boxes indicate limit buy orders, the red boxes indicate limit sell orders, and orange boxes represent the algorithm\u2019s orders. \u2014 This figure displays two stacked bar charts comparing order book composition before and after an algorithm's action, separated into Bid and Ask sides. Each chart uses blue bars for limit buy orders, red bars for limit sell orders, and orange bars for the algorithm's own orders, with price level",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.18195v1"
+    },
+    {
+      "doc_id": "2608.18195v1",
+      "title": "Multi-Level Market Making with Reinforcement Learning",
+      "page": 12,
+      "thumb": "/data/figures/2608.18195v1_p12_1.jpg",
+      "caption": "Figure 2: Evolution of the order book over time. Red colors indicate limit sell orders, while blue colors indicate limit buy orders. The black lines represent the best bid and ask prices. The triangles indicate market buy and sell orders. Larger sizes of the triangles correspond to larger order sizes. Deeper color tones correspond to larger volumes. \u2014 This figure shows the evolution of an order book over time, displayed as a stacked area chart with overlaid candlestick-style price data. The x-ax",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.18195v1"
+    },
+    {
+      "doc_id": "2608.18195v1",
+      "title": "Multi-Level Market Making with Reinforcement Learning",
+      "page": 14,
+      "thumb": "/data/figures/2608.18195v1_p14_2.jpg",
+      "caption": "Figure 3: The upper row corresponds to markouts of the algorithms posting M = 2 lots. The lower row corresponds to markouts of the algorithms posting M = 20 lots. Color shades correspond to market environments. Dark-blue corresponds to the noise market, mid-blue corresponds to the market consisting of noise and tactical traders, and light-blue corresponds to the market consisting of noise, tactica \u2014 This figure displays kernel density estimates of markout distributions across different market-ma",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.18195v1"
+    },
+    {
+      "doc_id": "2608.18195v1",
+      "title": "Multi-Level Market Making with Reinforcement Learning",
+      "page": 16,
+      "thumb": "/data/figures/2608.18195v1_p16_3.jpg",
+      "caption": "Figure 4: Histograms of the normalized cash flow (20) for the TOP1, TOP2, INV, and LN algorithms, for all markets, and for M = 2 and M = 20 lots. \u2014 This figure displays density histograms comparing cash flow distributions across four market-making algorithms (TOP1, TOP2, INV, and LN baselines) under three increasingly complex market conditions: (a) noise only, (b) noise with tactical information, and (c) noise with tactical and strategic factors. Each panel shows probability density on the y-axi",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.18195v1"
+    },
     {
       "doc_id": "2608.17715v1",
       "title": "Communicating Credit Risk with Large Language Models: Evaluation of Explanations from Standard and Alternative Data-Based Models",
       "page": 9,
       "thumb": "/data/figures/2608.17715v1_p9_0.jpg",
-      "caption": "Figure 1: The architecture of the three explanation pipelines. \u2014 This figure presents three machine learning pipeline architectures for generating explanations about credit risk using large language models (LLMs). Panel (a) shows a tabular-based pipeline that processes tabular data through XGB, SHAP, and an LLM to produce explanations. Panel (b) shows a network-based pipeline that uses graph data processed through GAT, OMNIexplainer, and an LLM for predictions. Panel (c) shows a bimodal pipeline",
+      "caption": "Figure 1: The architecture of the three explanation pipelines. \u2014 This figure illustrates three machine learning pipelines for generating credit risk explanations using large language models. Panel (a) shows a tabular-based pipeline that processes structured tabular data through XGB and SHAP to generate normalized feature values, which feed into an LLM for explanation generation. Panel (b) presents a network-based pipeline that processes graph data through GAT and OMNIExplainer to normalize graph",
       "vision": true,
       "source": "https://arxiv.org/pdf/2608.17715v1"
     },
@@ -80,7 +179,7 @@
       "title": "Communicating Credit Risk with Large Language Models: Evaluation of Explanations from Standard and Alternative Data-Based Models",
       "page": 12,
       "thumb": "/data/figures/2608.17715v1_p12_1.jpg",
-      "caption": "Figure 2: Workflow for fine-tuning Gemma 3 and DeepSeek R1 using LoRA-based instruction tuning on 8-bit quan- tised base models. SHAP and GNNExplainer outputs are paired with ChatGPT-4o-generated explanations to create the synthetic supervision dataset. \u2014 This figure illustrates a workflow diagram for fine-tuning large language models (Gemma 3 and DeepSeek R1) for credit risk explanation tasks. The process begins with two data sources\u2014tabular loan records and graph-structured loan data\u2014which fee",
+      "caption": "Figure 2: Workflow for fine-tuning Gemma 3 and DeepSeek R1 using LoRA-based instruction tuning on 8-bit quan- tised base models. SHAP and GNNExplainer outputs are paired with ChatGPT-4o-generated explanations to create the synthetic supervision dataset. \u2014 This figure depicts a workflow diagram showing the process for fine-tuning large language models (Gemma 3 and DeepSeek R1) on loan credit risk data. The pipeline combines tabular loan records and graph-structured data to calculate SHAP values a",
       "vision": true,
       "source": "https://arxiv.org/pdf/2608.17715v1"
     },
@@ -89,7 +188,7 @@
       "title": "Communicating Credit Risk with Large Language Models: Evaluation of Explanations from Standard and Alternative Data-Based Models",
       "page": 20,
       "thumb": "/data/figures/2608.17715v1_p20_2.jpg",
-      "caption": "Figure 3: Between-cohort comparisons by LLM. \u2014 This figure displays box plots comparing Lyman-Skeel ratings across eight different financial metrics (UND, TRU, INS, SAT, CON, CVN, COM, USB) for three large language models: Gemma 3 (a), DeepSeek R1 (b), and Gemini 2.5 (c). Each subplot shows the distribution of ratings with 25th percentile (Q1), median, and 75th percentile (Q3) marked by the box, whiskers extending to show range, and outliers depicted as dots. The key takeaway is that all three L",
+      "caption": "Figure 3: Between-cohort comparisons by LLM. \u2014 This figure displays box plots comparing LLM performance across three models (Gemma 3, DeepSeek R1, and Gemini 2.5) for eight different metrics (UND, TRU, INS, SAT, CON, CVN, COM, USB). Each subplot shows the distribution of results with the median, interquartile range, and outliers represented, with separate boxes for OPRs (light) and NORMs (darker shading). The y-axis shows \"Label 0-5 Rating\" ranging from 1 to 5 across all three panels, while the ",
       "vision": true,
       "source": "https://arxiv.org/pdf/2608.17715v1"
     },
@@ -98,7 +197,7 @@
       "title": "Communicating Credit Risk with Large Language Models: Evaluation of Explanations from Standard and Alternative Data-Based Models",
       "page": 24,
       "thumb": "/data/figures/2608.17715v1_p24_3.jpg",
-      "caption": "Figure 4: Cohen\u2019s d effect sizes comparing linguistic features in high-rated (top quartile) and low-rated (bottom quartile) explanations across quality metrics. Positive values (red) indicate features more prevalent in high-rated explanations; negative values (blue) indicate the reverse. \u2014 This heatmap displays Cohen's d effect sizes measuring the relationship between linguistic features (rows) and explanation quality metrics (columns) in credit risk communication. The chart uses a diverging col",
+      "caption": "Figure 4: Cohen\u2019s d effect sizes comparing linguistic features in high-rated (top quartile) and low-rated (bottom quartile) explanations across quality metrics. Positive values (red) indicate features more prevalent in high-rated explanations; negative values (blue) indicate the reverse. \u2014 This heatmap displays Cohen's d effect sizes measuring differences in linguistic features between high-rated (top quartile) and low-rated (bottom quartile) credit risk explanations across eight quality metrics",
       "vision": true,
       "source": "https://arxiv.org/pdf/2608.17715v1"
     },
@@ -107,7 +206,7 @@
       "title": "COS-TT-CHF: A Tensor-Train Characteristic-Function COS Method for Multi-Asset Option Pricing",
       "page": 9,
       "thumb": "/data/figures/2608.17636v1_p9_0.jpg",
-      "caption": "Figure 1: Tensor-network representation of the COS\u2013TT\u2013CHF construction. (a) The joint char- acteristic function sampled on the tensor-product frequency grid defines the tensor \u03a6, which is approximated by TT-cross as b\u03a6 with TT cores Gm. (b) The one-dimensional CHF-to-COS map Mm is applied locally to the physical frequency leg of each core, producing the COS-coefficient core Bm. (c) For arithmetic  \u2014 This figure shows tensor-network diagrams illustrating the COS-TT-CHF algorithm for multi-asset o",
+      "caption": "Figure 1: Tensor-network representation of the COS\u2013TT\u2013CHF construction. (a) The joint char- acteristic function sampled on the tensor-product frequency grid defines the tensor \u03a6, which is approximated by TT-cross as b\u03a6 with TT cores Gm. (b) The one-dimensional CHF-to-COS map Mm is applied locally to the physical frequency leg of each core, producing the COS-coefficient core Bm. (c) For arithmetic  \u2014 This figure displays tensor-network diagrams illustrating the COS-TT-CHF method for multi-asset o",
       "vision": true,
       "source": "https://arxiv.org/pdf/2608.17636v1"
     },
@@ -116,7 +215,7 @@
       "title": "COS-TT-CHF: A Tensor-Train Characteristic-Function COS Method for Multi-Asset Option Pricing",
       "page": 15,
       "thumb": "/data/figures/2608.17636v1_p15_1.jpg",
-      "caption": "Figure 2: Component Vega decomposition for a stylized five-asset GBM basket call. The bas- ket has Si(0) = 100, equal weights wi = 0.2, T = 1, r = 2%, K \u2208{80, 100, 120}, volatili- ties \u03c3 = (10, 15, 22, 28, 32)%, and Toeplitz correlation \u03c1ij = 0.7|i\u2212j|. Bars show the volatility- weighted component contributions \u03c3i \u2202C(K)/\u2202\u03c3i, which sum to the common volatility-scale Vega \u2202C(K; \u03b7\u03c3)/\u2202\u03b7|\u03b7=1. Labels rep \u2014 This stacked bar chart displays component vega shifts across three strike prices (80, 100, 120) f",
+      "caption": "Figure 2: Component Vega decomposition for a stylized five-asset GBM basket call. The bas- ket has Si(0) = 100, equal weights wi = 0.2, T = 1, r = 2%, K \u2208{80, 100, 120}, volatili- ties \u03c3 = (10, 15, 22, 28, 32)%, and Toeplitz correlation \u03c1ij = 0.7|i\u2212j|. Bars show the volatility- weighted component contributions \u03c3i \u2202C(K)/\u2202\u03c3i, which sum to the common volatility-scale Vega \u2202C(K; \u03b7\u03c3)/\u2202\u03b7|\u03b7=1. Labels rep \u2014 This stacked bar chart displays component vega decomposition for a five-asset basket call option ",
       "vision": true,
       "source": "https://arxiv.org/pdf/2608.17636v1"
     },
@@ -125,111 +224,36 @@
       "title": "COS-TT-CHF: A Tensor-Train Characteristic-Function COS Method for Multi-Asset Option Pricing",
       "page": 15,
       "thumb": "/data/figures/2608.17636v1_p15_2.jpg",
-      "caption": "Figure 2 illustrates the common-volatility decomposition for a stylized five-name basket. In this example the basket weights and initial spots are identical, so the variation in the decomposition \u2014 This stacked bar chart shows component Vega decomposition for a five-asset GBM basket call across three strike levels (K=80, 100, 120). Each bar is divided into five colored segments representing the percentage contribution of each asset to the total volatility-scale Vega, with contributions summing t",
+      "caption": "Figure 2 illustrates the common-volatility decomposition for a stylized five-name basket. In this example the basket weights and initial spots are identical, so the variation in the decomposition \u2014 This figure shows a stacked bar chart displaying component Vega decomposition for a five-asset GBM basket call option across three strike levels (K=80, 100, 120). Each bar is divided into colored segments representing the volatility contribution of Assets 1-5, with numerical values and percentages lab",
       "vision": true,
       "source": "https://arxiv.org/pdf/2608.17636v1"
-    },
-    {
-      "doc_id": "2608.17481v1",
-      "title": "A generic nonparametric value-at-risk estimator for high dimensions",
-      "page": 4,
-      "thumb": "/data/figures/2608.17481v1_p4_0.jpg",
-      "caption": "Figure 1: 2D Visualization of the VaR estimation Equation 6. \u2014 This scatter plot displays the relationship between two financial instruments' historical returns normalized by recent volatility, with approximately 2,000 data points shown in blue. The x-axis represents \"Instrument 1 historical return / recent vol\" and the y-axis represents \"Instrument 2 historical return / recent vol\", both centered around zero with ranges from roughly -8 to +8. A red dashed line indicates a fitted trend or bounda",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.17481v1"
-    },
-    {
-      "doc_id": "2608.17481v1",
-      "title": "A generic nonparametric value-at-risk estimator for high dimensions",
-      "page": 5,
-      "thumb": "/data/figures/2608.17481v1_p5_1.jpg",
-      "caption": "Figure 2: 2D Visualization of Equation 6 for two correlated instruments. \u2014 This scatter plot displays the relationship between two correlated financial instruments' historical returns, with Instrument 1's recent volatility (x-axis) and Instrument 2's historical return (y-axis) each normalized by recent and historical volatility respectively. The blue points represent individual observation pairs, with a notable concentration in the center-right region indicating a strong negative correlation bet",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.17481v1"
-    },
-    {
-      "doc_id": "2608.17481v1",
-      "title": "A generic nonparametric value-at-risk estimator for high dimensions",
-      "page": 6,
-      "thumb": "/data/figures/2608.17481v1_p6_2.jpg",
-      "caption": "Figure 3: 2D Visualization of Equation 6 for live cattle and feeder cattle front month futures. \u2014 This scatter plot visualizes the relationship between feeder cattle and live cattle futures returns, displaying 2D data points from two correlated commodity markets. The x-axis shows feeder cattle front month historical return/recent volatility, while the y-axis shows live cattle front month historical return/recent volatility, with a fitted red regression line indicating the linear relationship bet",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.17481v1"
-    },
-    {
-      "doc_id": "2608.17481v1",
-      "title": "A generic nonparametric value-at-risk estimator for high dimensions",
-      "page": 8,
-      "thumb": "/data/figures/2608.17481v1_p8_3.jpg",
-      "caption": "Figure 4: Example portfolio\u2019s daily return vs 99% VaR. \u2014 This figure displays a time series plot comparing daily returns to daily 99% Value-at-Risk (VaR) estimates for Portfolio 289 from 2012 to 2024. The chart uses a stacked area and line visualization where blue bars represent daily returns, an orange line shows the daily 99% VaR threshold, and red bars highlight instances where daily losses exceeded the VaR estimate. The key takeaway is that the VaR model occasionally underestimates tail risk",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.17481v1"
-    },
-    {
-      "doc_id": "2608.17363v1",
-      "title": "Conservation of Short-term Flows: Signed Optimal Transport",
-      "page": 2,
-      "thumb": "/data/figures/2608.17363v1_p2_0.jpg",
-      "caption": "Figure 1.1: Signed Optimal Transport \u2014 This figure displays two 3D surface plots comparing flow patterns during normal times versus financial crises, with time on the horizontal axis and two additional dimensions represented by the colored surfaces. Panel (a) shows normal market conditions with smoother, more regular undulating patterns in blue and beige tones, while panel (b) shows financial crisis periods with more volatile and jagged surface variations in purple, magenta, and orange tones. Th",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.17363v1"
-    },
-    {
-      "doc_id": "2608.17363v1",
-      "title": "Conservation of Short-term Flows: Signed Optimal Transport",
-      "page": 5,
-      "thumb": "/data/figures/2608.17363v1_p5_1.jpg",
-      "caption": "Figure 1.2 presents the overall framework of this paper. \u2014 This image is a text excerpt from a research paper discussing mathematical formulations for optimal transport problems. It presents equation 1.3 (Kz = d) and explains the theoretical framework for convergence of the Richardson iteration and error propagation equations, with particular focus on the bi-marginal structure of signed optimal transport and spectral radius conditions. The key takeaway is that the paper reduces the original tran",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.17363v1"
-    },
-    {
-      "doc_id": "2608.17363v1",
-      "title": "Conservation of Short-term Flows: Signed Optimal Transport",
-      "page": 5,
-      "thumb": "/data/figures/2608.17363v1_p5_2.jpg",
-      "caption": "Figure 1.2: Framework \u2014 This figure is a flow diagram illustrating a three-step framework for signed optimal transport analysis. The diagram shows \"Harmonic Analysis\" at the top connecting downward to \"Optimal Coupling\" in the center, which then branches rightward to \"Empirical Analysis\" and leftward to \"Marginal Distribution.\" The key takeaway is that optimal coupling serves as the central methodological bridge connecting harmonic analysis techniques with empirical applications and marginal dis",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.17363v1"
-    },
-    {
-      "doc_id": "2608.17363v1",
-      "title": "Conservation of Short-term Flows: Signed Optimal Transport",
-      "page": 10,
-      "thumb": "/data/figures/2608.17363v1_p10_3.jpg",
-      "caption": "Figure 2.1: Comparison of Flatness \u2014 This figure presents two 3D surface plots comparing different topological characteristics on identical domains. The left plot (a) labeled \"Highly Folded\" shows a rugged surface with sharp peaks and valleys in purple-to-red coloring, while the right plot (b) labeled \"Smooth\" displays a smoother, more gradual terrain in blue-to-green coloring. Both surfaces are defined over the same x-y coordinate ranges (approximately -4 to 4), illustrating the contrast betwee",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.17363v1"
-    },
-    {
-      "doc_id": "2608.16856v1",
-      "title": "zLend: A Dual-Scope Cash-Flow Reconstruction Framework for On-Chain Credit Underwriting",
-      "page": 4,
-      "thumb": "/data/figures/2608.16856v1_p4_0.jpg",
-      "caption": "Figure 1 summarizes the construction. \u2014 This section defines offset semantics and presents the Daily Spine construction method for reconstructing cash flows across sparse transaction data. Definition 2 formally introduces \u03c9\u03c3 as the smallest opening balance consistent with observed history without becoming negative, serving as a lower bound derived from data rather than an estimate. Proposition 1 establishes the computational complexity of the reconstruction pipeline: O(T log T + D) time and O(D)",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.16856v1"
-    },
-    {
-      "doc_id": "2608.16856v1",
-      "title": "zLend: A Dual-Scope Cash-Flow Reconstruction Framework for On-Chain Credit Underwriting",
-      "page": 5,
-      "thumb": "/data/figures/2608.16856v1_p5_1.jpg",
-      "caption": "Figure 1: Reconstruction pipeline, executed independently and identically for the stablecoin and total-wealth scopes. \u2014 This flow diagram illustrates a data processing pipeline for reconstructing on-chain cash flows. Raw fungible transfers are first filtered according to Definition 1, then aggregated daily using Equation (1) to produce cumulative net flow data. The pipeline subsequently applies Algorithm 1 (contiguous spine identification) to extract three key outputs: liquidity signals, cash-fl",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.16856v1"
-    },
-    {
-      "doc_id": "2608.16856v1",
-      "title": "zLend: A Dual-Scope Cash-Flow Reconstruction Framework for On-Chain Credit Underwriting",
-      "page": 8,
-      "thumb": "/data/figures/2608.16856v1_p8_2.jpg",
-      "caption": "Figure 2 traces the full decision path. \u2014 This image shows a table specifying tier assignment criteria for credit evaluation in the zLend framework. The table uses two scopes\u2014Primary (sc) and Context (tw)\u2014with three tiers each (Supportive, Moderate/Cautionary, and Weak/Neutral), defining thresholds for metrics like coverage ratios (\u22650.80, \u22650.50), drawdown measures (\u22641, \u22640.65), and conditions involving phi (\u03c6) values and maximum drawdown (MDD). The key takeaway is that primary-tier criteria are c",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.16856v1"
     }
   ],
   "docs": [
+    {
+      "id": "2608.18783v1",
+      "title": "When to Sell an Asset? - A Distribution Builder Approach",
+      "source": "https://arxiv.org/pdf/2608.18783v1",
+      "pages": 19,
+      "images": 4,
+      "figures_captioned": 3,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 41
+    },
+    {
+      "id": "2608.18299v1",
+      "title": "The Market's Conditioning Representation: Equilibrium, Crowding, and Convention Multiplicity",
+      "source": "https://arxiv.org/pdf/2608.18299v1",
+      "pages": 50,
+      "images": 0,
+      "figures_captioned": 4,
+      "tables": 1,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 61
+    },
     {
       "id": "2608.18022v1",
       "title": "Entropic Value-at-Risk portfolio optimization for tempered stable L\u00e9vy processes",
@@ -241,6 +265,18 @@
       "has_math": true,
       "ocr_used": false,
       "chunks_indexed": 41
+    },
+    {
+      "id": "2608.18195v1",
+      "title": "Multi-Level Market Making with Reinforcement Learning",
+      "source": "https://arxiv.org/pdf/2608.18195v1",
+      "pages": 30,
+      "images": 1,
+      "figures_captioned": 4,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 60
     },
     {
       "id": "2608.17808v1",
@@ -284,11 +320,11 @@
       "source": "https://arxiv.org/pdf/2608.17481v1",
       "pages": 15,
       "images": 14,
-      "figures_captioned": 4,
+      "figures_captioned": 0,
       "tables": 2,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 35
+      "chunks_indexed": 31
     },
     {
       "id": "2608.17363v1",
@@ -296,11 +332,11 @@
       "source": "https://arxiv.org/pdf/2608.17363v1",
       "pages": 38,
       "images": 2,
-      "figures_captioned": 4,
+      "figures_captioned": 0,
       "tables": 1,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 60
+      "chunks_indexed": 56
     },
     {
       "id": "2608.16856v1",
@@ -308,47 +344,11 @@
       "source": "https://arxiv.org/pdf/2608.16856v1",
       "pages": 15,
       "images": 0,
-      "figures_captioned": 3,
-      "tables": 2,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 32
-    },
-    {
-      "id": "2608.16842v1",
-      "title": "When ratios fall: A dynamic approach to contingent convertibles",
-      "source": "https://arxiv.org/pdf/2608.16842v1",
-      "pages": 44,
-      "images": 0,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 52
-    },
-    {
-      "id": "2608.16749v1",
-      "title": "Rough Volatility Across Assets",
-      "source": "https://arxiv.org/pdf/2608.16749v1",
-      "pages": 29,
-      "images": 0,
       "figures_captioned": 0,
       "tables": 2,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 40
-    },
-    {
-      "id": "2608.15841v1",
-      "title": "Self-Supervised Auxiliary Task Discovery for Stable Reinforcement Learning in Stock Trading",
-      "source": "https://arxiv.org/pdf/2608.15841v1",
-      "pages": 36,
-      "images": 0,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 30
+      "chunks_indexed": 29
     }
   ]
 }
