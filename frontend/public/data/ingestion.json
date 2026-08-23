@@ -1,7 +1,7 @@
 {
   "_note": "Public run manifest of the Tier-3 agentic ingestion pipeline. Safe aggregates + provenance only; raw PDFs live in S3, not here.",
-  "run_id": "20260822T030821Z",
-  "generated_at": "2026-08-22T03:15:24+00:00",
+  "run_id": "20260823T031628Z",
+  "generated_at": "2026-08-23T03:23:27+00:00",
   "collection": "research_corpus",
   "embed_model": "BAAI/bge-small-en-v1.5",
   "dag": [
@@ -58,8 +58,8 @@
     "tables": 2,
     "with_math": 10,
     "indexed": 449,
-    "spent_usd": 0.0315,
-    "duration_s": 423.1
+    "spent_usd": 0.0311,
+    "duration_s": 419.1
   },
   "rejects_by_reason": {
     "low-relevance": 24
@@ -71,7 +71,7 @@
       "title": "Calibration-Induced Degeneracy in LLM Financial Forecasting: An Audit-Trailed Case Study on Next-Day Market Risk",
       "page": 4,
       "thumb": "/data/figures/2608.20304v1_p4_0.jpg",
-      "caption": "Figure 1 isolates the sequencing failure. Separate same-author reimplementations reconstructed the main and later analyses; they are software checks, not external replication. The complete correction, retry, cost, and verification record is preserved in \u2014 This figure displays a text-based audit trail documenting a procedural error in LLM-based financial forecasting, comparing two time periods (2022 and later sample) where a scoring mechanism ranged from 4-98 in 2022 (median 73, mean 70.50, SD 17",
+      "caption": "Figure 1 isolates the sequencing failure. Separate same-author reimplementations reconstructed the main and later analyses; they are software checks, not external replication. The complete correction, retry, cost, and verification record is preserved in \u2014 This figure is not visible in the provided image. The image shows text from a research paper discussing LLM scoring methodology, model performance metrics, and calibration procedures, but does not contain an actual figure or chart. The caption ",
       "vision": true,
       "source": "https://arxiv.org/pdf/2608.20304v1"
     },
@@ -80,7 +80,7 @@
       "title": "Calibration-Induced Degeneracy in LLM Financial Forecasting: An Audit-Trailed Case Study on Next-Day Market Risk",
       "page": 5,
       "thumb": "/data/figures/2608.20304v1_p5_1.jpg",
-      "caption": "Figure 1: Execution timeline. The actual protocol acquired the 856 later scores before calibration revealed degeneracy. The checkpoint reorders the stages and would have stopped before the paid full-history phase. \u2014 This figure presents a timeline comparison of two execution protocols for an LLM financial forecasting study. The \"Actual execution\" path (top) shows the sequence: prompt bakoff \u2192 2022 scoring \u2192 856 later scores acquired \u2192 2022 calibration/fitting \u2192 FAIL: zero weights \u2192 post-hoc repa",
+      "caption": "Figure 1: Execution timeline. The actual protocol acquired the 856 later scores before calibration revealed degeneracy. The checkpoint reorders the stages and would have stopped before the paid full-history phase. \u2014 This figure presents a timeline diagram comparing two execution protocols for LLM-based financial forecasting. The \"Actual execution\" path (top) shows: prompt bakoff \u2192 2022 scoring \u2192 856 later scores acquired \u2192 2022 calibration/fitting \u2192 FAIL: zero weights \u2192 post-hoc repairs. The \"Ch",
       "vision": true,
       "source": "https://arxiv.org/pdf/2608.20304v1"
     },
@@ -89,7 +89,7 @@
       "title": "Calibration-Induced Degeneracy in LLM Financial Forecasting: An Audit-Trailed Case Study on Next-Day Market Risk",
       "page": 8,
       "thumb": "/data/figures/2608.20304v1_p8_2.jpg",
-      "caption": "Figure 2: The five-step calibration-viability checkpoint. It uses calibration data only and places a stop decision before costly holdout-feature acquisition. \u2014 This figure presents a five-step procedural flowchart for the calibration-viability checkpoint framework in machine learning model development. The steps are: (1) Freeze the gate by specifying baseline and augmented models with calibration parameters, (2) Fit before acquisition by estimating parameters using only permitted calibration dat",
+      "caption": "Figure 2: The five-step calibration-viability checkpoint. It uses calibration data only and places a stop decision before costly holdout-feature acquisition. \u2014 This figure presents a five-step procedural framework titled \"Calibration-viability checkpoint: fit \u2192 perturb \u2192 acquire only if D \u2265 \u03b4\" for evaluating whether to acquire new features in financial forecasting models. The steps sequentially outline: (1) freezing baseline and augmented models with specified parameters, (2) fitting parameters ",
       "vision": true,
       "source": "https://arxiv.org/pdf/2608.20304v1"
     },
@@ -98,7 +98,7 @@
       "title": "The Reconfiguration Premium: Co-movement Structure as an Unspanned Dimension of the Variance Risk Premium",
       "page": 4,
       "thumb": "/data/figures/2608.20020v1_p4_0.jpg",
-      "caption": "Figure 1: Left: schematic of the measurement. The market mode holds still and is removed; the subdominant frame rotates between consecutive windows, and the principal angle \u03b8 between the two positions is what the index records \u2014 REC is the mean of sin2 \u03b8 over the three angles. Right: the two legs of the premium and their difference, as associations with rotation at horizons h = 0 to 12 [03b, 16].  \u2014 The left panel shows a schematic diagram illustrating the measurement of co-movement structure re",
+      "caption": "Figure 1: Left: schematic of the measurement. The market mode holds still and is removed; the subdominant frame rotates between consecutive windows, and the principal angle \u03b8 between the two positions is what the index records \u2014 REC is the mean of sin2 \u03b8 over the three angles. Right: the two legs of the premium and their difference, as associations with rotation at horizons h = 0 to 12 [03b, 16].  \u2014 This figure illustrates the reconfiguration premium measurement and its relationship to variance ",
       "vision": true,
       "source": "https://arxiv.org/pdf/2608.20020v1"
     },
@@ -107,7 +107,7 @@
       "title": "The Reconfiguration Premium: Co-movement Structure as an Unspanned Dimension of the Variance Risk Premium",
       "page": 8,
       "thumb": "/data/figures/2608.20020v1_p8_1.jpg",
-      "caption": "Figure 2 shows what a single observation consists of. The three principal angles are reported separately for a quiet month and for the most turbulent in the sample. In both, two of the three directions are nearly unmoved and the third carries most of the motion \u2014 in March \u2014 This figure displays three principal angles measuring co-movement structure changes between a quiet month and the most turbulent month (March 2020) in the sample. The bar chart shows that in both periods, two of the three pri",
+      "caption": "Figure 2 shows what a single observation consists of. The three principal angles are reported separately for a quiet month and for the most turbulent in the sample. In both, two of the three directions are nearly unmoved and the third carries most of the motion \u2014 in March \u2014 This figure displays principal angles derived from co-movement structure analysis, comparing a quiet market month against the most turbulent month in the sample. The chart shows three principal angles for each period, with th",
       "vision": true,
       "source": "https://arxiv.org/pdf/2608.20020v1"
     },
@@ -116,7 +116,7 @@
       "title": "The Reconfiguration Premium: Co-movement Structure as an Unspanned Dimension of the Variance Risk Premium",
       "page": 8,
       "thumb": "/data/figures/2608.20020v1_p8_2.jpg",
-      "caption": "Figure 2: What one observation of the index consists of [16]. Left: the three principal angles between consecutive subdominant subspaces, for a quiet month (June 2016) and for the most turbulent month in the sample (March 2022). Right: the index on its own scale, read as the share of the previous month\u2019s structure retained, with the random-subspace reference of Section 3.6 at the foot. \u2014 This figure displays three line charts showing principal angles (in degrees) between consecutive subdominant ",
+      "caption": "Figure 2: What one observation of the index consists of [16]. Left: the three principal angles between consecutive subdominant subspaces, for a quiet month (June 2016) and for the most turbulent month in the sample (March 2022). Right: the index on its own scale, read as the share of the previous month\u2019s structure retained, with the random-subspace reference of Section 3.6 at the foot. \u2014 This figure displays three line plots showing principal angles (in degrees) between consecutive subdominant s",
       "vision": true,
       "source": "https://arxiv.org/pdf/2608.20020v1"
     },
@@ -125,7 +125,7 @@
       "title": "The Reconfiguration Premium: Co-movement Structure as an Unspanned Dimension of the Variance Risk Premium",
       "page": 11,
       "thumb": "/data/figures/2608.20020v1_p11_3.jpg",
-      "caption": "Figure 3: Left: the share of structure retained between subdominant eigenspaces estimated k months apart, on a logarithmic scale, with the chance level as a dashed rule and a second axis reading the same curve in multiples of chance. Chance is K/N = 3/421 because two independently drawn K-dimensional subspaces of RN retain K/N of each other in expectation. Right: that statement verified by simulat \u2014 The left panel shows a log-scale plot of the share of structure retained between subdominant eige",
+      "caption": "Figure 3: Left: the share of structure retained between subdominant eigenspaces estimated k months apart, on a logarithmic scale, with the chance level as a dashed rule and a second axis reading the same curve in multiples of chance. Chance is K/N = 3/421 because two independently drawn K-dimensional subspaces of RN retain K/N of each other in expectation. Right: that statement verified by simulat \u2014 The left panel is a log-scale line chart showing the share of structure retained between subdomin",
       "vision": true,
       "source": "https://arxiv.org/pdf/2608.20020v1"
     },
@@ -134,7 +134,7 @@
       "title": "Deep-MKV-TS: Path-Dependent McKean--Vlasov Control for Financial Time Series Generation",
       "page": 5,
       "thumb": "/data/figures/2608.19394v1_p5_0.jpg",
-      "caption": "Figure 1: Comparison of volatility statistics for the target data, the Heston reference model, Deep MKV-TS, and SBTS. Left: Empirical cumulative distribution of annualized realized volatility. Right: ACF of absolute returns across different lags, measuring volatility persistence. \u2014 This figure compares volatility characteristics across four models: target data, Heston reference, Deep MKV, and SBTS. The left panel shows empirical cumulative distribution functions of annualized realized volatility",
+      "caption": "Figure 1: Comparison of volatility statistics for the target data, the Heston reference model, Deep MKV-TS, and SBTS. Left: Empirical cumulative distribution of annualized realized volatility. Right: ACF of absolute returns across different lags, measuring volatility persistence. \u2014 This figure compares volatility characteristics across four models: target data, Heston reference, Deep MKV-TS, and SBTS. The left panel shows empirical cumulative distribution functions (CDFs) of annualized realized ",
       "vision": true,
       "source": "https://arxiv.org/pdf/2608.19394v1"
     },
@@ -143,7 +143,7 @@
       "title": "Deep-MKV-TS: Path-Dependent McKean--Vlasov Control for Financial Time Series Generation",
       "page": 6,
       "thumb": "/data/figures/2608.19394v1_p6_1.jpg",
-      "caption": "Figure 2: Quantile comparison of annualized realized volatility between the target data and the generated paths. The dotted line represents the ideal quantile matching, while the curves correspond to the Heston reference model, Deep MKV, and SBTS. The reported \ud835\udc4a1 values quantify the discrepancy between the generated and target realized-volatility distributions. \u2014 This figure presents a quantile-quantile plot comparing realized-volatility distributions across different models. The x-axis shows ta",
+      "caption": "Figure 2: Quantile comparison of annualized realized volatility between the target data and the generated paths. The dotted line represents the ideal quantile matching, while the curves correspond to the Heston reference model, Deep MKV, and SBTS. The reported \ud835\udc4a1 values quantify the discrepancy between the generated and target realized-volatility distributions. \u2014 This figure compares quantile-quantile plots of annualized realized volatility across three models: a Heston reference model, Deep MKV",
       "vision": true,
       "source": "https://arxiv.org/pdf/2608.19394v1"
     },
@@ -152,7 +152,7 @@
       "title": "Deep-MKV-TS: Path-Dependent McKean--Vlasov Control for Financial Time Series Generation",
       "page": 6,
       "thumb": "/data/figures/2608.19394v1_p6_2.jpg",
-      "caption": "Figure 3: Delayed-volatility experiment. Left: Difference in rolling volatility between paths that cross and do not cross the early drawdown threshold, showing the delayed volatility response in the target and generated scenarios. Right: Deep-MKV- TS volatility relative to the reference, conditioned on the same two path groups. The \u2014 This figure demonstrates the delayed volatility response in financial time series using a rolling volatility analysis. The left panel shows line plots comparing vol",
+      "caption": "Figure 3: Delayed-volatility experiment. Left: Difference in rolling volatility between paths that cross and do not cross the early drawdown threshold, showing the delayed volatility response in the target and generated scenarios. Right: Deep-MKV- TS volatility relative to the reference, conditioned on the same two path groups. The \u2014 This figure demonstrates delayed volatility response in financial time series, comparing generated paths from Deep-MKV-TS against a reference model. The left panel ",
       "vision": true,
       "source": "https://arxiv.org/pdf/2608.19394v1"
     },
@@ -161,7 +161,7 @@
       "title": "Concentrated Liquidity Provision: a Reinforcement Learning Perspective",
       "page": 5,
       "thumb": "/data/figures/2608.19389v1_p5_0.jpg",
-      "caption": "Figure 1: Differences in the mean decomposed PnL compo- nents between the RL agents across volatility, by risk profile (rows) and gas cost (columns). \u0394Net PnL = \u0394Fees + (\u2212\u0394IL) + \u2014 This figure shows a grid of 12 bar charts comparing profit-and-loss (PnL) components across different reinforcement learning agents, organized by risk profile (rows: B=20, P=20, P=50, P=100) and gas cost levels (columns: 2, 4, 6). Each chart displays volatility on the x-axis and mean PnL values on the y-axis, with stac",
+      "caption": "Figure 1: Differences in the mean decomposed PnL compo- nents between the RL agents across volatility, by risk profile (rows) and gas cost (columns). \u0394Net PnL = \u0394Fees + (\u2212\u0394IL) + \u2014 This figure displays a 4\u00d73 grid of bar charts comparing decomposed profit-and-loss (PnL) components for reinforcement learning agents across different market conditions. The columns represent three gas cost scenarios (2, 4, and 6), while the rows represent four different risk profiles (\u03c1 = 10, 20, 50, and 100). Each ba",
       "vision": true,
       "source": "https://arxiv.org/pdf/2608.19389v1"
     },
@@ -170,7 +170,7 @@
       "title": "Concentrated Liquidity Provision: a Reinforcement Learning Perspective",
       "page": 6,
       "thumb": "/data/figures/2608.19389v1_p6_1.jpg",
-      "caption": "Figure 2: Position width and rebalancing behaviour of PPO and PPO_narrow. Panel (a) shows mean quoted width, while Panel (b) shows per-decision rebalance rates. Labels and Leg- ends as in Figure 1. \u2014 Figure 2 displays a 4\u00d73 grid of line plots comparing position width and rebalancing behavior between two reinforcement learning agents (PPO and PPO_narrow) across different gas cost scenarios (2, 4, and 6) and liquidity provision strategies. Panel (a) shows mean quoted spread width with \u00b11 standard ",
+      "caption": "Figure 2: Position width and rebalancing behaviour of PPO and PPO_narrow. Panel (a) shows mean quoted width, while Panel (b) shows per-decision rebalance rates. Labels and Leg- ends as in Figure 1. \u2014 Figure 2 presents a 4\u00d73 grid comparison of mean spreads (Panel a) and rebalancing rates (Panel b) for two RL agents (PPO and PPO_narrow) across different gas costs (2, 4, 6) and volatility regimes, with shaded bands representing \u00b11 standard deviation around the mean. The x-axis varies volatility or ",
       "vision": true,
       "source": "https://arxiv.org/pdf/2608.19389v1"
     },
@@ -179,7 +179,7 @@
       "title": "Concentrated Liquidity Provision: a Reinforcement Learning Perspective",
       "page": 6,
       "thumb": "/data/figures/2608.19389v1_p6_2.jpg",
-      "caption": "Figure 3: Liquidity provision behaviour of all strategies for one random simulation from the evaluation trajectories (sce- nario:\ud835\udf0e= 0.01,\ud835\udc54= 2, risk neutral agents). The red thin vertical lines show when agents rebalance. \u2014 This figure displays liquidity provision behavior across multiple reinforcement learning strategies under varying gas cost conditions (2, 4, and 6). The left panel shows four rows of line plots tracking mean spreads in ticks with shaded confidence bands (\u00b11 standard deviation)",
+      "caption": "Figure 3: Liquidity provision behaviour of all strategies for one random simulation from the evaluation trajectories (sce- nario:\ud835\udf0e= 0.01,\ud835\udc54= 2, risk neutral agents). The red thin vertical lines show when agents rebalance. \u2014 This figure displays liquidity provision behavior across multiple reinforcement learning strategies under different gas cost conditions (2, 4, and 6), with four rows showing different metrics (bid-ask spreads, inventory levels, PnL, and PPO returns) plotted against volatility ",
       "vision": true,
       "source": "https://arxiv.org/pdf/2608.19389v1"
     },
@@ -188,7 +188,7 @@
       "title": "Concentrated Liquidity Provision: a Reinforcement Learning Perspective",
       "page": 6,
       "thumb": "/data/figures/2608.19389v1_p6_3.jpg",
-      "caption": "Figure 4: Illustration of the empirical CL shapes around pool prices (left) in our model-based environment (right). Left figure shows the normalised liquidity distribution around the current tick for Optimism (red), Arbitrum (black) and Ethereum (purple) as observed from real on-chain data cal- culated in [1]. Right figure shows a superposition of all four PPO risk-profile agents, PPO_narrow, and  \u2014 Figure 4 compares empirical concentrated liquidity (CL) distributions in real blockchain data ver",
+      "caption": "Figure 4: Illustration of the empirical CL shapes around pool prices (left) in our model-based environment (right). Left figure shows the normalised liquidity distribution around the current tick for Optimism (red), Arbitrum (black) and Ethereum (purple) as observed from real on-chain data cal- culated in [1]. Right figure shows a superposition of all four PPO risk-profile agents, PPO_narrow, and  \u2014 The left panel shows empirical concentrated liquidity (CL) distributions across three blockchain ",
       "vision": true,
       "source": "https://arxiv.org/pdf/2608.19389v1"
     },
@@ -197,7 +197,7 @@
       "title": "When to Sell an Asset? - A Distribution Builder Approach",
       "page": 7,
       "thumb": "/data/figures/2608.18783v1_p7_0.jpg",
-      "caption": "Figure 1: Az\u00b4ema\u2013Yor barrier function \u03a8\u00b5,\u03c3 \u2014 The left panel shows time series of three stochastic processes (labeled as X_t^c, X_t^b, and W_c^2(X_t)) plotted against time t from 0 to 20, with values ranging from approximately 50 to 250, illustrating the evolution of asset prices and a barrier function. The right panel is a phase diagram plotting the Az\u00e9ma\u2013Yor barrier function (Path (x^*, M^*)) in green against a reference barrier (Barrier M_t(x_t)) in blue, with x-axis from 60 to 160 and y-axis ",
+      "caption": "Figure 1: Az\u00b4ema\u2013Yor barrier function \u03a8\u00b5,\u03c3 \u2014 The left panel shows time-series plots of three stochastic processes (labeled A_t, M_t, and \u03a8\u00b2_\u03c3(X_t)) over a 20-unit time horizon, with the processes exhibiting mean-reversion behavior and convergence to horizontal asymptotes. The right panel displays the Az\u00e9ma\u2013Yor barrier function as an M versus X scatter plot, comparing two paths: one showing the theoretical barrier M = \u03a8\u00b2_\u03c3(X) as a green curve and another showing the simulated barrier M_u(t,U_t) a",
       "vision": true,
       "source": "https://arxiv.org/pdf/2608.18783v1"
     },
@@ -206,7 +206,7 @@
       "title": "When to Sell an Asset? - A Distribution Builder Approach",
       "page": 8,
       "thumb": "/data/figures/2608.18783v1_p8_1.jpg",
-      "caption": "Figure 2: Az\u00b4ema\u2013Yor barrier function \u03a8\u00b5,\u03c3 \u2014 The left panel shows a time series plot with three lines (Xt, Mt, and the Az\u00e9ma\u2013Yor barrier function \u03a8\u00b2\u03bc,\u03c3(Xt)) tracking their evolution over time t from 0 to 3, with values ranging from approximately 100 to 500. The right panel is a scatter plot showing the relationship between the running maximum M and the barrier level H, comparing an optimal path (green line) against the Az\u00e9ma\u2013Yor barrier (blue line), with both axes ranging from 100 to 500. The ke",
+      "caption": "Figure 2: Az\u00b4ema\u2013Yor barrier function \u03a8\u00b5,\u03c3 \u2014 The left panel shows a line plot with time t on the x-axis (0 to 3.0) and value on the y-axis (100 to 500), displaying three time series: X_t (green), M_t (red), and the Az\u00e9ma\u2013Yor barrier function \u03a8\u00b2_\u03c3(X_t) (blue), which tracks the running maximum adjusted barrier. The right panel is a scatter plot comparing the path (X_t, M_t) against the Az\u00e9ma\u2013Yor barrier V_\u03c3,\u03bc(X) on axes scaled from 100-500, showing how the barrier (green line) bounds the achievabl",
       "vision": true,
       "source": "https://arxiv.org/pdf/2608.18783v1"
     },
@@ -215,7 +215,7 @@
       "title": "When to Sell an Asset? - A Distribution Builder Approach",
       "page": 10,
       "thumb": "/data/figures/2608.18783v1_p10_2.jpg",
-      "caption": "Figure 3: Attainable frontiers (mean-standard deviation trade-off) for different distributions and A = 0.2 (blue), A = 0.5 (orange), and A = 0.8 (green) (with x = 1 throughout): log-normal, Pareto, and gamma distributions. \u2014 This figure displays three mean-standard deviation efficient frontiers, one for each distribution type (log-normal, Pareto, and gamma from left to right), plotted as line graphs with the x-axis representing parameter s (ranging from 0.3 to 1.0) and the y-axis showing E (rang",
+      "caption": "Figure 3: Attainable frontiers (mean-standard deviation trade-off) for different distributions and A = 0.2 (blue), A = 0.5 (orange), and A = 0.8 (green) (with x = 1 throughout): log-normal, Pareto, and gamma distributions. \u2014 This figure displays three panels showing efficient frontiers in mean-standard deviation space for different probability distributions (log-normal, Pareto, and gamma) under varying risk aversion parameters. Each panel plots the relationship between standard deviation (x-axis",
       "vision": true,
       "source": "https://arxiv.org/pdf/2608.18783v1"
     },
@@ -224,7 +224,7 @@
       "title": "The Market's Conditioning Representation: Equilibrium, Crowding, and Convention Multiplicity",
       "page": 2,
       "thumb": "/data/figures/2608.18299v1_p2_0.jpg",
-      "caption": "Figure 1: Two overlaps, two congestions. Portfolios that share holdings execute against the same depth, so market impact prices their positional overlap. Portfolios that share drivers can erode the value of the same information even when their books do not coincide; this informational overlap is distinct from execution congestion. \u2014 This figure is a directed acyclic graph comparing two types of portfolio overlap. Portfolios 1 and 2 converge to \"same book\" (orange), illustrating positional conges",
+      "caption": "Figure 1: Two overlaps, two congestions. Portfolios that share holdings execute against the same depth, so market impact prices their positional overlap. Portfolios that share drivers can erode the value of the same information even when their books do not coincide; this informational overlap is distinct from execution congestion. \u2014 This diagram illustrates two types of portfolio overlap and their corresponding congestion mechanisms. On the left, portfolios 1 and 2 share the same book (positions",
       "vision": true,
       "source": "https://arxiv.org/pdf/2608.18299v1"
     }
