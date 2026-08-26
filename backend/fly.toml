@@ -1,6 +1,7 @@
 # Fly.io config for the RAG chatbot backend.
-# Scale-to-zero: machines auto-stop when idle and auto-start on the next request,
-# so you pay only for actual traffic.
+# One machine is kept warm so the first request from a recruiter/interviewer
+# does not pay a ~20s cold start. Costs ~$2/mo on shared-cpu-1x; revert
+# min_machines_running to 0 to go back to pay-per-traffic scale-to-zero.
 
 app = "yantra-chatbot"
 primary_region = "sin"  # Singapore (bom/Mumbai had no capacity at deploy time)
@@ -11,9 +12,9 @@ primary_region = "sin"  # Singapore (bom/Mumbai had no capacity at deploy time)
 [http_service]
   internal_port = 8080
   force_https = true
-  auto_stop_machines = true
+  auto_stop_machines = false
   auto_start_machines = true
-  min_machines_running = 0   # scale to zero when idle
+  min_machines_running = 1   # keep one warm: no cold start for demo traffic
 
   [http_service.concurrency]
     type = "requests"
