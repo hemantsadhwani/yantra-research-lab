@@ -10,6 +10,11 @@ from __future__ import annotations
 
 import sys
 
+# Windows consoles default to cp1252 and mangle the arrow in the verdict line.
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+    sys.stderr.reconfigure(encoding="utf-8", errors="replace")
+
 from research_lab.agents.evaluator import score_result
 from research_lab.supervisor import Supervisor
 

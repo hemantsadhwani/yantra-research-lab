@@ -8,6 +8,14 @@
 from __future__ import annotations
 
 import argparse
+import sys
+
+# The report uses box-drawing and arrow characters. Windows consoles default to
+# cp1252, which cannot encode them, so printing the report raised
+# UnicodeEncodeError after a successful run. Force UTF-8 on the streams we own.
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+    sys.stderr.reconfigure(encoding="utf-8", errors="replace")
 
 from research_lab.schemas import RunResult
 from research_lab.supervisor import Supervisor
