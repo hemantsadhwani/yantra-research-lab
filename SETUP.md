@@ -32,6 +32,37 @@ account or runs locally. **No auth/Clerk keys are needed** — v1 has no login.
 - **git** — you have it
 - **Fly CLI** (`flyctl`) — install when you reach step 4: `brew install flyctl`
 
+### Windows (this machine, since the move from macOS)
+
+The **accounts above all survive a machine move** — they are tied to your GitHub login, not the
+laptop. Only local tooling has to be redone.
+
+Present on this machine: **Python 3.13.7** and **git**. Missing: **Node/npm**, **flyctl**,
+**gh**, **Docker**.
+
+Python side — this is everything the research demo and eval gate need:
+
+```bash
+cd D:/macbook/yantra-research-lab
+python -m venv .venv
+./.venv/Scripts/python.exe -m pip install -e ".[dev]"
+./.venv/Scripts/python.exe -m pytest tests -q                 # 7 passed
+./.venv/Scripts/python.exe -m research_lab.run --iterations 5 --variants 6 --seed 3
+./.venv/Scripts/python.exe -m eval.run_gate                   # EVAL-GATE PASS
+```
+
+> Use `./.venv/Scripts/python.exe -m <module>`, not the bare `python` in the Makefile — the
+> Makefile assumes an activated venv, and `make` is not installed here either.
+
+Still to install, only when you need them:
+- **flyctl** — required to deploy the backend. `winget install --id Fly.Flyctl`, then `fly auth login`.
+- **Node 20+** — only for the `frontend/` build. `winget install --id OpenJS.NodeJS.LTS`.
+
+> **Windows console encoding.** Both entrypoints now force UTF-8 on stdout/stderr. Before that
+> fix, `research_lab.run` completed the whole loop and then died with `UnicodeEncodeError`
+> printing the report, because Windows defaults to cp1252. If you add new console output with
+> arrows or box-drawing characters, keep that in mind.
+
 ---
 
 ## Step 1 — GitHub ✓
