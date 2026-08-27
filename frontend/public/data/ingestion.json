@@ -1,7 +1,7 @@
 {
   "_note": "Public run manifest of the Tier-3 agentic ingestion pipeline. Safe aggregates + provenance only; raw PDFs live in S3, not here.",
-  "run_id": "20260826T031941Z",
-  "generated_at": "2026-08-26T03:26:24+00:00",
+  "run_id": "20260827T124914Z",
+  "generated_at": "2026-08-27T12:55:46+00:00",
   "collection": "research_corpus",
   "embed_model": "BAAI/bge-small-en-v1.5",
   "dag": [
@@ -50,28 +50,100 @@
     "discovered": 10,
     "fetched": 10,
     "parsed": 10,
-    "chunks": 498,
-    "accepted": 443,
-    "rejected": 55,
+    "chunks": 487,
+    "accepted": 437,
+    "rejected": 50,
     "images": 1,
     "figures_captioned": 18,
-    "tables": 8,
+    "tables": 7,
     "with_math": 9,
-    "indexed": 443,
-    "spent_usd": 0.0322,
-    "duration_s": 402.5
+    "indexed": 437,
+    "spent_usd": 0.0319,
+    "duration_s": 391.2
   },
   "rejects_by_reason": {
-    "low-relevance": 55
+    "low-relevance": 50
   },
   "budget_usd": 3.0,
   "figures": [
+    {
+      "doc_id": "2608.25844v1",
+      "title": "Output-Only Identification and Spectral Monitoring of Coupled Feedback Networks with Known Time-Varying Actuation",
+      "page": 3,
+      "thumb": "/data/figures/2608.25844v1_p3_0.jpg",
+      "caption": "Fig. 1. The coupled feedback fixed point (1). Note: the actuation gains diag(\u03b3t) are disclosed\u2014the only observed element of the loop besides the outputs\u2014and their time variation is the identification resource; the coupling \u03a6 and inputs vt are unobserved. The dashed path is the self-reference that makes r2,t a fixed point. \u2014 This block diagram illustrates a coupled feedback system architecture where observed output r2,t is generated from input r1,t through a chain of operations: diagonal gain mat",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.25844v1"
+    },
+    {
+      "doc_id": "2608.25844v1",
+      "title": "Output-Only Identification and Spectral Monitoring of Coupled Feedback Networks with Known Time-Varying Actuation",
+      "page": 11,
+      "thumb": "/data/figures/2608.25844v1_p11_1.jpg",
+      "caption": "Fig. 2. Observed actuation gains \u03b3j,t of the two Korean complexes. Note: constructed daily from disclosed fund shares, NAVs, and leverage multiples over trailing 20-day traded value; entered at t \u22121. Dashed: product launch; dotted: the deposit regulation, which collapsed turnover while leaving the gains\u2014the identification resource\u2014intact. \u2014 This line chart displays time series data of observed actuation gains (\u03b3_K,t) for two Korean complexes\u2014SK Hynix (red line) and Samsung (blue line)\u2014from June ",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.25844v1"
+    },
+    {
+      "doc_id": "2608.25844v1",
+      "title": "Output-Only Identification and Spectral Monitoring of Coupled Feedback Networks with Known Time-Varying Actuation",
+      "page": 11,
+      "thumb": "/data/figures/2608.25844v1_p11_2.jpg",
+      "caption": "Fig. 3. The rolling detector on the Korean data (receiver: Samsung; sender: Hynix). Note: top\u2014rolling 40-day cross-slope with 95% bands; bottom\u2014launch-break contrast z at weekly placebo break dates and the true launch (dashed). Post windows left of the launch contain increasing fractions of true post-launch observations. \u2014 Figure 3 displays time-series analysis of cross-overnight slope between Hynix and Samsung stocks from March to August 2026. The top panel shows a rolling 40-day cross-slope es",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.25844v1"
+    },
+    {
+      "doc_id": "2608.25844v1",
+      "title": "Output-Only Identification and Spectral Monitoring of Coupled Feedback Networks with Known Time-Varying Actuation",
+      "page": 12,
+      "thumb": "/data/figures/2608.25844v1_p12_3.jpg",
+      "caption": "Fig. 4. U.S. staggered panel: gain paths and identification conditioning. Note: top\u2014liquidity-scaled complex gains \u03b3j,t for the TSLA, NVDA, and AAPL single-stock LETF complexes (CRSP, 2022\u20132024); fund launches occur at six distinct dates, yet post-launch capital growth makes the paths co-trend (level correlations 0.81\u20130.91). Bottom\u2014rolling 250-day condition number of the standardized gain-path Gra \u2014 This figure displays the complex gains and conditioning of U.S. staggered leveraged ETF (LETF) as",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.25844v1"
+    },
+    {
+      "doc_id": "2608.25223v1",
+      "title": "On the hedging problem in general 1D diffusion markets",
+      "page": 17,
+      "thumb": "/data/figures/2608.25223v1_p17_0.jpg",
+      "caption": "Figure 1. Single hedging scenario in the Bachelier model (left) and Skew-Sticky Model 1 (right). Rows display: (1st) price path of the risky asset, (2nd) shares of risky asset and cash holdings, (3rd) portfolio value (with premium subtracted). \u2014 This figure compares hedging dynamics in two models: Bachelier (left) and Skew-Sticky Model 1 (right), each showing three line charts stacked vertically. The top row displays simulated price paths of the underlying risky asset over time. The middle row s",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.25223v1"
+    },
+    {
+      "doc_id": "2608.25223v1",
+      "title": "On the hedging problem in general 1D diffusion markets",
+      "page": 18,
+      "thumb": "/data/figures/2608.25223v1_p18_1.jpg",
+      "caption": "Figure 2. Log-log plot of the empirical standard deviation of the tracking error versus the number of hedging instances. We consider various refinements of the space discretization in the finite difference approximation of the hedging PDE (Nspace \u2014 This figure contains four log-log plots showing empirical standard deviation of tracking error versus the number of hedging instances across different stochastic volatility models (Heston, Stein-Stein, and two SABR variants). Each subplot displays mul",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.25223v1"
+    },
+    {
+      "doc_id": "2608.25223v1",
+      "title": "On the hedging problem in general 1D diffusion markets",
+      "page": 18,
+      "thumb": "/data/figures/2608.25223v1_p18_2.jpg",
+      "caption": "Figure 1 illustrates the path-properties of the portfolio composition and value depending on the price of the risky asset in the Bachelier model and Skew-Sticky Model 1 for a single scenario with 4096 and 256 hedging instances (i.e., 10/4096 and 10/256 hedging windows). Tracking errors of these scenarios are shown in Table 3. \u2014 This figure contains four log-log plots (labeled as Stochastic Model 1-4) showing the relationship between the number of hedging instances (x-axis) and the empirical stan",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.25223v1"
+    },
+    {
+      "doc_id": "2608.25223v1",
+      "title": "On the hedging problem in general 1D diffusion markets",
+      "page": 19,
+      "thumb": "/data/figures/2608.25223v1_p19_3.jpg",
+      "caption": "Figure 3. Finite difference approximations of price and delta curves for time horizons T \u2208{0.1, 5, 9.9} in: (1st row) the Bachelier model, (2nd row) Skew-Sticky Model 1, (3rd row) Skew-Sticky Model 2, and (4th row) Skew-Sticky Model 3. \u2014 This figure presents six panels (three rows, two columns) comparing price and delta curves across different market models using finite difference approximations. The left column shows price curves (y-axis: option price in currency units) and the right column sho",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.25223v1"
+    },
     {
       "doc_id": "2608.24871v1",
       "title": "NatPar: Natural Parametric Modeling",
       "page": 9,
       "thumb": "/data/figures/2608.24871v1_p9_0.jpg",
-      "caption": "Figure 1: From NatCat to NatPar: the same four-block pipeline, re-tasked. The hazard becomes the contractual index; the exposure and vulnerability blocks are re-tasked into a basis-risk engine that measures the mismatch B = Y \u2212P between indemnity loss and parametric payout; and the finance block becomes short-tailed with limited development risk. The architecture is unchanged \u2014 what changes is whi \u2014 This flowchart diagram illustrates the parallel structure between natural catastrophe (NatCat) in",
+      "caption": "Figure 1: From NatCat to NatPar: the same four-block pipeline, re-tasked. The hazard becomes the contractual index; the exposure and vulnerability blocks are re-tasked into a basis-risk engine that measures the mismatch B = Y \u2212P between indemnity loss and parametric payout; and the finance block becomes short-tailed with limited development risk. The architecture is unchanged \u2014 what changes is whi \u2014 This figure shows a flowchart comparing two modeling frameworks: NatCat (natural catastrophe insu",
       "vision": true,
       "source": "https://arxiv.org/pdf/2608.24871v1"
     },
@@ -80,7 +152,7 @@
       "title": "NatPar: Natural Parametric Modeling",
       "page": 21,
       "thumb": "/data/figures/2608.24871v1_p21_1.jpg",
-      "caption": "Figure 2: The single, identical frost vulnerability curve D(TI) used for all three regions, following the Venner et al. (1995) convex damage model with the published citrus parameters Tc = 28\u25e6F, Tt = 20\u25e6F (band width b = 8\u25e6F) and curvature \u03b7 = 1.5. Damage is further gated by the Snyder & de Melo-Abreu (2005) k-hour resistance condition M \u2264BN as in Assa et al. (2017). The regions differ only in the \u2014 This line chart displays a frost vulnerability curve for citrus crops showing the relationship be",
+      "caption": "Figure 2: The single, identical frost vulnerability curve D(TI) used for all three regions, following the Venner et al. (1995) convex damage model with the published citrus parameters Tc = 28\u25e6F, Tt = 20\u25e6F (band width b = 8\u25e6F) and curvature \u03b7 = 1.5. Damage is further gated by the Snyder & de Melo-Abreu (2005) k-hour resistance condition M \u2264BN as in Assa et al. (2017). The regions differ only in the \u2014 This line chart displays a frost vulnerability curve for citrus plants, plotting damage ratio (0 ",
       "vision": true,
       "source": "https://arxiv.org/pdf/2608.24871v1"
     },
@@ -89,7 +161,7 @@
       "title": "NatPar: Natural Parametric Modeling",
       "page": 24,
       "thumb": "/data/figures/2608.24871v1_p24_2.jpg",
-      "caption": "Figure 3: Exceedance probability curves for Yr,\u03b2, P {\u00b7} \u2014 This figure displays a 3\u00d73 grid of exceedance probability curves comparing theoretical models across three regions (R1, R2, R3) and three tail index parameters (\u03b2 = 0.9, 0.95, 0.99). Each subplot plots exceedance probability P(x \u2265 x) on a logarithmic y-axis against threshold x on the linear x-axis, showing empirical data (blue curve) compared to fitted parametric models (orange and yellow lines). The key takeaway is that the natural param",
+      "caption": "Figure 3: Exceedance probability curves for Yr,\u03b2, P {\u00b7} \u2014 This figure displays a 3\u00d73 grid of exceedance probability curves comparing empirical data (blue) against parametric model fits (orange and yellow lines) across three regions (R1, R2, R3) and three tail index parameters (\u03b2=0.9, 0.95, 0.99). Each subplot plots probability P(x \u2265 x) on a logarithmic y-axis against threshold values x on the linear x-axis, showing how well the natural parametric model captures extreme value behavior in differen",
       "vision": true,
       "source": "https://arxiv.org/pdf/2608.24871v1"
     },
@@ -98,7 +170,7 @@
       "title": "Harvesting the Volatility Risk Premium: A Learning-to-Rank Approach",
       "page": 22,
       "thumb": "/data/figures/2608.24786v1_p22_0.jpg",
-      "caption": "Figure 1. S&P 500 Index, VIX, PUT Index, and WPUT Index series from 2018-01-01 to \u2014 This figure displays time series plots of four volatility-related indices from January 2018 onwards, with separate panels for the S&P 500 Index, VIX, PUT Index, and WPUT Index. The x-axis represents time while the y-axis shows the index values for each series. The visualization demonstrates the temporal dynamics and co-movements of equity prices and implied volatility measures, which are fundamental inputs for vo",
+      "caption": "Figure 1. S&P 500 Index, VIX, PUT Index, and WPUT Index series from 2018-01-01 to \u2014 This figure displays four time series from January 2018 onwards: the S&P 500 Index, VIX volatility index, PUT Index, and WPUT Index plotted as line charts with time on the horizontal axis and index values on the vertical axis. The series show the evolution of equity prices and various volatility-related measures over the sample period, with distinct patterns in market levels and volatility regimes. The key takeaw",
       "vision": true,
       "source": "https://arxiv.org/pdf/2608.24786v1"
     },
@@ -107,7 +179,7 @@
       "title": "Lead-Lag Relationships in Financial Markets: A Comparison of Multiple Clustering Algorithms",
       "page": 4,
       "thumb": "/data/figures/2608.24703v1_p4_0.jpg",
-      "caption": "Figure 1: Clustering ARI comparison under different noise levels and window sizes. \u2014 This figure compares clustering performance across three panels using Adjusted Rand Index (ARI) as the metric. Panel (a) shows ARI values declining as noise levels (\u03c3) increase from 0.1 to 1.0, with multiple clustering algorithms (CPA, CPA_alpha_feat, CPA_no_feat, and Empirical_data) represented by different colored lines. Panels (b) and (c) display ARI stability across different window sizes (small in panel b, ",
+      "caption": "Figure 1: Clustering ARI comparison under different noise levels and window sizes. \u2014 This figure compares clustering performance across three conditions using Adjusted Rand Index (ARI) as the metric. Panel (a) shows ARI values declining as noise levels (\u03c3) increase from 0 to 1.6, with multiple algorithms represented by different colored lines converging to near-zero performance at high noise. Panels (b) and (c) display ARI stability across small (1-10) and large (10-30) window sizes respectively",
       "vision": true,
       "source": "https://arxiv.org/pdf/2608.24703v1"
     },
@@ -116,7 +188,7 @@
       "title": "Lead-Lag Relationships in Financial Markets: A Comparison of Multiple Clustering Algorithms",
       "page": 4,
       "thumb": "/data/figures/2608.24703v1_p4_1.jpg",
-      "caption": "Figure 2: Lag matrix MSE comparison under different noise levels and window sizes. \u2014 Figure 2 presents a six-panel comparison of Mean Squared Error (MSE) for lag matrix estimation across multiple clustering algorithms under varying conditions. The left panels (a) show MSE versus noise levels (\u03c3), middle panels (b) show performance across small window sizes, and right panels (c) show performance across large window sizes, with the top row displaying one metric and the bottom row displaying anothe",
+      "caption": "Figure 2: Lag matrix MSE comparison under different noise levels and window sizes. \u2014 Figure 2 displays lag matrix mean squared error (MSE) comparisons across multiple clustering algorithms under varying noise levels and window sizes. The figure contains six line plots arranged in two rows: panel (a) shows MSE versus noise level (\u03c3), while panels (b) and (c) compare performance across small and large window sizes respectively, with separate rows for two different experimental settings. The key ta",
       "vision": true,
       "source": "https://arxiv.org/pdf/2608.24703v1"
     },
@@ -125,7 +197,7 @@
       "title": "Lead-Lag Relationships in Financial Markets: A Comparison of Multiple Clustering Algorithms",
       "page": 5,
       "thumb": "/data/figures/2608.24703v1_p5_2.jpg",
-      "caption": "Figure 3: Silhouette comparison under optimal and fixed cluster numbers across different datasets. \u2014 These side-by-side bar charts compare silhouette scores for three clustering algorithms (DTW-KMedoids, KShape, and MiniRocket-KMeans) across two financial datasets of different sizes. Panel (a) shows results on 679 assets while panel (b) shows results on 1028 assets, with blue bars representing the optimal K and light blue bars representing a fixed K value. MiniRocket-KMeans consistently achieves",
+      "caption": "Figure 3: Silhouette comparison under optimal and fixed cluster numbers across different datasets. \u2014 These figures display side-by-side bar charts comparing Silhouette scores across three clustering algorithms (DTW-KMedoids, KShape, and MiniRocket-KMeans) on two different asset datasets. Panel (a) evaluates 679 assets while panel (b) evaluates 1028 assets, with each chart showing dark blue bars for \"Optimal K\" and light blue bars for \"Fixed K=3\". The key takeaway is that MiniRocket-KMeans substa",
       "vision": true,
       "source": "https://arxiv.org/pdf/2608.24703v1"
     },
@@ -134,7 +206,7 @@
       "title": "Lead-Lag Relationships in Financial Markets: A Comparison of Multiple Clustering Algorithms",
       "page": 6,
       "thumb": "/data/figures/2608.24703v1_p6_3.jpg",
-      "caption": "Figure 4: Cumulative return (PnL) plots under different clustering algorithms for the lead strategy. \u2014 Figure 4 displays two line charts comparing cumulative returns (PnL in %) over time for a lead trading strategy under different clustering algorithms. The left panel (a) shows results on 679 assets while the right panel (b) shows results on 1028 assets, with each colored line representing a different clustering method (OTW, KMeans, KMedian, Spectral, and Ensemble variations). Both panels reveal",
+      "caption": "Figure 4: Cumulative return (PnL) plots under different clustering algorithms for the lead strategy. \u2014 These two line charts display cumulative returns (PnL) over time for a lead trading strategy applied to different numbers of assets using multiple clustering algorithms. Panel (a) shows results on 679 assets while panel (b) shows results on 1028 assets, with each colored line representing a different clustering method (DTW, Kmeans, Hierarchical, Euclidean, and others as indicated in the legend)",
       "vision": true,
       "source": "https://arxiv.org/pdf/2608.24703v1"
     },
@@ -143,7 +215,7 @@
       "title": "$\\texttt{findr}$: Transparent and Fair Credit Risk Decisions through Semi-Structured Regressions",
       "page": 7,
       "thumb": "/data/figures/2608.24582v1_p7_0.jpg",
-      "caption": "Figure 1: findr architecture. \u2014 The figure shows the neural network architecture for findr, a credit risk prediction model that combines deep learning with interpretability constraints. The model processes inputs (X, Z, A) through a DNN encoder to generate latent representations, applies structured transformations including a residual layer and orthogonalization step to enforce fairness constraints, and outputs predictions through a sigmoid activation for binary classification. The training obje",
+      "caption": "Figure 1: findr architecture. \u2014 This diagram illustrates the findr neural network architecture for credit risk modeling, combining structured and unstructured data inputs (X, Z, A) through a DNN encoder that produces latent representations H_z and H_a. The architecture incorporates a residual layer with orthogonalization to enforce fairness constraints (H\u22a5 = P\u22a5H_z), which are then combined with prediction outputs through a weighted loss function that balances binary cross-entropy prediction loss",
       "vision": true,
       "source": "https://arxiv.org/pdf/2608.24582v1"
     },
@@ -152,84 +224,36 @@
       "title": "$\\texttt{findr}$: Transparent and Fair Credit Risk Decisions through Semi-Structured Regressions",
       "page": 10,
       "thumb": "/data/figures/2608.24582v1_p10_1.jpg",
-      "caption": "Figure 2: Out-of-sample performance in the simple and complex simulation settings. Curves show the mean across 10 random seeds as the fairness multiplier \u03bb varies under equalised odds. \u2014 This figure displays out-of-sample performance metrics (AUC and Brier Score) comparing three methods (Truth, LR, and NN) across simple and complex simulation settings as a fairness multiplier \u03bb varies from 0 to 1. Line plots with error bars show that in the simple model, AUC decreases and Brier Score increases a",
+      "caption": "Figure 2: Out-of-sample performance in the simple and complex simulation settings. Curves show the mean across 10 random seeds as the fairness multiplier \u03bb varies under equalised odds. \u2014 This figure displays out-of-sample performance comparison between simple and complex simulation settings using line plots with error bars. The left panels show the simple model results while the right panels show the complex model results, each containing two subplots: AUC (Area Under Curve) on the left and Brie",
       "vision": true,
       "source": "https://arxiv.org/pdf/2608.24582v1"
-    },
-    {
-      "doc_id": "2608.24582v1",
-      "title": "$\\texttt{findr}$: Transparent and Fair Credit Risk Decisions through Semi-Structured Regressions",
-      "page": 10,
-      "thumb": "/data/figures/2608.24582v1_p10_2.jpg",
-      "caption": "Figure 3: Predictor frontiers and model paths under equalised odds. The panels compare the simple and complex simulation settings. Black curves show the true and estimated predictor frontiers in the fairness\u2013log-loss plane, where the horizontal axis is the equalised-odds Wasserstein distance b\u03a6(s; y, a) and the vertical axis is the excess log loss relative to the reference-risk entropy bH(r). Colo \u2014 This figure displays predictor frontiers and model performance paths under equalised odds constra",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.24582v1"
-    },
-    {
-      "doc_id": "2608.24582v1",
-      "title": "$\\texttt{findr}$: Transparent and Fair Credit Risk Decisions through Semi-Structured Regressions",
-      "page": 11,
-      "thumb": "/data/figures/2608.24582v1_p11_3.jpg",
-      "caption": "Figure 4: Score distributions in the simple simulation setting. The panels show fitted score distributions across groups and outcome strata as \u03bb varies. \u2014 This figure displays density plots comparing score distributions across three modeling approaches (findr, LR, and NN) in a simple simulation setting with equalised odds constraint. The x-axis represents predicted probability (0 to 1), the y-axis shows density, and each column varies the regularization parameter \u03bb from 0.01 to 1, with two rows ",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.24582v1"
-    },
-    {
-      "doc_id": "2608.24206v1",
-      "title": "Capital allocation on decentralized lending platforms",
-      "page": 2,
-      "thumb": "/data/figures/2608.24206v1_p2_0.jpg",
-      "caption": "Figure 1: Interest as a function of supplied capital under the kinked model (illustrative example). The dotted lines correspond to the interest generated by the corresponding linear models. \u2014 This line chart illustrates the relationship between supplied capital (as percentage of total supply, x-axis from 0-300%) and interest rate (y-axis from 0-2.5%), showing a kinked interest rate model for decentralized lending platforms. The curve exhibits an initial sharp rise from zero capital, peaks around",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.24206v1"
-    },
-    {
-      "doc_id": "2608.24206v1",
-      "title": "Capital allocation on decentralized lending platforms",
-      "page": 7,
-      "thumb": "/data/figures/2608.24206v1_p7_1.jpg",
-      "caption": "Figure 2: Evolution of USDC reserves (solid line: supplied funds; dashed line: borrowed fund) and the supply rate of the prime-inspired markets on Morpho on the Ethereum blockchain from January 1, 2026 to April 1, 2026. \u2014 Panel (a) shows time series of USDC reserves on Morpho's prime-inspired markets from January to April 2026, with solid lines representing supplied funds and dashed lines representing borrowed funds across three market pairs (USDC/WBTC, USDC/wstETH, USDC/cbBTC), measured in $M o",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.24206v1"
-    },
-    {
-      "doc_id": "2608.24206v1",
-      "title": "Capital allocation on decentralized lending platforms",
-      "page": 8,
-      "thumb": "/data/figures/2608.24206v1_p8_2.jpg",
-      "caption": "Figure 3: Evolution of USDC reserves (solid line: supplied funds; dashed line: borrowed fund) and the supply rate of the core-inspired markets on Morpho on the Ethereum blockchain from January 1, 2026 to April 1, 2026. \u2014 This figure displays time-series data for USDC stablecoin across multiple decentralized lending markets on Morpho (Ethereum) from January to April 2026. Panel (a) shows reserves in millions of USD, with supplied funds (solid lines) and borrowed funds (dashed lines) for eight mar",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.24206v1"
-    },
-    {
-      "doc_id": "2608.24206v1",
-      "title": "Capital allocation on decentralized lending platforms",
-      "page": 9,
-      "thumb": "/data/figures/2608.24206v1_p9_3.jpg",
-      "caption": "Figure 6 presents the APY as a function of the initial investment. For all strategies, APY decreases with investment size because of the dilution effect. For small investments, the core-inspired market set significantly outperforms the other strategies because it allocates capital to more attractive markets with limited liquidity. As the investment size increases, these markets are progressively e \u2014 This figure shows Annual Percentage Yield (APY) plotted against initial investment size for multi",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.24206v1"
-    },
-    {
-      "doc_id": "2608.23944v1",
-      "title": "Bulk Phase Transition and Edge Behavior in Temporally Correlated Random Matrices",
-      "page": 7,
-      "thumb": "/data/figures/2608.23944v1_p7_0.jpg",
-      "caption": "Figure 1 shows the corresponding densities and residuals directly. The self-consistent \u2014 This image does not contain a figure. It shows text from a research paper discussing Remark 3 on consistency with Assumption (E) and the numerical solution method for Equation (7) using fixed-point iteration. The text explains that the essential range of f(\u03b8) corresponds to flatness bounds c(\u03c1) and C(\u03c1), and describes a direct non-Monte-Carlo approach to solving the equation by fixed-point iteration on a gri",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.23944v1"
-    },
-    {
-      "doc_id": "2608.23944v1",
-      "title": "Bulk Phase Transition and Edge Behavior in Temporally Correlated Random Matrices",
-      "page": 8,
-      "thumb": "/data/figures/2608.23944v1_p8_1.jpg",
-      "caption": "FIG. 1: (a,b) Bulk spectral density of S at \u03c1 = 0.5 and \u03c1 = 0.8: empirical histogram \u2014 This figure displays four panels comparing empirical and theoretical spectral densities for a random matrix ensemble at two correlation levels. Panels (a) and (b) show histograms of the bulk spectral density with three overlaid curves\u2014self-consistent theory (solid), semicircle (dashed), and empirical data (shaded)\u2014at \u03c1=0.5 and \u03c1=0.8 respectively, revealing how increasing correlation narrows and sharpens the de",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.23944v1"
     }
   ],
   "docs": [
+    {
+      "id": "2608.25844v1",
+      "title": "Output-Only Identification and Spectral Monitoring of Coupled Feedback Networks with Known Time-Varying Actuation",
+      "source": "https://arxiv.org/pdf/2608.25844v1",
+      "pages": 13,
+      "images": 0,
+      "figures_captioned": 4,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 53
+    },
+    {
+      "id": "2608.25223v1",
+      "title": "On the hedging problem in general 1D diffusion markets",
+      "source": "https://arxiv.org/pdf/2608.25223v1",
+      "pages": 27,
+      "images": 0,
+      "figures_captioned": 4,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 62
+    },
     {
       "id": "2608.24871v1",
       "title": "NatPar: Natural Parametric Modeling",
@@ -272,11 +296,11 @@
       "source": "https://arxiv.org/pdf/2608.24582v1",
       "pages": 23,
       "images": 1,
-      "figures_captioned": 4,
+      "figures_captioned": 2,
       "tables": 1,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 59
+      "chunks_indexed": 57
     },
     {
       "id": "2608.24449v1",
@@ -296,11 +320,11 @@
       "source": "https://arxiv.org/pdf/2608.24206v1",
       "pages": 17,
       "images": 0,
-      "figures_captioned": 4,
+      "figures_captioned": 0,
       "tables": 4,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 33
+      "chunks_indexed": 29
     },
     {
       "id": "2608.23944v1",
@@ -308,11 +332,11 @@
       "source": "https://arxiv.org/pdf/2608.23944v1",
       "pages": 53,
       "images": 0,
-      "figures_captioned": 2,
+      "figures_captioned": 0,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 49
+      "chunks_indexed": 47
     },
     {
       "id": "2608.23915v1",
@@ -325,30 +349,6 @@
       "has_math": true,
       "ocr_used": false,
       "chunks_indexed": 40
-    },
-    {
-      "id": "2608.23808v1",
-      "title": "Equity Strategy Backtesting: Luck or Edge? The MinervaScore as a Statistical Robustness Grade",
-      "source": "https://arxiv.org/pdf/2608.23808v1",
-      "pages": 36,
-      "images": 0,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 56
-    },
-    {
-      "id": "2608.23416v1",
-      "title": "The Axiomatic Trader: Latent Regularity, Information Budgets, and the Canonical Form of a Quantitative Investment System",
-      "source": "https://arxiv.org/pdf/2608.23416v1",
-      "pages": 115,
-      "images": 0,
-      "figures_captioned": 0,
-      "tables": 1,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 57
     }
   ]
 }
