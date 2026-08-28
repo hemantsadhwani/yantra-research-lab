@@ -1,7 +1,7 @@
 {
   "_note": "Public run manifest of the Tier-3 agentic ingestion pipeline. Safe aggregates + provenance only; raw PDFs live in S3, not here.",
-  "run_id": "20260827T124914Z",
-  "generated_at": "2026-08-27T12:55:46+00:00",
+  "run_id": "20260828T142227Z",
+  "generated_at": "2026-08-28T14:30:15+00:00",
   "collection": "research_corpus",
   "embed_model": "BAAI/bge-small-en-v1.5",
   "dag": [
@@ -50,197 +50,281 @@
     "discovered": 10,
     "fetched": 10,
     "parsed": 10,
-    "chunks": 487,
-    "accepted": 437,
-    "rejected": 50,
-    "images": 1,
+    "chunks": 550,
+    "accepted": 523,
+    "rejected": 27,
+    "images": 25,
     "figures_captioned": 18,
-    "tables": 7,
-    "with_math": 9,
-    "indexed": 437,
-    "spent_usd": 0.0319,
-    "duration_s": 391.2
+    "tables": 1,
+    "with_math": 10,
+    "indexed": 523,
+    "spent_usd": 0.0325,
+    "duration_s": 468.5
   },
   "rejects_by_reason": {
-    "low-relevance": 50
+    "low-relevance": 27
   },
   "budget_usd": 3.0,
   "figures": [
     {
-      "doc_id": "2608.25844v1",
-      "title": "Output-Only Identification and Spectral Monitoring of Coupled Feedback Networks with Known Time-Varying Actuation",
-      "page": 3,
-      "thumb": "/data/figures/2608.25844v1_p3_0.jpg",
-      "caption": "Fig. 1. The coupled feedback fixed point (1). Note: the actuation gains diag(\u03b3t) are disclosed\u2014the only observed element of the loop besides the outputs\u2014and their time variation is the identification resource; the coupling \u03a6 and inputs vt are unobserved. The dashed path is the self-reference that makes r2,t a fixed point. \u2014 This block diagram illustrates a coupled feedback system architecture where observed output r2,t is generated from input r1,t through a chain of operations: diagonal gain mat",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.25844v1"
-    },
-    {
-      "doc_id": "2608.25844v1",
-      "title": "Output-Only Identification and Spectral Monitoring of Coupled Feedback Networks with Known Time-Varying Actuation",
-      "page": 11,
-      "thumb": "/data/figures/2608.25844v1_p11_1.jpg",
-      "caption": "Fig. 2. Observed actuation gains \u03b3j,t of the two Korean complexes. Note: constructed daily from disclosed fund shares, NAVs, and leverage multiples over trailing 20-day traded value; entered at t \u22121. Dashed: product launch; dotted: the deposit regulation, which collapsed turnover while leaving the gains\u2014the identification resource\u2014intact. \u2014 This line chart displays time series data of observed actuation gains (\u03b3_K,t) for two Korean complexes\u2014SK Hynix (red line) and Samsung (blue line)\u2014from June ",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.25844v1"
-    },
-    {
-      "doc_id": "2608.25844v1",
-      "title": "Output-Only Identification and Spectral Monitoring of Coupled Feedback Networks with Known Time-Varying Actuation",
-      "page": 11,
-      "thumb": "/data/figures/2608.25844v1_p11_2.jpg",
-      "caption": "Fig. 3. The rolling detector on the Korean data (receiver: Samsung; sender: Hynix). Note: top\u2014rolling 40-day cross-slope with 95% bands; bottom\u2014launch-break contrast z at weekly placebo break dates and the true launch (dashed). Post windows left of the launch contain increasing fractions of true post-launch observations. \u2014 Figure 3 displays time-series analysis of cross-overnight slope between Hynix and Samsung stocks from March to August 2026. The top panel shows a rolling 40-day cross-slope es",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.25844v1"
-    },
-    {
-      "doc_id": "2608.25844v1",
-      "title": "Output-Only Identification and Spectral Monitoring of Coupled Feedback Networks with Known Time-Varying Actuation",
-      "page": 12,
-      "thumb": "/data/figures/2608.25844v1_p12_3.jpg",
-      "caption": "Fig. 4. U.S. staggered panel: gain paths and identification conditioning. Note: top\u2014liquidity-scaled complex gains \u03b3j,t for the TSLA, NVDA, and AAPL single-stock LETF complexes (CRSP, 2022\u20132024); fund launches occur at six distinct dates, yet post-launch capital growth makes the paths co-trend (level correlations 0.81\u20130.91). Bottom\u2014rolling 250-day condition number of the standardized gain-path Gra \u2014 This figure displays the complex gains and conditioning of U.S. staggered leveraged ETF (LETF) as",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.25844v1"
-    },
-    {
-      "doc_id": "2608.25223v1",
-      "title": "On the hedging problem in general 1D diffusion markets",
-      "page": 17,
-      "thumb": "/data/figures/2608.25223v1_p17_0.jpg",
-      "caption": "Figure 1. Single hedging scenario in the Bachelier model (left) and Skew-Sticky Model 1 (right). Rows display: (1st) price path of the risky asset, (2nd) shares of risky asset and cash holdings, (3rd) portfolio value (with premium subtracted). \u2014 This figure compares hedging dynamics in two models: Bachelier (left) and Skew-Sticky Model 1 (right), each showing three line charts stacked vertically. The top row displays simulated price paths of the underlying risky asset over time. The middle row s",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.25223v1"
-    },
-    {
-      "doc_id": "2608.25223v1",
-      "title": "On the hedging problem in general 1D diffusion markets",
-      "page": 18,
-      "thumb": "/data/figures/2608.25223v1_p18_1.jpg",
-      "caption": "Figure 2. Log-log plot of the empirical standard deviation of the tracking error versus the number of hedging instances. We consider various refinements of the space discretization in the finite difference approximation of the hedging PDE (Nspace \u2014 This figure contains four log-log plots showing empirical standard deviation of tracking error versus the number of hedging instances across different stochastic volatility models (Heston, Stein-Stein, and two SABR variants). Each subplot displays mul",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.25223v1"
-    },
-    {
-      "doc_id": "2608.25223v1",
-      "title": "On the hedging problem in general 1D diffusion markets",
-      "page": 18,
-      "thumb": "/data/figures/2608.25223v1_p18_2.jpg",
-      "caption": "Figure 1 illustrates the path-properties of the portfolio composition and value depending on the price of the risky asset in the Bachelier model and Skew-Sticky Model 1 for a single scenario with 4096 and 256 hedging instances (i.e., 10/4096 and 10/256 hedging windows). Tracking errors of these scenarios are shown in Table 3. \u2014 This figure contains four log-log plots (labeled as Stochastic Model 1-4) showing the relationship between the number of hedging instances (x-axis) and the empirical stan",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.25223v1"
-    },
-    {
-      "doc_id": "2608.25223v1",
-      "title": "On the hedging problem in general 1D diffusion markets",
-      "page": 19,
-      "thumb": "/data/figures/2608.25223v1_p19_3.jpg",
-      "caption": "Figure 3. Finite difference approximations of price and delta curves for time horizons T \u2208{0.1, 5, 9.9} in: (1st row) the Bachelier model, (2nd row) Skew-Sticky Model 1, (3rd row) Skew-Sticky Model 2, and (4th row) Skew-Sticky Model 3. \u2014 This figure presents six panels (three rows, two columns) comparing price and delta curves across different market models using finite difference approximations. The left column shows price curves (y-axis: option price in currency units) and the right column sho",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.25223v1"
-    },
-    {
-      "doc_id": "2608.24871v1",
-      "title": "NatPar: Natural Parametric Modeling",
-      "page": 9,
-      "thumb": "/data/figures/2608.24871v1_p9_0.jpg",
-      "caption": "Figure 1: From NatCat to NatPar: the same four-block pipeline, re-tasked. The hazard becomes the contractual index; the exposure and vulnerability blocks are re-tasked into a basis-risk engine that measures the mismatch B = Y \u2212P between indemnity loss and parametric payout; and the finance block becomes short-tailed with limited development risk. The architecture is unchanged \u2014 what changes is whi \u2014 This figure shows a flowchart comparing two modeling frameworks: NatCat (natural catastrophe insu",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.24871v1"
-    },
-    {
-      "doc_id": "2608.24871v1",
-      "title": "NatPar: Natural Parametric Modeling",
-      "page": 21,
-      "thumb": "/data/figures/2608.24871v1_p21_1.jpg",
-      "caption": "Figure 2: The single, identical frost vulnerability curve D(TI) used for all three regions, following the Venner et al. (1995) convex damage model with the published citrus parameters Tc = 28\u25e6F, Tt = 20\u25e6F (band width b = 8\u25e6F) and curvature \u03b7 = 1.5. Damage is further gated by the Snyder & de Melo-Abreu (2005) k-hour resistance condition M \u2264BN as in Assa et al. (2017). The regions differ only in the \u2014 This line chart displays a frost vulnerability curve for citrus plants, plotting damage ratio (0 ",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.24871v1"
-    },
-    {
-      "doc_id": "2608.24871v1",
-      "title": "NatPar: Natural Parametric Modeling",
-      "page": 24,
-      "thumb": "/data/figures/2608.24871v1_p24_2.jpg",
-      "caption": "Figure 3: Exceedance probability curves for Yr,\u03b2, P {\u00b7} \u2014 This figure displays a 3\u00d73 grid of exceedance probability curves comparing empirical data (blue) against parametric model fits (orange and yellow lines) across three regions (R1, R2, R3) and three tail index parameters (\u03b2=0.9, 0.95, 0.99). Each subplot plots probability P(x \u2265 x) on a logarithmic y-axis against threshold values x on the linear x-axis, showing how well the natural parametric model captures extreme value behavior in differen",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.24871v1"
-    },
-    {
-      "doc_id": "2608.24786v1",
-      "title": "Harvesting the Volatility Risk Premium: A Learning-to-Rank Approach",
-      "page": 22,
-      "thumb": "/data/figures/2608.24786v1_p22_0.jpg",
-      "caption": "Figure 1. S&P 500 Index, VIX, PUT Index, and WPUT Index series from 2018-01-01 to \u2014 This figure displays four time series from January 2018 onwards: the S&P 500 Index, VIX volatility index, PUT Index, and WPUT Index plotted as line charts with time on the horizontal axis and index values on the vertical axis. The series show the evolution of equity prices and various volatility-related measures over the sample period, with distinct patterns in market levels and volatility regimes. The key takeaw",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.24786v1"
-    },
-    {
-      "doc_id": "2608.24703v1",
-      "title": "Lead-Lag Relationships in Financial Markets: A Comparison of Multiple Clustering Algorithms",
-      "page": 4,
-      "thumb": "/data/figures/2608.24703v1_p4_0.jpg",
-      "caption": "Figure 1: Clustering ARI comparison under different noise levels and window sizes. \u2014 This figure compares clustering performance across three conditions using Adjusted Rand Index (ARI) as the metric. Panel (a) shows ARI values declining as noise levels (\u03c3) increase from 0 to 1.6, with multiple algorithms represented by different colored lines converging to near-zero performance at high noise. Panels (b) and (c) display ARI stability across small (1-10) and large (10-30) window sizes respectively",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.24703v1"
-    },
-    {
-      "doc_id": "2608.24703v1",
-      "title": "Lead-Lag Relationships in Financial Markets: A Comparison of Multiple Clustering Algorithms",
-      "page": 4,
-      "thumb": "/data/figures/2608.24703v1_p4_1.jpg",
-      "caption": "Figure 2: Lag matrix MSE comparison under different noise levels and window sizes. \u2014 Figure 2 displays lag matrix mean squared error (MSE) comparisons across multiple clustering algorithms under varying noise levels and window sizes. The figure contains six line plots arranged in two rows: panel (a) shows MSE versus noise level (\u03c3), while panels (b) and (c) compare performance across small and large window sizes respectively, with separate rows for two different experimental settings. The key ta",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.24703v1"
-    },
-    {
-      "doc_id": "2608.24703v1",
-      "title": "Lead-Lag Relationships in Financial Markets: A Comparison of Multiple Clustering Algorithms",
+      "doc_id": "2608.27374v1",
+      "title": "Distribution-constrained optimal multiple stopping: the Root-type solution",
       "page": 5,
-      "thumb": "/data/figures/2608.24703v1_p5_2.jpg",
-      "caption": "Figure 3: Silhouette comparison under optimal and fixed cluster numbers across different datasets. \u2014 These figures display side-by-side bar charts comparing Silhouette scores across three clustering algorithms (DTW-KMedoids, KShape, and MiniRocket-KMeans) on two different asset datasets. Panel (a) evaluates 679 assets while panel (b) evaluates 1028 assets, with each chart showing dark blue bars for \"Optimal K\" and light blue bars for \"Fixed K=3\". The key takeaway is that MiniRocket-KMeans substa",
+      "thumb": "/data/figures/2608.27374v1_p5_0.jpg",
+      "caption": "Figure 1: An example of three distribution-constrained stopping boundaries which are not ordered. In the realization above, the sample path enters R2 before R1, and R3 before R2, but these early entries do not trigger the corresponding stoppings. The correct stopping times should satisfy \u03c31 = \u03c32 < \u03c33. \u2014 This line chart displays three distribution-constrained stopping boundaries (dR\u00b9, dR\u00b2, dR\u00b3) plotted against a Brownian sample path over time [0, 4.5]. The y-axis shows the state variable with val",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2608.24703v1"
+      "source": "https://arxiv.org/pdf/2608.27374v1"
     },
     {
-      "doc_id": "2608.24703v1",
-      "title": "Lead-Lag Relationships in Financial Markets: A Comparison of Multiple Clustering Algorithms",
+      "doc_id": "2608.27374v1",
+      "title": "Distribution-constrained optimal multiple stopping: the Root-type solution",
       "page": 6,
-      "thumb": "/data/figures/2608.24703v1_p6_3.jpg",
-      "caption": "Figure 4: Cumulative return (PnL) plots under different clustering algorithms for the lead strategy. \u2014 These two line charts display cumulative returns (PnL) over time for a lead trading strategy applied to different numbers of assets using multiple clustering algorithms. Panel (a) shows results on 679 assets while panel (b) shows results on 1028 assets, with each colored line representing a different clustering method (DTW, Kmeans, Hierarchical, Euclidean, and others as indicated in the legend)",
+      "thumb": "/data/figures/2608.27374v1_p6_1.jpg",
+      "caption": "Figure 2: A realization of the non-ordered stopping regions in Example 2.3. The Brownian path may enter R2 before R1, but this entry does not provide an effective stopping time. \u2014 This figure displays a Brownian motion path (black line) evolving over time [0,5] against multiple stopping regions defined by thresholds at different levels. The y-axis shows the stochastic value ranging from approximately -2.5 to 1.0, while the x-axis represents time t. The plot illustrates three key stopping regions",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2608.24703v1"
+      "source": "https://arxiv.org/pdf/2608.27374v1"
     },
     {
-      "doc_id": "2608.24582v1",
-      "title": "$\\texttt{findr}$: Transparent and Fair Credit Risk Decisions through Semi-Structured Regressions",
+      "doc_id": "2608.27295v1",
+      "title": "A Temporal Multiplex Graph Neural Network for Systemic Risk Transmission in Global Banking",
+      "page": 6,
+      "thumb": "/data/figures/2608.27295v1_p6_0.jpg",
+      "caption": "Figure 1 presents an architectural overview of the proposed model. The model transforms a sequence of heterogeneous multiplex banking networks over a historical window \u03c4 = t \u2212H + 1, . . . , t into a one-step-ahead CDS forecast. At each \u03c4, bank and country features are combined with three graph relations representing financial similarity, liquidity co-movement, and country-to- bank macroeconomic tr \u2014 This figure shows the mathematical notation for a heterogeneous multiplex graph neural network ar",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.27295v1"
+    },
+    {
+      "doc_id": "2608.27295v1",
+      "title": "A Temporal Multiplex Graph Neural Network for Systemic Risk Transmission in Global Banking",
       "page": 7,
-      "thumb": "/data/figures/2608.24582v1_p7_0.jpg",
-      "caption": "Figure 1: findr architecture. \u2014 This diagram illustrates the findr neural network architecture for credit risk modeling, combining structured and unstructured data inputs (X, Z, A) through a DNN encoder that produces latent representations H_z and H_a. The architecture incorporates a residual layer with orthogonalization to enforce fairness constraints (H\u22a5 = P\u22a5H_z), which are then combined with prediction outputs through a weighted loss function that balances binary cross-entropy prediction loss",
+      "thumb": "/data/figures/2608.27295v1_p7_1.jpg",
+      "caption": "Figure 1: Model architecture \u2014 This figure illustrates a deep learning architecture for predicting credit default swap (CDS) spreads in global banking networks. The model consists of five sequential components: (1) heterogeneous GNN encoders processing static financial similarity (FIN-GCN) and dynamic liquidity co-movement (LIQ-GCN) for banks, with learnable layer fusion weights; (2) country-level MLP and bank aggregation via message passing to capture macro information; (3) concatenation of ban",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2608.24582v1"
+      "source": "https://arxiv.org/pdf/2608.27295v1"
     },
     {
-      "doc_id": "2608.24582v1",
-      "title": "$\\texttt{findr}$: Transparent and Fair Credit Risk Decisions through Semi-Structured Regressions",
-      "page": 10,
-      "thumb": "/data/figures/2608.24582v1_p10_1.jpg",
-      "caption": "Figure 2: Out-of-sample performance in the simple and complex simulation settings. Curves show the mean across 10 random seeds as the fairness multiplier \u03bb varies under equalised odds. \u2014 This figure displays out-of-sample performance comparison between simple and complex simulation settings using line plots with error bars. The left panels show the simple model results while the right panels show the complex model results, each containing two subplots: AUC (Area Under Curve) on the left and Brie",
+      "doc_id": "2608.27295v1",
+      "title": "A Temporal Multiplex Graph Neural Network for Systemic Risk Transmission in Global Banking",
+      "page": 22,
+      "thumb": "/data/figures/2608.27295v1_p22_2.jpg",
+      "caption": "Figure 2: Fusion Gate Weights Over Time \u2014 This line chart displays pre-temporal fusion gate weights over time from 2000 to 2024, comparing financial graph weights (blue line) and liquidity graph weights (orange line) across banks. The y-axis shows weight values ranging from 0 to 0.6, while the x-axis spans the entire time period with a marked date around 2012. The key takeaway is that liquidity graph weights dominated during the 2008 financial crisis (spike to ~0.55) while financial graph weight",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2608.24582v1"
+      "source": "https://arxiv.org/pdf/2608.27295v1"
+    },
+    {
+      "doc_id": "2608.27295v1",
+      "title": "A Temporal Multiplex Graph Neural Network for Systemic Risk Transmission in Global Banking",
+      "page": 24,
+      "thumb": "/data/figures/2608.27295v1_p24_3.jpg",
+      "caption": "Figure 3: Time-varying systemic importance scores across global banks. \u2014 This heatmap displays time-varying systemic importance scores for 30 global banks from 2000 to 2023, with darker red indicating higher systemic importance values (ranging from 0 to 0.014). The rows represent individual banks (including major institutions like BAER, DBK, GLE, HSBC, and JPM) and columns represent years, showing how each bank's systemic risk contribution evolved over the 23-year period. The visualization revea",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.27295v1"
+    },
+    {
+      "doc_id": "2608.27229v1",
+      "title": "On the approximation of posterior laws in compound loss models by conditional Wasserstein GANs",
+      "page": 16,
+      "thumb": "/data/figures/2608.27229v1_p16_0.jpg",
+      "caption": "Figure 1 and Table 1 summarize the dataset. We fit a power law to the upper tail of the empirical survival function, resulting in a threshold xmin of 2.50 billion USD. Henceforth, we call an event extreme if its adjusted total damage exceeds xmin, and retain the resulting 370 events for the subsequent analysis. As summarized in Table 1, storms account for approximately 51% of both events and aggre \u2014 This section describes a simulation study methodology for evaluating conditional Wasserstein GAN ",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.27229v1"
+    },
+    {
+      "doc_id": "2608.27229v1",
+      "title": "On the approximation of posterior laws in compound loss models by conditional Wasserstein GANs",
+      "page": 18,
+      "thumb": "/data/figures/2608.27229v1_p18_1.jpg",
+      "caption": "Figure 1: Calibration of the catastrophe model. \u2014 This figure displays calibration results for a catastrophe risk model across four panels. The top-left shows empirical tail probability on a log-log scale with observed events and fitted Pareto tail, marking damage threshold at 2.50 bn USD. The top-right pie chart breaks down peril composition (Storm, Earthquake, Flood, Drought, Wildfire) by frequency and damage share of extreme-event totals. The bottom-left plots prior mean estimates from 2009-2",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.27229v1"
+    },
+    {
+      "doc_id": "2608.27229v1",
+      "title": "On the approximation of posterior laws in compound loss models by conditional Wasserstein GANs",
+      "page": 20,
+      "thumb": "/data/figures/2608.27229v1_p20_2.jpg",
+      "caption": "Figure 2: Calibration and approximation diagnostics for the shared cWGAN. The figure reports \u2014 This figure presents four diagnostic panels evaluating a conditional Wasserstein GAN (cWGAN) model for approximating posterior distributions in compound loss models. The left panels show time series of ECDF deviations measured by parameter rank (top) and log-likelihood rank (bottom), both displaying frequency and severity metrics around zero with shaded confidence bands. The right panels display box pl",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.27229v1"
+    },
+    {
+      "doc_id": "2608.27229v1",
+      "title": "On the approximation of posterior laws in compound loss models by conditional Wasserstein GANs",
+      "page": 21,
+      "thumb": "/data/figures/2608.27229v1_p21_3.jpg",
+      "caption": "Figure 3 reports the rolling one-year posterior-predictive aggregate losses. Conditional on the threshold xmin = 2.50 billion USD selected from the 2000\u20132025 data, each forecast for 2010\u20132025 uses only information available through the preceding year. Across these sixteen rolls, the predictive median changes gradually, with an overall upward drift, and every realized aggregate loss lies within the \u2014 This figure presents mathematical notation and formulas describing a hierarchical Bayesian mixtur",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.27229v1"
+    },
+    {
+      "doc_id": "2608.27156v1",
+      "title": "Traveling Waves in Equity Markets with Rank-Based Entry and Exit",
+      "page": 13,
+      "thumb": "/data/figures/2608.27156v1_p13_0.jpg",
+      "caption": "Figure 1: Rank distributions of entrance (left) and exit (right) events on the window 1975\u20132024, with the fitted spline intensities of Subsection 3.2. Rank percentile q = 1 is the largest firm. \u2014 This figure displays two histograms showing the distribution of corporate entry and exit events across firm size rankings from 1975-2024. The left panel shows entrances (n=17,277) with a bell-shaped distribution peaking around rank percentile 0.3-0.4, while the right panel shows exits (n=14,888) heavily",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.27156v1"
+    },
+    {
+      "doc_id": "2608.27156v1",
+      "title": "Traveling Waves in Equity Markets with Rank-Based Entry and Exit",
+      "page": 14,
+      "thumb": "/data/figures/2608.27156v1_p14_1.jpg",
+      "caption": "Figure 2: Exit events by delisting reason. Left: the rank distribution of each exit type, normalized separately so that shapes can be compared (liquidations are only 477 events). Right: the compo- sition of exits across ranks. Failures concentrate at the bottom; among the exits of mid-sized and large firms, mergers dominate. \u2014 The left panel shows kernel density estimates of rank percentile distributions for three exit types (dropped, merger, liquidation) in equity markets, revealing that liquid",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.27156v1"
+    },
+    {
+      "doc_id": "2608.27156v1",
+      "title": "Traveling Waves in Equity Markets with Rank-Based Entry and Exit",
+      "page": 15,
+      "thumb": "/data/figures/2608.27156v1_p15_2.jpg",
+      "caption": "Figure 3: The calibrated reaction terms f and \u02dcf = f \u2212qf(1), fitted on 1975\u20132024. The tilted term \u2014 This line graph displays two reaction rate functions plotted against normalized firm rank on the x-axis (0 to 1, where 1 represents the largest firm) and reaction rate in basis points per annualized on the y-axis (-1.5 to 0.5). The solid line shows f(q), the calibrated reaction term, while the dashed line shows the tilted term f\u0303(q) = f(q) - qf(1), both fitted to equity market data from 1975-2024.",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.27156v1"
+    },
+    {
+      "doc_id": "2608.27156v1",
+      "title": "Traveling Waves in Equity Markets with Rank-Based Entry and Exit",
+      "page": 16,
+      "thumb": "/data/figures/2608.27156v1_p16_3.jpg",
+      "caption": "Figure 4: The reaction term \u02dcf recomputed on each decade (binned estimates; pooled century in bold). Circles mark each decade\u2019s interior zero on its axis; the cross marks the 2000s, which has no interior crossing. The bistable shape recurs at varying amplitude; the 2000s lost bistability altogether, with \u02dcf \u22640 at almost every rank. \u2014 This figure displays line plots of the reaction term f\u0303 across nine decades (1940s\u20132020s) as a function of normalized firm rank w (0 to 1.0), showing how the distri",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.27156v1"
+    },
+    {
+      "doc_id": "2608.27076v1",
+      "title": "Tabular Deep Learning for Algorithmic Trading: Cross-Regime Bayesian Optimisation for Equity Signal Generation",
+      "page": 2,
+      "thumb": "/data/figures/2608.27076v1_p2_0.jpg",
+      "caption": "Figure 1 provides an overview of the complete framework developed to address these questions. \u2014 This figure is not visible in the provided image. The image shows only text from a research paper discussing TDL models, cross-sectional trading strategies, hyperparameter optimization, and SHAP-based feature attribution methods for evaluating trading signal performance. Figure 1, which would provide a framework overview, is referenced in the caption but not displayed in this excerpt.",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.27076v1"
+    },
+    {
+      "doc_id": "2608.27076v1",
+      "title": "Tabular Deep Learning for Algorithmic Trading: Cross-Regime Bayesian Optimisation for Equity Signal Generation",
+      "page": 3,
+      "thumb": "/data/figures/2608.27076v1_p3_1.jpg",
+      "caption": "Figure 1: Overview of motivation, methodology, and inference framework (Top-Left) Single-regime hyperparameter tuning fails to capture highly stochastic, regime-dependent return distributions. (Bottom-Left) Cross-sectional percentile ranking maps these heterogeneous environments into a stationary target distribution. Cross-regime Bayesian optimisation selects hyperparameters that generalise across \u2014 This figure presents an overview of a machine learning framework for algorithmic trading using ta",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.27076v1"
+    },
+    {
+      "doc_id": "2608.27076v1",
+      "title": "Tabular Deep Learning for Algorithmic Trading: Cross-Regime Bayesian Optimisation for Equity Signal Generation",
+      "page": 5,
+      "thumb": "/data/figures/2608.27076v1_p5_2.jpg",
+      "caption": "Figure 2: Dataset Construction Traditional market data, company fundamentals, and news sentiment from Bloomberg are integrated with Google Trends and FRED macroeconomic indicators. The processed data generates next-day cross-sectional return percentiles, establishing outer-decile (10%) \u2014 This flowchart illustrates the dataset construction pipeline for an equity trading signal system. It shows data flowing from three sources (Bloomberg Terminal, FRED API, and Google Trends) through sequential pro",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.27076v1"
+    },
+    {
+      "doc_id": "2608.27076v1",
+      "title": "Tabular Deep Learning for Algorithmic Trading: Cross-Regime Bayesian Optimisation for Equity Signal Generation",
+      "page": 7,
+      "thumb": "/data/figures/2608.27076v1_p7_3.jpg",
+      "caption": "Figure 3: Modelling Methods Data is split into a training and validation set and an out-of-sample (OOS) test set. Cross-regime Bayesian optimisation utilises an \u2014 This flowchart displays the model development pipeline for algorithmic trading using tabular deep learning. The diagram shows data collection from 2015-2025 split into training-validation (2015-2024) and out-of-sample test (2025) sets, followed by cross-regime Bayesian optimization using expanding window cross-validation across three f",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.27076v1"
     }
   ],
   "docs": [
+    {
+      "id": "2608.27374v1",
+      "title": "Distribution-constrained optimal multiple stopping: the Root-type solution",
+      "source": "https://arxiv.org/pdf/2608.27374v1",
+      "pages": 39,
+      "images": 0,
+      "figures_captioned": 2,
+      "tables": 1,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 51
+    },
+    {
+      "id": "2608.27295v1",
+      "title": "A Temporal Multiplex Graph Neural Network for Systemic Risk Transmission in Global Banking",
+      "source": "https://arxiv.org/pdf/2608.27295v1",
+      "pages": 39,
+      "images": 3,
+      "figures_captioned": 4,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 48
+    },
+    {
+      "id": "2608.27229v1",
+      "title": "On the approximation of posterior laws in compound loss models by conditional Wasserstein GANs",
+      "source": "https://arxiv.org/pdf/2608.27229v1",
+      "pages": 26,
+      "images": 1,
+      "figures_captioned": 4,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 52
+    },
+    {
+      "id": "2608.27156v1",
+      "title": "Traveling Waves in Equity Markets with Rank-Based Entry and Exit",
+      "source": "https://arxiv.org/pdf/2608.27156v1",
+      "pages": 43,
+      "images": 0,
+      "figures_captioned": 4,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 68
+    },
+    {
+      "id": "2608.27076v1",
+      "title": "Tabular Deep Learning for Algorithmic Trading: Cross-Regime Bayesian Optimisation for Equity Signal Generation",
+      "source": "https://arxiv.org/pdf/2608.27076v1",
+      "pages": 35,
+      "images": 8,
+      "figures_captioned": 4,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 59
+    },
+    {
+      "id": "2608.26837v1",
+      "title": "Interpretable hybrid credit scoring for thin-file and underbanked populations",
+      "source": "https://arxiv.org/pdf/2608.26837v1",
+      "pages": 26,
+      "images": 0,
+      "figures_captioned": 0,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 58
+    },
+    {
+      "id": "2608.26473v1",
+      "title": "DTD-VAE: Disentangled Temporal Dependencies VAE for Credit Risk Prediction",
+      "source": "https://arxiv.org/pdf/2608.26473v1",
+      "pages": 31,
+      "images": 13,
+      "figures_captioned": 0,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 35
+    },
     {
       "id": "2608.25844v1",
       "title": "Output-Only Identification and Spectral Monitoring of Coupled Feedback Networks with Known Time-Varying Actuation",
       "source": "https://arxiv.org/pdf/2608.25844v1",
       "pages": 13,
       "images": 0,
-      "figures_captioned": 4,
+      "figures_captioned": 0,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 53
+      "chunks_indexed": 49
     },
     {
       "id": "2608.25223v1",
@@ -248,11 +332,11 @@
       "source": "https://arxiv.org/pdf/2608.25223v1",
       "pages": 27,
       "images": 0,
-      "figures_captioned": 4,
+      "figures_captioned": 0,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 62
+      "chunks_indexed": 58
     },
     {
       "id": "2608.24871v1",
@@ -260,95 +344,11 @@
       "source": "https://arxiv.org/pdf/2608.24871v1",
       "pages": 48,
       "images": 0,
-      "figures_captioned": 3,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 48
-    },
-    {
-      "id": "2608.24786v1",
-      "title": "Harvesting the Volatility Risk Premium: A Learning-to-Rank Approach",
-      "source": "https://arxiv.org/pdf/2608.24786v1",
-      "pages": 68,
-      "images": 0,
-      "figures_captioned": 1,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 52
-    },
-    {
-      "id": "2608.24703v1",
-      "title": "Lead-Lag Relationships in Financial Markets: A Comparison of Multiple Clustering Algorithms",
-      "source": "https://arxiv.org/pdf/2608.24703v1",
-      "pages": 8,
-      "images": 0,
-      "figures_captioned": 4,
-      "tables": 0,
-      "has_math": false,
-      "ocr_used": false,
-      "chunks_indexed": 21
-    },
-    {
-      "id": "2608.24582v1",
-      "title": "$\\texttt{findr}$: Transparent and Fair Credit Risk Decisions through Semi-Structured Regressions",
-      "source": "https://arxiv.org/pdf/2608.24582v1",
-      "pages": 23,
-      "images": 1,
-      "figures_captioned": 2,
-      "tables": 1,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 57
-    },
-    {
-      "id": "2608.24449v1",
-      "title": "Generalizing Markowitz Portfolio Optimization by a Quadratic Risk Measure",
-      "source": "https://arxiv.org/pdf/2608.24449v1",
-      "pages": 35,
-      "images": 0,
       "figures_captioned": 0,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 28
-    },
-    {
-      "id": "2608.24206v1",
-      "title": "Capital allocation on decentralized lending platforms",
-      "source": "https://arxiv.org/pdf/2608.24206v1",
-      "pages": 17,
-      "images": 0,
-      "figures_captioned": 0,
-      "tables": 4,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 29
-    },
-    {
-      "id": "2608.23944v1",
-      "title": "Bulk Phase Transition and Edge Behavior in Temporally Correlated Random Matrices",
-      "source": "https://arxiv.org/pdf/2608.23944v1",
-      "pages": 53,
-      "images": 0,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 47
-    },
-    {
-      "id": "2608.23915v1",
-      "title": "Equilibrium in closed constant-function market maker economies",
-      "source": "https://arxiv.org/pdf/2608.23915v1",
-      "pages": 50,
-      "images": 0,
-      "figures_captioned": 0,
-      "tables": 2,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 40
+      "chunks_indexed": 45
     }
   ]
 }
