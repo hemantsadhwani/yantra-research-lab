@@ -1,7 +1,7 @@
 {
   "_note": "Public run manifest of the Tier-3 agentic ingestion pipeline. Safe aggregates + provenance only; raw PDFs live in S3, not here.",
-  "run_id": "20260829T090447Z",
-  "generated_at": "2026-08-29T09:12:35+00:00",
+  "run_id": "20260830T082013Z",
+  "generated_at": "2026-08-30T08:27:56+00:00",
   "collection": "research_corpus",
   "embed_model": "BAAI/bge-small-en-v1.5",
   "dag": [
@@ -58,8 +58,8 @@
     "tables": 1,
     "with_math": 10,
     "indexed": 523,
-    "spent_usd": 0.0327,
-    "duration_s": 468.2
+    "spent_usd": 0.0333,
+    "duration_s": 462.9
   },
   "rejects_by_reason": {
     "low-relevance": 27
@@ -71,7 +71,7 @@
       "title": "Distribution-constrained optimal multiple stopping: the Root-type solution",
       "page": 5,
       "thumb": "/data/figures/2608.27374v1_p5_0.jpg",
-      "caption": "Figure 1: An example of three distribution-constrained stopping boundaries which are not ordered. In the realization above, the sample path enters R2 before R1, and R3 before R2, but these early entries do not trigger the corresponding stoppings. The correct stopping times should satisfy \u03c31 = \u03c32 < \u03c33. \u2014 This line plot displays three distribution-constrained stopping boundaries (dR1, dR2, dR3) represented as smooth colored curves alongside a black Brownian motion sample path, with time t on the x",
+      "caption": "Figure 1: An example of three distribution-constrained stopping boundaries which are not ordered. In the realization above, the sample path enters R2 before R1, and R3 before R2, but these early entries do not trigger the corresponding stoppings. The correct stopping times should satisfy \u03c31 = \u03c32 < \u03c33. \u2014 This line chart displays multiple stopping boundaries and a sample Brownian path in a distribution-constrained optimal stopping problem. The x-axis represents time t (0 to 4.5), and the y-axis sh",
       "vision": true,
       "source": "https://arxiv.org/pdf/2608.27374v1"
     },
@@ -80,7 +80,7 @@
       "title": "Distribution-constrained optimal multiple stopping: the Root-type solution",
       "page": 6,
       "thumb": "/data/figures/2608.27374v1_p6_1.jpg",
-      "caption": "Figure 2: A realization of the non-ordered stopping regions in Example 2.3. The Brownian path may enter R2 before R1, but this entry does not provide an effective stopping time. \u2014 This line chart displays a single Brownian path realization over time (0 to 5) with the y-axis showing values ranging from approximately -2.5 to 1.0, illustrating non-ordered stopping regions for a multiple stopping problem. The figure shows three distinct regions (R\u00b9, R\u00b2, and \u03c3\u2081) marked by horizontal bands in differen",
+      "caption": "Figure 2: A realization of the non-ordered stopping regions in Example 2.3. The Brownian path may enter R2 before R1, but this entry does not provide an effective stopping time. \u2014 This line chart shows a Brownian path (black line) evolving over time from t=0 to t=5, with three distinct stopping regions marked by colored bands: R\u00b9 (green, upper region where x=-1), \u03c3\u2081 (blue region where x\u2248-1), and R\u00b2 (lower region where x=-2). The figure illustrates that although the Brownian path enters region R\u00b2",
       "vision": true,
       "source": "https://arxiv.org/pdf/2608.27374v1"
     },
@@ -89,7 +89,7 @@
       "title": "A Temporal Multiplex Graph Neural Network for Systemic Risk Transmission in Global Banking",
       "page": 6,
       "thumb": "/data/figures/2608.27295v1_p6_0.jpg",
-      "caption": "Figure 1 presents an architectural overview of the proposed model. The model transforms a sequence of heterogeneous multiplex banking networks over a historical window \u03c4 = t \u2212H + 1, . . . , t into a one-step-ahead CDS forecast. At each \u03c4, bank and country features are combined with three graph relations representing financial similarity, liquidity co-movement, and country-to- bank macroeconomic tr \u2014 This figure presents the mathematical formulation of a temporal heterogeneous multiplex financial",
+      "caption": "Figure 1 presents an architectural overview of the proposed model. The model transforms a sequence of heterogeneous multiplex banking networks over a historical window \u03c4 = t \u2212H + 1, . . . , t into a one-step-ahead CDS forecast. At each \u03c4, bank and country features are combined with three graph relations representing financial similarity, liquidity co-movement, and country-to- bank macroeconomic tr \u2014 This figure presents the architecture of a temporal multiplex graph neural network for banking sy",
       "vision": true,
       "source": "https://arxiv.org/pdf/2608.27295v1"
     },
@@ -98,7 +98,7 @@
       "title": "A Temporal Multiplex Graph Neural Network for Systemic Risk Transmission in Global Banking",
       "page": 7,
       "thumb": "/data/figures/2608.27295v1_p7_1.jpg",
-      "caption": "Figure 1: Model architecture \u2014 This figure depicts a five-stage neural network architecture for predicting credit default swap (CDS) spreads in a banking system. The model combines heterogeneous graph neural networks (GNNs) processing static financial similarity and dynamic liquidity co-movement of banks and countries, fuses these representations through learnable layer fusion, aggregates information via message passing, and then applies temporal modeling with a GRU followed by MLP-based predict",
+      "caption": "Figure 1: Model architecture \u2014 This figure illustrates a neural network architecture for modeling systemic risk in global banking using graph neural networks. The pipeline comprises five sequential components: (1) a heterogeneous GNN encoder that processes static financial similarity via FIN-GCN and dynamic liquidity co-movement via LIQ-GCN, with learnable layer fusion combining bank and country information through message passing; (2) temporal modeling using a GRU that processes sequences of co",
       "vision": true,
       "source": "https://arxiv.org/pdf/2608.27295v1"
     },
@@ -107,7 +107,7 @@
       "title": "A Temporal Multiplex Graph Neural Network for Systemic Risk Transmission in Global Banking",
       "page": 22,
       "thumb": "/data/figures/2608.27295v1_p22_2.jpg",
-      "caption": "Figure 2: Fusion Gate Weights Over Time \u2014 This line chart displays pre-temporal fusion gate weights over time (measured in average across banks) from 2000 to 2024, comparing two components: Financial Graph (blue line) and Liquidity Graph (orange line). The y-axis represents fusion gate weights ranging from 0.4 to 0.6, while the x-axis shows the date timeline. The financial graph weight shows a sharp spike around 2008 (coinciding with the global financial crisis) followed by a general declining t",
+      "caption": "Figure 2: Fusion Gate Weights Over Time \u2014 This line chart displays pre-temporal fusion gate weights over time from 2000 to 2024, with two variables tracked: Financial Graph (blue line) and Liquidity Graph (orange line). The y-axis shows weight values ranging from 0.0 to 0.6, while the x-axis represents dates. The chart reveals a significant spike in the Financial Graph weight around 2008 (likely the financial crisis period) and shows that the Liquidity Graph generally maintains higher and more s",
       "vision": true,
       "source": "https://arxiv.org/pdf/2608.27295v1"
     },
@@ -116,7 +116,7 @@
       "title": "A Temporal Multiplex Graph Neural Network for Systemic Risk Transmission in Global Banking",
       "page": 24,
       "thumb": "/data/figures/2608.27295v1_p24_3.jpg",
-      "caption": "Figure 3: Time-varying systemic importance scores across global banks. \u2014 This heatmap visualizes time-varying systemic importance scores for 24 global systemically important banks (SIBs) spanning from 2000 to 2023. The y-axis lists bank identifiers (ABC, ACA, BAC, BAER, etc.) while the x-axis shows years, with cell color intensity representing the magnitude of systemic importance on a scale from light (low, ~0.002) to dark red (high, ~0.014). The key takeaway is that systemic importance varies s",
+      "caption": "Figure 3: Time-varying systemic importance scores across global banks. \u2014 This heatmap displays the Global Banking Systemic Importance Heatmap, with rows representing individual banks (ABC, ACA, BAC, BAER, etc.) and columns representing years from 2000 to 2023. The color intensity in each cell indicates the magnitude of systemic importance scores, ranging from light (low importance, ~0.002) to dark red (high importance, ~0.014), as shown in the color scale on the right. The key takeaway is that s",
       "vision": true,
       "source": "https://arxiv.org/pdf/2608.27295v1"
     },
@@ -125,7 +125,7 @@
       "title": "On the approximation of posterior laws in compound loss models by conditional Wasserstein GANs",
       "page": 16,
       "thumb": "/data/figures/2608.27229v1_p16_0.jpg",
-      "caption": "Figure 1 and Table 1 summarize the dataset. We fit a power law to the upper tail of the empirical survival function, resulting in a threshold xmin of 2.50 billion USD. Henceforth, we call an event extreme if its adjusted total damage exceeds xmin, and retain the resulting 370 events for the subsequent analysis. As summarized in Table 1, storms account for approximately 51% of both events and aggre \u2014 This section describes a simulation study assessing how well a conditional Wasserstein GAN (cWGAN",
+      "caption": "Figure 1 and Table 1 summarize the dataset. We fit a power law to the upper tail of the empirical survival function, resulting in a threshold xmin of 2.50 billion USD. Henceforth, we call an event extreme if its adjusted total damage exceeds xmin, and retain the resulting 370 events for the subsequent analysis. As summarized in Table 1, storms account for approximately 51% of both events and aggre \u2014 This section describes a simulation study using EM-DAT catastrophe loss data for five peril class",
       "vision": true,
       "source": "https://arxiv.org/pdf/2608.27229v1"
     },
@@ -134,7 +134,7 @@
       "title": "On the approximation of posterior laws in compound loss models by conditional Wasserstein GANs",
       "page": 18,
       "thumb": "/data/figures/2608.27229v1_p18_1.jpg",
-      "caption": "Figure 1: Calibration of the catastrophe model. \u2014 This figure shows calibration results for a catastrophe loss model across four panels. The top-left panel displays an empirical tail probability plot on log-log axes with damage in billion USD versus probability, comparing observed events to a fitted Pareto tail with threshold of 2.50 bn USD. The top-right panel is a horizontal bar chart showing peril composition (Storm, Earthquake, Flood, Drought, Wildfire) by frequency share and damage share as",
+      "caption": "Figure 1: Calibration of the catastrophe model. \u2014 This figure presents four panels calibrating a catastrophe risk model using extreme event data. The top-left panel shows an empirical tail probability plot with damage in billion USD on the x-axis (log scale) and probability on the y-axis (log scale), displaying observed events and a fitted Pareto tail with threshold at 2.50 bn USD. The top-right panel is a horizontal bar chart decomposing peril composition (Storm, Earthquake, Flood, Drought, Wil",
       "vision": true,
       "source": "https://arxiv.org/pdf/2608.27229v1"
     },
@@ -143,7 +143,7 @@
       "title": "On the approximation of posterior laws in compound loss models by conditional Wasserstein GANs",
       "page": 20,
       "thumb": "/data/figures/2608.27229v1_p20_2.jpg",
-      "caption": "Figure 2: Calibration and approximation diagnostics for the shared cWGAN. The figure reports \u2014 This figure displays diagnostic plots evaluating a conditional Wasserstein GAN (cWGAN) model for approximating posterior distributions in compound loss models. The left panels show ECDF (Empirical Cumulative Distribution Function) deviations over parameter rank space, measured by both parameter rank and log-likelihood rank, with shaded confidence bands indicating small systematic deviations. The right ",
+      "caption": "Figure 2: Calibration and approximation diagnostics for the shared cWGAN. The figure reports \u2014 This figure displays calibration and approximation diagnostics for a conditional Wasserstein GAN (cWGAN) model across four panels. The left panels show time series of ECDF deviations by parameter rank (top) and log-likelihood rank (bottom), both measured in percentages with shaded confidence bands, indicating how well the posterior approximation matches the empirical distribution. The right panels pres",
       "vision": true,
       "source": "https://arxiv.org/pdf/2608.27229v1"
     },
@@ -152,7 +152,7 @@
       "title": "On the approximation of posterior laws in compound loss models by conditional Wasserstein GANs",
       "page": 21,
       "thumb": "/data/figures/2608.27229v1_p21_3.jpg",
-      "caption": "Figure 3 reports the rolling one-year posterior-predictive aggregate losses. Conditional on the threshold xmin = 2.50 billion USD selected from the 2000\u20132025 data, each forecast for 2010\u20132025 uses only information available through the preceding year. Across these sixteen rolls, the predictive median changes gradually, with an overall upward drift, and every realized aggregate loss lies within the \u2014 This figure presents mathematical notation and formulas describing a Bayesian hierarchical model ",
+      "caption": "Figure 3 reports the rolling one-year posterior-predictive aggregate losses. Conditional on the threshold xmin = 2.50 billion USD selected from the 2000\u20132025 data, each forecast for 2010\u20132025 uses only information available through the preceding year. Across these sixteen rolls, the predictive median changes gradually, with an overall upward drift, and every realized aggregate loss lies within the \u2014 This figure presents mathematical formulation for a Bayesian mixture model combining peril-specif",
       "vision": true,
       "source": "https://arxiv.org/pdf/2608.27229v1"
     },
@@ -161,7 +161,7 @@
       "title": "Traveling Waves in Equity Markets with Rank-Based Entry and Exit",
       "page": 13,
       "thumb": "/data/figures/2608.27156v1_p13_0.jpg",
-      "caption": "Figure 1: Rank distributions of entrance (left) and exit (right) events on the window 1975\u20132024, with the fitted spline intensities of Subsection 3.2. Rank percentile q = 1 is the largest firm. \u2014 This figure displays two histograms showing the distribution of corporate entry and exit events across firm rankings from 1975-2024. The left panel shows 17,277 entrance events with a bell-shaped distribution peaking around rank percentile 0.2-0.3, while the right panel shows 14,888 exit events heavily ",
+      "caption": "Figure 1: Rank distributions of entrance (left) and exit (right) events on the window 1975\u20132024, with the fitted spline intensities of Subsection 3.2. Rank percentile q = 1 is the largest firm. \u2014 This figure shows two histograms displaying the rank distributions of corporate entry and exit events from 1975\u20132024, with overlaid spline fits representing the intensity functions. The left panel shows entrances (n=17,277) with a bell-shaped distribution peaking around rank percentile q=0.2\u20130.3, while ",
       "vision": true,
       "source": "https://arxiv.org/pdf/2608.27156v1"
     },
@@ -170,7 +170,7 @@
       "title": "Traveling Waves in Equity Markets with Rank-Based Entry and Exit",
       "page": 14,
       "thumb": "/data/figures/2608.27156v1_p14_1.jpg",
-      "caption": "Figure 2: Exit events by delisting reason. Left: the rank distribution of each exit type, normalized separately so that shapes can be compared (liquidations are only 477 events). Right: the compo- sition of exits across ranks. Failures concentrate at the bottom; among the exits of mid-sized and large firms, mergers dominate. \u2014 This figure displays the distribution and composition of three types of corporate exits (dropped, merger, liquidation) across firm size ranks. The left panel shows kernel ",
+      "caption": "Figure 2: Exit events by delisting reason. Left: the rank distribution of each exit type, normalized separately so that shapes can be compared (liquidations are only 477 events). Right: the compo- sition of exits across ranks. Failures concentrate at the bottom; among the exits of mid-sized and large firms, mergers dominate. \u2014 This figure presents two views of equity market exit events categorized by delisting reason (dropped, merger, liquidation). The left panel shows a density plot of each exi",
       "vision": true,
       "source": "https://arxiv.org/pdf/2608.27156v1"
     },
@@ -179,7 +179,7 @@
       "title": "Traveling Waves in Equity Markets with Rank-Based Entry and Exit",
       "page": 15,
       "thumb": "/data/figures/2608.27156v1_p15_2.jpg",
-      "caption": "Figure 3: The calibrated reaction terms f and \u02dcf = f \u2212qf(1), fitted on 1975\u20132024. The tilted term \u2014 This line plot displays two reaction rate functions against normalized firm rank, comparing the original reaction term f(q) (solid line) with the adjusted term f\u0303(q) = f(q) - qf(1) (dashed line) calibrated on 1975-2024 data. The x-axis represents normalized rank q from 0 (largest firm) to 1.0, while the y-axis shows reaction rate in basis points per annum, ranging from approximately -1.5 to +0.5. ",
+      "caption": "Figure 3: The calibrated reaction terms f and \u02dcf = f \u2212qf(1), fitted on 1975\u20132024. The tilted term \u2014 This line plot displays two reaction functions against normalized firm rank, comparing the original reaction term f(q) (solid line) and the tilted reaction term f\u0303(q) = f(q) - qf(1) (dashed line) calibrated on empirical data from 1975-2024. The x-axis represents normalized rank q from 0 to 1 (where 0 is the largest firm), and the y-axis shows reaction rate in basis points per employment unit, rang",
       "vision": true,
       "source": "https://arxiv.org/pdf/2608.27156v1"
     },
@@ -188,7 +188,7 @@
       "title": "Traveling Waves in Equity Markets with Rank-Based Entry and Exit",
       "page": 16,
       "thumb": "/data/figures/2608.27156v1_p16_3.jpg",
-      "caption": "Figure 4: The reaction term \u02dcf recomputed on each decade (binned estimates; pooled century in bold). Circles mark each decade\u2019s interior zero on its axis; the cross marks the 2000s, which has no interior crossing. The bistable shape recurs at varying amplitude; the 2000s lost bistability altogether, with \u02dcf \u22640 at almost every rank. \u2014 This figure displays line plots of the reaction term f\u0303 across normalized firm rank (x-axis, 0 to 1.0, where 1 = largest firm) for each decade from the 1940s throug",
+      "caption": "Figure 4: The reaction term \u02dcf recomputed on each decade (binned estimates; pooled century in bold). Circles mark each decade\u2019s interior zero on its axis; the cross marks the 2000s, which has no interior crossing. The bistable shape recurs at varying amplitude; the 2000s lost bistability altogether, with \u02dcf \u22640 at almost every rank. \u2014 This figure displays reaction term curves across different decades from the 1940s through 2020s, plotted as a line chart with normalized rank w (1 = largest firm) o",
       "vision": true,
       "source": "https://arxiv.org/pdf/2608.27156v1"
     },
@@ -197,7 +197,7 @@
       "title": "Tabular Deep Learning for Algorithmic Trading: Cross-Regime Bayesian Optimisation for Equity Signal Generation",
       "page": 2,
       "thumb": "/data/figures/2608.27076v1_p2_0.jpg",
-      "caption": "Figure 1 provides an overview of the complete framework developed to address these questions. \u2014 I cannot see Figure 1 in the provided image. The image shows only text from a research paper discussing TDL (Tabular Deep Learning) models, trading performance evaluation, and SHAP attribution analysis for algorithmic trading. To provide an accurate description of Figure 1, please share the actual figure image.",
+      "caption": "Figure 1 provides an overview of the complete framework developed to address these questions. \u2014 # Figure Description\n\nThis image is not a figure but rather text from a research paper describing experimental methodology for tabular deep learning models applied to algorithmic trading. The passage explains that TDL models are incorporated into a cross-sectional trading strategy on US market data, with hyperparameters selected via Bayesian optimization and evaluated on held-out 2025 data using tradi",
       "vision": true,
       "source": "https://arxiv.org/pdf/2608.27076v1"
     },
@@ -206,7 +206,7 @@
       "title": "Tabular Deep Learning for Algorithmic Trading: Cross-Regime Bayesian Optimisation for Equity Signal Generation",
       "page": 3,
       "thumb": "/data/figures/2608.27076v1_p3_1.jpg",
-      "caption": "Figure 1: Overview of motivation, methodology, and inference framework (Top-Left) Single-regime hyperparameter tuning fails to capture highly stochastic, regime-dependent return distributions. (Bottom-Left) Cross-sectional percentile ranking maps these heterogeneous environments into a stationary target distribution. Cross-regime Bayesian optimisation selects hyperparameters that generalise across \u2014 This figure presents an overview of a tabular deep learning framework for algorithmic trading wit",
+      "caption": "Figure 1: Overview of motivation, methodology, and inference framework (Top-Left) Single-regime hyperparameter tuning fails to capture highly stochastic, regime-dependent return distributions. (Bottom-Left) Cross-sectional percentile ranking maps these heterogeneous environments into a stationary target distribution. Cross-regime Bayesian optimisation selects hyperparameters that generalise across \u2014 This figure presents a comprehensive framework for tabular deep learning in algorithmic trading, ",
       "vision": true,
       "source": "https://arxiv.org/pdf/2608.27076v1"
     },
@@ -215,7 +215,7 @@
       "title": "Tabular Deep Learning for Algorithmic Trading: Cross-Regime Bayesian Optimisation for Equity Signal Generation",
       "page": 5,
       "thumb": "/data/figures/2608.27076v1_p5_2.jpg",
-      "caption": "Figure 2: Dataset Construction Traditional market data, company fundamentals, and news sentiment from Bloomberg are integrated with Google Trends and FRED macroeconomic indicators. The processed data generates next-day cross-sectional return percentiles, establishing outer-decile (10%) \u2014 This is a flowchart depicting the data pipeline for constructing a machine learning dataset for equity signal generation. The diagram shows three data sources (Bloomberg Terminal, FRED API, Google Trends) flowin",
+      "caption": "Figure 2: Dataset Construction Traditional market data, company fundamentals, and news sentiment from Bloomberg are integrated with Google Trends and FRED macroeconomic indicators. The processed data generates next-day cross-sectional return percentiles, establishing outer-decile (10%) \u2014 This is a flowchart diagram showing the data pipeline for constructing a machine learning dataset for equity trading signals. The chart flows top-to-bottom through five stages: data sources (Bloomberg Terminal, ",
       "vision": true,
       "source": "https://arxiv.org/pdf/2608.27076v1"
     },
@@ -224,7 +224,7 @@
       "title": "Tabular Deep Learning for Algorithmic Trading: Cross-Regime Bayesian Optimisation for Equity Signal Generation",
       "page": 7,
       "thumb": "/data/figures/2608.27076v1_p7_3.jpg",
-      "caption": "Figure 3: Modelling Methods Data is split into a training and validation set and an out-of-sample (OOS) test set. Cross-regime Bayesian optimisation utilises an \u2014 This flowchart displays the machine learning pipeline for tabular deep learning in algorithmic trading using data from 2015-2025. The workflow shows data split into train-validation sets (2015-2024) and OOS test set (2025), followed by cross-regime Bayesian optimization with expanding window cross-validation across three folds, then fi",
+      "caption": "Figure 3: Modelling Methods Data is split into a training and validation set and an out-of-sample (OOS) test set. Cross-regime Bayesian optimisation utilises an \u2014 This flowchart illustrates the modeling pipeline for a machine learning-based trading system spanning 2015-2025. Data is divided into a train-validation set (2015-2024) and an out-of-sample test set (2025), which feeds into a cross-regime Bayesian optimization process using expanding window cross-validation across three folds (2022-202",
       "vision": true,
       "source": "https://arxiv.org/pdf/2608.27076v1"
     }
