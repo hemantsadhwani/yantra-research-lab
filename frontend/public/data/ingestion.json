@@ -1,7 +1,7 @@
 {
   "_note": "Public run manifest of the Tier-3 agentic ingestion pipeline. Safe aggregates + provenance only; raw PDFs live in S3, not here.",
-  "run_id": "20260830T082013Z",
-  "generated_at": "2026-08-30T08:27:56+00:00",
+  "run_id": "20260831T084015Z",
+  "generated_at": "2026-08-31T08:48:38+00:00",
   "collection": "research_corpus",
   "embed_model": "BAAI/bge-small-en-v1.5",
   "dag": [
@@ -50,28 +50,145 @@
     "discovered": 10,
     "fetched": 10,
     "parsed": 10,
-    "chunks": 550,
-    "accepted": 523,
-    "rejected": 27,
-    "images": 25,
+    "chunks": 481,
+    "accepted": 468,
+    "rejected": 13,
+    "images": 27,
     "figures_captioned": 18,
     "tables": 1,
     "with_math": 10,
-    "indexed": 523,
-    "spent_usd": 0.0333,
-    "duration_s": 462.9
+    "indexed": 468,
+    "spent_usd": 0.0335,
+    "duration_s": 502.4
   },
   "rejects_by_reason": {
-    "low-relevance": 27
+    "low-relevance": 13
   },
   "budget_usd": 3.0,
   "figures": [
+    {
+      "doc_id": "2608.28399v1",
+      "title": "RetailAgent: Structured Adverse Timing in Self-Conditioned Multimodal LLM Trading Agents",
+      "page": 1,
+      "thumb": "/data/figures/2608.28399v1_p1_0.jpg",
+      "caption": "Figure 1: Top: price-conditioned be- havior may invite a counter-response in an interactive market. Bottom: Re- tailAgent isolates one such decision policy, chooses a binary action from permitted state, and is evaluated on subsequently revealed returns. \u2014 This figure illustrates the RetailAgent framework for LLM-based trading with structured adverse timing controls. The top panel shows how price-conditioned behavior in adversarial markets can trigger counter-responses, depicted through candlesti",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.28399v1"
+    },
+    {
+      "doc_id": "2608.28399v1",
+      "title": "RetailAgent: Structured Adverse Timing in Self-Conditioned Multimodal LLM Trading Agents",
+      "page": 3,
+      "thumb": "/data/figures/2608.28399v1_p3_1.jpg",
+      "caption": "Figure 2: RetailAgent architecture. The locally cached Qwen/Qwen3.5-9B processor handles price text, account state, and charts through its text and vision pathways [Qwen Team, 2026, Bai et al., 2025]. The dashed route carries self-authored memory into later decisions. The learned branch maps seven price features through a VICReg-pretrained GRU encoder [Bardes et al., 2021, Cho et al., 2014] and lo \u2014 This figure shows the architecture of RetailAgent, a multimodal LLM-based trading agent system. T",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.28399v1"
+    },
+    {
+      "doc_id": "2608.28397v1",
+      "title": "Market-Informed Valuation of GMMB Riders with Surrender Options under a Heston Stochastic-Local Volatility Model",
+      "page": 14,
+      "thumb": "/data/figures/2608.28397v1_p14_0.jpg",
+      "caption": "Figure 5.1. Synthetic local-volatility surface (left) and corresponding calibrated SLV leverage function (right), shown against maturity and log-moneyness log(S/S0). \u2014 This figure displays two 3D surface plots comparing local volatility dynamics and leverage adjustments in an SLV model. The left panel shows the synthetic local-volatility surface as a function of maturity (years, x-axis) and log-moneyness log(S/S\u2080) (y-axis), with volatility values (z-axis) color-coded from blue (low, ~0.1) to red",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.28397v1"
+    },
+    {
+      "doc_id": "2608.28397v1",
+      "title": "Market-Informed Valuation of GMMB Riders with Surrender Options under a Heston Stochastic-Local Volatility Model",
+      "page": 19,
+      "thumb": "/data/figures/2608.28397v1_p19_1.jpg",
+      "caption": "Figure 5.2 reports two representative cases. The left panel of each figure compares the LV boundary with several sections of the SLV surrender-boundary surface, obtained by fixing different levels of V . The right panel shows the corresponding two-dimensional surrender region in the (F, V )-plane at t = 5. The shaded region is the surrender region, while the white region is the continuation region \u2014 This figure displays the mathematical definition of a surrender region in an American option valu",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.28397v1"
+    },
+    {
+      "doc_id": "2608.28397v1",
+      "title": "Market-Informed Valuation of GMMB Riders with Surrender Options under a Heston Stochastic-Local Volatility Model",
+      "page": 20,
+      "thumb": "/data/figures/2608.28397v1_p20_2.jpg",
+      "caption": "Figure 5.2. Optimal surrender boundaries and surrender regions for the GMMB surrender option. In each row, the left panel reports the LV boundary and selected SLV boundary slices for different levels of V . The right panel reports the SLV surrender region in the (F, V )-plane at t = 5. \u2014 This figure displays optimal surrender boundaries and regions for a Guaranteed Minimum Maturity Benefit (GMMB) option under different volatility models. The left panels show line plots of smoothed boundary slice",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.28397v1"
+    },
+    {
+      "doc_id": "2608.28397v1",
+      "title": "Market-Informed Valuation of GMMB Riders with Surrender Options under a Heston Stochastic-Local Volatility Model",
+      "page": 22,
+      "thumb": "/data/figures/2608.28397v1_p22_3.jpg",
+      "caption": "Figure 5.3. EURO STOXX 50 piecewise-constant instantaneous term structures used in the pricing calculations: discount-rate curve rt and dividend yield qt. The cumulative curves Hr and Hq are constructed from put\u2013call parity and linearly interpolated between quoted maturity nodes. \u2014 This line chart displays EURO STOXX 50 deterministic rate curves used in pricing calculations, with time in years (0-10) on the x-axis and rate values on the y-axis. The figure plots two piecewise-constant curves: the",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.28397v1"
+    },
+    {
+      "doc_id": "2608.27734v1",
+      "title": "What survives honest evaluation? Leakage-safe, search-aware assessment of LLM-driven trading strategy discovery",
+      "page": 4,
+      "thumb": "/data/figures/2608.27734v1_p4_0.jpg",
+      "caption": "Figure 1: System overview. The agent acts only through registry-validated tools; invalid calls return structured errors for in-loop self-correction, and look-ahead features are not in the agent-selectable registry. Validated plans pass a deterministic audit and are executed by a deterministic engine over a point-in-time universe with realistic costs, backtesting separately on the design window (wh \u2014 This flowchart depicts a system architecture for validating LLM-driven trading strategy discovery",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.27734v1"
+    },
+    {
+      "doc_id": "2608.27734v1",
+      "title": "What survives honest evaluation? Leakage-safe, search-aware assessment of LLM-driven trading strategy discovery",
+      "page": 8,
+      "thumb": "/data/figures/2608.27734v1_p8_1.jpg",
+      "caption": "Figure 2: E2: Probabilistic (grey) vs. Deflated (blue) Sharpe per arm. The gap between the bars is the price of the search; only equal-weight buy-and-hold clears the 0.95 significance level (SPY sits just below at 0.94), and every active arm is far away. \u2014 This bar chart compares probabilistic Sharpe ratios (grey bars) versus deflated Sharpe ratios (blue bars) across six trading strategy arms, with a horizontal significance threshold at 0.95 marked for N=9 trials. The y-axis shows probability (0",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.27734v1"
+    },
+    {
+      "doc_id": "2608.27734v1",
+      "title": "What survives honest evaluation? Leakage-safe, search-aware assessment of LLM-driven trading strategy discovery",
+      "page": 9,
+      "thumb": "/data/figures/2608.27734v1_p9_2.jpg",
+      "caption": "Figure 3: E2: CSCV logit distribution. The mass at \ud835\udf06\u22640 is the probability that the in-sample-best candidate underperforms the median out of sample (PBO = 0.83). \u2014 This histogram displays the distribution of logit-transformed performance metrics (\u03bb = ln(u/(1-u))) for 9 trading strategy candidates across 16 cross-validation splits, with a median \u03bb of -1.39. The x-axis shows logit values ranging from approximately -2.5 to 2.5, and the y-axis shows frequency up to 800 observations. The plot highligh",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.27734v1"
+    },
+    {
+      "doc_id": "2608.27734v1",
+      "title": "What survives honest evaluation? Leakage-safe, search-aware assessment of LLM-driven trading strategy discovery",
+      "page": 9,
+      "thumb": "/data/figures/2608.27734v1_p9_3.jpg",
+      "caption": "Figure 4: E3: the evaporation curve over 102 self-recorded trials. The agent\u2019s best in-sample Sharpe (solid) is a running maximum, climbing from \u22120.07 to 1.69; the deflation threshold implied by the agent\u2019s own trial count and Sharpe dispersion (dashed) chases it to 1.21. The search partially outruns its bar (DSR ends at 0.86) yet remains below the 0.95 certification level, and the held-out window \u2014 The top panel shows a histogram of CSVY logit values across 9 candidates and 16 cross-validation ",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.27734v1"
+    },
+    {
+      "doc_id": "2608.27575v1",
+      "title": "Pricing and Calibration of Bitcoin Inverse Options via the Rough Bergomi Model",
+      "page": 8,
+      "thumb": "/data/figures/2608.27575v1_p8_0.jpg",
+      "caption": "Figure 1: Hybrid+Mixed calibrated rBergomi smile (dashed) vs. market implied volatility (dots) for a calm date and the most extreme event date in the sample. Colours denote distinct maturity slices. \u2014 This figure compares calibrated rBergomi model smiles (dashed lines) against market implied volatility data (scatter dots) across different moneyness levels for two dates: a calm market day (August 12, 2023, left panel) and an extreme volatility event day (November 8, 2022, right panel). The x-axis",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.27575v1"
+    },
+    {
+      "doc_id": "2608.27575v1",
+      "title": "Pricing and Calibration of Bitcoin Inverse Options via the Rough Bergomi Model",
+      "page": 8,
+      "thumb": "/data/figures/2608.27575v1_p8_1.jpg",
+      "caption": "Figure 1 compares the calibrated smile on the best calm-market date and on the FTX event day. Figure 2 shows the corresponding residual heatmaps: in calm conditions residuals are small and structureless, while during the FTX stress a systematic negative bias (model below market) concentrates in the short-maturity, deep out-of-the-money put wing \u2014 the region where the three- \u2014 This figure displays two scatter plots comparing calibrated rBergomi smile models (dashed lines) against market-implied v",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.27575v1"
+    },
+    {
+      "doc_id": "2608.27575v1",
+      "title": "Pricing and Calibration of Bitcoin Inverse Options via the Rough Bergomi Model",
+      "page": 9,
+      "thumb": "/data/figures/2608.27575v1_p9_2.jpg",
+      "caption": "Figure 2: Calibration residuals \u03b5 = \u03c3mod \u2212\u03c3mkt (Hybrid+Mixed) across moneyness and maturity. Green: model below market; red: model above market. \u2014 This figure displays two heatmaps showing calibration residuals (model implied volatility minus market implied volatility) for Bitcoin inverse options using the Hybrid+Mixed model across moneyness and maturity dimensions. The left panel (a) shows residuals from August 12, 2023 during calm market conditions, while the right panel (b) shows residuals fr",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2608.27575v1"
+    },
     {
       "doc_id": "2608.27374v1",
       "title": "Distribution-constrained optimal multiple stopping: the Root-type solution",
       "page": 5,
       "thumb": "/data/figures/2608.27374v1_p5_0.jpg",
-      "caption": "Figure 1: An example of three distribution-constrained stopping boundaries which are not ordered. In the realization above, the sample path enters R2 before R1, and R3 before R2, but these early entries do not trigger the corresponding stoppings. The correct stopping times should satisfy \u03c31 = \u03c32 < \u03c33. \u2014 This line chart displays multiple stopping boundaries and a sample Brownian path in a distribution-constrained optimal stopping problem. The x-axis represents time t (0 to 4.5), and the y-axis sh",
+      "caption": "Figure 1: An example of three distribution-constrained stopping boundaries which are not ordered. In the realization above, the sample path enters R2 before R1, and R3 before R2, but these early entries do not trigger the corresponding stoppings. The correct stopping times should satisfy \u03c31 = \u03c32 < \u03c33. \u2014 This line chart displays time series paths and stopping boundaries for a distribution-constrained multiple stopping problem. The x-axis represents time t (0 to 4.5), and the y-axis shows the stat",
       "vision": true,
       "source": "https://arxiv.org/pdf/2608.27374v1"
     },
@@ -80,7 +197,7 @@
       "title": "Distribution-constrained optimal multiple stopping: the Root-type solution",
       "page": 6,
       "thumb": "/data/figures/2608.27374v1_p6_1.jpg",
-      "caption": "Figure 2: A realization of the non-ordered stopping regions in Example 2.3. The Brownian path may enter R2 before R1, but this entry does not provide an effective stopping time. \u2014 This line chart shows a Brownian path (black line) evolving over time from t=0 to t=5, with three distinct stopping regions marked by colored bands: R\u00b9 (green, upper region where x=-1), \u03c3\u2081 (blue region where x\u2248-1), and R\u00b2 (lower region where x=-2). The figure illustrates that although the Brownian path enters region R\u00b2",
+      "caption": "Figure 2: A realization of the non-ordered stopping regions in Example 2.3. The Brownian path may enter R2 before R1, but this entry does not provide an effective stopping time. \u2014 This line chart displays a single Brownian motion path (black line) over time with multiple labeled stopping regions shown as colored bands. The x-axis represents time t from 0 to 5, and the y-axis shows the path value ranging from approximately -2.5 to 1.0. The figure illustrates non-ordered stopping regions where the",
       "vision": true,
       "source": "https://arxiv.org/pdf/2608.27374v1"
     },
@@ -89,7 +206,7 @@
       "title": "A Temporal Multiplex Graph Neural Network for Systemic Risk Transmission in Global Banking",
       "page": 6,
       "thumb": "/data/figures/2608.27295v1_p6_0.jpg",
-      "caption": "Figure 1 presents an architectural overview of the proposed model. The model transforms a sequence of heterogeneous multiplex banking networks over a historical window \u03c4 = t \u2212H + 1, . . . , t into a one-step-ahead CDS forecast. At each \u03c4, bank and country features are combined with three graph relations representing financial similarity, liquidity co-movement, and country-to- bank macroeconomic tr \u2014 This figure presents the architecture of a temporal multiplex graph neural network for banking sy",
+      "caption": "Figure 1 presents an architectural overview of the proposed model. The model transforms a sequence of heterogeneous multiplex banking networks over a historical window \u03c4 = t \u2212H + 1, . . . , t into a one-step-ahead CDS forecast. At each \u03c4, bank and country features are combined with three graph relations representing financial similarity, liquidity co-movement, and country-to- bank macroeconomic tr \u2014 This figure presents the mathematical formulation of a temporal heterogeneous multiplex graph neu",
       "vision": true,
       "source": "https://arxiv.org/pdf/2608.27295v1"
     },
@@ -98,7 +215,7 @@
       "title": "A Temporal Multiplex Graph Neural Network for Systemic Risk Transmission in Global Banking",
       "page": 7,
       "thumb": "/data/figures/2608.27295v1_p7_1.jpg",
-      "caption": "Figure 1: Model architecture \u2014 This figure illustrates a neural network architecture for modeling systemic risk in global banking using graph neural networks. The pipeline comprises five sequential components: (1) a heterogeneous GNN encoder that processes static financial similarity via FIN-GCN and dynamic liquidity co-movement via LIQ-GCN, with learnable layer fusion combining bank and country information through message passing; (2) temporal modeling using a GRU that processes sequences of co",
+      "caption": "Figure 1: Model architecture \u2014 This figure illustrates a neural network architecture for modeling systemic risk in global banking using a temporal multiplex graph approach. The pipeline shows five stages: (1) heterogeneous GNN encoder combining static financial similarity (FIN-GCN) and dynamic liquidity co-movement (LIQ-GCN) through learnable layer fusion, (2) bank aggregation via message passing to incorporate country-level information, (3) concatenation of bank and country embeddings, (4) temp",
       "vision": true,
       "source": "https://arxiv.org/pdf/2608.27295v1"
     },
@@ -107,129 +224,60 @@
       "title": "A Temporal Multiplex Graph Neural Network for Systemic Risk Transmission in Global Banking",
       "page": 22,
       "thumb": "/data/figures/2608.27295v1_p22_2.jpg",
-      "caption": "Figure 2: Fusion Gate Weights Over Time \u2014 This line chart displays pre-temporal fusion gate weights over time from 2000 to 2024, with two variables tracked: Financial Graph (blue line) and Liquidity Graph (orange line). The y-axis shows weight values ranging from 0.0 to 0.6, while the x-axis represents dates. The chart reveals a significant spike in the Financial Graph weight around 2008 (likely the financial crisis period) and shows that the Liquidity Graph generally maintains higher and more s",
+      "caption": "Figure 2: Fusion Gate Weights Over Time \u2014 This line chart displays pre-temporal fusion gate weights averaged across banks from 2000 to 2024, with two time series representing Financial Graph (blue) and Liquidity Graph (orange). The x-axis shows dates and the y-axis shows weight values ranging from 0 to 0.6. The key takeaway is that the financial graph weight spikes dramatically around 2008 (the financial crisis period) reaching 0.54, while the liquidity graph weight increases steadily from 2010 ",
       "vision": true,
       "source": "https://arxiv.org/pdf/2608.27295v1"
-    },
-    {
-      "doc_id": "2608.27295v1",
-      "title": "A Temporal Multiplex Graph Neural Network for Systemic Risk Transmission in Global Banking",
-      "page": 24,
-      "thumb": "/data/figures/2608.27295v1_p24_3.jpg",
-      "caption": "Figure 3: Time-varying systemic importance scores across global banks. \u2014 This heatmap displays the Global Banking Systemic Importance Heatmap, with rows representing individual banks (ABC, ACA, BAC, BAER, etc.) and columns representing years from 2000 to 2023. The color intensity in each cell indicates the magnitude of systemic importance scores, ranging from light (low importance, ~0.002) to dark red (high importance, ~0.014), as shown in the color scale on the right. The key takeaway is that s",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.27295v1"
-    },
-    {
-      "doc_id": "2608.27229v1",
-      "title": "On the approximation of posterior laws in compound loss models by conditional Wasserstein GANs",
-      "page": 16,
-      "thumb": "/data/figures/2608.27229v1_p16_0.jpg",
-      "caption": "Figure 1 and Table 1 summarize the dataset. We fit a power law to the upper tail of the empirical survival function, resulting in a threshold xmin of 2.50 billion USD. Henceforth, we call an event extreme if its adjusted total damage exceeds xmin, and retain the resulting 370 events for the subsequent analysis. As summarized in Table 1, storms account for approximately 51% of both events and aggre \u2014 This section describes a simulation study using EM-DAT catastrophe loss data for five peril class",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.27229v1"
-    },
-    {
-      "doc_id": "2608.27229v1",
-      "title": "On the approximation of posterior laws in compound loss models by conditional Wasserstein GANs",
-      "page": 18,
-      "thumb": "/data/figures/2608.27229v1_p18_1.jpg",
-      "caption": "Figure 1: Calibration of the catastrophe model. \u2014 This figure presents four panels calibrating a catastrophe risk model using extreme event data. The top-left panel shows an empirical tail probability plot with damage in billion USD on the x-axis (log scale) and probability on the y-axis (log scale), displaying observed events and a fitted Pareto tail with threshold at 2.50 bn USD. The top-right panel is a horizontal bar chart decomposing peril composition (Storm, Earthquake, Flood, Drought, Wil",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.27229v1"
-    },
-    {
-      "doc_id": "2608.27229v1",
-      "title": "On the approximation of posterior laws in compound loss models by conditional Wasserstein GANs",
-      "page": 20,
-      "thumb": "/data/figures/2608.27229v1_p20_2.jpg",
-      "caption": "Figure 2: Calibration and approximation diagnostics for the shared cWGAN. The figure reports \u2014 This figure displays calibration and approximation diagnostics for a conditional Wasserstein GAN (cWGAN) model across four panels. The left panels show time series of ECDF deviations by parameter rank (top) and log-likelihood rank (bottom), both measured in percentages with shaded confidence bands, indicating how well the posterior approximation matches the empirical distribution. The right panels pres",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.27229v1"
-    },
-    {
-      "doc_id": "2608.27229v1",
-      "title": "On the approximation of posterior laws in compound loss models by conditional Wasserstein GANs",
-      "page": 21,
-      "thumb": "/data/figures/2608.27229v1_p21_3.jpg",
-      "caption": "Figure 3 reports the rolling one-year posterior-predictive aggregate losses. Conditional on the threshold xmin = 2.50 billion USD selected from the 2000\u20132025 data, each forecast for 2010\u20132025 uses only information available through the preceding year. Across these sixteen rolls, the predictive median changes gradually, with an overall upward drift, and every realized aggregate loss lies within the \u2014 This figure presents mathematical formulation for a Bayesian mixture model combining peril-specif",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.27229v1"
-    },
-    {
-      "doc_id": "2608.27156v1",
-      "title": "Traveling Waves in Equity Markets with Rank-Based Entry and Exit",
-      "page": 13,
-      "thumb": "/data/figures/2608.27156v1_p13_0.jpg",
-      "caption": "Figure 1: Rank distributions of entrance (left) and exit (right) events on the window 1975\u20132024, with the fitted spline intensities of Subsection 3.2. Rank percentile q = 1 is the largest firm. \u2014 This figure shows two histograms displaying the rank distributions of corporate entry and exit events from 1975\u20132024, with overlaid spline fits representing the intensity functions. The left panel shows entrances (n=17,277) with a bell-shaped distribution peaking around rank percentile q=0.2\u20130.3, while ",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.27156v1"
-    },
-    {
-      "doc_id": "2608.27156v1",
-      "title": "Traveling Waves in Equity Markets with Rank-Based Entry and Exit",
-      "page": 14,
-      "thumb": "/data/figures/2608.27156v1_p14_1.jpg",
-      "caption": "Figure 2: Exit events by delisting reason. Left: the rank distribution of each exit type, normalized separately so that shapes can be compared (liquidations are only 477 events). Right: the compo- sition of exits across ranks. Failures concentrate at the bottom; among the exits of mid-sized and large firms, mergers dominate. \u2014 This figure presents two views of equity market exit events categorized by delisting reason (dropped, merger, liquidation). The left panel shows a density plot of each exi",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.27156v1"
-    },
-    {
-      "doc_id": "2608.27156v1",
-      "title": "Traveling Waves in Equity Markets with Rank-Based Entry and Exit",
-      "page": 15,
-      "thumb": "/data/figures/2608.27156v1_p15_2.jpg",
-      "caption": "Figure 3: The calibrated reaction terms f and \u02dcf = f \u2212qf(1), fitted on 1975\u20132024. The tilted term \u2014 This line plot displays two reaction functions against normalized firm rank, comparing the original reaction term f(q) (solid line) and the tilted reaction term f\u0303(q) = f(q) - qf(1) (dashed line) calibrated on empirical data from 1975-2024. The x-axis represents normalized rank q from 0 to 1 (where 0 is the largest firm), and the y-axis shows reaction rate in basis points per employment unit, rang",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.27156v1"
-    },
-    {
-      "doc_id": "2608.27156v1",
-      "title": "Traveling Waves in Equity Markets with Rank-Based Entry and Exit",
-      "page": 16,
-      "thumb": "/data/figures/2608.27156v1_p16_3.jpg",
-      "caption": "Figure 4: The reaction term \u02dcf recomputed on each decade (binned estimates; pooled century in bold). Circles mark each decade\u2019s interior zero on its axis; the cross marks the 2000s, which has no interior crossing. The bistable shape recurs at varying amplitude; the 2000s lost bistability altogether, with \u02dcf \u22640 at almost every rank. \u2014 This figure displays reaction term curves across different decades from the 1940s through 2020s, plotted as a line chart with normalized rank w (1 = largest firm) o",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.27156v1"
-    },
-    {
-      "doc_id": "2608.27076v1",
-      "title": "Tabular Deep Learning for Algorithmic Trading: Cross-Regime Bayesian Optimisation for Equity Signal Generation",
-      "page": 2,
-      "thumb": "/data/figures/2608.27076v1_p2_0.jpg",
-      "caption": "Figure 1 provides an overview of the complete framework developed to address these questions. \u2014 # Figure Description\n\nThis image is not a figure but rather text from a research paper describing experimental methodology for tabular deep learning models applied to algorithmic trading. The passage explains that TDL models are incorporated into a cross-sectional trading strategy on US market data, with hyperparameters selected via Bayesian optimization and evaluated on held-out 2025 data using tradi",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.27076v1"
-    },
-    {
-      "doc_id": "2608.27076v1",
-      "title": "Tabular Deep Learning for Algorithmic Trading: Cross-Regime Bayesian Optimisation for Equity Signal Generation",
-      "page": 3,
-      "thumb": "/data/figures/2608.27076v1_p3_1.jpg",
-      "caption": "Figure 1: Overview of motivation, methodology, and inference framework (Top-Left) Single-regime hyperparameter tuning fails to capture highly stochastic, regime-dependent return distributions. (Bottom-Left) Cross-sectional percentile ranking maps these heterogeneous environments into a stationary target distribution. Cross-regime Bayesian optimisation selects hyperparameters that generalise across \u2014 This figure presents a comprehensive framework for tabular deep learning in algorithmic trading, ",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.27076v1"
-    },
-    {
-      "doc_id": "2608.27076v1",
-      "title": "Tabular Deep Learning for Algorithmic Trading: Cross-Regime Bayesian Optimisation for Equity Signal Generation",
-      "page": 5,
-      "thumb": "/data/figures/2608.27076v1_p5_2.jpg",
-      "caption": "Figure 2: Dataset Construction Traditional market data, company fundamentals, and news sentiment from Bloomberg are integrated with Google Trends and FRED macroeconomic indicators. The processed data generates next-day cross-sectional return percentiles, establishing outer-decile (10%) \u2014 This is a flowchart diagram showing the data pipeline for constructing a machine learning dataset for equity trading signals. The chart flows top-to-bottom through five stages: data sources (Bloomberg Terminal, ",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.27076v1"
-    },
-    {
-      "doc_id": "2608.27076v1",
-      "title": "Tabular Deep Learning for Algorithmic Trading: Cross-Regime Bayesian Optimisation for Equity Signal Generation",
-      "page": 7,
-      "thumb": "/data/figures/2608.27076v1_p7_3.jpg",
-      "caption": "Figure 3: Modelling Methods Data is split into a training and validation set and an out-of-sample (OOS) test set. Cross-regime Bayesian optimisation utilises an \u2014 This flowchart illustrates the modeling pipeline for a machine learning-based trading system spanning 2015-2025. Data is divided into a train-validation set (2015-2024) and an out-of-sample test set (2025), which feeds into a cross-regime Bayesian optimization process using expanding window cross-validation across three folds (2022-202",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.27076v1"
     }
   ],
   "docs": [
+    {
+      "id": "2608.28399v1",
+      "title": "RetailAgent: Structured Adverse Timing in Self-Conditioned Multimodal LLM Trading Agents",
+      "source": "https://arxiv.org/pdf/2608.28399v1",
+      "pages": 18,
+      "images": 2,
+      "figures_captioned": 2,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 35
+    },
+    {
+      "id": "2608.28397v1",
+      "title": "Market-Informed Valuation of GMMB Riders with Surrender Options under a Heston Stochastic-Local Volatility Model",
+      "source": "https://arxiv.org/pdf/2608.28397v1",
+      "pages": 41,
+      "images": 4,
+      "figures_captioned": 4,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 48
+    },
+    {
+      "id": "2608.27734v1",
+      "title": "What survives honest evaluation? Leakage-safe, search-aware assessment of LLM-driven trading strategy discovery",
+      "source": "https://arxiv.org/pdf/2608.27734v1",
+      "pages": 15,
+      "images": 5,
+      "figures_captioned": 4,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 36
+    },
+    {
+      "id": "2608.27575v1",
+      "title": "Pricing and Calibration of Bitcoin Inverse Options via the Rough Bergomi Model",
+      "source": "https://arxiv.org/pdf/2608.27575v1",
+      "pages": 11,
+      "images": 4,
+      "figures_captioned": 3,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 26
+    },
     {
       "id": "2608.27374v1",
       "title": "Distribution-constrained optimal multiple stopping: the Root-type solution",
@@ -248,11 +296,11 @@
       "source": "https://arxiv.org/pdf/2608.27295v1",
       "pages": 39,
       "images": 3,
-      "figures_captioned": 4,
+      "figures_captioned": 3,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 48
+      "chunks_indexed": 47
     },
     {
       "id": "2608.27229v1",
@@ -260,11 +308,11 @@
       "source": "https://arxiv.org/pdf/2608.27229v1",
       "pages": 26,
       "images": 1,
-      "figures_captioned": 4,
+      "figures_captioned": 0,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 52
+      "chunks_indexed": 48
     },
     {
       "id": "2608.27156v1",
@@ -272,11 +320,11 @@
       "source": "https://arxiv.org/pdf/2608.27156v1",
       "pages": 43,
       "images": 0,
-      "figures_captioned": 4,
+      "figures_captioned": 0,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 68
+      "chunks_indexed": 64
     },
     {
       "id": "2608.27076v1",
@@ -284,11 +332,11 @@
       "source": "https://arxiv.org/pdf/2608.27076v1",
       "pages": 35,
       "images": 8,
-      "figures_captioned": 4,
+      "figures_captioned": 0,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 59
+      "chunks_indexed": 55
     },
     {
       "id": "2608.26837v1",
@@ -301,54 +349,6 @@
       "has_math": true,
       "ocr_used": false,
       "chunks_indexed": 58
-    },
-    {
-      "id": "2608.26473v1",
-      "title": "DTD-VAE: Disentangled Temporal Dependencies VAE for Credit Risk Prediction",
-      "source": "https://arxiv.org/pdf/2608.26473v1",
-      "pages": 31,
-      "images": 13,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 35
-    },
-    {
-      "id": "2608.25844v1",
-      "title": "Output-Only Identification and Spectral Monitoring of Coupled Feedback Networks with Known Time-Varying Actuation",
-      "source": "https://arxiv.org/pdf/2608.25844v1",
-      "pages": 13,
-      "images": 0,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 49
-    },
-    {
-      "id": "2608.25223v1",
-      "title": "On the hedging problem in general 1D diffusion markets",
-      "source": "https://arxiv.org/pdf/2608.25223v1",
-      "pages": 27,
-      "images": 0,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 58
-    },
-    {
-      "id": "2608.24871v1",
-      "title": "NatPar: Natural Parametric Modeling",
-      "source": "https://arxiv.org/pdf/2608.24871v1",
-      "pages": 48,
-      "images": 0,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 45
     }
   ]
 }
