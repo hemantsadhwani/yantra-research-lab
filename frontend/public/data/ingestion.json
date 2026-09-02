@@ -1,7 +1,7 @@
 {
   "_note": "Public run manifest of the Tier-3 agentic ingestion pipeline. Safe aggregates + provenance only; raw PDFs live in S3, not here.",
-  "run_id": "20260901T075016Z",
-  "generated_at": "2026-09-01T07:56:52+00:00",
+  "run_id": "20260902T070733Z",
+  "generated_at": "2026-09-02T07:14:27+00:00",
   "collection": "research_corpus",
   "embed_model": "BAAI/bge-small-en-v1.5",
   "dag": [
@@ -50,197 +50,293 @@
     "discovered": 10,
     "fetched": 10,
     "parsed": 10,
-    "chunks": 450,
-    "accepted": 420,
-    "rejected": 30,
+    "chunks": 479,
+    "accepted": 453,
+    "rejected": 26,
     "images": 8,
     "figures_captioned": 18,
-    "tables": 0,
+    "tables": 3,
     "with_math": 9,
-    "indexed": 420,
-    "spent_usd": 0.0326,
-    "duration_s": 396.3
+    "indexed": 453,
+    "spent_usd": 0.0339,
+    "duration_s": 414.3
   },
   "rejects_by_reason": {
-    "low-relevance": 30
+    "low-relevance": 26
   },
   "budget_usd": 3.0,
   "figures": [
     {
-      "doc_id": "2608.31041v1",
-      "title": "Agentic Quantitative Trading: A Survey of Workflows, Systems, and Evaluation",
-      "page": 2,
-      "thumb": "/data/figures/2608.31041v1_p2_0.jpg",
-      "caption": "Figure 1: Taxonomy of agentic workflows across the quantitative trading pipeline. \u2014 This is a hierarchical taxonomy diagram that categorizes agentic workflows in quantitative trading across five main stages: factor mining, signal discovery, portfolio construction, order execution, and risk management. Each stage branches into specific workflow types (shown in boxes), which further detail individual agent systems and frameworks with citations. The chart uses color-coding by stage and reference nu",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.31041v1"
-    },
-    {
-      "doc_id": "2608.31041v1",
-      "title": "Agentic Quantitative Trading: A Survey of Workflows, Systems, and Evaluation",
-      "page": 4,
-      "thumb": "/data/figures/2608.31041v1_p4_1.jpg",
-      "caption": "Figure 2: Taxonomy of agentic quantitative trading systems across three system-design dimensions. \u2014 This taxonomy diagram illustrates the three core design dimensions of agentic quantitative trading systems: System Architecture (column a), Coordination Mechanism (column b), and Adaptation Mechanism (column c). Each dimension contains multiple hierarchical levels with specific implementations shown through flowcharts and icons\u2014for example, System Architecture progresses from Sequential to Iterati",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.31041v1"
-    },
-    {
-      "doc_id": "2608.30999v1",
-      "title": "Metaorder modelling and identification from public data",
-      "page": 7,
-      "thumb": "/data/figures/2608.30999v1_p7_0.jpg",
-      "caption": "Figure 2 shows the metaorder impact curve for the entire universe of stocks, aggregated into a single curve. Metaorders were generated for each stock year by using the configuration that minimised eM (when using the PSD method to estimate \u03b3) for that stock year. The aggrega- tion was done by pooling the metaorders for each stock into a single data set containing all the metaorders in the entire ma \u2014 This figure displays metaorder impact curves for GFI and GRT models, with logarithmically scaled ",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.30999v1"
-    },
-    {
-      "doc_id": "2608.30999v1",
-      "title": "Metaorder modelling and identification from public data",
-      "page": 8,
-      "thumb": "/data/figures/2608.30999v1_p8_1.jpg",
-      "caption": "Figure 1: Metaorder impact curves for GFI (a) and GRT (b) using stock year configurations that minimised eM (when using the PSD method to estimate \u03b3). Power-laws were used for the trader participation distributions. See tables 2 and 3 for the exact configurations used for each stock year for GFI and GRT respectively. It is clear that the impact curves for both GFI (a) and GRT (b) have noisy tails  \u2014 These two line plots show metaorder impact curves estimated using the power spectral density (PSD",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.30999v1"
-    },
-    {
-      "doc_id": "2608.30999v1",
-      "title": "Metaorder modelling and identification from public data",
-      "page": 9,
-      "thumb": "/data/figures/2608.30999v1_p9_2.jpg",
-      "caption": "Figure 2: Metaorder impact curve for our entire universe of stocks, pooled and aggregated into a single curve, when using stock year configurations that minimised eM (when using the PSD method to estimate \u03b3). Power-laws were used for the trader participation dis- tributions. When pooled and aggregated, the impact curve obeys the SQL. Notably, there is considerably less noise in the tails com- pare \u2014 This figure displays a metaorder impact curve on a log-log plot, showing the relationship between",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.30999v1"
-    },
-    {
-      "doc_id": "2608.30999v1",
-      "title": "Metaorder modelling and identification from public data",
-      "page": 9,
-      "thumb": "/data/figures/2608.30999v1_p9_3.jpg",
-      "caption": "Figure 3 shows the independence of metaorder impact with respect to the metaorder duration for GFI and GRT when using metaorder configurations that minimise eM, power-law trader participation distributions and the PSD method to estimate \u03b3. A histogram of the metaorder dura- tions is given in grey and the dynamic impact is overlayed. The x and y axes of the histogram are the metaorder du- rations a \u2014 This figure displays a metaorder impact curve on log-log axes, showing the relationship between r",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.30999v1"
-    },
-    {
-      "doc_id": "2608.30867v1",
-      "title": "Neural Calibration of a Complete Market Model",
-      "page": 10,
-      "thumb": "/data/figures/2608.30867v1_p10_0.jpg",
-      "caption": "Figure 1: Base and calibrated recombining trees for NT = 25. Left: node locations in log-price coordinates for the benchmark and calibrated trees; a small horizontal offset is introduced for visual clarity. Right: heatmap of the log-deformation log S(\u03b8) \u2014 Panel (a) shows a recombining binomial tree in log-price coordinates over time [0, 1.5], comparing base tree nodes (blue) against calibrated tree nodes (red) with horizontal offset for visibility; the tree expands as time increases with branche",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.30867v1"
-    },
-    {
-      "doc_id": "2608.30867v1",
-      "title": "Neural Calibration of a Complete Market Model",
-      "page": 10,
-      "thumb": "/data/figures/2608.30867v1_p10_1.jpg",
-      "caption": "Figure 1 compares, for the case NT = 25, the initial tree and the final calibrated tree, and also shows the corresponding log-deformation heat map. Panel (a) shows that the calibration produces a structured reshaping of the lattice across both time and state dimensions. Panel (b) confirms that the learned log-deformation remains relatively small around the central region of the tree, while it beco \u2014 Panel (a) is a scatter plot comparing base tree node locations (blue triangles) and calibrated tr",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.30867v1"
-    },
-    {
-      "doc_id": "2608.30867v1",
-      "title": "Neural Calibration of a Complete Market Model",
-      "page": 11,
-      "thumb": "/data/figures/2608.30867v1_p11_2.jpg",
-      "caption": "Figure 3 compares the GPR-reconstructed tree-implied local-volatility surfaces. In the dense 10 \u00d7 20 setting, the reconstructed surface remains close to the analytical benchmark over most of the core region of the (T, S/S0) domain. In the sparse 3\u00d76 setting, the GPR-based reconstruction is naturally less stable, but it still provides a useful qualitative diagnostic of the deformation induced by ca \u2014 This table reports root mean square error (RMSE) for option pricing in units of 10^-2, comparing ",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.30867v1"
-    },
-    {
-      "doc_id": "2608.30867v1",
-      "title": "Neural Calibration of a Complete Market Model",
-      "page": 12,
-      "thumb": "/data/figures/2608.30867v1_p12_3.jpg",
-      "caption": "Figure 2: Benchmark local-volatility surface in the synthetic setting, displayed over the common validation domain in maturity and spot ratio S/S0. \u2014 This figure displays two representations of a local volatility surface used as a benchmark in a synthetic market setting. The left panel shows a 3D surface plot of true local volatility against maturity and spot ratio (S/S\u2080), revealing a non-monotonic \"smile\" pattern with a pronounced dip around the at-the-money region. The right panel presents the",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.30867v1"
-    },
-    {
-      "doc_id": "2608.30446v1",
-      "title": "End-to-End Neural Shrinkage of Indefinite Pairwise Correlation Matrices for Small-Cap-Inclusive Portfolios",
-      "page": 7,
-      "thumb": "/data/figures/2608.30446v1_p7_0.jpg",
-      "caption": "Figure 1: NLV under broker-simulated closing-auction execution on a logarithmic scale. QIS represents complete-row RMT shrinkage, Anderson nearest-correlation projection, Factor incomplete-panel imputation, and Equal Weight the non-estimation benchmark. Curves are sampled at the five-session rebalancing frequency; reported statistics use daily data. \u2014 This line chart displays cumulative net liquidation value (NLV) in USD on a logarithmic scale from 2000 to 2025, comparing five portfolio strategi",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.30446v1"
-    },
-    {
-      "doc_id": "2608.30321v1",
-      "title": "Optimal Block Time for AMM Liquidity Providers under Jump-Diffusion Prices",
-      "page": 24,
-      "thumb": "/data/figures/2608.30321v1_p24_0.jpg",
-      "caption": "Fig. 1. A sample path of the mispricing zt = log(St/Pt) under (2). Between Poisson block arrivals (ticks) z diffuses freely; at a block the arbitrageur trades iff |z| > \u03b3, resetting z to the band edge \u00b1\u03b3, not to 0. Diffusive exceedances of the band (teal) are on the scale \u03c3 \u2014 This line chart illustrates a sample path of mispricing z_t = log(S_t/P_t) over time in an automated market maker (AMM) model with jump-diffusion dynamics. The y-axis shows mispricing values ranging from -\u03b3 to +\u03b3 (the \"no-a",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.30321v1"
-    },
-    {
-      "doc_id": "2608.29692v1",
-      "title": "Portfolio Risk Bounds without Cross-Asset Return Covariances: Distributional Fields from Language-Model Representations",
-      "page": 2,
-      "thumb": "/data/figures/2608.29692v1_p2_0.jpg",
-      "caption": "Figure 1: Observed information to portfolio choice. Solid arrows connect computed objects; the dashed arrow from observed W2 separation to the latent floor is the maintained transmission restriction. Blue denotes observed objects, orange latent and certificate objects, green the risk bound, and purple the allocation decision. \u2014 This flow diagram illustrates the information pipeline from observed data to portfolio allocation decisions in a language-model-based portfolio construction framework. Bl",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.29692v1"
-    },
-    {
-      "doc_id": "2608.29692v1",
-      "title": "Portfolio Risk Bounds without Cross-Asset Return Covariances: Distributional Fields from Language-Model Representations",
-      "page": 19,
-      "thumb": "/data/figures/2608.29692v1_p19_1.jpg",
-      "caption": "Figure 2: Anatomy of the canonical news-only allocation. Panel (a) orders firms by sector and then by weight; horizontal lines mark the equal risk weight and the 12.5% cap used by the tightest reference population. Panel (b) reports the twelve largest unordered terms cij in (25) as shares of total certificate credit and distinguishes within- from cross-sector pairs. Panel (c) compares sector weigh \u2014 Panel (a) is a bar chart showing individual firm portfolio weights grouped by sector (Healthcare,",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2608.29692v1"
-    },
-    {
-      "doc_id": "2608.29692v1",
-      "title": "Portfolio Risk Bounds without Cross-Asset Return Covariances: Distributional Fields from Language-Model Representations",
+      "doc_id": "2609.01323v1",
+      "title": "Adaptive singular-point method for pricing and hedging surrenderable equity-linked contracts",
       "page": 21,
-      "thumb": "/data/figures/2608.29692v1_p21_2.jpg",
-      "caption": "Figure 3: Evolution of the news-only allocation under expanding article cutoffs. Panel (a) reports firm weights for article windows ending in 2018, 2019, 2020, 2021, and 2022, with firms grouped by sector. Panel (b) reports the effective number of names, the largest weight and its ticker, and one-way turnover 1 \u2014 Panel (a) is a horizontal stacked bar chart showing firm weights across five annual cutoffs (2018-2022) for a news-based portfolio allocation, with firms grouped into six sectors (Healt",
+      "thumb": "/data/figures/2609.01323v1_p21_0.jpg",
+      "caption": "Figure 1 compares the direct binomial, binomial Richardson, and direct adaptive-trinomial sequences. Direct binomial values approach the Monte Carlo benchmark from below. At \u2014 Table 2 presents numerical convergence results for pricing a mortality-extended no-surrender premium across different temporal refinement levels (Nst = 4, 8, 16, 24, 32). The table compares three valuation methods\u2014direct binomial, binomial Richardson extrapolation, and trinomial direct\u2014against an independent Monte Carlo be",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2608.29692v1"
+      "source": "https://arxiv.org/pdf/2609.01323v1"
     },
     {
-      "doc_id": "2608.29669v1",
-      "title": "Wasserstein-Barycentric Interaction Fields for Spatial Factor Models: Evidence from Language-Model Representations",
-      "page": 3,
-      "thumb": "/data/figures/2608.29669v1_p3_0.jpg",
-      "caption": "Figure 1 separates what is observed or constructed from what is latent and model- implied, and from what is estimated. \u2014 This figure is a conceptual diagram illustrating the relationships between observed data, constructed variables, latent factors, and model-estimated components in a spatial factor model framework. The diagram distinguishes three hierarchical levels: observed/constructed elements (top), latent and model-implied quantities (middle), and estimated parameters (bottom), with arrows",
+      "doc_id": "2609.01323v1",
+      "title": "Adaptive singular-point method for pricing and hedging surrenderable equity-linked contracts",
+      "page": 22,
+      "thumb": "/data/figures/2609.01323v1_p22_1.jpg",
+      "caption": "Figure 1. Cost\u2013accuracy comparison for the mortality-extended no-surrender premium. Richardson cost includes both required grids; dotted step segments are best-so-far error envelopes. \u2014 Panel (a) is a line plot showing ensemblePremium (y-axis) versus twelve-thread wall time in seconds (x-axis, log scale), comparing four pricing methods: MC 95% confidence band, MC point estimate, binomial direct, and binomial Richardson. Panel (b) is a log-log plot of absolute error |P - P_true| (y-axis) versus t",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2608.29669v1"
+      "source": "https://arxiv.org/pdf/2609.01323v1"
     },
     {
-      "doc_id": "2608.29669v1",
-      "title": "Wasserstein-Barycentric Interaction Fields for Spatial Factor Models: Evidence from Language-Model Representations",
-      "page": 3,
-      "thumb": "/data/figures/2608.29669v1_p3_1.jpg",
-      "caption": "Figure 1: From text geometry to model-implied adjustment. Text distributions construct the frozen barycentric interaction field W \u266d. In the latent model, firm-specific information generates stand-alone exposure \u03bei, which adjustment transforms into peer-adjusted exposure Bi. The return bridge connects exposure to returns; conditional on the frozen field, QMLE yields a working-model estimate of \u03c1 an \u2014 This figure is a flow diagram illustrating a methodological pipeline for estimating factor exposu",
+      "doc_id": "2609.01323v1",
+      "title": "Adaptive singular-point method for pricing and hedging surrenderable equity-linked contracts",
+      "page": 24,
+      "thumb": "/data/figures/2609.01323v1_p24_2.jpg",
+      "caption": "Figure 2. Sensitivity of the no-surrender fair premium to the three pairwise correlations. In each panel, the displayed correlation varies while the other two remain at their baseline values. \u2014 This figure displays three line graphs showing the sensitivity of the no-surrender fair premium (\u0394R\u2082) to pairwise correlations in an equity-linked insurance contract. Panel (a) shows the equity-variance correlation (\u03c1SV) on the x-axis with premium change ranging from -0.1 to 0.1, panel (b) shows the equit",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2608.29669v1"
+      "source": "https://arxiv.org/pdf/2609.01323v1"
     },
     {
-      "doc_id": "2608.29669v1",
-      "title": "Wasserstein-Barycentric Interaction Fields for Spatial Factor Models: Evidence from Language-Model Representations",
+      "doc_id": "2609.01183v1",
+      "title": "Harvesting the Variance Risk Premium in Nuclear and Energy Equities: A Short-Put Portfolio Derisking Strategy",
+      "page": 2,
+      "thumb": "/data/figures/2609.01183v1_p2_0.jpg",
+      "caption": "Fig. 1. GARCH(1,1) threshold entry rate and average ATM IV / GARCH RV ratio by ticker. Red bars: average ratio \u22651.45. \u2014 This figure contains two horizontal bar charts comparing metrics across multiple stock tickers. Panel (a) shows the threshold entry rate (%) on the x-axis, measuring the percentage of trading days when GARCH(1,1) volatility predictions exceeded realized volatility by a factor of 1.45. Panel (b) displays the average ATM IV/GARCH RV ratio on the x-axis, comparing implied volatili",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.01183v1"
+    },
+    {
+      "doc_id": "2609.01183v1",
+      "title": "Harvesting the Variance Risk Premium in Nuclear and Energy Equities: A Short-Put Portfolio Derisking Strategy",
+      "page": 2,
+      "thumb": "/data/figures/2609.01183v1_p2_1.jpg",
+      "caption": "Figure 1 summarizes the ATM IV/RV ratio across the uni- verse. The mean IV/RV ratio on entry days is 1.53 averaged equally across tickers and 1.44 pooled across all entry-day ob- servations (tickers with more entry days receive proportionally more weight in the pooled figure). Small pure-play and SMR names (DNN, LTBR, OKLO, UEC) exhibit the highest ratios; broadly diversified utilities (SO, AEP, D \u2014 Figure 1 displays two horizontal bar charts analyzing GARCH(1,1) threshold entry metrics across n",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.01183v1"
+    },
+    {
+      "doc_id": "2609.01183v1",
+      "title": "Harvesting the Variance Risk Premium in Nuclear and Energy Equities: A Short-Put Portfolio Derisking Strategy",
+      "page": 2,
+      "thumb": "/data/figures/2609.01183v1_p2_2.jpg",
+      "caption": "Figure 2 shows the t-statistics for mean IV \u2212forward RV on GARCH-signal entry days. Twenty-eight tickers pass t > 2 significance. Nuclear-focused names lead: NRG (t = 12.7), NXE (t = 12.1), UUUU (t = 10.0), LTBR (t = 9.4), MIR (t = 9.4), UEC (t = 8.9). These are naive t-statistics; 21- day forward RV windows overlap so adjacent observations share \u223c21 days of data, overstating effective n up to \u223c21 \u2014 Figure 2 is a horizontal bar chart displaying t-statistics for mean variance risk premium (IV min",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.01183v1"
+    },
+    {
+      "doc_id": "2609.01183v1",
+      "title": "Harvesting the Variance Risk Premium in Nuclear and Energy Equities: A Short-Put Portfolio Derisking Strategy",
+      "page": 2,
+      "thumb": "/data/figures/2609.01183v1_p2_3.jpg",
+      "caption": "Fig. 2. t-statistics for mean VRP (IV \u2212forward RV) on entry days. Dashed line: t = 2 (5% significance). \u2014 This figure displays three panels analyzing GARCH(1,1) volatility models across multiple currency pairs and equity tickers. Panel (a) shows the threshold entry rate (%) as horizontal bars, panel (b) shows the average ATM IV/GARCH RV ratio, and panel (c) presents t-statistics for mean VRP (implied volatility minus forward realized volatility) on GARCH signal days only, with red bars indicatin",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.01183v1"
+    },
+    {
+      "doc_id": "2609.00943v1",
+      "title": "Illiquidity at Risk",
       "page": 12,
-      "thumb": "/data/figures/2608.29669v1_p12_2.jpg",
-      "caption": "Figure 2: Target-anchored reconstruction of one row of W \u266d. For target firm i, separate target-to-peer transport assignments establish article-level correspondence. Holding those assignments fixed, simplex coordinates combine the aligned peer clouds to reconstruct the target. The fitted coordinates form a nonnegative unit-sum row with zero self-weight. \u2014 This figure illustrates a four-step procedure for reconstructing a row of a weight matrix W\u266d through optimal transport and barycentric combinat",
+      "thumb": "/data/figures/2609.00943v1_p12_0.jpg",
+      "caption": "Figure 1 displays the time series of the realized Amihud (in black) for the S&P 500. The persis- \u2014 This text section describes the data and methodology for an empirical study of IlliQaR (Illiquidity at Risk) using S&P 500 daily illiquidity measures from January 2005 to October 2021, and 25 US stocks from January 2012 to January 2024. Daily illiquidity is computed as the ratio of realized volatility (RV, calculated from 5-minute intraday returns) to daily trading volume, following the Amihud illi",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2608.29669v1"
+      "source": "https://arxiv.org/pdf/2609.00943v1"
+    },
+    {
+      "doc_id": "2609.00943v1",
+      "title": "Illiquidity at Risk",
+      "page": 13,
+      "thumb": "/data/figures/2609.00943v1_p13_1.jpg",
+      "caption": "Figure 1: Realized (black solid line) and daily Amihud (red dashed line) series for the S&P 500. \u2014 This figure displays a time series plot from 2005 to 2020 showing two measures of market conditions for the S&P 500: realized volatility (black solid line) and daily Amihud illiquidity measure (red dashed line) on the y-axis, with time on the x-axis. Both series exhibit high volatility with notable spikes during the 2008-2009 financial crisis and around 2011, with the Amihud illiquidity measure gen",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.00943v1"
+    },
+    {
+      "doc_id": "2609.00943v1",
+      "title": "Illiquidity at Risk",
+      "page": 18,
+      "thumb": "/data/figures/2609.00943v1_p18_2.jpg",
+      "caption": "Figure 2 illustrates the out-of-sample 5% IlliQaR for two competing specifications. The first \u2014 This figure shows out-of-sample 5% Illiquidity-at-Risk (IlliQaR) forecasts comparing different model specifications across multiple forecasting horizons. The chart displays IlliQaR values on the y-axis and forecasting horizons on the x-axis, with line plots for competing models including AMEM-HAR and linear HAR specifications. The key takeaway is that AMEM-HAR and linear HAR emerge as top-performing m",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.00943v1"
+    },
+    {
+      "doc_id": "2609.00943v1",
+      "title": "Illiquidity at Risk",
+      "page": 19,
+      "thumb": "/data/figures/2609.00943v1_p19_3.jpg",
+      "caption": "Figure 2: Realized Amihud series (black solid line) and 95% out-of-sample IlliQaR forecasts from the G- AMEM-HAR-J (red dashed line) and G-AMEM-HAR (blue dashed line) models. \u2014 This figure is a time series plot showing realized illiquidity and model forecasts from January 2016 to December 2021. The black solid line represents the realized Amihud illiquidity measure, while the red dashed line shows 95% out-of-sample forecasts from the G-AMEM-HAR-J model and the blue dashed line shows forecasts fr",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.00943v1"
+    },
+    {
+      "doc_id": "2609.00911v1",
+      "title": "Pricing the DeFi Tail: Do Protocols or Depositors Price Operational Risk?",
+      "page": 8,
+      "thumb": "/data/figures/2609.00911v1_p8_0.jpg",
+      "caption": "Fig. 1. DeFi operational loss distribution and severity-tail fit across sectors \u2014 Panel (a) shows violin plots of gross operational losses (USD, log scale) across seven DeFi sectors: Bridge, Stablechin, Lending, Derivatives, Yield, DEX, and Other, with each plot displaying the distribution density, median, and range of losses. Panel (b) presents a log-log plot of the empirical loss cumulative distribution function (CDF) versus loss amount (USD) for the same sectors, with a fitted Power-of-Tail G",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.00911v1"
+    },
+    {
+      "doc_id": "2609.00731v1",
+      "title": "Agentic Empirical Asset Pricing: Methodological Foundations",
+      "page": 5,
+      "thumb": "/data/figures/2609.00731v1_p5_0.jpg",
+      "caption": "Figure 1: Diagram for SEADS\u2019s architecture. One Planner call plans an entire round (one seed per slot); each seed is then expanded by its own Proposer instance (stacked boxes). Near-passes are mutated by self-evolution and re-run through the identical sequence. The dashed navy loop is the discovery-round unit every system in Table 3 has; the rolling-context banner above it is SEADS- specific (none \u2014 This diagram illustrates SEADS (agentic empirical asset pricing system) architecture with multipl",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.00731v1"
+    },
+    {
+      "doc_id": "2609.00731v1",
+      "title": "Agentic Empirical Asset Pricing: Methodological Foundations",
+      "page": 9,
+      "thumb": "/data/figures/2609.00731v1_p9_1.jpg",
+      "caption": "Figure 2: \u00a73.5\u2019s protocol applied on Panel A (JKP): cumulative OOS growth of $1 under SEADS and the four other agentic factor-discovery baselines. Each system\u2019s admitted factors are jointly re- gressed with the full raw \u223c400-characteristic panel, not combined alone, so an admitted-only Sharpe edge from a large, redundant set (Appendix H) cannot be mistaken for value the raw panel already supplies; \u2014 This line chart displays rolling out-of-sample (OOS) equity performance from January 2020 to mid-",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.00731v1"
+    },
+    {
+      "doc_id": "2609.00731v1",
+      "title": "Agentic Empirical Asset Pricing: Methodological Foundations",
+      "page": 9,
+      "thumb": "/data/figures/2609.00731v1_p9_2.jpg",
+      "caption": "Figure 2\u2019s clearest pattern is that all five discovery systems clear the no-discovery floor by a wide margin (mean Sharpe 0.82\u20130.96 vs. Raw 400 only\u2019s 0.62): whatever each system\u2019s admitted fac- tors contribute on top of the raw panel, it substantially exceeds what a plain linear model already extracts from that panel alone. Among the five, SEADS nominally leads (0.96\u00b10.04) but is not reliably dis \u2014 This line chart displays cumulative out-of-sample growth of $1 from January 2020 to mid-2026 acro",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.00731v1"
+    },
+    {
+      "doc_id": "2609.00731v1",
+      "title": "Agentic Empirical Asset Pricing: Methodological Foundations",
+      "page": 19,
+      "thumb": "/data/figures/2609.00731v1_p19_3.jpg",
+      "caption": "Figure 3: Mean per-factor out-of-sample Sharpe vs. combined-portfolio out-of-sample Sharpe, three replicates per system, Panel A (JKP). Combined SR is from a single OLS regression of next-month return on the replicate\u2019s admitted factors, fit once over the in-sample window and applied out-of- sample to score and rank stocks into a long-short portfolio each month; we report that portfolio\u2019s annualiz \u2014 This scatter plot compares individual factor out-of-sample Sharpe ratios (x-axis) to combined por",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.00731v1"
+    },
+    {
+      "doc_id": "2609.00438v1",
+      "title": "Single- and Multilevel Quadrature with Error Control for Fourier Pricing under the Rough Heston Model",
+      "page": 19,
+      "thumb": "/data/figures/2609.00438v1_p19_0.jpg",
+      "caption": "Figure 1 provides numerical evidence for Assumption 3 while estimating the numerical rate q from the decay of \u2014 This section discusses numerical validation of time-discretization assumptions for pricing under the Rough Heston model using Fourier methods. The text describes a reference error metric (equation 72) that measures the maximum absolute difference between exact and approximate Fourier integrals across strike prices, evaluated using 128 Gauss-Laguerre nodes with time step \u0394t_ref = T/4096",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.00438v1"
+    },
+    {
+      "doc_id": "2609.00438v1",
+      "title": "Single- and Multilevel Quadrature with Error Control for Fourier Pricing under the Rough Heston Model",
+      "page": 20,
+      "thumb": "/data/figures/2609.00438v1_p20_1.jpg",
+      "caption": "Figure 1: \u00afE h,w \u2014 These plots compare computational error (vertical axis, log scale) against stepsize \u0394tL (horizontal axis, log scale) for two different financial models with varying parameters. The left panel shows EuRos with \u03b1=0.62 and multiple u values (5, 10, 15, 20), while the right panel shows SPY with \u03b1=0.7151 and u values (50, 100, 200); both include reference lines showing O(\u0394tL^(1/2)) convergence rates. The key takeaway is that the multilevel quadrature method achieves the theoretical",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.00438v1"
     }
   ],
   "docs": [
+    {
+      "id": "2609.01323v1",
+      "title": "Adaptive singular-point method for pricing and hedging surrenderable equity-linked contracts",
+      "source": "https://arxiv.org/pdf/2609.01323v1",
+      "pages": 33,
+      "images": 0,
+      "figures_captioned": 3,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 54
+    },
+    {
+      "id": "2609.01183v1",
+      "title": "Harvesting the Variance Risk Premium in Nuclear and Energy Equities: A Short-Put Portfolio Derisking Strategy",
+      "source": "https://arxiv.org/pdf/2609.01183v1",
+      "pages": 4,
+      "images": 0,
+      "figures_captioned": 4,
+      "tables": 2,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 17
+    },
+    {
+      "id": "2609.01133v1",
+      "title": "Scalable Inversion of Contests with Correlated Performances, Including Softmax and Multinomial Probit",
+      "source": "https://arxiv.org/pdf/2609.01133v1",
+      "pages": 37,
+      "images": 0,
+      "figures_captioned": 0,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 62
+    },
+    {
+      "id": "2609.00943v1",
+      "title": "Illiquidity at Risk",
+      "source": "https://arxiv.org/pdf/2609.00943v1",
+      "pages": 49,
+      "images": 0,
+      "figures_captioned": 4,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 38
+    },
+    {
+      "id": "2609.00911v1",
+      "title": "Pricing the DeFi Tail: Do Protocols or Depositors Price Operational Risk?",
+      "source": "https://arxiv.org/pdf/2609.00911v1",
+      "pages": 17,
+      "images": 0,
+      "figures_captioned": 1,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 34
+    },
+    {
+      "id": "2609.00731v1",
+      "title": "Agentic Empirical Asset Pricing: Methodological Foundations",
+      "source": "https://arxiv.org/pdf/2609.00731v1",
+      "pages": 26,
+      "images": 0,
+      "figures_captioned": 4,
+      "tables": 1,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 58
+    },
+    {
+      "id": "2609.00438v1",
+      "title": "Single- and Multilevel Quadrature with Error Control for Fourier Pricing under the Rough Heston Model",
+      "source": "https://arxiv.org/pdf/2609.00438v1",
+      "pages": 40,
+      "images": 0,
+      "figures_captioned": 2,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 63
+    },
+    {
+      "id": "2609.00332v1",
+      "title": "Latent-Space No-Arbitrage Geometry of Generative Models for Implied Volatility Surfaces",
+      "source": "https://arxiv.org/pdf/2609.00332v1",
+      "pages": 26,
+      "images": 7,
+      "figures_captioned": 0,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 40
+    },
     {
       "id": "2608.31041v1",
       "title": "Agentic Quantitative Trading: A Survey of Workflows, Systems, and Evaluation",
       "source": "https://arxiv.org/pdf/2608.31041v1",
       "pages": 9,
       "images": 1,
-      "figures_captioned": 2,
+      "figures_captioned": 0,
       "tables": 0,
       "has_math": false,
       "ocr_used": false,
-      "chunks_indexed": 28
+      "chunks_indexed": 26
     },
     {
       "id": "2608.30999v1",
@@ -248,103 +344,7 @@
       "source": "https://arxiv.org/pdf/2608.30999v1",
       "pages": 23,
       "images": 0,
-      "figures_captioned": 4,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 65
-    },
-    {
-      "id": "2608.30867v1",
-      "title": "Neural Calibration of a Complete Market Model",
-      "source": "https://arxiv.org/pdf/2608.30867v1",
-      "pages": 26,
-      "images": 5,
-      "figures_captioned": 4,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 55
-    },
-    {
-      "id": "2608.30749v1",
-      "title": "Importance Sampling Enhanced with the COS Method for the Portfolio Risk Allocation",
-      "source": "https://arxiv.org/pdf/2608.30749v1",
-      "pages": 42,
-      "images": 0,
       "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 36
-    },
-    {
-      "id": "2608.30558v1",
-      "title": "A note on markets with semi-static trading strategies",
-      "source": "https://arxiv.org/pdf/2608.30558v1",
-      "pages": 13,
-      "images": 0,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 22
-    },
-    {
-      "id": "2608.30446v1",
-      "title": "End-to-End Neural Shrinkage of Indefinite Pairwise Correlation Matrices for Small-Cap-Inclusive Portfolios",
-      "source": "https://arxiv.org/pdf/2608.30446v1",
-      "pages": 9,
-      "images": 0,
-      "figures_captioned": 1,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 22
-    },
-    {
-      "id": "2608.30321v1",
-      "title": "Optimal Block Time for AMM Liquidity Providers under Jump-Diffusion Prices",
-      "source": "https://arxiv.org/pdf/2608.30321v1",
-      "pages": 25,
-      "images": 0,
-      "figures_captioned": 1,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 55
-    },
-    {
-      "id": "2608.29786v1",
-      "title": "Recovering Posterior Beliefs in Credit Risk: A Latent-State EM Extension of the Information-Geometric Framework",
-      "source": "https://arxiv.org/pdf/2608.29786v1",
-      "pages": 39,
-      "images": 0,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 29
-    },
-    {
-      "id": "2608.29692v1",
-      "title": "Portfolio Risk Bounds without Cross-Asset Return Covariances: Distributional Fields from Language-Model Representations",
-      "source": "https://arxiv.org/pdf/2608.29692v1",
-      "pages": 32,
-      "images": 0,
-      "figures_captioned": 3,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 47
-    },
-    {
-      "id": "2608.29669v1",
-      "title": "Wasserstein-Barycentric Interaction Fields for Spatial Factor Models: Evidence from Language-Model Representations",
-      "source": "https://arxiv.org/pdf/2608.29669v1",
-      "pages": 43,
-      "images": 2,
-      "figures_captioned": 3,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
