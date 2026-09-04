@@ -1,7 +1,7 @@
 {
   "_note": "Public run manifest of the Tier-3 agentic ingestion pipeline. Safe aggregates + provenance only; raw PDFs live in S3, not here.",
-  "run_id": "20260903T071150Z",
-  "generated_at": "2026-09-03T07:19:14+00:00",
+  "run_id": "20260904T071505Z",
+  "generated_at": "2026-09-04T07:22:03+00:00",
   "collection": "research_corpus",
   "embed_model": "BAAI/bge-small-en-v1.5",
   "dag": [
@@ -50,28 +50,154 @@
     "discovered": 10,
     "fetched": 10,
     "parsed": 10,
-    "chunks": 436,
-    "accepted": 406,
-    "rejected": 30,
-    "images": 11,
+    "chunks": 456,
+    "accepted": 433,
+    "rejected": 23,
+    "images": 26,
     "figures_captioned": 18,
-    "tables": 6,
+    "tables": 5,
     "with_math": 10,
-    "indexed": 406,
-    "spent_usd": 0.0323,
-    "duration_s": 444.0
+    "indexed": 433,
+    "spent_usd": 0.033,
+    "duration_s": 418.4
   },
   "rejects_by_reason": {
-    "low-relevance": 30
+    "low-relevance": 23
   },
   "budget_usd": 3.0,
   "figures": [
+    {
+      "doc_id": "2609.04087v1",
+      "title": "Global Multi-Maturity SPX-VIX Calibration Beyond Markovian Stitching",
+      "page": 7,
+      "thumb": "/data/figures/2609.04087v1_p7_0.jpg",
+      "caption": "Figure 1: Block-preserving Markovization on the exact finite-tree example of Theorem 3.4. The global law and its stitched Markovization have identical adjacent calibration blocks, but the covariance Cov(V1, V2) falls from 0.040 to 0.011 and the prices of VIX-spread calls change. The discrepancy is a pure loss of cross-period information, not a feasibility difference. \u2014 This figure illustrates Markovization limitations in a finite-tree calibration example with three panels: (left) a tree diagram ",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.04087v1"
+    },
+    {
+      "doc_id": "2609.04087v1",
+      "title": "Global Multi-Maturity SPX-VIX Calibration Beyond Markovian Stitching",
+      "page": 14,
+      "thumb": "/data/figures/2609.04087v1_p14_1.jpg",
+      "caption": "Figure 2: Shared-maturity comparison for two independently calibrated relaxed blocks on the 2026-04- 21 surfaces. The terminal SPX representation of the first block and the initial SPX representation of the second block differ by up to approximately 1.1 volatility points and by 0.3 volatility points on average over the invertible strike range at the displayed matched operating point. An exact stit \u2014 This line plot displays SPX implied volatility (vp) versus moneyness (K/F_T) for two independentl",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.04087v1"
+    },
+    {
+      "doc_id": "2609.04087v1",
+      "title": "Global Multi-Maturity SPX-VIX Calibration Beyond Markovian Stitching",
+      "page": 16,
+      "thumb": "/data/figures/2609.04087v1_p16_2.jpg",
+      "caption": "Figure 3: Finite-budget penalty path on the 2026-04-21 five-surface inputs. The plot displays the worst fitted-smile error and the thresholded bulk conditional statistics against \u03bb. The selected \u03bb = 104 point balances the reported diagnostics within the tested schedule; local reversals preclude interpreting the curve as a monotone convergence path. \u2014 This figure displays a multi-objective optimization trade-off curve plotting conditional hardness \u03bb (x-axis, log scale) against three metrics on du",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.04087v1"
+    },
+    {
+      "doc_id": "2609.04087v1",
+      "title": "Global Multi-Maturity SPX-VIX Calibration Beyond Markovian Stitching",
+      "page": 16,
+      "thumb": "/data/figures/2609.04087v1_p16_3.jpg",
+      "caption": "Figure 4: Five fitted implied-volatility smiles at the representative \u03bb = 104 operating point. The worst reported error over the selected strikes is 0.55 volatility points, with thresholded bulk statistics (\u03b5disp, \u03b5mart) = (6.3 \u00d7 10\u22122, 7.6 \u00d7 10\u22124). The statistic describes the aligned five-axis approximation and the retained conditioning cells specified in Section 7.1. \u2014 This figure displays a multi-panel comparison of fitted implied-volatility smiles across five different maturity dates at the r",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.04087v1"
+    },
+    {
+      "doc_id": "2609.03741v1",
+      "title": "Bayesian Confidence Recalibration and Research-Equilibrium Criticality: Temporal Support in Robust Portfolios",
+      "page": 20,
+      "thumb": "/data/figures/2609.03741v1_p20_0.jpg",
+      "caption": "Figure 1: Protocol-specific validation timing and financial materiality. \u2014 The left panel shows a line chart with normalized deadline (x-axis, 0 to 0.06) versus unit time in days (y-axis, 0 to 5), comparing two scenarios: \"fixed Y\" with equation Y = 0.0586 and \"standard fiat\" with coefficient -0.12476, where the fixed Y scenario exhibits steeper linear growth. The right panel displays a log-scale line chart showing total drawdown (y-axis, 10^-5 to 10^1) against normalized deadline (x-axis, 0 to ",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.03741v1"
+    },
+    {
+      "doc_id": "2609.03552v1",
+      "title": "An Entropic Factor Model for Robust Portfolio Replication",
+      "page": 20,
+      "thumb": "/data/figures/2609.03552v1_p20_0.jpg",
+      "caption": "Figure 1: Replication performace (cummulative return) of OLS vs EFM vs SPY for portfolio of 20 representative assets (Experiment 1) \u2014 This figure compares the replication performance of three methods\u2014OLS (Ordinary Least Squares), EFM (Entropic Factor Model), and SP500 Index\u2014over the period April 2021 to December 2023 using three stacked panels. The top panel shows cumulative returns for all three approaches, with the EFM tracker (red) and OLS tracker (blue) closely tracking each other and outper",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.03552v1"
+    },
+    {
+      "doc_id": "2609.03218v1",
+      "title": "The Analyst in the Prompt: Role, Retrieval, and Memory Biases in LLM Financial Analysis",
+      "page": 2,
+      "thumb": "/data/figures/2609.03218v1_p2_0.jpg",
+      "caption": "Figure 1: Three audit conditions on one Coca-Cola filing. The model emits two scores in [\u22121, +1]: the EvidenceScore, a neutral reading of the retrieved evidence that should be invariant to user context (negative = bearish, positive = bullish), and the PersonalizedScore, which is allowed to adapt to the user. PR: the persona affects retrieval and interpretation, so personas may read different chunk \u2014 This figure illustrates three experimental conditions testing how different framings affect LLM f",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.03218v1"
+    },
+    {
+      "doc_id": "2609.03218v1",
+      "title": "The Analyst in the Prompt: Role, Retrieval, and Memory Biases in LLM Financial Analysis",
+      "page": 5,
+      "thumb": "/data/figures/2609.03218v1_p5_1.jpg",
+      "caption": "Figure 2: Per-model decomposition of role-conditioned bias in the evidence-based score, averaged across the four matched pairs. Each bar stacks the three clamped channel components: evidence selection (or- ange), prompt framing (blue), and residual spillover (red) that remains after both interventions. The stacked height approximates the mean |\u02c6\u03b2PR \u2014 This stacked horizontal bar chart decomposes role-conditioned bias in financial analysis across multiple large language models, showing the relativ",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.03218v1"
+    },
+    {
+      "doc_id": "2609.03218v1",
+      "title": "The Analyst in the Prompt: Role, Retrieval, and Memory Biases in LLM Financial Analysis",
+      "page": 6,
+      "thumb": "/data/figures/2609.03218v1_p6_2.jpg",
+      "caption": "Figure 3: Cross-model results across twelve models and 3,575 filings. Each dot is one model\u2013persona/profile estimate; gray bars show the cross-model range and black bars the panel median. Left: the signed per-persona role coefficient \u02c6\u03b2PR \u2014 This figure displays cross-model comparison results across twelve financial analysis models evaluated on 3,575 filings using a scatter plot with error bars. The left panel shows signed per-persona role coefficients (\u03b2\u0302_PR) across five analyst personas (Gateke",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.03218v1"
+    },
+    {
+      "doc_id": "2609.03218v1",
+      "title": "The Analyst in the Prompt: Role, Retrieval, and Memory Biases in LLM Financial Analysis",
+      "page": 6,
+      "thumb": "/data/figures/2609.03218v1_p6_3.jpg",
+      "caption": "Figure 5 provides a visual check of this result. \u2014 This section discusses dual-output routing in language models for financial analysis, where evidence-based rationales are separated from personalized scores to reduce information leakage. The leakage metric L_m measures signal remaining in evidence-based scores (0=perfect routing, 0.5=no separation), and results show all twelve models achieve mean leakage below 0.5 with the dual-output schema, ranging from 0.05 to 0.37 across different model siz",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.03218v1"
+    },
+    {
+      "doc_id": "2609.03106v1",
+      "title": "Scaling Laws, Tabular Data and Actuarial Ratemaking Models",
+      "page": 8,
+      "thumb": "/data/figures/2609.03106v1_p8_0.jpg",
+      "caption": "Figure 1: Standalone preview of the best-achieved data-scaling law. Points are the best TabM/TabM-mini seed-averaged ensemble deviance at each nested training fraction, includ- ing the full-data-only TabM-mini extension at 100%. The fitted curve uses the same floor and exponent convention as Section 7.5. \u2014 This line plot displays a data-scaling law for TabM/TabM-mini ensemble models applied to actuarial ratemaking, with training size N (policy-period rows) on a logarithmic x-axis and held-out pr",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.03106v1"
+    },
+    {
+      "doc_id": "2609.03106v1",
+      "title": "Scaling Laws, Tabular Data and Actuarial Ratemaking Models",
+      "page": 9,
+      "thumb": "/data/figures/2609.03106v1_p9_1.jpg",
+      "caption": "Figure 2 gives a compact map of how the model families used in this paper relate to one another. A useful way to read the model families is to ask how much of the rating structure is specified by the modeller and how much is learned from data. Consider a policy-period row with driver age, vehicle value, territory, and prior-claims band. A GLM is closest to a traditional tariff: it estimates rating \u2014 This figure presents a hierarchical taxonomy of statistical modeling approaches used in actuarial",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.03106v1"
+    },
+    {
+      "doc_id": "2609.03106v1",
+      "title": "Scaling Laws, Tabular Data and Actuarial Ratemaking Models",
+      "page": 9,
+      "thumb": "/data/figures/2609.03106v1_p9_2.jpg",
+      "caption": "Figure 2: Conceptual map of the model families studied in the paper. The GLM provides the additive actuarial baseline. The neural families share the same tabular input representation, then differ in how they combine rating-factor information: dense layers for FFNs, shared ensemble- style adapters for TabM/TabM-mini, learned field-comparison blocks for Transformers, and a hybrid Transformer-plus-Ta \u2014 This figure is a flowchart showing the architecture and relationships between different modeling ",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.03106v1"
+    },
+    {
+      "doc_id": "2609.03106v1",
+      "title": "Scaling Laws, Tabular Data and Actuarial Ratemaking Models",
+      "page": 18,
+      "thumb": "/data/figures/2609.03106v1_p18_3.jpg",
+      "caption": "Figure 3: One-way claim frequency by selected rating factors (claims per exposure-year). Driver and vehicle age are grouped into actuarial bands; territorial categories are anonymized and ordered by exposure size. \u2014 This figure displays three bar charts showing claim frequency distributions across different insurance rating factors. The top chart (blue bars) shows claim frequency by driver age band, with the highest frequency in the 18-24 and 25-34 age groups declining steadily to the lowest fre",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.03106v1"
+    },
     {
       "doc_id": "2609.02677v1",
       "title": "Eliciting ESG Preferences for Reinforcement Learning-Based Portfolio Optimization",
       "page": 3,
       "thumb": "/data/figures/2609.02677v1_p3_0.jpg",
-      "caption": "Figure 1: Architecture of the feature extractor. The prefer- ence processing network (red) takes the weight configuration \u2014 This flowchart depicts the architecture of a feature extractor for ESG-informed portfolio optimization, showing the integration of market data inputs and preference processing networks. The diagram uses two color-coded paths: blue boxes representing market data processing (including Market Cap Allocation, ECT/DSNE+LiquidShort+RelU layers, and subsequent processing through F",
+      "caption": "Figure 1: Architecture of the feature extractor. The prefer- ence processing network (red) takes the weight configuration \u2014 This flowchart illustrates the architecture of a feature extraction system combining market data inputs with a preference processing network. Blue boxes represent data processing layers (Market Data SMA/ADX, technical indicators, and concatenation operations), while red boxes show the preference network components (Performance X, Layers 1-3 with specific dimensions like 64+",
       "vision": true,
       "source": "https://arxiv.org/pdf/2609.02677v1"
     },
@@ -80,7 +206,7 @@
       "title": "Eliciting ESG Preferences for Reinforcement Learning-Based Portfolio Optimization",
       "page": 4,
       "thumb": "/data/figures/2609.02677v1_p4_1.jpg",
-      "caption": "Figure 2: Impact of the weight parameter \ud835\udf06\ud835\udc56on portfolio performance and asset allocation over 20 episodes. (Top) Mean agency scores and Sharpe ratio, where dots represent the mean and grey lines indicate standard deviation. (Bottom) Top 5 portfolio allocations across varying \u039b values. \u2014 This figure displays the relationship between ESG weight parameter \u03bb and portfolio optimization outcomes across three metrics: mean agency scores (left), Sharpe ratio (middle), and allocation composition (right).",
+      "caption": "Figure 2: Impact of the weight parameter \ud835\udf06\ud835\udc56on portfolio performance and asset allocation over 20 episodes. (Top) Mean agency scores and Sharpe ratio, where dots represent the mean and grey lines indicate standard deviation. (Bottom) Top 5 portfolio allocations across varying \u039b values. \u2014 This figure shows three scatter plots (top row) and three heatmaps (bottom row) examining how a weight parameter \u03bb\u1d62 affects portfolio optimization outcomes across 20 episodes. The top panels display mean agency s",
       "vision": true,
       "source": "https://arxiv.org/pdf/2609.02677v1"
     },
@@ -89,7 +215,7 @@
       "title": "Eliciting ESG Preferences for Reinforcement Learning-Based Portfolio Optimization",
       "page": 5,
       "thumb": "/data/figures/2609.02677v1_p5_2.jpg",
-      "caption": "Figure 3: Preference elicitation using baseline strategies. The *_max strategy selects the portfolio with the highest score for the specific \ud835\udf06. The box plots are computed over 5 runs of the preference elicitation process and 5 trained RL policies (Dots show means). \u2014 This figure displays box plots comparing five portfolio optimization strategies (\u03bb (Sharpe Ratio) Max, \u03bb1 Max, \u03bb2 Max Elicitation Strategy, \u03bb3 Max, and Random) across five different metrics on the y-axis (Utility from 0 to 1.0). Eac",
+      "caption": "Figure 3: Preference elicitation using baseline strategies. The *_max strategy selects the portfolio with the highest score for the specific \ud835\udf06. The box plots are computed over 5 runs of the preference elicitation process and 5 trained RL policies (Dots show means). \u2014 This figure displays box plots comparing five portfolio optimization strategies (\u03bb1 Sharpe Ratio Max, \u03bb1 Max, \u03bb2 Max Elicitation Strategy, \u03bb3 Max, and Random) across their utility values, with the y-axis ranging from 0 to 1.0. Each ",
       "vision": true,
       "source": "https://arxiv.org/pdf/2609.02677v1"
     },
@@ -98,138 +224,84 @@
       "title": "Eliciting ESG Preferences for Reinforcement Learning-Based Portfolio Optimization",
       "page": 6,
       "thumb": "/data/figures/2609.02677v1_p6_3.jpg",
-      "caption": "Figure 4: Elicited \u039b vectors across different PM-LLMs. The box plots are computed over 5 runs of the preference elicitation process and 5 trained RL policies (Dots show means). From top to bottom, the evaluated models are Gemma4:26B (16K context window), Gemma4:26B (131K context window) and Qwen3.6:35B (252K context window). \u2014 This figure displays three stacked box plots showing elicited preference vectors (\u039b) across different geographic regions and elicitation strategies for three large languag",
+      "caption": "Figure 4: Elicited \u039b vectors across different PM-LLMs. The box plots are computed over 5 runs of the preference elicitation process and 5 trained RL policies (Dots show means). From top to bottom, the evaluated models are Gemma4:26B (16K context window), Gemma4:26B (131K context window) and Qwen3.6:35B (252K context window). \u2014 This figure displays three stacked box plots comparing elicited preference vectors (\u039b) across different geographical regions and elicitation strategies for three large lan",
       "vision": true,
       "source": "https://arxiv.org/pdf/2609.02677v1"
-    },
-    {
-      "doc_id": "2609.02660v1",
-      "title": "Modeling Trade Durations under Temporal Granularity Effects in Forex Markets",
-      "page": 2,
-      "thumb": "/data/figures/2609.02660v1_p2_0.jpg",
-      "caption": "Figure 1: Empirical densities of trade durations and their fractional part for the EUR/USD pair. \u2014 The left panel shows a histogram of empirical trade durations for EUR/USD with density on the y-axis (0-5) and duration in seconds on the x-axis (0-5), revealing a highly right-skewed distribution concentrated near zero with occasional spikes at regular intervals. The right panel displays the empirical density of fractional parts of durations with density on the y-axis (0-10) and fractional duratio",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.02660v1"
-    },
-    {
-      "doc_id": "2609.02660v1",
-      "title": "Modeling Trade Durations under Temporal Granularity Effects in Forex Markets",
-      "page": 3,
-      "thumb": "/data/figures/2609.02660v1_p3_1.jpg",
-      "caption": "Figure 3 illustrates the behavior of the density function with respect to its five parameters. Ad- ditional details on the mixture distribution are provided in Appendix A. \u2014 This figure illustrates the density function of the mixed distribution Z_i, which is derived by concentrating the distribution of Y_i around integer values and adding normally distributed noise. The mathematical formulation shown in equation (4) describes how the density is constructed by taking probability mass from interva",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.02660v1"
-    },
-    {
-      "doc_id": "2609.02660v1",
-      "title": "Modeling Trade Durations under Temporal Granularity Effects in Forex Markets",
-      "page": 4,
-      "thumb": "/data/figures/2609.02660v1_p4_2.jpg",
-      "caption": "Figure 2: Illustration of the redistribution of probability mass toward peaks at integer values. Pa- rameters of the mixture distribution are \u03bbi = 1, \u03b3 = 1, \u03ba = 1, \u03c1 = 0.20, and \u03c3 = 0.05. \u2014 The left panel shows a smooth exponential-like density function declining over duration, while the right panel illustrates how this same distribution is transformed into a multimodal distribution with sharp peaks concentrated at integer duration values. This comparison demonstrates the temporal granularity ef",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.02660v1"
-    },
-    {
-      "doc_id": "2609.02660v1",
-      "title": "Modeling Trade Durations under Temporal Granularity Effects in Forex Markets",
-      "page": 4,
-      "thumb": "/data/figures/2609.02660v1_p4_3.jpg",
-      "caption": "Figure 3: The effects of parameter values on the density function of the mixture distribution. In each plot, a single parameter is varied while the others are held at their default values: \u03bbi = 1, \u03b3 = 1, \u03ba = 1, \u03c1 = 0.10, and \u03c3 = 0.05. \u2014 Figure 3 displays five line plots showing the density function of a mixture distribution, each examining the effect of a single parameter variation while others remain fixed at default values. The x-axis represents duration (0-5) and the y-axis represents density",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.02660v1"
-    },
-    {
-      "doc_id": "2609.02535v1",
-      "title": "Uniform Inference and Certified Capacity at a Reflexive Stability Boundary",
-      "page": 5,
-      "thumb": "/data/figures/2609.02535v1_p5_0.jpg",
-      "caption": "Figure 1: The stability boundary under the rational spectral map. The subcritical half-plane maps to the contraction region of the position recursion. \u2014 The left panel shows a stability diagram for the reduced operator A, plotting Im(A) versus Re(A) with a vertical boundary at Re(A) = 0 that divides the complex plane into spectral supercritical (shaded pink, left) and subcritical (shaded green, right) regions. The right panel displays the position recursion W = (I + A)^(-1)A in the complex plane",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.02535v1"
-    },
-    {
-      "doc_id": "2609.02535v1",
-      "title": "Uniform Inference and Certified Capacity at a Reflexive Stability Boundary",
-      "page": 7,
-      "thumb": "/data/figures/2609.02535v1_p7_1.jpg",
-      "caption": "Figure 2: Local spectral geometries. Separated simple roots support the pointwise delta ap- proximation; semisimple ties yield a nonlinear directional limit; defective roots can change the convergence rate. \u2014 This figure displays three panels showing local spectral geometries near different types of eigenvalue configurations in the complex plane. Each panel is a scatter plot with the horizontal axis showing a normalized measure (Gaussian T^{-1/2}, nonlinear T^{-1/2}, and squared limit T^{-1/4} r",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.02535v1"
-    },
-    {
-      "doc_id": "2609.02535v1",
-      "title": "Uniform Inference and Certified Capacity at a Reflexive Stability Boundary",
-      "page": 7,
-      "thumb": "/data/figures/2609.02535v1_p7_2.jpg",
-      "caption": "Figure 2 summarizes the distinction between the regular, semisimple, and defective local geome- \u2014 This figure displays three complex plane diagrams illustrating local spectral geometries near stability boundaries. Each subplot shows eigenvalue locations (plotted as points) relative to the imaginary axis, with the x-axis representing Gaussian/nonlinear/squared norm scaling and the y-axis representing imaginary part. The left panel shows separated simple roots with a single eigenvalue in the left ",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.02535v1"
-    },
-    {
-      "doc_id": "2609.02535v1",
-      "title": "Uniform Inference and Certified Capacity at a Reflexive Stability Boundary",
-      "page": 14,
-      "thumb": "/data/figures/2609.02535v1_p14_3.jpg",
-      "caption": "Figure 3 summarizes the coverage\u2013resolution\u2013capacity tradeoff. \u2014 I cannot provide a caption for this figure because the image does not contain Figure 3 itself\u2014it only shows text discussing Monte Carlo simulation methodology, seed map collisions, inference replications, and measurement limitations regarding spectral margin coverage. The actual figure referenced in the printed caption is not visible in the provided image.",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.02535v1"
-    },
-    {
-      "doc_id": "2609.02525v1",
-      "title": "Switching Frictions, Heterogeneous Trading Horizons, and Long-Memory Order Flow",
-      "page": 14,
-      "thumb": "/data/figures/2609.02525v1_p14_0.jpg",
-      "caption": "Figure 1 compares the target half-index restriction with estimates from realized spell \u2014 I cannot describe Figure 1 because it is not visible in the provided image. The image shows only text from Section 4 of a research paper discussing computational evidence and empirical implementation, specifically section 4.1 on structural validation and operational variants. The actual figure referenced in the caption is not included in this screenshot.",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.02525v1"
-    },
-    {
-      "doc_id": "2609.02525v1",
-      "title": "Switching Frictions, Heterogeneous Trading Horizons, and Long-Memory Order Flow",
-      "page": 15,
-      "thumb": "/data/figures/2609.02525v1_p15_1.jpg",
-      "caption": "Fig. 1 Joint exponent restriction in structural renewal simulations. Points summarize estimates from realized spell paths and independently sampled executions; error bars show the 10th\u201390th percentile range across replications. The diagonal is the analytical restriction, not a fitted regression. \u2014 This scatter plot with error bars compares predicted versus realized exponents from structural renewal simulations of trading dynamics. The x-axis shows the predicted memory exponent (ranging from 0.4 ",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.02525v1"
-    },
-    {
-      "doc_id": "2609.02525v1",
-      "title": "Switching Frictions, Heterogeneous Trading Horizons, and Long-Memory Order Flow",
-      "page": 16,
-      "thumb": "/data/figures/2609.02525v1_p16_2.jpg",
-      "caption": "Fig. 2 Operational variants. Left: execution-aligned and unweighted spell-tail estimates as participa- tion becomes more concentrated in long-residence portfolios. Right: empirical usable scaling horizon across finite cross sections; bands show the 10th\u201390th percentile range. \u2014 The left panel is a line chart showing how estimated exponent bias varies with participation-residence elasticity, comparing three weighting schemes: aligned execution weights (blue line with confidence band), unweighted ",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.02525v1"
-    },
-    {
-      "doc_id": "2609.02447v1",
-      "title": "Price manipulation in nonlinear transient impact models: rigidity before memory and complete positivity after memory",
-      "page": 3,
-      "thumb": "/data/figures/2609.02447v1_p3_0.jpg",
-      "caption": "Figure 1 draws the consequence for the power-law family. The calibrated pairs (\u03b4, \u03b3) \u2248(0.6, 0.4) and (0.5, 0.5) of Gatheral (2010), with \u03b3 \u22480.4 from Bouchaud et al. (2004) and \u03b4 \u22481/2 from the square-root law, all lie in the manipulable set, as does every other pair with \u03b4\u0338 = 1. The rate-inside model with concave impact is therefore not a description of a manipulation-free market. The theorems also \u2014 This figure shows a two-dimensional parameter space plot with axes \u03b4 (horizontal) and \u03b3 (vertical",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.02447v1"
-    },
-    {
-      "doc_id": "2609.02447v1",
-      "title": "Price manipulation in nonlinear transient impact models: rigidity before memory and complete positivity after memory",
-      "page": 10,
-      "thumb": "/data/figures/2609.02447v1_p10_1.jpg",
-      "caption": "Figure 1: No-manipulation diagram for H\u03b3(t, s) = (t \u2212s)\u2212\u03b3 and f\u03b4(x) = sgn(x)|x|\u03b4. The diagonal dashed line is the slow-rate two-block boundary \u03b4 + \u03b3 = 1 of Gatheral (2010, Lemma 5.1). The horizontal dashed line marks \u03b3\u2217= 2 \u2212log2 3 \u22480.415, where the superlinear threshold \u03b4+(\u03b3) becomes infinite; the same constant occurs in Gatheral (2010, Lemma 5.2 and Appendix A) for a separate maximal-rate blow-up \u2014 This figure is a phase diagram plotting regions of market manipulability as a function of two par",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.02447v1"
-    },
-    {
-      "doc_id": "2609.02447v1",
-      "title": "Price manipulation in nonlinear transient impact models: rigidity before memory and complete positivity after memory",
-      "page": 10,
-      "thumb": "/data/figures/2609.02447v1_p10_2.jpg",
-      "caption": "Figure 1 places this result in the exponent plane. The slow-rate bound of Gatheral (2010, Lemma 5.1) leaves \u03b4 + \u03b3 \u22651. Theorem 9.7 below proves that this boundary is sharp on the sublinear side and that, on the superlinear side, two blocks manipulate exactly when \u03b4 > \u03b4+(\u03b3). The horizontal level \u03b3 = 2 \u2212log2 3 marks where \u03b4+(\u03b3) becomes infinite. Arbitrary finite switching removes every point of the p \u2014 This no-manipulation diagram plots the exponent plane with \u03b4 (superlinearity parameter) on the ho",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.02447v1"
     }
   ],
   "docs": [
+    {
+      "id": "2609.04087v1",
+      "title": "Global Multi-Maturity SPX-VIX Calibration Beyond Markovian Stitching",
+      "source": "https://arxiv.org/pdf/2609.04087v1",
+      "pages": 26,
+      "images": 9,
+      "figures_captioned": 4,
+      "tables": 1,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 63
+    },
+    {
+      "id": "2609.03741v1",
+      "title": "Bayesian Confidence Recalibration and Research-Equilibrium Criticality: Temporal Support in Robust Portfolios",
+      "source": "https://arxiv.org/pdf/2609.03741v1",
+      "pages": 61,
+      "images": 0,
+      "figures_captioned": 1,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 47
+    },
+    {
+      "id": "2609.03552v1",
+      "title": "An Entropic Factor Model for Robust Portfolio Replication",
+      "source": "https://arxiv.org/pdf/2609.03552v1",
+      "pages": 20,
+      "images": 0,
+      "figures_captioned": 1,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 38
+    },
+    {
+      "id": "2609.03218v1",
+      "title": "The Analyst in the Prompt: Role, Retrieval, and Memory Biases in LLM Financial Analysis",
+      "source": "https://arxiv.org/pdf/2609.03218v1",
+      "pages": 26,
+      "images": 6,
+      "figures_captioned": 4,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 55
+    },
+    {
+      "id": "2609.03115v1",
+      "title": "Mean-field equilibrium of heterogeneous agents under market impact",
+      "source": "https://arxiv.org/pdf/2609.03115v1",
+      "pages": 32,
+      "images": 0,
+      "figures_captioned": 0,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 42
+    },
+    {
+      "id": "2609.03106v1",
+      "title": "Scaling Laws, Tabular Data and Actuarial Ratemaking Models",
+      "source": "https://arxiv.org/pdf/2609.03106v1",
+      "pages": 78,
+      "images": 0,
+      "figures_captioned": 4,
+      "tables": 1,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 59
+    },
     {
       "id": "2609.02677v1",
       "title": "Eliciting ESG Preferences for Reinforcement Learning-Based Portfolio Optimization",
@@ -248,11 +320,11 @@
       "source": "https://arxiv.org/pdf/2609.02660v1",
       "pages": 29,
       "images": 0,
-      "figures_captioned": 4,
+      "figures_captioned": 0,
       "tables": 2,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 40
+      "chunks_indexed": 36
     },
     {
       "id": "2609.02535v1",
@@ -260,11 +332,11 @@
       "source": "https://arxiv.org/pdf/2609.02535v1",
       "pages": 60,
       "images": 2,
-      "figures_captioned": 4,
+      "figures_captioned": 0,
       "tables": 1,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 35
+      "chunks_indexed": 31
     },
     {
       "id": "2609.02525v1",
@@ -272,83 +344,11 @@
       "source": "https://arxiv.org/pdf/2609.02525v1",
       "pages": 28,
       "images": 2,
-      "figures_captioned": 3,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 38
-    },
-    {
-      "id": "2609.02447v1",
-      "title": "Price manipulation in nonlinear transient impact models: rigidity before memory and complete positivity after memory",
-      "source": "https://arxiv.org/pdf/2609.02447v1",
-      "pages": 70,
-      "images": 0,
-      "figures_captioned": 3,
-      "tables": 1,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 56
-    },
-    {
-      "id": "2609.02381v1",
-      "title": "Viscosity Supersolution Barriers to a Non-local Free Boundary Problem",
-      "source": "https://arxiv.org/pdf/2609.02381v1",
-      "pages": 26,
-      "images": 0,
       "figures_captioned": 0,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 41
-    },
-    {
-      "id": "2609.02014v1",
-      "title": "Insights on Time-consistent Deep Hedging under Elicitable Dynamic Risk Measures",
-      "source": "https://arxiv.org/pdf/2609.02014v1",
-      "pages": 47,
-      "images": 0,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 43
-    },
-    {
-      "id": "2609.01323v1",
-      "title": "Adaptive singular-point method for pricing and hedging surrenderable equity-linked contracts",
-      "source": "https://arxiv.org/pdf/2609.01323v1",
-      "pages": 33,
-      "images": 0,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 51
-    },
-    {
-      "id": "2609.01183v1",
-      "title": "Harvesting the Variance Risk Premium in Nuclear and Energy Equities: A Short-Put Portfolio Derisking Strategy",
-      "source": "https://arxiv.org/pdf/2609.01183v1",
-      "pages": 4,
-      "images": 0,
-      "figures_captioned": 0,
-      "tables": 2,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 13
-    },
-    {
-      "id": "2609.01133v1",
-      "title": "Scalable Inversion of Contests with Correlated Performances, Including Softmax and Multinomial Probit",
-      "source": "https://arxiv.org/pdf/2609.01133v1",
-      "pages": 37,
-      "images": 0,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 62
+      "chunks_indexed": 35
     }
   ]
 }
