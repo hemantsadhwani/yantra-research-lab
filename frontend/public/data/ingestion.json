@@ -1,7 +1,7 @@
 {
   "_note": "Public run manifest of the Tier-3 agentic ingestion pipeline. Safe aggregates + provenance only; raw PDFs live in S3, not here.",
-  "run_id": "20260904T071505Z",
-  "generated_at": "2026-09-04T07:22:03+00:00",
+  "run_id": "20260905T065708Z",
+  "generated_at": "2026-09-05T07:04:13+00:00",
   "collection": "research_corpus",
   "embed_model": "BAAI/bge-small-en-v1.5",
   "dag": [
@@ -58,8 +58,8 @@
     "tables": 5,
     "with_math": 10,
     "indexed": 433,
-    "spent_usd": 0.033,
-    "duration_s": 418.4
+    "spent_usd": 0.0335,
+    "duration_s": 424.9
   },
   "rejects_by_reason": {
     "low-relevance": 23
@@ -71,7 +71,7 @@
       "title": "Global Multi-Maturity SPX-VIX Calibration Beyond Markovian Stitching",
       "page": 7,
       "thumb": "/data/figures/2609.04087v1_p7_0.jpg",
-      "caption": "Figure 1: Block-preserving Markovization on the exact finite-tree example of Theorem 3.4. The global law and its stitched Markovization have identical adjacent calibration blocks, but the covariance Cov(V1, V2) falls from 0.040 to 0.011 and the prices of VIX-spread calls change. The discrepancy is a pure loss of cross-period information, not a feasibility difference. \u2014 This figure illustrates Markovization limitations in a finite-tree calibration example with three panels: (left) a tree diagram ",
+      "caption": "Figure 1: Block-preserving Markovization on the exact finite-tree example of Theorem 3.4. The global law and its stitched Markovization have identical adjacent calibration blocks, but the covariance Cov(V1, V2) falls from 0.040 to 0.011 and the prices of VIX-spread calls change. The discrepancy is a pure loss of cross-period information, not a feasibility difference. \u2014 Figure 1 contains three panels demonstrating block-preserving Markovization effects: (left) a line plot showing global tree path",
       "vision": true,
       "source": "https://arxiv.org/pdf/2609.04087v1"
     },
@@ -80,7 +80,7 @@
       "title": "Global Multi-Maturity SPX-VIX Calibration Beyond Markovian Stitching",
       "page": 14,
       "thumb": "/data/figures/2609.04087v1_p14_1.jpg",
-      "caption": "Figure 2: Shared-maturity comparison for two independently calibrated relaxed blocks on the 2026-04- 21 surfaces. The terminal SPX representation of the first block and the initial SPX representation of the second block differ by up to approximately 1.1 volatility points and by 0.3 volatility points on average over the invertible strike range at the displayed matched operating point. An exact stit \u2014 This line plot displays SPX implied volatility (vp) versus moneyness (K/F_T) for two independentl",
+      "caption": "Figure 2: Shared-maturity comparison for two independently calibrated relaxed blocks on the 2026-04- 21 surfaces. The terminal SPX representation of the first block and the initial SPX representation of the second block differ by up to approximately 1.1 volatility points and by 0.3 volatility points on average over the invertible strike range at the displayed matched operating point. An exact stit \u2014 This line chart compares SPX implied volatility across moneyness (K/F_T) for two independently ca",
       "vision": true,
       "source": "https://arxiv.org/pdf/2609.04087v1"
     },
@@ -89,7 +89,7 @@
       "title": "Global Multi-Maturity SPX-VIX Calibration Beyond Markovian Stitching",
       "page": 16,
       "thumb": "/data/figures/2609.04087v1_p16_2.jpg",
-      "caption": "Figure 3: Finite-budget penalty path on the 2026-04-21 five-surface inputs. The plot displays the worst fitted-smile error and the thresholded bulk conditional statistics against \u03bb. The selected \u03bb = 104 point balances the reported diagnostics within the tested schedule; local reversals preclude interpreting the curve as a monotone convergence path. \u2014 This figure displays a multi-objective optimization trade-off curve plotting conditional hardness \u03bb (x-axis, log scale) against three metrics on du",
+      "caption": "Figure 3: Finite-budget penalty path on the 2026-04-21 five-surface inputs. The plot displays the worst fitted-smile error and the thresholded bulk conditional statistics against \u03bb. The selected \u03bb = 104 point balances the reported diagnostics within the tested schedule; local reversals preclude interpreting the curve as a monotone convergence path. \u2014 This line chart displays the trade-off between fitting error and calibration quality across different conditional hardness parameter values (\u03bb) on ",
       "vision": true,
       "source": "https://arxiv.org/pdf/2609.04087v1"
     },
@@ -98,7 +98,7 @@
       "title": "Global Multi-Maturity SPX-VIX Calibration Beyond Markovian Stitching",
       "page": 16,
       "thumb": "/data/figures/2609.04087v1_p16_3.jpg",
-      "caption": "Figure 4: Five fitted implied-volatility smiles at the representative \u03bb = 104 operating point. The worst reported error over the selected strikes is 0.55 volatility points, with thresholded bulk statistics (\u03b5disp, \u03b5mart) = (6.3 \u00d7 10\u22122, 7.6 \u00d7 10\u22124). The statistic describes the aligned five-axis approximation and the retained conditioning cells specified in Section 7.1. \u2014 This figure displays a multi-panel comparison of fitted implied-volatility smiles across five different maturity dates at the r",
+      "caption": "Figure 4: Five fitted implied-volatility smiles at the representative \u03bb = 104 operating point. The worst reported error over the selected strikes is 0.55 volatility points, with thresholded bulk statistics (\u03b5disp, \u03b5mart) = (6.3 \u00d7 10\u22122, 7.6 \u00d7 10\u22124). The statistic describes the aligned five-axis approximation and the retained conditioning cells specified in Section 7.1. \u2014 Figure 3 (top) is a log-log line plot showing three diagnostics versus conditional hardness \u03bb: worst-surface IV error in volati",
       "vision": true,
       "source": "https://arxiv.org/pdf/2609.04087v1"
     },
@@ -107,7 +107,7 @@
       "title": "Bayesian Confidence Recalibration and Research-Equilibrium Criticality: Temporal Support in Robust Portfolios",
       "page": 20,
       "thumb": "/data/figures/2609.03741v1_p20_0.jpg",
-      "caption": "Figure 1: Protocol-specific validation timing and financial materiality. \u2014 The left panel shows a line chart with normalized deadline (x-axis, 0 to 0.06) versus unit time in days (y-axis, 0 to 5), comparing two scenarios: \"fixed Y\" with equation Y = 0.0586 and \"standard fiat\" with coefficient -0.12476, where the fixed Y scenario exhibits steeper linear growth. The right panel displays a log-scale line chart showing total drawdown (y-axis, 10^-5 to 10^1) against normalized deadline (x-axis, 0 to ",
+      "caption": "Figure 1: Protocol-specific validation timing and financial materiality. \u2014 The figure displays two charts examining the relationship between normalized deadline (d = v/\u03b4) and financial metrics. The left panel is a line plot showing VaR (Value at Risk) in basis points versus normalized deadline, with two series: \"Basis VaR\" (orange) increasing linearly from roughly 1 to 5 basis points, and \"Smoothed VaR\" (blue dashed) remaining relatively flat near 1 basis point across the 0.00-0.06 range. The ri",
       "vision": true,
       "source": "https://arxiv.org/pdf/2609.03741v1"
     },
@@ -116,7 +116,7 @@
       "title": "An Entropic Factor Model for Robust Portfolio Replication",
       "page": 20,
       "thumb": "/data/figures/2609.03552v1_p20_0.jpg",
-      "caption": "Figure 1: Replication performace (cummulative return) of OLS vs EFM vs SPY for portfolio of 20 representative assets (Experiment 1) \u2014 This figure compares the replication performance of three methods\u2014OLS (Ordinary Least Squares), EFM (Entropic Factor Model), and SP500 Index\u2014over the period April 2021 to December 2023 using three stacked panels. The top panel shows cumulative returns for all three approaches, with the EFM tracker (red) and OLS tracker (blue) closely tracking each other and outper",
+      "caption": "Figure 1: Replication performace (cummulative return) of OLS vs EFM vs SPY for portfolio of 20 representative assets (Experiment 1) \u2014 This figure displays three time-series line charts comparing replication performance of three methods from April 2021 to December 2023. The top panel shows cumulative returns for OLS_Tracker (red), EFM_Tracker (blue), and SP500_Index (black), with all three strategies ending near 0.15-0.18 cumulative return, though EFM and OLS significantly underperform during 202",
       "vision": true,
       "source": "https://arxiv.org/pdf/2609.03552v1"
     },
@@ -125,7 +125,7 @@
       "title": "The Analyst in the Prompt: Role, Retrieval, and Memory Biases in LLM Financial Analysis",
       "page": 2,
       "thumb": "/data/figures/2609.03218v1_p2_0.jpg",
-      "caption": "Figure 1: Three audit conditions on one Coca-Cola filing. The model emits two scores in [\u22121, +1]: the EvidenceScore, a neutral reading of the retrieved evidence that should be invariant to user context (negative = bearish, positive = bullish), and the PersonalizedScore, which is allowed to adapt to the user. PR: the persona affects retrieval and interpretation, so personas may read different chunk \u2014 This figure illustrates three experimental conditions testing how different framings affect LLM f",
+      "caption": "Figure 1: Three audit conditions on one Coca-Cola filing. The model emits two scores in [\u22121, +1]: the EvidenceScore, a neutral reading of the retrieved evidence that should be invariant to user context (negative = bearish, positive = bullish), and the PersonalizedScore, which is allowed to adapt to the user. PR: the persona affects retrieval and interpretation, so personas may read different chunk \u2014 This figure demonstrates three experimental conditions testing how large language models exhibit ",
       "vision": true,
       "source": "https://arxiv.org/pdf/2609.03218v1"
     },
@@ -134,7 +134,7 @@
       "title": "The Analyst in the Prompt: Role, Retrieval, and Memory Biases in LLM Financial Analysis",
       "page": 5,
       "thumb": "/data/figures/2609.03218v1_p5_1.jpg",
-      "caption": "Figure 2: Per-model decomposition of role-conditioned bias in the evidence-based score, averaged across the four matched pairs. Each bar stacks the three clamped channel components: evidence selection (or- ange), prompt framing (blue), and residual spillover (red) that remains after both interventions. The stacked height approximates the mean |\u02c6\u03b2PR \u2014 This stacked horizontal bar chart decomposes role-conditioned bias in financial analysis across multiple large language models, showing the relativ",
+      "caption": "Figure 2: Per-model decomposition of role-conditioned bias in the evidence-based score, averaged across the four matched pairs. Each bar stacks the three clamped channel components: evidence selection (or- ange), prompt framing (blue), and residual spillover (red) that remains after both interventions. The stacked height approximates the mean |\u02c6\u03b2PR \u2014 This horizontal stacked bar chart decomposes role-induced bias in large language models' financial analysis across multiple models, showing the rel",
       "vision": true,
       "source": "https://arxiv.org/pdf/2609.03218v1"
     },
@@ -143,7 +143,7 @@
       "title": "The Analyst in the Prompt: Role, Retrieval, and Memory Biases in LLM Financial Analysis",
       "page": 6,
       "thumb": "/data/figures/2609.03218v1_p6_2.jpg",
-      "caption": "Figure 3: Cross-model results across twelve models and 3,575 filings. Each dot is one model\u2013persona/profile estimate; gray bars show the cross-model range and black bars the panel median. Left: the signed per-persona role coefficient \u02c6\u03b2PR \u2014 This figure displays cross-model comparison results across twelve financial analysis models evaluated on 3,575 filings using a scatter plot with error bars. The left panel shows signed per-persona role coefficients (\u03b2\u0302_PR) across five analyst personas (Gateke",
+      "caption": "Figure 3: Cross-model results across twelve models and 3,575 filings. Each dot is one model\u2013persona/profile estimate; gray bars show the cross-model range and black bars the panel median. Left: the signed per-persona role coefficient \u02c6\u03b2PR \u2014 This figure displays three scatter plots comparing performance metrics across twelve language models (including DeepSeek, Llama, Gemma, GPT, and Open3) evaluated on 3,575 financial filings. The left panel shows signed per-persona role coefficients with model ",
       "vision": true,
       "source": "https://arxiv.org/pdf/2609.03218v1"
     },
@@ -152,7 +152,7 @@
       "title": "The Analyst in the Prompt: Role, Retrieval, and Memory Biases in LLM Financial Analysis",
       "page": 6,
       "thumb": "/data/figures/2609.03218v1_p6_3.jpg",
-      "caption": "Figure 5 provides a visual check of this result. \u2014 This section discusses dual-output routing in language models for financial analysis, where evidence-based rationales are separated from personalized scores to reduce information leakage. The leakage metric L_m measures signal remaining in evidence-based scores (0=perfect routing, 0.5=no separation), and results show all twelve models achieve mean leakage below 0.5 with the dual-output schema, ranging from 0.05 to 0.37 across different model siz",
+      "caption": "Figure 5 provides a visual check of this result. \u2014 This section describes leakage metrics (L_m) for dual-output routing across twelve language models, measuring how much evidence-based signal remains in personalized scores. The text reports mean leakage values below 0.5 across all models, with specific examples including Qwen3.6-35B-A3B (0.37), gpt-oss-128b (0.34), and Llama3.1-8B-Instruct (0.29), indicating that output separation reduces but never eliminates information leakage. The key takeawa",
       "vision": true,
       "source": "https://arxiv.org/pdf/2609.03218v1"
     },
@@ -161,7 +161,7 @@
       "title": "Scaling Laws, Tabular Data and Actuarial Ratemaking Models",
       "page": 8,
       "thumb": "/data/figures/2609.03106v1_p8_0.jpg",
-      "caption": "Figure 1: Standalone preview of the best-achieved data-scaling law. Points are the best TabM/TabM-mini seed-averaged ensemble deviance at each nested training fraction, includ- ing the full-data-only TabM-mini extension at 100%. The fitted curve uses the same floor and exponent convention as Section 7.5. \u2014 This line plot displays a data-scaling law for TabM/TabM-mini ensemble models applied to actuarial ratemaking, with training size N (policy-period rows) on a logarithmic x-axis and held-out pr",
+      "caption": "Figure 1: Standalone preview of the best-achieved data-scaling law. Points are the best TabM/TabM-mini seed-averaged ensemble deviance at each nested training fraction, includ- ing the full-data-only TabM-mini extension at 100%. The fitted curve uses the same floor and exponent convention as Section 7.5. \u2014 This figure displays a data-scaling law for a machine learning model on tabular data, with training size N (policy-period rows) on a log-scale x-axis and held-out Poisson deviance on the y-axi",
       "vision": true,
       "source": "https://arxiv.org/pdf/2609.03106v1"
     },
@@ -170,7 +170,7 @@
       "title": "Scaling Laws, Tabular Data and Actuarial Ratemaking Models",
       "page": 9,
       "thumb": "/data/figures/2609.03106v1_p9_1.jpg",
-      "caption": "Figure 2 gives a compact map of how the model families used in this paper relate to one another. A useful way to read the model families is to ask how much of the rating structure is specified by the modeller and how much is learned from data. Consider a policy-period row with driver age, vehicle value, territory, and prior-claims band. A GLM is closest to a traditional tariff: it estimates rating \u2014 This figure presents a hierarchical taxonomy of statistical modeling approaches used in actuarial",
+      "caption": "Figure 2 gives a compact map of how the model families used in this paper relate to one another. A useful way to read the model families is to ask how much of the rating structure is specified by the modeller and how much is learned from data. Consider a policy-period row with driver age, vehicle value, territory, and prior-claims band. A GLM is closest to a traditional tariff: it estimates rating \u2014 This figure is a conceptual diagram showing the relationship between different actuarial model fa",
       "vision": true,
       "source": "https://arxiv.org/pdf/2609.03106v1"
     },
@@ -179,7 +179,7 @@
       "title": "Scaling Laws, Tabular Data and Actuarial Ratemaking Models",
       "page": 9,
       "thumb": "/data/figures/2609.03106v1_p9_2.jpg",
-      "caption": "Figure 2: Conceptual map of the model families studied in the paper. The GLM provides the additive actuarial baseline. The neural families share the same tabular input representation, then differ in how they combine rating-factor information: dense layers for FFNs, shared ensemble- style adapters for TabM/TabM-mini, learned field-comparison blocks for Transformers, and a hybrid Transformer-plus-Ta \u2014 This figure is a flowchart showing the architecture and relationships between different modeling ",
+      "caption": "Figure 2: Conceptual map of the model families studied in the paper. The GLM provides the additive actuarial baseline. The neural families share the same tabular input representation, then differ in how they combine rating-factor information: dense layers for FFNs, shared ensemble- style adapters for TabM/TabM-mini, learned field-comparison blocks for Transformers, and a hybrid Transformer-plus-Ta \u2014 This figure is a flowchart showing the hierarchical structure of machine learning model families ",
       "vision": true,
       "source": "https://arxiv.org/pdf/2609.03106v1"
     },
@@ -188,7 +188,7 @@
       "title": "Scaling Laws, Tabular Data and Actuarial Ratemaking Models",
       "page": 18,
       "thumb": "/data/figures/2609.03106v1_p18_3.jpg",
-      "caption": "Figure 3: One-way claim frequency by selected rating factors (claims per exposure-year). Driver and vehicle age are grouped into actuarial bands; territorial categories are anonymized and ordered by exposure size. \u2014 This figure displays three bar charts showing claim frequency distributions across different insurance rating factors. The top chart (blue bars) shows claim frequency by driver age band, with the highest frequency in the 18-24 and 25-34 age groups declining steadily to the lowest fre",
+      "caption": "Figure 3: One-way claim frequency by selected rating factors (claims per exposure-year). Driver and vehicle age are grouped into actuarial bands; territorial categories are anonymized and ordered by exposure size. \u2014 This figure contains three bar charts displaying claim frequency distributions across different rating factors in insurance. The top panel shows claim frequency by driver age band (18-24 through 65+), revealing a clear declining trend from the youngest drivers (18-24) with the highes",
       "vision": true,
       "source": "https://arxiv.org/pdf/2609.03106v1"
     },
@@ -197,7 +197,7 @@
       "title": "Eliciting ESG Preferences for Reinforcement Learning-Based Portfolio Optimization",
       "page": 3,
       "thumb": "/data/figures/2609.02677v1_p3_0.jpg",
-      "caption": "Figure 1: Architecture of the feature extractor. The prefer- ence processing network (red) takes the weight configuration \u2014 This flowchart illustrates the architecture of a feature extraction system combining market data inputs with a preference processing network. Blue boxes represent data processing layers (Market Data SMA/ADX, technical indicators, and concatenation operations), while red boxes show the preference network components (Performance X, Layers 1-3 with specific dimensions like 64+",
+      "caption": "Figure 1: Architecture of the feature extractor. The prefer- ence processing network (red) takes the weight configuration \u2014 This flowchart illustrates a neural network architecture for feature extraction in portfolio optimization with ESG preferences. The diagram shows a dual-stream architecture with blue boxes representing market data processing (Market Cap, ESG info, FCF ratios, and normalized features) and red boxes representing preference processing (Performance, Latent Hidden, Scale & Shift",
       "vision": true,
       "source": "https://arxiv.org/pdf/2609.02677v1"
     },
@@ -206,7 +206,7 @@
       "title": "Eliciting ESG Preferences for Reinforcement Learning-Based Portfolio Optimization",
       "page": 4,
       "thumb": "/data/figures/2609.02677v1_p4_1.jpg",
-      "caption": "Figure 2: Impact of the weight parameter \ud835\udf06\ud835\udc56on portfolio performance and asset allocation over 20 episodes. (Top) Mean agency scores and Sharpe ratio, where dots represent the mean and grey lines indicate standard deviation. (Bottom) Top 5 portfolio allocations across varying \u039b values. \u2014 This figure shows three scatter plots (top row) and three heatmaps (bottom row) examining how a weight parameter \u03bb\u1d62 affects portfolio optimization outcomes across 20 episodes. The top panels display mean agency s",
+      "caption": "Figure 2: Impact of the weight parameter \ud835\udf06\ud835\udc56on portfolio performance and asset allocation over 20 episodes. (Top) Mean agency scores and Sharpe ratio, where dots represent the mean and grey lines indicate standard deviation. (Bottom) Top 5 portfolio allocations across varying \u039b values. \u2014 This figure displays three scatter plots (top row) showing the relationship between Sharpe ratio and agency scores (CAT, AAPL, AMZN) as a function of weight parameter \u03bb_i, with color-coding indicating \u03bb_i values ",
       "vision": true,
       "source": "https://arxiv.org/pdf/2609.02677v1"
     },
@@ -215,7 +215,7 @@
       "title": "Eliciting ESG Preferences for Reinforcement Learning-Based Portfolio Optimization",
       "page": 5,
       "thumb": "/data/figures/2609.02677v1_p5_2.jpg",
-      "caption": "Figure 3: Preference elicitation using baseline strategies. The *_max strategy selects the portfolio with the highest score for the specific \ud835\udf06. The box plots are computed over 5 runs of the preference elicitation process and 5 trained RL policies (Dots show means). \u2014 This figure displays box plots comparing five portfolio optimization strategies (\u03bb1 Sharpe Ratio Max, \u03bb1 Max, \u03bb2 Max Elicitation Strategy, \u03bb3 Max, and Random) across their utility values, with the y-axis ranging from 0 to 1.0. Each ",
+      "caption": "Figure 3: Preference elicitation using baseline strategies. The *_max strategy selects the portfolio with the highest score for the specific \ud835\udf06. The box plots are computed over 5 runs of the preference elicitation process and 5 trained RL policies (Dots show means). \u2014 This box plot compares five portfolio optimization strategies (\u03bb1 Sharpe Ratio Max, \u03bb1 Max, \u03bb2 Max Elicitation Strategy, \u03bb3 Max, and Random) across their performance metrics on the y-axis (ranging from 0 to 1.0). Each strategy shows",
       "vision": true,
       "source": "https://arxiv.org/pdf/2609.02677v1"
     },
@@ -224,7 +224,7 @@
       "title": "Eliciting ESG Preferences for Reinforcement Learning-Based Portfolio Optimization",
       "page": 6,
       "thumb": "/data/figures/2609.02677v1_p6_3.jpg",
-      "caption": "Figure 4: Elicited \u039b vectors across different PM-LLMs. The box plots are computed over 5 runs of the preference elicitation process and 5 trained RL policies (Dots show means). From top to bottom, the evaluated models are Gemma4:26B (16K context window), Gemma4:26B (131K context window) and Qwen3.6:35B (252K context window). \u2014 This figure displays three stacked box plots comparing elicited preference vectors (\u039b) across different geographical regions and elicitation strategies for three large lan",
+      "caption": "Figure 4: Elicited \u039b vectors across different PM-LLMs. The box plots are computed over 5 runs of the preference elicitation process and 5 trained RL policies (Dots show means). From top to bottom, the evaluated models are Gemma4:26B (16K context window), Gemma4:26B (131K context window) and Qwen3.6:35B (252K context window). \u2014 This figure displays three panels of box plots comparing elicited preference vectors (\u039b) across different geographical regions and elicitation strategies for three languag",
       "vision": true,
       "source": "https://arxiv.org/pdf/2609.02677v1"
     }
