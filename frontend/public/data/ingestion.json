@@ -1,7 +1,7 @@
 {
   "_note": "Public run manifest of the Tier-3 agentic ingestion pipeline. Safe aggregates + provenance only; raw PDFs live in S3, not here.",
-  "run_id": "20260907T072058Z",
-  "generated_at": "2026-09-07T07:28:19+00:00",
+  "run_id": "20260908T071543Z",
+  "generated_at": "2026-09-08T07:22:55+00:00",
   "collection": "research_corpus",
   "embed_model": "BAAI/bge-small-en-v1.5",
   "dag": [
@@ -58,8 +58,8 @@
     "tables": 3,
     "with_math": 9,
     "indexed": 485,
-    "spent_usd": 0.0335,
-    "duration_s": 440.7
+    "spent_usd": 0.0331,
+    "duration_s": 432.1
   },
   "rejects_by_reason": {
     "low-relevance": 27
@@ -71,7 +71,7 @@
       "title": "Artificial Intelligence in Equity and Crypto Markets: Progress, Profitability Evidence, and the Limits of Automated Investing",
       "page": 6,
       "thumb": "/data/figures/2609.04917v1_p6_0.jpg",
-      "caption": "Figure 1: The alpha-translation chain. Technical improvement at one stage is economically valuable only to the extent that information survives all downstream transformations. Red labels identify representative failure channels, not an exhaustive list. \u2014 This figure displays a process flow diagram illustrating the \"alpha-translation chain\" in automated investing, consisting of five sequential stages: Point-in-time information \u2192 Representation and signal \u2192 Decision, portfolio and risk \u2192 Orders, f",
+      "caption": "Figure 1: The alpha-translation chain. Technical improvement at one stage is economically valuable only to the extent that information survives all downstream transformations. Red labels identify representative failure channels, not an exhaustive list. \u2014 This figure is a flow chart diagram showing the sequential stages through which trading signals must pass to generate profitable returns. The chart depicts five main boxes connected by arrows from left to right: Point-in-time information \u2192 Repre",
       "vision": true,
       "source": "https://arxiv.org/pdf/2609.04917v1"
     },
@@ -80,7 +80,7 @@
       "title": "Artificial Intelligence in Equity and Crypto Markets: Progress, Profitability Evidence, and the Limits of Automated Investing",
       "page": 6,
       "thumb": "/data/figures/2609.04917v1_p6_1.jpg",
-      "caption": "Figure 1 shows why evidence can weaken even while components improve. Each arrow is a possible loss of validity. Revised fundamentals, delisted firms or pretraining memories can contaminate the information set. A high-R2 forecast can be concentrated in low-capacity securities. A ranker can induce excessive turnover. A target portfolio can require unavailable borrow. A correct order can be filled a \u2014 This figure illustrates the \"alpha-translation chain,\" a flow diagram showing how information pro",
+      "caption": "Figure 1 shows why evidence can weaken even while components improve. Each arrow is a possible loss of validity. Revised fundamentals, delisted firms or pretraining memories can contaminate the information set. A high-R2 forecast can be concentrated in low-capacity securities. A ranker can induce excessive turnover. A target portfolio can require unavailable borrow. A correct order can be filled a \u2014 This figure presents the \"alpha-translation chain,\" a flow diagram showing five sequential stages",
       "vision": true,
       "source": "https://arxiv.org/pdf/2609.04917v1"
     },
@@ -89,7 +89,7 @@
       "title": "Convex Modeling of Price Cross-Impact over Time",
       "page": 9,
       "thumb": "/data/figures/2609.04712v1_p9_0.jpg",
-      "caption": "Figure 1(c) illustrates that the self-impact model and the baseline [10] overprice their impact. With estimated correlation 0.96, the price impact of the long and short legs partially cancel, but \u2014 Figure 1(c) is a line plot showing trading positions over time across different models, with the x-axis representing time (days) and the y-axis representing position size. The figure displays three distinct trading trajectories: a short position in the spread ahead of the roll window, a long position ",
+      "caption": "Figure 1(c) illustrates that the self-impact model and the baseline [10] overprice their impact. With estimated correlation 0.96, the price impact of the long and short legs partially cancel, but \u2014 Figure 1(c) is a time-series line plot showing trading positions (measured in contracts) over time across three competing models for a calendar spread strategy. The x-axis represents time in business days through the roll window period, and the y-axis shows position size. The figure displays three lin",
       "vision": true,
       "source": "https://arxiv.org/pdf/2609.04712v1"
     },
@@ -98,7 +98,7 @@
       "title": "Convex Modeling of Price Cross-Impact over Time",
       "page": 10,
       "thumb": "/data/figures/2609.04712v1_p10_1.jpg",
-      "caption": "Figure 1: Index-roll positioning. (a) Averaged cumulative nearby-minus-deferred spread return by business day of month, 2004\u20132011; the shaded band is the S&P GSCI roll window. (b) Simulated daily dollar volumes of the two contracts. (c) Averaged nearby contract holding of all three models. \u2014 This figure illustrates index-roll positioning dynamics across three panels. Panel (a) shows a line chart of cumulative spread returns (nearby minus deferred) by business day of month, revealing negative ret",
+      "caption": "Figure 1: Index-roll positioning. (a) Averaged cumulative nearby-minus-deferred spread return by business day of month, 2004\u20132011; the shaded band is the S&P GSCI roll window. (b) Simulated daily dollar volumes of the two contracts. (c) Averaged nearby contract holding of all three models. \u2014 This figure consists of three line charts examining index-roll positioning and cross-impact dynamics during S&P GSCI futures roll periods. Panel (a) shows cumulative spread returns (nearby minus deferred con",
       "vision": true,
       "source": "https://arxiv.org/pdf/2609.04712v1"
     },
@@ -107,7 +107,7 @@
       "title": "Quantum Circuit Learning for Volatility Modeling: Multifractal Analysis of Realized Volatility Time Series",
       "page": 8,
       "thumb": "/data/figures/2609.04569v1_p8_0.jpg",
-      "caption": "Figure 2. (a) Return time series Rt. (b) Realized volatility time series RVt. \u2014 This figure displays two time series plots with time t on the x-axis (0 to 1000). Panel (a) shows the return series Rt as a high-frequency fluctuating line oscillating between approximately -0.5 and 0.5, exhibiting white noise-like behavior with occasional sharp spikes. Panel (b) shows the realized volatility series RVt as a lower-frequency plot with values between 0 and 0.8, displaying clustering behavior with perio",
+      "caption": "Figure 2. (a) Return time series Rt. (b) Realized volatility time series RVt. \u2014 Panel (a) shows a time series plot of returns (Rt) over 1000 time steps, displaying high-frequency fluctuations oscillating around zero with occasional spikes reaching approximately \u00b10.5. Panel (b) shows the corresponding realized volatility (RVt) time series, which is always non-negative and exhibits clustering behavior with periods of elevated volatility (reaching ~0.8) interspersed with periods of relative calm. T",
       "vision": true,
       "source": "https://arxiv.org/pdf/2609.04569v1"
     },
@@ -116,7 +116,7 @@
       "title": "Quantum Circuit Learning for Volatility Modeling: Multifractal Analysis of Realized Volatility Time Series",
       "page": 9,
       "thumb": "/data/figures/2609.04569v1_p9_1.jpg",
-      "caption": "Figure 3. Loss function during optimization by the COBYLA algorithm as a function of iteration. \u2014 This line plot displays the loss function decay during optimization of a quantum circuit learning model using the COBYLA algorithm. The x-axis shows iterations (1-12) and the y-axis shows loss function on a logarithmic scale (0.001-0.2). The loss decreases monotonically from approximately 0.2 at iteration 1 to near 0.002 by iteration 10, with convergence plateauing thereafter, demonstrating successf",
+      "caption": "Figure 3. Loss function during optimization by the COBYLA algorithm as a function of iteration. \u2014 This line chart displays the loss function convergence during quantum circuit optimization using the COBYLA algorithm, with iterations on the x-axis (1-12) and loss function value on the y-axis (0.001-0.2, log scale). The loss decreases sharply from approximately 0.2 at iteration 1 to around 0.03 by iteration 8, then plateaus near 0.003 from iterations 9-12, demonstrating successful convergence of t",
       "vision": true,
       "source": "https://arxiv.org/pdf/2609.04569v1"
     },
@@ -125,7 +125,7 @@
       "title": "Quantum Circuit Learning for Volatility Modeling: Multifractal Analysis of Realized Volatility Time Series",
       "page": 9,
       "thumb": "/data/figures/2609.04569v1_p9_2.jpg",
-      "caption": "Figure 4 compares the input series RVt with the circuit output RVt after optimization. The circuit output reproduces the broad temporal variation in the input RVt. \u2014 This is a line plot showing the loss function convergence during optimization using the COBYLA algorithm, with iterations on the x-axis (logarithmic scale from 1 to ~15) and loss function on the y-axis (logarithmic scale from 0.001 to 0.1). The loss decreases sharply from approximately 0.15 at iteration 1 to around 0.02 by iteration",
+      "caption": "Figure 4 compares the input series RVt with the circuit output RVt after optimization. The circuit output reproduces the broad temporal variation in the input RVt. \u2014 This line plot displays the loss function convergence during optimization of the COBYLA algorithm on a logarithmic y-axis scale. The x-axis represents iterations (ranging from 1 to approximately 12), while the y-axis shows loss function values on a log scale from 0.001 to 0.1. The loss decreases sharply from approximately 0.15 at it",
       "vision": true,
       "source": "https://arxiv.org/pdf/2609.04569v1"
     },
@@ -134,7 +134,7 @@
       "title": "Quantum Circuit Learning for Volatility Modeling: Multifractal Analysis of Realized Volatility Time Series",
       "page": 9,
       "thumb": "/data/figures/2609.04569v1_p9_3.jpg",
-      "caption": "Figure 4. (Black line) Empirical time series data of RVt used as input for the QCL. (Red line) QCL outputs RVt after optimization. \u2014 This line chart compares the input realized volatility (RV) time series (black line) with the quantum circuit learning (QCL) model output (red line) across approximately 900 time points. The y-axis shows RV values ranging from 0 to 0.8, and the x-axis represents time t from 0 to 900. The key takeaway is that the QCL model successfully captures and smooths the broad",
+      "caption": "Figure 4. (Black line) Empirical time series data of RVt used as input for the QCL. (Red line) QCL outputs RVt after optimization. \u2014 Figure 4 is a line chart plotting realized volatility (RV) against time (t) from 0 to 800, with the y-axis on a linear scale from 0 to 0.8. The chart compares two time series: the black line represents the input empirical realized volatility data (RVt), and the red line represents the quantum circuit learning (QCL) model output after optimization. The key takeaway ",
       "vision": true,
       "source": "https://arxiv.org/pdf/2609.04569v1"
     },
@@ -143,7 +143,7 @@
       "title": "Portfolio Diversification and Concentration under Dependence Uncertainty: A Majorization Approach",
       "page": 21,
       "thumb": "/data/figures/2609.04496v1_p21_0.jpg",
-      "caption": "Figure 1 for a full illustration. \u2014 This section presents a covariance matrix \u03a3c (equation 15) derived under worst-case comomonotonic coupling for a Wasserstein-ambiguous robust mean-standard deviation optimization problem with three assets. The 3\u00d73 matrix shows correlation structure between two normally-distributed losses and one exponentially-distributed loss with specified pairwise correlations (6.7600, 2.3400, 0.3967, 0.8100, 0.1373, 0.0400). The analysis demonstrates that the optimal portfo",
+      "caption": "Figure 1 for a full illustration. \u2014 This section presents a worst-case Sharpe Ratio (SD) analysis using a 3\u00d73 covariance matrix \u03a3_c under comotonic coupling, where two normal losses are affine in Z and a third loss is affine in exp(Z), with correlation 0.7629. The text describes a convex optimization problem that maximizes robust mean-SD by minimizing \u03bb^T m + \u03ba\u221a(\u03bb^T \u03a3_c \u03bb) over the 3-asset simplex, solved across a grid of risk-aversion parameter \u03ba values. The key finding is that different assets",
       "vision": true,
       "source": "https://arxiv.org/pdf/2609.04496v1"
     },
@@ -152,7 +152,7 @@
       "title": "Portfolio Diversification and Concentration under Dependence Uncertainty: A Majorization Approach",
       "page": 22,
       "thumb": "/data/figures/2609.04496v1_p22_1.jpg",
-      "caption": "Figure 1: Sensitivity to risk aversion. Panels (a) and (b) show the asset-specific objectives and their optimal envelope under VaR+ \u2014 This figure displays three line plots showing portfolio optimization sensitivity to risk aversion parameter \u03ba. Panel (a) plots VaR\u2080.\u2089\u2089 objectives for four assets (labeled Asset 1-4) on the y-axis against \u03ba on the x-axis, with the optimal envelope shown as a thick black line representing the best-case frontier. Panel (b) shows the same setup for RVaR\u2080.\u2081,\u2080.\u2081\u2080 (Rever",
+      "caption": "Figure 1: Sensitivity to risk aversion. Panels (a) and (b) show the asset-specific objectives and their optimal envelope under VaR+ \u2014 This figure displays three line plots showing portfolio optimization results under different risk measures as a function of risk aversion parameter \u03ba. Panel (a) plots Value-at-Risk at 99% confidence (VaR\u2080.\u2089\u2089) on the y-axis against \u03ba, showing four curves representing three individual assets and their optimal envelope, all declining as risk aversion increases. Panel",
       "vision": true,
       "source": "https://arxiv.org/pdf/2609.04496v1"
     },
@@ -161,7 +161,7 @@
       "title": "Portfolio Diversification and Concentration under Dependence Uncertainty: A Majorization Approach",
       "page": 24,
       "thumb": "/data/figures/2609.04496v1_p24_2.jpg",
-      "caption": "Figure 2: Additional sensitivity experiments. Panel (a) gives the optimal SD weights under the independent reference model. Panel (b) compares the HHI of the independent and worst-case SD allocations. Panels (c) and (d) give the identity of the optimal concentrated asset as a function of risk aversion \u03ba and the lognormal shape \u03b7, while the mean and SD of Asset 3 remain fixed. \u2014 This figure presents four panels analyzing portfolio optimization under dependence uncertainty. Panel (a) shows optimal",
+      "caption": "Figure 2: Additional sensitivity experiments. Panel (a) gives the optimal SD weights under the independent reference model. Panel (b) compares the HHI of the independent and worst-case SD allocations. Panels (c) and (d) give the identity of the optimal concentrated asset as a function of risk aversion \u03ba and the lognormal shape \u03b7, while the mean and SD of Asset 3 remain fixed. \u2014 This figure presents four sensitivity analyses for portfolio allocation under dependence uncertainty. Panel (a) shows o",
       "vision": true,
       "source": "https://arxiv.org/pdf/2609.04496v1"
     },
@@ -170,7 +170,7 @@
       "title": "Global Multi-Maturity SPX-VIX Calibration Beyond Markovian Stitching",
       "page": 7,
       "thumb": "/data/figures/2609.04087v1_p7_0.jpg",
-      "caption": "Figure 1: Block-preserving Markovization on the exact finite-tree example of Theorem 3.4. The global law and its stitched Markovization have identical adjacent calibration blocks, but the covariance Cov(V1, V2) falls from 0.040 to 0.011 and the prices of VIX-spread calls change. The discrepancy is a pure loss of cross-period information, not a feasibility difference. \u2014 This figure demonstrates the information loss in Markovianization through three panels showing a finite-tree calibration example",
+      "caption": "Figure 1: Block-preserving Markovization on the exact finite-tree example of Theorem 3.4. The global law and its stitched Markovization have identical adjacent calibration blocks, but the covariance Cov(V1, V2) falls from 0.040 to 0.011 and the prices of VIX-spread calls change. The discrepancy is a pure loss of cross-period information, not a feasibility difference. \u2014 This figure illustrates the impact of Markovization on a finite-tree example with three panels. The left panel shows global tree",
       "vision": true,
       "source": "https://arxiv.org/pdf/2609.04087v1"
     },
@@ -179,7 +179,7 @@
       "title": "Global Multi-Maturity SPX-VIX Calibration Beyond Markovian Stitching",
       "page": 14,
       "thumb": "/data/figures/2609.04087v1_p14_1.jpg",
-      "caption": "Figure 2: Shared-maturity comparison for two independently calibrated relaxed blocks on the 2026-04- 21 surfaces. The terminal SPX representation of the first block and the initial SPX representation of the second block differ by up to approximately 1.1 volatility points and by 0.3 volatility points on average over the invertible strike range at the displayed matched operating point. An exact stit \u2014 This line chart compares SPX implied volatility across moneyness (K/F_T) for two independently ca",
+      "caption": "Figure 2: Shared-maturity comparison for two independently calibrated relaxed blocks on the 2026-04- 21 surfaces. The terminal SPX representation of the first block and the initial SPX representation of the second block differ by up to approximately 1.1 volatility points and by 0.3 volatility points on average over the invertible strike range at the displayed matched operating point. An exact stit \u2014 This line chart displays SPX implied volatility (vp) on the y-axis versus moneyness (K/F_T) on th",
       "vision": true,
       "source": "https://arxiv.org/pdf/2609.04087v1"
     },
@@ -188,7 +188,7 @@
       "title": "Global Multi-Maturity SPX-VIX Calibration Beyond Markovian Stitching",
       "page": 16,
       "thumb": "/data/figures/2609.04087v1_p16_2.jpg",
-      "caption": "Figure 3: Finite-budget penalty path on the 2026-04-21 five-surface inputs. The plot displays the worst fitted-smile error and the thresholded bulk conditional statistics against \u03bb. The selected \u03bb = 104 point balances the reported diagnostics within the tested schedule; local reversals preclude interpreting the curve as a monotone convergence path. \u2014 This figure presents a multi-metric analysis of a finite-budget penalty path across conditional hardness \u03bb values (0.1 to 10,000) on a log scale. T",
+      "caption": "Figure 3: Finite-budget penalty path on the 2026-04-21 five-surface inputs. The plot displays the worst fitted-smile error and the thresholded bulk conditional statistics against \u03bb. The selected \u03bb = 104 point balances the reported diagnostics within the tested schedule; local reversals preclude interpreting the curve as a monotone convergence path. \u2014 This line chart displays calibration diagnostics for volatility surface fitting across conditional hardness parameter \u03bb on a logarithmic x-axis. Th",
       "vision": true,
       "source": "https://arxiv.org/pdf/2609.04087v1"
     },
@@ -197,7 +197,7 @@
       "title": "Global Multi-Maturity SPX-VIX Calibration Beyond Markovian Stitching",
       "page": 16,
       "thumb": "/data/figures/2609.04087v1_p16_3.jpg",
-      "caption": "Figure 4: Five fitted implied-volatility smiles at the representative \u03bb = 104 operating point. The worst reported error over the selected strikes is 0.55 volatility points, with thresholded bulk statistics (\u03b5disp, \u03b5mart) = (6.3 \u00d7 10\u22122, 7.6 \u00d7 10\u22124). The statistic describes the aligned five-axis approximation and the retained conditioning cells specified in Section 7.1. \u2014 The top panel is a log-log line plot showing three metrics against conditional hardness \u03bb: worst-surface IV error (orange squar",
+      "caption": "Figure 4: Five fitted implied-volatility smiles at the representative \u03bb = 104 operating point. The worst reported error over the selected strikes is 0.55 volatility points, with thresholded bulk statistics (\u03b5disp, \u03b5mart) = (6.3 \u00d7 10\u22122, 7.6 \u00d7 10\u22124). The statistic describes the aligned five-axis approximation and the retained conditioning cells specified in Section 7.1. \u2014 Figure 3 is a multi-axis line plot showing the finite-budget penalty path for five-surface inputs on 2026-04-21, with condition",
       "vision": true,
       "source": "https://arxiv.org/pdf/2609.04087v1"
     },
@@ -206,7 +206,7 @@
       "title": "Bayesian Confidence Recalibration and Research-Equilibrium Criticality: Temporal Support in Robust Portfolios",
       "page": 20,
       "thumb": "/data/figures/2609.03741v1_p20_0.jpg",
-      "caption": "Figure 1: Protocol-specific validation timing and financial materiality. \u2014 The left panel shows a line chart comparing two metrics against normalized deadline d = t/\u03b4t on the x-axis (0 to 0.06): VaR (Value at Risk) measured in basis points increases nearly linearly from ~1 to ~5 bps for the solid orange line, while the dashed blue line remains relatively flat around 1 bp. The right panel displays a semi-log chart with normalized deadline on the x-axis (0 to 0.05) and financial materiality on the",
+      "caption": "Figure 1: Protocol-specific validation timing and financial materiality. \u2014 The left panel is a line plot showing expected loss (y-axis) versus normalized deadline d = \u221a\u0394t (x-axis), comparing two scenarios: \"Model f (d = -0.6088)\" showing linear growth and \"Simulated (\u03c3 = 0.12421)\" showing flatter behavior. The right panel is a line plot with log-linear axes displaying model likelihood (y-axis, log scale) versus normalized deadline d = \u221a\u0394t (x-axis), with two curves labeled \"Form Y\" and \"Simulated",
       "vision": true,
       "source": "https://arxiv.org/pdf/2609.03741v1"
     },
@@ -215,7 +215,7 @@
       "title": "An Entropic Factor Model for Robust Portfolio Replication",
       "page": 20,
       "thumb": "/data/figures/2609.03552v1_p20_0.jpg",
-      "caption": "Figure 1: Replication performace (cummulative return) of OLS vs EFM vs SPY for portfolio of 20 representative assets (Experiment 1) \u2014 This figure shows three line charts comparing replication performance of three methods (OLS, EFM, and SP500 index) from April 2021 to December 2023. The top panel displays cumulative returns, with the EFM (red) and OLS (blue) trackers closely tracking each other and outperforming the SP500 index (black), particularly during the 2022 downturn. The middle panel show",
+      "caption": "Figure 1: Replication performace (cummulative return) of OLS vs EFM vs SPY for portfolio of 20 representative assets (Experiment 1) \u2014 This figure presents a three-panel time series comparison of portfolio replication strategies from April 2021 to December 2023. The top panel shows cumulative returns for three methods\u2014OLS Tracker (red), EFM Tracker (blue), and SP500 Index (black)\u2014with EFM and OLS substantially outperforming the S&P 500 benchmark, particularly from mid-2022 onward. The middle pane",
       "vision": true,
       "source": "https://arxiv.org/pdf/2609.03552v1"
     },
@@ -224,7 +224,7 @@
       "title": "The Analyst in the Prompt: Role, Retrieval, and Memory Biases in LLM Financial Analysis",
       "page": 2,
       "thumb": "/data/figures/2609.03218v1_p2_0.jpg",
-      "caption": "Figure 1: Three audit conditions on one Coca-Cola filing. The model emits two scores in [\u22121, +1]: the EvidenceScore, a neutral reading of the retrieved evidence that should be invariant to user context (negative = bearish, positive = bullish), and the PersonalizedScore, which is allowed to adapt to the user. PR: the persona affects retrieval and interpretation, so personas may read different chunk \u2014 This figure demonstrates three experimental conditions testing how large language models analyze ",
+      "caption": "Figure 1: Three audit conditions on one Coca-Cola filing. The model emits two scores in [\u22121, +1]: the EvidenceScore, a neutral reading of the retrieved evidence that should be invariant to user context (negative = bearish, positive = bullish), and the PersonalizedScore, which is allowed to adapt to the user. PR: the persona affects retrieval and interpretation, so personas may read different chunk \u2014 This figure presents a controlled audit experiment showing how large language models produce diff",
       "vision": true,
       "source": "https://arxiv.org/pdf/2609.03218v1"
     }
