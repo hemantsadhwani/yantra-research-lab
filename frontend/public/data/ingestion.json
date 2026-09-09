@@ -1,7 +1,7 @@
 {
   "_note": "Public run manifest of the Tier-3 agentic ingestion pipeline. Safe aggregates + provenance only; raw PDFs live in S3, not here.",
-  "run_id": "20260908T071543Z",
-  "generated_at": "2026-09-08T07:22:55+00:00",
+  "run_id": "20260909T072414Z",
+  "generated_at": "2026-09-09T07:30:57+00:00",
   "collection": "research_corpus",
   "embed_model": "BAAI/bge-small-en-v1.5",
   "dag": [
@@ -50,305 +50,305 @@
     "discovered": 10,
     "fetched": 10,
     "parsed": 10,
-    "chunks": 512,
-    "accepted": 485,
-    "rejected": 27,
-    "images": 17,
+    "chunks": 457,
+    "accepted": 422,
+    "rejected": 35,
+    "images": 14,
     "figures_captioned": 18,
-    "tables": 3,
-    "with_math": 9,
-    "indexed": 485,
-    "spent_usd": 0.0331,
-    "duration_s": 432.1
+    "tables": 0,
+    "with_math": 10,
+    "indexed": 422,
+    "spent_usd": 0.0332,
+    "duration_s": 402.3
   },
   "rejects_by_reason": {
-    "low-relevance": 27
+    "low-relevance": 35
   },
   "budget_usd": 3.0,
   "figures": [
     {
-      "doc_id": "2609.04917v1",
-      "title": "Artificial Intelligence in Equity and Crypto Markets: Progress, Profitability Evidence, and the Limits of Automated Investing",
-      "page": 6,
-      "thumb": "/data/figures/2609.04917v1_p6_0.jpg",
-      "caption": "Figure 1: The alpha-translation chain. Technical improvement at one stage is economically valuable only to the extent that information survives all downstream transformations. Red labels identify representative failure channels, not an exhaustive list. \u2014 This figure is a flow chart diagram showing the sequential stages through which trading signals must pass to generate profitable returns. The chart depicts five main boxes connected by arrows from left to right: Point-in-time information \u2192 Repre",
+      "doc_id": "2609.08959v1",
+      "title": "The Delta of a Variance Swap",
+      "page": 11,
+      "thumb": "/data/figures/2609.08959v1_p11_0.jpg",
+      "caption": "Figure 2. Plot of V \u02dapFq using the SVI volatility calibrated to the SPX smile of August 20, 2025 (T \u201c 1 month, September 19, 2025 expiry). \u2014 This line plot shows the delta of a variance swap as a function of the forward price F, with the y-axis displaying V'(F) ranging from 0.0258 to 0.0268 and the x-axis showing forward prices from 5500 to 7500. The curve is nearly flat across the entire range, indicating that the variance swap delta remains approximately constant at 0.02263 regardless of the f",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2609.04917v1"
+      "source": "https://arxiv.org/pdf/2609.08959v1"
     },
     {
-      "doc_id": "2609.04917v1",
-      "title": "Artificial Intelligence in Equity and Crypto Markets: Progress, Profitability Evidence, and the Limits of Automated Investing",
-      "page": 6,
-      "thumb": "/data/figures/2609.04917v1_p6_1.jpg",
-      "caption": "Figure 1 shows why evidence can weaken even while components improve. Each arrow is a possible loss of validity. Revised fundamentals, delisted firms or pretraining memories can contaminate the information set. A high-R2 forecast can be concentrated in low-capacity securities. A ranker can induce excessive turnover. A target portfolio can require unavailable borrow. A correct order can be filled a \u2014 This figure presents the \"alpha-translation chain,\" a flow diagram showing five sequential stages",
+      "doc_id": "2609.08959v1",
+      "title": "The Delta of a Variance Swap",
+      "page": 12,
+      "thumb": "/data/figures/2609.08959v1_p12_1.jpg",
+      "caption": "Figure 3. Regression of S&P 500 daily returns (x axis) vs variance swap returns (y axis) for various maturities during the period from 2008 to 2025 \u2014 This figure displays eight scatter plots with linear regression lines showing the relationship between S&P 500 daily returns (x-axis) and variance swap returns (y-axis) across maturities ranging from 3 to 24 months. Each panel reports the slope (\u03bb) and R-squared value, with \u03bb becoming less negative and R\u00b2 values ranging from 0.461 to 0.575 as matur",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2609.04917v1"
+      "source": "https://arxiv.org/pdf/2609.08959v1"
     },
     {
-      "doc_id": "2609.04712v1",
-      "title": "Convex Modeling of Price Cross-Impact over Time",
-      "page": 9,
-      "thumb": "/data/figures/2609.04712v1_p9_0.jpg",
-      "caption": "Figure 1(c) illustrates that the self-impact model and the baseline [10] overprice their impact. With estimated correlation 0.96, the price impact of the long and short legs partially cancel, but \u2014 Figure 1(c) is a time-series line plot showing trading positions (measured in contracts) over time across three competing models for a calendar spread strategy. The x-axis represents time in business days through the roll window period, and the y-axis shows position size. The figure displays three lin",
+      "doc_id": "2609.08959v1",
+      "title": "The Delta of a Variance Swap",
+      "page": 13,
+      "thumb": "/data/figures/2609.08959v1_p13_2.jpg",
+      "caption": "Figure 4. Elasticity of variance swap rate \u03bb at different maturities (2008\u20132025). \u2014 This line plot displays the elasticity of variance swap rate (\u03b7/\u221aT) across different maturity times from 0 to 2 years. The chart compares classical least-squares curve estimates (blue smooth curve) against \u03bb estimate data points (red dots), showing how elasticity decreases sharply at short maturities and gradually flattens as maturity increases. The key takeaway is that the estimated \u03b7 parameter of approximately ",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2609.04712v1"
+      "source": "https://arxiv.org/pdf/2609.08959v1"
     },
     {
-      "doc_id": "2609.04712v1",
-      "title": "Convex Modeling of Price Cross-Impact over Time",
-      "page": 10,
-      "thumb": "/data/figures/2609.04712v1_p10_1.jpg",
-      "caption": "Figure 1: Index-roll positioning. (a) Averaged cumulative nearby-minus-deferred spread return by business day of month, 2004\u20132011; the shaded band is the S&P GSCI roll window. (b) Simulated daily dollar volumes of the two contracts. (c) Averaged nearby contract holding of all three models. \u2014 This figure consists of three line charts examining index-roll positioning and cross-impact dynamics during S&P GSCI futures roll periods. Panel (a) shows cumulative spread returns (nearby minus deferred con",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.04712v1"
-    },
-    {
-      "doc_id": "2609.04569v1",
-      "title": "Quantum Circuit Learning for Volatility Modeling: Multifractal Analysis of Realized Volatility Time Series",
-      "page": 8,
-      "thumb": "/data/figures/2609.04569v1_p8_0.jpg",
-      "caption": "Figure 2. (a) Return time series Rt. (b) Realized volatility time series RVt. \u2014 Panel (a) shows a time series plot of returns (Rt) over 1000 time steps, displaying high-frequency fluctuations oscillating around zero with occasional spikes reaching approximately \u00b10.5. Panel (b) shows the corresponding realized volatility (RVt) time series, which is always non-negative and exhibits clustering behavior with periods of elevated volatility (reaching ~0.8) interspersed with periods of relative calm. T",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.04569v1"
-    },
-    {
-      "doc_id": "2609.04569v1",
-      "title": "Quantum Circuit Learning for Volatility Modeling: Multifractal Analysis of Realized Volatility Time Series",
-      "page": 9,
-      "thumb": "/data/figures/2609.04569v1_p9_1.jpg",
-      "caption": "Figure 3. Loss function during optimization by the COBYLA algorithm as a function of iteration. \u2014 This line chart displays the loss function convergence during quantum circuit optimization using the COBYLA algorithm, with iterations on the x-axis (1-12) and loss function value on the y-axis (0.001-0.2, log scale). The loss decreases sharply from approximately 0.2 at iteration 1 to around 0.03 by iteration 8, then plateaus near 0.003 from iterations 9-12, demonstrating successful convergence of t",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.04569v1"
-    },
-    {
-      "doc_id": "2609.04569v1",
-      "title": "Quantum Circuit Learning for Volatility Modeling: Multifractal Analysis of Realized Volatility Time Series",
-      "page": 9,
-      "thumb": "/data/figures/2609.04569v1_p9_2.jpg",
-      "caption": "Figure 4 compares the input series RVt with the circuit output RVt after optimization. The circuit output reproduces the broad temporal variation in the input RVt. \u2014 This line plot displays the loss function convergence during optimization of the COBYLA algorithm on a logarithmic y-axis scale. The x-axis represents iterations (ranging from 1 to approximately 12), while the y-axis shows loss function values on a log scale from 0.001 to 0.1. The loss decreases sharply from approximately 0.15 at it",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.04569v1"
-    },
-    {
-      "doc_id": "2609.04569v1",
-      "title": "Quantum Circuit Learning for Volatility Modeling: Multifractal Analysis of Realized Volatility Time Series",
-      "page": 9,
-      "thumb": "/data/figures/2609.04569v1_p9_3.jpg",
-      "caption": "Figure 4. (Black line) Empirical time series data of RVt used as input for the QCL. (Red line) QCL outputs RVt after optimization. \u2014 Figure 4 is a line chart plotting realized volatility (RV) against time (t) from 0 to 800, with the y-axis on a linear scale from 0 to 0.8. The chart compares two time series: the black line represents the input empirical realized volatility data (RVt), and the red line represents the quantum circuit learning (QCL) model output after optimization. The key takeaway ",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.04569v1"
-    },
-    {
-      "doc_id": "2609.04496v1",
-      "title": "Portfolio Diversification and Concentration under Dependence Uncertainty: A Majorization Approach",
-      "page": 21,
-      "thumb": "/data/figures/2609.04496v1_p21_0.jpg",
-      "caption": "Figure 1 for a full illustration. \u2014 This section presents a worst-case Sharpe Ratio (SD) analysis using a 3\u00d73 covariance matrix \u03a3_c under comotonic coupling, where two normal losses are affine in Z and a third loss is affine in exp(Z), with correlation 0.7629. The text describes a convex optimization problem that maximizes robust mean-SD by minimizing \u03bb^T m + \u03ba\u221a(\u03bb^T \u03a3_c \u03bb) over the 3-asset simplex, solved across a grid of risk-aversion parameter \u03ba values. The key finding is that different assets",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.04496v1"
-    },
-    {
-      "doc_id": "2609.04496v1",
-      "title": "Portfolio Diversification and Concentration under Dependence Uncertainty: A Majorization Approach",
-      "page": 22,
-      "thumb": "/data/figures/2609.04496v1_p22_1.jpg",
-      "caption": "Figure 1: Sensitivity to risk aversion. Panels (a) and (b) show the asset-specific objectives and their optimal envelope under VaR+ \u2014 This figure displays three line plots showing portfolio optimization results under different risk measures as a function of risk aversion parameter \u03ba. Panel (a) plots Value-at-Risk at 99% confidence (VaR\u2080.\u2089\u2089) on the y-axis against \u03ba, showing four curves representing three individual assets and their optimal envelope, all declining as risk aversion increases. Panel",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.04496v1"
-    },
-    {
-      "doc_id": "2609.04496v1",
-      "title": "Portfolio Diversification and Concentration under Dependence Uncertainty: A Majorization Approach",
-      "page": 24,
-      "thumb": "/data/figures/2609.04496v1_p24_2.jpg",
-      "caption": "Figure 2: Additional sensitivity experiments. Panel (a) gives the optimal SD weights under the independent reference model. Panel (b) compares the HHI of the independent and worst-case SD allocations. Panels (c) and (d) give the identity of the optimal concentrated asset as a function of risk aversion \u03ba and the lognormal shape \u03b7, while the mean and SD of Asset 3 remain fixed. \u2014 This figure presents four sensitivity analyses for portfolio allocation under dependence uncertainty. Panel (a) shows o",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.04496v1"
-    },
-    {
-      "doc_id": "2609.04087v1",
-      "title": "Global Multi-Maturity SPX-VIX Calibration Beyond Markovian Stitching",
-      "page": 7,
-      "thumb": "/data/figures/2609.04087v1_p7_0.jpg",
-      "caption": "Figure 1: Block-preserving Markovization on the exact finite-tree example of Theorem 3.4. The global law and its stitched Markovization have identical adjacent calibration blocks, but the covariance Cov(V1, V2) falls from 0.040 to 0.011 and the prices of VIX-spread calls change. The discrepancy is a pure loss of cross-period information, not a feasibility difference. \u2014 This figure illustrates the impact of Markovization on a finite-tree example with three panels. The left panel shows global tree",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.04087v1"
-    },
-    {
-      "doc_id": "2609.04087v1",
-      "title": "Global Multi-Maturity SPX-VIX Calibration Beyond Markovian Stitching",
+      "doc_id": "2609.08959v1",
+      "title": "The Delta of a Variance Swap",
       "page": 14,
-      "thumb": "/data/figures/2609.04087v1_p14_1.jpg",
-      "caption": "Figure 2: Shared-maturity comparison for two independently calibrated relaxed blocks on the 2026-04- 21 surfaces. The terminal SPX representation of the first block and the initial SPX representation of the second block differ by up to approximately 1.1 volatility points and by 0.3 volatility points on average over the invertible strike range at the displayed matched operating point. An exact stit \u2014 This line chart displays SPX implied volatility (vp) on the y-axis versus moneyness (K/F_T) on th",
+      "thumb": "/data/figures/2609.08959v1_p14_3.jpg",
+      "caption": "Figure 5. Elasticity of variance swap rate \u03bb at different maturities (2022\u20132025). \u2014 This line graph displays the elasticity of variance swap rate (\u03bb) across different maturities ranging from 0 to 2 years. The y-axis shows values ranging from 0 to -8, while the x-axis represents maturity time in years. The plot contains two elements: blue line points connected by a curve showing the \u03b7/\u221aT theoretical relationship, and red diamond points representing the \u03bb estimate. The key finding is that elastici",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2609.04087v1"
+      "source": "https://arxiv.org/pdf/2609.08959v1"
     },
     {
-      "doc_id": "2609.04087v1",
-      "title": "Global Multi-Maturity SPX-VIX Calibration Beyond Markovian Stitching",
-      "page": 16,
-      "thumb": "/data/figures/2609.04087v1_p16_2.jpg",
-      "caption": "Figure 3: Finite-budget penalty path on the 2026-04-21 five-surface inputs. The plot displays the worst fitted-smile error and the thresholded bulk conditional statistics against \u03bb. The selected \u03bb = 104 point balances the reported diagnostics within the tested schedule; local reversals preclude interpreting the curve as a monotone convergence path. \u2014 This line chart displays calibration diagnostics for volatility surface fitting across conditional hardness parameter \u03bb on a logarithmic x-axis. Th",
+      "doc_id": "2609.08881v1",
+      "title": "The Double-Edged Sword of Short-Selling Bans",
+      "page": 14,
+      "thumb": "/data/figures/2609.08881v1_p14_0.jpg",
+      "caption": "Figure 1 displays the relationship between K (an increasing function of c) and the probability that the equilibrium price falls below the price threshold c under different scenarios using \u03b1 = 0.5, p = 0.5, g = 0.9, hN = 0.3, and hI = 0.2 (so that h2 \u2014 This figure displays a line plot showing the relationship between the parameter K (an increasing function of the price threshold c) on the horizontal axis and the probability P(q\u0304 < c) on the vertical axis, illustrating how short-selling bans affec",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2609.04087v1"
+      "source": "https://arxiv.org/pdf/2609.08881v1"
     },
     {
-      "doc_id": "2609.04087v1",
-      "title": "Global Multi-Maturity SPX-VIX Calibration Beyond Markovian Stitching",
-      "page": 16,
-      "thumb": "/data/figures/2609.04087v1_p16_3.jpg",
-      "caption": "Figure 4: Five fitted implied-volatility smiles at the representative \u03bb = 104 operating point. The worst reported error over the selected strikes is 0.55 volatility points, with thresholded bulk statistics (\u03b5disp, \u03b5mart) = (6.3 \u00d7 10\u22122, 7.6 \u00d7 10\u22124). The statistic describes the aligned five-axis approximation and the retained conditioning cells specified in Section 7.1. \u2014 Figure 3 is a multi-axis line plot showing the finite-budget penalty path for five-surface inputs on 2026-04-21, with condition",
+      "doc_id": "2609.08881v1",
+      "title": "The Double-Edged Sword of Short-Selling Bans",
+      "page": 15,
+      "thumb": "/data/figures/2609.08881v1_p15_1.jpg",
+      "caption": "Figure 1 about here \u2014 I can see text describing the product of h_I and h_I/h_N, explaining that the former affects the conditional likelihood of a sell order while the latter impacts the probability that the bid price is low. However, I cannot locate Figure 1 in the provided image. The image only shows a text excerpt from the paper \"The Double-Edged Sword of Short-Selling Bans\" without the actual figure displayed. To provide an accurate caption for Figure 1, I would need the visual content of th",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2609.04087v1"
+      "source": "https://arxiv.org/pdf/2609.08881v1"
     },
     {
-      "doc_id": "2609.03741v1",
-      "title": "Bayesian Confidence Recalibration and Research-Equilibrium Criticality: Temporal Support in Robust Portfolios",
-      "page": 20,
-      "thumb": "/data/figures/2609.03741v1_p20_0.jpg",
-      "caption": "Figure 1: Protocol-specific validation timing and financial materiality. \u2014 The left panel is a line plot showing expected loss (y-axis) versus normalized deadline d = \u221a\u0394t (x-axis), comparing two scenarios: \"Model f (d = -0.6088)\" showing linear growth and \"Simulated (\u03c3 = 0.12421)\" showing flatter behavior. The right panel is a line plot with log-linear axes displaying model likelihood (y-axis, log scale) versus normalized deadline d = \u221a\u0394t (x-axis), with two curves labeled \"Form Y\" and \"Simulated",
+      "doc_id": "2609.08881v1",
+      "title": "The Double-Edged Sword of Short-Selling Bans",
+      "page": 22,
+      "thumb": "/data/figures/2609.08881v1_p22_2.jpg",
+      "caption": "Figure 2 about here \u2014 Figure 2 is a bar chart comparing average bid-ask spreads between pre-ban and post-ban periods, with separate groupings for countries with short-selling restrictions and countries without restrictions. The vertical axis shows bid-ask spread percentages while the horizontal axis distinguishes between the two periods and regulatory regimes. The figure documents a substantial widening of bid-ask spreads following short-selling bans, with spreads increasing by more than 50% in ",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2609.03741v1"
+      "source": "https://arxiv.org/pdf/2609.08881v1"
     },
     {
-      "doc_id": "2609.03552v1",
-      "title": "An Entropic Factor Model for Robust Portfolio Replication",
-      "page": 20,
-      "thumb": "/data/figures/2609.03552v1_p20_0.jpg",
-      "caption": "Figure 1: Replication performace (cummulative return) of OLS vs EFM vs SPY for portfolio of 20 representative assets (Experiment 1) \u2014 This figure presents a three-panel time series comparison of portfolio replication strategies from April 2021 to December 2023. The top panel shows cumulative returns for three methods\u2014OLS Tracker (red), EFM Tracker (blue), and SP500 Index (black)\u2014with EFM and OLS substantially outperforming the S&P 500 benchmark, particularly from mid-2022 onward. The middle pane",
+      "doc_id": "2609.08881v1",
+      "title": "The Double-Edged Sword of Short-Selling Bans",
+      "page": 22,
+      "thumb": "/data/figures/2609.08881v1_p22_3.jpg",
+      "caption": "Figure 3 about here \u2014 I can see this is a section heading and introductory text from a research paper, but there is no figure visible in the image provided. The text references \"Figure 3 about here\" as a placeholder, indicating a figure should appear at this location, but the actual figure content is not displayed. To provide an accurate caption describing the figure's chart type, axes, variables, and key takeaway, I would need the actual figure image.",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2609.03552v1"
+      "source": "https://arxiv.org/pdf/2609.08881v1"
     },
     {
-      "doc_id": "2609.03218v1",
-      "title": "The Analyst in the Prompt: Role, Retrieval, and Memory Biases in LLM Financial Analysis",
-      "page": 2,
-      "thumb": "/data/figures/2609.03218v1_p2_0.jpg",
-      "caption": "Figure 1: Three audit conditions on one Coca-Cola filing. The model emits two scores in [\u22121, +1]: the EvidenceScore, a neutral reading of the retrieved evidence that should be invariant to user context (negative = bearish, positive = bullish), and the PersonalizedScore, which is allowed to adapt to the user. PR: the persona affects retrieval and interpretation, so personas may read different chunk \u2014 This figure presents a controlled audit experiment showing how large language models produce diff",
+      "doc_id": "2609.08581v1",
+      "title": "AlphaRJM: Reward-Jump Memory for Stochastic Return-Guided Alpha Discovery",
+      "page": 7,
+      "thumb": "/data/figures/2609.08581v1_p7_0.jpg",
+      "caption": "Figure 1 provides a complementary view on CSI500. AlphaRJM maintains the strongest cumulative- wealth trajectory for most of the 2022\u20132024 test period and recovers strongly after major market de- \u2014 This table presents Information Coefficient (IC) and Rank Information Coefficient (RIC) performance metrics comparing AlphaRJM against baseline methods (MLP, LightGBM, Neural ODE, Neural SDE, AlphaCon, AlphaQCM, AlphaSAGE) on CSI300 and CSI500 stock indices for a 42-day forecasting horizon. The table ",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2609.03218v1"
+      "source": "https://arxiv.org/pdf/2609.08581v1"
+    },
+    {
+      "doc_id": "2609.08581v1",
+      "title": "AlphaRJM: Reward-Jump Memory for Stochastic Return-Guided Alpha Discovery",
+      "page": 8,
+      "thumb": "/data/figures/2609.08581v1_p8_1.jpg",
+      "caption": "Figure 1: Cumulative wealth curves on CSI500 over the test period, averaged across random seeds 0\u20133. \u2014 This line chart displays cumulative wealth curves for the CSI500 index from January 2022 to January 2025, comparing multiple machine learning approaches including MLP, LightGBM, Neural ODE, Neural SDE, AlphaGen, AlphaGCM, AlphaJRM, and the baseline CSI500 index. The y-axis shows cumulative returns (ranging from 0.6 to 1.2), and the x-axis represents time in monthly intervals. The key takeaway i",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.08581v1"
+    },
+    {
+      "doc_id": "2609.08581v1",
+      "title": "AlphaRJM: Reward-Jump Memory for Stochastic Return-Guided Alpha Discovery",
+      "page": 8,
+      "thumb": "/data/figures/2609.08581v1_p8_2.jpg",
+      "caption": "Figure 4 in Appendix E.3 shows that this advantage also extends to cumulative wealth on CSI500: AlphaRJM maintains a clear lead for much of the test period and reaches the highest cumulative- wealth level during the late-2024 recovery. These results suggest that its predictive effectiveness is not limited to the standard forecasting horizon. \u2014 This line chart displays cumulative wealth curves on the CSI500 index from January 2022 to January 2025, comparing multiple machine learning strategies (M",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.08581v1"
+    },
+    {
+      "doc_id": "2609.08581v1",
+      "title": "AlphaRJM: Reward-Jump Memory for Stochastic Return-Guided Alpha Discovery",
+      "page": 9,
+      "thumb": "/data/figures/2609.08581v1_p9_3.jpg",
+      "caption": "Figure 2: Sensitivity analysis of AlphaRJM on CSI300 with respect to the number of SDE particles, number of SDE integration steps, energy-distance (CRPS-style) loss weight \u03bbED, and maximum diffusion scale \u03c3max. The figure reports IC, RIC, ICIR, and RICIR, with the dotted vertical lines indicating the default configurations. \u2014 This figure shows four line plots displaying sensitivity analysis of the AlphaRJM model across different hyperparameters on the CSI300 dataset. Each subplot examines how fo",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.08581v1"
+    },
+    {
+      "doc_id": "2609.08541v1",
+      "title": "Variance-Optimal Hedging in the Rough Hawkes--Heston Model",
+      "page": 24,
+      "thumb": "/data/figures/2609.08541v1_p24_0.jpg",
+      "caption": "Figure 1 summarizes the proof-level diagnostics, the fixed-cutoff convergence, and the call di- agonal together. \u2014 This table presents numerical convergence results for Fourier diagonal approximation methods in the rough Hawkes-Heston model, with columns for cutoff parameter (\u03b5/T), truncation level (R), capital component, strategy component, and their combined distance (\u0394\u03b5,R) to an unshifted-kernel benchmark at R=80. The data shows five refinement steps where both the capital and strategy compon",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.08541v1"
+    },
+    {
+      "doc_id": "2609.08541v1",
+      "title": "Variance-Optimal Hedging in the Rough Hawkes--Heston Model",
+      "page": 24,
+      "thumb": "/data/figures/2609.08541v1_p24_1.jpg",
+      "caption": "Figure 1: Original-market kernel regularization. Left: deterministic Riccati and pathwise memory diagnostics at R = 20. Middle: the strategy and gain distances at the same fixed cutoff; the shaded band is a pointwise 95% Monte Carlo interval for the strategy distance. Right: capital, strategy, and total squared-distance components relative to the numerical benchmark along the Fourier diagonal. \u2014 This figure presents three log-scale plots analyzing kernel regularization in the rough Hawkes-Heston",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.08541v1"
+    },
+    {
+      "doc_id": "2609.08106v1",
+      "title": "Nystr\u00f6m Attention Matches Full Attention for Cross-Sectional Stock Prediction",
+      "page": 5,
+      "thumb": "/data/figures/2609.08106v1_p5_0.jpg",
+      "caption": "Figure 1: Time-averaged attention matrix (centered at 1/N). Blue = below-average, red = above- average. Stocks sorted by Shenwan L1 industry; no block-diagonal structure. The matrix shows 433 unique stocks appearing across test days; on any given day \u223c300 are active. \u2014 This heatmap visualizes the MASTER inter-stock attention matrix averaged over time, with stocks sorted by ShenWan L1 industry classification on both axes. The color scale (blue to yellow) represents attention weights (0.0000 to 0.",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.08106v1"
+    },
+    {
+      "doc_id": "2609.08106v1",
+      "title": "Nystr\u00f6m Attention Matches Full Attention for Cross-Sectional Stock Prediction",
+      "page": 6,
+      "thumb": "/data/figures/2609.08106v1_p6_1.jpg",
+      "caption": "Figure 2: Left: Pairwise attention weight vs. return correlation (\u03c1 = \u22120.614; n = 73,910 pairs). Right: Centered cosine similarity vs. lag; full decorrelation in \u223c20 trading days. \u2014 This figure presents two panels analyzing attention patterns and return correlations in stock prediction. The left panel is a scatter plot showing the relationship between pairwise attention weights (x-axis) and return correlations over past periods (y-axis) across 73,910 stock pairs, revealing a weak negative correl",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.08106v1"
+    },
+    {
+      "doc_id": "2609.08106v1",
+      "title": "Nystr\u00f6m Attention Matches Full Attention for Cross-Sectional Stock Prediction",
+      "page": 8,
+      "thumb": "/data/figures/2609.08106v1_p8_2.jpg",
+      "caption": "Figure 3: Nystr\u00a8om performance vs. landmark count m (CSI300, 5 seeds each, \u00b11 std). Peak at m = 32; non-monotonic profile reflects bias-variance trade-off in pseudo-inverse computation. \u2014 This line plot compares Nystr\u00f6m attention performance against landmark count m on the CSI300 dataset, with two metrics shown: IC (Information Coefficient) in blue and RankIC in orange, each plotted as mean \u00b1 standard deviation across 5 seeds. The x-axis ranges from landmark counts of 10 to 120, while the y-axis",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.08106v1"
+    },
+    {
+      "doc_id": "2609.08106v1",
+      "title": "Nystr\u00f6m Attention Matches Full Attention for Cross-Sectional Stock Prediction",
+      "page": 11,
+      "thumb": "/data/figures/2609.08106v1_p11_3.jpg",
+      "caption": "Figure 4: Forward-pass latency and memory vs. N on a Tesla T4 (16 GB), extended to N = 12,000. Full attention OOMs at N = 12,000; Nystr\u00a8om scales linearly and uses 974 MB there. Latency crossover at N\u2217\u22481,300. \u2014 This figure compares forward-pass latency (left panel) and peak GPU memory (right panel) between full attention and Nystr\u00f6m attention as a function of universe size N on a Tesla T4 GPU with 16 GB memory. Both line charts plot N from 0 to 12,000 on the x-axis, with latency in milliseconds ",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.08106v1"
     }
   ],
   "docs": [
     {
-      "id": "2609.05047v1",
-      "title": "Gatheral's Conjecture Revisited",
-      "source": "https://arxiv.org/pdf/2609.05047v1",
-      "pages": 30,
-      "images": 0,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 47
-    },
-    {
-      "id": "2609.04917v1",
-      "title": "Artificial Intelligence in Equity and Crypto Markets: Progress, Profitability Evidence, and the Limits of Automated Investing",
-      "source": "https://arxiv.org/pdf/2609.04917v1",
-      "pages": 32,
-      "images": 0,
-      "figures_captioned": 2,
-      "tables": 0,
-      "has_math": false,
-      "ocr_used": false,
-      "chunks_indexed": 50
-    },
-    {
-      "id": "2609.04712v1",
-      "title": "Convex Modeling of Price Cross-Impact over Time",
-      "source": "https://arxiv.org/pdf/2609.04712v1",
-      "pages": 14,
-      "images": 0,
-      "figures_captioned": 2,
-      "tables": 2,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 28
-    },
-    {
-      "id": "2609.04569v1",
-      "title": "Quantum Circuit Learning for Volatility Modeling: Multifractal Analysis of Realized Volatility Time Series",
-      "source": "https://arxiv.org/pdf/2609.04569v1",
-      "pages": 27,
+      "id": "2609.08959v1",
+      "title": "The Delta of a Variance Swap",
+      "source": "https://arxiv.org/pdf/2609.08959v1",
+      "pages": 22,
       "images": 0,
       "figures_captioned": 4,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 47
+      "chunks_indexed": 43
     },
     {
-      "id": "2609.04496v1",
-      "title": "Portfolio Diversification and Concentration under Dependence Uncertainty: A Majorization Approach",
-      "source": "https://arxiv.org/pdf/2609.04496v1",
-      "pages": 31,
-      "images": 2,
-      "figures_captioned": 3,
+      "id": "2609.08881v1",
+      "title": "The Double-Edged Sword of Short-Selling Bans",
+      "source": "https://arxiv.org/pdf/2609.08881v1",
+      "pages": 77,
+      "images": 0,
+      "figures_captioned": 4,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
       "chunks_indexed": 48
     },
     {
-      "id": "2609.04420v1",
-      "title": "Optimal Stratified Allocation for Rare-Event Onset Forecasting in Dependent Sequences",
-      "source": "https://arxiv.org/pdf/2609.04420v1",
-      "pages": 24,
+      "id": "2609.08605v1",
+      "title": "Numeraire Invariance of Entropy-Projected Martingale Measures",
+      "source": "https://arxiv.org/pdf/2609.08605v1",
+      "pages": 14,
       "images": 0,
       "figures_captioned": 0,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 65
+      "chunks_indexed": 29
     },
     {
-      "id": "2609.04087v1",
-      "title": "Global Multi-Maturity SPX-VIX Calibration Beyond Markovian Stitching",
-      "source": "https://arxiv.org/pdf/2609.04087v1",
+      "id": "2609.08581v1",
+      "title": "AlphaRJM: Reward-Jump Memory for Stochastic Return-Guided Alpha Discovery",
+      "source": "https://arxiv.org/pdf/2609.08581v1",
       "pages": 26,
-      "images": 9,
+      "images": 2,
       "figures_captioned": 4,
-      "tables": 1,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 63
-    },
-    {
-      "id": "2609.03741v1",
-      "title": "Bayesian Confidence Recalibration and Research-Equilibrium Criticality: Temporal Support in Robust Portfolios",
-      "source": "https://arxiv.org/pdf/2609.03741v1",
-      "pages": 61,
-      "images": 0,
-      "figures_captioned": 1,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 47
+      "chunks_indexed": 53
     },
     {
-      "id": "2609.03552v1",
-      "title": "An Entropic Factor Model for Robust Portfolio Replication",
-      "source": "https://arxiv.org/pdf/2609.03552v1",
-      "pages": 20,
+      "id": "2609.08541v1",
+      "title": "Variance-Optimal Hedging in the Rough Hawkes--Heston Model",
+      "source": "https://arxiv.org/pdf/2609.08541v1",
+      "pages": 28,
       "images": 0,
-      "figures_captioned": 1,
+      "figures_captioned": 2,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 38
+      "chunks_indexed": 50
     },
     {
-      "id": "2609.03218v1",
-      "title": "The Analyst in the Prompt: Role, Retrieval, and Memory Biases in LLM Financial Analysis",
-      "source": "https://arxiv.org/pdf/2609.03218v1",
+      "id": "2609.08106v1",
+      "title": "Nystr\u00f6m Attention Matches Full Attention for Cross-Sectional Stock Prediction",
+      "source": "https://arxiv.org/pdf/2609.08106v1",
+      "pages": 14,
+      "images": 5,
+      "figures_captioned": 4,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 29
+    },
+    {
+      "id": "2609.08060v1",
+      "title": "Pre-game paired-comparison modeling of professional League of Legends map outcomes",
+      "source": "https://arxiv.org/pdf/2609.08060v1",
       "pages": 26,
-      "images": 6,
-      "figures_captioned": 1,
+      "images": 0,
+      "figures_captioned": 0,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 52
+      "chunks_indexed": 61
+    },
+    {
+      "id": "2609.07989v1",
+      "title": "Regimes in the Order Flow",
+      "source": "https://arxiv.org/pdf/2609.07989v1",
+      "pages": 59,
+      "images": 4,
+      "figures_captioned": 0,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 48
+    },
+    {
+      "id": "2609.07946v1",
+      "title": "Simple Dynamic Stock/Bond/Gold Portfolios",
+      "source": "https://arxiv.org/pdf/2609.07946v1",
+      "pages": 43,
+      "images": 0,
+      "figures_captioned": 0,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 36
+    },
+    {
+      "id": "2609.07486v1",
+      "title": "Simplifying Cyber Cat(astrophe)s with Cyber Kittens: Power Law Plausibility for Cyber Insurance Risks",
+      "source": "https://arxiv.org/pdf/2609.07486v1",
+      "pages": 11,
+      "images": 3,
+      "figures_captioned": 0,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 25
     }
   ]
 }
