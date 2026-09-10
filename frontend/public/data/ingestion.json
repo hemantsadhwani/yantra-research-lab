@@ -1,7 +1,7 @@
 {
   "_note": "Public run manifest of the Tier-3 agentic ingestion pipeline. Safe aggregates + provenance only; raw PDFs live in S3, not here.",
-  "run_id": "20260909T072414Z",
-  "generated_at": "2026-09-09T07:30:57+00:00",
+  "run_id": "20260910T071951Z",
+  "generated_at": "2026-09-10T07:26:27+00:00",
   "collection": "research_corpus",
   "embed_model": "BAAI/bge-small-en-v1.5",
   "dag": [
@@ -50,28 +50,127 @@
     "discovered": 10,
     "fetched": 10,
     "parsed": 10,
-    "chunks": 457,
-    "accepted": 422,
-    "rejected": 35,
-    "images": 14,
+    "chunks": 443,
+    "accepted": 407,
+    "rejected": 36,
+    "images": 11,
     "figures_captioned": 18,
     "tables": 0,
-    "with_math": 10,
-    "indexed": 422,
-    "spent_usd": 0.0332,
-    "duration_s": 402.3
+    "with_math": 9,
+    "indexed": 407,
+    "spent_usd": 0.0327,
+    "duration_s": 396.6
   },
   "rejects_by_reason": {
-    "low-relevance": 35
+    "low-relevance": 36
   },
   "budget_usd": 3.0,
   "figures": [
+    {
+      "doc_id": "2609.10407v1",
+      "title": "dexamine: A Python package for Uniswap event data on Ethereum",
+      "page": 3,
+      "thumb": "/data/figures/2609.10407v1_p3_0.jpg",
+      "caption": "Figure 1 shows the separation of JSON-RPC retrieval, contract metadata resolution, protocol parsers, and output construction. A reusable session loads contract interfaces and retains pool and token metadata across calls. dexamine\u2019s JSON-RPC client uses Requests [11] to retrieve transactions, receipts, and blocks over HTTP. web3.py [12] supplies contract calls for pool and token metadata and addres \u2014 This figure presents a software architecture diagram for the dexamine Python package, showing the",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.10407v1"
+    },
+    {
+      "doc_id": "2609.10407v1",
+      "title": "dexamine: A Python package for Uniswap event data on Ethereum",
+      "page": 4,
+      "thumb": "/data/figures/2609.10407v1_p4_1.jpg",
+      "caption": "Figure 1: Data flow within a session. The RPC client retrieves execution records; the metadata resolver supplies pool and token information. Protocol parsers decode receipt logs, and the output layer joins the resulting events to transaction and block metadata. Offline replay supplies recorded RPC results and seeded metadata. \u2014 This figure is a flowchart diagram illustrating the data pipeline architecture of the Dexamine Python package for analyzing Uniswap events on Ethereum. The flow begins wi",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.10407v1"
+    },
+    {
+      "doc_id": "2609.09945v1",
+      "title": "Adversarial Training for Tabular Credit Scoring: A Multi-Attack Robustness Evaluation in P2P Lending",
+      "page": 7,
+      "thumb": "/data/figures/2609.09945v1_p7_0.jpg",
+      "caption": "Figure 1: Experimental Setup of this Study. \u2014 This flow diagram illustrates the experimental framework for training and testing machine learning models with different anomaly/adversarial mitigation (AML) techniques on tabular credit scoring data. The pipeline shows data flowing from Data Collection through Data Preprocessing, then branching into six preprocessing techniques (Clean, FGSM, PQD, SAP, DeepFool, Mix) that feed into both Logistic Regression and Neural Network models. Each model is the",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.09945v1"
+    },
+    {
+      "doc_id": "2609.09945v1",
+      "title": "Adversarial Training for Tabular Credit Scoring: A Multi-Attack Robustness Evaluation in P2P Lending",
+      "page": 8,
+      "thumb": "/data/figures/2609.09945v1_p8_1.jpg",
+      "caption": "Figure 2: Target distribution and correction with relevant features in the dataset. \u2014 Figure 2 displays the distribution and correlation analysis for loan status classification in a peer-to-peer lending dataset. Panel (a) is a bar chart showing the imbalanced target variable with approximately 300,000 loans in \"paid_off\" status versus 50,000 in \"charged_off\" status. Panel (b) is a horizontal bar chart displaying Pearson correlation coefficients between numeric features and loan status, revealing",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.09945v1"
+    },
+    {
+      "doc_id": "2609.09945v1",
+      "title": "Adversarial Training for Tabular Credit Scoring: A Multi-Attack Robustness Evaluation in P2P Lending",
+      "page": 9,
+      "thumb": "/data/figures/2609.09945v1_p9_2.jpg",
+      "caption": "Figure 3: Correlation between mort acc and other numeric features \u2014 This bar chart displays the correlation coefficients between the mortgage account feature (mort_acc) and 13 other numeric variables in a credit scoring dataset. The horizontal bars are sorted in descending order of correlation strength, with total_acc showing the highest positive correlation (~0.40) and int_rate showing a weak positive correlation (~0.02). The key takeaway is that mort_acc has its strongest relationship with tot",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.09945v1"
+    },
+    {
+      "doc_id": "2609.09588v1",
+      "title": "Signal Correlation, IC, and PnL Dependence",
+      "page": 6,
+      "thumb": "/data/figures/2609.09588v1_p6_0.jpg",
+      "caption": "Figure 1. Longitudinal\u2013transverse decomposition at one date. Drawn in the moving frame of Section 2, in which \ud835\udc3a\ud835\udc61sends the realized-return direction \ud835\udc44\ud835\udc61to \ud835\udc521 and each unit neutral signal becomes \ud835\udc43\ud835\udc56,\ud835\udc61= \ud835\udc3a\ud835\udc61\ud835\udc46\ud835\udc56,\ud835\udc61= \ud835\udc5d\ud835\udc56,\ud835\udc61\ud835\udc521 + \ud835\udc48\ud835\udc56,\ud835\udc61; because \ud835\udc3a\ud835\udc61is an isometry, every inner product shown is that of the original signals. The longitudinal coordinate \ud835\udc5d\ud835\udc56,\ud835\udc61= \u27e8\ud835\udc46\ud835\udc56,\ud835\udc61, \ud835\udc44\ud835\udc61\u27e9is the realized Pearson IC (Lemma 1); \ud835\udc48\ud835\udc56,\ud835\udc61\u2208\ud835\udc52\u27c2 \u2014 This figure illustrates a geometric decomposition of signal correlation and information coefficient (",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.09588v1"
+    },
+    {
+      "doc_id": "2609.09588v1",
+      "title": "Signal Correlation, IC, and PnL Dependence",
+      "page": 13,
+      "thumb": "/data/figures/2609.09588v1_p13_1.jpg",
+      "caption": "Figure 2. The same longitudinal vector, two metrics. Weight space \ud835\udc63\u2208\u211d\ud835\udc3efor \ud835\udc3e= 2 signals. Left (Pearson lens): the unit level set of the Euclidean signal Gram metric \ud835\udc34\ud835\udc61= \ud835\udc46\u22a4 \u2014 This figure illustrates two geometric representations of portfolio optimization in weight space for K=2 signals, using elliptical constraint sets. The left panel shows the Euclidean signal Gram metric (Pearson lens) where the maximum information coefficient is achieved at the intersection of the weight vector v with the ellip",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.09588v1"
+    },
+    {
+      "doc_id": "2609.09405v1",
+      "title": "The Log S-fBM model: Statistical analysis",
+      "page": 4,
+      "thumb": "/data/figures/2609.09405v1_p4_0.jpg",
+      "caption": "Figure 1: Representation of C\u2113,T (.). \u2014 This figure shows a line graph with time t on the horizontal axis and height h on the vertical axis, depicting the function C_{\u2113,T}(\u00b7). The plot illustrates a V-shaped curve that decreases from two horizontal levels (marked as h=T and h=\u2113) down to a minimum point at time y, then increases symmetrically back up. The dashed horizontal lines indicate the two threshold levels h=T and h=\u2113, while dashed vertical lines mark the corresponding time point y. The key",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.09405v1"
+    },
+    {
+      "doc_id": "2609.09405v1",
+      "title": "The Log S-fBM model: Statistical analysis",
+      "page": 18,
+      "thumb": "/data/figures/2609.09405v1_p18_1.jpg",
+      "caption": "Figure 2: Numerical evidence of the Central limit theorem in the small intermittency regime (top) \u2014 Panel (a) shows a histogram of the empirical distribution of W = \u03a3_i/\u03bb (blue shaded area) overlaid with a red density curve, demonstrating convergence to a normal distribution centered at zero across the range -6 to 6. Panel (b) presents a Q-Q plot comparing ordered empirical values of standardized W against theoretical standard normal quantiles N(0,1), with parameters \u03bb\u00b2 = 10\u207b\u00b2, n = 1, T = 1.05, ",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.09405v1"
+    },
+    {
+      "doc_id": "2609.09405v1",
+      "title": "The Log S-fBM model: Statistical analysis",
+      "page": 20,
+      "thumb": "/data/figures/2609.09405v1_p20_2.jpg",
+      "caption": "Figure 3: Empirical power as a function of the sample size n (displayed on a logarithmic scale) for two values of the Hurst exponent. The dashed line corresponds to the least-squares fit of a power-law \u2014 This figure displays two scatter plots with fitted power-law curves showing empirical power of the log-M test versus sample size n on logarithmic scales for different Hurst exponent values. Panel (a) shows results for H=0.01 with power values ranging from 0 to 0.015, while panel (b) shows H=0.10",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.09405v1"
+    },
+    {
+      "doc_id": "2609.09405v1",
+      "title": "The Log S-fBM model: Statistical analysis",
+      "page": 23,
+      "thumb": "/data/figures/2609.09405v1_p23_3.jpg",
+      "caption": "Figure 4: log kernel density estimator (using the gaussian kernel) of a sample path of the process (\u03b4\u03c4Xt)t\u2208R across multiple scales for different hurst indices and arbitrarily decayed from one another . \u2014 These three panels display log kernel density estimates (using Gaussian kernels) of increments from fractional Brownian motion paths at multiple timescales, with the x-axis showing values and y-axis showing log density. Each panel represents a different Hurst parameter (H = 0.005, 0.05, and 0.1",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.09405v1"
+    },
     {
       "doc_id": "2609.08959v1",
       "title": "The Delta of a Variance Swap",
       "page": 11,
       "thumb": "/data/figures/2609.08959v1_p11_0.jpg",
-      "caption": "Figure 2. Plot of V \u02dapFq using the SVI volatility calibrated to the SPX smile of August 20, 2025 (T \u201c 1 month, September 19, 2025 expiry). \u2014 This line plot shows the delta of a variance swap as a function of the forward price F, with the y-axis displaying V'(F) ranging from 0.0258 to 0.0268 and the x-axis showing forward prices from 5500 to 7500. The curve is nearly flat across the entire range, indicating that the variance swap delta remains approximately constant at 0.02263 regardless of the f",
+      "caption": "Figure 2. Plot of V \u02dapFq using the SVI volatility calibrated to the SPX smile of August 20, 2025 (T \u201c 1 month, September 19, 2025 expiry). \u2014 This line plot displays V'(F), the derivative of variance swap value with respect to forward price, on the y-axis (ranging from 0.0258 to 0.0268) against forward price F on the x-axis (ranging from 5500 to 7500). The figure uses SVI volatility calibration to SPX market data from August 20, 2025 for a one-month maturity variance swap expiring September 19, 2",
       "vision": true,
       "source": "https://arxiv.org/pdf/2609.08959v1"
     },
@@ -80,7 +179,7 @@
       "title": "The Delta of a Variance Swap",
       "page": 12,
       "thumb": "/data/figures/2609.08959v1_p12_1.jpg",
-      "caption": "Figure 3. Regression of S&P 500 daily returns (x axis) vs variance swap returns (y axis) for various maturities during the period from 2008 to 2025 \u2014 This figure displays eight scatter plots with linear regression lines showing the relationship between S&P 500 daily returns (x-axis) and variance swap returns (y-axis) across maturities ranging from 3 to 24 months. Each panel reports the slope (\u03bb) and R-squared value, with \u03bb becoming less negative and R\u00b2 values ranging from 0.461 to 0.575 as matur",
+      "caption": "Figure 3. Regression of S&P 500 daily returns (x axis) vs variance swap returns (y axis) for various maturities during the period from 2008 to 2025 \u2014 This figure displays eight scatter plots with fitted regression lines showing the relationship between S&P 500 daily returns (x-axis) and variance swap returns (y-axis) across different maturities: 3, 6, 9, 12, 18, and 24 months. Each panel reports a negative slope coefficient (\u03bb) ranging from -4.770 to -1.140 and an R\u00b2 value between 0.461 and 0.57",
       "vision": true,
       "source": "https://arxiv.org/pdf/2609.08959v1"
     },
@@ -89,7 +188,7 @@
       "title": "The Delta of a Variance Swap",
       "page": 13,
       "thumb": "/data/figures/2609.08959v1_p13_2.jpg",
-      "caption": "Figure 4. Elasticity of variance swap rate \u03bb at different maturities (2008\u20132025). \u2014 This line plot displays the elasticity of variance swap rate (\u03b7/\u221aT) across different maturity times from 0 to 2 years. The chart compares classical least-squares curve estimates (blue smooth curve) against \u03bb estimate data points (red dots), showing how elasticity decreases sharply at short maturities and gradually flattens as maturity increases. The key takeaway is that the estimated \u03b7 parameter of approximately ",
+      "caption": "Figure 4. Elasticity of variance swap rate \u03bb at different maturities (2008\u20132025). \u2014 This figure displays a line plot comparing the elasticity of variance swap rates (\u03bb) across different maturity times from 0 to 2 years. The y-axis shows the Value ranging from 0 to -5, and the x-axis represents Maturity Time from 0.0 to 2.0 years. The plot includes two elements: red diamond markers representing \u03bb Estimates derived from classical least-squares curve fitting, and a blue curve showing the theoretica",
       "vision": true,
       "source": "https://arxiv.org/pdf/2609.08959v1"
     },
@@ -98,7 +197,7 @@
       "title": "The Delta of a Variance Swap",
       "page": 14,
       "thumb": "/data/figures/2609.08959v1_p14_3.jpg",
-      "caption": "Figure 5. Elasticity of variance swap rate \u03bb at different maturities (2022\u20132025). \u2014 This line graph displays the elasticity of variance swap rate (\u03bb) across different maturities ranging from 0 to 2 years. The y-axis shows values ranging from 0 to -8, while the x-axis represents maturity time in years. The plot contains two elements: blue line points connected by a curve showing the \u03b7/\u221aT theoretical relationship, and red diamond points representing the \u03bb estimate. The key finding is that elastici",
+      "caption": "Figure 5. Elasticity of variance swap rate \u03bb at different maturities (2022\u20132025). \u2014 This figure plots the elasticity of variance swap rate (\u03bb) against maturity time from 0 to 2 years, comparing two methods shown as a line and scatter points. The y-axis shows the value ranging from 0 to -8, while the x-axis represents maturity time; the blue curve depicts the theoretical \u03b7/\u221aT asymptotic approximation, while red dots represent the \u03bb estimate computed from market data. The key takeaway is that elas",
       "vision": true,
       "source": "https://arxiv.org/pdf/2609.08959v1"
     },
@@ -107,7 +206,7 @@
       "title": "The Double-Edged Sword of Short-Selling Bans",
       "page": 14,
       "thumb": "/data/figures/2609.08881v1_p14_0.jpg",
-      "caption": "Figure 1 displays the relationship between K (an increasing function of c) and the probability that the equilibrium price falls below the price threshold c under different scenarios using \u03b1 = 0.5, p = 0.5, g = 0.9, hN = 0.3, and hI = 0.2 (so that h2 \u2014 This figure displays a line plot showing the relationship between the parameter K (an increasing function of the price threshold c) on the horizontal axis and the probability P(q\u0304 < c) on the vertical axis, illustrating how short-selling bans affec",
+      "caption": "Figure 1 displays the relationship between K (an increasing function of c) and the probability that the equilibrium price falls below the price threshold c under different scenarios using \u03b1 = 0.5, p = 0.5, g = 0.9, hN = 0.3, and hI = 0.2 (so that h2 \u2014 # Figure Description\n\nLemma 3 presents a mathematical formula for the regulator's perceived probability that the equilibrium price of a risky asset falls below a threshold c when short-selling bans are implemented. The formula shows this probabilit",
       "vision": true,
       "source": "https://arxiv.org/pdf/2609.08881v1"
     },
@@ -116,7 +215,7 @@
       "title": "The Double-Edged Sword of Short-Selling Bans",
       "page": 15,
       "thumb": "/data/figures/2609.08881v1_p15_1.jpg",
-      "caption": "Figure 1 about here \u2014 I can see text describing the product of h_I and h_I/h_N, explaining that the former affects the conditional likelihood of a sell order while the latter impacts the probability that the bid price is low. However, I cannot locate Figure 1 in the provided image. The image only shows a text excerpt from the paper \"The Double-Edged Sword of Short-Selling Bans\" without the actual figure displayed. To provide an accurate caption for Figure 1, I would need the visual content of th",
+      "caption": "Figure 1 about here \u2014 I can see text describing variables h_I and h_I/h_N in a financial model, explaining that the former affects the conditional likelihood of a sell order while the latter impacts the probability that the bid price is low. However, no actual figure/chart is visible in this image\u2014only explanatory text. Without the actual figure to analyze, I cannot provide a caption describing chart type, axes, or visual takeaways.",
       "vision": true,
       "source": "https://arxiv.org/pdf/2609.08881v1"
     },
@@ -125,111 +224,72 @@
       "title": "The Double-Edged Sword of Short-Selling Bans",
       "page": 22,
       "thumb": "/data/figures/2609.08881v1_p22_2.jpg",
-      "caption": "Figure 2 about here \u2014 Figure 2 is a bar chart comparing average bid-ask spreads between pre-ban and post-ban periods, with separate groupings for countries with short-selling restrictions and countries without restrictions. The vertical axis shows bid-ask spread percentages while the horizontal axis distinguishes between the two periods and regulatory regimes. The figure documents a substantial widening of bid-ask spreads following short-selling bans, with spreads increasing by more than 50% in ",
+      "caption": "Figure 2 about here \u2014 Figure 2 presents a bar chart comparing average bid-ask spreads between pre-ban and post-ban periods, stratified by countries with and without short-selling restrictions. The vertical axis shows bid-ask spread percentage (ranging from approximately 0.6% to 1.1%), while the horizontal axis distinguishes between the two regulatory regimes and time periods. The figure documents a substantial increase in bid-ask spreads following short-selling ban implementation, with spreads r",
       "vision": true,
       "source": "https://arxiv.org/pdf/2609.08881v1"
-    },
-    {
-      "doc_id": "2609.08881v1",
-      "title": "The Double-Edged Sword of Short-Selling Bans",
-      "page": 22,
-      "thumb": "/data/figures/2609.08881v1_p22_3.jpg",
-      "caption": "Figure 3 about here \u2014 I can see this is a section heading and introductory text from a research paper, but there is no figure visible in the image provided. The text references \"Figure 3 about here\" as a placeholder, indicating a figure should appear at this location, but the actual figure content is not displayed. To provide an accurate caption describing the figure's chart type, axes, variables, and key takeaway, I would need the actual figure image.",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.08881v1"
-    },
-    {
-      "doc_id": "2609.08581v1",
-      "title": "AlphaRJM: Reward-Jump Memory for Stochastic Return-Guided Alpha Discovery",
-      "page": 7,
-      "thumb": "/data/figures/2609.08581v1_p7_0.jpg",
-      "caption": "Figure 1 provides a complementary view on CSI500. AlphaRJM maintains the strongest cumulative- wealth trajectory for most of the 2022\u20132024 test period and recovers strongly after major market de- \u2014 This table presents Information Coefficient (IC) and Rank Information Coefficient (RIC) performance metrics comparing AlphaRJM against baseline methods (MLP, LightGBM, Neural ODE, Neural SDE, AlphaCon, AlphaQCM, AlphaSAGE) on CSI300 and CSI500 stock indices for a 42-day forecasting horizon. The table ",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.08581v1"
-    },
-    {
-      "doc_id": "2609.08581v1",
-      "title": "AlphaRJM: Reward-Jump Memory for Stochastic Return-Guided Alpha Discovery",
-      "page": 8,
-      "thumb": "/data/figures/2609.08581v1_p8_1.jpg",
-      "caption": "Figure 1: Cumulative wealth curves on CSI500 over the test period, averaged across random seeds 0\u20133. \u2014 This line chart displays cumulative wealth curves for the CSI500 index from January 2022 to January 2025, comparing multiple machine learning approaches including MLP, LightGBM, Neural ODE, Neural SDE, AlphaGen, AlphaGCM, AlphaJRM, and the baseline CSI500 index. The y-axis shows cumulative returns (ranging from 0.6 to 1.2), and the x-axis represents time in monthly intervals. The key takeaway i",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.08581v1"
-    },
-    {
-      "doc_id": "2609.08581v1",
-      "title": "AlphaRJM: Reward-Jump Memory for Stochastic Return-Guided Alpha Discovery",
-      "page": 8,
-      "thumb": "/data/figures/2609.08581v1_p8_2.jpg",
-      "caption": "Figure 4 in Appendix E.3 shows that this advantage also extends to cumulative wealth on CSI500: AlphaRJM maintains a clear lead for much of the test period and reaches the highest cumulative- wealth level during the late-2024 recovery. These results suggest that its predictive effectiveness is not limited to the standard forecasting horizon. \u2014 This line chart displays cumulative wealth curves on the CSI500 index from January 2022 to January 2025, comparing multiple machine learning strategies (M",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.08581v1"
-    },
-    {
-      "doc_id": "2609.08581v1",
-      "title": "AlphaRJM: Reward-Jump Memory for Stochastic Return-Guided Alpha Discovery",
-      "page": 9,
-      "thumb": "/data/figures/2609.08581v1_p9_3.jpg",
-      "caption": "Figure 2: Sensitivity analysis of AlphaRJM on CSI300 with respect to the number of SDE particles, number of SDE integration steps, energy-distance (CRPS-style) loss weight \u03bbED, and maximum diffusion scale \u03c3max. The figure reports IC, RIC, ICIR, and RICIR, with the dotted vertical lines indicating the default configurations. \u2014 This figure shows four line plots displaying sensitivity analysis of the AlphaRJM model across different hyperparameters on the CSI300 dataset. Each subplot examines how fo",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.08581v1"
-    },
-    {
-      "doc_id": "2609.08541v1",
-      "title": "Variance-Optimal Hedging in the Rough Hawkes--Heston Model",
-      "page": 24,
-      "thumb": "/data/figures/2609.08541v1_p24_0.jpg",
-      "caption": "Figure 1 summarizes the proof-level diagnostics, the fixed-cutoff convergence, and the call di- agonal together. \u2014 This table presents numerical convergence results for Fourier diagonal approximation methods in the rough Hawkes-Heston model, with columns for cutoff parameter (\u03b5/T), truncation level (R), capital component, strategy component, and their combined distance (\u0394\u03b5,R) to an unshifted-kernel benchmark at R=80. The data shows five refinement steps where both the capital and strategy compon",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.08541v1"
-    },
-    {
-      "doc_id": "2609.08541v1",
-      "title": "Variance-Optimal Hedging in the Rough Hawkes--Heston Model",
-      "page": 24,
-      "thumb": "/data/figures/2609.08541v1_p24_1.jpg",
-      "caption": "Figure 1: Original-market kernel regularization. Left: deterministic Riccati and pathwise memory diagnostics at R = 20. Middle: the strategy and gain distances at the same fixed cutoff; the shaded band is a pointwise 95% Monte Carlo interval for the strategy distance. Right: capital, strategy, and total squared-distance components relative to the numerical benchmark along the Fourier diagonal. \u2014 This figure presents three log-scale plots analyzing kernel regularization in the rough Hawkes-Heston",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.08541v1"
-    },
-    {
-      "doc_id": "2609.08106v1",
-      "title": "Nystr\u00f6m Attention Matches Full Attention for Cross-Sectional Stock Prediction",
-      "page": 5,
-      "thumb": "/data/figures/2609.08106v1_p5_0.jpg",
-      "caption": "Figure 1: Time-averaged attention matrix (centered at 1/N). Blue = below-average, red = above- average. Stocks sorted by Shenwan L1 industry; no block-diagonal structure. The matrix shows 433 unique stocks appearing across test days; on any given day \u223c300 are active. \u2014 This heatmap visualizes the MASTER inter-stock attention matrix averaged over time, with stocks sorted by ShenWan L1 industry classification on both axes. The color scale (blue to yellow) represents attention weights (0.0000 to 0.",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.08106v1"
-    },
-    {
-      "doc_id": "2609.08106v1",
-      "title": "Nystr\u00f6m Attention Matches Full Attention for Cross-Sectional Stock Prediction",
-      "page": 6,
-      "thumb": "/data/figures/2609.08106v1_p6_1.jpg",
-      "caption": "Figure 2: Left: Pairwise attention weight vs. return correlation (\u03c1 = \u22120.614; n = 73,910 pairs). Right: Centered cosine similarity vs. lag; full decorrelation in \u223c20 trading days. \u2014 This figure presents two panels analyzing attention patterns and return correlations in stock prediction. The left panel is a scatter plot showing the relationship between pairwise attention weights (x-axis) and return correlations over past periods (y-axis) across 73,910 stock pairs, revealing a weak negative correl",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.08106v1"
-    },
-    {
-      "doc_id": "2609.08106v1",
-      "title": "Nystr\u00f6m Attention Matches Full Attention for Cross-Sectional Stock Prediction",
-      "page": 8,
-      "thumb": "/data/figures/2609.08106v1_p8_2.jpg",
-      "caption": "Figure 3: Nystr\u00a8om performance vs. landmark count m (CSI300, 5 seeds each, \u00b11 std). Peak at m = 32; non-monotonic profile reflects bias-variance trade-off in pseudo-inverse computation. \u2014 This line plot compares Nystr\u00f6m attention performance against landmark count m on the CSI300 dataset, with two metrics shown: IC (Information Coefficient) in blue and RankIC in orange, each plotted as mean \u00b1 standard deviation across 5 seeds. The x-axis ranges from landmark counts of 10 to 120, while the y-axis",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.08106v1"
-    },
-    {
-      "doc_id": "2609.08106v1",
-      "title": "Nystr\u00f6m Attention Matches Full Attention for Cross-Sectional Stock Prediction",
-      "page": 11,
-      "thumb": "/data/figures/2609.08106v1_p11_3.jpg",
-      "caption": "Figure 4: Forward-pass latency and memory vs. N on a Tesla T4 (16 GB), extended to N = 12,000. Full attention OOMs at N = 12,000; Nystr\u00a8om scales linearly and uses 974 MB there. Latency crossover at N\u2217\u22481,300. \u2014 This figure compares forward-pass latency (left panel) and peak GPU memory (right panel) between full attention and Nystr\u00f6m attention as a function of universe size N on a Tesla T4 GPU with 16 GB memory. Both line charts plot N from 0 to 12,000 on the x-axis, with latency in milliseconds ",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.08106v1"
     }
   ],
   "docs": [
+    {
+      "id": "2609.10407v1",
+      "title": "dexamine: A Python package for Uniswap event data on Ethereum",
+      "source": "https://arxiv.org/pdf/2609.10407v1",
+      "pages": 8,
+      "images": 0,
+      "figures_captioned": 2,
+      "tables": 0,
+      "has_math": false,
+      "ocr_used": false,
+      "chunks_indexed": 12
+    },
+    {
+      "id": "2609.09945v1",
+      "title": "Adversarial Training for Tabular Credit Scoring: A Multi-Attack Robustness Evaluation in P2P Lending",
+      "source": "https://arxiv.org/pdf/2609.09945v1",
+      "pages": 26,
+      "images": 4,
+      "figures_captioned": 3,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 43
+    },
+    {
+      "id": "2609.09588v1",
+      "title": "Signal Correlation, IC, and PnL Dependence",
+      "source": "https://arxiv.org/pdf/2609.09588v1",
+      "pages": 24,
+      "images": 0,
+      "figures_captioned": 2,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 37
+    },
+    {
+      "id": "2609.09470v1",
+      "title": "Geometric and Arithmetic Likelihood Aggregation for Diffusions with Heterogeneous Volatility",
+      "source": "https://arxiv.org/pdf/2609.09470v1",
+      "pages": 39,
+      "images": 0,
+      "figures_captioned": 0,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 53
+    },
+    {
+      "id": "2609.09405v1",
+      "title": "The Log S-fBM model: Statistical analysis",
+      "source": "https://arxiv.org/pdf/2609.09405v1",
+      "pages": 57,
+      "images": 5,
+      "figures_captioned": 4,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 46
+    },
     {
       "id": "2609.08959v1",
       "title": "The Delta of a Variance Swap",
@@ -248,11 +308,11 @@
       "source": "https://arxiv.org/pdf/2609.08881v1",
       "pages": 77,
       "images": 0,
-      "figures_captioned": 4,
+      "figures_captioned": 3,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 48
+      "chunks_indexed": 47
     },
     {
       "id": "2609.08605v1",
@@ -272,11 +332,11 @@
       "source": "https://arxiv.org/pdf/2609.08581v1",
       "pages": 26,
       "images": 2,
-      "figures_captioned": 4,
+      "figures_captioned": 0,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 53
+      "chunks_indexed": 49
     },
     {
       "id": "2609.08541v1",
@@ -284,71 +344,11 @@
       "source": "https://arxiv.org/pdf/2609.08541v1",
       "pages": 28,
       "images": 0,
-      "figures_captioned": 2,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 50
-    },
-    {
-      "id": "2609.08106v1",
-      "title": "Nystr\u00f6m Attention Matches Full Attention for Cross-Sectional Stock Prediction",
-      "source": "https://arxiv.org/pdf/2609.08106v1",
-      "pages": 14,
-      "images": 5,
-      "figures_captioned": 4,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 29
-    },
-    {
-      "id": "2609.08060v1",
-      "title": "Pre-game paired-comparison modeling of professional League of Legends map outcomes",
-      "source": "https://arxiv.org/pdf/2609.08060v1",
-      "pages": 26,
-      "images": 0,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 61
-    },
-    {
-      "id": "2609.07989v1",
-      "title": "Regimes in the Order Flow",
-      "source": "https://arxiv.org/pdf/2609.07989v1",
-      "pages": 59,
-      "images": 4,
       "figures_captioned": 0,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
       "chunks_indexed": 48
-    },
-    {
-      "id": "2609.07946v1",
-      "title": "Simple Dynamic Stock/Bond/Gold Portfolios",
-      "source": "https://arxiv.org/pdf/2609.07946v1",
-      "pages": 43,
-      "images": 0,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 36
-    },
-    {
-      "id": "2609.07486v1",
-      "title": "Simplifying Cyber Cat(astrophe)s with Cyber Kittens: Power Law Plausibility for Cyber Insurance Risks",
-      "source": "https://arxiv.org/pdf/2609.07486v1",
-      "pages": 11,
-      "images": 3,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 25
     }
   ]
 }
