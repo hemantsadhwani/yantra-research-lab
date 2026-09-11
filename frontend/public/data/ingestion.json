@@ -1,7 +1,7 @@
 {
   "_note": "Public run manifest of the Tier-3 agentic ingestion pipeline. Safe aggregates + provenance only; raw PDFs live in S3, not here.",
-  "run_id": "20260910T071951Z",
-  "generated_at": "2026-09-10T07:26:27+00:00",
+  "run_id": "20260911T071834Z",
+  "generated_at": "2026-09-11T07:22:03+00:00",
   "collection": "research_corpus",
   "embed_model": "BAAI/bge-small-en-v1.5",
   "dag": [
@@ -50,28 +50,100 @@
     "discovered": 10,
     "fetched": 10,
     "parsed": 10,
-    "chunks": 443,
-    "accepted": 407,
-    "rejected": 36,
-    "images": 11,
+    "chunks": 419,
+    "accepted": 376,
+    "rejected": 43,
+    "images": 38,
     "figures_captioned": 18,
-    "tables": 0,
+    "tables": 1,
     "with_math": 9,
-    "indexed": 407,
-    "spent_usd": 0.0327,
-    "duration_s": 396.6
+    "indexed": 376,
+    "spent_usd": 0.033,
+    "duration_s": 209.3
   },
   "rejects_by_reason": {
-    "low-relevance": 36
+    "low-relevance": 43
   },
   "budget_usd": 3.0,
   "figures": [
+    {
+      "doc_id": "2609.11614v1",
+      "title": "Deep Learning of Robust Market Making under Regime-Switching Order Flow",
+      "page": 6,
+      "thumb": "/data/figures/2609.11614v1_p6_0.jpg",
+      "caption": "Figure 1: Censored waiting-time calibration of \u039b(\u03b4) = Ae\u2212\u03ba\u03b4 under five window durations \u2206Tcalib. Points show the empirical linearized log-intensity per quote distance \u03b4, averaged over Nrep = 20 independent calibration runs; error bars are the standard error of the mean. Dashed lines are the log-linear regression fits. Short windows yield steeper fits; long windows flatten due to mid-price drift wi \u2014 This figure displays a log-linear regression analysis of market microstructure intensity as a fun",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.11614v1"
+    },
+    {
+      "doc_id": "2609.11614v1",
+      "title": "Deep Learning of Robust Market Making under Regime-Switching Order Flow",
+      "page": 7,
+      "thumb": "/data/figures/2609.11614v1_p7_1.jpg",
+      "caption": "Figure 2: GLFT vs. the at-best baseline over Nsim = 1000 paired-seed episodes of Nsteps = 5000 LOB events, with \u03b3GLFT \u2208{10\u22126, 10\u22123, 10\u22121}. (a) Mean cumulative PnL. (b) Terminal PnL (left) and lifetime inventory (right) histograms. \u2014 This figure compares a deep learning market-making agent (GLFT) against a baseline strategy across three risk-aversion parameters (\u03b3GLFT). Panel (a) shows cumulative profit-and-loss (PnL) over 5000 limit order book events, with shaded confidence bands indicating that",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.11614v1"
+    },
+    {
+      "doc_id": "2609.11614v1",
+      "title": "Deep Learning of Robust Market Making under Regime-Switching Order Flow",
+      "page": 8,
+      "thumb": "/data/figures/2609.11614v1_p8_2.jpg",
+      "caption": "Figure 3: Expected PnL as a function of pbuy for the empirical GLFT benchmark (blue), and the closed-form GLFT-under-misspecification approximation of Appendix B (dashed blue). The orange line is obtained implementing the RLMM strategy presented in Sections 3\u20134. \u2014 This line chart displays expected profit-and-loss (PnL) plotted against the probability of buy orders (P(buy MO)) on the x-axis, with PnL in basis points on the y-axis. Three curves are shown: the empirical GLFT benchmark (solid blue),",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.11614v1"
+    },
+    {
+      "doc_id": "2609.11614v1",
+      "title": "Deep Learning of Robust Market Making under Regime-Switching Order Flow",
+      "page": 8,
+      "thumb": "/data/figures/2609.11614v1_p8_3.jpg",
+      "caption": "Figure 4: GLFT mean terminal PnL (with standard errors) under persistent directional regimes as a function of the mean regime duration \u03c4r (MO clock): the buy-MO probability is constant within each regime and regime durations are exponentially distributed with mean \u03c4r MO events, at regime width \u03c9 = 0.30 (generative model in Section 5). The dotted line indicates the no-regime baseline. \u2014 This figure displays a line plot showing GLFT mean terminal profit-and-loss (PnL) versus mean regime duration (",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.11614v1"
+    },
+    {
+      "doc_id": "2609.10865v1",
+      "title": "The Elliptically Optimal Confidence Interval: A Bivariate Extension of Wilson's Score Method",
+      "page": 9,
+      "thumb": "/data/figures/2609.10865v1_p9_0.jpg",
+      "caption": "Fig. 1: The set \u2126for three orderings of the sample sizes and the five values\u02c6p \u2208 \b \u2014 This figure shows three scatter plots displaying confidence regions (ellipses) in the (\u03c1\u2081, \u03c1\u2082) parameter space for different sample size configurations and correlation coefficients. Each plot uses axes \u03c1\u2081 (horizontal, ranging -0.5 to 1.5) and \u03c1\u2082 (vertical, ranging -0.5 to 1.5), with five colored ellipses representing different estimated correlations \u03c1\u0302 \u2208 {-1, -0.5, 0, 0.5, 1}. The three panels compare scenarios ",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.10865v1"
+    },
+    {
+      "doc_id": "2609.10865v1",
+      "title": "The Elliptically Optimal Confidence Interval: A Bivariate Extension of Wilson's Score Method",
+      "page": 13,
+      "thumb": "/data/figures/2609.10865v1_p13_1.jpg",
+      "caption": "Fig. 2: Visualisation of the admissible domain of \u2126, as delineated in Corollary 1, over the region [\u22121, 2]2. \u2014 This figure displays a 2D scatter plot showing the admissible domain of a parameter set \u03a9 in the (p\u2081, p\u2082) coordinate space, with axes ranging from -1 to 2 on both dimensions. The shaded magenta region represents the admissible domain as defined in Corollary 1, which forms a cross-like or plus-sign shape centered near the origin, while a black-outlined unit square is overlaid for referen",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.10865v1"
+    },
+    {
+      "doc_id": "2609.10865v1",
+      "title": "The Elliptically Optimal Confidence Interval: A Bivariate Extension of Wilson's Score Method",
+      "page": 15,
+      "thumb": "/data/figures/2609.10865v1_p15_2.jpg",
+      "caption": "Fig. 3: The domain of the centre of the set \u2126, as delineated in Proposition 1: two open triangles meeting at \u2014 This figure shows a 2D scatter plot with axes p\u2081 and p\u2082 ranging from -1.0 to 2.0, displaying the admissible domain (shaded in purple) for the center of a confidence region set \u03a9 compared to a unit square (black border). The admissible domain is defined by the intersection of two open triangles that meet at a central point, creating a symmetric four-pointed shape. The key takeaway is tha",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.10865v1"
+    },
+    {
+      "doc_id": "2609.10865v1",
+      "title": "The Elliptically Optimal Confidence Interval: A Bivariate Extension of Wilson's Score Method",
+      "page": 24,
+      "thumb": "/data/figures/2609.10865v1_p24_3.jpg",
+      "caption": "Figure 4 illustrates several instances of the induced set \u0393, computed directly from Table 1, together with the corresponding subsets \u2126\u25a1. \u2014 This passage discusses theoretical properties of confidence intervals for bivariate proportions, highlighting that Part (b) provides an admissibility guarantee absent in Wald's interval and that Part (d) demonstrates the distinction between strict and weak inequalities in adjacent rows of a comparison table. The text notes that boundaries of adjacent regions ",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.10865v1"
+    },
     {
       "doc_id": "2609.10407v1",
       "title": "dexamine: A Python package for Uniswap event data on Ethereum",
       "page": 3,
       "thumb": "/data/figures/2609.10407v1_p3_0.jpg",
-      "caption": "Figure 1 shows the separation of JSON-RPC retrieval, contract metadata resolution, protocol parsers, and output construction. A reusable session loads contract interfaces and retains pool and token metadata across calls. dexamine\u2019s JSON-RPC client uses Requests [11] to retrieve transactions, receipts, and blocks over HTTP. web3.py [12] supplies contract calls for pool and token metadata and addres \u2014 This figure presents a software architecture diagram for the dexamine Python package, showing the",
+      "caption": "Figure 1 shows the separation of JSON-RPC retrieval, contract metadata resolution, protocol parsers, and output construction. A reusable session loads contract interfaces and retains pool and token metadata across calls. dexamine\u2019s JSON-RPC client uses Requests [11] to retrieve transactions, receipts, and blocks over HTTP. web3.py [12] supplies contract calls for pool and token metadata and addres \u2014 This figure illustrates the software architecture of dexamine, a Python package for Uniswap event",
       "vision": true,
       "source": "https://arxiv.org/pdf/2609.10407v1"
     },
@@ -80,7 +152,7 @@
       "title": "dexamine: A Python package for Uniswap event data on Ethereum",
       "page": 4,
       "thumb": "/data/figures/2609.10407v1_p4_1.jpg",
-      "caption": "Figure 1: Data flow within a session. The RPC client retrieves execution records; the metadata resolver supplies pool and token information. Protocol parsers decode receipt logs, and the output layer joins the resulting events to transaction and block metadata. Offline replay supplies recorded RPC results and seeded metadata. \u2014 This figure is a flowchart diagram illustrating the data pipeline architecture of the Dexamine Python package for analyzing Uniswap events on Ethereum. The flow begins wi",
+      "caption": "Figure 1: Data flow within a session. The RPC client retrieves execution records; the metadata resolver supplies pool and token information. Protocol parsers decode receipt logs, and the output layer joins the resulting events to transaction and block metadata. Offline replay supplies recorded RPC results and seeded metadata. \u2014 This figure is a flowchart depicting the data pipeline architecture of the Dexamine Python package for analyzing Uniswap events on Ethereum. The diagram shows how researc",
       "vision": true,
       "source": "https://arxiv.org/pdf/2609.10407v1"
     },
@@ -89,7 +161,7 @@
       "title": "Adversarial Training for Tabular Credit Scoring: A Multi-Attack Robustness Evaluation in P2P Lending",
       "page": 7,
       "thumb": "/data/figures/2609.09945v1_p7_0.jpg",
-      "caption": "Figure 1: Experimental Setup of this Study. \u2014 This flow diagram illustrates the experimental framework for training and testing machine learning models with different anomaly/adversarial mitigation (AML) techniques on tabular credit scoring data. The pipeline shows data flowing from Data Collection through Data Preprocessing, then branching into six preprocessing techniques (Clean, FGSM, PQD, SAP, DeepFool, Mix) that feed into both Logistic Regression and Neural Network models. Each model is the",
+      "caption": "Figure 1: Experimental Setup of this Study. \u2014 This flow diagram illustrates an experimental pipeline for evaluating machine learning models on tabular credit scoring data using adversarial machine learning (AML) techniques. The workflow progresses from left to right: Data Collection feeds into Data Preprocessing, which then branches into six different data treatment methods (Clean, FGSM, PGD, SAP, DeepFool, Mix) that serve as inputs to both Logistic Regression and Neural Network models. Each mod",
       "vision": true,
       "source": "https://arxiv.org/pdf/2609.09945v1"
     },
@@ -98,7 +170,7 @@
       "title": "Adversarial Training for Tabular Credit Scoring: A Multi-Attack Robustness Evaluation in P2P Lending",
       "page": 8,
       "thumb": "/data/figures/2609.09945v1_p8_1.jpg",
-      "caption": "Figure 2: Target distribution and correction with relevant features in the dataset. \u2014 Figure 2 displays the distribution and correlation analysis for loan status classification in a peer-to-peer lending dataset. Panel (a) is a bar chart showing the imbalanced target variable with approximately 300,000 loans in \"paid_off\" status versus 50,000 in \"charged_off\" status. Panel (b) is a horizontal bar chart displaying Pearson correlation coefficients between numeric features and loan status, revealing",
+      "caption": "Figure 2: Target distribution and correction with relevant features in the dataset. \u2014 Figure 2 shows two panels analyzing loan status data from a P2P lending dataset. Panel (a) is a bar chart displaying the distribution of the target variable (loan status), revealing severe class imbalance with approximately 300,000 observations in the \"Paid-off\" class versus 50,000 in the \"Defaulted\" class. Panel (b) is a horizontal bar chart showing Pearson correlation coefficients between 18 numeric features ",
       "vision": true,
       "source": "https://arxiv.org/pdf/2609.09945v1"
     },
@@ -107,7 +179,7 @@
       "title": "Adversarial Training for Tabular Credit Scoring: A Multi-Attack Robustness Evaluation in P2P Lending",
       "page": 9,
       "thumb": "/data/figures/2609.09945v1_p9_2.jpg",
-      "caption": "Figure 3: Correlation between mort acc and other numeric features \u2014 This bar chart displays the correlation coefficients between the mortgage account feature (mort_acc) and 13 other numeric variables in a credit scoring dataset. The horizontal bars are sorted in descending order of correlation strength, with total_acc showing the highest positive correlation (~0.40) and int_rate showing a weak positive correlation (~0.02). The key takeaway is that mort_acc has its strongest relationship with tot",
+      "caption": "Figure 3: Correlation between mort acc and other numeric features \u2014 This horizontal bar chart displays the Pearson correlation coefficients between the mortgage account feature (mort_acc) and 12 other numeric features in a credit scoring dataset. The bars are sorted in descending order of correlation strength, with total_acc showing the highest correlation (~0.40) and int_rate showing the lowest (~-0.05). The key takeaway is that mort_acc has moderate positive correlations with account-related v",
       "vision": true,
       "source": "https://arxiv.org/pdf/2609.09945v1"
     },
@@ -116,7 +188,7 @@
       "title": "Signal Correlation, IC, and PnL Dependence",
       "page": 6,
       "thumb": "/data/figures/2609.09588v1_p6_0.jpg",
-      "caption": "Figure 1. Longitudinal\u2013transverse decomposition at one date. Drawn in the moving frame of Section 2, in which \ud835\udc3a\ud835\udc61sends the realized-return direction \ud835\udc44\ud835\udc61to \ud835\udc521 and each unit neutral signal becomes \ud835\udc43\ud835\udc56,\ud835\udc61= \ud835\udc3a\ud835\udc61\ud835\udc46\ud835\udc56,\ud835\udc61= \ud835\udc5d\ud835\udc56,\ud835\udc61\ud835\udc521 + \ud835\udc48\ud835\udc56,\ud835\udc61; because \ud835\udc3a\ud835\udc61is an isometry, every inner product shown is that of the original signals. The longitudinal coordinate \ud835\udc5d\ud835\udc56,\ud835\udc61= \u27e8\ud835\udc46\ud835\udc56,\ud835\udc61, \ud835\udc44\ud835\udc61\u27e9is the realized Pearson IC (Lemma 1); \ud835\udc48\ud835\udc56,\ud835\udc61\u2208\ud835\udc52\u27c2 \u2014 This figure illustrates a geometric decomposition of signal correlation and information coefficient (",
+      "caption": "Figure 1. Longitudinal\u2013transverse decomposition at one date. Drawn in the moving frame of Section 2, in which \ud835\udc3a\ud835\udc61sends the realized-return direction \ud835\udc44\ud835\udc61to \ud835\udc521 and each unit neutral signal becomes \ud835\udc43\ud835\udc56,\ud835\udc61= \ud835\udc3a\ud835\udc61\ud835\udc46\ud835\udc56,\ud835\udc61= \ud835\udc5d\ud835\udc56,\ud835\udc61\ud835\udc521 + \ud835\udc48\ud835\udc56,\ud835\udc61; because \ud835\udc3a\ud835\udc61is an isometry, every inner product shown is that of the original signals. The longitudinal coordinate \ud835\udc5d\ud835\udc56,\ud835\udc61= \u27e8\ud835\udc46\ud835\udc56,\ud835\udc61, \ud835\udc44\ud835\udc61\u27e9is the realized Pearson IC (Lemma 1); \ud835\udc48\ud835\udc56,\ud835\udc61\u2208\ud835\udc52\u27c2 \u2014 This figure illustrates a geometric decomposition of signal-return relationships in a coordinate syst",
       "vision": true,
       "source": "https://arxiv.org/pdf/2609.09588v1"
     },
@@ -125,7 +197,7 @@
       "title": "Signal Correlation, IC, and PnL Dependence",
       "page": 13,
       "thumb": "/data/figures/2609.09588v1_p13_1.jpg",
-      "caption": "Figure 2. The same longitudinal vector, two metrics. Weight space \ud835\udc63\u2208\u211d\ud835\udc3efor \ud835\udc3e= 2 signals. Left (Pearson lens): the unit level set of the Euclidean signal Gram metric \ud835\udc34\ud835\udc61= \ud835\udc46\u22a4 \u2014 This figure illustrates two geometric representations of portfolio optimization in weight space for K=2 signals, using elliptical constraint sets. The left panel shows the Euclidean signal Gram metric (Pearson lens) where the maximum information coefficient is achieved at the intersection of the weight vector v with the ellip",
+      "caption": "Figure 2. The same longitudinal vector, two metrics. Weight space \ud835\udc63\u2208\u211d\ud835\udc3efor \ud835\udc3e= 2 signals. Left (Pearson lens): the unit level set of the Euclidean signal Gram metric \ud835\udc34\ud835\udc61= \ud835\udc46\u22a4 \u2014 This figure displays two elliptical diagrams in weight space (\u211d\u00b2) comparing two performance metrics for signal portfolios. The left panel shows the Pearson correlation lens with level sets defined by the signal Gram matrix A_t, where the realized Information Coefficient is maximized at max|\u03c1^{nmlz}(v)| = \u221a(p\u0304'A\u207b\u00b9p\u0304) = R_IC, i",
       "vision": true,
       "source": "https://arxiv.org/pdf/2609.09588v1"
     },
@@ -134,7 +206,7 @@
       "title": "The Log S-fBM model: Statistical analysis",
       "page": 4,
       "thumb": "/data/figures/2609.09405v1_p4_0.jpg",
-      "caption": "Figure 1: Representation of C\u2113,T (.). \u2014 This figure shows a line graph with time t on the horizontal axis and height h on the vertical axis, depicting the function C_{\u2113,T}(\u00b7). The plot illustrates a V-shaped curve that decreases from two horizontal levels (marked as h=T and h=\u2113) down to a minimum point at time y, then increases symmetrically back up. The dashed horizontal lines indicate the two threshold levels h=T and h=\u2113, while dashed vertical lines mark the corresponding time point y. The key",
+      "caption": "Figure 1: Representation of C\u2113,T (.). \u2014 This figure depicts a line plot showing the function C\u2113,T(\u00b7) across time t, with the vertical axis representing h (height/value) and horizontal axis representing t (time). The function exhibits a V-shaped minimum at time point y, with two horizontal dashed lines marking reference levels at h=l (lower level) and h=T (upper level), and two vertical lines extending upward from the minimum point. The key takeaway is that this piecewise function demonstrates a ",
       "vision": true,
       "source": "https://arxiv.org/pdf/2609.09405v1"
     },
@@ -143,7 +215,7 @@
       "title": "The Log S-fBM model: Statistical analysis",
       "page": 18,
       "thumb": "/data/figures/2609.09405v1_p18_1.jpg",
-      "caption": "Figure 2: Numerical evidence of the Central limit theorem in the small intermittency regime (top) \u2014 Panel (a) shows a histogram of the empirical distribution of W = \u03a3_i/\u03bb (blue shaded area) overlaid with a red density curve, demonstrating convergence to a normal distribution centered at zero across the range -6 to 6. Panel (b) presents a Q-Q plot comparing ordered empirical values of standardized W against theoretical standard normal quantiles N(0,1), with parameters \u03bb\u00b2 = 10\u207b\u00b2, n = 1, T = 1.05, ",
+      "caption": "Figure 2: Numerical evidence of the Central limit theorem in the small intermittency regime (top) \u2014 Panel (a) shows a density histogram of the empirical distribution of W = \u03a3_i/\u03bb (shaded blue area) overlaid with a red curve representing the theoretical normal distribution, plotted against the normalized variable W ranging from approximately -6 to 6. Panel (b) presents a Q-Q plot comparing ordered empirical values of W (standardized) against theoretical N(0,1) quantiles, with parameters \u03bb\u00b2 = 10\u207b\u00b2",
       "vision": true,
       "source": "https://arxiv.org/pdf/2609.09405v1"
     },
@@ -152,84 +224,72 @@
       "title": "The Log S-fBM model: Statistical analysis",
       "page": 20,
       "thumb": "/data/figures/2609.09405v1_p20_2.jpg",
-      "caption": "Figure 3: Empirical power as a function of the sample size n (displayed on a logarithmic scale) for two values of the Hurst exponent. The dashed line corresponds to the least-squares fit of a power-law \u2014 This figure displays two scatter plots with fitted power-law curves showing empirical power of the log-M test versus sample size n on logarithmic scales for different Hurst exponent values. Panel (a) shows results for H=0.01 with power values ranging from 0 to 0.015, while panel (b) shows H=0.10",
+      "caption": "Figure 3: Empirical power as a function of the sample size n (displayed on a logarithmic scale) for two values of the Hurst exponent. The dashed line corresponds to the least-squares fit of a power-law \u2014 This figure displays two scatter plots showing empirical power of the log-M test versus sample size n (log scale) for the log S-fBM model under two Hurst exponent values (H=0.01 and H=0.10). Each plot shows blue dots representing empirical power measurements with a fitted dashed power-law line; ",
       "vision": true,
       "source": "https://arxiv.org/pdf/2609.09405v1"
-    },
-    {
-      "doc_id": "2609.09405v1",
-      "title": "The Log S-fBM model: Statistical analysis",
-      "page": 23,
-      "thumb": "/data/figures/2609.09405v1_p23_3.jpg",
-      "caption": "Figure 4: log kernel density estimator (using the gaussian kernel) of a sample path of the process (\u03b4\u03c4Xt)t\u2208R across multiple scales for different hurst indices and arbitrarily decayed from one another . \u2014 These three panels display log kernel density estimates (using Gaussian kernels) of increments from fractional Brownian motion paths at multiple timescales, with the x-axis showing values and y-axis showing log density. Each panel represents a different Hurst parameter (H = 0.005, 0.05, and 0.1",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.09405v1"
-    },
-    {
-      "doc_id": "2609.08959v1",
-      "title": "The Delta of a Variance Swap",
-      "page": 11,
-      "thumb": "/data/figures/2609.08959v1_p11_0.jpg",
-      "caption": "Figure 2. Plot of V \u02dapFq using the SVI volatility calibrated to the SPX smile of August 20, 2025 (T \u201c 1 month, September 19, 2025 expiry). \u2014 This line plot displays V'(F), the derivative of variance swap value with respect to forward price, on the y-axis (ranging from 0.0258 to 0.0268) against forward price F on the x-axis (ranging from 5500 to 7500). The figure uses SVI volatility calibration to SPX market data from August 20, 2025 for a one-month maturity variance swap expiring September 19, 2",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.08959v1"
-    },
-    {
-      "doc_id": "2609.08959v1",
-      "title": "The Delta of a Variance Swap",
-      "page": 12,
-      "thumb": "/data/figures/2609.08959v1_p12_1.jpg",
-      "caption": "Figure 3. Regression of S&P 500 daily returns (x axis) vs variance swap returns (y axis) for various maturities during the period from 2008 to 2025 \u2014 This figure displays eight scatter plots with fitted regression lines showing the relationship between S&P 500 daily returns (x-axis) and variance swap returns (y-axis) across different maturities: 3, 6, 9, 12, 18, and 24 months. Each panel reports a negative slope coefficient (\u03bb) ranging from -4.770 to -1.140 and an R\u00b2 value between 0.461 and 0.57",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.08959v1"
-    },
-    {
-      "doc_id": "2609.08959v1",
-      "title": "The Delta of a Variance Swap",
-      "page": 13,
-      "thumb": "/data/figures/2609.08959v1_p13_2.jpg",
-      "caption": "Figure 4. Elasticity of variance swap rate \u03bb at different maturities (2008\u20132025). \u2014 This figure displays a line plot comparing the elasticity of variance swap rates (\u03bb) across different maturity times from 0 to 2 years. The y-axis shows the Value ranging from 0 to -5, and the x-axis represents Maturity Time from 0.0 to 2.0 years. The plot includes two elements: red diamond markers representing \u03bb Estimates derived from classical least-squares curve fitting, and a blue curve showing the theoretica",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.08959v1"
-    },
-    {
-      "doc_id": "2609.08959v1",
-      "title": "The Delta of a Variance Swap",
-      "page": 14,
-      "thumb": "/data/figures/2609.08959v1_p14_3.jpg",
-      "caption": "Figure 5. Elasticity of variance swap rate \u03bb at different maturities (2022\u20132025). \u2014 This figure plots the elasticity of variance swap rate (\u03bb) against maturity time from 0 to 2 years, comparing two methods shown as a line and scatter points. The y-axis shows the value ranging from 0 to -8, while the x-axis represents maturity time; the blue curve depicts the theoretical \u03b7/\u221aT asymptotic approximation, while red dots represent the \u03bb estimate computed from market data. The key takeaway is that elas",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.08959v1"
-    },
-    {
-      "doc_id": "2609.08881v1",
-      "title": "The Double-Edged Sword of Short-Selling Bans",
-      "page": 14,
-      "thumb": "/data/figures/2609.08881v1_p14_0.jpg",
-      "caption": "Figure 1 displays the relationship between K (an increasing function of c) and the probability that the equilibrium price falls below the price threshold c under different scenarios using \u03b1 = 0.5, p = 0.5, g = 0.9, hN = 0.3, and hI = 0.2 (so that h2 \u2014 # Figure Description\n\nLemma 3 presents a mathematical formula for the regulator's perceived probability that the equilibrium price of a risky asset falls below a threshold c when short-selling bans are implemented. The formula shows this probabilit",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.08881v1"
-    },
-    {
-      "doc_id": "2609.08881v1",
-      "title": "The Double-Edged Sword of Short-Selling Bans",
-      "page": 15,
-      "thumb": "/data/figures/2609.08881v1_p15_1.jpg",
-      "caption": "Figure 1 about here \u2014 I can see text describing variables h_I and h_I/h_N in a financial model, explaining that the former affects the conditional likelihood of a sell order while the latter impacts the probability that the bid price is low. However, no actual figure/chart is visible in this image\u2014only explanatory text. Without the actual figure to analyze, I cannot provide a caption describing chart type, axes, or visual takeaways.",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.08881v1"
-    },
-    {
-      "doc_id": "2609.08881v1",
-      "title": "The Double-Edged Sword of Short-Selling Bans",
-      "page": 22,
-      "thumb": "/data/figures/2609.08881v1_p22_2.jpg",
-      "caption": "Figure 2 about here \u2014 Figure 2 presents a bar chart comparing average bid-ask spreads between pre-ban and post-ban periods, stratified by countries with and without short-selling restrictions. The vertical axis shows bid-ask spread percentage (ranging from approximately 0.6% to 1.1%), while the horizontal axis distinguishes between the two regulatory regimes and time periods. The figure documents a substantial increase in bid-ask spreads following short-selling ban implementation, with spreads r",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.08881v1"
     }
   ],
   "docs": [
+    {
+      "id": "2609.11905v1",
+      "title": "Entropic Value-at-Risk parity for tempered stable returns",
+      "source": "https://arxiv.org/pdf/2609.11905v1",
+      "pages": 20,
+      "images": 0,
+      "figures_captioned": 0,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 27
+    },
+    {
+      "id": "2609.11614v1",
+      "title": "Deep Learning of Robust Market Making under Regime-Switching Order Flow",
+      "source": "https://arxiv.org/pdf/2609.11614v1",
+      "pages": 40,
+      "images": 23,
+      "figures_captioned": 4,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 62
+    },
+    {
+      "id": "2609.11586v1",
+      "title": "Short-maturity skew stickiness ratio under local volatility",
+      "source": "https://arxiv.org/pdf/2609.11586v1",
+      "pages": 8,
+      "images": 0,
+      "figures_captioned": 0,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 12
+    },
+    {
+      "id": "2609.11575v1",
+      "title": "Market-Informed Networks for Modeling and Forecast Evaluation of Financial Extremes",
+      "source": "https://arxiv.org/pdf/2609.11575v1",
+      "pages": 19,
+      "images": 0,
+      "figures_captioned": 0,
+      "tables": 1,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 33
+    },
+    {
+      "id": "2609.10865v1",
+      "title": "The Elliptically Optimal Confidence Interval: A Bivariate Extension of Wilson's Score Method",
+      "source": "https://arxiv.org/pdf/2609.10865v1",
+      "pages": 64,
+      "images": 6,
+      "figures_captioned": 4,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 52
+    },
     {
       "id": "2609.10407v1",
       "title": "dexamine: A Python package for Uniswap event data on Ethereum",
@@ -284,71 +344,11 @@
       "source": "https://arxiv.org/pdf/2609.09405v1",
       "pages": 57,
       "images": 5,
-      "figures_captioned": 4,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 46
-    },
-    {
-      "id": "2609.08959v1",
-      "title": "The Delta of a Variance Swap",
-      "source": "https://arxiv.org/pdf/2609.08959v1",
-      "pages": 22,
-      "images": 0,
-      "figures_captioned": 4,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 43
-    },
-    {
-      "id": "2609.08881v1",
-      "title": "The Double-Edged Sword of Short-Selling Bans",
-      "source": "https://arxiv.org/pdf/2609.08881v1",
-      "pages": 77,
-      "images": 0,
       "figures_captioned": 3,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 47
-    },
-    {
-      "id": "2609.08605v1",
-      "title": "Numeraire Invariance of Entropy-Projected Martingale Measures",
-      "source": "https://arxiv.org/pdf/2609.08605v1",
-      "pages": 14,
-      "images": 0,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 29
-    },
-    {
-      "id": "2609.08581v1",
-      "title": "AlphaRJM: Reward-Jump Memory for Stochastic Return-Guided Alpha Discovery",
-      "source": "https://arxiv.org/pdf/2609.08581v1",
-      "pages": 26,
-      "images": 2,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 49
-    },
-    {
-      "id": "2609.08541v1",
-      "title": "Variance-Optimal Hedging in the Rough Hawkes--Heston Model",
-      "source": "https://arxiv.org/pdf/2609.08541v1",
-      "pages": 28,
-      "images": 0,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 48
+      "chunks_indexed": 45
     }
   ]
 }
