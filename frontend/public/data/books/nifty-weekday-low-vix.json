@@ -1,0 +1,47 @@
+{
+  "id": "nifty-weekday-low-vix",
+  "product": "nifty-weekday",
+  "label": "LOW-VIX",
+  "regime": "low_vix",
+  "status": "LIVE",
+  "blurb": "The low-volatility half of the NIFTY weekday book — runs only on days India VIX opens in the low-vol band, on a different engine from the high-VIX half.",
+  "period": { "from": "2025-09", "to": "2026-09" },
+  "headline": {
+    "pnl_points": 1327.39,
+    "trades": 332,
+    "sessions": 130,
+    "wins": 159,
+    "losses": 173,
+    "win_rate_pct": 47.9,
+    "per_trade_points": 4.00,
+    "per_session_points": 10.21,
+    "months_up": 10,
+    "months_traded": 10,
+    "top5_share_pct": 34
+  },
+  "cost": {
+    "worst_day_points": -30.60,
+    "worst_day_inr": -75825,
+    "max_drawdown_points": -95.84,
+    "max_drawdown_inr": -237338,
+    "best_day_points": 163.39,
+    "best_day_inr": 405099,
+    "days_up": 53,
+    "days_traded": 93,
+    "day_gate_pct": -27
+  },
+  "sizing": {
+    "per_leg_inr": 250000,
+    "lot": 65,
+    "net_pnl_inr": 3272713,
+    "peak_reserve_inr": 250000,
+    "avg_deployed_inr": 246567,
+    "lots_per_leg_min": 25,
+    "lots_per_leg_max": 63,
+    "slippage_pct_per_trade": 0.6
+  },
+  "monthly": [],
+  "daily": [],
+  "series_pending": true,
+  "caveat": "The trailing exit carries this book: it books more than twice what the fixed stops give back."
+}

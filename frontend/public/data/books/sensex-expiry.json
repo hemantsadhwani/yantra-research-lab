@@ -1,0 +1,47 @@
+{
+  "id": "sensex-expiry",
+  "product": "sensex-expiry",
+  "label": "Expiry book",
+  "regime": "all",
+  "status": "LIVE",
+  "blurb": "The SENSEX expiry-day (0DTE) book and the largest earner in the set, traded end-to-end through the broker.",
+  "period": { "from": "2025-09", "to": "2026-09" },
+  "headline": {
+    "pnl_points": 5930.64,
+    "trades": 470,
+    "sessions": 47,
+    "wins": 239,
+    "losses": 231,
+    "win_rate_pct": 50.9,
+    "per_trade_points": 12.62,
+    "per_session_points": 126.18,
+    "months_up": 13,
+    "months_traded": 13,
+    "top5_share_pct": 34
+  },
+  "cost": {
+    "worst_day_points": -69.27,
+    "worst_day_inr": -69004,
+    "max_drawdown_points": -172.04,
+    "max_drawdown_inr": -170254,
+    "best_day_points": 1254.43,
+    "best_day_inr": 1239390,
+    "days_up": 27,
+    "days_traded": 47,
+    "day_gate_pct": -50
+  },
+  "sizing": {
+    "per_leg_inr": 100000,
+    "lot": 20,
+    "net_pnl_inr": 5855118,
+    "peak_reserve_inr": 199864,
+    "avg_deployed_inr": 98716,
+    "lots_per_leg_min": 19,
+    "lots_per_leg_max": 163,
+    "slippage_pct_per_trade": 1.0
+  },
+  "monthly": [],
+  "daily": [],
+  "series_pending": true,
+  "caveat": "The -50% day gate is by far the loosest in the set; one bad SENSEX expiry can cost half the book's start capital."
+}

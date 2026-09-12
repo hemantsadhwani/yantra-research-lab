@@ -1,0 +1,33 @@
+{
+  "as_of": "2026-09-12",
+  "source_commit": "18e2d7ab",
+  "unit": "P&L in points (option-premium points, per the monthly reports) · ₹ where the report states it · summed, not compounded",
+  "disclaimer": "Backtest with simulated fills and a per-trade slippage charge · not live-executed · P&L in points, summed not compounded · LIVE / PAPER is the profile's production status, not the source of these numbers · no performance promises.",
+  "products": [
+    {
+      "id": "nifty-weekday",
+      "name": "NIFTY weekday",
+      "index": "NIFTY",
+      "session": "weekday",
+      "tagline": "Two regime books, one engine per day — plus a paper continuation sub-book.",
+      "books": ["nifty-weekday-high-vix", "nifty-weekday-low-vix", "nifty-weekday-r1s1"]
+    },
+    {
+      "id": "nifty-expiry",
+      "name": "NIFTY expiry",
+      "index": "NIFTY",
+      "session": "expiry",
+      "tagline": "0DTE Tuesday book, split by how India VIX opens.",
+      "books": ["nifty-expiry-high-vix", "nifty-expiry-low-vix"]
+    },
+    {
+      "id": "sensex-expiry",
+      "name": "SENSEX expiry",
+      "index": "SENSEX",
+      "session": "expiry",
+      "tagline": "0DTE SENSEX book — the largest earner in the set, and the loosest day gate.",
+      "books": ["sensex-expiry"]
+    }
+  ],
+  "unlisted_books": ["sensex-weekday-r1s1"]
+}

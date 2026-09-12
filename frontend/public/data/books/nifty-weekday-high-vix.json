@@ -1,0 +1,47 @@
+{
+  "id": "nifty-weekday-high-vix",
+  "product": "nifty-weekday",
+  "label": "HIGH-VIX",
+  "regime": "high_vix",
+  "status": "LIVE",
+  "blurb": "The high-volatility half of the NIFTY weekday book — runs only on days India VIX opens in the high-vol band.",
+  "period": { "from": "2025-10", "to": "2026-09" },
+  "headline": {
+    "pnl_points": 901.08,
+    "trades": 204,
+    "sessions": 71,
+    "wins": 102,
+    "losses": 102,
+    "win_rate_pct": 50.0,
+    "per_trade_points": 4.42,
+    "per_session_points": 12.69,
+    "months_up": 7,
+    "months_traded": 9,
+    "top5_share_pct": 52
+  },
+  "cost": {
+    "worst_day_points": -33.79,
+    "worst_day_inr": -82572,
+    "max_drawdown_points": -62.23,
+    "max_drawdown_inr": -153556,
+    "best_day_points": 176.68,
+    "best_day_inr": 435120,
+    "days_up": 32,
+    "days_traded": 46,
+    "day_gate_pct": -27
+  },
+  "sizing": {
+    "per_leg_inr": 250000,
+    "lot": 65,
+    "net_pnl_inr": 2214089,
+    "peak_reserve_inr": 495202,
+    "avg_deployed_inr": 245336,
+    "lots_per_leg_min": 13,
+    "lots_per_leg_max": 63,
+    "slippage_pct_per_trade": 0.6
+  },
+  "monthly": [],
+  "daily": [],
+  "series_pending": true,
+  "caveat": "Top 5 trades are 52% of this book — a month without one reads flat, and that is normal."
+}

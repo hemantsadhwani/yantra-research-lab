@@ -1,0 +1,47 @@
+{
+  "id": "nifty-expiry-low-vix",
+  "product": "nifty-expiry",
+  "label": "LOW-VIX",
+  "regime": "low_vix",
+  "status": "LIVE",
+  "blurb": "The expiry-day (0DTE) NIFTY book on quiet Tuesdays; same book as the high-VIX profile, harvested differently.",
+  "period": { "from": "2025-09", "to": "2026-09" },
+  "headline": {
+    "pnl_points": 339.11,
+    "trades": 65,
+    "sessions": 28,
+    "wins": 41,
+    "losses": 24,
+    "win_rate_pct": 63.1,
+    "per_trade_points": 5.22,
+    "per_session_points": 12.11,
+    "months_up": 7,
+    "months_traded": 8,
+    "top5_share_pct": 76
+  },
+  "cost": {
+    "worst_day_points": -31.74,
+    "worst_day_inr": -32167,
+    "max_drawdown_points": -31.74,
+    "max_drawdown_inr": -32167,
+    "best_day_points": 75.81,
+    "best_day_inr": 74781,
+    "days_up": 13,
+    "days_traded": 18,
+    "day_gate_pct": -25
+  },
+  "sizing": {
+    "per_leg_inr": 100000,
+    "lot": 65,
+    "net_pnl_inr": 332551,
+    "peak_reserve_inr": 196254,
+    "avg_deployed_inr": 98457,
+    "lots_per_leg_min": 22,
+    "lots_per_leg_max": 48,
+    "slippage_pct_per_trade": 1.0
+  },
+  "monthly": [],
+  "daily": [],
+  "series_pending": true,
+  "caveat": "Smallest book in the set at 65 trades — treat a single month here as anecdote, not signal."
+}

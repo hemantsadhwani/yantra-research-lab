@@ -37,8 +37,8 @@ account or runs locally. **No auth/Clerk keys are needed** — v1 has no login.
 The **accounts above all survive a machine move** — they are tied to your GitHub login, not the
 laptop. Only local tooling has to be redone.
 
-Present on this machine: **Python 3.13.7** and **git**. Missing: **Node/npm**, **flyctl**,
-**gh**, **Docker**.
+Present on this machine: **Python 3.13.7**, **git**, **Node 24 LTS / npm 11**, **flyctl 0.4**
+(both via winget, 2026-09-12). Still missing: **gh**, **Docker** (not needed to deploy).
 
 Python side — this is everything the research demo and eval gate need:
 
@@ -54,9 +54,20 @@ python -m venv .venv
 > Use `./.venv/Scripts/python.exe -m <module>`, not the bare `python` in the Makefile — the
 > Makefile assumes an activated venv, and `make` is not installed here either.
 
-Still to install, only when you need them:
-- **flyctl** — required to deploy the backend. `winget install --id Fly.Flyctl`, then `fly auth login`.
-- **Node 20+** — only for the `frontend/` build. `winget install --id OpenJS.NodeJS.LTS`.
+Toolchain (already done here; repeat on a fresh Windows box):
+- **Node 20+** — `winget install --id OpenJS.NodeJS.LTS` (frontend build only).
+- **flyctl** — `winget install --id Fly-io.flyctl`, then `fly auth login` (backend deploys only).
+
+Two gotchas when `frontend/node_modules` came over from the Mac:
+- `next` "is not recognized" — the `.bin` shims are POSIX symlinks. Run `npm ci` in `frontend/`
+  once on Windows; it rebuilds the shims and fetches the Windows swc binary.
+- Both machines commit to the same `main`, and the ingest bot commits there daily, so **always
+  `git pull` before you start** on either machine. This clone has `pull.rebase=true` and
+  `rebase.autoStash=true` set so a pull with a dirty tree just works; set the same on the Mac.
+
+Deploying is machine-independent: the **frontend deploys on every push to `main`** (Vercel's
+GitHub integration), and the **backend deploys with `fly deploy` from `backend/`** on whichever
+machine is logged in.
 
 > **Windows console encoding.** Both entrypoints now force UTF-8 on stdout/stderr. Before that
 > fix, `research_lab.run` completed the whole loop and then died with `UnicodeEncodeError`

@@ -1,0 +1,47 @@
+{
+  "id": "sensex-weekday-r1s1",
+  "product": "sensex-weekday",
+  "label": "R1S1 continuation",
+  "regime": "all",
+  "status": "PAPER",
+  "blurb": "The SENSEX twin of the NIFTY paper continuation sub-book, running on every SENSEX weekday session in paper mode.",
+  "period": { "from": "2025-09", "to": "2026-08" },
+  "headline": {
+    "pnl_points": 1313.82,
+    "trades": 185,
+    "sessions": 80,
+    "wins": 91,
+    "losses": 94,
+    "win_rate_pct": 49.2,
+    "per_trade_points": 7.10,
+    "per_session_points": 16.42,
+    "months_up": 9,
+    "months_traded": 12,
+    "top5_share_pct": 44
+  },
+  "cost": {
+    "worst_day_points": -49.55,
+    "worst_day_inr": -196557,
+    "max_drawdown_points": -190.22,
+    "max_drawdown_inr": -746934,
+    "best_day_points": 285.55,
+    "best_day_inr": 1132157,
+    "days_up": 43,
+    "days_traded": 80,
+    "day_gate_pct": -27
+  },
+  "sizing": {
+    "per_leg_inr": 400000,
+    "lot": 20,
+    "net_pnl_inr": 5207198,
+    "peak_reserve_inr": 1193596,
+    "avg_deployed_inr": 395813,
+    "lots_per_leg_min": 23,
+    "lots_per_leg_max": 78,
+    "slippage_pct_per_trade": null
+  },
+  "monthly": [],
+  "daily": [],
+  "series_pending": true,
+  "caveat": "Runs PAPER, and this tree has no live round trips at all — the slippage cushion here is inherited, not measured."
+}

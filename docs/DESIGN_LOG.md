@@ -76,3 +76,22 @@ propose → backtest → judge → rank loop (done) + MCP + eval-gate + a **basi
 not part of the MVP. Chatbot v1 uses basic RAG only (methodology docs + quant papers → chunk →
 embed → Qdrant). Anti-scope-creep: ship the MVP, then extend. See the tiers in the
 [README](../README.md).
+
+### Strategy Explorer — real numbers, outputs only, no database (2026-09-12)
+The Explorer now shows **real, labeled backtest outputs** for the three products — `nifty-weekday`
+(HIGH-VIX · LOW-VIX · a PAPER continuation sub-book), `nifty-expiry` (HIGH-VIX · LOW-VIX) and
+`sensex-expiry` — as **product tabs with a per-book sub-toggle**, plus a **Risk gates** tab
+(daily / weekly / monthly stops and what they cannot save you from). Three decisions:
+- **Outputs, not mechanism.** Headline tiles, monthly/daily P&L, drawdown, sizing base and
+  LIVE/PAPER status are published; the engine panel (indicators, thresholds, bands, harvest
+  rules), exit-type breakdowns and trade rows are not — they *are* the edge ADR-0001 protects.
+  "Net over peak %" is also dropped: it reads as a compounded return and breaks claims discipline.
+- **Static JSON, not a DB.** Seven books × 13 months, refreshed monthly, is a
+  `frontend/public/data/books/*.json` problem, served free by Vercel through the existing
+  `data.ts` loaders. A database would add a paid dependency and let real numbers flow through a
+  build step, which WEBAPP.md forbids. Revisit only if the site should refresh itself from the bot.
+- **The PDFs are not the source.** Only headline numbers are transcribable from the monthly
+  reports (bars label peaks only, daily is a scatter). Series come from `scripts/export_books.py`,
+  run **inside the private repo** against the trades CSV; only the aggregated JSON crosses over,
+  after a sum-vs-headline consistency check. Until then each book carries `series_pending: true`
+  and the UI draws an explicit placeholder — never a synthetic curve.

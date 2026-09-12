@@ -22,3 +22,26 @@ export function getPerformance(): Promise<PerformanceData> {
 export function getIngestion(): Promise<IngestionManifest> {
   return readJson<IngestionManifest>("ingestion.json");
 }
+
+// ---- Strategy books --------------------------------------------------------
+import type { Book, BooksIndex, RiskGatesData } from "./types";
+
+export function getBooksIndex(): Promise<BooksIndex> {
+  return readJson<BooksIndex>("books/index.json");
+}
+
+export function getBook(id: string): Promise<Book> {
+  return readJson<Book>(`books/${id}.json`);
+}
+
+/** All books listed in index.json (unlisted ones are skipped), keyed by id. */
+export async function getAllBooks(): Promise<Record<string, Book>> {
+  const idx = await getBooksIndex();
+  const ids = idx.products.flatMap((p) => p.books);
+  const books = await Promise.all(ids.map(getBook));
+  return Object.fromEntries(books.map((b) => [b.id, b]));
+}
+
+export function getRiskGates(): Promise<RiskGatesData> {
+  return readJson<RiskGatesData>("books/risk_gates.json");
+}

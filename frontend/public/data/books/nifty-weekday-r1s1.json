@@ -1,0 +1,47 @@
+{
+  "id": "nifty-weekday-r1s1",
+  "product": "nifty-weekday",
+  "label": "R1S1 continuation",
+  "regime": "all",
+  "status": "PAPER",
+  "blurb": "A separate index-level continuation sub-book that runs on every weekday session in paper mode, isolated from the live book's risk gates.",
+  "period": { "from": "2025-10", "to": "2026-09" },
+  "headline": {
+    "pnl_points": 513.75,
+    "trades": 175,
+    "sessions": 78,
+    "wins": 105,
+    "losses": 70,
+    "win_rate_pct": 60.0,
+    "per_trade_points": 2.94,
+    "per_session_points": 6.59,
+    "months_up": 8,
+    "months_traded": 12,
+    "top5_share_pct": 68
+  },
+  "cost": {
+    "worst_day_points": -39.00,
+    "worst_day_inr": -95399,
+    "max_drawdown_points": -135.75,
+    "max_drawdown_inr": -331767,
+    "best_day_points": 239.47,
+    "best_day_inr": 579918,
+    "days_up": 45,
+    "days_traded": 78,
+    "day_gate_pct": -27
+  },
+  "sizing": {
+    "per_leg_inr": 250000,
+    "lot": 65,
+    "net_pnl_inr": 1254086,
+    "peak_reserve_inr": 745508,
+    "avg_deployed_inr": 244392,
+    "lots_per_leg_min": 16,
+    "lots_per_leg_max": 35,
+    "slippage_pct_per_trade": null
+  },
+  "monthly": [],
+  "daily": [],
+  "series_pending": true,
+  "caveat": "Runs PAPER. These are simulated fills — the LIVE flip is a capital decision, not an engineering one."
+}

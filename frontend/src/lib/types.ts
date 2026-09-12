@@ -143,3 +143,122 @@ export interface ChatResponse {
   sources: ChatSource[];
   leak_rate: number;
 }
+
+// ---------------------------------------------------------------------------
+// Strategy books (Strategy Explorer). Real, labeled backtest OUTPUTS exported
+// from the private master — never engine parameters or entry/exit logic.
+// Units: P&L in "points" (option-premium points, as the monthly reports use),
+// with ₹ equivalents where the report gives them. Summed, not compounded.
+// ---------------------------------------------------------------------------
+
+export type BookStatus = "LIVE" | "PAPER";
+export type Regime = "high_vix" | "low_vix" | "all";
+
+export interface BookHeadline {
+  pnl_points: number;
+  trades: number;
+  sessions: number;
+  wins: number;
+  losses: number;
+  win_rate_pct: number;
+  per_trade_points: number;
+  per_session_points: number;
+  months_up: number;
+  months_traded: number;
+  /** share of book P&L from the top 5 trades — concentration, shown as honesty stat */
+  top5_share_pct: number;
+}
+
+export interface BookCost {
+  worst_day_points: number;
+  worst_day_inr: number;
+  max_drawdown_points: number;
+  max_drawdown_inr: number;
+  best_day_points: number;
+  best_day_inr: number;
+  days_up: number;
+  days_traded: number;
+  /** daily M2M halt as % of the book's own base capital (negative) */
+  day_gate_pct: number;
+}
+
+export interface BookSizing {
+  per_leg_inr: number;
+  lot: number;
+  net_pnl_inr: number;
+  peak_reserve_inr: number;
+  avg_deployed_inr: number;
+  lots_per_leg_min: number;
+  lots_per_leg_max: number;
+  slippage_pct_per_trade: number | null;
+}
+
+export interface MonthPoint {
+  /** YYYY-MM */
+  month: string;
+  pnl_points: number;
+}
+
+export interface DayPoint {
+  /** YYYY-MM-DD */
+  date: string;
+  pnl_points: number;
+}
+
+export interface Book {
+  id: string;
+  product: string;
+  label: string;
+  regime: Regime;
+  status: BookStatus;
+  /** one plain sentence — what the book is, never how it decides */
+  blurb: string;
+  period: { from: string; to: string };
+  headline: BookHeadline;
+  cost: BookCost;
+  sizing: BookSizing;
+  /** empty until scripts/export_books.py has been run in the private repo */
+  monthly: MonthPoint[];
+  daily: DayPoint[];
+  /** true while monthly/daily are still empty — UI must render an honest placeholder, never fake data */
+  series_pending: boolean;
+  /** one-line caveat lifted from the report footer, if any */
+  caveat?: string;
+}
+
+export interface ProductDef {
+  id: string;
+  name: string;
+  index: "NIFTY" | "SENSEX";
+  session: "weekday" | "expiry";
+  tagline: string;
+  books: string[];
+}
+
+export interface BooksIndex {
+  as_of: string;
+  source_commit: string;
+  unit: string;
+  disclaimer: string;
+  products: ProductDef[];
+  unlisted_books: string[];
+}
+
+export interface RiskGateRow {
+  profile: string;
+  gate: string;
+  trips_at_pct: number;
+  in_inr: number;
+  checked: "every tick" | "startup only";
+}
+
+export interface RiskGatesData {
+  as_of: string;
+  how_to_read: { term: string; meaning: string }[];
+  profiles: { profile: string; m2m_base_inr: number; sizes: string; armed_gates: number }[];
+  armed: RiskGateRow[];
+  cancels: { gate: string; counts_from: string; blocks: string; open_trades: string }[];
+  inert: { profile: string; present_but_inert: string }[];
+  paper_brakes: { profile: string; book_base_inr: number; floor_pct: number; floor_inr: number; worst_day_inr: number }[];
+  will_not_save_you_from: { title: string; body: string }[];
+}

@@ -1,0 +1,64 @@
+{
+  "as_of": "2026-09-12",
+  "how_to_read": [
+    { "term": "The %", "meaning": "a % of that profile's own M2M base capital — not a % of your account" },
+    { "term": "The base", "meaning": "the profile's mark-to-market capital, else its trade-settings capital" },
+    { "term": "The count", "meaning": "rupees are added, then divided by the base" },
+    { "term": "Live one", "meaning": "daily M2M — checked every tick, can cut in mid-session" },
+    { "term": "Morning ones", "meaning": "weekly and monthly — read once, at startup; a morning gate never pulls you out of a running day, it refuses to start the next one" }
+  ],
+  "profiles": [
+    { "profile": "NIFTY weekday HIGH-VIX", "m2m_base_inr": 15000, "sizes": "1 lot fixed", "armed_gates": 3 },
+    { "profile": "NIFTY weekday LOW-VIX", "m2m_base_inr": 15000, "sizes": "1 lot fixed", "armed_gates": 3 },
+    { "profile": "NIFTY expiry HIGH-VIX", "m2m_base_inr": 100000, "sizes": "by capital", "armed_gates": 2 },
+    { "profile": "NIFTY expiry LOW-VIX", "m2m_base_inr": 100000, "sizes": "by capital", "armed_gates": 2 },
+    { "profile": "SENSEX expiry", "m2m_base_inr": 75000, "sizes": "by capital", "armed_gates": 1 },
+    { "profile": "SENSEX weekday", "m2m_base_inr": 400000, "sizes": "by capital", "armed_gates": 3 }
+  ],
+  "armed": [
+    { "profile": "NIFTY weekday HIGH-VIX", "gate": "Daily M2M", "trips_at_pct": -27, "in_inr": -4050, "checked": "every tick" },
+    { "profile": "NIFTY weekday HIGH-VIX", "gate": "Weekly intraday floor", "trips_at_pct": -59, "in_inr": -8850, "checked": "every tick" },
+    { "profile": "NIFTY weekday HIGH-VIX", "gate": "Weekly hard stop", "trips_at_pct": -59, "in_inr": -8850, "checked": "startup only" },
+
+    { "profile": "NIFTY weekday LOW-VIX", "gate": "Daily M2M", "trips_at_pct": -27, "in_inr": -4050, "checked": "every tick" },
+    { "profile": "NIFTY weekday LOW-VIX", "gate": "Weekly intraday floor", "trips_at_pct": -59, "in_inr": -8850, "checked": "every tick" },
+    { "profile": "NIFTY weekday LOW-VIX", "gate": "Weekly hard stop", "trips_at_pct": -59, "in_inr": -8850, "checked": "startup only" },
+
+    { "profile": "NIFTY expiry HIGH-VIX", "gate": "Daily M2M", "trips_at_pct": -33, "in_inr": -33000, "checked": "every tick" },
+    { "profile": "NIFTY expiry HIGH-VIX", "gate": "Monthly stop", "trips_at_pct": -50, "in_inr": -50000, "checked": "startup only" },
+
+    { "profile": "NIFTY expiry LOW-VIX", "gate": "Daily M2M", "trips_at_pct": -25, "in_inr": -25000, "checked": "every tick" },
+    { "profile": "NIFTY expiry LOW-VIX", "gate": "Monthly stop", "trips_at_pct": -50, "in_inr": -50000, "checked": "startup only" },
+
+    { "profile": "SENSEX expiry", "gate": "Daily M2M", "trips_at_pct": -50, "in_inr": -37500, "checked": "every tick" },
+
+    { "profile": "SENSEX weekday", "gate": "Daily M2M", "trips_at_pct": -27, "in_inr": -108000, "checked": "every tick" },
+    { "profile": "SENSEX weekday", "gate": "Weekly hard stop", "trips_at_pct": -60, "in_inr": -240000, "checked": "startup only" },
+    { "profile": "SENSEX weekday", "gate": "Weekly expiry gate", "trips_at_pct": -38, "in_inr": -152000, "checked": "startup only" }
+  ],
+  "cancels": [
+    { "gate": "Daily M2M", "counts_from": "that book, that day", "blocks": "rest of today", "open_trades": "force-exited" },
+    { "gate": "Weekly intraday floor", "counts_from": "week-to-date at startup", "blocks": "tightens today's cap", "open_trades": "force-exited at the tighter cap" },
+    { "gate": "Weekly hard stop", "counts_from": "the weekday book", "blocks": "the rest of the week", "open_trades": "untouched" },
+    { "gate": "Monthly stop", "counts_from": "expiry sessions only", "blocks": "the rest of the month", "open_trades": "untouched" },
+    { "gate": "R1S1 book M2M", "counts_from": "open R1S1 legs only", "blocks": "new R1S1 entries", "open_trades": "untouched — they ride their own SL" }
+  ],
+  "inert": [
+    { "profile": "NIFTY weekday HIGH-VIX", "present_but_inert": "Weekly expiry gate" },
+    { "profile": "NIFTY weekday LOW-VIX", "present_but_inert": "Weekly expiry gate" },
+    { "profile": "NIFTY expiry HIGH-VIX", "present_but_inert": "Weekly expiry gate, weekly hard stop" },
+    { "profile": "NIFTY expiry LOW-VIX", "present_but_inert": "Weekly expiry gate, weekly hard stop" },
+    { "profile": "SENSEX expiry", "present_but_inert": "Weekly expiry gate, weekly hard stop" }
+  ],
+  "paper_brakes": [
+    { "profile": "NIFTY weekday HIGH-VIX", "book_base_inr": 750000, "floor_pct": -27, "floor_inr": -202500, "worst_day_inr": -5625 },
+    { "profile": "NIFTY weekday LOW-VIX", "book_base_inr": 750000, "floor_pct": -27, "floor_inr": -202500, "worst_day_inr": -5625 },
+    { "profile": "SENSEX weekday", "book_base_inr": 1200000, "floor_pct": -27, "floor_inr": -324000, "worst_day_inr": -180000 }
+  ],
+  "will_not_save_you_from": [
+    { "title": "A slow bleed", "body": "The daily cap bounds one session and the weekly one bounds a week that starts badly. A run of days each landing just inside the daily cap passes through the whole stack untouched." },
+    { "title": "A wrong-way book", "body": "If every leg is on the wrong side of a trending market, no stop-loss layer fixes that. It only decides how fast you pay for it." },
+    { "title": "A gate that cannot read its ledger", "body": "The weekly floor reads week-to-date once, at startup, from the persistent ledger. If that read fails the floor falls back to the day's own cap — it fails OPEN, not shut." },
+    { "title": "A week that crosses the line today", "body": "Week-to-date is fixed at startup and does not update as today's trades close, so a week that breaches mid-session is still bounded only by the daily cap." }
+  ]
+}

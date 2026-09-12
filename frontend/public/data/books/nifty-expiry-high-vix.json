@@ -1,0 +1,47 @@
+{
+  "id": "nifty-expiry-high-vix",
+  "product": "nifty-expiry",
+  "label": "HIGH-VIX",
+  "regime": "high_vix",
+  "status": "LIVE",
+  "blurb": "The expiry-day (0DTE) NIFTY book on high-volatility Tuesdays, with its own hours, zones and sizing versus the weekday book.",
+  "period": { "from": "2026-01", "to": "2026-07" },
+  "headline": {
+    "pnl_points": 796.62,
+    "trades": 85,
+    "sessions": 23,
+    "wins": 43,
+    "losses": 42,
+    "win_rate_pct": 50.6,
+    "per_trade_points": 9.37,
+    "per_session_points": 34.64,
+    "months_up": 6,
+    "months_traded": 7,
+    "top5_share_pct": 53
+  },
+  "cost": {
+    "worst_day_points": -38.00,
+    "worst_day_inr": -94070,
+    "max_drawdown_points": -107.49,
+    "max_drawdown_inr": -266979,
+    "best_day_points": 213.42,
+    "best_day_inr": 530366,
+    "days_up": 14,
+    "days_traded": 21,
+    "day_gate_pct": -33
+  },
+  "sizing": {
+    "per_leg_inr": 250000,
+    "lot": 65,
+    "net_pnl_inr": 1979590,
+    "peak_reserve_inr": 496935,
+    "avg_deployed_inr": 248105,
+    "lots_per_leg_min": 32,
+    "lots_per_leg_max": 124,
+    "slippage_pct_per_trade": 1.0
+  },
+  "monthly": [],
+  "daily": [],
+  "series_pending": true,
+  "caveat": "0DTE: premium decays all day, so a stalled winner is a loser that has not printed yet."
+}

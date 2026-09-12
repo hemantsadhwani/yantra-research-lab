@@ -48,15 +48,27 @@ Deterministic (no LLM calls) — commit the regenerated `run.json`.
 (*simulation / educational · backtest not live-executed · % summed, not compounded · no promises*).
 Do this by hand so real numbers never pass through a build tool.
 
+## Strategy books (real numbers)
+`frontend/public/data/books/*.json` holds real, labeled backtest **outputs** for the private
+strategies (`nifty-weekday`, `nifty-expiry`, `sensex-expiry`) behind the Strategy Explorer —
+see `frontend/src/lib/types.ts` for the `Book`/`BooksIndex`/`RiskGatesData` shapes. The
+`headline`/`cost`/`sizing` figures are transcribed by hand from the private monthly reports;
+`monthly`/`daily` stay `[]` with `series_pending: true` until filled in. Fill them by running
+`scripts/export_books.py` **in the private repo** against the real trades CSV, then commit
+only the resulting JSON here — the CSV itself never enters this repo. Outputs only, always:
+no engine parameters, indicator names or thresholds, entry/exit logic, exit-type names, or
+trade-level rows ever get published, in these files or anywhere else on the public site.
+
 ## Deploy
 **Backend → Fly.io** (from `backend/`):
 ```bash
-fly launch          # accept the fly.toml; app scales to zero
+fly launch          # accept the fly.toml; one machine stays warm
 fly secrets set ANTHROPIC_API_KEY=sk-ant-...   # set the key as a Fly secret (not in the image)
 fly secrets set FRONTEND_ORIGIN=https://<your-vercel-domain>
 fly deploy
 ```
-Note the backend URL (e.g. `https://yantra-backend.fly.dev`).
+Note the backend URL — this deployment is `https://yantra-chatbot.fly.dev`
+(matches `app = "yantra-chatbot"` in `backend/fly.toml`).
 
 **Frontend → Vercel**:
 1. Import the GitHub repo in Vercel; set **Root Directory = `frontend`**.
@@ -67,4 +79,6 @@ Then set the backend's `FRONTEND_ORIGIN` to the Vercel URL so CORS allows it.
 
 ## Cost
 Research Lab is cached → $0/visitor. Chatbot is Haiku + caching + rate-limit + daily cap. Backend
-scales to zero. Estimate: **~$1–5/month + domain.** See [docs/adr/0005-public-demo-deployment.md](docs/adr/0005-public-demo-deployment.md).
+keeps one warm machine (`min_machines_running = 1`) so demo traffic never hits a ~20s cold start —
+that trades scale-to-zero for ~$2/month of always-on `shared-cpu-1x`. Estimate: **~$3–7/month + domain.**
+See [docs/adr/0005-public-demo-deployment.md](docs/adr/0005-public-demo-deployment.md).
