@@ -194,6 +194,68 @@ _PERF_WORDS = (
 )
 
 # Words that pull in the risk-gates doc alongside whatever else matched.
+# Textbook phrasings: the visitor wants the concept, not our numbers. "What is a
+# drawdown?" is teaching; "what is OUR max drawdown?" is a data question. Without
+# this, shared vocabulary ("drawdown", "win rate") dragged book docs into every
+# methodology answer.
+_DEFINITION_WORDS = (
+    "what is a ",
+    "what is an ",
+    "what's a ",
+    "whats a ",
+    "what does ",
+    "explain ",
+    "define ",
+    "definition of",
+    "how do you calculate",
+    "how is ",
+    "in general",
+    "generally",
+    "textbook",
+    "concept",
+    "why does",
+    "why is",
+    "difference between",
+)
+
+# Markers that make a question about OUR books despite textbook phrasing.
+_OURS_WORDS = (
+    "your",
+    "our",
+    "the book",
+    "this book",
+    "the lab",
+    "nifty",
+    "sensex",
+    "expiry",
+    "weekday",
+    "live",
+    "paper",
+)
+
+
+def _is_definition_question(m: str) -> bool:
+    return any(w in m for w in _DEFINITION_WORDS) and not any(w in m for w in _OURS_WORDS)
+
+
+# Phrases that are about the risk-gate machinery itself, not a book's numbers.
+_GATE_TOPIC_WORDS = (
+    "risk gate",
+    "gate stack",
+    "gates",
+    "m2m",
+    "day gate",
+    "daily gate",
+    "weekly gate",
+    "monthly stop",
+    "hard stop",
+    "intraday floor",
+    "what stops",
+    "not save",
+    "stop the book",
+    "halt",
+)
+
 _RISK_WORDS = (
     "gate",
     "stop",
@@ -234,6 +296,9 @@ def match_products(message: str, history: list[str] | None = None) -> set[str]:
     vector index handles.
     """
     m = _normalize(message)
+    if _is_definition_question(m):
+        # Pure methodology: let the vector index answer it.
+        return set()
     products: set[str] = set()
 
     has_expiry = any(w in m for w in _EXPIRY_WORDS)
@@ -260,6 +325,12 @@ def match_products(message: str, history: list[str] | None = None) -> set[str]:
         return products
 
     asks_perf = any(w in m for w in _PERF_WORDS)
+    # A question about the gate stack itself names no product and no perf word
+    # ("what will the gates not save me from?"). It is still answerable from the
+    # published risk-gates doc, and must not fall through to the methodology
+    # index, which will happily invent a plausible answer.
+    if not asks_perf and any(w in m for w in _GATE_TOPIC_WORDS):
+        return {OVERVIEW_PRODUCT}
     if asks_perf and history:
         # Inherit from the conversation, most recent turn first.
         for earlier in reversed(history):

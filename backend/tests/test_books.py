@@ -260,3 +260,53 @@ def test_followup_selects_the_book_doc(tmp_path):
     names = [d.book for d in selected]
     assert "sensex-expiry" in names
     assert names[0] == books.OVERVIEW_BOOK
+
+
+# --------------------------------------------------------------------------- #
+# Definition vs data. These share vocabulary ("drawdown", "win rate"), and the
+# split has failed in both directions: textbook questions dragging book docs in,
+# and a gate question falling through to the methodology index, where the model
+# invented a confident, wrong answer.
+# --------------------------------------------------------------------------- #
+@pytest.mark.parametrize(
+    "message",
+    [
+        "what is a drawdown?",
+        "what is a sharpe ratio?",
+        "explain mean reversion",
+        "what does max drawdown mean?",
+        "how do you calculate a z-score?",
+        "define win rate",
+    ],
+)
+def test_definition_questions_do_not_route_to_books(message):
+    assert books.match_products(message) == set()
+
+
+@pytest.mark.parametrize(
+    "message",
+    [
+        "what is the max drawdown of the sensex expiry book?",
+        "what is our win rate on nifty expiry?",
+        "explain the drawdown on your sensex book",
+    ],
+)
+def test_definition_phrasing_about_our_books_still_routes(message):
+    assert books.match_products(message) != set()
+
+
+@pytest.mark.parametrize(
+    "message",
+    [
+        "what will the risk gate stack not save me from?",
+        "what stops the book?",
+        "what are the risk gates?",
+        "when does the m2m halt kick in?",
+    ],
+)
+def test_gate_topic_questions_reach_the_risk_doc(message):
+    docs = books.load_books()
+    if not docs:
+        pytest.skip("books_corpus not generated")
+    names = [d.book for d in books.select_docs(message, docs)]
+    assert books.RISK_GATES_BOOK in names

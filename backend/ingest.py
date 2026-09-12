@@ -28,7 +28,6 @@ import os
 from pathlib import Path
 
 from dotenv import find_dotenv, load_dotenv
-
 from retriever import Chunk, get_retriever
 
 load_dotenv(find_dotenv())
@@ -49,10 +48,17 @@ CHUNK_WORDS = 380
 OVERLAP_WORDS = 60
 
 
+# READMEs describe the corpus (paths, eval sets, how to regenerate) rather than
+# carrying quant content, so they are noise in retrieval and name internals.
+_SKIP_NAMES = {"readme.md"}
+
+
 def _iter_markdown(folder: Path) -> list[Path]:
     if not folder.exists():
         return []
-    return sorted(p for p in folder.rglob("*.md") if p.is_file())
+    return sorted(
+        p for p in folder.rglob("*.md") if p.is_file() and p.name.lower() not in _SKIP_NAMES
+    )
 
 
 def _chunk_text(text: str) -> list[str]:
