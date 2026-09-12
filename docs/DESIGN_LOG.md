@@ -95,3 +95,16 @@ The Explorer now shows **real, labeled backtest outputs** for the three products
   run **inside the private repo** against the trades CSV; only the aggregated JSON crosses over,
   after a sum-vs-headline consistency check. Until then each book carries `series_pending: true`
   and the UI draws an explicit placeholder — never a synthetic curve.
+
+### Chatbot knows the books — hybrid routing, outputs only (2026-09-12)
+A visitor asked the live bot for the SENSEX expiry P&L and it (correctly) had nothing: the
+corpus was methodology-only and the Fly image copies just `backend/`. Now
+`scripts/sync_books_corpus.py` renders the book JSONs into `backend/books_corpus/*.md` (with a
+`--check` drift mode), `ingest.py` indexes them, and `backend/books.py` adds a **deterministic
+keyword router**: name a product and its doc (plus the overview, plus risk gates on risk words)
+is always in context — vector retrieval alone was a gamble with a small embedding model. The
+system prompt gains four rules: quote the published outputs with their labels, never
+extrapolate/annualise/convert to %, say "pending" when the monthly series is, and keep refusing
+mechanism. Because book names are now in the corpus, naming a product counts as a "specific"
+marker in `should_refuse` — "what threshold does the nifty weekday book use?" is refused,
+"why did the sensex expiry book stop trading in Feb?" is not. Red-team eval: 100% block, 0 FP.

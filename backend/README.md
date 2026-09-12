@@ -110,6 +110,18 @@ If your build environment blocks the model download, drop the `RUN python ingest
 line from the `Dockerfile` and run `python ingest.py` in your machine start command
 instead (with a persistent volume for the index).
 
+## Chatbot corpus
+
+`books_corpus/` holds generated markdown — one file per strategy book, plus an
+overview and a risk-gates doc — rendered from the frontend's strategy-book JSON
+(`frontend/public/data/books/*.json`), which is the source of truth. Regenerate
+with `python scripts/sync_books_corpus.py` from the repo root (or
+`python scripts/sync_books_corpus.py --check` in CI / pre-commit to verify the
+committed files are still in sync, without writing anything). These docs are
+backtest **outputs only** — P&L, win rate, drawdown, sizing, risk gates — never
+engine internals, parameters, or entry/exit logic. `ingest.py` indexes
+`books_corpus/` alongside `seed_corpus/`.
+
 ## Guardrail note (defense in depth)
 
 The index holds **general methodology only** — it must never contain proprietary

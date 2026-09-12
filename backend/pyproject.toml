@@ -25,7 +25,7 @@ dev = ["pytest>=8", "ruff>=0.6"]
 # The backend is a flat set of modules (app, retriever, embeddings, guardrails,
 # ingest), not an installable package tree — pip install -e . just needs the deps.
 [tool.setuptools]
-py-modules = ["app", "retriever", "embeddings", "guardrails", "ingest"]
+py-modules = ["app", "retriever", "embeddings", "guardrails", "ingest", "books"]
 
 [tool.pytest.ini_options]
 addopts = "-q"

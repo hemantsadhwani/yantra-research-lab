@@ -24,6 +24,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel, Field
 
+import books
 import guardrails
 import metrics as metrics_mod
 import observability as obs
@@ -93,6 +94,25 @@ def get_retriever_cached():
                     logger.warning("Retriever load failed (run ingest.py?): %s", e)
                 _retriever = r
     return _retriever
+
+
+_books: list[books.BookDoc] | None = None
+_books_lock = threading.Lock()
+
+
+def get_books_cached() -> list[books.BookDoc]:
+    """Load the published-outputs corpus once per process (it is small and static)."""
+    global _books
+    if _books is None:
+        with _books_lock:
+            if _books is None:
+                try:
+                    _books = books.load_books()
+                except Exception as e:  # an unreadable corpus must not break chat
+                    logger.warning("books corpus load failed: %s", e)
+                    _books = []
+                logger.info("books corpus loaded docs=%d", len(_books))
+    return _books
 
 
 _client = None
@@ -259,12 +279,25 @@ def chat(req: ChatRequest, request: Request):
             obs.set_attributes(rsp, {"retrieved_k": len(chunks), "retrieve_ms": retrieve_ms})
         attrs.update(retrieved_k=len(chunks), retrieve_ms=retrieve_ms)
 
-        sources = [Source(title=c.title, snippet=_snippet(c.text)) for c in chunks]
-        context = (
-            "\n\n".join(f"[{c.title}]\n{c.text}" for c in chunks)
-            if chunks
-            else "(no retrieved context)"
-        )
+        # Published backtest outputs: deterministic keyword routing on the ORIGINAL
+        # message (redaction rewrites digit runs), prepended ahead of the vector chunks
+        # so the figures lead the context. Outputs only — mechanism stays refused.
+        selected = books.select_docs(message, get_books_cached())
+        selected_titles = {d.title for d in selected}
+        attrs["book_docs"] = len(selected)
+
+        book_blocks = [d.context_block() for d in selected]
+        chunk_blocks = [
+            f"[{c.title}]\n{c.text}" for c in chunks if c.title not in selected_titles
+        ]
+
+        sources = [Source(title=d.title, snippet=_snippet(d.body)) for d in selected] + [
+            Source(title=c.title, snippet=_snippet(c.text))
+            for c in chunks
+            if c.title not in selected_titles
+        ]
+        blocks = book_blocks + chunk_blocks
+        context = "\n\n".join(blocks) if blocks else "(no retrieved context)"
 
         client = get_client()
         if client is None:
@@ -290,7 +323,8 @@ def chat(req: ChatRequest, request: Request):
         messages.append(
             {
                 "role": "user",
-                "content": f"Retrieved methodology context:\n{context}\n\n"
+                "content": f"Retrieved context (methodology and, where relevant, "
+                f"published backtest outputs):\n{context}\n\n"
                 f"Question: {safe_message}",
             }
         )
@@ -305,7 +339,9 @@ def chat(req: ChatRequest, request: Request):
                     system=[
                         {
                             "type": "text",
-                            "text": guardrails.SYSTEM_PROMPT,
+                            "text": guardrails.SYSTEM_PROMPT
+                            + "\n\n"
+                            + books.BOOKS_SYSTEM_ADDENDUM,
                             "cache_control": {"type": "ephemeral"},  # cache stable prefix
                         }
                     ],

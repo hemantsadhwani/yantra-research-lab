@@ -1,15 +1,23 @@
 """Corpus ingestion: load markdown, chunk, embed, and index.
 
-Sources (methodology / general knowledge ONLY):
-  - the repo's ``knowledge_base/`` folder, if present, and
-  - the built-in ``seed_corpus/`` notes shipped alongside this file.
+The corpus is quant *methodology* plus the lab's **published backtest outputs**:
+  - the repo's ``knowledge_base/`` folder, if present,
+  - the built-in ``seed_corpus/`` methodology notes shipped alongside this file, and
+  - ``books_corpus/`` — generated notes carrying the published per-book figures.
 
-GUARDRAIL (critical, defense in depth): this index must NEVER contain anything
-resembling proprietary strategy parameters, thresholds, or entry/exit logic. The
-corpus is general quant *methodology* only. Even if a private note were dropped into
-``knowledge_base/``, the chat endpoint's ``should_refuse`` policy is a second line of
-defence — but the honest fix is to keep such content out of the corpus in the first
-place. Do not add strategy configs here.
+``books_corpus/`` is indexed unconditionally, not under the sparse-KB rule: a visitor
+asking "what's the P&L for the SENSEX expiry?" must reach those numbers whether or not
+a private knowledge base is also present. (The chat endpoint additionally routes them
+deterministically by keyword — see ``books.py`` — because embedding similarity is the
+wrong tool for "sensex" -> the SENSEX book.)
+
+GUARDRAIL (critical, defense in depth): this index must NEVER contain engine
+parameters, thresholds, or entry/exit logic. Backtest *outputs* are fine — P&L,
+drawdown, win rate, costs, sizing are published on the site. The mechanism that
+produced them is not. Even if a private note were dropped into ``knowledge_base/``,
+the chat endpoint's ``should_refuse`` policy is a second line of defence — but the
+honest fix is to keep such content out of the corpus in the first place. Do not add
+strategy configs here.
 
 Run:  python backend/ingest.py
 """
@@ -28,6 +36,7 @@ load_dotenv(find_dotenv())
 BACKEND_DIR = Path(__file__).resolve().parent
 REPO_ROOT = BACKEND_DIR.parent
 SEED_DIR = BACKEND_DIR / "seed_corpus"
+BOOKS_DIR = BACKEND_DIR / "books_corpus"
 KB_DIR = REPO_ROOT / "knowledge_base"
 
 # Below this many knowledge_base docs we consider the KB "sparse" and always fold in
@@ -62,7 +71,11 @@ def _chunk_text(text: str) -> list[str]:
 
 
 def _title_for(path: Path) -> str:
-    """Use the first markdown H1 as the title, else a prettified filename."""
+    """Use the first markdown H1 as the title, else a prettified filename.
+
+    Book docs open with an HTML metadata comment and carry the H1 on line 2, so scan
+    for the ``# `` line rather than assuming it comes first.
+    """
     try:
         for line in path.read_text(encoding="utf-8").splitlines():
             if line.startswith("# "):
@@ -75,11 +88,15 @@ def _title_for(path: Path) -> str:
 def build_chunks() -> list[Chunk]:
     kb_files = _iter_markdown(KB_DIR)
     seed_files = _iter_markdown(SEED_DIR)
+    books_files = _iter_markdown(BOOKS_DIR)
 
     files: list[Path] = list(kb_files)
     if len(kb_files) < SPARSE_KB_THRESHOLD:
         # Sparse (or empty) knowledge base — include the seed corpus too.
         files += seed_files
+    # Published backtest outputs are always indexed — they answer the single most
+    # common visitor question and there is no methodology substitute for them.
+    files += books_files
     # De-duplicate while preserving order.
     seen: set[Path] = set()
     ordered = [f for f in files if not (f in seen or seen.add(f))]
