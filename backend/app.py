@@ -282,7 +282,11 @@ def chat(req: ChatRequest, request: Request):
         # Published backtest outputs: deterministic keyword routing on the ORIGINAL
         # message (redaction rewrites digit runs), prepended ahead of the vector chunks
         # so the figures lead the context. Outputs only — mechanism stays refused.
-        selected = books.select_docs(message, get_books_cached())
+        # Prior turns let a follow-up ("and the max drawdown?") inherit the book
+        # under discussion; without it the router saw no product and returned
+        # nothing, dropping the question onto the methodology index.
+        prior = [h.content for h in req.history if h.role == "user"]
+        selected = books.select_docs(message, get_books_cached(), prior)
         selected_titles = {d.title for d in selected}
         attrs["book_docs"] = len(selected)
 

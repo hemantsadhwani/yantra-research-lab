@@ -259,7 +259,10 @@ def render_overview(index: dict, books_by_id: dict[str, dict]) -> str:
                 f"- {product['name']} · {book['label']} ({book['status']}): "
                 f"{fmt_points(h['pnl_points'])}, {h['trades']} trades, win rate "
                 f"{fmt_pct(h['win_rate_pct'], 1)}, max drawdown "
-                f"{fmt_num(c['max_drawdown_points'])} points, months up "
+                f"{fmt_num(c['max_drawdown_points'])} points, worst day "
+                f"{fmt_num(c['worst_day_points'])} points, best day "
+                f"{fmt_points(c['best_day_points'])}, daily M2M halt at "
+                f"{c['day_gate_pct']:g}% of the book's own base, months up "
                 f"{h['months_up']}/{h['months_traded']}"
             )
     lines.append("")

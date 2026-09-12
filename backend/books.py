@@ -151,6 +151,7 @@ _PERF_WORDS = (
     "profit",
     "performance",
     "drawdown",
+    "draw down",
     "win rate",
     "returns",
     "how did",
@@ -158,28 +159,79 @@ _PERF_WORDS = (
     "month-on-month",
     "monthly",
     "best month",
+    "worst month",
     "worst day",
+    "best day",
     "which book",
     "which strategy",
     "strategies",
+    # Risk/exposure phrasings a visitor uses without naming a product. These are
+    # all answerable from the published outputs, so they must route to a book.
+    "max loss",
+    "maximum loss",
+    "worst loss",
+    "biggest loss",
+    "largest loss",
+    "loss per day",
+    "per day",
+    "daily loss",
+    "max drawdown",
+    "maximum drawdown",
+    "mdd",
+    "days up",
+    "trades",
+    "sessions",
+    "how many months",
+    "months up",
+    "top 5",
+    "concentration",
+    "sizing",
+    "lot size",
+    "per leg",
+    "slippage",
+    "live or paper",
+    "paper or live",
 )
 
 # Words that pull in the risk-gates doc alongside whatever else matched.
-_RISK_WORDS = ("gate", "stop", "halt", "drawdown", "risk")
+_RISK_WORDS = (
+    "gate",
+    "stop",
+    "halt",
+    "drawdown",
+    "draw down",
+    "risk",
+    "max loss",
+    "maximum loss",
+    "worst loss",
+    "loss per day",
+    "daily loss",
+    "m2m",
+    "exposure",
+    "capital",
+)
 
 
 def _normalize(message: str) -> str:
     return re.sub(r"\s+", " ", (message or "").lower())
 
 
-def match_products(message: str) -> set[str]:
+def match_products(message: str, history: list[str] | None = None) -> set[str]:
     """Deterministic keyword routing: message -> the product ids it is asking about.
 
     Runs on the ORIGINAL message, not the PII-redacted one: redaction rewrites digit
     runs, and a question like "sensex expiry 2026" must still route.
 
-    Returns ``{"all"}`` for performance questions with no named product (overview only),
-    and an empty set for pure methodology questions, which the vector index handles.
+    ``history`` carries the earlier turns of the conversation, most recent last. A
+    follow-up rarely repeats the product name -- "and the max drawdown?" after three
+    turns about SENSEX is still about SENSEX -- so when the current message names no
+    product but does ask about performance, the most recent product named in the
+    conversation is inherited. Without this the router returned nothing and the answer
+    fell through to the methodology index, which is what made follow-ups fail.
+
+    Returns ``{"all"}`` for performance questions with no named product anywhere
+    (overview only), and an empty set for pure methodology questions, which the
+    vector index handles.
     """
     m = _normalize(message)
     products: set[str] = set()
@@ -206,19 +258,31 @@ def match_products(message: str) -> set[str]:
 
     if products:
         return products
-    if any(w in m for w in _PERF_WORDS):
+
+    asks_perf = any(w in m for w in _PERF_WORDS)
+    if asks_perf and history:
+        # Inherit from the conversation, most recent turn first.
+        for earlier in reversed(history):
+            inherited = match_products(earlier)
+            inherited.discard(OVERVIEW_PRODUCT)
+            if inherited:
+                return inherited
+    if asks_perf:
         return {OVERVIEW_PRODUCT}
     return set()
 
 
-def select_docs(message: str, docs: list[BookDoc]) -> list[BookDoc]:
+def select_docs(
+    message: str, docs: list[BookDoc], history: list[str] | None = None
+) -> list[BookDoc]:
     """Pick the book docs to prepend as context for ``message``.
 
     The overview always rides along when anything matched (it carries the cross-book
     totals and the labelling disclaimer), and goes first. ``risk-gates`` joins only for
-    risk-flavoured questions. Capped at ``MAX_DOCS``.
+    risk-flavoured questions. ``history`` lets a follow-up inherit the product under
+    discussion. Capped at ``MAX_DOCS``.
     """
-    wanted = match_products(message)
+    wanted = match_products(message, history)
     if not wanted:
         return []
 

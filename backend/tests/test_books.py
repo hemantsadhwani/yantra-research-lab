@@ -202,3 +202,61 @@ def test_guardrails_allow_published_output_questions(message):
 )
 def test_guardrails_still_refuse_mechanism_questions(message):
     assert guardrails.should_refuse(message) is True
+
+
+# --------------------------------------------------------------------------- #
+# Follow-up routing. A visitor asks about SENSEX, then asks a bare follow-up.
+# Before history was threaded through, these returned no docs at all and the
+# answer fell through to the methodology index.
+# --------------------------------------------------------------------------- #
+_SENSEX_HISTORY = [
+    "can you share sensex expiry pnl month on month?",
+    "what is the max loss per day ?",
+]
+
+
+@pytest.mark.parametrize(
+    "message",
+    [
+        "what is the max loss per day ?",
+        "what is max draw down?",
+        "what is max drawdown?",
+        "and the worst day?",
+        "how many trades?",
+        "what is the daily loss cap?",
+    ],
+)
+def test_followup_inherits_product_from_history(message):
+    assert books.match_products(message, _SENSEX_HISTORY) == {"sensex-expiry"}
+
+
+@pytest.mark.parametrize(
+    "message",
+    [
+        "what is the max loss per day ?",
+        "what is max drawdown?",
+        "what is the worst day across the books?",
+    ],
+)
+def test_bare_risk_question_still_reaches_the_books(message):
+    """No product named and no history: the overview must still be routed in,
+    because it now carries worst day, best day and the daily gate."""
+    assert books.match_products(message) == {books.OVERVIEW_PRODUCT}
+
+
+@pytest.mark.parametrize(
+    "message", ["what is a sharpe ratio?", "explain mean reversion", "what is a z-score?"]
+)
+def test_methodology_questions_ignore_history(message):
+    """History must not drag book docs into a pure methodology question."""
+    assert books.match_products(message, _SENSEX_HISTORY) == set()
+
+
+def test_followup_selects_the_book_doc(tmp_path):
+    docs = books.load_books()
+    if not docs:
+        pytest.skip("books_corpus not generated")
+    selected = books.select_docs("what is max draw down?", docs, _SENSEX_HISTORY)
+    names = [d.book for d in selected]
+    assert "sensex-expiry" in names
+    assert names[0] == books.OVERVIEW_BOOK
