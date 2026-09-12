@@ -11,16 +11,16 @@ checkpointing, streaming and HITL interrupts for free. The control logic here is
 
 from __future__ import annotations
 
-from typing import Callable, Optional
+from collections.abc import Callable
 
 from research_lab.agents import Backtester, Evaluator, Proposer, score_result
 from research_lab.memory import Memory
 from research_lab.schemas import (
-    BacktestResult,
     RankedVariant,
     RunResult,
     StrategyVariant,
 )
+from research_lab.verify import verify_result, verify_variant
 from synthetic_engine import DEFAULT_STRATEGY, get_baseline
 
 
@@ -29,7 +29,7 @@ class Supervisor:
         self,
         seed: int = 0,
         strategy: str = DEFAULT_STRATEGY,
-        log: Optional[Callable[[str], None]] = None,
+        log: Callable[[str], None] | None = None,
     ) -> None:
         self.strategy = strategy
         self.proposer = Proposer(seed=seed)
@@ -39,9 +39,12 @@ class Supervisor:
 
     def run(self, iterations: int = 4, variants_per_iter: int = 5) -> RunResult:
         # Baseline first — every variant is judged against it (offline↔online parity).
-        baseline = self.backtester.backtest(
-            StrategyVariant(id="baseline", params=get_baseline(self.strategy), rationale="baseline")
+        baseline_variant = StrategyVariant(
+            id="baseline", params=get_baseline(self.strategy), rationale="baseline"
         )
+        verify_variant(baseline_variant)
+        baseline = self.backtester.backtest(baseline_variant)
+        verify_result(baseline, baseline_variant)   # the yardstick is checked too
         evaluator = Evaluator(baseline_score=score_result(baseline))
         self._log(f"baseline: return {baseline.total_return_pct:+.1f}% · "
                   f"score {evaluator.baseline_score:.1f} · {baseline.trades} trades")
@@ -49,7 +52,9 @@ class Supervisor:
         ranked: list[RankedVariant] = []
         for it in range(1, iterations + 1):
             for variant in self.proposer.propose(variants_per_iter, self.memory):
+                verify_variant(variant)                 # in-space before we spend a backtest
                 result = self.backtester.backtest(variant)
+                verify_result(result, variant)          # deterministic hook — fails loudly
                 evaluation = evaluator.evaluate(variant, result)
                 self.memory.observe(variant, evaluation)
                 ranked.append(RankedVariant(variant, result, evaluation))
