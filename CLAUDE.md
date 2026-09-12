@@ -90,6 +90,18 @@ Two gotchas:
 demo traffic never pays the ~20s cold start. That costs ~$2/mo; revert both to go back to
 scale-to-zero. **Config changes require `fly deploy` from `backend/` to take effect.**
 
+**The chatbot's vector index lives in Qdrant Cloud, not in the image.** `QDRANT_URL` and
+`QDRANT_API_KEY` are Fly secrets, so the `RUN python ingest.py` in `backend/Dockerfile` builds an
+index that the running app never reads. After any corpus change, re-ingest against the cluster:
+
+```bash
+fly ssh console -a yantra-chatbot -C "sh -c 'cd /app && python ingest.py'"
+```
+
+A `fly deploy` alone does **not** update what the bot retrieves. This cost a full debugging cycle:
+four deploys in a row appeared to change nothing, and stale `knowledge_base/README` chunks kept
+coming back as top sources long after that file was excluded from ingestion.
+
 `.github/workflows/ingest.yml` runs a daily 02:17 UTC cron on an ephemeral runner. It is
 incremental against content-hashed S3 bronze, so most days re-process nothing, and it
 auto-commits the refreshed manifest with `[skip ci]`.

@@ -120,3 +120,25 @@ matches the book's `months_traded` and `months_up` (zero-P&L axis months are kep
 "traded", which is exactly how the reports count them). Each book records `monthly_source` saying it
 is chart-derived and will be superseded by `export_books.py` run against the trades CSV. The PDFs
 themselves are never ingested — they carry the engine panel, exit breakdowns and trade tables.
+
+### The RAG was the weak part, not the ingestion (2026-09-12)
+The bot answered "I don't have that" for figures sitting in its own corpus, then — worse — invented
+a fluent, confident, wrong answer about overfitting when asked what the risk gates don't protect
+against. Four defects, in rising order of nastiness:
+1. **No conversation memory.** The router read only the current message, so "what is max draw down?"
+   after three turns about SENSEX matched no product and fell through to the methodology index.
+2. **Shared vocabulary routed one way only.** "drawdown" was a performance word, so textbook
+   questions dragged book context in, while "max loss per day" matched nothing at all. A definition
+   guard now splits both directions.
+3. **An eval that graded the wrong answer.** Q16 asserted the second-deepest drawdown, so a reply
+   naming the wrong book — and contradicting itself two lines later — passed. Substring assertions
+   are not enough: the grader now fails self-correction phrases and requires a book doc in `sources`.
+   The fix upstream was to state the rankings in the overview instead of making the model sort rows.
+4. **The index was somewhere else entirely.** `QDRANT_URL` is a Fly secret, so the app reads Qdrant
+   *Cloud* while `Dockerfile`'s `RUN python ingest.py` builds a local index nobody queries. Four
+   deploys changed nothing about retrieval; the stale cluster still served `knowledge_base/README`
+   chunks whose source file wasn't even in the image. Re-ingest over SSH is now documented in
+   CLAUDE.md and warned about in the Dockerfile.
+The lesson worth keeping: retrieval failures are invisible from the outside. The bot sounds equally
+confident whether it retrieved the right document, the wrong one, or nothing at all — so the eval
+has to assert on the retrieved sources, not just the prose.
