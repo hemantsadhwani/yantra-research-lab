@@ -20,7 +20,19 @@ What it costs:
 Sizing: ₹2,50,000 per leg, lot size 65, 16–35 lots per leg, average deployed ₹2,44,392, peak reserve ₹7,45,508, net P&L ₹12,54,086, slippage not separately charged.
 
 Month by month:
-Monthly and daily P&L series have not been published yet — only the totals above are available. If asked for month-on-month numbers, say they are pending.
+- 2025-10: +50.60 points
+- 2025-11: +98.45 points
+- 2025-12: -30.25 points
+- 2026-01: +35.57 points
+- 2026-02: +21.57 points
+- 2026-03: -26.04 points
+- 2026-04: +76.35 points
+- 2026-05: +213.86 points
+- 2026-06: +92.37 points
+- 2026-07: -7.78 points
+- 2026-08: +2.06 points
+- 2026-09: -13.00 points
+- Cumulative: +513.76 points
 
 Caveat: Runs PAPER. These are simulated fills — the LIVE flip is a capital decision, not an engineering one.
 

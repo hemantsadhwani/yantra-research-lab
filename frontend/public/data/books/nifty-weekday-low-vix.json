@@ -5,7 +5,10 @@
   "regime": "low_vix",
   "status": "LIVE",
   "blurb": "The low-volatility half of the NIFTY weekday book — runs only on days India VIX opens in the low-vol band, on a different engine from the high-VIX half.",
-  "period": { "from": "2025-09", "to": "2026-09" },
+  "period": {
+    "from": "2025-09",
+    "to": "2026-09"
+  },
   "headline": {
     "pnl_points": 1327.39,
     "trades": 332,
@@ -13,14 +16,14 @@
     "wins": 159,
     "losses": 173,
     "win_rate_pct": 47.9,
-    "per_trade_points": 4.00,
+    "per_trade_points": 4.0,
     "per_session_points": 10.21,
     "months_up": 10,
     "months_traded": 10,
     "top5_share_pct": 34
   },
   "cost": {
-    "worst_day_points": -30.60,
+    "worst_day_points": -30.6,
     "worst_day_inr": -75825,
     "max_drawdown_points": -95.84,
     "max_drawdown_inr": -237338,
@@ -40,8 +43,54 @@
     "lots_per_leg_max": 63,
     "slippage_pct_per_trade": 0.6
   },
-  "monthly": [],
+  "monthly": [
+    {
+      "month": "2025-09",
+      "pnl_points": 19.91
+    },
+    {
+      "month": "2025-10",
+      "pnl_points": 145.26
+    },
+    {
+      "month": "2025-12",
+      "pnl_points": 207.15
+    },
+    {
+      "month": "2026-01",
+      "pnl_points": 66.94
+    },
+    {
+      "month": "2026-02",
+      "pnl_points": 190.73
+    },
+    {
+      "month": "2026-04",
+      "pnl_points": 48.82
+    },
+    {
+      "month": "2026-05",
+      "pnl_points": 142.32
+    },
+    {
+      "month": "2026-06",
+      "pnl_points": 111.26
+    },
+    {
+      "month": "2026-07",
+      "pnl_points": 297.45
+    },
+    {
+      "month": "2026-08",
+      "pnl_points": 97.55
+    },
+    {
+      "month": "2026-09",
+      "pnl_points": 0.0
+    }
+  ],
   "daily": [],
-  "series_pending": true,
-  "caveat": "The trailing exit carries this book: it books more than twice what the fixed stops give back."
+  "series_pending": false,
+  "caveat": "The trailing exit carries this book: it books more than twice what the fixed stops give back.",
+  "monthly_source": "chart-derived from the private monthly report (2026-09-12, commit 18e2d7ab): bar geometry scaled to the printed book total; every printed month label reproduces exactly. Superseded by scripts/export_books.py when run against the trades CSV."
 }

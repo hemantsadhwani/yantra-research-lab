@@ -5,7 +5,10 @@
   "regime": "high_vix",
   "status": "LIVE",
   "blurb": "The expiry-day (0DTE) NIFTY book on high-volatility Tuesdays, with its own hours, zones and sizing versus the weekday book.",
-  "period": { "from": "2026-01", "to": "2026-07" },
+  "period": {
+    "from": "2026-01",
+    "to": "2026-07"
+  },
   "headline": {
     "pnl_points": 796.62,
     "trades": 85,
@@ -20,7 +23,7 @@
     "top5_share_pct": 53
   },
   "cost": {
-    "worst_day_points": -38.00,
+    "worst_day_points": -38.0,
     "worst_day_inr": -94070,
     "max_drawdown_points": -107.49,
     "max_drawdown_inr": -266979,
@@ -40,8 +43,38 @@
     "lots_per_leg_max": 124,
     "slippage_pct_per_trade": 1.0
   },
-  "monthly": [],
+  "monthly": [
+    {
+      "month": "2026-01",
+      "pnl_points": 195.02
+    },
+    {
+      "month": "2026-02",
+      "pnl_points": 78.61
+    },
+    {
+      "month": "2026-03",
+      "pnl_points": 114.42
+    },
+    {
+      "month": "2026-04",
+      "pnl_points": 100.16
+    },
+    {
+      "month": "2026-05",
+      "pnl_points": 282.09
+    },
+    {
+      "month": "2026-06",
+      "pnl_points": 34.73
+    },
+    {
+      "month": "2026-07",
+      "pnl_points": -8.41
+    }
+  ],
   "daily": [],
-  "series_pending": true,
-  "caveat": "0DTE: premium decays all day, so a stalled winner is a loser that has not printed yet."
+  "series_pending": false,
+  "caveat": "0DTE: premium decays all day, so a stalled winner is a loser that has not printed yet.",
+  "monthly_source": "chart-derived from the private monthly report (2026-09-12, commit 18e2d7ab): bar geometry scaled to the printed book total; every printed month label reproduces exactly. Superseded by scripts/export_books.py when run against the trades CSV."
 }

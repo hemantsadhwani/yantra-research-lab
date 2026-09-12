@@ -20,7 +20,18 @@ What it costs:
 Sizing: ₹2,50,000 per leg, lot size 65, 25–63 lots per leg, average deployed ₹2,46,567, peak reserve ₹2,50,000, net P&L ₹32,72,713, slippage 0.6% per trade.
 
 Month by month:
-Monthly and daily P&L series have not been published yet — only the totals above are available. If asked for month-on-month numbers, say they are pending.
+- 2025-09: +19.91 points
+- 2025-10: +145.26 points
+- 2025-12: +207.15 points
+- 2026-01: +66.94 points
+- 2026-02: +190.73 points
+- 2026-04: +48.82 points
+- 2026-05: +142.32 points
+- 2026-06: +111.26 points
+- 2026-07: +297.45 points
+- 2026-08: +97.55 points
+- 2026-09: 0.00 points
+- Cumulative: +1327.39 points
 
 Caveat: The trailing exit carries this book: it books more than twice what the fixed stops give back.
 

@@ -5,7 +5,10 @@
   "regime": "low_vix",
   "status": "LIVE",
   "blurb": "The expiry-day (0DTE) NIFTY book on quiet Tuesdays; same book as the high-VIX profile, harvested differently.",
-  "period": { "from": "2025-09", "to": "2026-09" },
+  "period": {
+    "from": "2025-09",
+    "to": "2026-09"
+  },
   "headline": {
     "pnl_points": 339.11,
     "trades": 65,
@@ -40,8 +43,50 @@
     "lots_per_leg_max": 48,
     "slippage_pct_per_trade": 1.0
   },
-  "monthly": [],
+  "monthly": [
+    {
+      "month": "2025-09",
+      "pnl_points": 52.85
+    },
+    {
+      "month": "2025-10",
+      "pnl_points": -31.74
+    },
+    {
+      "month": "2025-11",
+      "pnl_points": 1.95
+    },
+    {
+      "month": "2025-12",
+      "pnl_points": 123.82
+    },
+    {
+      "month": "2026-01",
+      "pnl_points": 92.43
+    },
+    {
+      "month": "2026-02",
+      "pnl_points": 0.0
+    },
+    {
+      "month": "2026-06",
+      "pnl_points": 0.0
+    },
+    {
+      "month": "2026-07",
+      "pnl_points": 14.9
+    },
+    {
+      "month": "2026-08",
+      "pnl_points": 74.96
+    },
+    {
+      "month": "2026-09",
+      "pnl_points": 9.94
+    }
+  ],
   "daily": [],
-  "series_pending": true,
-  "caveat": "Smallest book in the set at 65 trades — treat a single month here as anecdote, not signal."
+  "series_pending": false,
+  "caveat": "Smallest book in the set at 65 trades — treat a single month here as anecdote, not signal.",
+  "monthly_source": "chart-derived from the private monthly report (2026-09-12, commit 18e2d7ab): bar geometry scaled to the printed book total; every printed month label reproduces exactly. Superseded by scripts/export_books.py when run against the trades CSV."
 }

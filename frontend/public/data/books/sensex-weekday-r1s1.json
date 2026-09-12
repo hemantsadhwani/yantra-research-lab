@@ -5,7 +5,10 @@
   "regime": "all",
   "status": "PAPER",
   "blurb": "The SENSEX twin of the NIFTY paper continuation sub-book, running on every SENSEX weekday session in paper mode.",
-  "period": { "from": "2025-09", "to": "2026-08" },
+  "period": {
+    "from": "2025-09",
+    "to": "2026-08"
+  },
   "headline": {
     "pnl_points": 1313.82,
     "trades": 185,
@@ -13,7 +16,7 @@
     "wins": 91,
     "losses": 94,
     "win_rate_pct": 49.2,
-    "per_trade_points": 7.10,
+    "per_trade_points": 7.1,
     "per_session_points": 16.42,
     "months_up": 9,
     "months_traded": 12,
@@ -40,8 +43,58 @@
     "lots_per_leg_max": 78,
     "slippage_pct_per_trade": null
   },
-  "monthly": [],
+  "monthly": [
+    {
+      "month": "2025-09",
+      "pnl_points": 232.58
+    },
+    {
+      "month": "2025-10",
+      "pnl_points": 309.15
+    },
+    {
+      "month": "2025-11",
+      "pnl_points": 98.43
+    },
+    {
+      "month": "2025-12",
+      "pnl_points": 108.4
+    },
+    {
+      "month": "2026-01",
+      "pnl_points": 364.48
+    },
+    {
+      "month": "2026-02",
+      "pnl_points": -48.58
+    },
+    {
+      "month": "2026-03",
+      "pnl_points": 46.81
+    },
+    {
+      "month": "2026-04",
+      "pnl_points": 113.48
+    },
+    {
+      "month": "2026-05",
+      "pnl_points": 131.21
+    },
+    {
+      "month": "2026-06",
+      "pnl_points": 4.44
+    },
+    {
+      "month": "2026-07",
+      "pnl_points": -17.27
+    },
+    {
+      "month": "2026-08",
+      "pnl_points": -29.31
+    }
+  ],
   "daily": [],
-  "series_pending": true,
-  "caveat": "Runs PAPER, and this tree has no live round trips at all — the slippage cushion here is inherited, not measured."
+  "series_pending": false,
+  "caveat": "Runs PAPER, and this tree has no live round trips at all — the slippage cushion here is inherited, not measured.",
+  "monthly_source": "chart-derived from the private monthly report (2026-09-12, commit 18e2d7ab): bar geometry scaled to the printed book total; every printed month label reproduces exactly. Superseded by scripts/export_books.py when run against the trades CSV."
 }

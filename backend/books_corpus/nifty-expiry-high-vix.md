@@ -20,7 +20,14 @@ What it costs:
 Sizing: ₹2,50,000 per leg, lot size 65, 32–124 lots per leg, average deployed ₹2,48,105, peak reserve ₹4,96,935, net P&L ₹19,79,590, slippage 1.0% per trade.
 
 Month by month:
-Monthly and daily P&L series have not been published yet — only the totals above are available. If asked for month-on-month numbers, say they are pending.
+- 2026-01: +195.02 points
+- 2026-02: +78.61 points
+- 2026-03: +114.42 points
+- 2026-04: +100.16 points
+- 2026-05: +282.09 points
+- 2026-06: +34.73 points
+- 2026-07: -8.41 points
+- Cumulative: +796.62 points
 
 Caveat: 0DTE: premium decays all day, so a stalled winner is a loser that has not printed yet.
 

@@ -20,7 +20,20 @@ What it costs:
 Sizing: ₹1,00,000 per leg, lot size 20, 19–163 lots per leg, average deployed ₹98,716, peak reserve ₹1,99,864, net P&L ₹58,55,118, slippage 1.0% per trade.
 
 Month by month:
-Monthly and daily P&L series have not been published yet — only the totals above are available. If asked for month-on-month numbers, say they are pending.
+- 2025-09: +319.13 points
+- 2025-10: +1094.82 points
+- 2025-11: +354.78 points
+- 2025-12: +1053.96 points
+- 2026-01: +145.61 points
+- 2026-02: +1223.15 points
+- 2026-03: +86.11 points
+- 2026-04: +157.92 points
+- 2026-05: +249.53 points
+- 2026-06: +463.16 points
+- 2026-07: +572.05 points
+- 2026-08: +77.76 points
+- 2026-09: +132.66 points
+- Cumulative: +5930.64 points
 
 Caveat: The -50% day gate is by far the loosest in the set; one bad SENSEX expiry can cost half the book's start capital.
 

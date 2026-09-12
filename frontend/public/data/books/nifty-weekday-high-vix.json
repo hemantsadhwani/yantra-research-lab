@@ -5,7 +5,10 @@
   "regime": "high_vix",
   "status": "LIVE",
   "blurb": "The high-volatility half of the NIFTY weekday book — runs only on days India VIX opens in the high-vol band.",
-  "period": { "from": "2025-10", "to": "2026-09" },
+  "period": {
+    "from": "2025-10",
+    "to": "2026-09"
+  },
   "headline": {
     "pnl_points": 901.08,
     "trades": 204,
@@ -40,8 +43,46 @@
     "lots_per_leg_max": 63,
     "slippage_pct_per_trade": 0.6
   },
-  "monthly": [],
+  "monthly": [
+    {
+      "month": "2025-10",
+      "pnl_points": 143.73
+    },
+    {
+      "month": "2025-11",
+      "pnl_points": 89.81
+    },
+    {
+      "month": "2026-01",
+      "pnl_points": 364.87
+    },
+    {
+      "month": "2026-02",
+      "pnl_points": 170.97
+    },
+    {
+      "month": "2026-03",
+      "pnl_points": 133.78
+    },
+    {
+      "month": "2026-04",
+      "pnl_points": -10.73
+    },
+    {
+      "month": "2026-07",
+      "pnl_points": 13.24
+    },
+    {
+      "month": "2026-08",
+      "pnl_points": 49.53
+    },
+    {
+      "month": "2026-09",
+      "pnl_points": -54.12
+    }
+  ],
   "daily": [],
-  "series_pending": true,
-  "caveat": "Top 5 trades are 52% of this book — a month without one reads flat, and that is normal."
+  "series_pending": false,
+  "caveat": "Top 5 trades are 52% of this book — a month without one reads flat, and that is normal.",
+  "monthly_source": "chart-derived from the private monthly report (2026-09-12, commit 18e2d7ab): bar geometry scaled to the printed book total; every printed month label reproduces exactly. Superseded by scripts/export_books.py when run against the trades CSV."
 }

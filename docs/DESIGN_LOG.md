@@ -108,3 +108,15 @@ extrapolate/annualise/convert to %, say "pending" when the monthly series is, an
 mechanism. Because book names are now in the corpus, naming a product counts as a "specific"
 marker in `should_refuse` — "what threshold does the nifty weekday book use?" is refused,
 "why did the sensex expiry book stop trading in Feb?" is not. Red-team eval: 100% block, 0 FP.
+
+### Monthly series recovered from the report charts, reconciled not estimated (2026-09-12)
+The books shipped with `series_pending: true` because the monthly reports print only the one-to-three
+peak month labels; the rest are unlabeled bars. They are not unrecoverable, though: matplotlib emits
+each bar as a 4-corner vector path, so `scripts/extract_monthly_from_reports.py` reads the signed bar
+geometry (uniform width, shared zero line) and scales it by the single factor that makes the series
+sum to the **printed** book total. That is a reconciliation, not an eyeball — and it is falsifiable:
+all 16 printed month labels across the seven books reproduce to ±0.00, and each series independently
+matches the book's `months_traded` and `months_up` (zero-P&L axis months are kept but excluded from
+"traded", which is exactly how the reports count them). Each book records `monthly_source` saying it
+is chart-derived and will be superseded by `export_books.py` run against the trades CSV. The PDFs
+themselves are never ingested — they carry the engine panel, exit breakdowns and trade tables.
