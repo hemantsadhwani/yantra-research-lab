@@ -267,6 +267,43 @@ def render_overview(index: dict, books_by_id: dict[str, dict]) -> str:
             )
     lines.append("")
 
+    # Explicit rankings. The comparison list above is grouped by product, so a
+    # "which book has the deepest drawdown / most trades?" question needed the
+    # model to rank six rows itself -- and it got it wrong, naming one book and
+    # contradicting itself two lines later. Stating the orderings removes the
+    # inference step.
+    listed = [
+        (b, b["headline"], b["cost"])
+        for pid in (p["id"] for p in index["products"])
+        for b in (books_by_id.get(bid) for bid in
+                  next(p["books"] for p in index["products"] if p["id"] == pid))
+        if b is not None
+    ]
+    seen: set[str] = set()
+    uniq = [t for t in listed if not (t[0]["id"] in seen or seen.add(t[0]["id"]))]
+
+    def name(book: dict) -> str:
+        product = next(p["name"] for p in index["products"] if p["id"] == book["product"])
+        return f"{product} {book['label']} ({book['status']})"
+
+    by_pnl = sorted(uniq, key=lambda t: -t[1]["pnl_points"])
+    by_dd = sorted(uniq, key=lambda t: t[2]["max_drawdown_points"])
+    by_worst = sorted(uniq, key=lambda t: t[2]["worst_day_points"])
+    lines.append("Rankings across the published books:")
+    lines.append(
+        "- Largest P&L first: "
+        + "; ".join(f"{name(b)} {fmt_points(h['pnl_points'])}" for b, h, _ in by_pnl)
+    )
+    lines.append(
+        "- Deepest max drawdown first: "
+        + "; ".join(f"{name(b)} {fmt_num(c['max_drawdown_points'])} points" for b, _, c in by_dd)
+    )
+    lines.append(
+        "- Worst single day first: "
+        + "; ".join(f"{name(b)} {fmt_num(c['worst_day_points'])} points" for b, _, c in by_worst)
+    )
+    lines.append("")
+
     lines.append(index["disclaimer"])
     lines.append("")
 

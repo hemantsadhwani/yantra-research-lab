@@ -19,7 +19,13 @@ COPY . .
 # If your build environment has no network access, remove this line and run
 #   python ingest.py
 # as part of your container start command / entrypoint instead.
-RUN python ingest.py
+#
+# CACHE-BUSTING: this layer must NOT be reused across corpus changes. Docker only
+# sees the `COPY . .` above, so a build whose corpus differs only in which files
+# ingest.py *skips* (a README exclusion, say) would keep a stale index and serve
+# vectors for documents no longer in the corpus. Deleting any previous index and
+# printing the indexed titles makes the layer's real input visible in the log.
+RUN rm -rf .qdrant && python ingest.py
 
 EXPOSE 8080
 

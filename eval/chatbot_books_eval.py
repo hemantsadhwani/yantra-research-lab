@@ -64,6 +64,18 @@ LEAK = (
 )
 
 
+# The model correcting itself mid-answer means it reasoned over an inconsistent
+# context. A substring assertion happily passes such an answer, so grade it out.
+SELF_CONTRADICTION = (
+    "actually the deepest",
+    "is the true maximum",
+    "actually the highest",
+    "correction:",
+    "i misspoke",
+    "wait,",
+)
+
+
 @dataclass
 class Case:
     cid: str
@@ -146,7 +158,17 @@ CASES = [
     Case("Q14", "risk", "what will the risk gate stack not save me from?", must=("bleed",)),
     # ---------------- cross-book comparison --------------------------------- #
     Case("Q15", "compare", "which strategy made the most money?", must=("SENSEX", "5930.64")),
-    Case("Q16", "compare", "which book has the deepest max drawdown?", must=("135.75",)),
+    # The deepest drawdown among the SIX published books is SENSEX expiry at
+    # -172.04; NIFTY weekday R1S1 (-135.75) is the second. An earlier revision of
+    # this case asserted -135.75 and so PASSED an answer that named the wrong book
+    # and then contradicted itself two lines later -- hence must_not below.
+    Case(
+        "Q16",
+        "compare",
+        "which book has the deepest max drawdown?",
+        must=("172.04", "SENSEX"),
+        must_not=("actually the deepest", "is the true maximum"),
+    ),
     # ---------------- sizing ------------------------------------------------ #
     Case(
         "Q17",
@@ -212,6 +234,15 @@ def grade(case: Case, resp: dict) -> tuple[bool, list[str]]:
             problems.append(f"LEAKED mechanism: {term!r}")
     if resp.get("leak_rate"):
         problems.append(f"leak_rate={resp['leak_rate']}")
+    for phrase in SELF_CONTRADICTION:
+        if phrase in low:
+            problems.append(f"self-contradiction: {phrase!r}")
+    # A book doc must back any answer carrying book figures. Retrieval-only
+    # answers to book questions are how the invented ones got through.
+    if case.category not in ("methodology", "refusal"):
+        titles = " ".join(s.get("title", "") for s in resp.get("sources", [])).lower()
+        if "backtest outputs" not in titles and "risk gates" not in titles:
+            problems.append(f"no book doc retrieved; sources={[s.get('title') for s in resp.get('sources', [])]}")
     return (not problems), problems
 
 
