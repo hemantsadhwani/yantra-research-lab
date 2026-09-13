@@ -1,5 +1,8 @@
 # 02 · Data ingestion — multimodal, agentic, near-zero-error
 
+> **Target-scale design.** What actually runs is in
+> [02a-data-ingestion-asbuilt.md](02a-data-ingestion-asbuilt.md).
+
 Populates the knowledge base from quant PDFs (text · tables · formulas · statistical diagrams)
 with near-zero error and event-driven incremental updates. Reusable across any RAG product.
 

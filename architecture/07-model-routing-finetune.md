@@ -35,4 +35,17 @@ The same system makes **opposite** decisions and can defend both: the **low-freq
 on the frontier API (fine-tuning would never amortize); only the **high-frequency** path gets the
 SLM. That is the textbook **fine-tune vs RAG vs prompt** call — *fine-tune to **distill** for
 cost/latency/compliance, not for knowledge* — and knowing where it *doesn't* pay is the senior signal.
+
+## As built (2026-09-13)
+**What actually runs today is the low-frequency path only, and without a gateway:** the deployed
+chatbot (`backend/app.py`) calls the **Anthropic SDK directly** — no LiteLLM, no gateway, no
+routing logic — targeting **`claude-haiku-4-5`**, with **prompt caching on the system prompt**,
+`max_tokens=1024`, a 20/min/IP rate limit, and a 500/day cap. There is exactly one model in the
+loop; "route by task difficulty" is not implemented because there is only one task.
+
+**SLM status:** `slm_regime_classifier/` contains a design **README only** — the
+`distill/ finetune/ serve/ eval_gate/` layout it describes does not exist as code
+(`find slm_regime_classifier -name "*.py"` returns nothing). The fine-tuning lifecycle above is
+the target design, not a built artifact. Everything else in this document — the gateway, the
+frontier/open-weight split, the full SLM lifecycle — is the target, not built.
 </content>

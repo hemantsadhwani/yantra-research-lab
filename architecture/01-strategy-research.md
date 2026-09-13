@@ -61,4 +61,17 @@ production build re-expresses it as a **LangGraph `StateGraph`** for checkpointi
 HITL interrupts; the proposer becomes a structured **LLM** call; the evaluator adds an LLM-as-judge
 rubric and a regression eval set gated in CI. The control logic is unchanged — see
 [ADR-0003](../docs/adr/0003-bounded-autonomy.md).
+
+## As built (2026-09-13)
+What actually runs in this repo, today:
+- **Plain Python, stdlib, deterministic** — no LangGraph, no LLM call anywhere in the loop
+  (`research_lab/supervisor.py`, `agents/proposer.py`, `agents/backtester.py`, `agents/evaluator.py`).
+- **`research_lab/verify.py`** adds the deterministic verification hooks this design implies:
+  every proposed variant is checked against the declared parameter space *before* it's backtested,
+  and every result is checked for NaN/inf/out-of-range *after* — loudly (raises), not silently,
+  because a NaN score just never beats the baseline and the loop "succeeds" having learned nothing.
+- **`make gate` / `eval/run_gate.py`** is the CI eval-gate described above — it currently passes
+  (best variant score > fixed baseline).
+- The **LangGraph `StateGraph` + LLM proposer + LLM-as-judge** described in "Production mapping"
+  above is the target production re-expression — not built in this repo.
 </content>

@@ -25,4 +25,9 @@ Memory is what makes each research run smarter than the last, without re-derivin
 ## Cost / latency
 Memory reads/writes are cheap and off the hot path. The value is **fewer wasted backtests** — the
 loop converges faster because it stops re-testing what already lost.
+
+## As built
+What's live is exactly the Tier-1 row above: `research_lab/memory.py` is a plain in-process
+`Memory` class holding episodic best-so-far (id, params, score) — no persistence, no vector store.
+Semantic/procedural layers over SQLite + `sqlite-vec` are the target described above, not built.
 </content>

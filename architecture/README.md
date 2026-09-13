@@ -6,6 +6,12 @@ document below states the *decision, the why, and the cost/latency/scale/reliabi
 (the ADR lens). The public build runs on a **synthetic engine** (zero proprietary IP); the
 production version drives a private strategy engine, referenced here only in the abstract.
 
+**Live vs target.** The public demo actually deploys on **Vercel (frontend) + Fly.io (backend,
+`yantra-chatbot`) + Qdrant Cloud (vectors) + Logfire (traces)** — see 02a, 04, 06, 08 for the
+as-built detail. **AWS (Fargate/Cognito/CloudWatch)** is the documented business/scale target,
+not what's running. Where a doc below describes the target design, it says so; an "As built
+(2026-09-13)" section marks what's actually live.
+
 ## The system in two diagrams
 
 **The autonomous research loop**
@@ -41,7 +47,8 @@ flowchart TB
 | # | Document | Subsystem |
 |---|---|---|
 | 01 | [strategy-research](01-strategy-research.md) | the agentic research loop |
-| 02 | [data-ingestion](02-data-ingestion.md) | multimodal near-zero-error pipeline |
+| 02 | [data-ingestion](02-data-ingestion.md) | multimodal near-zero-error pipeline (target-scale design) |
+| 02a | [data-ingestion-asbuilt](02a-data-ingestion-asbuilt.md) | the Tier-3 pipeline actually running |
 | 03 | [memory](03-memory.md) | episodic / semantic / procedural agent memory |
 | 04 | [guardrails-rbac](04-guardrails-rbac.md) | IP + PII guardrails, RBAC, leak-rate eval |
 | 05 | [frontend-product](05-frontend-product.md) | product taxonomy, UI, plan-vs-actual |
@@ -50,6 +57,19 @@ flowchart TB
 | 08 | [deployment-aws](08-deployment-aws.md) | AWS, monorepo, dev→prod promotion |
 
 Decision records: [../docs/adr/](../docs/adr/).
+
+## Diagrams
+Source diagrams (editable in [excalidraw.com](https://excalidraw.com)) live in
+[`architecture/diagrams/`](diagrams/): `00-system-e2e`, `01-tech-stack`, `02-chat-request-flow`,
+`03-data-flows`, `04-deploy-cicd`, and the existing `tier3-architecture`. They render the same
+as-built system these docs describe in prose.
+
+## Evals (real, run against the live system)
+| Eval | What it checks | Latest measured |
+|---|---|---|
+| [`eval/run_gate.py`](../eval/run_gate.py) | agent loop's best variant still beats the fixed baseline (CI eval-gate) | best v007 score 36.5 > baseline 4.9 — PASS |
+| [`eval/redteam.py`](../eval/redteam.py) | guardrail block rate on attacks vs. false positives on benign controls | 26/26 blocked (100%), 0/20 false positives |
+| [`eval/chatbot_books_eval.py`](../eval/chatbot_books_eval.py) | graded questions against the live `/api/chat` endpoint | 21/21 |
 
 ## Design principles
 1. **Workflow-first, agentic only where the problem demands it** — bounded autonomy; pay for it knowingly.
