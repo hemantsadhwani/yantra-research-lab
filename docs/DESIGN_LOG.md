@@ -162,3 +162,52 @@ Verified live before and after: "what is entropic value-at-risk parity?" cites t
 `eval/chatbot_books_eval.py` gained Q22–Q23, which fail unless an arXiv title appears in
 `sources`, and a 3.2s inter-request pause so the eval itself stops tripping the 20/min limit.
 This was a `fly deploy`, not a re-ingest: the retriever changed, the index did not.
+
+### An LLM in the loop, and what its context actually costs (2026-09-13)
+The loop had no LLM in it. Everything the docs said about context engineering was therefore
+studied, not built — there was no context window to engineer, because the Tier-1 proposer is a
+deterministic heuristic. `Proposer(use_llm=True)` closes that: `_propose_llm` replaces the
+heuristic with a structured Claude call, and nothing else in the loop changed. Not the
+supervisor, not the schemas, not `verify.py`, not the evaluator. That is ADR-0003's claim —
+the loop is the spec, what runs inside a step is an implementation detail — demonstrated
+rather than asserted, and it is the honest answer to "isn't the SDK vendor lock-in?"
+
+**The deterministic path stays, and stays the default.** It is not scaffolding. "Clone it and
+it runs reproducibly with no API key" is a real property, and keeping both sides lets the loop
+answer a question most systems cannot: what does the model actually buy, on the same engine,
+the same baseline and the same budget?
+
+The model is not trusted. Proposals come back as JSON, get clamped into the declared parameter
+space, and still pass through `verify_variant`. A hallucinated `lookback` of 10,000 costs a
+clamp, not a crashed run; a reply with no usable JSON falls back to the heuristic for that
+batch and is counted, so a degraded run cannot quietly present itself as a clean one.
+
+Then the measurement. `research_lab/experiments/context_study.py` runs the same loop three
+times over the same memory, changing only how much of the trial history goes into the window:
+`everything` (full history), `best_only` (best-so-far and the param space — the heuristic's own
+information diet), `compacted` (a rolling summary: the peak, the losing region per parameter,
+the trial count). Three seeds, `claude-haiku-4-5`, results in `results/`:
+
+| construction | mean input tokens | mean best score | mean Sharpe |
+|---|---|---|---|
+| everything | 3,966 | 37.9 | 2.27 |
+| compacted | 1,815 | 36.2 | 2.04 |
+| best_only | 1,494 | 32.1 | 1.80 |
+| heuristic (no LLM) | 0 | 30.4 | 1.71 |
+
+**Compaction held 95% of the full-history score for 46% of the input tokens.** That ratio is
+stable to ±1% across all three seeds and is the claim worth making.
+
+What is *not* established: whether `everything` genuinely beats `compacted`. It leads on the
+mean, but the per-seed spread (sd ≈ 3.4) is wider than the gap between them (1.7), and seed 7
+reverses the ranking outright. With n=3 that is noise, so the ranking is left open rather than
+written up as a win. Recording it that way costs nothing and keeps the number defensible.
+
+The finding that survives is the one about the deterministic path. The LLM proposer averages
+35.4 against the heuristic's 30.4 — better, but not overwhelmingly, and on seed 7 the heuristic
+beat two of the three LLM constructions while costing nothing and running in 0.1s instead of
+20s. So: pay for reasoning where the search space rewards it, and know what the bill buys.
+
+One incidental fix: `testpaths` was `["tests"]`, so `research_lab/tests/` never ran in CI —
+the verification-hook tests had been silently skipped since they were written. Now `["tests",
+"research_lab/tests"]`, and `make test` runs 26 instead of 7.

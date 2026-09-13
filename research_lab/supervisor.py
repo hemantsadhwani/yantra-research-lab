@@ -7,6 +7,11 @@ autonomously: the top variant is surfaced with a 'promote?' verdict for a human 
 This is deliberately a *workflow-shaped* loop (predictable control flow) with agentic
 steps inside — the production build re-expresses it as a LangGraph StateGraph so it gets
 checkpointing, streaming and HITL interrupts for free. The control logic here is the spec.
+
+``use_llm`` swaps the proposer for a Claude call without changing a line below: the
+verification hooks, the evaluator, memory and the human gate all sit behind the same
+typed contracts either way. That is ADR-0003's claim made demonstrable — the loop is
+the spec, and what runs inside a step is an implementation detail.
 """
 
 from __future__ import annotations
@@ -30,9 +35,13 @@ class Supervisor:
         seed: int = 0,
         strategy: str = DEFAULT_STRATEGY,
         log: Callable[[str], None] | None = None,
+        use_llm: bool = False,
+        context_mode: str = "compacted",
     ) -> None:
         self.strategy = strategy
-        self.proposer = Proposer(seed=seed)
+        # The only line the LLM swap touches. Everything below — verification, the
+        # evaluator, memory, the HITL gate — is indifferent to which proposer ran.
+        self.proposer = Proposer(seed=seed, use_llm=use_llm, context_mode=context_mode)
         self.backtester = Backtester(strategy=strategy)
         self.memory = Memory()
         self._log = log or (lambda _msg: None)

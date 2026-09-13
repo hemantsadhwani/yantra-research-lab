@@ -11,15 +11,19 @@ interviews, so **accuracy matters more than polish** — see "Claims discipline"
 ## Commands
 
 ```bash
-make install     # pip install -e '.[dev]'  — needed before pytest works
-make demo        # one autonomous research session (5 iterations x 6 variants)
-make test        # pytest
-make gate        # CI eval-gate: the agent loop must still beat the baseline
-make lint        # ruff check .
+make install        # pip install -e '.[dev]'  — needed before pytest works
+make demo           # one autonomous research session (5 iterations x 6 variants)
+make demo-llm       # the same session with Claude proposing   (needs .[llm] + API key)
+make context-study  # measure 3 context constructions          (needs .[llm] + API key, costs cents)
+make test           # pytest
+make gate           # CI eval-gate: the agent loop must still beat the baseline
+make lint           # ruff check .
 ```
 
 Tier-1 core has **zero dependencies** — it runs on the stdlib, so `python -m research_lab.run`
-works on a fresh clone. Optional extras (`agents`, `llm`, `mcp`, `rag`, `ops`, `dev`) are
+works on a fresh clone. **Keep it that way.** The LLM proposer (`--use-llm`) is strictly opt-in:
+the default path must never need an API key, a network call, or an installed SDK, because
+"clone it and it reproduces" is a load-bearing property of this repo, not a convenience. Optional extras (`agents`, `llm`, `mcp`, `rag`, `ops`, `dev`) are
 declared in `pyproject.toml` and installed per service.
 
 **On Windows, prefix commands with `PYTHONIOENCODING=utf-8`.** The report writer emits `→`
@@ -42,6 +46,25 @@ obfuscation** — which is exactly why this repo stays fully readable and reprod
 
 When changing anything near that boundary, preserve it: no real parameter values, no live
 market data, no production entry/exit logic in this repo. See ADR-0001 and ADR-0002.
+
+## Two proposers behind one method
+
+`Proposer.propose(n, memory)` has two implementations: a deterministic memory-guided heuristic
+(the default) and a structured Claude call (`use_llm=True`). Everything downstream — the
+supervisor, the schemas, `verify.py`, the evaluator, the HITL gate — is identical either way.
+That is deliberate and it is the ADR-0003 demonstration; **don't let the LLM path leak into the
+loop.** If a change to the LLM proposer requires touching the supervisor, the seam has broken.
+
+Two rules when working on it:
+- **Never trust the model's output.** Proposals are clamped into `PARAM_SPACE` and still pass
+  through `verify_variant`. Unusable output falls back to the heuristic *and increments
+  `llm_failures`* — a degraded run must never look like a clean one.
+- **Don't delete the deterministic path** to "simplify". It is the offline story and the control
+  arm of the context study.
+
+`research_lab/experiments/context_study.py` measures three context constructions against the
+same loop. Its results live in `results/` — read `results/README.md` for what the numbers do and
+do not support before quoting them anywhere.
 
 ## Layout
 

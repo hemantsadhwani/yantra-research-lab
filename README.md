@@ -26,6 +26,26 @@ python -m research_lab.run --strategy nifty-expiry   # drive a named strategy
 You'll watch the loop discover a variant that **beats a deliberately-mediocre baseline** and
 surface it as `promote?` — held for a human gate (nothing promotes autonomously).
 
+### Optional: put an LLM in the loop
+
+The proposer has two implementations behind one method. The default reasons by heuristic; add
+`--use-llm` and Claude proposes the variants instead — **without changing a line of the loop**,
+which is the point:
+
+```bash
+pip install -e '.[llm]'               # and set ANTHROPIC_API_KEY
+python -m research_lab.run --use-llm --context compacted
+python -m research_lab.experiments.context_study --include-heuristic
+```
+
+The second command measures what the proposer's context actually costs — the same loop run under
+three context constructions (full history / best-so-far / a compacted summary), reporting input
+tokens against the best variant found. Across three seeds, **compaction held 95% of the
+full-history score for 46% of the input tokens**. Raw runs and a note on what the numbers do and
+do not support are in [`results/`](results/README.md).
+
+The deterministic path remains the default: no key, no network, no SDK, byte-identical output.
+
 ## One contract, two engines — the lab drives the locked IP
 
 The real products — `nifty-weekday`, `nifty-expiry`, `sensex-expiry` — appear here **by name only**,

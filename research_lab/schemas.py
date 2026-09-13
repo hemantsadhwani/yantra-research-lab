@@ -40,6 +40,20 @@ class Evaluation:
 
 
 @dataclass
+class Trial:
+    """One completed (propose -> backtest -> evaluate) step, as memory records it.
+
+    Flat and small on purpose: this is what gets serialised into an LLM proposer's
+    context, so every field has to earn its tokens.
+    """
+    variant_id: str
+    params: dict[str, float]
+    score: float
+    verdict: str
+    rationale: str = ""
+
+
+@dataclass
 class RankedVariant:
     variant: StrategyVariant
     result: BacktestResult

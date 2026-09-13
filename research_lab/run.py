@@ -17,6 +17,7 @@ if hasattr(sys.stdout, "reconfigure"):
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
     sys.stderr.reconfigure(encoding="utf-8", errors="replace")
 
+from research_lab.agents.context import CONSTRUCTIONS
 from research_lab.schemas import RunResult
 from research_lab.supervisor import Supervisor
 from synthetic_engine import DEFAULT_STRATEGY, list_strategies
@@ -65,11 +66,31 @@ def main() -> None:
     ap.add_argument("--seed", type=int, default=0)
     ap.add_argument("--strategy", default=DEFAULT_STRATEGY, choices=list_strategies(),
                     help="which (synthetic) strategy engine the agent loop drives")
+    ap.add_argument("--use-llm", action="store_true",
+                    help="propose variants with Claude instead of the deterministic heuristic "
+                         "(needs ANTHROPIC_API_KEY and the llm extra); the loop is unchanged")
+    ap.add_argument("--context", default="compacted", choices=list(CONSTRUCTIONS),
+                    help="how much trial history to put in the proposer's context (--use-llm only)")
     args = ap.parse_args()
 
-    supervisor = Supervisor(seed=args.seed, strategy=args.strategy, log=lambda m: print(f"  · {m}"))
+    if args.use_llm:
+        try:
+            from load_env import load_env
+            load_env()
+        except ImportError:
+            pass
+
+    supervisor = Supervisor(seed=args.seed, strategy=args.strategy,
+                            use_llm=args.use_llm, context_mode=args.context,
+                            log=lambda m: print(f"  · {m}"))
     run = supervisor.run(iterations=args.iterations, variants_per_iter=args.variants)
     print(_report(run, args.strategy))
+    p = supervisor.proposer
+    if p.use_llm:
+        print(f"  proposer: {p.model} · context '{p.context_mode}' · {p.llm_calls} calls · "
+              f"{p.input_tokens:,} in / {p.output_tokens:,} out tokens"
+              + (f" · {p.llm_failures} fell back" if p.llm_failures else ""))
+        print()
 
 
 if __name__ == "__main__":

@@ -64,14 +64,27 @@ rubric and a regression eval set gated in CI. The control logic is unchanged —
 
 ## As built (2026-09-13)
 What actually runs in this repo, today:
-- **Plain Python, stdlib, deterministic** — no LangGraph, no LLM call anywhere in the loop
+- **Plain Python, stdlib, deterministic by default** — no LangGraph
   (`research_lab/supervisor.py`, `agents/proposer.py`, `agents/backtester.py`, `agents/evaluator.py`).
+- **An optional LLM proposer.** `Proposer(use_llm=True)` swaps the heuristic for a structured
+  Claude call; `Supervisor(use_llm=True, context_mode=...)` threads it through. Nothing else in
+  the loop changes — the schemas, `verify.py`, the evaluator and the HITL gate are identical
+  either way, which is the "one contract" claim above applied to the *agent* rather than the
+  engine. The default stays deterministic so a fresh clone still runs with no API key, and LLM
+  proposals are clamped into the parameter space before `verify_variant` sees them: the model is
+  not trusted to respect the contract. Needs `pip install -e '.[llm]'` and `ANTHROPIC_API_KEY`.
 - **`research_lab/verify.py`** adds the deterministic verification hooks this design implies:
   every proposed variant is checked against the declared parameter space *before* it's backtested,
   and every result is checked for NaN/inf/out-of-range *after* — loudly (raises), not silently,
   because a NaN score just never beats the baseline and the loop "succeeds" having learned nothing.
 - **`make gate` / `eval/run_gate.py`** is the CI eval-gate described above — it currently passes
   (best variant score > fixed baseline).
-- The **LangGraph `StateGraph` + LLM proposer + LLM-as-judge** described in "Production mapping"
-  above is the target production re-expression — not built in this repo.
+- **`research_lab/experiments/context_study.py`** measures what the proposer's context costs:
+  the same loop under three context constructions (full history / best-so-far / compacted
+  summary), reporting input tokens against best score. Across three seeds, compaction held 95%
+  of the full-history score for 46% of the input tokens; whether full history genuinely beats
+  compaction is *not* settled by that data (the per-seed spread exceeds the gap). Raw runs and
+  the honest reading are in `results/`.
+- The **LangGraph `StateGraph` + LLM-as-judge** described in "Production mapping" above is the
+  remaining target production re-expression — not built in this repo.
 </content>

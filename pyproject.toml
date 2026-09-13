@@ -32,4 +32,4 @@ target-version = "py311"
 
 [tool.pytest.ini_options]
 addopts = "-q"
-testpaths = ["tests"]
+testpaths = ["tests", "research_lab/tests"]
