@@ -19,6 +19,7 @@ secrets, no strategy parameters, no indicator names appear in any diagram.
 
 from __future__ import annotations
 
+import itertools
 import argparse
 import hashlib
 import json
@@ -502,7 +503,7 @@ def diagram_00() -> Diagram:
     arxiv = place(d, "arxiv", 1230, 122, 138, 56, "arXiv q-fin API", fill=DATA)
     s3 = place(d, "s3", 1230, 192, 138, 70,
                "AWS S3 bronze\nyantra-research-lab-data", fill=DATA)
-    priv = place(d, "private", 1230, 316, 138, 92,
+    place(d, "private", 1230, 316, 138, 92,
                  "private repo\nindex-options-trading-bot\nmonthly report PDFs",
                  fill=GUARD, dashed=True)
     d.text(1230, 276, "outputs-only boundary (ADR-0001)", font_size=11, color=NOTE_STROKE,
@@ -555,7 +556,7 @@ def diagram_01() -> Diagram:
     )
 
     CW, CH = 196, 92  # card size
-    GX, GY = 208, 106  # grid pitch
+    GX = 208  # grid pitch (x)
 
     groups: list[tuple[str, str, list[tuple[str, str]]]] = [
         ("frontend", FRONTEND, [
@@ -680,7 +681,7 @@ def diagram_02() -> Diagram:
         x += w + 44
 
     order = [s[0] for s in stages]
-    for a, b in zip(order, order[1:]):
+    for a, b in itertools.pairwise(order):
         d.hedge(f"e-{a}-{b}", placed[a].rect, placed[b].rect,
                 src=placed[a].id, dst=placed[b].id)
 
@@ -787,7 +788,7 @@ def diagram_03() -> Diagram:
         ip[key] = place(d, key, x, ay, w, AH, label, fill=fill)
         x += w + 26
     ks = [s[0] for s in steps]
-    for a, b in zip(ks, ks[1:]):
+    for a, b in itertools.pairwise(ks):
         d.hedge(f"i-{a}-{b}", ip[a].rect, ip[b].rect, src=ip[a].id, dst=ip[b].id)
 
     # medallion labels
