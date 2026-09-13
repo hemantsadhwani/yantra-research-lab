@@ -27,8 +27,8 @@ stating the *outcome* ("One warm machine, no cold start"), and the body carries 
 muted detail — product, version, and where it runs ("Fly.io yantra-chatbot · 1 shared-cpu/1GB,
 sin"). Excalidraw has no bold, so the hierarchy comes from size, colour and that band.
 The red 2px stroke is reserved for exactly three facts: the outputs-only boundary (00, 03),
-the `research_corpus` **NOT READ** gap (00, 03), and the exits that refuse *without calling
-the model* (02).
+the **re-ingest trap** — a `fly deploy` never updates the live index (03, 04) — and the
+exits that refuse *without calling the model* (02).
 
 Per [CLAUDE.md's claims discipline](../../CLAUDE.md), the dashed/solid split is the point of
 these diagrams: an interviewer should be able to tell at a glance what is genuinely
@@ -78,12 +78,13 @@ question costs nothing because it never reaches Anthropic.
 Two write pipelines into Qdrant Cloud and one reader. The Tier-3 ingestion DAG runs
 nightly with medallion labels (bronze = raw PDFs in S3, silver = parsed/captioned/chunked,
 gold = accepted and indexed) into `research_corpus`; the strategy-books path runs manually
-into `methodology`, alongside the eight seed methodology notes. **The one thing to notice:**
-the red dashed arrow labelled `never read`. The chatbot reads `methodology` only —
-there is no `QDRANT_COLLECTION` override in the running app — so everything the nightly
-ingestion pipeline indexes is currently unreachable by the chatbot. The diagram also carries
-the re-ingest gotcha: the Dockerfile's build-time ingest writes a *local* index the app
-never reads, so a corpus change needs the `fly ssh console` re-index, not a `fly deploy`.
+into `methodology`, alongside the eight seed methodology notes. The chatbot's one
+`search(k=4)` queries **both** collections (`QDRANT_READ_COLLECTIONS`, default
+`methodology,research_corpus`), asks each for k, and merges by cosine score — the same
+embedding model on both sides is what makes the scores comparable. Until 2026-09-13 only
+`methodology` was read; that gap is closed. **The one thing to notice** is the red note:
+the Dockerfile's build-time ingest writes a *local* index the app never reads, so a corpus
+change needs the `fly ssh console` re-index, not a `fly deploy`.
 
 ### `04-deploy-cicd.excalidraw`
 

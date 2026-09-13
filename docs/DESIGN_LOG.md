@@ -142,3 +142,23 @@ against. Four defects, in rising order of nastiness:
 The lesson worth keeping: retrieval failures are invisible from the outside. The bot sounds equally
 confident whether it retrieved the right document, the wrong one, or nothing at all — so the eval
 has to assert on the retrieved sources, not just the prose.
+
+### The chatbot now reads what the pipeline writes (2026-09-13)
+The architecture diagrams made one thing embarrassing to look at: `research_corpus` — 376 chunks
+from ten arXiv papers, re-indexed nightly by the Tier-3 pipeline — was never queried. The chatbot
+searched `methodology` only, so a question about a paper the site says it ingested got an answer
+from the model's memory, not the corpus. That is the RAG equivalent of a dashboard nobody reads.
+
+The fix is read-side only. `QdrantRetriever.search()` now queries every collection in
+`QDRANT_READ_COLLECTIONS` (default `methodology,research_corpus`), asks each for k so a strong
+corpus cannot starve a weak one, merges by cosine score and cuts to k. That merge is honest only
+because both pipelines embed with the same `bge-small-en-v1.5`; with different models the scores
+would not be comparable and this would need a re-ranker. A missing collection logs a warning and
+is skipped, so local dev without the pipeline still works, and the retrieve span records hits per
+collection so Logfire shows whether papers were actually served. `index()` still writes only
+`methodology` — the two corpora stay separate (blue/green data); they are simply both read.
+
+Verified live before and after: "what is entropic value-at-risk parity?" cites the paper by title.
+`eval/chatbot_books_eval.py` gained Q22–Q23, which fail unless an arXiv title appears in
+`sources`, and a 3.2s inter-request pause so the eval itself stops tripping the 20/min limit.
+This was a `fly deploy`, not a re-ingest: the retriever changed, the index did not.

@@ -22,8 +22,8 @@ arrow, an arrow crossing a third box, or a label sitting on a box.
 Visual hierarchy: each card is a darker header band carrying a 16px outcome
 headline, over a body carrying 13px muted detail (product, version, where it runs).
 The three things a reviewer must notice - the outputs-only boundary, the
-research_corpus NOT READ gap, and the refusals that never call the model - are drawn
-with a 2px #e03131 stroke and a ">>" prefix.
+re-ingest trap (a fly deploy never updates the live index), and the refusals that
+never call the model - are drawn with a 2px #e03131 stroke and a ">>" prefix.
 
 Accuracy rules (see CLAUDE.md "Claims discipline"): every solid box is something
 that actually runs today; everything aspirational is dashed and labelled. No
@@ -1029,7 +1029,7 @@ def diagram_00() -> Diagram:
                    "guardrails.py . books.py\nrate limit . PII redact", fill=GUARD,
                    alert=False)
     retr = d.card("retr", 458, guard.bottom + 18, 214, "Vector retrieval",
-                  "search(k=4) against methodology", fill=DATA)
+                  "search(k=4) across both\ncollections, merged", fill=DATA)
     claude = d.card("claudecall", 458, retr.bottom + 18, 214,
                     "Answers from published outputs",
                     "Claude claude-haiku-4-5", fill=LLM)
@@ -1044,10 +1044,10 @@ def diagram_00() -> Diagram:
                      "Logfire - OpenTelemetry\nchat_request > retrieve > llm",
                      fill=LLM)
     qdrant = d.card("qdrant", 748, max(retr.y, logfire.bottom + 18), 216,
-                    "Two collections, one read",
-                    "Qdrant Cloud - AWS us-west-2\nmethodology 16 docs READ\n"
-                    "research_corpus 376 NOT READ",
-                    fill=DATA, alert=True)
+                    "Two collections, both read",
+                    "Qdrant Cloud - AWS us-west-2\nmethodology 16 docs + "
+                    "research_corpus 376\nmerged by score, cut to k=4",
+                    fill=DATA)
     anthropic = d.card("anthropic", 748, max(claude.y, qdrant.bottom + 18), 216,
                        "Anthropic API",
                        "claude-haiku-4-5\nprompt caching", fill=LLM)
@@ -1095,8 +1095,9 @@ def diagram_00() -> Diagram:
 
     fy = lane_bottom + 18
     n1 = d.note("note-gap", 20, fy, 700,
-                "The gap worth naming: research_corpus is indexed nightly but the "
-                "chatbot never reads it. Only methodology is served, via search(k=4).")
+                "One search, two collections: methodology (seed notes + strategy books) "
+                "and the nightly-indexed research_corpus are queried together and merged "
+                "by cosine score, so arXiv papers are citable (closed 2026-09-13).")
     d.note("note-target", 740, fy, 734,
            "Not deployed: Tier-2 slm_regime_classifier, AWS Fargate hosting, auth + "
            "RBAC. The Tier-1 research loop runs in CI, not on the request path.")
@@ -1142,7 +1143,7 @@ def diagram_01() -> Diagram:
         ("vectors", "Embeddings, vector DB and storage", DATA, [
             ("Same model both sides",
              "fastembed ONNX\nbge-small-en-v1.5, 384d"),
-            ("Two collections, one read",
+            ("Two collections, both read",
              "Qdrant Cloud, cosine\nAWS us-west-2"),
             ("Content-hashed",
              "AWS S3 bronze\nbucket from CI secret"),
@@ -1352,9 +1353,9 @@ def diagram_03() -> Diagram:
     """What writes to Qdrant, what reads from it, and the gap in between."""
     d = Diagram(
         "03",
-        "Data flows into Qdrant Cloud - and the one gap",
-        "Two write pipelines, one reader: research_corpus is indexed nightly and never "
-        "read.",
+        "Data flows into Qdrant Cloud - and the one trap",
+        "Two write pipelines, one reader that searches both collections; a fly deploy "
+        "never touches the live index.",
     )
     r = Router(d)
 
@@ -1411,11 +1412,11 @@ def diagram_03() -> Diagram:
     # --- Qdrant Cloud, the two collections
     QY = max(dlq.bottom, dlq_y + 70) + 34
     qtop = QY + 10 + line_h(FS_TITLE) + LANE_BAND
-    research = d.card("research", 596, qtop, 350, "Indexed nightly, never read",
+    research = d.card("research", 596, qtop, 350, "Indexed nightly, served",
                       "research_corpus - 376 indexed\n419 chunks parsed, 18 figures",
-                      fill=DATA, alert=True)
+                      fill=DATA)
     methodology = d.card("methodology", 596, research.bottom + 20, 350,
-                         "The only collection served",
+                         "Searched first, alongside",
                          "methodology - 16 docs / 18 chunks\n8 seed notes + 8 book docs",
                          fill=DATA)
     d.lane("qc", 578, QY, 386, (methodology.bottom + 16) - QY,
@@ -1429,11 +1430,10 @@ def diagram_03() -> Diagram:
                     label="upsert")
 
     # --- the reader and the gap
-    chatbot = d.card("chatbot", 1094, research.y + 6, 300, "Reads methodology only",
-                     "chatbot on Fly.io\nno QDRANT_COLLECTION override",
+    chatbot = d.card("chatbot", 1094, research.y + 6, 300, "Searches both, merges by score",
+                     "chatbot on Fly.io\nQDRANT_READ_COLLECTIONS, k=4 each",
                      fill=FRONTEND)
-    r.straight("research-chat", research, chatbot, label="never read", dashed=True,
-               color=ALERT, stroke_width=2)
+    r.straight("research-chat", research, chatbot, label="search(k=4)")
     r.elbow_h("meth-chat", methodology, chatbot, gutter_x=1020, label="search(k=4)")
 
     # --- pipeline B: strategy books (manual, outputs only)
@@ -1473,9 +1473,9 @@ def diagram_03() -> Diagram:
 
     fy = max(row_bottom([explorer]), BY + books_h) + 26
     d.note("note-ssh", 20, fy, 700,
-           "Re-ingest gotcha: a fly deploy changes nothing. The cluster must be "
-           "re-indexed over SSH after any corpus change, or the app keeps serving the "
-           "old index.")
+           ">> Re-ingest trap: a fly deploy changes nothing in Qdrant Cloud. The "
+           "methodology collection must be re-indexed over SSH after any corpus "
+           "change, or the app keeps serving the old index.")
     d.note("note-boundary", 740, fy, 620,
            "The boundary holds in one direction: labelled outputs cross, engine "
            "parameters and trade rows never do (ADR-0001).")

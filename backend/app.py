@@ -276,8 +276,17 @@ def chat(req: ChatRequest, request: Request):
             except Exception as e:
                 logger.warning("retrieval failed: %s", e)
             retrieve_ms = round((time.monotonic() - r0) * 1000, 1)
-            obs.set_attributes(rsp, {"retrieved_k": len(chunks), "retrieve_ms": retrieve_ms})
-        attrs.update(retrieved_k=len(chunks), retrieve_ms=retrieve_ms)
+            # Which collections the hits came from, e.g. {"methodology": 3,
+            # "research_corpus": 1} - the trace shows whether papers were served.
+            per_collection: dict[str, int] = {}
+            for c in chunks:
+                per_collection[c.collection or "?"] = per_collection.get(c.collection or "?", 0) + 1
+            obs.set_attributes(
+                rsp,
+                {"retrieved_k": len(chunks), "retrieve_ms": retrieve_ms,
+                 "collections": per_collection},
+            )
+        attrs.update(retrieved_k=len(chunks), retrieve_ms=retrieve_ms, collections=per_collection)
 
         # Published backtest outputs: deterministic keyword routing on the ORIGINAL
         # message (redaction rewrites digit runs), prepended ahead of the vector chunks

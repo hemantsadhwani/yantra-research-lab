@@ -61,7 +61,7 @@ flowchart LR
   RUN -.->|traces| LOG
   RUN -->|writes| MAN
   MAN -->|commit back| SITE
-  QDR -.->|"not yet served by the chatbot\n(chatbot reads methodology)"| BOT
+  QDR -->|"search(k=4), merged with\nmethodology by score"| BOT
 ```
 
 ## Pipeline DAG (LangGraph)
@@ -135,12 +135,12 @@ free CI minutes, S3 pennies. No always-on compute (deliberately not EC2).
 
 ## Roadmap (documented upgrades)
 
-- **Next step — wire `research_corpus` into the chatbot.** This is the single biggest as-built
-  gap: the pipeline on this page indexes 376 chunks into `research_corpus`, but the deployed
-  chatbot only retrieves from the much smaller `methodology` collection (8 seed notes + 8
-  generated strategy-book docs, 18 chunks — see [04](04-guardrails-rbac.md)). The two collections
-  are intentionally separate (blue/green data), but nothing yet promotes `research_corpus` into
-  what the bot actually reads.
+- ~~**Next step — wire `research_corpus` into the chatbot.**~~ **Done 2026-09-13.** The chatbot's
+  retriever now searches `methodology` and `research_corpus` in one call, asks each for k and
+  merges by cosine score (`backend/retriever.py`, `QDRANT_READ_COLLECTIONS`); a missing
+  collection is skipped, not fatal. Verified live: "what is entropic value-at-risk parity?" cites
+  the arXiv paper; `eval/chatbot_books_eval.py` Q22–Q23 fail unless a paper title is among the
+  sources. The two collections stay separate (blue/green data); the bot reads both.
 - **Sub-project A — Images**: ✅ SHIPPED — caption-anchored figure rasterization → S3 bronze +
   committed thumbnails → Claude-vision caption → embedded in `research_corpus` (multimodal retrieval)
 - **Sub-project B — Tables → Text-to-SQL**: structured tables → DuckDB → schema-linked LLM SQL agent

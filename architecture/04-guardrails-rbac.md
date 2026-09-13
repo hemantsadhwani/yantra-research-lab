@@ -41,22 +41,23 @@ message → PII redaction (user message only) → injection detection →
           naming a product/book counts as "specific") →
           deterministic book router (keyword match on this message + prior user turns:
           overview / per-book / risk-gates docs) →
-          vector retrieval k=4 (Qdrant Cloud, collection "methodology") → Claude → response
+          vector retrieval k=4 across "methodology" + "research_corpus", merged by score → Claude → response
 ```
 - **RBAC tenant isolation and Cognito/Clerk roles are the v2/target design above — not built.**
   Every visitor is an anonymous guest today.
 - The **book router** is deterministic keyword logic, not retrieval — it decides which strategy
   book(s) a question is about (including from conversation history, so a follow-up inherits the
   product) before vector search ever runs.
-- Retrieval hits `methodology` (8 seed methodology notes + 8 generated strategy-book docs, 18
-  chunks) — not the larger `research_corpus` collection the ingestion pipeline builds (see
-  [02a](02a-data-ingestion-asbuilt.md), Roadmap).
+- Retrieval searches both collections: `methodology` (8 seed methodology notes + 8 generated
+  strategy-book docs, 18 chunks) and `research_corpus` (376 arXiv-paper chunks from the
+  ingestion pipeline, see [02a](02a-data-ingestion-asbuilt.md)). Each is asked for k=4 and the
+  merged list is cut to 4 by cosine score; the retrieve span records hits per collection.
 
 ## Evaluation — three real evals, run against the live system
 | Eval | What it measures | Latest measured |
 |---|---|---|
 | [`eval/redteam.py`](../eval/redteam.py) | guardrail block rate on attack probes vs. false positives on benign controls | 26/26 attacks blocked (100%), 0/20 false positives |
-| [`eval/chatbot_books_eval.py`](../eval/chatbot_books_eval.py) | 21 graded questions against the live `/api/chat` endpoint; grader fails dodges, self-contradictions, and any answer without a book doc in its sources | 21/21 |
+| [`eval/chatbot_books_eval.py`](../eval/chatbot_books_eval.py) | 23 graded questions against the live `/api/chat` endpoint; grader fails dodges, self-contradictions, book answers without a book doc in their sources, and paper questions without the paper cited | 23/23 |
 | [`eval/run_gate.py`](../eval/run_gate.py) | (Tier-1, not chatbot) agent loop's best variant beats the fixed baseline, CI-gated | best v007 score 36.5 > baseline 4.9 — PASS |
 
 The curated **red-team probe set lives in `eval/redteam.py` itself** (26 attacks: direct

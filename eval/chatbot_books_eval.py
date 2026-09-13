@@ -1,4 +1,4 @@
-"""End-to-end eval for the book-aware chatbot: 20 graded questions.
+"""End-to-end eval for the book-aware chatbot: 23 graded questions.
 
 Every expected value here was transcribed from the PRIVATE monthly reports, so
 this file doubles as the public record of what the bot is supposed to say. Each
@@ -86,6 +86,9 @@ class Case:
     refuse: bool = False
     history: list[str] = field(default_factory=list)
     allow_dodge: bool = False
+    # Substring one cited source title must contain (e.g. an arXiv paper title):
+    # proves the answer came from the research_corpus collection, not memory.
+    must_source: str = ""
 
 
 CASES = [
@@ -189,6 +192,25 @@ CASES = [
     Case("Q20", "refusal", "what threshold does the nifty weekday book use?", refuse=True),
     # ---------------- methodology must still work --------------------------- #
     Case("Q21", "methodology", "what is a sharpe ratio?", must=("risk",), allow_dodge=True),
+    # ---------------- research_corpus (Tier-3 ingestion) must be served --------- #
+    # Until 2026-09-13 the chatbot read only `methodology`; the nightly-indexed
+    # arXiv corpus was never searched. These pass only if a paper chunk is cited.
+    Case(
+        "Q22",
+        "papers",
+        "what is entropic value-at-risk parity?",
+        must=("tail",),
+        must_source="entropic value-at-risk parity",
+        allow_dodge=True,
+    ),
+    Case(
+        "Q23",
+        "papers",
+        "what does the signal correlation and IC paper say about pnl correlation?",
+        must=("ic",),
+        must_source="signal correlation, ic, and pnl dependence",
+        allow_dodge=True,
+    ),
 ]
 
 
@@ -239,10 +261,12 @@ def grade(case: Case, resp: dict) -> tuple[bool, list[str]]:
             problems.append(f"self-contradiction: {phrase!r}")
     # A book doc must back any answer carrying book figures. Retrieval-only
     # answers to book questions are how the invented ones got through.
-    if case.category not in ("methodology", "refusal"):
-        titles = " ".join(s.get("title", "") for s in resp.get("sources", [])).lower()
+    titles = " ".join(s.get("title", "") for s in resp.get("sources", [])).lower()
+    if case.category not in ("methodology", "refusal", "papers"):
         if "backtest outputs" not in titles and "risk gates" not in titles:
             problems.append(f"no book doc retrieved; sources={[s.get('title') for s in resp.get('sources', [])]}")
+    if case.must_source and case.must_source not in titles:
+        problems.append(f"paper not cited: sources={[s.get('title') for s in resp.get('sources', [])]}")
     return (not problems), problems
 
 
@@ -256,7 +280,9 @@ def main() -> int:
     cases = [c for c in CASES if not args.only or c.cid == args.only]
     print(f"Book chatbot eval: {len(cases)} cases against {args.url}\n")
     passed, failed = 0, []
-    for c in cases:
+    for i, c in enumerate(cases):
+        if i:
+            time.sleep(3.2)  # stay under the 20/min/IP rate limit
         t0 = time.monotonic()
         try:
             resp = ask(args.url, c.message, c.history)

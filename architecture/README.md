@@ -72,7 +72,7 @@ red = the three things a reviewer should notice. Full guide: [diagrams/README.md
 ![Tech stack](diagrams/png/01-tech-stack.png)
 
 Also: [one `/api/chat` request](diagrams/png/02-chat-request-flow.png) ·
-[data flows into Qdrant — and the one gap](diagrams/png/03-data-flows.png) ·
+[data flows into Qdrant — and the one trap](diagrams/png/03-data-flows.png) ·
 [deploy & CI/CD — automated vs by hand](diagrams/png/04-deploy-cicd.png) ·
 the older hand-made [`tier3-architecture.excalidraw`](diagrams/tier3-architecture.excalidraw).
 
@@ -81,7 +81,7 @@ the older hand-made [`tier3-architecture.excalidraw`](diagrams/tier3-architectur
 |---|---|---|
 | [`eval/run_gate.py`](../eval/run_gate.py) | agent loop's best variant still beats the fixed baseline (CI eval-gate) | best v007 score 36.5 > baseline 4.9 — PASS |
 | [`eval/redteam.py`](../eval/redteam.py) | guardrail block rate on attacks vs. false positives on benign controls | 26/26 blocked (100%), 0/20 false positives |
-| [`eval/chatbot_books_eval.py`](../eval/chatbot_books_eval.py) | graded questions against the live `/api/chat` endpoint | 21/21 |
+| [`eval/chatbot_books_eval.py`](../eval/chatbot_books_eval.py) | 23 graded questions against the live `/api/chat` endpoint, incl. two that must cite an arXiv paper from `research_corpus` | 23/23 |
 
 ## Design principles
 1. **Workflow-first, agentic only where the problem demands it** — bounded autonomy; pay for it knowingly.
