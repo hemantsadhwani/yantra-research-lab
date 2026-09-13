@@ -20,6 +20,15 @@ rectangle, so boxes stay editable by hand if you want to nudge something.
 | `#fff4e6` orange | Guardrails / trust boundaries |
 | `#fff9db` yellow | CI / compute |
 | Teal outline | Annotation — the caveat, not the component |
+| Red 2px stroke, `>>` prefix | The three things a reviewer must notice |
+
+Each box is a **two-tier card**: a slightly darker header band carries a 16px headline
+stating the *outcome* ("One warm machine, no cold start"), and the body carries the 13px
+muted detail — product, version, and where it runs ("Fly.io yantra-chatbot · 1 shared-cpu/1GB,
+sin"). Excalidraw has no bold, so the hierarchy comes from size, colour and that band.
+The red 2px stroke is reserved for exactly three facts: the outputs-only boundary (00, 03),
+the `research_corpus` **NOT READ** gap (00, 03), and the exits that refuse *without calling
+the model* (02).
 
 Per [CLAUDE.md's claims discipline](../../CLAUDE.md), the dashed/solid split is the point of
 these diagrams: an interviewer should be able to tell at a glance what is genuinely
@@ -29,6 +38,8 @@ deployed from what is a documented intention. Nothing aspirational is drawn soli
 
 ### `00-system-e2e.excalidraw`
 
+![00-system-e2e](png/00-system-e2e.png)
+
 The whole system in six lanes — Visitor, Vercel, Fly.io, Managed services, GitHub, Data
 sources — with each arrow labelled by what actually crosses it (HTTPS JSON, embed+search,
 spans, commit-back, upsert). **The one thing to notice:** most of the site never touches
@@ -37,6 +48,8 @@ the backend. Four of the six frontend routes read static JSON committed into
 deliberate cost and reliability decision, not an omission.
 
 ### `01-tech-stack.excalidraw`
+
+![01-tech-stack](png/01-tech-stack.png)
 
 A board of cards grouped by layer — Frontend, Backend & hosting, LLM/orchestration,
 Embeddings & vector DB, Guardrails & evals, Observability & research loop, CI/CD &
@@ -48,6 +61,8 @@ Tier-2 `slm_regime_classifier/` is likewise a README plus four empty directories
 
 ### `02-chat-request-flow.excalidraw`
 
+![02-chat-request-flow](png/02-chat-request-flow.png)
+
 One `POST /api/chat`, left to right, with the branches that exit early drawn downward:
 rate limit and daily cap to a `429`, injection detection and IP refusal to a `200` with
 `refused=true` and **no LLM call at all**. The two context sources (routed book docs and
@@ -58,17 +73,21 @@ question costs nothing because it never reaches Anthropic.
 
 ### `03-data-flows.excalidraw`
 
+![03-data-flows](png/03-data-flows.png)
+
 Two write pipelines into Qdrant Cloud and one reader. The Tier-3 ingestion DAG runs
 nightly with medallion labels (bronze = raw PDFs in S3, silver = parsed/captioned/chunked,
 gold = accepted and indexed) into `research_corpus`; the strategy-books path runs manually
 into `methodology`, alongside the eight seed methodology notes. **The one thing to notice:**
-the dashed teal arrow labelled `NOT SERVED YET`. The chatbot reads `methodology` only —
+the red dashed arrow labelled `never read`. The chatbot reads `methodology` only —
 there is no `QDRANT_COLLECTION` override in the running app — so everything the nightly
 ingestion pipeline indexes is currently unreachable by the chatbot. The diagram also carries
 the re-ingest gotcha: the Dockerfile's build-time ingest writes a *local* index the app
 never reads, so a corpus change needs the `fly ssh console` re-index, not a `fly deploy`.
 
 ### `04-deploy-cicd.excalidraw`
+
+![04-deploy-cicd](png/04-deploy-cicd.png)
 
 How code and data actually reach production: developer push → GitHub Actions
 (`changes` → `core` → `eval-gate` → dashed deploy stubs); Vercel's own git integration →
@@ -84,18 +103,42 @@ the backend ships only when a human runs two commands in the right order.
 cd architecture/diagrams
 python gen_diagrams.py            # rewrite all five files
 python gen_diagrams.py --check    # exit 1 if any file on disk is stale (CI-friendly)
-python gen_diagrams.py --grid     # also print an ASCII occupancy map per diagram
+
+# PNGs for GitHub (which cannot display .excalidraw): Excalidraw's own exporter in a
+# headless browser. Needs a Playwright package and Edge/Chrome; see render/shoot.js.
+PW_MODULE=playwright node render/shoot.js . png
 ```
+
+The PNGs in [`png/`](png/) are the acceptance test as much as the output: the geometry
+assertions below prove boxes don't overlap, but only a render shows whether text *fits*
+and arrows *read* — both of which the first version of these diagrams got wrong.
 
 Stdlib only — no install step. Element ids are derived from a hash of each label, so
 regeneration is byte-for-byte stable and a diff shows only what genuinely changed. Edit
 the diagram functions in `gen_diagrams.py` rather than the JSON; a hand-edit to a
 `.excalidraw` file will be overwritten on the next run (and `--check` will flag it first).
 
-On every run the script validates each diagram before writing: the JSON round-trips, every
-`containerId` and arrow binding resolves to an element that exists (in both directions),
-every element carries the full set of Excalidraw fields, no two content boxes overlap, and
-everything stays inside the canvas. It then prints element counts per diagram.
+Layout is **computed, not hard-coded**. Every string is measured (Excalidraw's hand-drawn
+font at ~0.66 × fontSize per character, 1.25 × line height) and word-wrapped to its
+container; containers grow to fit the wrap; and each row or column is re-flowed from the
+measured extent of the one before it, so a box that grows pushes its neighbours instead of
+colliding with them. Arrows anchor on the box **edges** implied by the two centres and
+elbow through lane gutters — no straight diagonals across lanes.
+
+On every run the script validates each diagram before writing, and fails loudly with the
+offending label rather than writing a broken file:
+
+- the JSON round-trips, and every element carries the full set of Excalidraw fields;
+- every `containerId` and arrow binding resolves to an element that exists, both ways;
+- **text fits**: wrapped height + 2 × padding ≤ container height, and the longest line ≤
+  container width − 2 × padding, for every bound label;
+- **arrows are anchored**: each end point lands on its target's edge, and no segment
+  crosses a box that is not one of its own endpoints;
+- **labels are clear**: no arrow-label bbox intersects a box (a label with nowhere to go is
+  dropped with a warning, and the flow is stated in a footnote strip instead);
+- no two content boxes overlap, and each diagram stays inside one screen (~1500 × 940).
+
+It then prints element counts, the extent, and how many text fits and labels were checked.
 
 ## `tier3-architecture.excalidraw`
 

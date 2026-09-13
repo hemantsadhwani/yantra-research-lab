@@ -59,10 +59,22 @@ flowchart TB
 Decision records: [../docs/adr/](../docs/adr/).
 
 ## Diagrams
-Source diagrams (editable in [excalidraw.com](https://excalidraw.com)) live in
-[`architecture/diagrams/`](diagrams/): `00-system-e2e`, `01-tech-stack`, `02-chat-request-flow`,
-`03-data-flows`, `04-deploy-cicd`, and the existing `tier3-architecture`. They render the same
-as-built system these docs describe in prose.
+Five generated, as-built diagrams live in [`architecture/diagrams/`](diagrams/) — editable
+`.excalidraw` sources plus rendered PNGs. Solid = running today; dashed = documented target;
+red = the three things a reviewer should notice. Full guide: [diagrams/README.md](diagrams/README.md).
+
+**The system, end to end** — most of the site never touches the backend; only `/chat` and `/ops` do.
+
+![System end to end](diagrams/png/00-system-e2e.png)
+
+**The stack, product by product** — every solid card is running; the dashed strip is what is documented but not built.
+
+![Tech stack](diagrams/png/01-tech-stack.png)
+
+Also: [one `/api/chat` request](diagrams/png/02-chat-request-flow.png) ·
+[data flows into Qdrant — and the one gap](diagrams/png/03-data-flows.png) ·
+[deploy & CI/CD — automated vs by hand](diagrams/png/04-deploy-cicd.png) ·
+the older hand-made [`tier3-architecture.excalidraw`](diagrams/tier3-architecture.excalidraw).
 
 ## Evals (real, run against the live system)
 | Eval | What it checks | Latest measured |
