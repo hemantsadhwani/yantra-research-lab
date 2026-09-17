@@ -1,7 +1,7 @@
 {
   "_note": "Public run manifest of the Tier-3 agentic ingestion pipeline. Safe aggregates + provenance only; raw PDFs live in S3, not here.",
-  "run_id": "20260916T074300Z",
-  "generated_at": "2026-09-16T07:47:17+00:00",
+  "run_id": "20260917T074211Z",
+  "generated_at": "2026-09-17T07:45:39+00:00",
   "collection": "research_corpus",
   "embed_model": "BAAI/bge-small-en-v1.5",
   "dag": [
@@ -50,28 +50,136 @@
     "discovered": 10,
     "fetched": 10,
     "parsed": 10,
-    "chunks": 451,
-    "accepted": 433,
-    "rejected": 18,
-    "images": 112,
+    "chunks": 436,
+    "accepted": 395,
+    "rejected": 41,
+    "images": 43,
     "figures_captioned": 18,
-    "tables": 13,
-    "with_math": 9,
-    "indexed": 433,
+    "tables": 11,
+    "with_math": 10,
+    "indexed": 395,
     "spent_usd": 0.0294,
-    "duration_s": 256.6
+    "duration_s": 207.6
   },
   "rejects_by_reason": {
-    "low-relevance": 18
+    "low-relevance": 41
   },
   "budget_usd": 3.0,
   "figures": [
+    {
+      "doc_id": "2609.19102v1",
+      "title": "Optimal entry and exit for variance swaps: closed-form rules for the perpetual contract",
+      "page": 16,
+      "thumb": "/data/figures/2609.19102v1_p16_0.jpg",
+      "caption": "Figure 1: The reduced exit problem of Lemma 6.4 for the perpetual variance swap at an expected life of two years (\u03b4 = 0.5) and the base parameters of Section 8. U is the smallest \u03b4-excessive majorant of the reduced reward \u02dch and leaves it smoothly at b\u2217. Left: long, \u03b5\u03bb < 0, cm = 0, unwound into a spike. Right: short, \u03b5\u03bb > 0, cm = 0.004, unwound into a collapse. Both thresholds correspond to a perp \u2014 This figure shows two line plots comparing the value function U (blue) and reduced reward h\u0303 (ora",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.19102v1"
+    },
+    {
+      "doc_id": "2609.19102v1",
+      "title": "Optimal entry and exit for variance swaps: closed-form rules for the perpetual contract",
+      "page": 16,
+      "thumb": "/data/figures/2609.19102v1_p16_1.jpg",
+      "caption": "Figure 1 shows the two cases side by side. What the insets make visible is the continuation region, the set on which U \u2212\u02dch > 0; on the main axes the option value is too small next to the reward to be seen at all. \u2014 This figure displays two line charts comparing the value function U (solid blue) and reduced reward h\u0303 (dashed orange) against realized volatility (vol, %) for a perpetual variance swap with \u03b4=0.5 and two-year expected life. The left panel shows a long position case (\u03bb < 0, cm = 0) wh",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.19102v1"
+    },
+    {
+      "doc_id": "2609.19102v1",
+      "title": "Optimal entry and exit for variance swaps: closed-form rules for the perpetual contract",
+      "page": 23,
+      "thumb": "/data/figures/2609.19102v1_p23_2.jpg",
+      "caption": "Figure 2 locates the interval against the size of the premium. Its two edges have different origins. The lower edge is Proposition 7.1 together with reachability: below it the trader never unwinds, or unwinds only at variance levels of no consequence. The upper edge is where d\u2217 \u2014 This figure displays a scatter or line plot showing the relationship between premium (on the x-axis, measured in basis points) and volatility levels (on the y-axis) for a perpetual variance swap contract. The plot illus",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.19102v1"
+    },
+    {
+      "doc_id": "2609.19102v1",
+      "title": "Optimal entry and exit for variance swaps: closed-form rules for the perpetual contract",
+      "page": 24,
+      "thumb": "/data/figures/2609.19102v1_p24_3.jpg",
+      "caption": "Figure 2: Holding costs admitting a non-degenerate entry\u2013exit pair (Definition 7.5) for a short perpetual position, against the size of the variance risk premium. The median of the stationary law of v is fixed at 19% in volatility, with \u00afs = \u00afse = 20 basis points and \u03b4 = 0.5. Below a premium of 1.09 volatility points, no holding cost admits a round trip. \u2014 This line chart displays the relationship between holding cost (x-axis, in basis points of variance per year) and variance risk premium (y-ax",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.19102v1"
+    },
+    {
+      "doc_id": "2609.18019v1",
+      "title": "Model-Free Passive Execution via Order-Level Shadowing",
+      "page": 17,
+      "thumb": "/data/figures/2609.18019v1_p17_0.jpg",
+      "caption": "Figure 1 compares the mark-out of the two execution styles, Figure 2 their relative slippage, and Figure 3 puts the two measures side by side for both. \u2014 This is a text excerpt from a research paper discussing execution simulation methodology. The passage explains that the mid-price is recalculated after each individual fill at different time granularities, and that while these calculations share the same fill inference, discrepancies between simulated and actual market prices indicate pricing e",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.18019v1"
+    },
+    {
+      "doc_id": "2609.18019v1",
+      "title": "Model-Free Passive Execution via Order-Level Shadowing",
+      "page": 17,
+      "thumb": "/data/figures/2609.18019v1_p17_1.jpg",
+      "caption": "Figure 1: Post-fill mark-out for the two execution styles, at one, five and thirty seconds, with 95 % intervals clustered by session. The two are indistinguishable at every horizon, and each profile is flat rather than decaying: the price move is complete within a second of the fill and does not revert over the following twenty-nine. That is the signature of adverse selection rather than of tempor \u2014 This line chart compares post-fill mark-out (price movement after execution) between Shadow-PPOV ",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.18019v1"
+    },
+    {
+      "doc_id": "2609.18019v1",
+      "title": "Model-Free Passive Execution via Order-Level Shadowing",
+      "page": 18,
+      "thumb": "/data/figures/2609.18019v1_p18_2.jpg",
+      "caption": "Figure 2: Window-level relative slippage for the two execution styles at matched participation, with 95 % intervals clustered by session. One style rests for 99 % of its executed quantity and the other crosses for half of it; the round trip costs the same either way. \u2014 This bar chart compares relative slippage between two execution styles: Shadow-PPOV (passive) shown in blue and Aggressive POV shown in red. Both bars display approximately +0.095 (9.5 basis points) slippage with overlapping 95% c",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.18019v1"
+    },
+    {
+      "doc_id": "2609.18019v1",
+      "title": "Model-Free Passive Execution via Order-Level Shadowing",
+      "page": 18,
+      "thumb": "/data/figures/2609.18019v1_p18_3.jpg",
+      "caption": "Figure 3: Relative slippage against mark-out, both execution styles. The two quantities are computed from different data at different grains \u2014 one from the volume-weighted prices of a whole window, the other from the mid-price after each individual fill \u2014 so their agreement is a check on the measurement rather than an identity. They agree to within a couple of hundredths of a tick throughout. \u2014 The figure shows a bar chart comparing window-level relative slippage across two execution styles: Sha",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.18019v1"
+    },
+    {
+      "doc_id": "2609.17788v1",
+      "title": "SAiFE-gym: Model-based Environments for Automated Market Making with Concentrated Liquidity",
+      "page": 4,
+      "thumb": "/data/figures/2609.17788v1_p4_0.jpg",
+      "caption": "Figure 1: Smoothed kernels with exponential weights captur- ing the impact of the neighbouring liquidity of the current marginal exchange rate to the arrivals intensity. \u2014 This figure displays a probability density distribution of liquidity around the current tick in an automated market maker with concentrated liquidity. The chart uses kernel density estimation with exponential weighting, showing multiple overlaid curves representing symmetric depth, buy-side depth, sell-side depth, symmetric de",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.17788v1"
+    },
+    {
+      "doc_id": "2609.17788v1",
+      "title": "SAiFE-gym: Model-based Environments for Automated Market Making with Concentrated Liquidity",
+      "page": 5,
+      "thumb": "/data/figures/2609.17788v1_p5_1.jpg",
+      "caption": "Figure 2: Deep RL wrapper workflow \u2014 This figure shows a system architecture diagram with three layers describing a deep reinforcement learning wrapper workflow. The top layer (SB3 Wrapper) processes flattened dict observations through atop-async-step-env before reaching an auto-reset terminal obs handler. The middle layer (Gymnasium Environment) contains the core reset/step API and update_agent_state/update_market_state logic that feeds rewards and batched info. The bottom layer (AMM Engine) ma",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.17788v1"
+    },
+    {
+      "doc_id": "2609.17788v1",
+      "title": "SAiFE-gym: Model-based Environments for Automated Market Making with Concentrated Liquidity",
+      "page": 6,
+      "thumb": "/data/figures/2609.17788v1_p6_2.jpg",
+      "caption": "Figure 3: Speedup of vectorization using NumPy. \u2014 The left panel shows a log-log plot comparing rollout time in seconds versus number of trajectories, with two lines: concurrent futures (dashed) showing quadratic growth and NumPy vectorization (solid) showing near-linear growth, demonstrating significant computational speedup from vectorization. The right panel displays mean episode reward convergence across training epochs for four different trajectory batch sizes (10, 100, 1,000, and 10,000 tr",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.17788v1"
+    },
+    {
+      "doc_id": "2609.17788v1",
+      "title": "SAiFE-gym: Model-based Environments for Automated Market Making with Concentrated Liquidity",
+      "page": 6,
+      "thumb": "/data/figures/2609.17788v1_p6_3.jpg",
+      "caption": "Figure 4: Impact of vectorization in the stability of rewards. \u2014 The left panel is a log-log plot comparing rollout time (seconds) versus number of trajectories for two methods: concurrent futures with one trajectory per process (dashed line) and NumPy vectorized with one process (solid line), showing that vectorization scales more efficiently than multiprocessing. The right panel is a line chart showing mean episodic reward convergence during training across 250 epochs for four conditions (10, ",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.17788v1"
+    },
     {
       "doc_id": "2609.16642v1",
       "title": "From Public Evidence to Contractual Outcome: First and Stable Decidability on Kalshi",
       "page": 3,
       "thumb": "/data/figures/2609.16642v1_p3_0.jpg",
-      "caption": "Figure 1: Contractual-decidability graph. A named source is one input; the rule\u2013evidence mapping determines whether the admissible outcome set is a singleton. \u2014 This is a flowchart diagram showing the process of determining contractual outcomes in financial derivatives. The diagram illustrates how contract/series terms, versioned re-lease objects, market-specific rules, and additional details flow into a function \u03a8\u2081(T(t), \u03b5\u0302\u1d62(t)) that generates admissible outcomes, which resolve to a singleton o",
+      "caption": "Figure 1: Contractual-decidability graph. A named source is one input; the rule\u2013evidence mapping determines whether the admissible outcome set is a singleton. \u2014 This is a flow diagram showing how contract outcomes are determined through multiple inputs. Contract/series terms and versioned release objects feed into market-specific rules, which map to admissible outcomes \u03a8\u2081(T(t), \u03b5(t)); additional details and a singleton outcome condition determine whether a unique outcome is achieved. The key tak",
       "vision": true,
       "source": "https://arxiv.org/pdf/2609.16642v1"
     },
@@ -80,7 +188,7 @@
       "title": "From Public Evidence to Contractual Outcome: First and Stable Decidability on Kalshi",
       "page": 8,
       "thumb": "/data/figures/2609.16642v1_p8_1.jpg",
-      "caption": "Figure 2: First and stable decidability under a partial order. Source publication precedes first decidability under the accepted packet, and venue determination precedes finalization. Stable decidability can fall before or after venue determination; the dashed relations are analytical dependencies, not chronological arrows. \u2014 This figure shows a process flow diagram depicting the relationship between four key stages in contract resolution: Public source, First decidability, Venue determination, ",
+      "caption": "Figure 2: First and stable decidability under a partial order. Source publication precedes first decidability under the accepted packet, and venue determination precedes finalization. Stable decidability can fall before or after venue determination; the dashed relations are analytical dependencies, not chronological arrows. \u2014 This flowchart illustrates the temporal and logical ordering of decision-making stages in a contract resolution process. The diagram shows four sequential stages (Public so",
       "vision": true,
       "source": "https://arxiv.org/pdf/2609.16642v1"
     },
@@ -89,7 +197,7 @@
       "title": "Design of a Deep Learning Credit Risk Early Warning System Integrating Multi-source Heterogeneous Data",
       "page": 2,
       "thumb": "/data/figures/2609.15744v1_p2_0.jpg",
-      "caption": "Figure 1: Credit Risk Early Warning System Architecture \u2014 This figure presents a four-layer system architecture for a credit risk early warning system using deep learning, displayed as a horizontal block diagram. The layers are: (1) Application Layer handling risk monitoring, analysis, and reporting; (2) Service Layer providing risk scoring, early warning, and model explanation services; (3) Model Layer containing feature engineering, deep learning models, and model evaluation; and (4) Data Laye",
+      "caption": "Figure 1: Credit Risk Early Warning System Architecture \u2014 This figure presents a four-layer architectural diagram for a credit risk early warning system using deep learning. The layers are: Application Layer (risk monitoring and analysis functions), Service Layer (risk scoring and early warning services), Model Layer (feature engineering and deep learning models), and Data Layer (data collection and preprocessing). The diagram illustrates how components flow vertically through these layers, show",
       "vision": true,
       "source": "https://arxiv.org/pdf/2609.15744v1"
     },
@@ -98,7 +206,7 @@
       "title": "Design of a Deep Learning Credit Risk Early Warning System Integrating Multi-source Heterogeneous Data",
       "page": 3,
       "thumb": "/data/figures/2609.15744v1_p3_1.jpg",
-      "caption": "Figure 2: Deep Learning Model Architecture \u2014 This figure shows a hybrid deep learning architecture for risk prediction that integrates multi-source heterogeneous data. The diagram displays a left-to-right data flow with three main branches: a Network Structure Branch (using GCN with input graph information), a Feature Fusion section (combining graph features via multi-layer perceptron and feature integration modules), and a Temporal Behavior Branch (using BLSTM for historical behavior sequences)",
+      "caption": "Figure 2: Deep Learning Model Architecture \u2014 This figure illustrates a hybrid deep learning architecture for risk prediction, consisting of two main processing branches that converge at a prediction stage. The left \"Network Structure Branch\" processes input data through GCN (Graph Convolutional Network) for handling network topology and graph embeddings, while the right \"Temporal Behavior Branch\" uses BLSTM (Bidirectional LSTM) to capture temporal patterns in historical behavior sequences. Both ",
       "vision": true,
       "source": "https://arxiv.org/pdf/2609.15744v1"
     },
@@ -107,7 +215,7 @@
       "title": "Design of a Deep Learning Credit Risk Early Warning System Integrating Multi-source Heterogeneous Data",
       "page": 3,
       "thumb": "/data/figures/2609.15744v1_p3_2.jpg",
-      "caption": "Figure 3: System Quality Metrics \u2014 Figure 3 is a line chart displaying system quality metrics over a 12-month period (January to December), with three variables plotted against dual y-axes: Code Size in Lines (left axis, blue line), Test Coverage percentage (right axis, cyan line), and System Availability percentage (right axis, red line). The chart shows that code size grows from approximately 16,000 to 88,000 lines, while test coverage and system availability both increase and stabilize at app",
+      "caption": "Figure 3: System Quality Metrics \u2014 Figure 3 is a line chart displaying three system quality metrics over a monthly timeline from January to December: Code Size (Lines) shown in blue, Test Coverage (%) in orange, and System Availability (%) in red. The chart uses dual y-axes, with code size measured in lines on the left (ranging from ~10,000 to 90,000) and percentages on the right (ranging from ~50% to 99.95%). The key takeaway is that the system demonstrates progressive improvement across all th",
       "vision": true,
       "source": "https://arxiv.org/pdf/2609.15744v1"
     },
@@ -116,120 +224,84 @@
       "title": "Design of a Deep Learning Credit Risk Early Warning System Integrating Multi-source Heterogeneous Data",
       "page": 4,
       "thumb": "/data/figures/2609.15744v1_p4_3.jpg",
-      "caption": "Figure 4: Comparison with Industry Averages \u2014 This bar chart compares the prediction accuracy of two machine learning models against industry average levels across two critical business scenarios. The chart displays four bars grouped by scenario: Personal Loan Default Prediction and Corporate Cash Flow Stress Prediction, with each scenario showing the industry average (gray bars) alongside a Deep Neural Network model (blue and green bars). The y-axis measures prediction accuracy as a percentage ",
+      "caption": "Figure 4: Comparison with Industry Averages \u2014 This bar chart compares the predictive performance of a Deep Neural Network model against industry average baseline levels across two critical business scenarios: Personal Loan Default Prediction and Corporate Cash Flow Stress Prediction. The y-axis shows prediction accuracy as a percentage (ranging from 75-100%), while the x-axis displays the two scenarios, with gray bars representing industry average performance and blue/green bars representing the",
       "vision": true,
       "source": "https://arxiv.org/pdf/2609.15744v1"
-    },
-    {
-      "doc_id": "2609.15741v1",
-      "title": "Quantifying the 2027 Solvency II Risk Margin Reform",
-      "page": 19,
-      "thumb": "/data/figures/2609.15741v1_p19_0.jpg",
-      "caption": "Figure 1 reports the corresponding reform effect over a 40-year horizon. The vertical reference line marks t = 17, the first integer date at which the 50% floor becomes binding. \u2014 This section introduces numerical analysis methodology for studying Solvency II risk margin calculations using controlled run-off benchmarks. The text references run-off profiles from literature combined with controlled experiments, citing England et al. (2019) and Dresler et al. (2015) as numerical benchmarks, with st",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.15741v1"
-    },
-    {
-      "doc_id": "2609.15741v1",
-      "title": "Quantifying the 2027 Solvency II Risk Margin Reform",
-      "page": 19,
-      "thumb": "/data/figures/2609.15741v1_p19_1.jpg",
-      "caption": "Fig. 1 Percentage Risk Margin reduction for a single-date discounted SCR contribution. \u2014 This line chart displays the relationship between run-off year and risk margin reduction percentage, with run-off year t on the x-axis (0-40) and risk margin reduction (%) on the y-axis (20-60). The curve shows a steep nonlinear increase in risk margin reduction from approximately 21% at year 0 to 60% at year 18, after which it plateaus at the maximum 60% reduction level. The vertical dashed line at year 18 ",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.15741v1"
-    },
-    {
-      "doc_id": "2609.15741v1",
-      "title": "Quantifying the 2027 Solvency II Risk Margin Reform",
-      "page": 20,
-      "thumb": "/data/figures/2609.15741v1_p20_2.jpg",
-      "caption": "Figure 2 displays the three capital profiles after normalising the opening requirement to 100. \u2014 This section discusses risk margin calculations for capital profiles under Solvency II, comparing concentrated versus endpoint distributions and published run-off profiles from England et al. (2019). The text presents a sharp interval of 40.625% to 47.367% for risk margin reduction (Delta) when T=20 and \u03bc=10, demonstrating that a concentrated profile achieves a 47.37% Risk Margin reduction compared t",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.15741v1"
-    },
-    {
-      "doc_id": "2609.15741v1",
-      "title": "Quantifying the 2027 Solvency II Risk Margin Reform",
-      "page": 20,
-      "thumb": "/data/figures/2609.15741v1_p20_3.jpg",
-      "caption": "Fig. 2 Published capital run-off profiles normalised to 100 at the initial date. \u2014 This line chart displays capital run-off profiles over an 8-year future time horizon, with the y-axis showing capital requirement as a percentage of opening capital (0-100%) and the x-axis showing future time (0-8 years). Three lines are plotted\u2014Best Estimate (solid), Standard deviation (dashed), and VaR 99.5% (dotted)\u2014all normalized to 100 at time zero and declining monotonically to approximately 2-3% by year 8. ",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.15741v1"
-    },
-    {
-      "doc_id": "2609.15373v1",
-      "title": "Resolution Is Not Settlement, Part II: Protocol Finality and Observed Redemption on Polymarket",
-      "page": 3,
-      "thumb": "/data/figures/2609.15373v1_p3_0.jpg",
-      "caption": "Figure 1: Companion-paper boundary. Part I terminates at the observed adapter-terminal state; Part II studies protocol payout recording and holder action. The division is analytical rather than a universal temporal ordering: protocol-resolution and adapter-terminal logs can occur in one downstream transaction, and canonical log indices determine their observed order. \u2014 This figure is a flowchart diagram showing the sequential stages of blockchain settlement across two research papers on Polymark",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.15373v1"
-    },
-    {
-      "doc_id": "2609.15373v1",
-      "title": "Resolution Is Not Settlement, Part II: Protocol Finality and Observed Redemption on Polymarket",
-      "page": 9,
-      "thumb": "/data/figures/2609.15373v1_p9_1.jpg",
-      "caption": "Figure 2: Protocol and redemption state representation. Oracle finality is followed by downstream mechanism actions that can emit both the protocol-resolution and adapter-terminal logs; no universal order between those emitted logs is imposed. The payout vector creates redeemability. Positive and zero-payout redemption are distinct observed outcomes, while absence of an event at the snapshot is ri \u2014 This figure is a flowchart diagram illustrating the state transitions in a prediction market reso",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.15373v1"
-    },
-    {
-      "doc_id": "2609.15373v1",
-      "title": "Resolution Is Not Settlement, Part II: Protocol Finality and Observed Redemption on Polymarket",
-      "page": 13,
-      "thumb": "/data/figures/2609.15373v1_p13_2.jpg",
-      "caption": "Figure 3: Observation-versus-entitlement boundary. Redemption events identify realized collateral and its timing. The fraction of all entitlement redeemed additionally requires complete winning-position balances, which are not implied by the event ledger. \u2014 This flow diagram illustrates the process of identifying redemption outcomes in a blockchain-based prediction market. The top row shows the observable sequence: canonical redemption events lead to observed collateral paid, which produces an o",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.15373v1"
-    },
-    {
-      "doc_id": "2609.15373v1",
-      "title": "Resolution Is Not Settlement, Part II: Protocol Finality and Observed Redemption on Polymarket",
-      "page": 14,
-      "thumb": "/data/figures/2609.15373v1_p14_3.jpg",
-      "caption": "Figure 4: Measurement graph for downstream finality clocks. Oracle-to-protocol and oracle-to-adapter intervals are estimated separately. The adapter\u2013protocol comparison is signed and accompanied by a transaction/log-order class; no universal direction is assumed. Protocol-to-redemption is an observed holder-action interval and requires right-censoring methods. \u2014 This flowchart illustrates the measurement framework for tracking finality clocks across different layers in a Polymarket resolution pr",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.15373v1"
-    },
-    {
-      "doc_id": "2609.15368v1",
-      "title": "Resolution Is Not Settlement, Part I: Oracle Adjudication and Semantic Governance on Polymarket",
-      "page": 2,
-      "thumb": "/data/figures/2609.15368v1_p2_0.jpg",
-      "caption": "Figure 1: Finality layers and the analytical scope boundary between the two companion papers. Part I reconstructs request-generation adjudication through adapter consumption. External evidence and contractual decidability are separate semantic clocks; protocol payout recording and holder cash realization are downstream layers studied in Part II. \u2014 This figure is a process flow diagram showing seven sequential stages of oracle-driven smart contract resolution: External evidence and rule eligibili",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.15368v1"
-    },
-    {
-      "doc_id": "2609.15368v1",
-      "title": "Resolution Is Not Settlement, Part I: Oracle Adjudication and Semantic Governance on Polymarket",
-      "page": 10,
-      "thumb": "/data/figures/2609.15368v1_p10_1.jpg",
-      "caption": "Figure 2: Two-level request-generation state machine. A dispute or ignore/too-early branch can create a successor request without changing the economic question. Therefore question-level state alone is insufficient for path reconstruction; request generation is a load-bearing state variable. \u2014 This flowchart illustrates a two-level request-generation state machine for oracle adjudication, showing the progression of dispute resolution through multiple proposal and request generation cycles. The d",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.15368v1"
-    },
-    {
-      "doc_id": "2609.14859v1",
-      "title": "Gate Design and Stage-Dependent Incentives in Retail Proprietary-Trading Evaluations: Why Passing Is Not Standalone Evidence of Skill, and Why the Product Fails to Pay Under Measured Trading Constraints",
-      "page": 12,
-      "thumb": "/data/figures/2609.14859v1_p12_0.jpg",
-      "caption": "Figure 1. Pass probability over the (\u03bc, \u03c3) surface at one, five, and twenty trades per day. Contours mark the 0.25, 0.50, and 0.75 levels. The vertical line at \u03bc = 0 is the cost floor: once measured transaction costs are applied, every candidate in this research program sits on or to the left of it. The open marker is the best gross per-trade edge ever measured in the program ($1.74 at \u03c3 = 60), pl \u2014 This figure displays three heatmaps showing pass probability contours across the net edge per tra",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.14859v1"
-    },
-    {
-      "doc_id": "2609.14859v1",
-      "title": "Gate Design and Stage-Dependent Incentives in Retail Proprietary-Trading Evaluations: Why Passing Is Not Standalone Evidence of Skill, and Why the Product Fails to Pay Under Measured Trading Constraints",
-      "page": 13,
-      "thumb": "/data/figures/2609.14859v1_p13_1.jpg",
-      "caption": "Figure 2. Sizing-optimised pass probability against per-trade skill q = \u03bc/\u03c3. The left edge is the result: at exactly zero skill, optimising over position size alone yields a pass probability of 0.36 to 0.47, rising in trade frequency. The dash-dotted line is the continuous- monitoring benchmark d/(d+T) = 0.40; discrete end-of-day observation with overshoot pushes above it. \u2014 This line chart displays the relationship between per-trade skill (q = \u03bc/\u03c3) on the x-axis and sizing-optimized pass probab",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.14859v1"
     }
   ],
   "docs": [
+    {
+      "id": "2609.19102v1",
+      "title": "Optimal entry and exit for variance swaps: closed-form rules for the perpetual contract",
+      "source": "https://arxiv.org/pdf/2609.19102v1",
+      "pages": 35,
+      "images": 0,
+      "figures_captioned": 4,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 73
+    },
+    {
+      "id": "2609.19094v1",
+      "title": "Quadratic G-BSDEs for bond pricing with endogenous short-rate feedback",
+      "source": "https://arxiv.org/pdf/2609.19094v1",
+      "pages": 32,
+      "images": 0,
+      "figures_captioned": 0,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 48
+    },
+    {
+      "id": "2609.18770v1",
+      "title": "Regularity of a Multidimensional Principal-Agent Problem with Separable Effort Costs",
+      "source": "https://arxiv.org/pdf/2609.18770v1",
+      "pages": 37,
+      "images": 0,
+      "figures_captioned": 0,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 35
+    },
+    {
+      "id": "2609.18019v1",
+      "title": "Model-Free Passive Execution via Order-Level Shadowing",
+      "source": "https://arxiv.org/pdf/2609.18019v1",
+      "pages": 29,
+      "images": 0,
+      "figures_captioned": 4,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 53
+    },
+    {
+      "id": "2609.17869v1",
+      "title": "Demystifying the Bergomi-Guyon expansion",
+      "source": "https://arxiv.org/pdf/2609.17869v1",
+      "pages": 14,
+      "images": 0,
+      "figures_captioned": 0,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 24
+    },
+    {
+      "id": "2609.17788v1",
+      "title": "SAiFE-gym: Model-based Environments for Automated Market Making with Concentrated Liquidity",
+      "source": "https://arxiv.org/pdf/2609.17788v1",
+      "pages": 8,
+      "images": 3,
+      "figures_captioned": 4,
+      "tables": 5,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 33
+    },
     {
       "id": "2609.16642v1",
       "title": "From Public Evidence to Contractual Outcome: First and Stable Decidability on Kalshi",
@@ -272,83 +344,11 @@
       "source": "https://arxiv.org/pdf/2609.15741v1",
       "pages": 29,
       "images": 4,
-      "figures_captioned": 4,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 49
-    },
-    {
-      "id": "2609.15373v1",
-      "title": "Resolution Is Not Settlement, Part II: Protocol Finality and Observed Redemption on Polymarket",
-      "source": "https://arxiv.org/pdf/2609.15373v1",
-      "pages": 46,
-      "images": 0,
-      "figures_captioned": 4,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 40
-    },
-    {
-      "id": "2609.15368v1",
-      "title": "Resolution Is Not Settlement, Part I: Oracle Adjudication and Semantic Governance on Polymarket",
-      "source": "https://arxiv.org/pdf/2609.15368v1",
-      "pages": 41,
-      "images": 0,
-      "figures_captioned": 2,
-      "tables": 1,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 46
-    },
-    {
-      "id": "2609.15306v1",
-      "title": "The skew Brownian motion should not be used as a risk-neutral returns process: a well-posed skew-normal alternative",
-      "source": "https://arxiv.org/pdf/2609.15306v1",
-      "pages": 41,
-      "images": 0,
       "figures_captioned": 0,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 46
-    },
-    {
-      "id": "2609.14859v1",
-      "title": "Gate Design and Stage-Dependent Incentives in Retail Proprietary-Trading Evaluations: Why Passing Is Not Standalone Evidence of Skill, and Why the Product Fails to Pay Under Measured Trading Constraints",
-      "source": "https://arxiv.org/pdf/2609.14859v1",
-      "pages": 40,
-      "images": 48,
-      "figures_captioned": 2,
-      "tables": 5,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 62
-    },
-    {
-      "id": "2609.14733v1",
-      "title": "WaVeFuse: Regime-Adaptive Equity Index Forecasting via Channel-Wise Wavelet Denoising and Vertical Attention Fusion",
-      "source": "https://arxiv.org/pdf/2609.14733v1",
-      "pages": 40,
-      "images": 24,
-      "figures_captioned": 0,
-      "tables": 1,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 59
-    },
-    {
-      "id": "2609.14576v1",
-      "title": "Towards foundation models for insurance risk modelling",
-      "source": "https://arxiv.org/pdf/2609.14576v1",
-      "pages": 29,
-      "images": 0,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": false,
-      "ocr_used": false,
-      "chunks_indexed": 47
+      "chunks_indexed": 45
     }
   ]
 }
