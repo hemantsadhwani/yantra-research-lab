@@ -1,7 +1,7 @@
 {
   "_note": "Public run manifest of the Tier-3 agentic ingestion pipeline. Safe aggregates + provenance only; raw PDFs live in S3, not here.",
-  "run_id": "20260918T072542Z",
-  "generated_at": "2026-09-18T07:28:47+00:00",
+  "run_id": "20260919T072131Z",
+  "generated_at": "2026-09-19T07:25:01+00:00",
   "collection": "research_corpus",
   "embed_model": "BAAI/bge-small-en-v1.5",
   "dag": [
@@ -58,8 +58,8 @@
     "tables": 6,
     "with_math": 10,
     "indexed": 435,
-    "spent_usd": 0.0327,
-    "duration_s": 185.2
+    "spent_usd": 0.0329,
+    "duration_s": 210.4
   },
   "rejects_by_reason": {
     "low-relevance": 36
@@ -71,7 +71,7 @@
       "title": "Principal component error in high-dimensional factor models",
       "page": 19,
       "thumb": "/data/figures/2609.20550v1_p19_0.jpg",
-      "caption": "Figure 1: Error in principal directions estimated from n = 63 observations based on 1000 simulations. The x-axis is the number of variables p. Top panel: The y-axis is average error in units of sin2 \u2014 The figure shows simulation results comparing estimation errors in principal component analysis across three factors under varying dimensionality. The top panels are line plots with p (number of variables, log scale) on the x-axis and estimation error on the y-axis, displaying stacked areas for out",
+      "caption": "Figure 1: Error in principal directions estimated from n = 63 observations based on 1000 simulations. The x-axis is the number of variables p. Top panel: The y-axis is average error in units of sin2 \u2014 This figure displays the estimation error in principal directions across three latent factors from a high-dimensional factor model simulation study with n=63 observations over 1000 replications. The top row shows line plots of sin\u00b2(\u03b6,\u03b8\u0302) error (black) alongside stacked area charts decomposing out-o",
       "vision": true,
       "source": "https://arxiv.org/pdf/2609.20550v1"
     },
@@ -80,7 +80,7 @@
       "title": "Principal component error in high-dimensional factor models",
       "page": 19,
       "thumb": "/data/figures/2609.20550v1_p19_1.jpg",
-      "caption": "Figure 2 summarizes simulation results for the rotation error sin2\u2220p \u2014 This figure displays simulation results comparing estimation error in principal component directions across three factors with varying numbers of variables (p). The top panel shows line plots with bar charts of average sin\u00b2 error (y-axis) versus p (x-axis, ranging from 100 to 50,000 assets), with blue and orange bars representing out-of-subspace (OE) and in-subspace (IE) error components, and black dots showing total error si",
+      "caption": "Figure 2 summarizes simulation results for the rotation error sin2\u2220p \u2014 This figure displays simulation results comparing estimation errors in principal component analysis across three factors, with sample size n=63 and 1000 simulations. The top panels show average sin\u00b2 error (y-axis) versus number of variables p (x-axis on log scale), with blue and orange regions representing out-of-subspace (OE) and in-subspace (IE) error components, and black dots showing total error; Factor 2 and 3 show error",
       "vision": true,
       "source": "https://arxiv.org/pdf/2609.20550v1"
     },
@@ -89,7 +89,7 @@
       "title": "Principal component error in high-dimensional factor models",
       "page": 20,
       "thumb": "/data/figures/2609.20550v1_p20_2.jpg",
-      "caption": "Figure 2: Rotation error in principal directions estimated from n = 63 observations based on 1000 simulations. The x-axis is the number of variables p. Top panel: The y-axis is average error in units of sin2 across the 1000 simulations. Dots are average rotation error sin2\u2220p \u2014 This figure displays three panels comparing rotation errors in principal component analysis across factors 1-3, with the x-axis showing the number of variables p (ranging from 100 to 50,000 on a log scale) and n=63 observa",
+      "caption": "Figure 2: Rotation error in principal directions estimated from n = 63 observations based on 1000 simulations. The x-axis is the number of variables p. Top panel: The y-axis is average error in units of sin2 across the 1000 simulations. Dots are average rotation error sin2\u2220p \u2014 This figure displays rotation error in principal component estimation across three latent factors, comparing theoretical predictions to simulation results. The top row shows average squared sine error (sin\u00b2\u2220) on the y-axis",
       "vision": true,
       "source": "https://arxiv.org/pdf/2609.20550v1"
     },
@@ -98,7 +98,7 @@
       "title": "Principal component error in high-dimensional factor models",
       "page": 21,
       "thumb": "/data/figures/2609.20550v1_p21_3.jpg",
-      "caption": "Figure 3: Out-of-subspace error in principal directions estimated from n = 63 observations based on 1000 simulations. The x-axis is the number of variables p. Top panel: y-axis is average out-of-subspace error in units of sin2. Black dots are average of sin2 \u2220p(hj, B) for each p. Red stars are average of data- driven estimates \u2113(p)/\u03b8(p) \u2014 This figure shows three panels comparing out-of-subspace error metrics across factors 1-3 as the number of variables p increases from 100 to 50,000. The top ro",
+      "caption": "Figure 3: Out-of-subspace error in principal directions estimated from n = 63 observations based on 1000 simulations. The x-axis is the number of variables p. Top panel: y-axis is average out-of-subspace error in units of sin2. Black dots are average of sin2 \u2220p(hj, B) for each p. Red stars are average of data- driven estimates \u2113(p)/\u03b8(p) \u2014 This figure displays three panels comparing out-of-subspace error in principal component analysis across varying numbers of variables (p ranging from 100 to 50",
       "vision": true,
       "source": "https://arxiv.org/pdf/2609.20550v1"
     },
@@ -107,7 +107,7 @@
       "title": "Reproducibility is not construct validity: LLM measurement of institutionally situated communication",
       "page": 4,
       "thumb": "/data/figures/2609.19866v1_p4_0.jpg",
-      "caption": "Figure 1: DAG for text-derived measurement. T denotes latent AI safety concern and Y the latent AI explainability concern; U denotes unobserved confounding; X observed covariates; Text denotes a public consultation submission; and WT , WY denote LLM annotations. Because Text is a downstream common effect of T and Y (T \u2192Text \u2190Y ), conditioning on text-derived features can induce collider bias, crea \u2014 This figure shows a directed acyclic graph (DAG) illustrating the causal structure of text-derive",
+      "caption": "Figure 1: DAG for text-derived measurement. T denotes latent AI safety concern and Y the latent AI explainability concern; U denotes unobserved confounding; X observed covariates; Text denotes a public consultation submission; and WT , WY denote LLM annotations. Because Text is a downstream common effect of T and Y (T \u2192Text \u2190Y ), conditioning on text-derived features can induce collider bias, crea \u2014 This directed acyclic graph (DAG) illustrates a causal structure for text-derived measurement sho",
       "vision": true,
       "source": "https://arxiv.org/pdf/2609.19866v1"
     },
@@ -116,7 +116,7 @@
       "title": "Reproducibility is not construct validity: LLM measurement of institutionally situated communication",
       "page": 9,
       "thumb": "/data/figures/2609.19866v1_p9_1.jpg",
-      "caption": "Figure 2 shows mean text\u2014survey divergence by stakeholder type. The results reveal pronounced heterogeneity in how publicly expressed concerns relate to survey-reported concerns. Business associations show the largest positive divergence (\u00afg = +1.00, 95% CI [0.68, 1.33], N = 38),indicating substantially greater emphasis on the targeted concerns in consultation texts than in their survey responses. \u2014 This figure displays mean text-survey divergence (G_i) across different stakeholder types as a ho",
+      "caption": "Figure 2 shows mean text\u2014survey divergence by stakeholder type. The results reveal pronounced heterogeneity in how publicly expressed concerns relate to survey-reported concerns. Business associations show the largest positive divergence (\u00afg = +1.00, 95% CI [0.68, 1.33], N = 38),indicating substantially greater emphasis on the targeted concerns in consultation texts than in their survey responses. \u2014 This figure presents a bar chart showing mean text-survey divergence (G_i) across different stake",
       "vision": true,
       "source": "https://arxiv.org/pdf/2609.19866v1"
     },
@@ -134,7 +134,7 @@
       "title": "Reproducibility is not construct validity: LLM measurement of institutionally situated communication",
       "page": 12,
       "thumb": "/data/figures/2609.19866v1_p12_3.jpg",
-      "caption": "Figure 3: Associations by divergence score tercile. Points indicate the estimated coefficient of high safety concern on support for explainability within terciles of the divergence score, with 95% confidence intervals. The divergence score is defined as the standardized difference between public and survey assessments; terciles are ordered from low (more restrained) to high divergence. The horizon \u2014 This figure displays a dot-and-whisker plot showing treatment effects on explainability support a",
+      "caption": "Figure 3: Associations by divergence score tercile. Points indicate the estimated coefficient of high safety concern on support for explainability within terciles of the divergence score, with 95% confidence intervals. The divergence score is defined as the standardized difference between public and survey assessments; terciles are ordered from low (more restrained) to high divergence. The horizon \u2014 This figure is a dot plot with error bars displaying treatment effects across three categorical g",
       "vision": true,
       "source": "https://arxiv.org/pdf/2609.19866v1"
     },
@@ -143,7 +143,7 @@
       "title": "Optimal entry and exit for variance swaps: closed-form rules for the perpetual contract",
       "page": 16,
       "thumb": "/data/figures/2609.19102v1_p16_0.jpg",
-      "caption": "Figure 1: The reduced exit problem of Lemma 6.4 for the perpetual variance swap at an expected life of two years (\u03b4 = 0.5) and the base parameters of Section 8. U is the smallest \u03b4-excessive majorant of the reduced reward \u02dch and leaves it smoothly at b\u2217. Left: long, \u03b5\u03bb < 0, cm = 0, unwound into a spike. Right: short, \u03b5\u03bb > 0, cm = 0.004, unwound into a collapse. Both thresholds correspond to a perp \u2014 These two line charts display the optimal exit value function U and reduced reward h-hat for perp",
+      "caption": "Figure 1: The reduced exit problem of Lemma 6.4 for the perpetual variance swap at an expected life of two years (\u03b4 = 0.5) and the base parameters of Section 8. U is the smallest \u03b4-excessive majorant of the reduced reward \u02dch and leaves it smoothly at b\u2217. Left: long, \u03b5\u03bb < 0, cm = 0, unwound into a spike. Right: short, \u03b5\u03bb > 0, cm = 0.004, unwound into a collapse. Both thresholds correspond to a perp \u2014 This figure displays two line plots comparing the value function U and reduced reward h-hat for v",
       "vision": true,
       "source": "https://arxiv.org/pdf/2609.19102v1"
     },
@@ -152,7 +152,7 @@
       "title": "Optimal entry and exit for variance swaps: closed-form rules for the perpetual contract",
       "page": 16,
       "thumb": "/data/figures/2609.19102v1_p16_1.jpg",
-      "caption": "Figure 1 shows the two cases side by side. What the insets make visible is the continuation region, the set on which U \u2212\u02dch > 0; on the main axes the option value is too small next to the reward to be seen at all. \u2014 This figure displays line plots comparing the option value U (solid blue) and reduced reward h\u0303 (dashed orange) against volatility (vol, %) for a perpetual variance swap with \u03b4=0.5 and two-year expected life. The left panel shows a long position case (s\u03bb < 0, cm = 0) where U remains n",
+      "caption": "Figure 1 shows the two cases side by side. What the insets make visible is the continuation region, the set on which U \u2212\u02dch > 0; on the main axes the option value is too small next to the reward to be seen at all. \u2014 This figure displays two line plots comparing the value function U (solid blue) and reduced reward h\u0303 (dashed orange) against realized volatility (vol, %) for a perpetual variance swap with \u03b4=0.5 and two-year expected life. The left panel shows a long position case (\u03b5\u03bb<0, cm=0) where ",
       "vision": true,
       "source": "https://arxiv.org/pdf/2609.19102v1"
     },
@@ -161,7 +161,7 @@
       "title": "Optimal entry and exit for variance swaps: closed-form rules for the perpetual contract",
       "page": 23,
       "thumb": "/data/figures/2609.19102v1_p23_2.jpg",
-      "caption": "Figure 2 locates the interval against the size of the premium. Its two edges have different origins. The lower edge is Proposition 7.1 together with reachability: below it the trader never unwinds, or unwinds only at variance levels of no consequence. The upper edge is where d\u2217 \u2014 This figure plots the optimal entry and exit thresholds for a perpetual variance swap contract against the premium level (x-axis). The chart displays two boundary curves: a lower edge derived from Proposition 7.1 repres",
+      "caption": "Figure 2 locates the interval against the size of the premium. Its two edges have different origins. The lower edge is Proposition 7.1 together with reachability: below it the trader never unwinds, or unwinds only at variance levels of no consequence. The upper edge is where d\u2217 \u2014 This figure displays a two-dimensional plot mapping the relationship between premium (x-axis, measured in basis points) and variance levels (y-axis) for a perpetual variance swap contract. The chart shows three distinct",
       "vision": true,
       "source": "https://arxiv.org/pdf/2609.19102v1"
     },
@@ -179,7 +179,7 @@
       "title": "Model-Free Passive Execution via Order-Level Shadowing",
       "page": 17,
       "thumb": "/data/figures/2609.18019v1_p17_0.jpg",
-      "caption": "Figure 1 compares the mark-out of the two execution styles, Figure 2 their relative slippage, and Figure 3 puts the two measures side by side for both. \u2014 This is a text excerpt from a research paper discussing execution quality metrics for passive trading strategies. The passage explains that market mid-prices are computed at different granular levels following individual fills, and compares price consistency between simulated and actual market execution. The key takeaway is that discrepancies b",
+      "caption": "Figure 1 compares the mark-out of the two execution styles, Figure 2 their relative slippage, and Figure 3 puts the two measures side by side for both. \u2014 This text passage explains that the mid-price moves after each individual fill at different time intervals (grains), and while both execution methods share the same fill inference, discrepancies between the simulator's mark-out values and actual market prices immediately after execution indicate pricing errors in the simulator rather than in th",
       "vision": true,
       "source": "https://arxiv.org/pdf/2609.18019v1"
     },
@@ -188,7 +188,7 @@
       "title": "Model-Free Passive Execution via Order-Level Shadowing",
       "page": 17,
       "thumb": "/data/figures/2609.18019v1_p17_1.jpg",
-      "caption": "Figure 1: Post-fill mark-out for the two execution styles, at one, five and thirty seconds, with 95 % intervals clustered by session. The two are indistinguishable at every horizon, and each profile is flat rather than decaying: the price move is complete within a second of the fill and does not revert over the following twenty-nine. That is the signature of adverse selection rather than of tempor \u2014 This line chart displays post-fill mark-out in basis points (bps) over time comparing Shadow-PPOV",
+      "caption": "Figure 1: Post-fill mark-out for the two execution styles, at one, five and thirty seconds, with 95 % intervals clustered by session. The two are indistinguishable at every horizon, and each profile is flat rather than decaying: the price move is complete within a second of the fill and does not revert over the following twenty-nine. That is the signature of adverse selection rather than of tempor \u2014 This line chart compares post-fill mark-out (in basis points) between Shadow-PPOV (passive) and A",
       "vision": true,
       "source": "https://arxiv.org/pdf/2609.18019v1"
     },
@@ -197,7 +197,7 @@
       "title": "Model-Free Passive Execution via Order-Level Shadowing",
       "page": 18,
       "thumb": "/data/figures/2609.18019v1_p18_2.jpg",
-      "caption": "Figure 2: Window-level relative slippage for the two execution styles at matched participation, with 95 % intervals clustered by session. One style rests for 99 % of its executed quantity and the other crosses for half of it; the round trip costs the same either way. \u2014 This bar chart compares execution slippage between two trading strategies: Shadow-PPOV (passive) and Aggressive POV, each showing approximately +0.095 tics-per-contract with 95% confidence intervals. The y-axis measures tics-per-c",
+      "caption": "Figure 2: Window-level relative slippage for the two execution styles at matched participation, with 95 % intervals clustered by session. One style rests for 99 % of its executed quantity and the other crosses for half of it; the round trip costs the same either way. \u2014 This bar chart compares window-level relative slippage (expressed as a percentage) between two execution strategies: Shadow-PPOV (passive) shown in blue and Aggressive POV shown in red. Both strategies exhibit approximately +0.095",
       "vision": true,
       "source": "https://arxiv.org/pdf/2609.18019v1"
     },
@@ -206,7 +206,7 @@
       "title": "Model-Free Passive Execution via Order-Level Shadowing",
       "page": 18,
       "thumb": "/data/figures/2609.18019v1_p18_3.jpg",
-      "caption": "Figure 3: Relative slippage against mark-out, both execution styles. The two quantities are computed from different data at different grains \u2014 one from the volume-weighted prices of a whole window, the other from the mid-price after each individual fill \u2014 so their agreement is a check on the measurement rather than an identity. They agree to within a couple of hundredths of a tick throughout. \u2014 The figure compares window-level relative slippage between two execution styles: Shadow-PPOV (passive)",
+      "caption": "Figure 3: Relative slippage against mark-out, both execution styles. The two quantities are computed from different data at different grains \u2014 one from the volume-weighted prices of a whole window, the other from the mid-price after each individual fill \u2014 so their agreement is a check on the measurement rather than an identity. They agree to within a couple of hundredths of a tick throughout. \u2014 The upper panel shows a bar chart comparing window-level relative slippage (in ticks per contract) bet",
       "vision": true,
       "source": "https://arxiv.org/pdf/2609.18019v1"
     },
@@ -215,7 +215,7 @@
       "title": "SAiFE-gym: Model-based Environments for Automated Market Making with Concentrated Liquidity",
       "page": 4,
       "thumb": "/data/figures/2609.17788v1_p4_0.jpg",
-      "caption": "Figure 1: Smoothed kernels with exponential weights captur- ing the impact of the neighbouring liquidity of the current marginal exchange rate to the arrivals intensity. \u2014 This figure displays a probability distribution plot showing liquidity density (y-axis) across price levels relative to the current tick (x-axis, ranging from -40 to +40 basis points). The chart uses kernel density estimation with multiple overlaid curves representing symmetric depth, buy-side depth, sell-side depth, and their",
+      "caption": "Figure 1: Smoothed kernels with exponential weights captur- ing the impact of the neighbouring liquidity of the current marginal exchange rate to the arrivals intensity. \u2014 This figure shows a line plot of liquidity distribution around the current tick in an automated market maker with concentrated liquidity. The x-axis represents price levels relative to the current tick (ranging from -40 to 40), and the y-axis shows intensity (0 to 2.5). The plot displays multiple overlaid kernel density curves",
       "vision": true,
       "source": "https://arxiv.org/pdf/2609.17788v1"
     },
@@ -224,7 +224,7 @@
       "title": "SAiFE-gym: Model-based Environments for Automated Market Making with Concentrated Liquidity",
       "page": 5,
       "thumb": "/data/figures/2609.17788v1_p5_1.jpg",
-      "caption": "Figure 2: Deep RL wrapper workflow \u2014 This figure shows a three-layer system architecture diagram for a Deep RL wrapper in an automated market making environment. The top layer (SB3 Wrapper) processes flattened dict observations through asynchronous stepping and auto-reset termination; the middle layer (Gymnasium Environment) manages agent state updates and market state via the Gymnasium API; the bottom layer (AMM Engine) handles LP rebalance operations, processes swaps through a tick grid, and a",
+      "caption": "Figure 2: Deep RL wrapper workflow \u2014 This is a flowchart diagram showing a three-layer architecture for a deep reinforcement learning (RL) wrapper in an automated market making system. The top layer (SB3 Wrapper) processes flattened dict observations through atop-async step action and an auto-reset terminal observation mechanism. The middle layer (Gymnasium Environment) interfaces with a gymnasium API that calls env_step(action) and update_agent_state/update_market_state functions, ultimately pr",
       "vision": true,
       "source": "https://arxiv.org/pdf/2609.17788v1"
     }
