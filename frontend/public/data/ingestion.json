@@ -1,7 +1,7 @@
 {
   "_note": "Public run manifest of the Tier-3 agentic ingestion pipeline. Safe aggregates + provenance only; raw PDFs live in S3, not here.",
-  "run_id": "20260920T074624Z",
-  "generated_at": "2026-09-20T07:49:37+00:00",
+  "run_id": "20260921T075919Z",
+  "generated_at": "2026-09-21T08:03:13+00:00",
   "collection": "research_corpus",
   "embed_model": "BAAI/bge-small-en-v1.5",
   "dag": [
@@ -50,16 +50,16 @@
     "discovered": 10,
     "fetched": 10,
     "parsed": 10,
-    "chunks": 471,
-    "accepted": 435,
+    "chunks": 522,
+    "accepted": 486,
     "rejected": 36,
-    "images": 4,
+    "images": 11,
     "figures_captioned": 18,
-    "tables": 6,
+    "tables": 1,
     "with_math": 10,
-    "indexed": 435,
-    "spent_usd": 0.0328,
-    "duration_s": 192.9
+    "indexed": 486,
+    "spent_usd": 0.0307,
+    "duration_s": 234.2
   },
   "rejects_by_reason": {
     "low-relevance": 36
@@ -67,180 +67,276 @@
   "budget_usd": 3.0,
   "figures": [
     {
-      "doc_id": "2609.20550v1",
-      "title": "Principal component error in high-dimensional factor models",
-      "page": 19,
-      "thumb": "/data/figures/2609.20550v1_p19_0.jpg",
-      "caption": "Figure 1: Error in principal directions estimated from n = 63 observations based on 1000 simulations. The x-axis is the number of variables p. Top panel: The y-axis is average error in units of sin2 \u2014 This figure displays estimation error in principal component analysis across three factors in a high-dimensional setting with n=63 observations. The top row shows line plots with stacked area charts comparing two error measures (OE in blue and IE in orange) plus a theoretical bound (sin\u00b2\u2113\u2082,0 in bla",
+      "doc_id": "2609.22052v1",
+      "title": "Design and pricing of a transparent parametric-modeled loss CAT bond: application to German windstorm",
+      "page": 2,
+      "thumb": "/data/figures/2609.22052v1_p2_0.jpg",
+      "caption": "Figure 1: Transparency-basis risk trade-off for common trigger types and for our blended trigger. \u2014 This figure is a scatter plot showing the trade-off between transparency (vertical axis) and basis risk (horizontal axis) for different CAT bond trigger mechanisms. Five trigger types are plotted: Indemnity (low transparency, low basis risk), Modeled loss and Industry loss index (medium transparency, medium basis risk), and Blended and Parametric (high transparency, high basis risk). The key takea",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2609.20550v1"
+      "source": "https://arxiv.org/pdf/2609.22052v1"
     },
     {
-      "doc_id": "2609.20550v1",
-      "title": "Principal component error in high-dimensional factor models",
-      "page": 19,
-      "thumb": "/data/figures/2609.20550v1_p19_1.jpg",
-      "caption": "Figure 2 summarizes simulation results for the rotation error sin2\u2220p \u2014 This figure displays error analysis in principal component estimation across three factors, comparing theoretical asymptotic limits with finite-sample performance. The top panels show average sin\u00b2\u2220 error (y-axis) versus number of variables p (x-axis, log scale from 100 to 50,000), with blue and orange shaded areas representing out-of-subspace (OE) and in-subspace (IE) error components and black dots showing total error. The b",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.20550v1"
-    },
-    {
-      "doc_id": "2609.20550v1",
-      "title": "Principal component error in high-dimensional factor models",
-      "page": 20,
-      "thumb": "/data/figures/2609.20550v1_p20_2.jpg",
-      "caption": "Figure 2: Rotation error in principal directions estimated from n = 63 observations based on 1000 simulations. The x-axis is the number of variables p. Top panel: The y-axis is average error in units of sin2 across the 1000 simulations. Dots are average rotation error sin2\u2220p \u2014 This figure displays three panels comparing rotation error metrics across three factors as the number of variables p increases from 100 to 50,000 on a log scale. The top row shows average squared sine error (sin\u00b2\u2220) with sh",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.20550v1"
-    },
-    {
-      "doc_id": "2609.20550v1",
-      "title": "Principal component error in high-dimensional factor models",
-      "page": 21,
-      "thumb": "/data/figures/2609.20550v1_p21_3.jpg",
-      "caption": "Figure 3: Out-of-subspace error in principal directions estimated from n = 63 observations based on 1000 simulations. The x-axis is the number of variables p. Top panel: y-axis is average out-of-subspace error in units of sin2. Black dots are average of sin2 \u2220p(hj, B) for each p. Red stars are average of data- driven estimates \u2113(p)/\u03b8(p) \u2014 This figure displays three panels comparing out-of-subspace error metrics across factors 1-3 as the number of variables p increases (100 to 50,000). The top ro",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.20550v1"
-    },
-    {
-      "doc_id": "2609.19866v1",
-      "title": "Reproducibility is not construct validity: LLM measurement of institutionally situated communication",
+      "doc_id": "2609.22052v1",
+      "title": "Design and pricing of a transparent parametric-modeled loss CAT bond: application to German windstorm",
       "page": 4,
-      "thumb": "/data/figures/2609.19866v1_p4_0.jpg",
-      "caption": "Figure 1: DAG for text-derived measurement. T denotes latent AI safety concern and Y the latent AI explainability concern; U denotes unobserved confounding; X observed covariates; Text denotes a public consultation submission; and WT , WY denote LLM annotations. Because Text is a downstream common effect of T and Y (T \u2192Text \u2190Y ), conditioning on text-derived features can induce collider bias, crea \u2014 This figure displays a directed acyclic graph (DAG) illustrating the causal structure of text-der",
+      "thumb": "/data/figures/2609.22052v1_p4_1.jpg",
+      "caption": "Figure 2: Structure of an ILS transaction. \u2014 This flowchart diagram illustrates the structural framework of an Insurance-Linked Security (ILS) transaction, showing the flow of capital and relationships between parties. The diagram shows Sponsors and Investors connected to a Special Purpose Vehicle (SPV), which receives Investment (Principal) funds and directs cash flows, with these funds deposited into a Collateral account. The key takeaway is that the SPV acts as an intermediary that isolates r",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2609.19866v1"
+      "source": "https://arxiv.org/pdf/2609.22052v1"
     },
     {
-      "doc_id": "2609.19866v1",
-      "title": "Reproducibility is not construct validity: LLM measurement of institutionally situated communication",
-      "page": 9,
-      "thumb": "/data/figures/2609.19866v1_p9_1.jpg",
-      "caption": "Figure 2 shows mean text\u2014survey divergence by stakeholder type. The results reveal pronounced heterogeneity in how publicly expressed concerns relate to survey-reported concerns. Business associations show the largest positive divergence (\u00afg = +1.00, 95% CI [0.68, 1.33], N = 38),indicating substantially greater emphasis on the targeted concerns in consultation texts than in their survey responses. \u2014 This figure presents a bar chart displaying mean text-survey divergence (G_i values) across diffe",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.19866v1"
-    },
-    {
-      "doc_id": "2609.19866v1",
-      "title": "Reproducibility is not construct validity: LLM measurement of institutionally situated communication",
-      "page": 10,
-      "thumb": "/data/figures/2609.19866v1_p10_2.jpg",
-      "caption": "Figure 2: Divergence score across stakeholder types. Points show mean differences between public- rhetoric and survey-reported concern composites (each constructed from standardized items), with horizontal bars denoting 95% confidence intervals. Stakeholder types are ordered by the estimated divergence. Differences among stakeholder types were assessed using Welch\u2019s ANOVA followed by Games\u2013Howell  \u2014 This figure is a horizontal dot-and-whisker plot displaying divergence scores (G) across eight st",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.19866v1"
-    },
-    {
-      "doc_id": "2609.19866v1",
-      "title": "Reproducibility is not construct validity: LLM measurement of institutionally situated communication",
-      "page": 12,
-      "thumb": "/data/figures/2609.19866v1_p12_3.jpg",
-      "caption": "Figure 3: Associations by divergence score tercile. Points indicate the estimated coefficient of high safety concern on support for explainability within terciles of the divergence score, with 95% confidence intervals. The divergence score is defined as the standardized difference between public and survey assessments; terciles are ordered from low (more restrained) to high divergence. The horizon \u2014 This figure displays a dot plot with error bars showing the treatment effect of high safety conce",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.19866v1"
-    },
-    {
-      "doc_id": "2609.19102v1",
-      "title": "Optimal entry and exit for variance swaps: closed-form rules for the perpetual contract",
-      "page": 16,
-      "thumb": "/data/figures/2609.19102v1_p16_0.jpg",
-      "caption": "Figure 1: The reduced exit problem of Lemma 6.4 for the perpetual variance swap at an expected life of two years (\u03b4 = 0.5) and the base parameters of Section 8. U is the smallest \u03b4-excessive majorant of the reduced reward \u02dch and leaves it smoothly at b\u2217. Left: long, \u03b5\u03bb < 0, cm = 0, unwound into a spike. Right: short, \u03b5\u03bb > 0, cm = 0.004, unwound into a collapse. Both thresholds correspond to a perp \u2014 This figure shows two line plots comparing the value function U (blue solid line) and reduced rew",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.19102v1"
-    },
-    {
-      "doc_id": "2609.19102v1",
-      "title": "Optimal entry and exit for variance swaps: closed-form rules for the perpetual contract",
-      "page": 16,
-      "thumb": "/data/figures/2609.19102v1_p16_1.jpg",
-      "caption": "Figure 1 shows the two cases side by side. What the insets make visible is the continuation region, the set on which U \u2212\u02dch > 0; on the main axes the option value is too small next to the reward to be seen at all. \u2014 This figure displays two line plots comparing the option value U (solid blue) and reduced reward h\u0303 (dashed orange) against volatility (vol, %) for a perpetual variance swap with two-year expected life (\u03b4 = 0.5). The left panel shows a long position case (\u03b5\u03bb < 0, c_m = 0) where the cu",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.19102v1"
-    },
-    {
-      "doc_id": "2609.19102v1",
-      "title": "Optimal entry and exit for variance swaps: closed-form rules for the perpetual contract",
-      "page": 23,
-      "thumb": "/data/figures/2609.19102v1_p23_2.jpg",
-      "caption": "Figure 2 locates the interval against the size of the premium. Its two edges have different origins. The lower edge is Proposition 7.1 together with reachability: below it the trader never unwinds, or unwinds only at variance levels of no consequence. The upper edge is where d\u2217 \u2014 This figure displays a table showing the relationship between carrying charge premium (\u03ba\u0304) on the horizontal axis and volatility (\u03bd) on the vertical axis, with three distinct regimes marked for a perpetual variance swap",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.19102v1"
-    },
-    {
-      "doc_id": "2609.19102v1",
-      "title": "Optimal entry and exit for variance swaps: closed-form rules for the perpetual contract",
-      "page": 24,
-      "thumb": "/data/figures/2609.19102v1_p24_3.jpg",
-      "caption": "Figure 2: Holding costs admitting a non-degenerate entry\u2013exit pair (Definition 7.5) for a short perpetual position, against the size of the variance risk premium. The median of the stationary law of v is fixed at 19% in volatility, with \u00afs = \u00afse = 20 basis points and \u03b4 = 0.5. Below a premium of 1.09 volatility points, no holding cost admits a round trip. \u2014 This line chart displays the relationship between holding costs (y-axis, in vol points) and variance risk premium holding costs (x-axis, in b",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.19102v1"
-    },
-    {
-      "doc_id": "2609.18019v1",
-      "title": "Model-Free Passive Execution via Order-Level Shadowing",
-      "page": 17,
-      "thumb": "/data/figures/2609.18019v1_p17_0.jpg",
-      "caption": "Figure 1 compares the mark-out of the two execution styles, Figure 2 their relative slippage, and Figure 3 puts the two measures side by side for both. \u2014 This passage discusses execution quality metrics for order-level shadowing in passive execution models. The text explains that mid-price movements are computed at different granularities following individual fills, and while both methods share the same fill inference, discrepancies between simulated and actual market prices indicate potential e",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.18019v1"
-    },
-    {
-      "doc_id": "2609.18019v1",
-      "title": "Model-Free Passive Execution via Order-Level Shadowing",
-      "page": 17,
-      "thumb": "/data/figures/2609.18019v1_p17_1.jpg",
-      "caption": "Figure 1: Post-fill mark-out for the two execution styles, at one, five and thirty seconds, with 95 % intervals clustered by session. The two are indistinguishable at every horizon, and each profile is flat rather than decaying: the price move is complete within a second of the fill and does not revert over the following twenty-nine. That is the signature of adverse selection rather than of tempor \u2014 This line chart compares post-fill mark-out (in basis points) between Shadow-PPOV (passive) and A",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.18019v1"
-    },
-    {
-      "doc_id": "2609.18019v1",
-      "title": "Model-Free Passive Execution via Order-Level Shadowing",
-      "page": 18,
-      "thumb": "/data/figures/2609.18019v1_p18_2.jpg",
-      "caption": "Figure 2: Window-level relative slippage for the two execution styles at matched participation, with 95 % intervals clustered by session. One style rests for 99 % of its executed quantity and the other crosses for half of it; the round trip costs the same either way. \u2014 This bar chart compares tick-level slippage between two execution strategies: Shadow-PPOV (passive) and Aggressive POV, each showing approximately +0.095 slippage with 95% confidence intervals. The y-axis measures tick percentage ",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.18019v1"
-    },
-    {
-      "doc_id": "2609.18019v1",
-      "title": "Model-Free Passive Execution via Order-Level Shadowing",
-      "page": 18,
-      "thumb": "/data/figures/2609.18019v1_p18_3.jpg",
-      "caption": "Figure 3: Relative slippage against mark-out, both execution styles. The two quantities are computed from different data at different grains \u2014 one from the volume-weighted prices of a whole window, the other from the mid-price after each individual fill \u2014 so their agreement is a check on the measurement rather than an identity. They agree to within a couple of hundredths of a tick throughout. \u2014 This figure displays a bar chart comparing relative slippage (in ticks per contract) between two execu",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.18019v1"
-    },
-    {
-      "doc_id": "2609.17788v1",
-      "title": "SAiFE-gym: Model-based Environments for Automated Market Making with Concentrated Liquidity",
-      "page": 4,
-      "thumb": "/data/figures/2609.17788v1_p4_0.jpg",
-      "caption": "Figure 1: Smoothed kernels with exponential weights captur- ing the impact of the neighbouring liquidity of the current marginal exchange rate to the arrivals intensity. \u2014 This figure displays a probability density distribution showing liquidity concentration around the current tick in an automated market maker with concentrated liquidity. The line chart plots liquidity density (y-axis, ranging from 0 to 2.5) against price ticks relative to the current tick (x-axis, ranging from -40 to +40), wit",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.17788v1"
-    },
-    {
-      "doc_id": "2609.17788v1",
-      "title": "SAiFE-gym: Model-based Environments for Automated Market Making with Concentrated Liquidity",
+      "doc_id": "2609.22052v1",
+      "title": "Design and pricing of a transparent parametric-modeled loss CAT bond: application to German windstorm",
       "page": 5,
-      "thumb": "/data/figures/2609.17788v1_p5_1.jpg",
-      "caption": "Figure 2: Deep RL wrapper workflow \u2014 This figure shows a system architecture diagram with three main components connected by arrows: the SB3 Wrapper (top), Gymnasium Environment (middle), and AMM Engine (bottom). The SB3 Wrapper processes flattened dict observations through atep-async step calls and auto-reset terminal obs. The Gymnasium Environment manages the reset/step operations via Gymnasium API and updates agent state and market state while returning rewards and batched info. The AMM Engin",
+      "thumb": "/data/figures/2609.22052v1_p5_2.jpg",
+      "caption": "Figure 3: Cashflows in the presence of a triggering event (full exhaustion). \u2014 This diagram illustrates the cash flow structure of a catastrophe bond (CAT bond) SPV when a triggering loss event occurs with full exhaustion of collateral. The flowchart shows four entities connected by labeled arrows: Sponsor, SPV, Collateral account, and Investors, with arrows indicating reimbursement flows, asset liquidation, investment returns, and cash flows between parties. The key takeaway is that upon a cata",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2609.17788v1"
+      "source": "https://arxiv.org/pdf/2609.22052v1"
+    },
+    {
+      "doc_id": "2609.22052v1",
+      "title": "Design and pricing of a transparent parametric-modeled loss CAT bond: application to German windstorm",
+      "page": 5,
+      "thumb": "/data/figures/2609.22052v1_p5_3.jpg",
+      "caption": "Figure 4: Cashflows in the absence of a triggering event. \u2014 These are two flow diagrams illustrating cash flow structures in catastrophe bond transactions. The top diagram (Figure 3) shows the cash flow path when a triggering event causes full exhaustion: the SPV liquidates collateral assets and returns funds to investors, with the sponsor receiving reimbursement. The bottom diagram (Figure 4) shows the normal case with no triggering event: investors receive principal and returns from the SPV, w",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.22052v1"
+    },
+    {
+      "doc_id": "2609.21684v1",
+      "title": "Equilibrium prices under hidden Markov fundamentals",
+      "page": 13,
+      "thumb": "/data/figures/2609.21684v1_p13_0.jpg",
+      "caption": "Figure 1: Twelve simulated paths of the equilibrium ratio in Panel (a) and the corresponding exact conditional means in Panel (b). The ratio remains in [7.2, 9.2]. \u2014 Panel (a) shows twelve simulated time-series paths of price-dividend ratios plotted as line charts over 120 time periods, with three different parameter values (\u03c1\u2080 = 0.05, 0.50, 0.95) represented by different colors; the ratio fluctuates between 7.2 and 9.2. Panel (b) displays the exact conditional means corresponding to each parame",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.21684v1"
+    },
+    {
+      "doc_id": "2609.21684v1",
+      "title": "Equilibrium prices under hidden Markov fundamentals",
+      "page": 19,
+      "thumb": "/data/figures/2609.21684v1_p19_1.jpg",
+      "caption": "Figure 2: Finite-difference solutions of (4.3)\u2013(4.4) for g1 = 0.21, g2 = 0, \u03b3 = 0.75, \u03c3 = 0.49, \u03bb12 = 0.052, \u03bb21 = 0.059, and \u03b4 = 0.049. The primitive sufficient inequalities in Proposition 4.13 fail for both displayed values of \u03b8, whereas the computed diagnostic m\u03b8 remains positive. The resulting convex and concave profiles are therefore numerical evidence that the primitive conditions are suffic \u2014 This figure presents four panels showing finite-difference solutions for equilibrium pricing unde",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.21684v1"
+    },
+    {
+      "doc_id": "2609.21684v1",
+      "title": "Equilibrium prices under hidden Markov fundamentals",
+      "page": 20,
+      "thumb": "/data/figures/2609.21684v1_p20_2.jpg",
+      "caption": "Figure 3: Shape of the Markovian price\u2013dividend ratio under the calibration of Section 4.4. Panel (a) plots the normalised solution \u03c6norm(p) = (\u03c6(p) \u2212\u03c6(0))/(\u03c6(1) \u2212\u03c6(0)) for the three preference regimes \u03b8 \u2208{0.25, 1, 10}, together with the chord p 7\u2212\u2192p (dashed). Panel (b) plots the chord deviation \u2206ch(p) = (\u03c6(p) \u2212(1 \u2212p)\u03c6(0) \u2212p\u03c6(1))/(\u03c6(1) \u2212\u03c6(0)) for a log-spaced sweep \u03b8 \u2208[0.25, 10], with curves colou \u2014 Panel (a) shows normalized price-dividend ratios plotted against belief p, comparing three risk a",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.21684v1"
+    },
+    {
+      "doc_id": "2609.21684v1",
+      "title": "Equilibrium prices under hidden Markov fundamentals",
+      "page": 22,
+      "thumb": "/data/figures/2609.21684v1_p22_3.jpg",
+      "caption": "Figure 4: Instantaneous stock return volatility as a function of the posterior belief under the equilibrium calibration of Section 5.5. The dashed line is the dividend volatility \u03c3, and the shaded area is the learning premium \u03c3S(p) \u2212\u03c3. \u2014 This line chart displays stock return volatility \u03c3S(p) as a function of posterior belief p, with the y-axis showing instantaneous volatility percent (0-35%) and the x-axis showing belief p (0-1.0). The shaded region between the solid stock volatility curve and d",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.21684v1"
+    },
+    {
+      "doc_id": "2609.21291v1",
+      "title": "Efficient simulation schemes for pricing options under the Ornstein--Uhlenbeck driven stochastic volatility model",
+      "page": 13,
+      "thumb": "/data/figures/2609.21291v1_p13_0.jpg",
+      "caption": "Figure 1: European vanilla call: plots of RMSE against CPU time for splitting with q = 4 and q = 8, IG, KL, and Hilbert. The 3 simulation schemes: splitting (q = 8), IG and KL show a similar level of performance in accuracy-speed tradeoff. \u2014 This log-log plot compares computational efficiency of different numerical schemes for pricing European call options. The x-axis shows CPU time in seconds and the y-axis shows root mean square error (RMSE), with five methods plotted: splitting schemes with q",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.21291v1"
+    },
+    {
+      "doc_id": "2609.21291v1",
+      "title": "Efficient simulation schemes for pricing options under the Ornstein--Uhlenbeck driven stochastic volatility model",
+      "page": 15,
+      "thumb": "/data/figures/2609.21291v1_p15_1.jpg",
+      "caption": "Figure 2 shows the plot of RMSE against CPU time for the 4 simulation schemes for pricing arithmetic Asian call. The reference true option value is 7.141068705, which is computed using the recursion quadrature method of Zhang et al. (2023). Splitting is seen to be most competitive in accuracy-speed tradeoff among all simulation schemes. The other three schemes show a similar level of performance.  \u2014 This figure is a scatter plot showing the relationship between computational time (CPU time in se",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.21291v1"
+    },
+    {
+      "doc_id": "2609.21291v1",
+      "title": "Efficient simulation schemes for pricing options under the Ornstein--Uhlenbeck driven stochastic volatility model",
+      "page": 15,
+      "thumb": "/data/figures/2609.21291v1_p15_2.jpg",
+      "caption": "Figure 2: Weekly arithmetic Asian call (M = 52): plots of RMSE against CPU time for splitting (q = 1), IG, KL, and Hilbert schemes. Splitting is seen to be most competitive in accuracy-speed \u2014 This log-log plot compares the root mean square error (RMSE) versus CPU time in seconds for four numerical schemes pricing an arithmetic Asian call option with 52 averaging dates. Four lines represent different methods: splitting (q=1) shown in blue, IG in brown, KL in cyan, and Hilbert in magenta, each di",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.21291v1"
+    },
+    {
+      "doc_id": "2609.21291v1",
+      "title": "Efficient simulation schemes for pricing options under the Ornstein--Uhlenbeck driven stochastic volatility model",
+      "page": 16,
+      "thumb": "/data/figures/2609.21291v1_p16_3.jpg",
+      "caption": "Figure 3 shows the plots of RMSE against CPU for the four simulation methods. The reference true value of the down-and-in barrier call option is found to be 1.568940412, which is obtained from an independent implementation of the conditioning of Choi\u2019s simulation scheme (2025) with 5 million paths and L = 48. The reported standard error is 9.62 \u00d7 10\u22124. The plots reveal that the IG, KL and Hilbert  \u2014 This image shows mathematical equations defining a terminal barrier call payoff and control varia",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.21291v1"
+    },
+    {
+      "doc_id": "2609.21232v1",
+      "title": "Stochastic Mortality Model with Fractional L\u00e9vy Dynamics",
+      "page": 8,
+      "thumb": "/data/figures/2609.21232v1_p8_0.jpg",
+      "caption": "Figure 1: Increment correlation corr(\u2206mMn, \u2206mM0) against n for varying values of H, with m = 1, p1 = 0.20, and p2 = 0.80. \u2014 This line chart displays the autocorrelation structure of mortality rate increments as a function of lag n for four Hurst exponent values (H = 0.6, 0.7, 0.8, 0.9). The x-axis represents the lag parameter n ranging from 0 to 60, while the y-axis shows the correlation coefficient ranging from 0 to 0.7. Higher Hurst exponent values produce stronger persistence in correlations,",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.21232v1"
+    },
+    {
+      "doc_id": "2609.21232v1",
+      "title": "Stochastic Mortality Model with Fractional L\u00e9vy Dynamics",
+      "page": 14,
+      "thumb": "/data/figures/2609.21232v1_p14_1.jpg",
+      "caption": "Figure 2: Sensitivity of the survival probability SP(0, T) with respect to different model parameters under the Gamma specification. \u2014 This figure shows four line plots examining sensitivity of survival probability SP(0, T) to model parameter variations in a stochastic mortality framework with fractional L\u00e9vy dynamics. Each subplot varies a different parameter\u2014Hurst exponent H (panel a), mean reversion \u03b1 (panel b), probabilities p\u2081 and p\u2082 (panel c), and volatility \u03c3 (panel d)\u2014while the x-axis di",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.21232v1"
+    },
+    {
+      "doc_id": "2609.21173v1",
+      "title": "Adapting the Actor Model of Concurrency for High-Frequency Trading: Synchronous Message Delivery (fast_send) and a Tick-to-Book Latency Study",
+      "page": 16,
+      "thumb": "/data/figures/2609.21173v1_p16_0.jpg",
+      "caption": "Figure 1. Thread architecture of a representative HFT pipeline. The only cross-thread hops on the critical path are the two asynchronous sends (reader\u2192buffer and signal\u2192order-handler); each such hop is the expensive operation, measured at \u223c3.4 \u00b5s per round trip (Table 5), because it wakes another thread. The entire decode/book/signal servicing chain instead collapses onto a single thread via fast_ \u2014 This figure shows a system architecture diagram of an HFT (high-frequency trading) pipeline using",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.21173v1"
+    },
+    {
+      "doc_id": "2609.21173v1",
+      "title": "Adapting the Actor Model of Concurrency for High-Frequency Trading: Synchronous Message Delivery (fast_send) and a Tick-to-Book Latency Study",
+      "page": 16,
+      "thumb": "/data/figures/2609.21173v1_p16_1.jpg",
+      "caption": "Figure 1 shows the thread architecture of a representative HFT market-data-to-order pipeline, drawn from the kaspar-hft reference implementation. CME\u2019s MDP 3.0 market data arrives as two redundant multicast feeds, channel A and channel B. The system decomposes into three sections connected by exactly two cross-thread hops. \u2014 This is a block diagram showing the thread architecture of a high-frequency trading (HFT) pipeline with two redundant socket readers (A and B) feeding into a buffer queue, w",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.21173v1"
+    },
+    {
+      "doc_id": "2609.21173v1",
+      "title": "Adapting the Actor Model of Concurrency for High-Frequency Trading: Synchronous Message Delivery (fast_send) and a Tick-to-Book Latency Study",
+      "page": 22,
+      "thumb": "/data/figures/2609.21173v1_p22_2.jpg",
+      "caption": "Figure 2. The per-message model median = floor + slope \u00d7 idx (Table 7), one line per stream. All six share a \u223c7 \u00b5s floor at idx = 0; the slope \u2014 the per-message serialization cost \u2014 sets the divergence, from 312 ns/msg (NQ book) to 966 ns/msg (ZN book). \u2014 This line chart displays median latency (in microseconds) as a function of in-packet position index for six data streams across three financial instruments (ES, NQ, ZN), each split into book and trade categories. The x-axis represents in-packet",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.21173v1"
+    },
+    {
+      "doc_id": "2609.21173v1",
+      "title": "Adapting the Actor Model of Concurrency for High-Frequency Trading: Synchronous Message Delivery (fast_send) and a Tick-to-Book Latency Study",
+      "page": 23,
+      "thumb": "/data/figures/2609.21173v1_p23_3.jpg",
+      "caption": "Figure 3. Socket-to-book latency percentiles per stream (Table 10), log scale. Medians cluster near 7\u201315 \u00b5s; the tails diverge, ZN trade reaching 219 \u00b5s at p99 and 410 \u00b5s at p99.9. \u2014 This figure displays socket-to-book latency percentiles across six data streams using a log-scale line chart with percentile thresholds (p50, p90, p99, p99.9) on the x-axis and latency in microseconds on the y-axis. Six lines represent different streams: ES book, NQ book, ZN book, ES trade, NQ trade, and ZN trade, w",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.21173v1"
     }
   ],
   "docs": [
+    {
+      "id": "2609.22052v1",
+      "title": "Design and pricing of a transparent parametric-modeled loss CAT bond: application to German windstorm",
+      "source": "https://arxiv.org/pdf/2609.22052v1",
+      "pages": 48,
+      "images": 1,
+      "figures_captioned": 4,
+      "tables": 1,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 61
+    },
+    {
+      "id": "2609.21688v1",
+      "title": "Quadratic and $p$-th variation of random signed Takagi--Landsberg bridges",
+      "source": "https://arxiv.org/pdf/2609.21688v1",
+      "pages": 29,
+      "images": 0,
+      "figures_captioned": 0,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 41
+    },
+    {
+      "id": "2609.21684v1",
+      "title": "Equilibrium prices under hidden Markov fundamentals",
+      "source": "https://arxiv.org/pdf/2609.21684v1",
+      "pages": 50,
+      "images": 0,
+      "figures_captioned": 4,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 55
+    },
+    {
+      "id": "2609.21301v1",
+      "title": "Simulation of stochastic volatility models via operator splitting schemes",
+      "source": "https://arxiv.org/pdf/2609.21301v1",
+      "pages": 40,
+      "images": 0,
+      "figures_captioned": 0,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 54
+    },
+    {
+      "id": "2609.21291v1",
+      "title": "Efficient simulation schemes for pricing options under the Ornstein--Uhlenbeck driven stochastic volatility model",
+      "source": "https://arxiv.org/pdf/2609.21291v1",
+      "pages": 19,
+      "images": 4,
+      "figures_captioned": 4,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 42
+    },
+    {
+      "id": "2609.21271v1",
+      "title": "Nested Clustered Optimization Is One End of a Schur Bridge, and the Interior Is Sometimes Provably Better",
+      "source": "https://arxiv.org/pdf/2609.21271v1",
+      "pages": 13,
+      "images": 0,
+      "figures_captioned": 0,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 34
+    },
+    {
+      "id": "2609.21232v1",
+      "title": "Stochastic Mortality Model with Fractional L\u00e9vy Dynamics",
+      "source": "https://arxiv.org/pdf/2609.21232v1",
+      "pages": 48,
+      "images": 5,
+      "figures_captioned": 2,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 44
+    },
+    {
+      "id": "2609.21173v1",
+      "title": "Adapting the Actor Model of Concurrency for High-Frequency Trading: Synchronous Message Delivery (fast_send) and a Tick-to-Book Latency Study",
+      "source": "https://arxiv.org/pdf/2609.21173v1",
+      "pages": 31,
+      "images": 0,
+      "figures_captioned": 4,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 56
+    },
     {
       "id": "2609.20550v1",
       "title": "Principal component error in high-dimensional factor models",
       "source": "https://arxiv.org/pdf/2609.20550v1",
       "pages": 35,
       "images": 0,
-      "figures_captioned": 4,
+      "figures_captioned": 0,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 63
+      "chunks_indexed": 59
     },
     {
       "id": "2609.19866v1",
@@ -248,107 +344,11 @@
       "source": "https://arxiv.org/pdf/2609.19866v1",
       "pages": 28,
       "images": 1,
-      "figures_captioned": 4,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 44
-    },
-    {
-      "id": "2609.19102v1",
-      "title": "Optimal entry and exit for variance swaps: closed-form rules for the perpetual contract",
-      "source": "https://arxiv.org/pdf/2609.19102v1",
-      "pages": 35,
-      "images": 0,
-      "figures_captioned": 4,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 73
-    },
-    {
-      "id": "2609.19094v1",
-      "title": "Quadratic G-BSDEs for bond pricing with endogenous short-rate feedback",
-      "source": "https://arxiv.org/pdf/2609.19094v1",
-      "pages": 32,
-      "images": 0,
       "figures_captioned": 0,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 48
-    },
-    {
-      "id": "2609.18770v1",
-      "title": "Regularity of a Multidimensional Principal-Agent Problem with Separable Effort Costs",
-      "source": "https://arxiv.org/pdf/2609.18770v1",
-      "pages": 37,
-      "images": 0,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 35
-    },
-    {
-      "id": "2609.18019v1",
-      "title": "Model-Free Passive Execution via Order-Level Shadowing",
-      "source": "https://arxiv.org/pdf/2609.18019v1",
-      "pages": 29,
-      "images": 0,
-      "figures_captioned": 4,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 53
-    },
-    {
-      "id": "2609.17869v1",
-      "title": "Demystifying the Bergomi-Guyon expansion",
-      "source": "https://arxiv.org/pdf/2609.17869v1",
-      "pages": 14,
-      "images": 0,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 24
-    },
-    {
-      "id": "2609.17788v1",
-      "title": "SAiFE-gym: Model-based Environments for Automated Market Making with Concentrated Liquidity",
-      "source": "https://arxiv.org/pdf/2609.17788v1",
-      "pages": 8,
-      "images": 3,
-      "figures_captioned": 2,
-      "tables": 5,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 31
-    },
-    {
-      "id": "2609.16642v1",
-      "title": "From Public Evidence to Contractual Outcome: First and Stable Decidability on Kalshi",
-      "source": "https://arxiv.org/pdf/2609.16642v1",
-      "pages": 13,
-      "images": 0,
-      "figures_captioned": 0,
-      "tables": 1,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 16
-    },
-    {
-      "id": "2609.15901v1",
-      "title": "Strategic Index Reconstitution: Differential Games, Closed-Loop Equilibria and Mean-Field Dynamics",
-      "source": "https://arxiv.org/pdf/2609.15901v1",
-      "pages": 91,
-      "images": 0,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 48
+      "chunks_indexed": 40
     }
   ]
 }
