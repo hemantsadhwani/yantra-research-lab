@@ -1,7 +1,7 @@
 {
   "_note": "Public run manifest of the Tier-3 agentic ingestion pipeline. Safe aggregates + provenance only; raw PDFs live in S3, not here.",
-  "run_id": "20260921T075919Z",
-  "generated_at": "2026-09-21T08:03:13+00:00",
+  "run_id": "20260922T074411Z",
+  "generated_at": "2026-09-22T08:03:16+00:00",
   "collection": "research_corpus",
   "embed_model": "BAAI/bge-small-en-v1.5",
   "dag": [
@@ -50,16 +50,16 @@
     "discovered": 10,
     "fetched": 10,
     "parsed": 10,
-    "chunks": 522,
-    "accepted": 486,
+    "chunks": 398,
+    "accepted": 362,
     "rejected": 36,
-    "images": 11,
+    "images": 1806,
     "figures_captioned": 18,
-    "tables": 1,
-    "with_math": 10,
-    "indexed": 486,
-    "spent_usd": 0.0307,
-    "duration_s": 234.2
+    "tables": 3,
+    "with_math": 9,
+    "indexed": 362,
+    "spent_usd": 0.0327,
+    "duration_s": 1145.2
   },
   "rejects_by_reason": {
     "low-relevance": 36
@@ -67,288 +67,288 @@
   "budget_usd": 3.0,
   "figures": [
     {
-      "doc_id": "2609.22052v1",
-      "title": "Design and pricing of a transparent parametric-modeled loss CAT bond: application to German windstorm",
-      "page": 2,
-      "thumb": "/data/figures/2609.22052v1_p2_0.jpg",
-      "caption": "Figure 1: Transparency-basis risk trade-off for common trigger types and for our blended trigger. \u2014 This figure is a scatter plot showing the trade-off between transparency (vertical axis) and basis risk (horizontal axis) for different CAT bond trigger mechanisms. Five trigger types are plotted: Indemnity (low transparency, low basis risk), Modeled loss and Industry loss index (medium transparency, medium basis risk), and Blended and Parametric (high transparency, high basis risk). The key takea",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.22052v1"
-    },
-    {
-      "doc_id": "2609.22052v1",
-      "title": "Design and pricing of a transparent parametric-modeled loss CAT bond: application to German windstorm",
-      "page": 4,
-      "thumb": "/data/figures/2609.22052v1_p4_1.jpg",
-      "caption": "Figure 2: Structure of an ILS transaction. \u2014 This flowchart diagram illustrates the structural framework of an Insurance-Linked Security (ILS) transaction, showing the flow of capital and relationships between parties. The diagram shows Sponsors and Investors connected to a Special Purpose Vehicle (SPV), which receives Investment (Principal) funds and directs cash flows, with these funds deposited into a Collateral account. The key takeaway is that the SPV acts as an intermediary that isolates r",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.22052v1"
-    },
-    {
-      "doc_id": "2609.22052v1",
-      "title": "Design and pricing of a transparent parametric-modeled loss CAT bond: application to German windstorm",
-      "page": 5,
-      "thumb": "/data/figures/2609.22052v1_p5_2.jpg",
-      "caption": "Figure 3: Cashflows in the presence of a triggering event (full exhaustion). \u2014 This diagram illustrates the cash flow structure of a catastrophe bond (CAT bond) SPV when a triggering loss event occurs with full exhaustion of collateral. The flowchart shows four entities connected by labeled arrows: Sponsor, SPV, Collateral account, and Investors, with arrows indicating reimbursement flows, asset liquidation, investment returns, and cash flows between parties. The key takeaway is that upon a cata",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.22052v1"
-    },
-    {
-      "doc_id": "2609.22052v1",
-      "title": "Design and pricing of a transparent parametric-modeled loss CAT bond: application to German windstorm",
-      "page": 5,
-      "thumb": "/data/figures/2609.22052v1_p5_3.jpg",
-      "caption": "Figure 4: Cashflows in the absence of a triggering event. \u2014 These are two flow diagrams illustrating cash flow structures in catastrophe bond transactions. The top diagram (Figure 3) shows the cash flow path when a triggering event causes full exhaustion: the SPV liquidates collateral assets and returns funds to investors, with the sponsor receiving reimbursement. The bottom diagram (Figure 4) shows the normal case with no triggering event: investors receive principal and returns from the SPV, w",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.22052v1"
-    },
-    {
-      "doc_id": "2609.21684v1",
-      "title": "Equilibrium prices under hidden Markov fundamentals",
+      "doc_id": "2609.23703v1",
+      "title": "Financial Language Models as Applied Artificial Intelligence Systems for News-Based Trading under Market Frictions",
       "page": 13,
-      "thumb": "/data/figures/2609.21684v1_p13_0.jpg",
-      "caption": "Figure 1: Twelve simulated paths of the equilibrium ratio in Panel (a) and the corresponding exact conditional means in Panel (b). The ratio remains in [7.2, 9.2]. \u2014 Panel (a) shows twelve simulated time-series paths of price-dividend ratios plotted as line charts over 120 time periods, with three different parameter values (\u03c1\u2080 = 0.05, 0.50, 0.95) represented by different colors; the ratio fluctuates between 7.2 and 9.2. Panel (b) displays the exact conditional means corresponding to each parame",
+      "thumb": "/data/figures/2609.23703v1_p13_0.jpg",
+      "caption": "Figure 1 summarizes MFAST as an engineering system. The framework converts un- \u2014 This figure presents a comparison table of recent machine learning approaches in financial NLP and sentiment analysis, organized by publication year, methodology, market focus, evaluation approach, and key contributions. The table rows cover papers from 2021-2025, with the bottom row highlighting the current paper's MFAST framework that deploys LSTM/attention networks on refinitiv news and CRISP equities data, evalu",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2609.21684v1"
+      "source": "https://arxiv.org/pdf/2609.23703v1"
     },
     {
-      "doc_id": "2609.21684v1",
-      "title": "Equilibrium prices under hidden Markov fundamentals",
-      "page": 19,
-      "thumb": "/data/figures/2609.21684v1_p19_1.jpg",
-      "caption": "Figure 2: Finite-difference solutions of (4.3)\u2013(4.4) for g1 = 0.21, g2 = 0, \u03b3 = 0.75, \u03c3 = 0.49, \u03bb12 = 0.052, \u03bb21 = 0.059, and \u03b4 = 0.049. The primitive sufficient inequalities in Proposition 4.13 fail for both displayed values of \u03b8, whereas the computed diagnostic m\u03b8 remains positive. The resulting convex and concave profiles are therefore numerical evidence that the primitive conditions are suffic \u2014 This figure presents four panels showing finite-difference solutions for equilibrium pricing unde",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.21684v1"
-    },
-    {
-      "doc_id": "2609.21684v1",
-      "title": "Equilibrium prices under hidden Markov fundamentals",
-      "page": 20,
-      "thumb": "/data/figures/2609.21684v1_p20_2.jpg",
-      "caption": "Figure 3: Shape of the Markovian price\u2013dividend ratio under the calibration of Section 4.4. Panel (a) plots the normalised solution \u03c6norm(p) = (\u03c6(p) \u2212\u03c6(0))/(\u03c6(1) \u2212\u03c6(0)) for the three preference regimes \u03b8 \u2208{0.25, 1, 10}, together with the chord p 7\u2212\u2192p (dashed). Panel (b) plots the chord deviation \u2206ch(p) = (\u03c6(p) \u2212(1 \u2212p)\u03c6(0) \u2212p\u03c6(1))/(\u03c6(1) \u2212\u03c6(0)) for a log-spaced sweep \u03b8 \u2208[0.25, 10], with curves colou \u2014 Panel (a) shows normalized price-dividend ratios plotted against belief p, comparing three risk a",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.21684v1"
-    },
-    {
-      "doc_id": "2609.21684v1",
-      "title": "Equilibrium prices under hidden Markov fundamentals",
-      "page": 22,
-      "thumb": "/data/figures/2609.21684v1_p22_3.jpg",
-      "caption": "Figure 4: Instantaneous stock return volatility as a function of the posterior belief under the equilibrium calibration of Section 5.5. The dashed line is the dividend volatility \u03c3, and the shaded area is the learning premium \u03c3S(p) \u2212\u03c3. \u2014 This line chart displays stock return volatility \u03c3S(p) as a function of posterior belief p, with the y-axis showing instantaneous volatility percent (0-35%) and the x-axis showing belief p (0-1.0). The shaded region between the solid stock volatility curve and d",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.21684v1"
-    },
-    {
-      "doc_id": "2609.21291v1",
-      "title": "Efficient simulation schemes for pricing options under the Ornstein--Uhlenbeck driven stochastic volatility model",
-      "page": 13,
-      "thumb": "/data/figures/2609.21291v1_p13_0.jpg",
-      "caption": "Figure 1: European vanilla call: plots of RMSE against CPU time for splitting with q = 4 and q = 8, IG, KL, and Hilbert. The 3 simulation schemes: splitting (q = 8), IG and KL show a similar level of performance in accuracy-speed tradeoff. \u2014 This log-log plot compares computational efficiency of different numerical schemes for pricing European call options. The x-axis shows CPU time in seconds and the y-axis shows root mean square error (RMSE), with five methods plotted: splitting schemes with q",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.21291v1"
-    },
-    {
-      "doc_id": "2609.21291v1",
-      "title": "Efficient simulation schemes for pricing options under the Ornstein--Uhlenbeck driven stochastic volatility model",
-      "page": 15,
-      "thumb": "/data/figures/2609.21291v1_p15_1.jpg",
-      "caption": "Figure 2 shows the plot of RMSE against CPU time for the 4 simulation schemes for pricing arithmetic Asian call. The reference true option value is 7.141068705, which is computed using the recursion quadrature method of Zhang et al. (2023). Splitting is seen to be most competitive in accuracy-speed tradeoff among all simulation schemes. The other three schemes show a similar level of performance.  \u2014 This figure is a scatter plot showing the relationship between computational time (CPU time in se",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.21291v1"
-    },
-    {
-      "doc_id": "2609.21291v1",
-      "title": "Efficient simulation schemes for pricing options under the Ornstein--Uhlenbeck driven stochastic volatility model",
-      "page": 15,
-      "thumb": "/data/figures/2609.21291v1_p15_2.jpg",
-      "caption": "Figure 2: Weekly arithmetic Asian call (M = 52): plots of RMSE against CPU time for splitting (q = 1), IG, KL, and Hilbert schemes. Splitting is seen to be most competitive in accuracy-speed \u2014 This log-log plot compares the root mean square error (RMSE) versus CPU time in seconds for four numerical schemes pricing an arithmetic Asian call option with 52 averaging dates. Four lines represent different methods: splitting (q=1) shown in blue, IG in brown, KL in cyan, and Hilbert in magenta, each di",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.21291v1"
-    },
-    {
-      "doc_id": "2609.21291v1",
-      "title": "Efficient simulation schemes for pricing options under the Ornstein--Uhlenbeck driven stochastic volatility model",
-      "page": 16,
-      "thumb": "/data/figures/2609.21291v1_p16_3.jpg",
-      "caption": "Figure 3 shows the plots of RMSE against CPU for the four simulation methods. The reference true value of the down-and-in barrier call option is found to be 1.568940412, which is obtained from an independent implementation of the conditioning of Choi\u2019s simulation scheme (2025) with 5 million paths and L = 48. The reported standard error is 9.62 \u00d7 10\u22124. The plots reveal that the IG, KL and Hilbert  \u2014 This image shows mathematical equations defining a terminal barrier call payoff and control varia",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.21291v1"
-    },
-    {
-      "doc_id": "2609.21232v1",
-      "title": "Stochastic Mortality Model with Fractional L\u00e9vy Dynamics",
-      "page": 8,
-      "thumb": "/data/figures/2609.21232v1_p8_0.jpg",
-      "caption": "Figure 1: Increment correlation corr(\u2206mMn, \u2206mM0) against n for varying values of H, with m = 1, p1 = 0.20, and p2 = 0.80. \u2014 This line chart displays the autocorrelation structure of mortality rate increments as a function of lag n for four Hurst exponent values (H = 0.6, 0.7, 0.8, 0.9). The x-axis represents the lag parameter n ranging from 0 to 60, while the y-axis shows the correlation coefficient ranging from 0 to 0.7. Higher Hurst exponent values produce stronger persistence in correlations,",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.21232v1"
-    },
-    {
-      "doc_id": "2609.21232v1",
-      "title": "Stochastic Mortality Model with Fractional L\u00e9vy Dynamics",
+      "doc_id": "2609.23703v1",
+      "title": "Financial Language Models as Applied Artificial Intelligence Systems for News-Based Trading under Market Frictions",
       "page": 14,
-      "thumb": "/data/figures/2609.21232v1_p14_1.jpg",
-      "caption": "Figure 2: Sensitivity of the survival probability SP(0, T) with respect to different model parameters under the Gamma specification. \u2014 This figure shows four line plots examining sensitivity of survival probability SP(0, T) to model parameter variations in a stochastic mortality framework with fractional L\u00e9vy dynamics. Each subplot varies a different parameter\u2014Hurst exponent H (panel a), mean reversion \u03b1 (panel b), probabilities p\u2081 and p\u2082 (panel c), and volatility \u03c3 (panel d)\u2014while the x-axis di",
+      "thumb": "/data/figures/2609.23703v1_p14_1.jpg",
+      "caption": "Figure 1: MFAST system architecture for market-friction-aware news-based trading. \u2014 This is a process flow diagram showing the MFAST system architecture for news-based trading. The workflow begins with timestamped firm-specific news at the left, flows through a firm matching novelty screen and language-model sentiment inference at the top, then branches to execution timing and capacity decisions in the middle, and finally produces predictive, portfolio, and statistical diagnostics outputs on the",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2609.21232v1"
+      "source": "https://arxiv.org/pdf/2609.23703v1"
     },
     {
-      "doc_id": "2609.21173v1",
-      "title": "Adapting the Actor Model of Concurrency for High-Frequency Trading: Synchronous Message Delivery (fast_send) and a Tick-to-Book Latency Study",
+      "doc_id": "2609.23598v1",
+      "title": "OrderFusion+: Probabilistic Buy--Sell Price Trajectory Forecasting in Intraday Electricity Markets",
+      "page": 3,
+      "thumb": "/data/figures/2609.23598v1_p3_0.jpg",
+      "caption": "Figure 1: Three example delivery products traded on 23 July 2024 in the German market. (a) Delivery at 18:00: the price declines as delivery approaches. (b) Delivery at 19:00: the price rises, falls, and rises again as delivery approaches. (c) Delivery at 20:00: the price rises and then falls as delivery approaches. Traders can submit orders for several delivery products in parallel. \u2014 This figure displays three line charts showing intraday electricity price trajectories for different delivery h",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.23598v1"
+    },
+    {
+      "doc_id": "2609.23598v1",
+      "title": "OrderFusion+: Probabilistic Buy--Sell Price Trajectory Forecasting in Intraday Electricity Markets",
+      "page": 3,
+      "thumb": "/data/figures/2609.23598v1_p3_1.jpg",
+      "caption": "Figure 2: Seasonality of the intraday price trajectory, aggregated over sides during the final 180 minutes before delivery in 2024. (a) Across the time of delivery, the price level is highest in the evening hours, shows a secondary peak in the morning, and is lowest in the early afternoon. (b) Across the day of the week, the price level is high on working days and decreases towards the weekend. (c \u2014 This figure comprises two rows of visualizations analyzing intraday electricity market prices in ",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.23598v1"
+    },
+    {
+      "doc_id": "2609.23598v1",
+      "title": "OrderFusion+: Probabilistic Buy--Sell Price Trajectory Forecasting in Intraday Electricity Markets",
+      "page": 4,
+      "thumb": "/data/figures/2609.23598v1_p4_2.jpg",
+      "caption": "Figure 3: The structure of OrderFusion+. The computation follows the sequence: (a) (b) (c) embed input features \u2192(d) fuse buy and sell features \u2192(f) aggregate fused features \u2192(e) sample dynamic masks \u2192(d) recompute cross-attention using sampled masks \u2192(f) aggregate updated features \u2192(g) produce probabilistic buy\u2013sell price trajectory forecasts. \u2014 This figure presents the architecture of OrderFusion+, a deep learning model for forecasting electricity market price trajectories. The diagram shows s",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.23598v1"
+    },
+    {
+      "doc_id": "2609.23598v1",
+      "title": "OrderFusion+: Probabilistic Buy--Sell Price Trajectory Forecasting in Intraday Electricity Markets",
+      "page": 6,
+      "thumb": "/data/figures/2609.23598v1_p6_3.jpg",
+      "caption": "Figure 4: One-sided DM \ud835\udc5d-values of the AQL loss differen- tial. The cell in row \ud835\udc34and column \ud835\udc35gives the \ud835\udc5d-value of the hypothesis that model \ud835\udc34is more accurate than model \ud835\udc35; a colored cell indicates \ud835\udc5d< 0.05 (model \ud835\udc34significantly beats model \ud835\udc35), and a cross indicates \ud835\udc5d\u22650.05. \u2014 This figure presents a heatmap of one-sided Diebold-Mariano test p-values comparing the AQL (Asymmetric Quantile Loss) performance across multiple forecasting models for electricity market price trajectories. The rows and col",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.23598v1"
+    },
+    {
+      "doc_id": "2609.23571v1",
+      "title": "Extremal Mean-Variance Functionals over Wasserstein Balls: Applications to Risk Sharing",
+      "page": 13,
+      "thumb": "/data/figures/2609.23571v1_p13_0.jpg",
+      "caption": "Figure 1: The impact of \u03b3 on the worst- and best-case means and standard deviations. \u2014 This figure is a 2D scatter plot with axes representing mean return (\u03bc) and standard deviation (\u03c3), showing how parameter \u03b3 affects optimal portfolio allocations within a Wasserstein ball constraint. A solid circle represents a reference distribution, while dashed curves (labeled \u03b3\u2081, \u03b3\u2082, \u03b3\u2083, \u03b3\u2084) illustrate the frontier of worst-case and best-case mean-variance combinations as \u03b3 varies, demonstrating the trade-",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.23571v1"
+    },
+    {
+      "doc_id": "2609.23378v1",
+      "title": "Leaky-integrator reconstruction: taming error accumulation in recursive differenced time-series forecasting",
+      "page": 2,
+      "thumb": "/data/figures/2609.23378v1_p2_0.jpg",
+      "caption": "Fig. 1. Synthetic validation of the error model. Left: integrating an AR(1) increment-error sequence of autocorrelation \u03c1 gives growth exponent \u03b1; white noise yields \u03b1=0.5, and mild anti-correlation (\u03c1 \u2248\u22120.2) reproduces the observed 0.44. Right: the leaky integra- tor caps the accumulated RMS at 1/ \u2014 This figure validates an error accumulation model for time-series forecasting through two panels. The left panel shows a line plot of synthetic exponent \u03b1 versus increment-error autocorrelation \u03c1, d",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.23378v1"
+    },
+    {
+      "doc_id": "2609.23378v1",
+      "title": "Leaky-integrator reconstruction: taming error accumulation in recursive differenced time-series forecasting",
+      "page": 2,
+      "thumb": "/data/figures/2609.23378v1_p2_1.jpg",
+      "caption": "Fig. 2. Per-step error growth MAE(k)/MAE(1) at H=336, averaged over five of our architectures (LSTM, GRU, DLinear, PatchTST, iTransformer), sixteen datasets and three seeds. Differ- enced (change) error tracks the \u2014 This log-log plot compares error accumulation rates across different forecasting methods over 336 forecast steps. The chart displays four curves: \"change\" (blue, slope ~0.44), \"direct\" (orange, slope ~0.30), \"random walk\" (dotted blue, slope ~0.41), and \"\u221ak\" reference line (dashed gr",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.23378v1"
+    },
+    {
+      "doc_id": "2609.23378v1",
+      "title": "Leaky-integrator reconstruction: taming error accumulation in recursive differenced time-series forecasting",
+      "page": 3,
+      "thumb": "/data/figures/2609.23378v1_p3_2.jpg",
+      "caption": "Fig. 3. (a) Improvement of our leaky reconstruction (fixed \u03b3=0.9) over the traditional pure-recursive integrator vs. horizon, the advan- tage grows monotonically with H for every nonlinear architecture and is flat for stable linear-AR. (b) At H=336 the pure integrator diverges (nMAE 1.6\u20133.8); our method restores every diverging ar- chitecture to \u22480.87\u20130.97. \u2014 Panel (a) shows a line chart of improvement percentage (y-axis, 0-75%) versus forecasting horizon H (x-axis, 24-336 steps) across nine arc",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.23378v1"
+    },
+    {
+      "doc_id": "2609.23378v1",
+      "title": "Leaky-integrator reconstruction: taming error accumulation in recursive differenced time-series forecasting",
+      "page": 4,
+      "thumb": "/data/figures/2609.23378v1_p4_3.jpg",
+      "caption": "Fig. 4. A single 336-step recursive Transformer forecast on two near-stationary series. The pure integrator (\u03b3=1) drifts away, down on Weather, up on Temp, as the integrated increment errors accumu- late, while the leaky reconstruction (\u03b3=0.9) stays anchored to the true level. \u2014 This figure shows two side-by-side line plots comparing recursive forecasting performance on Weather and Temperature time series over 336 forecast steps. Each plot displays the actual values (black line), a pure integrat",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.23378v1"
+    },
+    {
+      "doc_id": "2609.23272v1",
+      "title": "On Control of Drawdown: Robust Invariance and Optimality",
+      "page": 11,
+      "thumb": "/data/figures/2609.23272v1_p11_0.jpg",
+      "caption": "Figure 1 shows higher estimated expected returns for the proposed drawdown-modulated policy than for the optimized LTI benchmark at every positive evaluated drawdown limit. For N = 21 and N = 63, the numer- ically computed optimal drawdown modulated policy uses an approximately constant \u03b3 across stages and states; the observed improvement in these panels is therefore already attained by drawdown m \u2014 This figure compares the expected return performance of a drawdown-modulated policy versus an LTI",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.23272v1"
+    },
+    {
+      "doc_id": "2609.23272v1",
+      "title": "On Control of Drawdown: Robust Invariance and Optimality",
+      "page": 12,
+      "thumb": "/data/figures/2609.23272v1_p12_1.jpg",
+      "caption": "Fig. 1. Expected terminal return under a prescribed drawdown limit dmax for (a) N = 21, (b) N = 63, and (c) N = 252 trading days. \u2014 This figure comprises three line plots (panels a, b, c) comparing expected terminal return against maximum drawdown limits across different trading horizons (21, 63, and 252 days). Each panel plots expected return (ER/r\u2080 in %) on the y-axis versus maximum drawdown constraint (d_max in %) on the x-axis, with two lines: the optimal LFT (dashed-dotted line, nearly flat",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.23272v1"
+    },
+    {
+      "doc_id": "2609.23223v1",
+      "title": "Stealing profits: Spread-based temporal hierarchy forecasting for day-ahead electricity markets",
+      "page": 5,
+      "thumb": "/data/figures/2609.23223v1_p5_0.jpg",
+      "caption": "Figure 1: The summing matrices Sblock (left panel) and Sspread (right panel) defined in Eq. (4) and Eq. (9), respectively. Blue blocks denote positive elements with shading indicating weights ranging from 1 24 for S24 to 1 for S1, while red blocks denote negative values equal to \u22121. The weights occurring in each submatrix are annotated in its top-right corner. \u2014 This figure displays two hierarchical summing matrices used in electricity price forecasting: Sblock (left) and Sspread (right), both w",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.23223v1"
+    },
+    {
+      "doc_id": "2609.23223v1",
+      "title": "Stealing profits: Spread-based temporal hierarchy forecasting for day-ahead electricity markets",
+      "page": 8,
+      "thumb": "/data/figures/2609.23223v1_p8_1.jpg",
+      "caption": "Figure 2: Top two panels: German (DE) and Spanish (ES) day-ahead electricity prices from 5 January 2018 to 31 December 2025. Middle panels: Day-ahead load forecasts in both countries. Bottom panel: Day-ahead renewable generation forecasts in both countries, including total wind generation and solar generation. The shaded area indicates the initial training window used for generating forecasts for  \u2014 This figure displays four stacked time series panels showing electricity market data for Germany ",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.23223v1"
+    },
+    {
+      "doc_id": "2609.23223v1",
+      "title": "Stealing profits: Spread-based temporal hierarchy forecasting for day-ahead electricity markets",
       "page": 16,
-      "thumb": "/data/figures/2609.21173v1_p16_0.jpg",
-      "caption": "Figure 1. Thread architecture of a representative HFT pipeline. The only cross-thread hops on the critical path are the two asynchronous sends (reader\u2192buffer and signal\u2192order-handler); each such hop is the expensive operation, measured at \u223c3.4 \u00b5s per round trip (Table 5), because it wakes another thread. The entire decode/book/signal servicing chain instead collapses onto a single thread via fast_ \u2014 This figure shows a system architecture diagram of an HFT (high-frequency trading) pipeline using",
+      "thumb": "/data/figures/2609.23223v1_p16_2.jpg",
+      "caption": "Figure 3 examines whether these improvements are stable over time by reporting RMSE over rolling 180-day windows. Forecast difficulty varies substantially throughout the test period, par- ticularly around the large price movements of 2021-2022. Nevertheless, the gains from Spread THieF are not confined to a single episode and are observed across markedly different market regimes. The improvements  \u2014 This figure displays rolling 180-day window RMSE performance comparisons across different forecas",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2609.21173v1"
+      "source": "https://arxiv.org/pdf/2609.23223v1"
     },
     {
-      "doc_id": "2609.21173v1",
-      "title": "Adapting the Actor Model of Concurrency for High-Frequency Trading: Synchronous Message Delivery (fast_send) and a Tick-to-Book Latency Study",
-      "page": 16,
-      "thumb": "/data/figures/2609.21173v1_p16_1.jpg",
-      "caption": "Figure 1 shows the thread architecture of a representative HFT market-data-to-order pipeline, drawn from the kaspar-hft reference implementation. CME\u2019s MDP 3.0 market data arrives as two redundant multicast feeds, channel A and channel B. The system decomposes into three sections connected by exactly two cross-thread hops. \u2014 This is a block diagram showing the thread architecture of a high-frequency trading (HFT) pipeline with two redundant socket readers (A and B) feeding into a buffer queue, w",
+      "doc_id": "2609.23223v1",
+      "title": "Stealing profits: Spread-based temporal hierarchy forecasting for day-ahead electricity markets",
+      "page": 17,
+      "thumb": "/data/figures/2609.23223v1_p17_3.jpg",
+      "caption": "Figure 3: Rolling RMSE over a 180-day window in the German (top) and Spanish (bottom) markets. The solid lines mark the RMSE of the Spread THieF approach for the three models. The lighter shaded areas of the same color extend from the Spread THieF value to the corresponding Base value, so that their width represents the improvement obtained from reconciliation. Values for 29.06.2021 are the RMSE f \u2014 This figure displays rolling 180-day root mean squared error (RMSE) comparisons for electricity p",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2609.21173v1"
+      "source": "https://arxiv.org/pdf/2609.23223v1"
     },
     {
-      "doc_id": "2609.21173v1",
-      "title": "Adapting the Actor Model of Concurrency for High-Frequency Trading: Synchronous Message Delivery (fast_send) and a Tick-to-Book Latency Study",
-      "page": 22,
-      "thumb": "/data/figures/2609.21173v1_p22_2.jpg",
-      "caption": "Figure 2. The per-message model median = floor + slope \u00d7 idx (Table 7), one line per stream. All six share a \u223c7 \u00b5s floor at idx = 0; the slope \u2014 the per-message serialization cost \u2014 sets the divergence, from 312 ns/msg (NQ book) to 966 ns/msg (ZN book). \u2014 This line chart displays median latency (in microseconds) as a function of in-packet position index for six data streams across three financial instruments (ES, NQ, ZN), each split into book and trade categories. The x-axis represents in-packet",
+      "doc_id": "2609.22893v1",
+      "title": "Universal Diffusion Models for Implied Volatility Surfaces: Learning Shared Dynamics Across Stocks",
+      "page": 2,
+      "thumb": "/data/figures/2609.22893v1_p2_0.jpg",
+      "caption": "Figure 1: Transformation of irregular option quotes (a) into a fixed-dimensional implied-volatility surface (b). The sample is based on AAPL option quotes observed on August 27, 2024. \u2014 This figure displays a 3D surface plot comparison of implied volatility (IV) data transformation for AAPL options. Panel (a) shows raw, irregularly-spaced option quotes as a jagged surface with pronounced peaks and valleys across moneyness and time-to-expiration dimensions, while panel (b) presents the smoothed I",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2609.21173v1"
-    },
-    {
-      "doc_id": "2609.21173v1",
-      "title": "Adapting the Actor Model of Concurrency for High-Frequency Trading: Synchronous Message Delivery (fast_send) and a Tick-to-Book Latency Study",
-      "page": 23,
-      "thumb": "/data/figures/2609.21173v1_p23_3.jpg",
-      "caption": "Figure 3. Socket-to-book latency percentiles per stream (Table 10), log scale. Medians cluster near 7\u201315 \u00b5s; the tails diverge, ZN trade reaching 219 \u00b5s at p99 and 410 \u00b5s at p99.9. \u2014 This figure displays socket-to-book latency percentiles across six data streams using a log-scale line chart with percentile thresholds (p50, p90, p99, p99.9) on the x-axis and latency in microseconds on the y-axis. Six lines represent different streams: ES book, NQ book, ZN book, ES trade, NQ trade, and ZN trade, w",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.21173v1"
+      "source": "https://arxiv.org/pdf/2609.22893v1"
     }
   ],
   "docs": [
     {
-      "id": "2609.22052v1",
-      "title": "Design and pricing of a transparent parametric-modeled loss CAT bond: application to German windstorm",
-      "source": "https://arxiv.org/pdf/2609.22052v1",
-      "pages": 48,
-      "images": 1,
-      "figures_captioned": 4,
-      "tables": 1,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 61
-    },
-    {
-      "id": "2609.21688v1",
-      "title": "Quadratic and $p$-th variation of random signed Takagi--Landsberg bridges",
-      "source": "https://arxiv.org/pdf/2609.21688v1",
-      "pages": 29,
+      "id": "2609.24548v1",
+      "title": "Affine Volterra covariance processes and application to commodity markets",
+      "source": "https://arxiv.org/pdf/2609.24548v1",
+      "pages": 41,
       "images": 0,
       "figures_captioned": 0,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 41
+      "chunks_indexed": 47
     },
     {
-      "id": "2609.21684v1",
-      "title": "Equilibrium prices under hidden Markov fundamentals",
-      "source": "https://arxiv.org/pdf/2609.21684v1",
-      "pages": 50,
-      "images": 0,
-      "figures_captioned": 4,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 55
-    },
-    {
-      "id": "2609.21301v1",
-      "title": "Simulation of stochastic volatility models via operator splitting schemes",
-      "source": "https://arxiv.org/pdf/2609.21301v1",
-      "pages": 40,
+      "id": "2609.23768v1",
+      "title": "Risk Measures under Paired-Ambiguity: A Deep Learning Reflected BSDE Framework",
+      "source": "https://arxiv.org/pdf/2609.23768v1",
+      "pages": 31,
       "images": 0,
       "figures_captioned": 0,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 54
+      "chunks_indexed": 50
     },
     {
-      "id": "2609.21291v1",
-      "title": "Efficient simulation schemes for pricing options under the Ornstein--Uhlenbeck driven stochastic volatility model",
-      "source": "https://arxiv.org/pdf/2609.21291v1",
-      "pages": 19,
-      "images": 4,
-      "figures_captioned": 4,
+      "id": "2609.23703v1",
+      "title": "Financial Language Models as Applied Artificial Intelligence Systems for News-Based Trading under Market Frictions",
+      "source": "https://arxiv.org/pdf/2609.23703v1",
+      "pages": 47,
+      "images": 0,
+      "figures_captioned": 2,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 42
+      "chunks_indexed": 27
     },
     {
-      "id": "2609.21271v1",
-      "title": "Nested Clustered Optimization Is One End of a Schur Bridge, and the Interior Is Sometimes Provably Better",
-      "source": "https://arxiv.org/pdf/2609.21271v1",
-      "pages": 13,
-      "images": 0,
-      "figures_captioned": 0,
+      "id": "2609.23598v1",
+      "title": "OrderFusion+: Probabilistic Buy--Sell Price Trajectory Forecasting in Intraday Electricity Markets",
+      "source": "https://arxiv.org/pdf/2609.23598v1",
+      "pages": 10,
+      "images": 1798,
+      "figures_captioned": 4,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
       "chunks_indexed": 34
     },
     {
-      "id": "2609.21232v1",
-      "title": "Stochastic Mortality Model with Fractional L\u00e9vy Dynamics",
-      "source": "https://arxiv.org/pdf/2609.21232v1",
-      "pages": 48,
-      "images": 5,
+      "id": "2609.23571v1",
+      "title": "Extremal Mean-Variance Functionals over Wasserstein Balls: Applications to Risk Sharing",
+      "source": "https://arxiv.org/pdf/2609.23571v1",
+      "pages": 36,
+      "images": 1,
+      "figures_captioned": 1,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 41
+    },
+    {
+      "id": "2609.23378v1",
+      "title": "Leaky-integrator reconstruction: taming error accumulation in recursive differenced time-series forecasting",
+      "source": "https://arxiv.org/pdf/2609.23378v1",
+      "pages": 5,
+      "images": 0,
+      "figures_captioned": 4,
+      "tables": 3,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 23
+    },
+    {
+      "id": "2609.23272v1",
+      "title": "On Control of Drawdown: Robust Invariance and Optimality",
+      "source": "https://arxiv.org/pdf/2609.23272v1",
+      "pages": 12,
+      "images": 0,
       "figures_captioned": 2,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 44
+      "chunks_indexed": 34
     },
     {
-      "id": "2609.21173v1",
-      "title": "Adapting the Actor Model of Concurrency for High-Frequency Trading: Synchronous Message Delivery (fast_send) and a Tick-to-Book Latency Study",
-      "source": "https://arxiv.org/pdf/2609.21173v1",
-      "pages": 31,
-      "images": 0,
+      "id": "2609.23223v1",
+      "title": "Stealing profits: Spread-based temporal hierarchy forecasting for day-ahead electricity markets",
+      "source": "https://arxiv.org/pdf/2609.23223v1",
+      "pages": 23,
+      "images": 1,
       "figures_captioned": 4,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 56
+      "chunks_indexed": 41
     },
     {
-      "id": "2609.20550v1",
-      "title": "Principal component error in high-dimensional factor models",
-      "source": "https://arxiv.org/pdf/2609.20550v1",
-      "pages": 35,
+      "id": "2609.22893v1",
+      "title": "Universal Diffusion Models for Implied Volatility Surfaces: Learning Shared Dynamics Across Stocks",
+      "source": "https://arxiv.org/pdf/2609.22893v1",
+      "pages": 9,
+      "images": 6,
+      "figures_captioned": 1,
+      "tables": 0,
+      "has_math": false,
+      "ocr_used": false,
+      "chunks_indexed": 21
+    },
+    {
+      "id": "2609.22639v1",
+      "title": "Adapting Pairs Trading to Gambling Markets A Case Study of the U.S. Presidential Election",
+      "source": "https://arxiv.org/pdf/2609.22639v1",
+      "pages": 44,
       "images": 0,
       "figures_captioned": 0,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 59
-    },
-    {
-      "id": "2609.19866v1",
-      "title": "Reproducibility is not construct validity: LLM measurement of institutionally situated communication",
-      "source": "https://arxiv.org/pdf/2609.19866v1",
-      "pages": 28,
-      "images": 1,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 40
+      "chunks_indexed": 44
     }
   ]
 }
