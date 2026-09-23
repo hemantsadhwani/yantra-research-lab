@@ -1,7 +1,7 @@
 {
   "_note": "Public run manifest of the Tier-3 agentic ingestion pipeline. Safe aggregates + provenance only; raw PDFs live in S3, not here.",
-  "run_id": "20260922T074411Z",
-  "generated_at": "2026-09-22T08:03:16+00:00",
+  "run_id": "20260923T074704Z",
+  "generated_at": "2026-09-23T07:50:52+00:00",
   "collection": "research_corpus",
   "embed_model": "BAAI/bge-small-en-v1.5",
   "dag": [
@@ -50,186 +50,270 @@
     "discovered": 10,
     "fetched": 10,
     "parsed": 10,
-    "chunks": 398,
-    "accepted": 362,
-    "rejected": 36,
-    "images": 1806,
+    "chunks": 508,
+    "accepted": 465,
+    "rejected": 43,
+    "images": 34,
     "figures_captioned": 18,
-    "tables": 3,
-    "with_math": 9,
-    "indexed": 362,
-    "spent_usd": 0.0327,
-    "duration_s": 1145.2
+    "tables": 5,
+    "with_math": 10,
+    "indexed": 465,
+    "spent_usd": 0.0311,
+    "duration_s": 228.1
   },
   "rejects_by_reason": {
-    "low-relevance": 36
+    "low-relevance": 43
   },
   "budget_usd": 3.0,
   "figures": [
     {
-      "doc_id": "2609.23703v1",
-      "title": "Financial Language Models as Applied Artificial Intelligence Systems for News-Based Trading under Market Frictions",
-      "page": 13,
-      "thumb": "/data/figures/2609.23703v1_p13_0.jpg",
-      "caption": "Figure 1 summarizes MFAST as an engineering system. The framework converts un- \u2014 This figure presents a comparison table of recent machine learning approaches in financial NLP and sentiment analysis, organized by publication year, methodology, market focus, evaluation approach, and key contributions. The table rows cover papers from 2021-2025, with the bottom row highlighting the current paper's MFAST framework that deploys LSTM/attention networks on refinitiv news and CRISP equities data, evalu",
+      "doc_id": "2609.26606v1",
+      "title": "Liquidity Provision and Rebate Design in Option Markets",
+      "page": 23,
+      "thumb": "/data/figures/2609.26606v1_p23_0.jpg",
+      "caption": "Figure 1: Dynamics of intraday bid-ask spreads in seconds. \u2014 These two stacked area charts display intraday bid-ask spread dynamics over time for two option contracts (Strike 4225 and Strike 4230), with spreads measured in seconds on the y-axis and trading dates from 2011 spanning the x-axis. The charts show the distribution of bid-ask spreads throughout each trading day, with red areas representing the spread values and darker coloring indicating higher concentration, revealing that spreads rem",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2609.23703v1"
+      "source": "https://arxiv.org/pdf/2609.26606v1"
     },
     {
-      "doc_id": "2609.23703v1",
-      "title": "Financial Language Models as Applied Artificial Intelligence Systems for News-Based Trading under Market Frictions",
+      "doc_id": "2609.26606v1",
+      "title": "Liquidity Provision and Rebate Design in Option Markets",
+      "page": 23,
+      "thumb": "/data/figures/2609.26606v1_p23_1.jpg",
+      "caption": "Figure 2: Empirical distribution of intraday bid-ask spreads. \u2014 This figure displays the empirical frequency distribution of intraday bid-ask spreads measured in cents for two different securities (Dirk 4/25, spread = 0.1 USD). The two histograms show the distribution of spread observations across different spread sizes on the x-axis (measured in cents) and frequency (count) on the y-axis, both exhibiting right-skewed distributions with the majority of observations concentrated at tight spreads ",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.26606v1"
+    },
+    {
+      "doc_id": "2609.26606v1",
+      "title": "Liquidity Provision and Rebate Design in Option Markets",
+      "page": 23,
+      "thumb": "/data/figures/2609.26606v1_p23_2.jpg",
+      "caption": "Figure 3 displays the value function \u03c6 on a grid for various spread values. Each subfigure displays the value function \u03c6d for d = (d1, d2) = (k\u03b4, k\u03b4) with k = 1, . . . , m as a multiple of the tick size. We observe that, in each subfigure, the value function \u03c6, which starts as a quadratic function at t = T, gradually bends downward as t approaches 0, forming an approximately quadratic shape. This  \u2014 Figure 3 displays the shape of the value function \u03c6 across a grid of spread values and time point",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.26606v1"
+    },
+    {
+      "doc_id": "2609.26606v1",
+      "title": "Liquidity Provision and Rebate Design in Option Markets",
+      "page": 24,
+      "thumb": "/data/figures/2609.26606v1_p24_3.jpg",
+      "caption": "Figure 3: Plots of the reduced value function \u03c6d, d = (d1, d2) = (k\u03b4, k\u03b4) with k = 1, \u00b7 \u00b7 \u00b7 , 6. \u2014 This figure presents six 3D surface plots showing the reduced value function \u03c6d across different bid-ask spread configurations in an option market. Each subplot represents a different spread width (1 to 6 ticks), with axes showing log-moneyness (horizontal), time to maturity in days (horizontal), and value function in basis points (vertical), while the surface is colored by value magnitude from blu",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.26606v1"
+    },
+    {
+      "doc_id": "2609.26445v1",
+      "title": "A Practical Guide on Graphical Model Validation",
       "page": 14,
-      "thumb": "/data/figures/2609.23703v1_p14_1.jpg",
-      "caption": "Figure 1: MFAST system architecture for market-friction-aware news-based trading. \u2014 This is a process flow diagram showing the MFAST system architecture for news-based trading. The workflow begins with timestamped firm-specific news at the left, flows through a firm matching novelty screen and language-model sentiment inference at the top, then branches to execution timing and capacity decisions in the middle, and finally produces predictive, portfolio, and statistical diagnostics outputs on the",
+      "thumb": "/data/figures/2609.26445v1_p14_0.jpg",
+      "caption": "Figure 1: (lhs) Unit premium distribution \u03a0 \u223cG\u03a0 under population distribution P, and (rhs) comparison of G\u03c0 and GQ \u2014 The figure consists of two cumulative distribution function (CDF) plots showing the distribution of unit premiums (\u03a0) on the x-axis ranging from 800 to 1200, with the y-axis showing the distribution CDF from 0.0 to 1.0. The left panel displays a single empirical CDF curve under population distribution P, showing a sigmoidal shape with the distribution transitioning from near 0 to ",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2609.23703v1"
+      "source": "https://arxiv.org/pdf/2609.26445v1"
     },
     {
-      "doc_id": "2609.23598v1",
-      "title": "OrderFusion+: Probabilistic Buy--Sell Price Trajectory Forecasting in Intraday Electricity Markets",
-      "page": 3,
-      "thumb": "/data/figures/2609.23598v1_p3_0.jpg",
-      "caption": "Figure 1: Three example delivery products traded on 23 July 2024 in the German market. (a) Delivery at 18:00: the price declines as delivery approaches. (b) Delivery at 19:00: the price rises, falls, and rises again as delivery approaches. (c) Delivery at 20:00: the price rises and then falls as delivery approaches. Traders can submit orders for several delivery products in parallel. \u2014 This figure displays three line charts showing intraday electricity price trajectories for different delivery h",
+      "doc_id": "2609.26445v1",
+      "title": "A Practical Guide on Graphical Model Validation",
+      "page": 15,
+      "thumb": "/data/figures/2609.26445v1_p15_1.jpg",
+      "caption": "Figure 2: Calibration plot (4.3) under the exposure-weighted Q-measure; the orange diagonal line corresponds to perfect Q-calibration. \u2014 This figure presents a calibration plot comparing recalibrated premium against unit premium on a scatter plot with two reference lines. The x-axis shows unit premium (ranging from 800 to 1200), and the y-axis displays recalibrated premium in OPi (ranging from 800 to 1200). The black dots represent actual recalibrated premiums under the exposure-weighted Q-measu",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2609.23598v1"
+      "source": "https://arxiv.org/pdf/2609.26445v1"
     },
     {
-      "doc_id": "2609.23598v1",
-      "title": "OrderFusion+: Probabilistic Buy--Sell Price Trajectory Forecasting in Intraday Electricity Markets",
-      "page": 3,
-      "thumb": "/data/figures/2609.23598v1_p3_1.jpg",
-      "caption": "Figure 2: Seasonality of the intraday price trajectory, aggregated over sides during the final 180 minutes before delivery in 2024. (a) Across the time of delivery, the price level is highest in the evening hours, shows a secondary peak in the morning, and is lowest in the early afternoon. (b) Across the day of the week, the price level is high on working days and decreases towards the weekend. (c \u2014 This figure comprises two rows of visualizations analyzing intraday electricity market prices in ",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.23598v1"
-    },
-    {
-      "doc_id": "2609.23598v1",
-      "title": "OrderFusion+: Probabilistic Buy--Sell Price Trajectory Forecasting in Intraday Electricity Markets",
-      "page": 4,
-      "thumb": "/data/figures/2609.23598v1_p4_2.jpg",
-      "caption": "Figure 3: The structure of OrderFusion+. The computation follows the sequence: (a) (b) (c) embed input features \u2192(d) fuse buy and sell features \u2192(f) aggregate fused features \u2192(e) sample dynamic masks \u2192(d) recompute cross-attention using sampled masks \u2192(f) aggregate updated features \u2192(g) produce probabilistic buy\u2013sell price trajectory forecasts. \u2014 This figure presents the architecture of OrderFusion+, a deep learning model for forecasting electricity market price trajectories. The diagram shows s",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.23598v1"
-    },
-    {
-      "doc_id": "2609.23598v1",
-      "title": "OrderFusion+: Probabilistic Buy--Sell Price Trajectory Forecasting in Intraday Electricity Markets",
-      "page": 6,
-      "thumb": "/data/figures/2609.23598v1_p6_3.jpg",
-      "caption": "Figure 4: One-sided DM \ud835\udc5d-values of the AQL loss differen- tial. The cell in row \ud835\udc34and column \ud835\udc35gives the \ud835\udc5d-value of the hypothesis that model \ud835\udc34is more accurate than model \ud835\udc35; a colored cell indicates \ud835\udc5d< 0.05 (model \ud835\udc34significantly beats model \ud835\udc35), and a cross indicates \ud835\udc5d\u22650.05. \u2014 This figure presents a heatmap of one-sided Diebold-Mariano test p-values comparing the AQL (Asymmetric Quantile Loss) performance across multiple forecasting models for electricity market price trajectories. The rows and col",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.23598v1"
-    },
-    {
-      "doc_id": "2609.23571v1",
-      "title": "Extremal Mean-Variance Functionals over Wasserstein Balls: Applications to Risk Sharing",
-      "page": 13,
-      "thumb": "/data/figures/2609.23571v1_p13_0.jpg",
-      "caption": "Figure 1: The impact of \u03b3 on the worst- and best-case means and standard deviations. \u2014 This figure is a 2D scatter plot with axes representing mean return (\u03bc) and standard deviation (\u03c3), showing how parameter \u03b3 affects optimal portfolio allocations within a Wasserstein ball constraint. A solid circle represents a reference distribution, while dashed curves (labeled \u03b3\u2081, \u03b3\u2082, \u03b3\u2083, \u03b3\u2084) illustrate the frontier of worst-case and best-case mean-variance combinations as \u03b3 varies, demonstrating the trade-",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.23571v1"
-    },
-    {
-      "doc_id": "2609.23378v1",
-      "title": "Leaky-integrator reconstruction: taming error accumulation in recursive differenced time-series forecasting",
-      "page": 2,
-      "thumb": "/data/figures/2609.23378v1_p2_0.jpg",
-      "caption": "Fig. 1. Synthetic validation of the error model. Left: integrating an AR(1) increment-error sequence of autocorrelation \u03c1 gives growth exponent \u03b1; white noise yields \u03b1=0.5, and mild anti-correlation (\u03c1 \u2248\u22120.2) reproduces the observed 0.44. Right: the leaky integra- tor caps the accumulated RMS at 1/ \u2014 This figure validates an error accumulation model for time-series forecasting through two panels. The left panel shows a line plot of synthetic exponent \u03b1 versus increment-error autocorrelation \u03c1, d",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.23378v1"
-    },
-    {
-      "doc_id": "2609.23378v1",
-      "title": "Leaky-integrator reconstruction: taming error accumulation in recursive differenced time-series forecasting",
-      "page": 2,
-      "thumb": "/data/figures/2609.23378v1_p2_1.jpg",
-      "caption": "Fig. 2. Per-step error growth MAE(k)/MAE(1) at H=336, averaged over five of our architectures (LSTM, GRU, DLinear, PatchTST, iTransformer), sixteen datasets and three seeds. Differ- enced (change) error tracks the \u2014 This log-log plot compares error accumulation rates across different forecasting methods over 336 forecast steps. The chart displays four curves: \"change\" (blue, slope ~0.44), \"direct\" (orange, slope ~0.30), \"random walk\" (dotted blue, slope ~0.41), and \"\u221ak\" reference line (dashed gr",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.23378v1"
-    },
-    {
-      "doc_id": "2609.23378v1",
-      "title": "Leaky-integrator reconstruction: taming error accumulation in recursive differenced time-series forecasting",
-      "page": 3,
-      "thumb": "/data/figures/2609.23378v1_p3_2.jpg",
-      "caption": "Fig. 3. (a) Improvement of our leaky reconstruction (fixed \u03b3=0.9) over the traditional pure-recursive integrator vs. horizon, the advan- tage grows monotonically with H for every nonlinear architecture and is flat for stable linear-AR. (b) At H=336 the pure integrator diverges (nMAE 1.6\u20133.8); our method restores every diverging ar- chitecture to \u22480.87\u20130.97. \u2014 Panel (a) shows a line chart of improvement percentage (y-axis, 0-75%) versus forecasting horizon H (x-axis, 24-336 steps) across nine arc",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.23378v1"
-    },
-    {
-      "doc_id": "2609.23378v1",
-      "title": "Leaky-integrator reconstruction: taming error accumulation in recursive differenced time-series forecasting",
-      "page": 4,
-      "thumb": "/data/figures/2609.23378v1_p4_3.jpg",
-      "caption": "Fig. 4. A single 336-step recursive Transformer forecast on two near-stationary series. The pure integrator (\u03b3=1) drifts away, down on Weather, up on Temp, as the integrated increment errors accumu- late, while the leaky reconstruction (\u03b3=0.9) stays anchored to the true level. \u2014 This figure shows two side-by-side line plots comparing recursive forecasting performance on Weather and Temperature time series over 336 forecast steps. Each plot displays the actual values (black line), a pure integrat",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.23378v1"
-    },
-    {
-      "doc_id": "2609.23272v1",
-      "title": "On Control of Drawdown: Robust Invariance and Optimality",
-      "page": 11,
-      "thumb": "/data/figures/2609.23272v1_p11_0.jpg",
-      "caption": "Figure 1 shows higher estimated expected returns for the proposed drawdown-modulated policy than for the optimized LTI benchmark at every positive evaluated drawdown limit. For N = 21 and N = 63, the numer- ically computed optimal drawdown modulated policy uses an approximately constant \u03b3 across stages and states; the observed improvement in these panels is therefore already attained by drawdown m \u2014 This figure compares the expected return performance of a drawdown-modulated policy versus an LTI",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.23272v1"
-    },
-    {
-      "doc_id": "2609.23272v1",
-      "title": "On Control of Drawdown: Robust Invariance and Optimality",
-      "page": 12,
-      "thumb": "/data/figures/2609.23272v1_p12_1.jpg",
-      "caption": "Fig. 1. Expected terminal return under a prescribed drawdown limit dmax for (a) N = 21, (b) N = 63, and (c) N = 252 trading days. \u2014 This figure comprises three line plots (panels a, b, c) comparing expected terminal return against maximum drawdown limits across different trading horizons (21, 63, and 252 days). Each panel plots expected return (ER/r\u2080 in %) on the y-axis versus maximum drawdown constraint (d_max in %) on the x-axis, with two lines: the optimal LFT (dashed-dotted line, nearly flat",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.23272v1"
-    },
-    {
-      "doc_id": "2609.23223v1",
-      "title": "Stealing profits: Spread-based temporal hierarchy forecasting for day-ahead electricity markets",
-      "page": 5,
-      "thumb": "/data/figures/2609.23223v1_p5_0.jpg",
-      "caption": "Figure 1: The summing matrices Sblock (left panel) and Sspread (right panel) defined in Eq. (4) and Eq. (9), respectively. Blue blocks denote positive elements with shading indicating weights ranging from 1 24 for S24 to 1 for S1, while red blocks denote negative values equal to \u22121. The weights occurring in each submatrix are annotated in its top-right corner. \u2014 This figure displays two hierarchical summing matrices used in electricity price forecasting: Sblock (left) and Sspread (right), both w",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.23223v1"
-    },
-    {
-      "doc_id": "2609.23223v1",
-      "title": "Stealing profits: Spread-based temporal hierarchy forecasting for day-ahead electricity markets",
-      "page": 8,
-      "thumb": "/data/figures/2609.23223v1_p8_1.jpg",
-      "caption": "Figure 2: Top two panels: German (DE) and Spanish (ES) day-ahead electricity prices from 5 January 2018 to 31 December 2025. Middle panels: Day-ahead load forecasts in both countries. Bottom panel: Day-ahead renewable generation forecasts in both countries, including total wind generation and solar generation. The shaded area indicates the initial training window used for generating forecasts for  \u2014 This figure displays four stacked time series panels showing electricity market data for Germany ",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.23223v1"
-    },
-    {
-      "doc_id": "2609.23223v1",
-      "title": "Stealing profits: Spread-based temporal hierarchy forecasting for day-ahead electricity markets",
-      "page": 16,
-      "thumb": "/data/figures/2609.23223v1_p16_2.jpg",
-      "caption": "Figure 3 examines whether these improvements are stable over time by reporting RMSE over rolling 180-day windows. Forecast difficulty varies substantially throughout the test period, par- ticularly around the large price movements of 2021-2022. Nevertheless, the gains from Spread THieF are not confined to a single episode and are observed across markedly different market regimes. The improvements  \u2014 This figure displays rolling 180-day window RMSE performance comparisons across different forecas",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.23223v1"
-    },
-    {
-      "doc_id": "2609.23223v1",
-      "title": "Stealing profits: Spread-based temporal hierarchy forecasting for day-ahead electricity markets",
+      "doc_id": "2609.26445v1",
+      "title": "A Practical Guide on Graphical Model Validation",
       "page": 17,
-      "thumb": "/data/figures/2609.23223v1_p17_3.jpg",
-      "caption": "Figure 3: Rolling RMSE over a 180-day window in the German (top) and Spanish (bottom) markets. The solid lines mark the RMSE of the Spread THieF approach for the three models. The lighter shaded areas of the same color extend from the Spread THieF value to the corresponding Base value, so that their width represents the improvement obtained from reconciliation. Values for 29.06.2021 are the RMSE f \u2014 This figure displays rolling 180-day root mean squared error (RMSE) comparisons for electricity p",
+      "thumb": "/data/figures/2609.26445v1_p17_2.jpg",
+      "caption": "Figure 3: Lift chart considering the two graphs (4.4). \u2014 This figure is a line chart comparing two premium curves plotted against quantile levels. The x-axis represents quantile level u ranging from 0.0 to 1.0, while the y-axis shows unit premiums ranging from approximately 80 to 120. Two lines are displayed: a black curve representing \"recalibrated premium m_Q(Phi)\" and a tan/yellow curve representing \"premium Pi (calibration line),\" with both showing convex increasing patterns that accelerate ",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2609.23223v1"
+      "source": "https://arxiv.org/pdf/2609.26445v1"
     },
     {
-      "doc_id": "2609.22893v1",
-      "title": "Universal Diffusion Models for Implied Volatility Surfaces: Learning Shared Dynamics Across Stocks",
-      "page": 2,
-      "thumb": "/data/figures/2609.22893v1_p2_0.jpg",
-      "caption": "Figure 1: Transformation of irregular option quotes (a) into a fixed-dimensional implied-volatility surface (b). The sample is based on AAPL option quotes observed on August 27, 2024. \u2014 This figure displays a 3D surface plot comparison of implied volatility (IV) data transformation for AAPL options. Panel (a) shows raw, irregularly-spaced option quotes as a jagged surface with pronounced peaks and valleys across moneyness and time-to-expiration dimensions, while panel (b) presents the smoothed I",
+      "doc_id": "2609.26445v1",
+      "title": "A Practical Guide on Graphical Model Validation",
+      "page": 18,
+      "thumb": "/data/figures/2609.26445v1_p18_3.jpg",
+      "caption": "Figure 4: Loss costs Yi plotted against unit premiums \u03a0i on test sample T . \u2014 This scatter plot displays the relationship between unit premiums (x-axis, ranging from 900 to 1100) and loss costs (y-axis, on logarithmic scale from 1 to 5000) for a test sample. Blue circles represent individual loss costs Y, while an orange diagonal line indicates the fitted premium \u03a0. The plot shows substantial scatter in loss costs across the premium range, with the model prediction following a relatively flat tr",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2609.22893v1"
+      "source": "https://arxiv.org/pdf/2609.26445v1"
+    },
+    {
+      "doc_id": "2609.26303v1",
+      "title": "Target alignment, dilution and forecast selection when cross-sectional forecasts share a common target",
+      "page": 13,
+      "thumb": "/data/figures/2609.26303v1_p13_0.jpg",
+      "caption": "Figure 1: Left: equal-weight true risk minus 1 plotted against the margin m of Corollary 1 for all Design D cells, displaying the exact line \u22122m and the two empirical panels (out of sample). Right: ridge weights alongside their scale-calibrated version across alignment levels (N = 24). \u2014 The left panel displays a scatter plot with a fitted line showing the relationship between equal-weight true risk minus 1 (y-axis) and the beat-the-null margin m (x-axis), comparing simulation results (N=12) and",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.26303v1"
+    },
+    {
+      "doc_id": "2609.26303v1",
+      "title": "Target alignment, dilution and forecast selection when cross-sectional forecasts share a common target",
+      "page": 14,
+      "thumb": "/data/figures/2609.26303v1_p14_1.jpg",
+      "caption": "Figure 2: Criterion validity. Left: LLM and signal panels versus realized and calibrated test outcomes. Right: Design D versus true incremental risk. \u2014 The left panel is a bar chart showing mean absolute percentage errors across multiple test cases, comparing LLM realized test data (dark bars), LLM calibrated test data (medium bars), and various calibrated test data variants (light bars), with values ranging from approximately -0.2 to 0.8. The right panel is a line chart plotting Sharpe ratio in",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.26303v1"
+    },
+    {
+      "doc_id": "2609.26303v1",
+      "title": "Target alignment, dilution and forecast selection when cross-sectional forecasts share a common target",
+      "page": 18,
+      "thumb": "/data/figures/2609.26303v1_p18_2.jpg",
+      "caption": "Figure 3: Pairwise deviation correlation plotted against forecast correlation (left, with the zero-alignment line) and against target-orthogonal correlation (right). \u2014 The left panel is a scatter plot with color gradient showing the relationship between forecast correlation (\u03c1_f\u0302, x-axis) and pairwise deviation correlation (\u03c1_\u03b5\u0302, y-axis), with points colored by their deviation from the zero-alignment line (1+\u03c1_f\u0302)^(1/2). The right panel is a scatter plot relating target-orthogonal correlation \u03ba_",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.26303v1"
+    },
+    {
+      "doc_id": "2609.26303v1",
+      "title": "Target alignment, dilution and forecast selection when cross-sectional forecasts share a common target",
+      "page": 19,
+      "thumb": "/data/figures/2609.26303v1_p19_3.jpg",
+      "caption": "Figure 4: Left: test risk minus equal-weight risk with 95% HAC intervals (dotted: no-information forecast). Right: exact decomposition into alignment and target-orthogonal terms. \u2014 This figure presents a comparative analysis of forecast performance through two complementary visualizations. The left panel shows a horizontal dot-plot with 95% HAC confidence intervals comparing test risk minus equal-weight risk across multiple forecasting methods, with a dotted vertical line indicating the no-infor",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.26303v1"
+    },
+    {
+      "doc_id": "2609.25965v1",
+      "title": "Modeling interest rate swap volatility with GARCH processes",
+      "page": 6,
+      "thumb": "/data/figures/2609.25965v1_p6_0.jpg",
+      "caption": "Figure 1.: Distribution of Swap Rate log return for 2019, 2020 and 2021. \u2014 This figure displays a kernel density estimate plot comparing ATMF Fair Swap rate log return distributions across three years: 2020 (blue), 2019 (red), and 2021 (green). The x-axis represents returns ranging from approximately -0.3 to 0.3, while the y-axis shows probability density from 0 to 17.5. The distributions are approximately normal and centered near zero, with 2021 showing notably wider tails and higher peak densi",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.25965v1"
+    },
+    {
+      "doc_id": "2609.25965v1",
+      "title": "Modeling interest rate swap volatility with GARCH processes",
+      "page": 6,
+      "thumb": "/data/figures/2609.25965v1_p6_1.jpg",
+      "caption": "Figure 2.: Distribution of Swap Rate log return for 2007, 2008 and 2009. \u2014 This figure displays kernel density estimates of swap rate log returns across three years (2007, 2008, 2009) as overlaid probability density distributions. The x-axis shows returns ranging from -0.10 to 0.10, while the y-axis measures probability density from 0 to 40. The key takeaway is that 2008 and 2009 exhibit substantially heavier tails than 2007, indicating elevated volatility during the financial crisis period, wit",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.25965v1"
+    },
+    {
+      "doc_id": "2609.25965v1",
+      "title": "Modeling interest rate swap volatility with GARCH processes",
+      "page": 7,
+      "thumb": "/data/figures/2609.25965v1_p7_2.jpg",
+      "caption": "Figure 3 presents squared log-returns of the swap fair returns. One can clearly see periods with lower and higher values respectively. Figure 3 shows that volatile peri- ods tend to be followed by other volatile periods. Hence, periods of lower and higher volatility seem to be extended over time and are often accompanied by a sudden shift. Intuition says that markets need time to digest big news,  \u2014 This section heading indicates Figure 3 displays squared log-returns of swap fair values over tim",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.25965v1"
+    },
+    {
+      "doc_id": "2609.25965v1",
+      "title": "Modeling interest rate swap volatility with GARCH processes",
+      "page": 7,
+      "thumb": "/data/figures/2609.25965v1_p7_3.jpg",
+      "caption": "Figure 3.: Squared log returns in the time range from 2007 to 2023. \u2014 This line chart displays squared log returns of swap fair rates from 2007 to 2023, with the y-axis showing squared log return values ranging from 0 to 0.07 and the x-axis showing reference dates. A dramatic spike in volatility is evident around 2020, reaching approximately 0.07, with additional notable spikes in 2008-2009 and 2016, while the majority of the period exhibits relatively low volatility clustered near zero. The fig",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.25965v1"
+    },
+    {
+      "doc_id": "2609.25617v1",
+      "title": "Hierarchical Multi-Task Learning with Liquidity-Aware Signals for Stock Forecasting",
+      "page": 2,
+      "thumb": "/data/figures/2609.25617v1_p2_0.jpg",
+      "caption": "Figure1 depicts the architecture of LiMT, which consists of three components. (1) The Market Regime Encoder (MRE) applies cross-stock attention at each historical step and then models within-stock temporal dynamics, so changing market conditions are captured implicitly through time-varying \u2014 This figure presents the architecture of LiMT (Liquidity-aware Multi-Task Learning), showing a hierarchical neural network design with three main components: a Market Regime Encoder that applies cross-stock ",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.25617v1"
+    },
+    {
+      "doc_id": "2609.25617v1",
+      "title": "Hierarchical Multi-Task Learning with Liquidity-Aware Signals for Stock Forecasting",
+      "page": 3,
+      "thumb": "/data/figures/2609.25617v1_p3_1.jpg",
+      "caption": "Fig. 1. Overview of the LiMT framework. Left: MRE module, Middle: LDL module, Right: APO module. \u2014 This figure presents an overview of the LiMT (Liquidity-aware Multi-Task learning) framework for stock forecasting, composed of three main modules shown as block diagrams. The Market Regime Encoder (left) processes stocks and temporal embeddings through position and time encoding layers, scaled dot-product attention, and MHA (multi-head attention) followed by FFN aggregation. The Liquidity-Driven L",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.25617v1"
     }
   ],
   "docs": [
+    {
+      "id": "2609.26606v1",
+      "title": "Liquidity Provision and Rebate Design in Option Markets",
+      "source": "https://arxiv.org/pdf/2609.26606v1",
+      "pages": 36,
+      "images": 10,
+      "figures_captioned": 4,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 62
+    },
+    {
+      "id": "2609.26445v1",
+      "title": "A Practical Guide on Graphical Model Validation",
+      "source": "https://arxiv.org/pdf/2609.26445v1",
+      "pages": 65,
+      "images": 0,
+      "figures_captioned": 4,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 52
+    },
+    {
+      "id": "2609.26349v1",
+      "title": "Optimal Investment and Consumption in Financial Markets with Integrated Variance Clocks",
+      "source": "https://arxiv.org/pdf/2609.26349v1",
+      "pages": 33,
+      "images": 0,
+      "figures_captioned": 0,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 67
+    },
+    {
+      "id": "2609.26303v1",
+      "title": "Target alignment, dilution and forecast selection when cross-sectional forecasts share a common target",
+      "source": "https://arxiv.org/pdf/2609.26303v1",
+      "pages": 35,
+      "images": 0,
+      "figures_captioned": 4,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 46
+    },
+    {
+      "id": "2609.25965v1",
+      "title": "Modeling interest rate swap volatility with GARCH processes",
+      "source": "https://arxiv.org/pdf/2609.25965v1",
+      "pages": 51,
+      "images": 9,
+      "figures_captioned": 4,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 43
+    },
+    {
+      "id": "2609.25617v1",
+      "title": "Hierarchical Multi-Task Learning with Liquidity-Aware Signals for Stock Forecasting",
+      "source": "https://arxiv.org/pdf/2609.25617v1",
+      "pages": 9,
+      "images": 7,
+      "figures_captioned": 2,
+      "tables": 4,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 27
+    },
+    {
+      "id": "2609.25452v1",
+      "title": "Risk diversification for infinitely divisible distributions",
+      "source": "https://arxiv.org/pdf/2609.25452v1",
+      "pages": 37,
+      "images": 0,
+      "figures_captioned": 0,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 46
+    },
     {
       "id": "2609.24548v1",
       "title": "Affine Volterra covariance processes and application to commodity markets",
@@ -243,6 +327,18 @@
       "chunks_indexed": 47
     },
     {
+      "id": "2609.25144v1",
+      "title": "The Informational Content in Lepto-Variance and Its Relation to Higher Moments",
+      "source": "https://arxiv.org/pdf/2609.25144v1",
+      "pages": 16,
+      "images": 8,
+      "figures_captioned": 0,
+      "tables": 1,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 25
+    },
+    {
       "id": "2609.23768v1",
       "title": "Risk Measures under Paired-Ambiguity: A Deep Learning Reflected BSDE Framework",
       "source": "https://arxiv.org/pdf/2609.23768v1",
@@ -253,102 +349,6 @@
       "has_math": true,
       "ocr_used": false,
       "chunks_indexed": 50
-    },
-    {
-      "id": "2609.23703v1",
-      "title": "Financial Language Models as Applied Artificial Intelligence Systems for News-Based Trading under Market Frictions",
-      "source": "https://arxiv.org/pdf/2609.23703v1",
-      "pages": 47,
-      "images": 0,
-      "figures_captioned": 2,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 27
-    },
-    {
-      "id": "2609.23598v1",
-      "title": "OrderFusion+: Probabilistic Buy--Sell Price Trajectory Forecasting in Intraday Electricity Markets",
-      "source": "https://arxiv.org/pdf/2609.23598v1",
-      "pages": 10,
-      "images": 1798,
-      "figures_captioned": 4,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 34
-    },
-    {
-      "id": "2609.23571v1",
-      "title": "Extremal Mean-Variance Functionals over Wasserstein Balls: Applications to Risk Sharing",
-      "source": "https://arxiv.org/pdf/2609.23571v1",
-      "pages": 36,
-      "images": 1,
-      "figures_captioned": 1,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 41
-    },
-    {
-      "id": "2609.23378v1",
-      "title": "Leaky-integrator reconstruction: taming error accumulation in recursive differenced time-series forecasting",
-      "source": "https://arxiv.org/pdf/2609.23378v1",
-      "pages": 5,
-      "images": 0,
-      "figures_captioned": 4,
-      "tables": 3,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 23
-    },
-    {
-      "id": "2609.23272v1",
-      "title": "On Control of Drawdown: Robust Invariance and Optimality",
-      "source": "https://arxiv.org/pdf/2609.23272v1",
-      "pages": 12,
-      "images": 0,
-      "figures_captioned": 2,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 34
-    },
-    {
-      "id": "2609.23223v1",
-      "title": "Stealing profits: Spread-based temporal hierarchy forecasting for day-ahead electricity markets",
-      "source": "https://arxiv.org/pdf/2609.23223v1",
-      "pages": 23,
-      "images": 1,
-      "figures_captioned": 4,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 41
-    },
-    {
-      "id": "2609.22893v1",
-      "title": "Universal Diffusion Models for Implied Volatility Surfaces: Learning Shared Dynamics Across Stocks",
-      "source": "https://arxiv.org/pdf/2609.22893v1",
-      "pages": 9,
-      "images": 6,
-      "figures_captioned": 1,
-      "tables": 0,
-      "has_math": false,
-      "ocr_used": false,
-      "chunks_indexed": 21
-    },
-    {
-      "id": "2609.22639v1",
-      "title": "Adapting Pairs Trading to Gambling Markets A Case Study of the U.S. Presidential Election",
-      "source": "https://arxiv.org/pdf/2609.22639v1",
-      "pages": 44,
-      "images": 0,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 44
     }
   ]
 }
