@@ -1,7 +1,7 @@
 {
   "_note": "Public run manifest of the Tier-3 agentic ingestion pipeline. Safe aggregates + provenance only; raw PDFs live in S3, not here.",
-  "run_id": "20260924T073720Z",
-  "generated_at": "2026-09-24T07:40:43+00:00",
+  "run_id": "20260925T075119Z",
+  "generated_at": "2026-09-25T07:54:33+00:00",
   "collection": "research_corpus",
   "embed_model": "BAAI/bge-small-en-v1.5",
   "dag": [
@@ -50,28 +50,64 @@
     "discovered": 10,
     "fetched": 10,
     "parsed": 10,
-    "chunks": 512,
-    "accepted": 495,
-    "rejected": 17,
-    "images": 13,
+    "chunks": 482,
+    "accepted": 461,
+    "rejected": 21,
+    "images": 3,
     "figures_captioned": 18,
-    "tables": 3,
+    "tables": 1,
     "with_math": 10,
-    "indexed": 495,
-    "spent_usd": 0.0326,
-    "duration_s": 202.8
+    "indexed": 461,
+    "spent_usd": 0.0335,
+    "duration_s": 194.8
   },
   "rejects_by_reason": {
-    "low-relevance": 17
+    "low-relevance": 21
   },
   "budget_usd": 3.0,
   "figures": [
+    {
+      "doc_id": "2609.29887v1",
+      "title": "Cost-Sensitive Online Window Size Selection for Portfolio Management",
+      "page": 8,
+      "thumb": "/data/figures/2609.29887v1_p8_0.jpg",
+      "caption": "Figure 1: Cost-Sensitive Tracking Regret for Hedge and Fixed Share with Negative PnL Loss \u2014 This line chart plots cumulative regret over time from 2020 to 2028, comparing four portfolio management algorithms: Hedge, Fixed Share, Optimal Expert Switch, and Theoretical Bound. The y-axis measures regret in basis points (ranging from 0 to 120), while the x-axis shows dates with a vertical dashed line marking 2023. The key takeaway is that Hedge and Fixed Share maintain low regret (under 50 basis poi",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.29887v1"
+    },
+    {
+      "doc_id": "2609.29887v1",
+      "title": "Cost-Sensitive Online Window Size Selection for Portfolio Management",
+      "page": 8,
+      "thumb": "/data/figures/2609.29887v1_p8_1.jpg",
+      "caption": "Figure 2: Evolution of the aggregation weights qj(t) assigned to the four window-size experts j \u2208 {5, 10, 21, 63} under (a) Hedge and (b) Fixed Share. \u2014 This figure displays stacked area charts showing the evolution of aggregation weights over time for two portfolio management algorithms: Hedge (left) and Fixed Share (right). The x-axis represents dates from 2021 to 2027, while the y-axis shows the relative weight (0 to 1.00) assigned to each of four window-size experts with sizes 5, 10, 21, and",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.29887v1"
+    },
+    {
+      "doc_id": "2609.29887v1",
+      "title": "Cost-Sensitive Online Window Size Selection for Portfolio Management",
+      "page": 15,
+      "thumb": "/data/figures/2609.29887v1_p15_2.jpg",
+      "caption": "Figure 3: Evolution of the aggregation weights qj(t) on four Window Sizes for different switching timing. \u2014 This figure displays two stacked area charts showing the evolution of aggregation weights over time from 2021 to 2027 for portfolio management strategies. Each chart tracks the allocation weights across four different window sizes (5, 10, 21, and 63 days), represented by different shades of blue, with darker colors indicating smaller window sizes. Panel (a) shows results for a Hedge strate",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.29887v1"
+    },
+    {
+      "doc_id": "2609.29887v1",
+      "title": "Cost-Sensitive Online Window Size Selection for Portfolio Management",
+      "page": 15,
+      "thumb": "/data/figures/2609.29887v1_p15_3.jpg",
+      "caption": "Figure 4: Evolution of the aggregation weights qj(t) on eight window sizes. \u2014 This figure displays stacked area charts showing the evolution of aggregation weights over time from 2021 to 2027 for two portfolio management strategies (Hedge and Fixed Share) under two different window size configurations. The top row (Figure 3) shows weights across four window sizes (5, 10, 21, and 63), while the bottom row (Figure 4) shows weights across eight window sizes (5, 10, 21, 30, 41, 50, 63, and 126). The",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.29887v1"
+    },
     {
       "doc_id": "2609.27654v1",
       "title": "FedIncome: Federated Learning for Income Estimation in Digital Lending Under Data Sovereignty Constraints",
       "page": 2,
       "thumb": "/data/figures/2609.27654v1_p2_0.jpg",
-      "caption": "Figure 1: AI-led credit decision support system for digital lending. \u2014 This flowchart illustrates a credit decisioning system for digital lending that processes applicant data through multiple stages. The top portion shows how application information (forms, bureau data, alternative data) flows through minimum acceptance criteria and three parallel prediction modules: fraud detection, default estimation, and income estimation. The bottom portion depicts the decision engine that evaluates these p",
+      "caption": "Figure 1: AI-led credit decision support system for digital lending. \u2014 This flowchart illustrates an AI-led credit decisioning pipeline for digital lending that processes applicant data through multiple sequential stages. The system begins with three data sources (application forms, credit bureaus, and third-party data), applies minimum acceptance criteria based on affordability, age eligibility, and fraud checks, then branches into four parallel modules addressing fraud detection, default risk ",
       "vision": true,
       "source": "https://arxiv.org/pdf/2609.27654v1"
     },
@@ -80,7 +116,7 @@
       "title": "FedIncome: Federated Learning for Income Estimation in Digital Lending Under Data Sovereignty Constraints",
       "page": 6,
       "thumb": "/data/figures/2609.27654v1_p6_1.jpg",
-      "caption": "Figure 2: FedIncome framework: federated income estimation across K = 50 clients under data-local training. Borrower-level records remain at the participating clients, while model updates are exchanged with the aggregation server during training. \u2014 This figure illustrates a federated learning architecture for income estimation across multiple financial institutions. The system consists of three layers: a Data Layer containing K institutions (banks/fintechs) with local borrower samples, a Local M",
+      "caption": "Figure 2: FedIncome framework: federated income estimation across K = 50 clients under data-local training. Borrower-level records remain at the participating clients, while model updates are exchanged with the aggregation server during training. \u2014 This figure illustrates a federated learning architecture for income estimation across multiple financial institutions. The diagram shows a three-layer hierarchical structure: a Data Layer with K institutions (Banks/Fis) each maintaining local borrowe",
       "vision": true,
       "source": "https://arxiv.org/pdf/2609.27654v1"
     },
@@ -89,7 +125,7 @@
       "title": "FedIncome: Federated Learning for Income Estimation in Digital Lending Under Data Sovereignty Constraints",
       "page": 6,
       "thumb": "/data/figures/2609.27654v1_p6_2.jpg",
-      "caption": "Figure 3: Loan amount calibration framework. Federated income estimates \u02c6YFedIncome are translated into DTI- constrained loan offers. Income determines the maximum serviceable installment, product parameters (R, t) define repayment structure, and the annuity formula yields Lmax subject to the selected DTI constraint. \u2014 This is a process flow diagram showing a loan amount calibration framework with four sequential stages. Stage 1 inputs predicted monthly income (\u0176_FedIncome) and product features ",
+      "caption": "Figure 3: Loan amount calibration framework. Federated income estimates \u02c6YFedIncome are translated into DTI- constrained loan offers. Income determines the maximum serviceable installment, product parameters (R, t) define repayment structure, and the annuity formula yields Lmax subject to the selected DTI constraint. \u2014 This figure illustrates a four-stage loan amount calibration framework that converts federated income estimates into loan offers. Stage 1 uses predicted monthly income from the Fe",
       "vision": true,
       "source": "https://arxiv.org/pdf/2609.27654v1"
     },
@@ -98,7 +134,7 @@
       "title": "FedIncome: Federated Learning for Income Estimation in Digital Lending Under Data Sovereignty Constraints",
       "page": 18,
       "thumb": "/data/figures/2609.27654v1_p18_3.jpg",
-      "caption": "Figure 4 reports training performance over T = 10 communication rounds. FedNova and FedAvg improve smoothly over the training horizon and approach similar final values. FedProx progresses more slowly during the earlier rounds, while FedAdam shows greater variation later in training. SCAFFOLD remains below the other methods throughout the observed communication budget. \u2014 Figure 4 is a line chart showing training loss versus communication rounds (T=10) for five federated learning algorithms: FedNo",
+      "caption": "Figure 4 reports training performance over T = 10 communication rounds. FedNova and FedAvg improve smoothly over the training horizon and approach similar final values. FedProx progresses more slowly during the earlier rounds, while FedAdam shows greater variation later in training. SCAFFOLD remains below the other methods throughout the observed communication budget. \u2014 Figure 4 is a line plot showing training loss (y-axis) versus communication rounds (x-axis, 0-10 rounds) for five federated lea",
       "vision": true,
       "source": "https://arxiv.org/pdf/2609.27654v1"
     },
@@ -107,7 +143,7 @@
       "title": "Model-agnostic noise reduction for high-dimensional time series data",
       "page": 16,
       "thumb": "/data/figures/2609.27614v1_p16_0.jpg",
-      "caption": "Figure 1: (asymptotic) denoising performance, measured as MSE/\u03bb, as a function of the dimension d and the lag order p of the VAR(p) process. Each boxplot consists of 100 independent simulations. For the sake of a baseline, we have included (in green) orthogonal denoising based on the standard asymptotically biased estimate of the covariance matrix of the signal. \u2014 This figure displays a 3\u00d73 grid of boxplots comparing denoising performance (MSE/\u03bb on y-axis) across increasing time series dimension",
+      "caption": "Figure 1: (asymptotic) denoising performance, measured as MSE/\u03bb, as a function of the dimension d and the lag order p of the VAR(p) process. Each boxplot consists of 100 independent simulations. For the sake of a baseline, we have included (in green) orthogonal denoising based on the standard asymptotically biased estimate of the covariance matrix of the signal. \u2014 This figure displays a 3\u00d73 grid of boxplots comparing denoising performance (MSE/\u03bb on y-axis) across varying dimensions T (400-6400 o",
       "vision": true,
       "source": "https://arxiv.org/pdf/2609.27614v1"
     },
@@ -116,7 +152,7 @@
       "title": "Model-agnostic noise reduction for high-dimensional time series data",
       "page": 17,
       "thumb": "/data/figures/2609.27614v1_p17_1.jpg",
-      "caption": "Figure 8 shows how denoising performance varies with Tr [\u03a3e] , the noise-to-signal ratio under the normalization Tr[Var[\u03bet]] = 1. Larger noise-to-signal ratios require longer time series for denoising performance to get close to its asymptotic value. When the noise-to- signal ratio is large and the time series is short, denoising can be harmful (MSE/\u03bb > 1): the denoised signal xden \u2014 This figure displays boxplots of normalized mean squared error (MSE/\u03bb) versus time series length T for VAR(p) pro",
+      "caption": "Figure 8 shows how denoising performance varies with Tr [\u03a3e] , the noise-to-signal ratio under the normalization Tr[Var[\u03bet]] = 1. Larger noise-to-signal ratios require longer time series for denoising performance to get close to its asymptotic value. When the noise-to- signal ratio is large and the time series is short, denoising can be harmful (MSE/\u03bb > 1): the denoised signal xden \u2014 This boxplot displays mean squared error normalized by noise variance (MSE/\u03bb) as a function of time series length",
       "vision": true,
       "source": "https://arxiv.org/pdf/2609.27614v1"
     },
@@ -125,7 +161,7 @@
       "title": "Model-agnostic noise reduction for high-dimensional time series data",
       "page": 17,
       "thumb": "/data/figures/2609.27614v1_p17_2.jpg",
-      "caption": "Figure 9 examines the effect of \u03bb, the noise fraction in the observed time series, for time series of the default length T = 400. For very small noise fractions (\u03bb = 0.01) orthogonal denoising outperforms MSE-optimal denoising. However, the right panel of Figure 9 shows that that this difference is negligible in absolute terms. Even for very large noise fractions (\u03bb = 0.99) optimal denoising remov \u2014 This figure displays two panels comparing denoising performance across varying noise fractions (\u03bb",
+      "caption": "Figure 9 examines the effect of \u03bb, the noise fraction in the observed time series, for time series of the default length T = 400. For very small noise fractions (\u03bb = 0.01) orthogonal denoising outperforms MSE-optimal denoising. However, the right panel of Figure 9 shows that that this difference is negligible in absolute terms. Even for very large noise fractions (\u03bb = 0.99) optimal denoising remov \u2014 This figure displays a line plot comparing denoising performance across varying noise fractions (",
       "vision": true,
       "source": "https://arxiv.org/pdf/2609.27614v1"
     },
@@ -134,7 +170,7 @@
       "title": "Model-agnostic noise reduction for high-dimensional time series data",
       "page": 17,
       "thumb": "/data/figures/2609.27614v1_p17_3.jpg",
-      "caption": "Figure 10 investigates the effect of changing the ratio of structured noise \u03b5t and un- structured noise \u03b5o \u2014 I cannot describe Figure 10 as it is not visible in the provided image. The image shows text discussing Figures 7, 8, and 9, which examine how denoising performance varies with observed time series dimension, noise-to-signal ratio, and noise fraction respectively, but Figure 10 itself is not included in this excerpt.",
+      "caption": "Figure 10 investigates the effect of changing the ratio of structured noise \u03b5t and un- structured noise \u03b5o \u2014 Figure 10 examines how denoising performance varies with the ratio between structured noise (\u03b5t) and unstructured noise (\u03b5o) components in high-dimensional time series. The figure displays line plots showing mean squared error (MSE) or normalized reconstruction error against the noise ratio parameter, comparing orthogonal denoising performance to MSE-optimal baselines. The key takeaway is",
       "vision": true,
       "source": "https://arxiv.org/pdf/2609.27614v1"
     },
@@ -143,7 +179,7 @@
       "title": "Surface-Driven Stochastic Volatility for Commodity Options: Identification of Stochastic Vol-of-Vol and Leverage from Smile Dynamics",
       "page": 8,
       "thumb": "/data/figures/2609.27138v1_p8_0.jpg",
-      "caption": "Figure 1. Daily CME CVOL soybean surface indicators, October 2013 to Au- gust 2025. Top: ATM implied volatility level Lt (%). Second: additive skew St; the dashed line marks zero. Third: skew ratio Rt. Bottom: convexity Ct. Shaded regions mark key market episodes: the 2014 record US harvest, the US-China trade war, COVID-19 supply disruption, the 2021 La Ni\u02dcna drought, and the 2022 Russia- Ukraine \u2014 This figure displays four time-series plots of daily CME CVOL soybean surface indicators from Oct",
+      "caption": "Figure 1. Daily CME CVOL soybean surface indicators, October 2013 to Au- gust 2025. Top: ATM implied volatility level Lt (%). Second: additive skew St; the dashed line marks zero. Third: skew ratio Rt. Bottom: convexity Ct. Shaded regions mark key market episodes: the 2014 record US harvest, the US-China trade war, COVID-19 supply disruption, the 2021 La Ni\u02dcna drought, and the 2022 Russia- Ukraine \u2014 This figure displays four time-series panels of daily CME CVOL soybean surface indicators from Oc",
       "vision": true,
       "source": "https://arxiv.org/pdf/2609.27138v1"
     },
@@ -161,7 +197,7 @@
       "title": "Surface-Driven Stochastic Volatility for Commodity Options: Identification of Stochastic Vol-of-Vol and Leverage from Smile Dynamics",
       "page": 10,
       "thumb": "/data/figures/2609.27138v1_p10_2.jpg",
-      "caption": "Figure 2 shows the empirical density of each indicator alongside a fitted Gaussian curve. All four distri- butions depart from normality. The level and skew are positively skewed with heavy right tails, consistent with infrequent but large upward moves. The skew ratio and convexity exhibit lighter tails, but they are still non-Gaussian. \u2014 Figure 2 is a set of four density plots comparing empirical distributions (histograms with overlaid curves) to fitted Gaussian distributions for four market in",
+      "caption": "Figure 2 shows the empirical density of each indicator alongside a fitted Gaussian curve. All four distri- butions depart from normality. The level and skew are positively skewed with heavy right tails, consistent with infrequent but large upward moves. The skew ratio and convexity exhibit lighter tails, but they are still non-Gaussian. \u2014 This figure displays four histogram plots comparing empirical densities of financial indicators (level, skew, skew ratio, and convexity) against fitted normal ",
       "vision": true,
       "source": "https://arxiv.org/pdf/2609.27138v1"
     },
@@ -170,7 +206,7 @@
       "title": "Surface-Driven Stochastic Volatility for Commodity Options: Identification of Stochastic Vol-of-Vol and Leverage from Smile Dynamics",
       "page": 10,
       "thumb": "/data/figures/2609.27138v1_p10_3.jpg",
-      "caption": "Figure 2. Empirical density histograms for the four surface indicators, with a fitted Gaussian curve for comparison. The red dotted vertical line in the additive-skew panel marks zero, and the annotation reports the share of trading days for which St < 0. All panels use the October 2013 to August 2025 sample. \u2014 This figure displays four histograms showing empirical distributions of surface indicators derived from commodity options data from October 2013 to August 2025, each overlaid with a norma",
+      "caption": "Figure 2. Empirical density histograms for the four surface indicators, with a fitted Gaussian curve for comparison. The red dotted vertical line in the additive-skew panel marks zero, and the annotation reports the share of trading days for which St < 0. All panels use the October 2013 to August 2025 sample. \u2014 This figure displays empirical distributions of four surface indicators used in commodity options pricing, comparing each to a normal distribution (dashed curve). The four panels show his",
       "vision": true,
       "source": "https://arxiv.org/pdf/2609.27138v1"
     },
@@ -179,7 +215,7 @@
       "title": "Active Portfolio Management in Concentrated Equity Markets",
       "page": 4,
       "thumb": "/data/figures/2609.27113v1_p4_0.jpg",
-      "caption": "Figure 1. Monthly time series of market diversity for the S&P 500 universe. \u2014 This line chart displays the monthly time series of market diversity for the S&P 500 from 1979 to 2024. The y-axis shows diversity measured as a negative value (ranging from approximately -7.3 to -6.8), while the x-axis represents time in years. The key takeaway is that market diversity has generally fluctuated within a narrow band over the 45-year period, with notable dips in the late 1990s and especially around 2008,",
+      "caption": "Figure 1. Monthly time series of market diversity for the S&P 500 universe. \u2014 This line chart displays monthly market diversity measurements for the S&P 500 from 1979 to 2024, with diversity measured as the negative Herfindahl index (y-axis ranges from -7.3 to -6.8). The time series shows fluctuating diversity levels with notable periods of concentration, including a sharp decline to approximately -7.2 around 2000 (dot-com bubble) and elevated concentration in the mid-2010s. The key takeaway is ",
       "vision": true,
       "source": "https://arxiv.org/pdf/2609.27113v1"
     },
@@ -188,48 +224,48 @@
       "title": "Active Portfolio Management in Concentrated Equity Markets",
       "page": 6,
       "thumb": "/data/figures/2609.27113v1_p6_1.jpg",
-      "caption": "Figure 2. Monthly realized dispersion of the equal-weighted portfolio (blue) and the market portfolio (red) for the S&P 500 universe. We contrast RD\u00b5 with implied dispersion ID\u00b5 (gray), with the latter given by the (squared) S&P500 implied dispersion index (DSPX) [47]. \u2014 This time-series plot shows monthly realized dispersion (RD) in blue and implied dispersion (ID) in red from 1980 to 2020 for the S&P 500, with a gray line representing the VIX-based implied dispersion index (DSPX). The y-axis m",
+      "caption": "Figure 2. Monthly realized dispersion of the equal-weighted portfolio (blue) and the market portfolio (red) for the S&P 500 universe. We contrast RD\u00b5 with implied dispersion ID\u00b5 (gray), with the latter given by the (squared) S&P500 implied dispersion index (DSPX) [47]. \u2014 This time series plot displays monthly realized dispersion (RD\u03bc) for both the equal-weighted portfolio (blue) and market portfolio (red) from 1980 to 2020, measured in basis points on the y-axis. The figure compares realized dis",
       "vision": true,
       "source": "https://arxiv.org/pdf/2609.27113v1"
-    },
-    {
-      "doc_id": "2609.27113v1",
-      "title": "Active Portfolio Management in Concentrated Equity Markets",
-      "page": 15,
-      "thumb": "/data/figures/2609.27113v1_p15_2.jpg",
-      "caption": "Figure 3. Top row: market diversity \u03c6 and the adjusted dispersion proxy b\u03b4 = c\u03b4RD for the S&P 500 over the full sample period, 1977\u20132024, both sampled at a monthly frequency. The vertical dashed line in each panel marks the end of the in-sample period used to calibrate the mean-reverting model. Bottom row: monthly sample paths of diversity and dispersion simulated from the calibrated model. The pa \u2014 This figure displays market diversity and dispersion metrics for the S&P 500 from 1977\u20132024 (top ",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.27113v1"
-    },
-    {
-      "doc_id": "2609.27113v1",
-      "title": "Active Portfolio Management in Concentrated Equity Markets",
-      "page": 16,
-      "thumb": "/data/figures/2609.27113v1_p16_3.jpg",
-      "caption": "Figure 4. Left panel: Kernel density estimates of the monthly increments in market diversity, \u2206\u03c6, over the in-sample period 1977\u20132004 (blue), the out-of-sample period 2005\u20132024 (red), and the sample path highlighted in Figure 3 (yellow). Right panel: Kernel density estimates of the adjusted realized-dispersion proxy b\u03b4 = c\u03b4RD over the in-sample and out-of-sample periods, together with the stationa \u2014 The left panel displays kernel density estimates of monthly changes in market diversity (\u0394\u03c6) comp",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.27113v1"
-    },
-    {
-      "doc_id": "2609.27107v1",
-      "title": "Local Weak Limits for Equilibrium and Risk in Economic Networks",
-      "page": 8,
-      "thumb": "/data/figures/2609.27107v1_p8_0.jpg",
-      "caption": "Figure 1: Outgoing exploration and normalization. Primitive exposures (top) and normalized weights (bottom) are shown for the full network and its depth-1 and depth-2 restrictions. \u2014 This figure illustrates a network exploration and normalization process across three levels of depth restriction. Panel (a) shows a full marked network with nodes labeled 1-5 and edges marked with coefficients (C_ij in top, W_ij in bottom), with a root node highlighted in red. Panels (b) and (c) demonstrate depth-1 ",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.27107v1"
-    },
-    {
-      "doc_id": "2609.27107v1",
-      "title": "Local Weak Limits for Equilibrium and Risk in Economic Networks",
-      "page": 10,
-      "thumb": "/data/figures/2609.27107v1_p10_1.jpg",
-      "caption": "Figure 2: Finite-depth approximation of equilibrium. Solid horizontal arrows denote convergence as n \u2192\u221eat fixed k, and vertical arrows denote limits as k \u2192\u221e. The nonexpansive inequalities hold for every n and k. Dashed arrows are the conclusions of the limit theorems. \u2014 This figure presents a commutative diagram illustrating the limiting behavior of finite-depth approximations in economic network equilibrium. The diagram shows convergence relationships with two limiting processes: horizontal arr",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.27107v1"
     }
   ],
   "docs": [
+    {
+      "id": "2609.29887v1",
+      "title": "Cost-Sensitive Online Window Size Selection for Portfolio Management",
+      "source": "https://arxiv.org/pdf/2609.29887v1",
+      "pages": 23,
+      "images": 0,
+      "figures_captioned": 4,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 45
+    },
+    {
+      "id": "2609.29108v1",
+      "title": "Functional Architecture of European Electricity Trading Markets: Requirements for AI Supported Trading Systems under Regulatory Constraints",
+      "source": "https://arxiv.org/pdf/2609.29108v1",
+      "pages": 12,
+      "images": 0,
+      "figures_captioned": 0,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 26
+    },
+    {
+      "id": "2609.28863v1",
+      "title": "Affine Pricing Models from Group Quantization and Holonomy",
+      "source": "https://arxiv.org/pdf/2609.28863v1",
+      "pages": 28,
+      "images": 0,
+      "figures_captioned": 0,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 25
+    },
     {
       "id": "2609.28463v1",
       "title": "Market Completeness and Optional Projections under Restricted Information",
@@ -296,11 +332,11 @@
       "source": "https://arxiv.org/pdf/2609.27113v1",
       "pages": 31,
       "images": 0,
-      "figures_captioned": 4,
+      "figures_captioned": 2,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 66
+      "chunks_indexed": 64
     },
     {
       "id": "2609.27107v1",
@@ -308,47 +344,11 @@
       "source": "https://arxiv.org/pdf/2609.27107v1",
       "pages": 41,
       "images": 0,
-      "figures_captioned": 2,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 57
-    },
-    {
-      "id": "2609.27051v1",
-      "title": "Propose, Don't Judge: An Anytime-Valid Referee for LLM Agents That Mine Investment Factors",
-      "source": "https://arxiv.org/pdf/2609.27051v1",
-      "pages": 37,
-      "images": 0,
       "figures_captioned": 0,
-      "tables": 2,
+      "tables": 0,
       "has_math": true,
       "ocr_used": false,
       "chunks_indexed": 55
-    },
-    {
-      "id": "2609.27024v1",
-      "title": "Loss Choice or Model Choice? The Role of Forecast Level in Cryptocurrency Volatility Forecasting",
-      "source": "https://arxiv.org/pdf/2609.27024v1",
-      "pages": 8,
-      "images": 0,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 13
-    },
-    {
-      "id": "2609.26606v1",
-      "title": "Liquidity Provision and Rebate Design in Option Markets",
-      "source": "https://arxiv.org/pdf/2609.26606v1",
-      "pages": 36,
-      "images": 10,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 58
     }
   ]
 }
