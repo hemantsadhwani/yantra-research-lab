@@ -1,7 +1,7 @@
 {
   "_note": "Public run manifest of the Tier-3 agentic ingestion pipeline. Safe aggregates + provenance only; raw PDFs live in S3, not here.",
-  "run_id": "20260927T081318Z",
-  "generated_at": "2026-09-27T08:16:23+00:00",
+  "run_id": "20260928T084319Z",
+  "generated_at": "2026-09-28T08:46:21+00:00",
   "collection": "research_corpus",
   "embed_model": "BAAI/bge-small-en-v1.5",
   "dag": [
@@ -50,28 +50,136 @@
     "discovered": 10,
     "fetched": 10,
     "parsed": 10,
-    "chunks": 482,
-    "accepted": 461,
-    "rejected": 21,
-    "images": 3,
-    "figures_captioned": 18,
+    "chunks": 400,
+    "accepted": 380,
+    "rejected": 20,
+    "images": 22,
+    "figures_captioned": 16,
     "tables": 1,
     "with_math": 10,
-    "indexed": 461,
-    "spent_usd": 0.0327,
-    "duration_s": 185.3
+    "indexed": 380,
+    "spent_usd": 0.0293,
+    "duration_s": 182.5
   },
   "rejects_by_reason": {
-    "low-relevance": 21
+    "low-relevance": 20
   },
   "budget_usd": 3.0,
   "figures": [
+    {
+      "doc_id": "2609.31379v1",
+      "title": "How Much Must a Private Mempool Hide? Exact Leakage Thresholds for Sandwich Attacks",
+      "page": 2,
+      "thumb": "/data/figures/2609.31379v1_p2_0.jpg",
+      "caption": "Figure 1: (a) Guaranteed gross profit W of the optimal robust sandwich against the leaked lower bound \u2113, for slippage tolerances \u03c4 = 1% and \u03c4 = 0.5%, with execution cost c = 10\u22124X (dashed). A robust sandwich with positive net payoff at every consistent size exists exactly when \u2113> \u03bbc (Theorem 4.3); to first order \u03bbc \u2248c/\u03c4. (b) Leakage of the first d bits of the size, for sizes up to Q = 0.06X with \u03c4 \u2014 Figure 1 shows the relationship between information leakage and sandwich attack profitability in ",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.31379v1"
+    },
+    {
+      "doc_id": "2609.31345v1",
+      "title": "On the asymptotic shape of quantile surfaces",
+      "page": 10,
+      "thumb": "/data/figures/2609.31345v1_p10_0.jpg",
+      "caption": "Figure 1. Normalized densities gy/ max(gy) for the indicated values of y where 10.75 \u2248 exp(\u03b2\u22121((B\u00b5)1 + (B\u00b5)2 + 1)) is the (non-sharp) threshold for concavity from Theorem 3.6. The initially concentrated peak spreads and wanders to the right, then the mass flows to the left and finally concentrates at the left corner. The central minimum finally sits at the exact loca- tion (x\u2217in Proposition 3.3, d \u2014 This figure displays two panels of normalized density curves showing how probability distribution",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.31345v1"
+    },
+    {
+      "doc_id": "2609.31345v1",
+      "title": "On the asymptotic shape of quantile surfaces",
+      "page": 15,
+      "thumb": "/data/figures/2609.31345v1_p15_1.jpg",
+      "caption": "Figure 2. The case m = 1. \u00b5 = (0, 0), B11 = 0.5 (left panel), B11 = 5 (right panel), B12 = 0.1, B22 = 0.25. The vertical line is drawn at b1/\u03b2. The blue curve is the graph of (4.60). Quantiles were generated with 107 trials. \u2014 These two panels display normalized 1D quantile curves for low alpha values across different parameters. Each chart plots quantile level (u\u2081) on the x-axis against normalized quantile (S_B(u\u2081)/max(u\u2081)) on the y-axis, with multiple curves representing different alpha values",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.31345v1"
+    },
+    {
+      "doc_id": "2609.31345v1",
+      "title": "On the asymptotic shape of quantile surfaces",
+      "page": 15,
+      "thumb": "/data/figures/2609.31345v1_p15_2.jpg",
+      "caption": "Figure 3. The case m = 1 at the corners for the left and the right tail. \u00b5 = (0, 0), B11 = 0.5, B12 = \u22120.3, B22 = 0.25. The blue lines are the line segments (4.63) and (4.64). In this example the right tail develops convexity only at the last simulated instance (orange curve), as indicated by the mean curvature observations. Quantiles were generated with 107 trials. \u2014 Figure 3 displays two panels showing normalized 1D quantile curves at corner solutions for m=1 cases in left and right tails. The",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.31345v1"
+    },
+    {
+      "doc_id": "2609.31263v1",
+      "title": "Taming the Option Factor Zoo: A High-Dimensional Analysis",
+      "page": 10,
+      "thumb": "/data/figures/2609.31263v1_p10_0.jpg",
+      "caption": "Figure 1 shows the correlation matrix of the 137 option factors, ordered by hierarchical clustering. Most factors fall into a few large blocks of highly correlated measures, in line \u2014 This figure displays a correlation matrix of 137 option factors arranged by hierarchical clustering, shown as a heatmap with color intensity representing correlation strength. The axes list the individual option factors, and the clustering reveals distinct blocks of highly correlated factors organized into groups r",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.31263v1"
+    },
+    {
+      "doc_id": "2609.31263v1",
+      "title": "Taming the Option Factor Zoo: A High-Dimensional Analysis",
+      "page": 11,
+      "thumb": "/data/figures/2609.31263v1_p11_1.jpg",
+      "caption": "Figure 1: Clustered Correlation Matrix of the Option Factors. The figure shows the correlation matrix of the 137 option factors, reordered by hierarchical agglomerative clustering with Ward\u2019s linkage. Dark red blocks along the diagonal are clusters of highly correlated factors. \u2014 This heatmap displays a clustered correlation matrix of 137 option pricing factors, with rows and columns reordered using hierarchical agglomerative clustering with Ward's linkage to reveal structure. The color scale ra",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.31263v1"
+    },
+    {
+      "doc_id": "2609.31260v1",
+      "title": "Agentic Limit Order Books: Phase Transitions and Market Impact",
+      "page": 3,
+      "thumb": "/data/figures/2609.31260v1_p3_0.jpg",
+      "caption": "Figure 1: Evolution of the Order Book in the Solid (left), Liquid (centre) and Vapour (right) Phases. Positive quantities denote Bids, negative quantities denote Asks, Mid Price is shown in black. \u2014 This figure displays three stacked area charts showing order book evolution across different market phases: solid (left), liquid (center), and vapor (right). The x-axis represents time progression, while the y-axis shows price levels with quantities; bids are shown in positive values (green) and asks",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.31260v1"
+    },
+    {
+      "doc_id": "2609.31260v1",
+      "title": "Agentic Limit Order Books: Phase Transitions and Market Impact",
+      "page": 3,
+      "thumb": "/data/figures/2609.31260v1_p3_1.jpg",
+      "caption": "Figure 2: Mid-price volatility \u03c3 and probability of order book collapse p across varying Liquidity Provider count n and Market Depth d. System configuration: 1 Market Agent (Max Qty = 50, frequency = 1 trade/callback), n Liquidity Providers (Max Qty = 50), and max(3, \u230an/3\u230b) Scalpers (Max Qty = 10). \u2014 This figure displays two heatmaps showing how market microstructure metrics vary with the number of liquidity providers (n) and market depth (d). The left heatmap plots mid-price volatility in ticks",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.31260v1"
+    },
+    {
+      "doc_id": "2609.31260v1",
+      "title": "Agentic Limit Order Books: Phase Transitions and Market Impact",
+      "page": 4,
+      "thumb": "/data/figures/2609.31260v1_p4_2.jpg",
+      "caption": "Figure 3 illustrates impact propagation within the Continuous Liquidity Phase. The system response decomposes into three temporal phases: \u2014 Table 1 classifies three system regimes in agentic limit order books based on control parameters (order count n and depth d) and their corresponding market states. The regimes are: Collapsed Order Book (n < n_c, cascade/breakdown), Continuous Liquidity (n > n_c and d > d_c(n), stable/efficient price discovery), and Frozen Order Book (d < d_c(n), illiquid/sta",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.31260v1"
+    },
+    {
+      "doc_id": "2609.31260v1",
+      "title": "Agentic Limit Order Books: Phase Transitions and Market Impact",
+      "page": 4,
+      "thumb": "/data/figures/2609.31260v1_p4_3.jpg",
+      "caption": "Figure 3: Impact and dissipation in the Continuous Phase: First 100 impacted (green) vs. non-impacted (purple) price paths, alongside resulting z-scores. \u2014 This figure displays three side-by-side comparisons of market impact scenarios in limit order books, each containing 100 simulated price paths (top) and a corresponding z-score evolution (bottom). The top panels show price trajectories over time (0-100,000 ticks) colored green for impacted and purple for non-impacted orders, with the bottom p",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.31260v1"
+    },
+    {
+      "doc_id": "2609.31013v1",
+      "title": "Same Text, Different Numbers: The Divergence of LLM-Based Measures",
+      "page": 15,
+      "thumb": "/data/figures/2609.31013v1_p15_0.jpg",
+      "caption": "Figure 1 presents correlation heatmaps across models for four illustrative constructs: the two \u2014 This section introduces a methodological analysis comparing score distributions and correlations across seven different LLM (Large Language Model) providers for measuring financial constructs. The researchers examine pairwise correlations among model-generated scores, analyze the textual justifications provided by each LLM, and conduct principal components analysis to identify common underlying facto",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.31013v1"
+    },
+    {
+      "doc_id": "2609.30684v1",
+      "title": "PixSim: a calibrated open-source simulator of instant-payment fraud, recovery and interdiction under analyst capacity constraints",
+      "page": 6,
+      "thumb": "/data/figures/2609.30684v1_p6_0.jpg",
+      "caption": "Figure 1: The PixSim pipeline. Transactions are scored and routed to pass, alert or block. Alerts wait in a finite analyst queue under the regulatory hold window and settle on expiry. Settled frauds enter the MED clock, whose outcome depends on the random recovery window set by dispersal speed against reporting delay. Queue state is part of the policy\u2019s context. \u2014 This flowchart illustrates the PixSim instant-payment fraud simulator pipeline, showing the sequential processing of transactions fro",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.30684v1"
+    },
     {
       "doc_id": "2609.29887v1",
       "title": "Cost-Sensitive Online Window Size Selection for Portfolio Management",
       "page": 8,
       "thumb": "/data/figures/2609.29887v1_p8_0.jpg",
-      "caption": "Figure 1: Cost-Sensitive Tracking Regret for Hedge and Fixed Share with Negative PnL Loss \u2014 This line chart displays cumulative regret (in basis points, y-axis) over time from 2020 to 2028 (x-axis) comparing four portfolio management strategies: Hedge, Fixed Share, Optimal Expert Switch, and Threshold Bound. The Hedge strategy (dark blue line) maintains the lowest regret, growing gradually to approximately 50 basis points, while the Threshold Bound (light pink line) exhibits substantially higher",
+      "caption": "Figure 1: Cost-Sensitive Tracking Regret for Hedge and Fixed Share with Negative PnL Loss \u2014 This line chart displays cumulative regret over time from 2020 to 2028, comparing four portfolio management strategies: Hedge, Fixed Share, Optimal Regret Switch, and Theoretical Bound. The y-axis shows regret values ranging from 0 to 120, while the x-axis shows dates with a marked vertical line at 2023. The key takeaway is that the Theoretical Bound (pink line) grows substantially faster than the Hedge a",
       "vision": true,
       "source": "https://arxiv.org/pdf/2609.29887v1"
     },
@@ -80,7 +188,7 @@
       "title": "Cost-Sensitive Online Window Size Selection for Portfolio Management",
       "page": 8,
       "thumb": "/data/figures/2609.29887v1_p8_1.jpg",
-      "caption": "Figure 2: Evolution of the aggregation weights qj(t) assigned to the four window-size experts j \u2208 {5, 10, 21, 63} under (a) Hedge and (b) Fixed Share. \u2014 This figure displays two heatmaps showing the evolution of aggregation weights over time for portfolio management experts using different window sizes. The left panel (a) shows weights under the Hedge algorithm and the right panel (b) shows weights under the Fixed Share algorithm, with the x-axis representing dates from 2021 to 2027 and the y-ax",
+      "caption": "Figure 2: Evolution of the aggregation weights qj(t) assigned to the four window-size experts j \u2208 {5, 10, 21, 63} under (a) Hedge and (b) Fixed Share. \u2014 This figure displays two stacked area charts showing the evolution of aggregation weights over time from 2021 to 2027, comparing Hedge (left panel a) and Fixed Share (right panel b) algorithms. The y-axis represents \"Weights in Experts\" ranging from 0.00 to 1.00, while the x-axis shows the date progression. Each chart shows how four window-size ",
       "vision": true,
       "source": "https://arxiv.org/pdf/2609.29887v1"
     },
@@ -89,7 +197,7 @@
       "title": "Cost-Sensitive Online Window Size Selection for Portfolio Management",
       "page": 15,
       "thumb": "/data/figures/2609.29887v1_p15_2.jpg",
-      "caption": "Figure 3: Evolution of the aggregation weights qj(t) on four Window Sizes for different switching timing. \u2014 Figure 3 displays two stacked area charts tracking the evolution of aggregation weights across four window sizes (5, 10, 21, and 63 days) from 2021 to 2027 for portfolio management strategies. Panel (a) shows a Hedge strategy with an \"Optimal Expert Switch\" approach, while panel (b) shows a Fixed Share strategy with the same switching mechanism. The y-axis represents Weights in Expert (0 t",
+      "caption": "Figure 3: Evolution of the aggregation weights qj(t) on four Window Sizes for different switching timing. \u2014 These stacked area charts show the evolution of aggregation weights across four window sizes (5, 10, 21, and 63 days) from 2021 to 2027 for two portfolio strategies: Hedge (left) and Fixed Share (right). The y-axis represents weight in expert (0 to 1.00), and the x-axis shows the date progression. The key takeaway is that both strategies exhibit a gradual shift in weight allocation over ti",
       "vision": true,
       "source": "https://arxiv.org/pdf/2609.29887v1"
     },
@@ -98,138 +206,96 @@
       "title": "Cost-Sensitive Online Window Size Selection for Portfolio Management",
       "page": 15,
       "thumb": "/data/figures/2609.29887v1_p15_3.jpg",
-      "caption": "Figure 4: Evolution of the aggregation weights qj(t) on eight window sizes. \u2014 These stacked area charts show the evolution of aggregation weights across different window sizes (5, 10, 21, 30, 41, 50, 63, and 126 days) from 2021 to 2027 for both hedge (left panels) and fixed-share (right panels) portfolio strategies. The y-axis represents the aggregation weight (0 to 1.00) and the x-axis shows the date timeline. The key takeaway is that optimal expert switching (indicated by vertical dashed lines",
+      "caption": "Figure 4: Evolution of the aggregation weights qj(t) on eight window sizes. \u2014 These four stacked area charts show the evolution of aggregation weights across different window sizes from 2021 to 2027, comparing hedge and fixed share strategies with varying numbers of window sizes (4 and 8 windows). The y-axis represents weight in expert (0 to 1.00) and the x-axis shows time progression by date. The key takeaway is that optimal expert switching (marked by dashed vertical lines) causes distinct shi",
       "vision": true,
       "source": "https://arxiv.org/pdf/2609.29887v1"
-    },
-    {
-      "doc_id": "2609.27654v1",
-      "title": "FedIncome: Federated Learning for Income Estimation in Digital Lending Under Data Sovereignty Constraints",
-      "page": 2,
-      "thumb": "/data/figures/2609.27654v1_p2_0.jpg",
-      "caption": "Figure 1: AI-led credit decision support system for digital lending. \u2014 This flowchart illustrates an AI-based credit decisioning system for digital lending, starting from applicant data (application form, credit history, third-party data) that flows through minimum acceptance criteria screening. The diagram branches into four parallel modules addressing fraud detection, default estimation (using PD, LGD, EAD), income estimation (with inference and optimal DTI ratio), and offer simulation (risk-b",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.27654v1"
-    },
-    {
-      "doc_id": "2609.27654v1",
-      "title": "FedIncome: Federated Learning for Income Estimation in Digital Lending Under Data Sovereignty Constraints",
-      "page": 6,
-      "thumb": "/data/figures/2609.27654v1_p6_1.jpg",
-      "caption": "Figure 2: FedIncome framework: federated income estimation across K = 50 clients under data-local training. Borrower-level records remain at the participating clients, while model updates are exchanged with the aggregation server during training. \u2014 This figure illustrates a federated learning architecture for income estimation across multiple financial institutions. The system has three layers: a Data Layer with K institutions (Banks/Fintechs) each holding local borrower samples (n\u2081, n\u2082, n\u2096), an",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.27654v1"
-    },
-    {
-      "doc_id": "2609.27654v1",
-      "title": "FedIncome: Federated Learning for Income Estimation in Digital Lending Under Data Sovereignty Constraints",
-      "page": 6,
-      "thumb": "/data/figures/2609.27654v1_p6_2.jpg",
-      "caption": "Figure 3: Loan amount calibration framework. Federated income estimates \u02c6YFedIncome are translated into DTI- constrained loan offers. Income determines the maximum serviceable installment, product parameters (R, t) define repayment structure, and the annuity formula yields Lmax subject to the selected DTI constraint. \u2014 This flowchart illustrates a four-stage loan amount calibration framework that converts federated income predictions into DTI-constrained loan offers. Stage 1 inputs predicted mon",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.27654v1"
-    },
-    {
-      "doc_id": "2609.27654v1",
-      "title": "FedIncome: Federated Learning for Income Estimation in Digital Lending Under Data Sovereignty Constraints",
-      "page": 18,
-      "thumb": "/data/figures/2609.27654v1_p18_3.jpg",
-      "caption": "Figure 4 reports training performance over T = 10 communication rounds. FedNova and FedAvg improve smoothly over the training horizon and approach similar final values. FedProx progresses more slowly during the earlier rounds, while FedAdam shows greater variation later in training. SCAFFOLD remains below the other methods throughout the observed communication budget. \u2014 This figure displays training loss curves across 10 communication rounds for five federated learning algorithms (FedNova, FedAv",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.27654v1"
-    },
-    {
-      "doc_id": "2609.27614v1",
-      "title": "Model-agnostic noise reduction for high-dimensional time series data",
-      "page": 16,
-      "thumb": "/data/figures/2609.27614v1_p16_0.jpg",
-      "caption": "Figure 1: (asymptotic) denoising performance, measured as MSE/\u03bb, as a function of the dimension d and the lag order p of the VAR(p) process. Each boxplot consists of 100 independent simulations. For the sake of a baseline, we have included (in green) orthogonal denoising based on the standard asymptotically biased estimate of the covariance matrix of the signal. \u2014 This figure displays boxplots comparing mean squared error (MSE/\u03bb) across different denoising methods for VAR(p) processes with varyi",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.27614v1"
-    },
-    {
-      "doc_id": "2609.27614v1",
-      "title": "Model-agnostic noise reduction for high-dimensional time series data",
-      "page": 17,
-      "thumb": "/data/figures/2609.27614v1_p17_1.jpg",
-      "caption": "Figure 8 shows how denoising performance varies with Tr [\u03a3e] , the noise-to-signal ratio under the normalization Tr[Var[\u03bet]] = 1. Larger noise-to-signal ratios require longer time series for denoising performance to get close to its asymptotic value. When the noise-to- signal ratio is large and the time series is short, denoising can be harmful (MSE/\u03bb > 1): the denoised signal xden \u2014 This figure displays boxplots of squared error MSE/\u03bb versus time series length T for VAR(p) processes with varyin",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.27614v1"
-    },
-    {
-      "doc_id": "2609.27614v1",
-      "title": "Model-agnostic noise reduction for high-dimensional time series data",
-      "page": 17,
-      "thumb": "/data/figures/2609.27614v1_p17_2.jpg",
-      "caption": "Figure 9 examines the effect of \u03bb, the noise fraction in the observed time series, for time series of the default length T = 400. For very small noise fractions (\u03bb = 0.01) orthogonal denoising outperforms MSE-optimal denoising. However, the right panel of Figure 9 shows that that this difference is negligible in absolute terms. Even for very large noise fractions (\u03bb = 0.99) optimal denoising remov \u2014 This figure displays two panels comparing denoising performance across varying noise fractions (\u03bb",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.27614v1"
-    },
-    {
-      "doc_id": "2609.27614v1",
-      "title": "Model-agnostic noise reduction for high-dimensional time series data",
-      "page": 17,
-      "thumb": "/data/figures/2609.27614v1_p17_3.jpg",
-      "caption": "Figure 10 investigates the effect of changing the ratio of structured noise \u03b5t and un- structured noise \u03b5o \u2014 I cannot describe Figure 10 as it is not visible in the provided image. The image shows text discussing Figures 7, 8, and 9, which examine denoising performance as a function of observed time series dimension, noise-to-signal ratio, and noise fraction respectively, but Figure 10 itself is not displayed.",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.27614v1"
-    },
-    {
-      "doc_id": "2609.27138v1",
-      "title": "Surface-Driven Stochastic Volatility for Commodity Options: Identification of Stochastic Vol-of-Vol and Leverage from Smile Dynamics",
-      "page": 8,
-      "thumb": "/data/figures/2609.27138v1_p8_0.jpg",
-      "caption": "Figure 1. Daily CME CVOL soybean surface indicators, October 2013 to Au- gust 2025. Top: ATM implied volatility level Lt (%). Second: additive skew St; the dashed line marks zero. Third: skew ratio Rt. Bottom: convexity Ct. Shaded regions mark key market episodes: the 2014 record US harvest, the US-China trade war, COVID-19 supply disruption, the 2021 La Ni\u02dcna drought, and the 2022 Russia- Ukraine \u2014 This figure displays four time-series panels of daily CME CVOL soybean surface indicators from Oc",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.27138v1"
-    },
-    {
-      "doc_id": "2609.27138v1",
-      "title": "Surface-Driven Stochastic Volatility for Commodity Options: Identification of Stochastic Vol-of-Vol and Leverage from Smile Dynamics",
-      "page": 8,
-      "thumb": "/data/figures/2609.27138v1_p8_1.jpg",
-      "caption": "Figure 1 plots the full daily time series of all four indicators from October 2013 to August 2025. The visual evidence already suggests mean reversion. All four series fluctuate around stable long-run levels instead of drifting without bound, and large deviations such as the level spike to 39.5% in June 2021 or the negative-skew cluster in late 2014 resolve within weeks or months. \u2014 This figure shows four time series of CME CVOL soybean surface indicators from October 2013 to August 2025 using l",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.27138v1"
-    },
-    {
-      "doc_id": "2609.27138v1",
-      "title": "Surface-Driven Stochastic Volatility for Commodity Options: Identification of Stochastic Vol-of-Vol and Leverage from Smile Dynamics",
-      "page": 10,
-      "thumb": "/data/figures/2609.27138v1_p10_2.jpg",
-      "caption": "Figure 2 shows the empirical density of each indicator alongside a fitted Gaussian curve. All four distri- butions depart from normality. The level and skew are positively skewed with heavy right tails, consistent with infrequent but large upward moves. The skew ratio and convexity exhibit lighter tails, but they are still non-Gaussian. \u2014 This figure displays four histograms comparing empirical distributions of financial indicators (level, skew, skew ratio, and convexity) against fitted normal d",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.27138v1"
-    },
-    {
-      "doc_id": "2609.27138v1",
-      "title": "Surface-Driven Stochastic Volatility for Commodity Options: Identification of Stochastic Vol-of-Vol and Leverage from Smile Dynamics",
-      "page": 10,
-      "thumb": "/data/figures/2609.27138v1_p10_3.jpg",
-      "caption": "Figure 2. Empirical density histograms for the four surface indicators, with a fitted Gaussian curve for comparison. The red dotted vertical line in the additive-skew panel marks zero, and the annotation reports the share of trading days for which St < 0. All panels use the October 2013 to August 2025 sample. \u2014 This figure displays four histograms comparing empirical distributions of surface indicators (Level, Additive Skew, Skew Ratio, and Convexity) against fitted normal distributions across O",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.27138v1"
-    },
-    {
-      "doc_id": "2609.27113v1",
-      "title": "Active Portfolio Management in Concentrated Equity Markets",
-      "page": 4,
-      "thumb": "/data/figures/2609.27113v1_p4_0.jpg",
-      "caption": "Figure 1. Monthly time series of market diversity for the S&P 500 universe. \u2014 This line chart displays the monthly market diversity index for the S&P 500 from 1979 to 2024, measured on the y-axis as a negative value ranging from approximately -7.3 to -6.8. The time series shows significant fluctuations in market concentration, with a notable sharp decline to -7.2 around 2003 indicating a period of high concentration, and generally higher diversity (less negative values) during the 1980s-1990s an",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.27113v1"
-    },
-    {
-      "doc_id": "2609.27113v1",
-      "title": "Active Portfolio Management in Concentrated Equity Markets",
-      "page": 6,
-      "thumb": "/data/figures/2609.27113v1_p6_1.jpg",
-      "caption": "Figure 2. Monthly realized dispersion of the equal-weighted portfolio (blue) and the market portfolio (red) for the S&P 500 universe. We contrast RD\u00b5 with implied dispersion ID\u00b5 (gray), with the latter given by the (squared) S&P500 implied dispersion index (DSPX) [47]. \u2014 This time-series plot displays monthly realized dispersion (RD) in blue and red lines alongside implied dispersion (ID) in gray from 1980 to 2020 for the S&P 500 universe, with the y-axis showing realized dispersion in basis poi",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.27113v1"
     }
   ],
   "docs": [
+    {
+      "id": "2609.31578v1",
+      "title": "Algorithmic trading and stochastic integration",
+      "source": "https://arxiv.org/pdf/2609.31578v1",
+      "pages": 35,
+      "images": 0,
+      "figures_captioned": 0,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 55
+    },
+    {
+      "id": "2609.31379v1",
+      "title": "How Much Must a Private Mempool Hide? Exact Leakage Thresholds for Sandwich Attacks",
+      "source": "https://arxiv.org/pdf/2609.31379v1",
+      "pages": 23,
+      "images": 0,
+      "figures_captioned": 1,
+      "tables": 1,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 54
+    },
+    {
+      "id": "2609.31345v1",
+      "title": "On the asymptotic shape of quantile surfaces",
+      "source": "https://arxiv.org/pdf/2609.31345v1",
+      "pages": 17,
+      "images": 6,
+      "figures_captioned": 3,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 42
+    },
+    {
+      "id": "2609.31263v1",
+      "title": "Taming the Option Factor Zoo: A High-Dimensional Analysis",
+      "source": "https://arxiv.org/pdf/2609.31263v1",
+      "pages": 46,
+      "images": 1,
+      "figures_captioned": 2,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 39
+    },
+    {
+      "id": "2609.31260v1",
+      "title": "Agentic Limit Order Books: Phase Transitions and Market Impact",
+      "source": "https://arxiv.org/pdf/2609.31260v1",
+      "pages": 6,
+      "images": 15,
+      "figures_captioned": 4,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 15
+    },
+    {
+      "id": "2609.31013v1",
+      "title": "Same Text, Different Numbers: The Divergence of LLM-Based Measures",
+      "source": "https://arxiv.org/pdf/2609.31013v1",
+      "pages": 86,
+      "images": 0,
+      "figures_captioned": 1,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 29
+    },
+    {
+      "id": "2609.30684v1",
+      "title": "PixSim: a calibrated open-source simulator of instant-payment fraud, recovery and interdiction under analyst capacity constraints",
+      "source": "https://arxiv.org/pdf/2609.30684v1",
+      "pages": 25,
+      "images": 0,
+      "figures_captioned": 1,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 50
+    },
     {
       "id": "2609.29887v1",
       "title": "Cost-Sensitive Online Window Size Selection for Portfolio Management",
@@ -265,90 +331,6 @@
       "has_math": true,
       "ocr_used": false,
       "chunks_indexed": 25
-    },
-    {
-      "id": "2609.28463v1",
-      "title": "Market Completeness and Optional Projections under Restricted Information",
-      "source": "https://arxiv.org/pdf/2609.28463v1",
-      "pages": 22,
-      "images": 0,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 54
-    },
-    {
-      "id": "2609.27654v1",
-      "title": "FedIncome: Federated Learning for Income Estimation in Digital Lending Under Data Sovereignty Constraints",
-      "source": "https://arxiv.org/pdf/2609.27654v1",
-      "pages": 34,
-      "images": 2,
-      "figures_captioned": 4,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 55
-    },
-    {
-      "id": "2609.27636v1",
-      "title": "Multi-Agent AI Architecture for Regulated Insurers: A generic AI framework under Solvency II and the AI Act in Austria and Germany",
-      "source": "https://arxiv.org/pdf/2609.27636v1",
-      "pages": 15,
-      "images": 0,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 33
-    },
-    {
-      "id": "2609.27614v1",
-      "title": "Model-agnostic noise reduction for high-dimensional time series data",
-      "source": "https://arxiv.org/pdf/2609.27614v1",
-      "pages": 36,
-      "images": 0,
-      "figures_captioned": 4,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 56
-    },
-    {
-      "id": "2609.27138v1",
-      "title": "Surface-Driven Stochastic Volatility for Commodity Options: Identification of Stochastic Vol-of-Vol and Leverage from Smile Dynamics",
-      "source": "https://arxiv.org/pdf/2609.27138v1",
-      "pages": 43,
-      "images": 1,
-      "figures_captioned": 4,
-      "tables": 1,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 48
-    },
-    {
-      "id": "2609.27113v1",
-      "title": "Active Portfolio Management in Concentrated Equity Markets",
-      "source": "https://arxiv.org/pdf/2609.27113v1",
-      "pages": 31,
-      "images": 0,
-      "figures_captioned": 2,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 64
-    },
-    {
-      "id": "2609.27107v1",
-      "title": "Local Weak Limits for Equilibrium and Risk in Economic Networks",
-      "source": "https://arxiv.org/pdf/2609.27107v1",
-      "pages": 41,
-      "images": 0,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 55
     }
   ]
 }
