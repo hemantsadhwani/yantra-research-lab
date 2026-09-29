@@ -18,16 +18,15 @@ import time
 from collections import defaultdict, deque
 from datetime import date
 
+import books
+import guardrails
+import metrics as metrics_mod
+import observability as obs
 from dotenv import find_dotenv, load_dotenv
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel, Field
-
-import books
-import guardrails
-import metrics as metrics_mod
-import observability as obs
 from retriever import get_retriever
 
 # --------------------------------------------------------------------------- #

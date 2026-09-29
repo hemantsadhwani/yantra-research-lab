@@ -14,7 +14,6 @@ from __future__ import annotations
 
 import os
 from pathlib import Path
-from typing import Optional
 
 from ingestion import config
 
@@ -25,11 +24,9 @@ class Storage:
     def get_bytes(self, key: str) -> bytes: ...
     def local_file(self, key: str) -> Path:
         """Return a local filesystem path for ``key`` (downloading/caching if remote)."""
-        ...
 
     def uri(self, key: str) -> str:
         """A stable identifier for lineage (s3://… or file://…). Not necessarily public."""
-        ...
 
 
 class LocalStorage(Storage):
@@ -59,8 +56,8 @@ class LocalStorage(Storage):
 
 
 class S3Storage(Storage):
-    def __init__(self, bucket: str, prefix: str = "", endpoint_url: Optional[str] = None,
-                 region: Optional[str] = None, cache_dir: Optional[Path] = None):
+    def __init__(self, bucket: str, prefix: str = "", endpoint_url: str | None = None,
+                 region: str | None = None, cache_dir: Path | None = None):
         import boto3  # imported lazily so local runs don't need boto3
 
         self.bucket = bucket

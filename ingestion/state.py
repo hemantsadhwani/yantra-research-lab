@@ -7,7 +7,7 @@ graph state; individual documents move through it as they gain fields stage by s
 
 from __future__ import annotations
 
-from typing import Annotated, Any, Literal, Optional, TypedDict
+from typing import Any, Literal, TypedDict
 
 from pydantic import BaseModel, Field
 
@@ -39,7 +39,7 @@ class Block(BaseModel):
     kind: BlockKind
     text: str = ""                            # text / table-as-text / formula text / image caption
     page: int = 0
-    image_path: Optional[str] = None          # set for kind == 'image'
+    image_path: str | None = None          # set for kind == 'image'
     meta: dict[str, Any] = Field(default_factory=dict)
 
 
@@ -71,7 +71,7 @@ class Chunk(BaseModel):
     sha256: str = ""                          # dedup key
     topics: list[str] = Field(default_factory=list)
     summary: str = ""
-    image_path: Optional[str] = None
+    image_path: str | None = None
 
 
 class Reject(BaseModel):

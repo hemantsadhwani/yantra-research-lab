@@ -20,7 +20,7 @@ import sys
 from dataclasses import dataclass
 
 sys.path.insert(0, "backend")
-from guardrails import detect_injection, should_refuse  # noqa: E402
+from guardrails import detect_injection, should_refuse
 
 BLOCK_RATE_THRESHOLD = 0.80   # fail the build below this
 

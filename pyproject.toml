@@ -6,19 +6,20 @@ build-backend = "setuptools.build_meta"
 name = "yantra-research-lab"
 version = "0.1.0"
 description = "Autonomous multi-agent quant strategy research platform (public synthetic-engine build)."
-requires-python = ">=3.11"
+requires-python = ">=3.12"
 readme = "README.md"
 license = { text = "MIT" }
 dependencies = []   # Tier-1 core runs on the standard library — clone and run, no deps
 
 [project.optional-dependencies]
-# Tier-2/3 dependencies, installed per service as they are built out.
-agents = ["langgraph>=0.2", "langchain>=0.3", "pydantic>=2"]
-llm    = ["anthropic>=0.40", "litellm>=1.50"]
-mcp    = ["mcp>=1.0"]
-rag    = ["chromadb>=0.5", "voyageai>=0.3"]
-ops    = ["langsmith>=0.1", "logfire>=0.50", "opentelemetry-sdk>=1.27"]
+# Installed per service. The Tier-1 default path never needs any of these.
+agents = ["langgraph>=1.0,<2", "langgraph-checkpoint-sqlite>=2,<3", "pydantic>=2.7,<3"]
+llm    = ["anthropic[bedrock]>=0.49,<2"]          # Anthropic direct + Claude on Bedrock; Ollama needs nothing
+mcp    = ["mcp>=1.10,<2"]
+memory = ["fastembed>=0.3,<0.8"]                  # optional semantic layer; stdlib hashed embedder is the fallback
+ops    = ["logfire>=4,<5"]                        # bundles OpenTelemetry
 dev    = ["pytest>=8", "ruff>=0.6"]
+all    = ["yantra-research-lab[agents,llm,mcp,memory,ops,dev]"]
 
 [project.scripts]
 yantra-research = "research_lab.run:main"
@@ -28,7 +29,7 @@ packages = ["research_lab", "research_lab.agents", "synthetic_engine", "mcp_serv
 
 [tool.ruff]
 line-length = 100
-target-version = "py311"
+target-version = "py312"
 
 [tool.pytest.ini_options]
 addopts = "-q"

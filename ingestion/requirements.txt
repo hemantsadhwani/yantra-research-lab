@@ -1,8 +1,9 @@
 # Tier-3 agentic ingestion pipeline — SEPARATE from the serving container (backend/).
 # This is a batch/offline job; none of these heavy parsers ship in the API image.
 
-langgraph>=0.2,<0.4            # StateGraph orchestration: retries, checkpoints, HITL
-langchain-core>=0.3,<0.4      # graph primitives langgraph builds on
+langgraph>=1.0,<2              # StateGraph orchestration: retries, checkpoints, HITL
+langgraph-checkpoint-sqlite>=2,<3  # SqliteSaver for the human gate
+langchain-core>=0.3,<2        # graph primitives langgraph builds on
 pymupdf>=1.24,<1.29           # PDF text + tables (find_tables) + images, one lib, no torch
 pytesseract>=0.3,<0.4         # OCR fallback for image-only pages (needs `tesseract` binary)
 beautifulsoup4>=4.12,<5       # HTML parsing (future web sources)

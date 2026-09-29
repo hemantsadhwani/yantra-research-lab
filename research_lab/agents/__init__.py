@@ -4,4 +4,4 @@ from .backtester import Backtester
 from .evaluator import Evaluator, score_result
 from .proposer import Proposer
 
-__all__ = ["Proposer", "Backtester", "Evaluator", "score_result"]
+__all__ = ["Backtester", "Evaluator", "Proposer", "score_result"]

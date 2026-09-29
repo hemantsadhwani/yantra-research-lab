@@ -19,12 +19,12 @@ from langgraph.graph import END, START, StateGraph
 
 from ingestion import config
 from ingestion.caption import caption_figures
+from ingestion.discover import discover
 from ingestion.enrich import enrich
 from ingestion.fetch import fetch
 from ingestion.index import index_chunks, write_catalog
 from ingestion.parse import parse_pdf
 from ingestion.quality import quality_gate
-from ingestion.discover import discover
 from ingestion.state import Chunk, FetchedDoc, ParsedDoc, PipelineState, Reject, SourceDoc
 from ingestion.storage import get_storage
 
@@ -107,7 +107,7 @@ def _n_index(state: PipelineState) -> dict:
 
 def build_graph():
     g = StateGraph(PipelineState)
-    kw = {"retry": _RETRY} if _RETRY is not None else {}
+    kw = {"retry_policy": _RETRY} if _RETRY is not None else {}
     g.add_node("discover", _n_discover)
     g.add_node("fetch", _n_fetch, **kw)
     g.add_node("parse", _n_parse, **kw)

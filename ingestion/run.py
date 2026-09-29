@@ -15,14 +15,14 @@ import json
 import sys
 import time
 from collections import Counter
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 
 # Make repo root importable when run as a script.
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from ingestion import config  # noqa: E402
-from ingestion.graph import build_graph  # noqa: E402
+from ingestion import config
+from ingestion.graph import build_graph
 
 DAG = [
     {"id": "discover", "label": "Discover", "desc": "arXiv q-fin API — source catalog"},
@@ -62,7 +62,7 @@ def main() -> None:
     config.ensure_dirs()
     logfire = _configure_logfire()
 
-    run_id = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+    run_id = datetime.now(UTC).strftime("%Y%m%dT%H%M%SZ")
     t0 = time.monotonic()
 
     graph = build_graph()
@@ -105,7 +105,7 @@ def main() -> None:
         "_note": ("Public run manifest of the Tier-3 agentic ingestion pipeline. "
                   "Safe aggregates + provenance only; raw PDFs live in S3, not here."),
         "run_id": run_id,
-        "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+        "generated_at": datetime.now(UTC).isoformat(timespec="seconds"),
         "collection": config.COLLECTION,
         "embed_model": config.EMBED_MODEL,
         "dag": DAG,

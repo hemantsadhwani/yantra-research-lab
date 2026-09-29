@@ -1,0 +1,11 @@
+# Normalise line endings: the repo is edited on macOS and Windows.
+* text=auto eol=lf
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.pdf binary
+*.ico binary
+*.woff binary
+*.woff2 binary
+*.sqlite binary

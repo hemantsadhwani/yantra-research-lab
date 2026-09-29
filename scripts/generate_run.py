@@ -19,8 +19,8 @@ from pathlib import Path
 # Make the repo root importable no matter where this script is invoked from.
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from research_lab.agents.evaluator import score_result  # noqa: E402
-from research_lab.supervisor import Supervisor  # noqa: E402
+from research_lab.agents.evaluator import score_result
+from research_lab.supervisor import Supervisor
 
 SEED = 3
 ITERATIONS = 5

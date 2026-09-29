@@ -19,7 +19,7 @@ import json
 import os
 import threading
 import time
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 
 import httpx
 
@@ -162,7 +162,7 @@ def _compute(rows: list[dict]) -> dict:
         "avg_cost_usd": avg_cost,
         "total_cost_usd": total_cost,
         "recent_events": feed,
-        "updated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+        "updated_at": datetime.now(UTC).isoformat(timespec="seconds"),
     }
 
 

@@ -9,8 +9,8 @@ after which everything runs fully offline.
 from __future__ import annotations
 
 import os
+from collections.abc import Iterable
 from functools import lru_cache
-from typing import Iterable
 
 # bge-small-en-v1.5 produces 384-dimensional embeddings.
 EMBED_MODEL = os.environ.get("EMBED_MODEL", "BAAI/bge-small-en-v1.5")

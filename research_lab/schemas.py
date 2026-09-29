@@ -8,7 +8,6 @@ the field shapes are identical so the swap is mechanical. See ADR-0003.
 from __future__ import annotations
 
 from dataclasses import dataclass, field
-from typing import Optional
 
 
 @dataclass
@@ -17,7 +16,7 @@ class StrategyVariant:
     id: str
     params: dict[str, float]
     rationale: str
-    parent_id: Optional[str] = None   # the variant this was derived from (memory-guided)
+    parent_id: str | None = None   # the variant this was derived from (memory-guided)
 
 
 @dataclass
@@ -68,5 +67,5 @@ class RunResult:
     ranked: list[RankedVariant] = field(default_factory=list)   # best first
 
     @property
-    def best(self) -> Optional[RankedVariant]:
+    def best(self) -> RankedVariant | None:
         return self.ranked[0] if self.ranked else None

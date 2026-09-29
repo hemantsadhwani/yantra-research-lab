@@ -9,7 +9,7 @@ from __future__ import annotations
 import base64
 import json
 import os
-from typing import Any, Optional
+from typing import Any
 
 # Claude Haiku 4.5 list prices (USD / million tokens). Env-overridable.
 PRICE_IN = float(os.environ.get("PRICE_INPUT_PER_MTOK", "1.0"))
@@ -47,7 +47,7 @@ def _strip_fences(s: str) -> str:
     return s.strip()
 
 
-def complete_json(system: str, user: str, model: str, max_tokens: int) -> tuple[Optional[dict[str, Any]], float]:
+def complete_json(system: str, user: str, model: str, max_tokens: int) -> tuple[dict[str, Any] | None, float]:
     """Call the model and parse a JSON object from its reply.
 
     Returns (parsed_or_None, cost_usd). Never raises — a bad/unparseable reply yields
@@ -74,7 +74,7 @@ def complete_json(system: str, user: str, model: str, max_tokens: int) -> tuple[
 
 
 def caption_image(system: str, user: str, image_bytes: bytes, media_type: str,
-                  model: str, max_tokens: int) -> tuple[Optional[str], float]:
+                  model: str, max_tokens: int) -> tuple[str | None, float]:
     """Vision call: describe a figure image. Returns (caption_or_None, cost_usd).
 
     Never raises — a missing key or API error yields (None, cost) so the caller can fall

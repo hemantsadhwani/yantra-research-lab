@@ -17,14 +17,12 @@ is the store you draw it from, not the window itself.
 
 from __future__ import annotations
 
-from typing import Optional
-
 from research_lab.schemas import Evaluation, StrategyVariant, Trial
 
 
 class Memory:
     def __init__(self) -> None:
-        self._best: Optional[tuple[str, dict[str, float], float]] = None  # (id, params, score)
+        self._best: tuple[str, dict[str, float], float] | None = None  # (id, params, score)
         self._trials: list[Trial] = []   # append-only history, oldest first
 
     def observe(self, variant: StrategyVariant, evaluation: Evaluation) -> None:
@@ -40,13 +38,13 @@ class Memory:
         if self._best is None or evaluation.score > self._best[2]:
             self._best = (variant.id, dict(variant.params), evaluation.score)
 
-    def best_params(self) -> Optional[dict[str, float]]:
+    def best_params(self) -> dict[str, float] | None:
         return dict(self._best[1]) if self._best else None
 
-    def best_id(self) -> Optional[str]:
+    def best_id(self) -> str | None:
         return self._best[0] if self._best else None
 
-    def best_score(self) -> Optional[float]:
+    def best_score(self) -> float | None:
         return self._best[2] if self._best else None
 
     def trials(self) -> list[Trial]:

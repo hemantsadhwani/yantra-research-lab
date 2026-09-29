@@ -91,4 +91,4 @@ def caption_figures(
 
 def figure_chunk_sha(doc_id: str, page: int, caption: str) -> str:
     """Stable dedup/id key for a figure chunk (distinct from text-chunk hashing)."""
-    return hashlib.sha256(f"fig::{doc_id}::{page}::{caption}".encode("utf-8")).hexdigest()
+    return hashlib.sha256(f"fig::{doc_id}::{page}::{caption}".encode()).hexdigest()

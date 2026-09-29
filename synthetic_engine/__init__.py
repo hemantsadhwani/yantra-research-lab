@@ -18,11 +18,11 @@ from .engine import (
 )
 
 __all__ = [
-    "run_backtest",
     "BASELINE_PARAMS",
-    "PARAM_SPACE",
     "DEFAULT_STRATEGY",
+    "PARAM_SPACE",
     "STRATEGIES",
     "get_baseline",
     "list_strategies",
+    "run_backtest",
 ]

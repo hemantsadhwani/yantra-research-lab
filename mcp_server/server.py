@@ -24,9 +24,13 @@ from __future__ import annotations
 from synthetic_engine import (
     DEFAULT_STRATEGY,
     PARAM_SPACE,
-    get_baseline as _get_baseline,
-    list_strategies as _list_strategies,
     run_backtest,
+)
+from synthetic_engine import (
+    get_baseline as _get_baseline,
+)
+from synthetic_engine import (
+    list_strategies as _list_strategies,
 )
 
 

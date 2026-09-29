@@ -32,7 +32,6 @@ import sys
 import time
 from dataclasses import asdict, dataclass
 from pathlib import Path
-from typing import Optional
 
 if hasattr(sys.stdout, "reconfigure"):   # cp1252 consoles choke on the box drawing
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
@@ -94,7 +93,7 @@ def run_one(
     )
 
 
-def _table(rows: list[StudyRow], baseline_score: Optional[float]) -> str:
+def _table(rows: list[StudyRow], baseline_score: float | None) -> str:
     w = 86
     out = ["", "=" * w,
            "  Day 6B · context construction study — same loop, same budget, same seed",
