@@ -1,6 +1,12 @@
 """Tier-1 smoke tests: the engine is deterministic, the loop runs and beats the baseline,
 and nothing is promoted without a human gate."""
 
+import subprocess
+import sys
+from pathlib import Path
+
+import pytest
+
 from research_lab.agents.evaluator import score_result
 from research_lab.supervisor import Supervisor
 from synthetic_engine import (
@@ -57,3 +63,26 @@ def test_no_autonomous_promotion():
     # verdicts are only ever a question ('promote?') or hold/reject — never 'promoted'.
     run = Supervisor(seed=1).run(iterations=3, variants_per_iter=5)
     assert all(rv.evaluation.verdict in {"promote?", "hold", "reject"} for rv in run.ranked)
+
+
+REPO = Path(__file__).resolve().parents[1]
+
+
+def test_stdlib_path_never_imports_langgraph():
+    # The zero-dependency default must stay zero-dependency: only graph.py/run_graph.py
+    # may import langgraph.
+    code = ("import research_lab.run, research_lab.supervisor, sys; "
+            "assert 'langgraph' not in sys.modules and 'pydantic' not in sys.modules")
+    subprocess.run([sys.executable, "-c", code], cwd=REPO, check=True)
+
+
+def test_run_graph_cli_pauses_at_gate(tmp_path):
+    pytest.importorskip("langgraph")
+    # 1x3 (not 1x2): with seed 3, 1x2 finds no 'promote?' candidate, so it never reaches the gate.
+    out = subprocess.run(
+        [sys.executable, "-m", "research_lab.run_graph", "--iterations", "1", "--variants", "3",
+         "--seed", "3", "--no-gate", "--db", str(tmp_path / "ck.sqlite")],
+        cwd=REPO, capture_output=True, text=True, encoding="utf-8", check=False,
+    )
+    assert out.returncode == 0, out.stderr
+    assert "PAUSED" in out.stdout

@@ -23,7 +23,7 @@ from research_lab.supervisor import Supervisor
 from synthetic_engine import DEFAULT_STRATEGY, list_strategies
 
 
-def _report(run: RunResult, strategy: str) -> str:
+def render_report(run: RunResult, strategy: str) -> str:
     lines: list[str] = []
     b = run.baseline
     lines.append("")
@@ -59,6 +59,9 @@ def _report(run: RunResult, strategy: str) -> str:
     return "\n".join(lines)
 
 
+_report = render_report   # backwards-compatible private name
+
+
 def main() -> None:
     ap = argparse.ArgumentParser(description="Run one autonomous research session.")
     ap.add_argument("--iterations", type=int, default=4)
@@ -84,7 +87,7 @@ def main() -> None:
                             use_llm=args.use_llm, context_mode=args.context,
                             log=lambda m: print(f"  · {m}"))
     run = supervisor.run(iterations=args.iterations, variants_per_iter=args.variants)
-    print(_report(run, args.strategy))
+    print(render_report(run, args.strategy))
     p = supervisor.proposer
     if p.use_llm:
         print(f"  proposer: {p.model} · context '{p.context_mode}' · {p.llm_calls} calls · "

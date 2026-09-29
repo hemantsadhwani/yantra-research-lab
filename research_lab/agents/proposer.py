@@ -72,6 +72,8 @@ class Proposer:
         model: model id for the LLM path.
         context_mode: which context construction to build — see ``agents/context.py``.
             Only meaningful when ``use_llm`` is set.
+        start_counter: last variant number already issued, so a proposer rebuilt from a
+            checkpoint (see ``research_lab/graph.py``) continues ``vNNN`` numbering.
     """
 
     def __init__(
@@ -80,9 +82,10 @@ class Proposer:
         use_llm: bool = False,
         model: str = DEFAULT_LLM_MODEL,
         context_mode: str = "compacted",
+        start_counter: int = 0,
     ) -> None:
         self._rng = random.Random(seed)
-        self._counter = 0
+        self._counter = start_counter
         self.use_llm = use_llm
         self.model = model
         self.context_mode = context_mode
