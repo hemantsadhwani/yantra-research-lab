@@ -21,6 +21,8 @@ agent host cannot tell (nor need to) whether it is driving the public or the rea
 
 from __future__ import annotations
 
+from typing import Any
+
 from synthetic_engine import (
     DEFAULT_STRATEGY,
     PARAM_SPACE,
@@ -35,23 +37,30 @@ from synthetic_engine import (
 
 
 def _register(mcp) -> None:  # pragma: no cover - thin adapter
-    @mcp.tool()
-    def run_backtest_tool(params: dict, strategy: str = DEFAULT_STRATEGY) -> dict:
+    # Registered under the contract name (``run_backtest``); the Python name differs only
+    # to avoid shadowing the engine function imported above.
+    @mcp.tool(name="run_backtest", structured_output=True)
+    def run_backtest_tool(params: dict[str, float],
+                          strategy: str = DEFAULT_STRATEGY) -> dict[str, Any]:
         """Backtest one strategy variant on the public synthetic engine."""
-        return run_backtest(params, strategy=strategy)
+        # A plain dict of the BacktestResult metric fields -> FastMCP fills structuredContent.
+        return dict(run_backtest(params, strategy=strategy))
 
-    @mcp.tool()
-    def get_param_space() -> dict:
+    # structured_output=True + parameterised return types: FastMCP only fills
+    # ``structuredContent`` when it can build an output schema. A bare ``list`` return is
+    # otherwise split into one TextContent per item.
+    @mcp.tool(structured_output=True)
+    def get_param_space() -> dict[str, list[float]]:
         """Return the tunable parameters and their valid ranges."""
         return {k: list(v) for k, v in PARAM_SPACE.items()}
 
-    @mcp.tool()
-    def get_baseline(strategy: str = DEFAULT_STRATEGY) -> dict:
+    @mcp.tool(structured_output=True)
+    def get_baseline(strategy: str = DEFAULT_STRATEGY) -> dict[str, float]:
         """Return the baseline parameters every variant is judged against."""
         return _get_baseline(strategy)
 
-    @mcp.tool()
-    def list_strategies() -> list:
+    @mcp.tool(structured_output=True)
+    def list_strategies() -> list[str]:
         """List the strategies an agent host can target (synthetic stand-ins here)."""
         return _list_strategies()
 
@@ -61,7 +70,9 @@ def main() -> None:  # pragma: no cover
         from mcp.server.fastmcp import FastMCP
     except ImportError as exc:  # keep Tier-1 dependency-free
         raise SystemExit("MCP not installed. Run: pip install '.[mcp]'") from exc
-    mcp = FastMCP("yantra-backtest")
+    # WARNING: FastMCP logs every request at INFO to stderr, which a stdio host
+    # (e.g. ``research_lab.mcp_client``) would echo into its own console.
+    mcp = FastMCP("yantra-backtest", log_level="WARNING")
     _register(mcp)
     mcp.run()
 

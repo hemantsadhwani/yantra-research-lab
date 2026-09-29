@@ -3,6 +3,7 @@
     python -m research_lab.run_graph --iterations 5 --variants 6 --seed 3
     python -m research_lab.run_graph --resume <thread> --decision approve
     python -m research_lab.run_graph --list
+    python -m research_lab.run_graph --engine mcp      # backtests over MCP stdio (needs .[mcp])
 
 A fresh run executes until the human gate, prints the ranked table, and stops with the
 exact command to resume it. The pause is persisted in SQLite, so the resume can happen
@@ -24,6 +25,7 @@ if hasattr(sys.stdout, "reconfigure"):
 
 from langgraph.types import Command
 
+from research_lab.agents.backtester import close_mcp_clients
 from research_lab.agents.context import CONSTRUCTIONS
 from research_lab.graph import (
     DEFAULT_CHECKPOINT_DB,
@@ -33,7 +35,7 @@ from research_lab.graph import (
     initial_state,
     to_run_result,
 )
-from research_lab.run import render_report
+from research_lab.run import MCP_ENGINE_LABEL, render_report
 from synthetic_engine import DEFAULT_STRATEGY, list_strategies
 
 
@@ -120,6 +122,13 @@ def _list(graph, saver, db: str) -> int:
 
 
 def main(argv: list[str] | None = None) -> int:
+    try:
+        return _main(argv)
+    finally:
+        close_mcp_clients()    # no-op unless --engine mcp started a server
+
+
+def _main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(description="Run the research loop as a checkpointed graph.")
     ap.add_argument("--iterations", type=int, default=4)
     ap.add_argument("--variants", type=int, default=5)
@@ -128,6 +137,9 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--use-llm", action="store_true",
                     help="propose with Claude (needs ANTHROPIC_API_KEY and the llm extra)")
     ap.add_argument("--context-mode", default="compacted", choices=list(CONSTRUCTIONS))
+    ap.add_argument("--engine", default="inprocess", choices=["inprocess", "mcp"],
+                    help="call the engine in-process (default) or over MCP stdio via "
+                         "python -m mcp_server.server (needs the mcp extra)")
     ap.add_argument("--thread", help="thread id (default: <strategy>-s<seed>-<UTC timestamp>)")
     ap.add_argument("--db", help=f"checkpoint sqlite path (default: $RESEARCH_CHECKPOINT_DB "
                                  f"or {DEFAULT_CHECKPOINT_DB})")
@@ -179,13 +191,15 @@ def main(argv: list[str] | None = None) -> int:
               f"or --resume it", file=sys.stderr)
         return 2
 
+    if args.engine == "mcp":
+        print(f"  · {MCP_ENGINE_LABEL}")
     paused = _stream(graph, initial_state(
         strategy=args.strategy, seed=args.seed, iterations=args.iterations,
         variants_per_iter=args.variants, use_llm=args.use_llm,
-        context_mode=args.context_mode,
+        context_mode=args.context_mode, engine=args.engine,
     ), cfg)
     state = graph.get_state(cfg).values
-    print(render_report(to_run_result(state), args.strategy))
+    print(render_report(to_run_result(state), args.strategy, engine=args.engine))
     _print_llm(state)
 
     if paused:

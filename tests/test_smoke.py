@@ -70,9 +70,10 @@ REPO = Path(__file__).resolve().parents[1]
 
 def test_stdlib_path_never_imports_langgraph():
     # The zero-dependency default must stay zero-dependency: only graph.py/run_graph.py
-    # may import langgraph.
-    code = ("import research_lab.run, research_lab.supervisor, sys; "
-            "assert 'langgraph' not in sys.modules and 'pydantic' not in sys.modules")
+    # may import langgraph, and mcp is only imported lazily behind --engine mcp.
+    code = ("import research_lab.run, research_lab.supervisor, research_lab.agents.backtester, "
+            "sys; leaked = {'langgraph', 'mcp', 'pydantic'} & set(sys.modules); "
+            "assert not leaked, leaked")
     subprocess.run([sys.executable, "-c", code], cwd=REPO, check=True)
 
 

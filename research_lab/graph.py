@@ -40,7 +40,7 @@ from typing import Any, TypedDict
 from langgraph.graph import END, START, StateGraph
 from langgraph.types import interrupt
 
-from research_lab.agents import Backtester, Evaluator, Proposer, score_result
+from research_lab.agents import Evaluator, Proposer, make_backtester, score_result
 from research_lab.memory import Memory
 from research_lab.schemas import (
     BacktestResult,
@@ -64,6 +64,7 @@ class ResearchState(TypedDict, total=False):
     variants_per_iter: int
     use_llm: bool
     context_mode: str
+    engine: str                    # "inprocess" | "mcp" (same contract, two transports)
     # progress
     iteration: int                 # completed iterations
     counter: int                   # last variant number issued (v001, v002, ...)
@@ -87,10 +88,12 @@ def initial_state(
     variants_per_iter: int = 5,
     use_llm: bool = False,
     context_mode: str = "compacted",
+    engine: str = "inprocess",
 ) -> ResearchState:
     return ResearchState(
         strategy=strategy, seed=seed, iterations=iterations,
         variants_per_iter=variants_per_iter, use_llm=use_llm, context_mode=context_mode,
+        engine=engine,
         iteration=0, counter=0, proposals=[], ranked=[], trials=[],
         llm_calls=0, llm_failures=0, approval=None, promoted_id=None,
     )
@@ -148,7 +151,7 @@ def baseline_node(state: ResearchState) -> dict[str, Any]:
     variant = StrategyVariant(id="baseline", params=get_baseline(strategy),
                               rationale="baseline")
     verify_variant(variant)
-    result = Backtester(strategy=strategy).backtest(variant)
+    result = make_backtester(state.get("engine", "inprocess"), strategy).backtest(variant)
     verify_result(result, variant)      # the yardstick is checked too
     return {"baseline": asdict(result), "baseline_score": score_result(result)}
 
@@ -173,7 +176,8 @@ def propose_node(state: ResearchState) -> dict[str, Any]:
 
 
 def backtest_all_node(state: ResearchState) -> dict[str, Any]:
-    backtester = Backtester(strategy=state.get("strategy", DEFAULT_STRATEGY))
+    backtester = make_backtester(state.get("engine", "inprocess"),
+                                 state.get("strategy", DEFAULT_STRATEGY))
     evaluator = Evaluator(baseline_score=state["baseline_score"])
     ranked = list(state.get("ranked", []))
     for d in state.get("proposals", []):

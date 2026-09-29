@@ -88,3 +88,30 @@ def test_every_proposal_evaluated_once():
     ids = [d["variant"]["id"] for d in final["ranked"]]
     assert len(ids) == len(set(ids)) == ITER * VARS
     assert len(final["trials"]) == ITER * VARS
+
+
+def test_graph_runs_over_mcp():
+    pytest.importorskip("mcp")
+    from research_lab.agents.backtester import close_mcp_clients
+
+    def run(engine: str):
+        graph = build_graph(InMemorySaver())
+        cfg = {"configurable": {"thread_id": f"t-{engine}"}}
+        first = graph.invoke(initial_state(seed=3, iterations=2, variants_per_iter=3,
+                                           engine=engine), cfg)
+        if "__interrupt__" in first:
+            return graph.invoke(Command(resume="approve"), cfg)
+        return first
+
+    try:
+        over_mcp = run("mcp")
+    finally:
+        close_mcp_clients()
+    in_process = run("inprocess")
+    assert len(over_mcp["ranked"]) == 6
+
+    def ids_scores(state):
+        return [(d["variant"]["id"], d["evaluation"]["score"]) for d in state["ranked"]]
+
+    assert ids_scores(over_mcp) == ids_scores(in_process)
+    assert over_mcp["baseline"] == in_process["baseline"]

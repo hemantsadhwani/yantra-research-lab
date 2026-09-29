@@ -37,12 +37,14 @@ class Supervisor:
         log: Callable[[str], None] | None = None,
         use_llm: bool = False,
         context_mode: str = "compacted",
+        backtester: Backtester | None = None,
     ) -> None:
         self.strategy = strategy
         # The only line the LLM swap touches. Everything below — verification, the
         # evaluator, memory, the HITL gate — is indifferent to which proposer ran.
         self.proposer = Proposer(seed=seed, use_llm=use_llm, context_mode=context_mode)
-        self.backtester = Backtester(strategy=strategy)
+        # Injectable (e.g. an MCPBacktester); anything with ``.backtest(variant)`` works.
+        self.backtester = backtester if backtester is not None else Backtester(strategy=strategy)
         self.memory = Memory()
         self._log = log or (lambda _msg: None)
 

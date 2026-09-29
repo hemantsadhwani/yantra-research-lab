@@ -3,6 +3,7 @@
     python -m research_lab.run                 # defaults: 4 iterations x 5 variants
     python -m research_lab.run --iterations 6 --variants 6 --seed 7
     python -m research_lab.run --strategy nifty-expiry
+    python -m research_lab.run --engine mcp    # drive the engine over MCP stdio (needs .[mcp])
 """
 
 from __future__ import annotations
@@ -22,14 +23,18 @@ from research_lab.schemas import RunResult
 from research_lab.supervisor import Supervisor
 from synthetic_engine import DEFAULT_STRATEGY, list_strategies
 
+MCP_ENGINE_LABEL = "engine: mcp (stdio → python -m mcp_server.server)"
 
-def render_report(run: RunResult, strategy: str) -> str:
+
+def render_report(run: RunResult, strategy: str, engine: str = "inprocess") -> str:
     lines: list[str] = []
     b = run.baseline
     lines.append("")
     lines.append("=" * 68)
     lines.append("  yantra-research-lab · autonomous strategy research (synthetic)")
     lines.append(f"  strategy: {strategy}  (synthetic stand-in · real logic is private)")
+    if engine == "mcp":     # the in-process header stays byte-identical
+        lines.append(f"  {MCP_ENGINE_LABEL}")
     lines.append("=" * 68)
     lines.append(f"  iterations: {run.iterations}   variants tested: {run.variants_tested}")
     lines.append(f"  baseline:   return {b.total_return_pct:+8.1f}%   "
@@ -74,6 +79,9 @@ def main() -> None:
                          "(needs ANTHROPIC_API_KEY and the llm extra); the loop is unchanged")
     ap.add_argument("--context", default="compacted", choices=list(CONSTRUCTIONS),
                     help="how much trial history to put in the proposer's context (--use-llm only)")
+    ap.add_argument("--engine", default="inprocess", choices=["inprocess", "mcp"],
+                    help="call the engine in-process (default) or over MCP stdio via "
+                         "python -m mcp_server.server (needs the mcp extra)")
     args = ap.parse_args()
 
     if args.use_llm:
@@ -83,11 +91,22 @@ def main() -> None:
         except ImportError:
             pass
 
-    supervisor = Supervisor(seed=args.seed, strategy=args.strategy,
-                            use_llm=args.use_llm, context_mode=args.context,
-                            log=lambda m: print(f"  · {m}"))
-    run = supervisor.run(iterations=args.iterations, variants_per_iter=args.variants)
-    print(render_report(run, args.strategy))
+    backtester = None
+    if args.engine == "mcp":
+        # Lazy: the default path never imports the mcp SDK.
+        from research_lab.agents.backtester import make_backtester
+        print(f"  · {MCP_ENGINE_LABEL}")
+        backtester = make_backtester("mcp", args.strategy)
+    try:
+        supervisor = Supervisor(seed=args.seed, strategy=args.strategy,
+                                use_llm=args.use_llm, context_mode=args.context,
+                                log=lambda m: print(f"  · {m}"), backtester=backtester)
+        run = supervisor.run(iterations=args.iterations, variants_per_iter=args.variants)
+    finally:
+        if backtester is not None:
+            from research_lab.agents.backtester import close_mcp_clients
+            close_mcp_clients()
+    print(render_report(run, args.strategy, engine=args.engine))
     p = supervisor.proposer
     if p.use_llm:
         print(f"  proposer: {p.model} · context '{p.context_mode}' · {p.llm_calls} calls · "

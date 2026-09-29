@@ -1,4 +1,4 @@
-.PHONY: demo demo-llm demo-graph resume context-study test gate lint install install-all
+.PHONY: demo demo-llm demo-graph demo-mcp resume context-study test gate lint install install-all
 
 install:            ## editable install with dev tools
 	pip install -e '.[dev]'
@@ -14,6 +14,9 @@ demo-llm:           ## same session, but with Claude proposing (needs .[llm] + A
 
 demo-graph:         ## same session as a checkpointed LangGraph; pauses at the human gate (needs .[agents])
 	python -m research_lab.run_graph --iterations 5 --variants 6 --seed 3
+
+demo-mcp:           ## graph session with every backtest over MCP stdio (needs .[agents,mcp])
+	python -m research_lab.run_graph --engine mcp --iterations 3 --variants 4 --seed 3
 
 resume:             ## resume a paused graph run: make resume THREAD=<id> DECISION=approve|reject
 	python -m research_lab.run_graph --resume $(THREAD) --decision $(DECISION)
