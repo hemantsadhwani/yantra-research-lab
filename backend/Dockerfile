@@ -1,3 +1,6 @@
+# Build context is the REPO ROOT (the backend now imports the shared llm_gateway package):
+#     fly deploy --config backend/fly.toml --dockerfile backend/Dockerfile .
+#     docker build -f backend/Dockerfile .
 FROM python:3.11-slim
 
 # Faster, cleaner Python in containers.
@@ -8,31 +11,24 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
 WORKDIR /app
 
 # Install dependencies first for better layer caching.
-COPY requirements.txt .
+COPY backend/requirements.txt .
 RUN pip install --upgrade pip && pip install -r requirements.txt
 
+# Shared provider layer (Anthropic direct / Bedrock / Ollama), importable as `llm_gateway`
+# because it sits next to app.py in /app.
+COPY llm_gateway/ ./llm_gateway/
+
 # App source.
-COPY . .
+COPY backend/ .
 
-# Build the vector index at image-build time so the container starts ready to serve.
-# This downloads the fastembed ONNX model (~130 MB) once during the build.
-# If your build environment has no network access, remove this line and run
-#   python ingest.py
-# as part of your container start command / entrypoint instead.
-#
-# CACHE-BUSTING: this layer must NOT be reused across corpus changes. Docker only
-# sees the `COPY . .` above, so a build whose corpus differs only in which files
-# ingest.py *skips* (a README exclusion, say) would keep a stale index and serve
-# vectors for documents no longer in the corpus. Deleting any previous index and
-# printing the indexed titles makes the layer's real input visible in the log.
-RUN rm -rf .qdrant && python ingest.py
-
-# WARNING: the index this build creates is LOCAL to the image. If QDRANT_URL is
-# set as a runtime secret, the app queries Qdrant CLOUD instead and this local
-# index is never read -- a corpus change then has NO effect on what the bot
-# retrieves, however many times you deploy. Re-ingest against the live cluster:
-#     fly ssh console -a <app> -C "sh -c 'cd /app && python ingest.py'"
-# Check with: fly ssh console -a <app> -C "sh -c 'env | grep -i qdrant'"
+# NO build-time index. The image used to run `python ingest.py` here, but production
+# reads Qdrant CLOUD (QDRANT_URL / QDRANT_API_KEY are Fly secrets), so that local index
+# was never read -- it only cost a ~130 MB model download per build and, worse, made a
+# corpus change look deployed when it was not. After any corpus change, re-ingest
+# against the live cluster:
+#     fly ssh console -a yantra-chatbot -C "sh -c 'cd /app && python ingest.py'"
+# Check which backend is live with:
+#     fly ssh console -a yantra-chatbot -C "sh -c 'env | grep -i qdrant'"
 
 EXPOSE 8080
 

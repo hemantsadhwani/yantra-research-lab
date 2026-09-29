@@ -65,6 +65,7 @@ class ResearchState(TypedDict, total=False):
     use_llm: bool
     context_mode: str
     engine: str                    # "inprocess" | "mcp" (same contract, two transports)
+    provider: str | None           # llm_gateway provider name; None = $LLM_PROVIDER
     # progress
     iteration: int                 # completed iterations
     counter: int                   # last variant number issued (v001, v002, ...)
@@ -75,6 +76,10 @@ class ResearchState(TypedDict, total=False):
     trials: list[dict[str, Any]]       # memory snapshot: Trial dicts, oldest first
     llm_calls: int                 # LLM accounting survives node-local proposers
     llm_failures: int              # a degraded run must never look like a clean one
+    llm_cost_usd: float            # estimated (list price) across all LLM calls
+    llm_structured_mode: str       # last successful gateway rung: native|json_schema|prompt|none
+    llm_provider: str              # which provider/model actually answered (for the report)
+    llm_model: str
     # human gate
     approval: str | None           # only ever set by a human resume
     promoted_id: str | None
@@ -89,13 +94,15 @@ def initial_state(
     use_llm: bool = False,
     context_mode: str = "compacted",
     engine: str = "inprocess",
+    provider: str | None = None,
 ) -> ResearchState:
     return ResearchState(
         strategy=strategy, seed=seed, iterations=iterations,
         variants_per_iter=variants_per_iter, use_llm=use_llm, context_mode=context_mode,
-        engine=engine,
+        engine=engine, provider=provider,
         iteration=0, counter=0, proposals=[], ranked=[], trials=[],
-        llm_calls=0, llm_failures=0, approval=None, promoted_id=None,
+        llm_calls=0, llm_failures=0, llm_cost_usd=0.0, llm_structured_mode="none",
+        approval=None, promoted_id=None,
     )
 
 
@@ -156,23 +163,37 @@ def baseline_node(state: ResearchState) -> dict[str, Any]:
     return {"baseline": asdict(result), "baseline_score": score_result(result)}
 
 
-def propose_node(state: ResearchState) -> dict[str, Any]:
+def propose_node(state: ResearchState, provider: Any = None) -> dict[str, Any]:
+    """``provider`` is an injected ``llm_gateway`` provider (tests); by default one is
+    built from ``state["provider"]`` / ``$LLM_PROVIDER`` — only when ``use_llm`` is set."""
     memory = memory_from_trials(state.get("trials", []))
+    use_llm = state.get("use_llm", False)
+    if use_llm and provider is None:
+        from llm_gateway import get_provider  # lazy: the heuristic graph never needs it
+        provider = get_provider(state.get("provider"))
     proposer = Proposer(
         seed=iteration_seed(state.get("seed", 0), state.get("iteration", 0)),
         start_counter=state.get("counter", 0),
-        use_llm=state.get("use_llm", False),
+        use_llm=use_llm,
         context_mode=state.get("context_mode", "compacted"),
+        provider=provider,
     )
     variants = proposer.propose(state["variants_per_iter"], memory)
     for v in variants:
         verify_variant(v)               # in-space before we spend a backtest
-    return {
+    update: dict[str, Any] = {
         "proposals": [asdict(v) for v in variants],
         "counter": proposer._counter,
         "llm_calls": state.get("llm_calls", 0) + proposer.llm_calls,
         "llm_failures": state.get("llm_failures", 0) + proposer.llm_failures,
+        "llm_cost_usd": state.get("llm_cost_usd", 0.0) + proposer.llm_cost_usd,
     }
+    if use_llm:
+        update["llm_provider"] = proposer.provider_name
+        update["llm_model"] = proposer.model
+        if proposer.llm_calls and proposer.llm_failures == 0:
+            update["llm_structured_mode"] = proposer.llm_structured_mode
+    return update
 
 
 def backtest_all_node(state: ResearchState) -> dict[str, Any]:
@@ -240,11 +261,13 @@ def default_checkpointer(path: str | os.PathLike[str] | None = None):
     return saver
 
 
-def build_graph(checkpointer=None):
+def build_graph(checkpointer=None, provider: Any = None):
     """Compile the research graph.
 
     ``checkpointer=None`` uses an in-memory saver: ``interrupt()`` needs *some*
     checkpointer, and an in-process run should still reach the human gate.
+    ``provider`` injects an ``llm_gateway`` provider object into every ``propose``
+    step (used by tests with a ``FakeProvider``; it is not checkpointed).
     """
     if checkpointer is None:
         from langgraph.checkpoint.memory import InMemorySaver
@@ -252,7 +275,12 @@ def build_graph(checkpointer=None):
 
     g = StateGraph(ResearchState)
     g.add_node("baseline", baseline_node)
-    g.add_node("propose", propose_node)
+    if provider is None:
+        g.add_node("propose", propose_node)
+    else:
+        def propose_with_provider(state: ResearchState) -> dict[str, Any]:
+            return propose_node(state, provider=provider)
+        g.add_node("propose", propose_with_provider)
     g.add_node("backtest_all", backtest_all_node)
     g.add_node("record", record_node)
     g.add_node("gate", gate_node)

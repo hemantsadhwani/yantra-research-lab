@@ -16,15 +16,19 @@ schemas, the verification hooks and the evaluator are untouched by the swap — 
 is the ADR-0003 claim (the loop is the spec; the agent inside a step is an
 implementation detail) demonstrated rather than asserted.
 
-The LLM path never bypasses verification: proposals come back as JSON, are clamped
-into the declared parameter space, and still pass through ``verify_variant`` in the
-supervisor. A model that hallucinates a ``lookback`` of 900 gets corrected by the
-contract, not trusted. See ADR-0003.
+The LLM path goes through ``llm_gateway`` (Anthropic direct, Claude on Bedrock, or a
+local Ollama model, chosen by ``LLM_PROVIDER``) and asks for a ``ProposalBatch``: the
+reply is schema-validated by the gateway before this module sees it. It still never
+bypasses verification: proposals are clamped into the declared parameter space and
+pass through ``verify_variant`` in the supervisor. A model that hallucinates a
+``lookback`` of 900 gets corrected by the contract, not trusted. See ADR-0003.
+
+Nothing here imports ``llm_gateway`` or pydantic at module import time — only
+``_propose_llm`` does — so the heuristic default path stays stdlib-only.
 """
 
 from __future__ import annotations
 
-import json
 import os
 import random
 from typing import Any
@@ -59,17 +63,16 @@ Respond with ONLY a JSON object, no prose and no code fences:
 Every parameter is required and must sit inside its declared range."""
 
 
-class LLMUnavailable(RuntimeError):
-    """The LLM path was requested but cannot run (no key, or the SDK is missing)."""
-
-
 class Proposer:
     """Propose strategy variants, deterministically or via an LLM.
 
     Args:
         seed: RNG seed for the deterministic path (and for the LLM path's fallback).
-        use_llm: route proposals through Claude instead of the heuristic.
-        model: model id for the LLM path.
+        use_llm: route proposals through an LLM instead of the heuristic.
+        model: model id override for the LLM path (default: ``$RESEARCH_MODEL``, then
+            ``$LLM_MODEL``, then the provider's default).
+        provider: an ``llm_gateway`` provider. ``None`` builds one lazily from
+            ``$LLM_PROVIDER`` on the first LLM call (tests inject a ``FakeProvider``).
         context_mode: which context construction to build — see ``agents/context.py``.
             Only meaningful when ``use_llm`` is set.
         start_counter: last variant number already issued, so a proposer rebuilt from a
@@ -80,21 +83,28 @@ class Proposer:
         self,
         seed: int = 0,
         use_llm: bool = False,
-        model: str = DEFAULT_LLM_MODEL,
+        model: str | None = None,
         context_mode: str = "compacted",
         start_counter: int = 0,
+        provider: Any = None,
     ) -> None:
         self._rng = random.Random(seed)
         self._counter = start_counter
         self.use_llm = use_llm
-        self.model = model
+        self._model_override = model or os.environ.get("RESEARCH_MODEL")
+        self.model = (getattr(provider, "model", None) or self._model_override
+                      or DEFAULT_LLM_MODEL)
         self.context_mode = context_mode
-        self._client: Any = None
+        self._provider: Any = provider
+        self.provider_name = getattr(provider, "name", None) or (
+            os.environ.get("LLM_PROVIDER") or "anthropic")
         # Token accounting, so a run can report what its context actually cost.
         self.input_tokens = 0
         self.output_tokens = 0
         self.llm_calls = 0
         self.llm_failures = 0
+        self.llm_cost_usd = 0.0
+        self.llm_structured_mode = "none"   # last successful rung of the gateway ladder
 
     def propose(self, n: int, memory: Memory) -> list[StrategyVariant]:
         if self.use_llm:
@@ -133,31 +143,25 @@ class Proposer:
         return out
 
     # ----------------------------------------------------------------------- LLM
-    def _get_client(self) -> Any:
-        """Lazily build the Anthropic client. Raises if the path can't run.
+    def _get_provider(self) -> Any:
+        """Lazily build the gateway provider (imports pydantic + llm_gateway only here)."""
+        if self._provider is None:
+            from llm_gateway import get_provider
 
-        Deliberately loud rather than silently falling back to the heuristic: a run
-        that *thinks* it measured an LLM proposer but quietly measured the heuristic
-        is worse than a run that fails.
-        """
-        if self._client is None:
-            if not os.environ.get("ANTHROPIC_API_KEY"):
-                raise LLMUnavailable(
-                    "use_llm=True but ANTHROPIC_API_KEY is not set. Run load_env() "
-                    "or export the key; the deterministic path needs no key."
-                )
-            try:
-                import anthropic
-            except ImportError as e:   # pragma: no cover - depends on extras install
-                raise LLMUnavailable(
-                    "use_llm=True but the anthropic SDK is not installed. "
-                    "Install the extra: pip install -e '.[llm]'"
-                ) from e
-            self._client = anthropic.Anthropic()
-        return self._client
+            self._provider = get_provider(self.provider_name, model=self._model_override)
+            self.model = self._provider.model
+            self.provider_name = self._provider.name
+        return self._provider
+
+    def _fallback(self, n: int, memory: Memory, why: str) -> list[StrategyVariant]:
+        # One batch failing must not lose the whole run; fall back for this batch only
+        # and count it, so a degraded run never looks like a clean one.
+        self.llm_failures += 1
+        print(f"  ! LLM proposal failed ({why}); falling back to the heuristic "
+              f"for this batch")
+        return self._propose_heuristic(n, memory)
 
     def _propose_llm(self, n: int, memory: Memory) -> list[StrategyVariant]:
-        client = self._get_client()
         context = build_context(
             self.context_mode, memory.trials(), memory.best_params(), memory.best_score()
         )
@@ -167,44 +171,36 @@ class Proposer:
         )
 
         try:
-            resp = client.messages.create(
-                model=self.model,
-                max_tokens=LLM_MAX_TOKENS,
-                system=[{"type": "text", "text": SYSTEM_PROMPT,
-                         "cache_control": {"type": "ephemeral"}}],
+            from research_lab.schemas_llm import ProposalBatch
+
+            provider = self._get_provider()
+            resp = provider.complete(
+                system=SYSTEM_PROMPT,
                 messages=[{"role": "user", "content": user_turn}],
+                max_tokens=LLM_MAX_TOKENS,
+                schema=ProposalBatch,
+                cache_system=True,
             )
-        except Exception as e:   # API error, rate limit, connection
-            # One batch failing must not lose the whole run; fall back for this batch
-            # only and count it, so the proof-bar table can report it honestly.
-            self.llm_failures += 1
-            print(f"  ! LLM proposal failed ({type(e).__name__}: {e}); "
-                  f"falling back to the heuristic for this batch")
-            return self._propose_heuristic(n, memory)
+        except Exception as e:  # noqa: BLE001 - no creds, API error, invalid JSON x2
+            return self._fallback(n, memory, f"{type(e).__name__}: {e}")
 
         self.llm_calls += 1
-        usage = getattr(resp, "usage", None)
-        if usage is not None:
-            # Cache reads/writes count toward what the context actually cost to send.
-            self.input_tokens += (
-                getattr(usage, "input_tokens", 0)
-                + (getattr(usage, "cache_creation_input_tokens", 0) or 0)
-                + (getattr(usage, "cache_read_input_tokens", 0) or 0)
-            )
-            self.output_tokens += getattr(usage, "output_tokens", 0)
+        # Cache reads/writes count toward what the context actually cost to send.
+        self.input_tokens += (resp.input_tokens + resp.cache_read_tokens
+                              + resp.cache_write_tokens)
+        self.output_tokens += resp.output_tokens
+        self.llm_cost_usd += resp.cost_usd
 
-        text = "".join(b.text for b in resp.content if b.type == "text").strip()
-        proposals = _parse_proposals(text)
+        batch = resp.parsed
+        proposals = list(getattr(batch, "variants", None) or [])
         if not proposals:
-            self.llm_failures += 1
-            print("  ! LLM returned no usable JSON; falling back to the heuristic "
-                  "for this batch")
-            return self._propose_heuristic(n, memory)
+            return self._fallback(n, memory, "no usable proposals in the reply")
+        self.llm_structured_mode = resp.structured_mode
 
         variants: list[StrategyVariant] = []
         for item in proposals[:n]:
-            params = _clamp(item.get("params", {}), self._sample())
-            rationale = str(item.get("rationale", "")).strip() or "llm proposal"
+            params = _clamp(item.params.model_dump(), self._sample())
+            rationale = str(item.rationale).strip() or "llm proposal"
             self._counter += 1
             variants.append(
                 StrategyVariant(
@@ -219,35 +215,6 @@ class Proposer:
         while len(variants) < n:
             variants.extend(self._propose_heuristic(1, memory))
         return variants
-
-
-def _parse_proposals(text: str) -> list[dict[str, Any]]:
-    """Pull the variant list out of the model's reply.
-
-    Tolerates a stray code fence or a sentence of preamble — the prompt asks for bare
-    JSON, but parsing must not be the thing that breaks a measured run.
-    """
-    candidate = text
-    if "```" in candidate:
-        parts = candidate.split("```")
-        for part in parts:
-            cleaned = part.strip()
-            if cleaned.startswith("json"):
-                cleaned = cleaned[4:].strip()
-            if cleaned.startswith("{"):
-                candidate = cleaned
-                break
-    start, end = candidate.find("{"), candidate.rfind("}")
-    if start == -1 or end == -1:
-        return []
-    try:
-        data = json.loads(candidate[start:end + 1])
-    except json.JSONDecodeError:
-        return []
-    variants = data.get("variants") if isinstance(data, dict) else None
-    if not isinstance(variants, list):
-        return []
-    return [v for v in variants if isinstance(v, dict)]
 
 
 def _clamp(params: dict[str, Any], fallback: dict[str, float]) -> dict[str, float]:

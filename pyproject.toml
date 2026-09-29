@@ -25,7 +25,7 @@ all    = ["yantra-research-lab[agents,llm,mcp,memory,ops,dev]"]
 yantra-research = "research_lab.run:main"
 
 [tool.setuptools]
-packages = ["research_lab", "research_lab.agents", "synthetic_engine", "mcp_server"]
+packages = ["research_lab", "research_lab.agents", "synthetic_engine", "mcp_server", "llm_gateway"]
 
 [tool.ruff]
 line-length = 100
@@ -33,4 +33,4 @@ target-version = "py312"
 
 [tool.pytest.ini_options]
 addopts = "-q"
-testpaths = ["tests", "research_lab/tests"]
+testpaths = ["tests", "research_lab/tests", "llm_gateway/tests"]

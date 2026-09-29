@@ -9,6 +9,7 @@
 from __future__ import annotations
 
 import argparse
+import os
 import sys
 
 # The report uses box-drawing and arrow characters. Windows consoles default to
@@ -76,7 +77,10 @@ def main() -> None:
                     help="which (synthetic) strategy engine the agent loop drives")
     ap.add_argument("--use-llm", action="store_true",
                     help="propose variants with Claude instead of the deterministic heuristic "
-                         "(needs ANTHROPIC_API_KEY and the llm extra); the loop is unchanged")
+                         "(needs the llm extra + provider credentials); the loop is unchanged")
+    ap.add_argument("--provider", choices=["anthropic", "bedrock", "ollama"],
+                    default=os.environ.get("LLM_PROVIDER") or None,
+                    help="LLM provider for --use-llm (default: $LLM_PROVIDER or anthropic)")
     ap.add_argument("--context", default="compacted", choices=list(CONSTRUCTIONS),
                     help="how much trial history to put in the proposer's context (--use-llm only)")
     ap.add_argument("--engine", default="inprocess", choices=["inprocess", "mcp"],
@@ -90,6 +94,8 @@ def main() -> None:
             load_env()
         except ImportError:
             pass
+        if args.provider:
+            os.environ["LLM_PROVIDER"] = args.provider
 
     backtester = None
     if args.engine == "mcp":
@@ -109,9 +115,11 @@ def main() -> None:
     print(render_report(run, args.strategy, engine=args.engine))
     p = supervisor.proposer
     if p.use_llm:
-        print(f"  proposer: {p.model} · context '{p.context_mode}' · {p.llm_calls} calls · "
+        print(f"  proposer: {p.provider_name}/{p.model} · structured={p.llm_structured_mode} · "
+              f"{p.llm_calls} calls · ${p.llm_cost_usd:.4f} · context '{p.context_mode}' · "
               f"{p.input_tokens:,} in / {p.output_tokens:,} out tokens"
-              + (f" · {p.llm_failures} fell back" if p.llm_failures else ""))
+              + (f" · llm_failures={p.llm_failures} (fell back to the heuristic)"
+                 if p.llm_failures else ""))
         print()
 
 

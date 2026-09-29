@@ -111,11 +111,11 @@ Two gotchas:
 
 `backend/fly.toml` now sets `min_machines_running = 1` and `auto_stop_machines = false` so
 demo traffic never pays the ~20s cold start. That costs ~$2/mo; revert both to go back to
-scale-to-zero. **Config changes require `fly deploy` from `backend/` to take effect.**
+scale-to-zero. **Config changes require a deploy to take effect. Deploy from the repo root (the Docker context is the root since WP4): `fly deploy --config backend/fly.toml --dockerfile backend/Dockerfile .`**
 
 **The chatbot's vector index lives in Qdrant Cloud, not in the image.** `QDRANT_URL` and
-`QDRANT_API_KEY` are Fly secrets, so the `RUN python ingest.py` in `backend/Dockerfile` builds an
-index that the running app never reads. After any corpus change, re-ingest against the cluster:
+`QDRANT_API_KEY` are Fly secrets. The Dockerfile no longer builds a local index (removed in WP4;
+prod never read it). After any corpus change, re-ingest against the cluster:
 
 ```bash
 fly ssh console -a yantra-chatbot -C "sh -c 'cd /app && python ingest.py'"

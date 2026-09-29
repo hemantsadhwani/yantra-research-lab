@@ -1,13 +1,16 @@
 """The LLM proposer must not be trusted, and the cheap context must stay cheap.
 
-These run offline — no API key, no network. The LLM path is exercised through a
-fake client, because what needs testing is the code around the model (parsing,
-clamping, fallback, accounting), not the model itself.
+These run offline — no API key, no network. The LLM path is exercised through the
+real ``llm_gateway.AnthropicProvider`` wrapped around a fake client, because what needs
+testing is the code around the model (validation, clamping, fallback, accounting), not
+the model itself. JSON extraction itself is tested in ``llm_gateway/tests``.
 """
 from __future__ import annotations
 
+import pytest
+
 from research_lab.agents.context import CONSTRUCTIONS, build_context
-from research_lab.agents.proposer import Proposer, _clamp, _parse_proposals
+from research_lab.agents.proposer import Proposer, _clamp
 from research_lab.memory import Memory
 from research_lab.schemas import Evaluation, StrategyVariant
 from research_lab.verify import verify_variant
@@ -89,22 +92,7 @@ def test_unknown_construction_is_rejected():
         raise AssertionError("an unknown construction must raise")
 
 
-# -------------------------------------------------------- parsing and clamping
-def test_parses_json_wrapped_in_a_code_fence():
-    text = '```json\n{"variants": [{"params": {"lookback": 40}, "rationale": "x"}]}\n```'
-    assert len(_parse_proposals(text)) == 1
-
-
-def test_parses_json_with_preamble_prose():
-    text = 'Here are my proposals:\n{"variants": [{"params": {}, "rationale": "x"}]}'
-    assert len(_parse_proposals(text)) == 1
-
-
-def test_unparseable_output_yields_no_proposals_rather_than_raising():
-    assert _parse_proposals("I would rather not.") == []
-    assert _parse_proposals('{"variants": "not a list"}') == []
-
-
+# ------------------------------------------------------------------ clamping
 def test_clamp_forces_hallucinated_params_into_the_declared_space():
     fallback = dict(GOOD)
     out = _clamp({"lookback": 9999, "z_entry": -50, "z_exit": "nonsense"}, fallback)
@@ -130,7 +118,11 @@ class _FakeResponse:
 
 
 class _FakeClient:
-    """Stands in for anthropic.Anthropic — records the prompt, returns canned text."""
+    """Stands in for anthropic.Anthropic — records the prompt, returns canned text.
+
+    It has no ``messages.parse``, so the gateway's ladder drops to the ``json_schema``
+    rung (``messages.create``), exactly as on an SDK without structured parsing.
+    """
 
     def __init__(self, text: str) -> None:
         self._text = text
@@ -143,20 +135,27 @@ class _FakeClient:
 
 
 def _llm_proposer(text: str, **kw):
-    p = Proposer(seed=0, use_llm=True, **kw)
+    pytest.importorskip("pydantic")
+    from llm_gateway.anthropic_provider import AnthropicProvider
+
     client = _FakeClient(text)
-    p._client = client          # bypass _get_client: no key, no network
+    # An injected client: no key, no network, the real validation ladder.
+    p = Proposer(seed=0, use_llm=True, provider=AnthropicProvider(client=client), **kw)
     return p, client
 
 
-GOOD_JSON = '{"variants": [{"params": {"lookback": 40}, "rationale": "x"}]}'
+GOOD_JSON = ('{"variants": [{"params": {"lookback": 40, "z_entry": 1.5, "z_exit": 0.5, '
+             '"stop_pct": 2.0}, "rationale": "x"}]}')
 
 
 def test_llm_proposals_always_survive_verification():
     """Even a model returning garbage must not produce an unverifiable variant."""
-    bad = '{"variants": [{"params": {"lookback": 10000, "z_entry": -99}, "rationale": "?"}]}'
+    bad = ('{"variants": [{"params": {"lookback": 10000, "z_entry": -99, "z_exit": 1e9, '
+           '"stop_pct": -1}, "rationale": "?"}]}')
     p, _ = _llm_proposer(bad)
-    for v in p.propose(3, _seed_memory()):
+    variants = p.propose(3, _seed_memory())
+    assert p.llm_failures == 0 and variants[0].rationale.startswith("llm[")
+    for v in variants:
         verify_variant(v)       # raises if the clamp failed
 
 

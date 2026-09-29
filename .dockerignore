@@ -1,0 +1,18 @@
+# The backend image builds from the REPO ROOT (backend/Dockerfile needs llm_gateway/).
+# Allowlist: send only what the image copies, never .venv, frontend/node_modules or .env.
+*
+!backend/
+!llm_gateway/
+
+**/__pycache__/
+**/*.pyc
+**/.pytest_cache/
+**/.ruff_cache/
+**/.venv/
+**/.qdrant/
+**/.faiss_index.*
+**/*.egg-info/
+**/.env
+**/.env.*
+backend/tests/
+llm_gateway/tests/

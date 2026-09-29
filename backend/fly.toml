@@ -6,8 +6,11 @@
 app = "yantra-chatbot"
 primary_region = "sin"  # Singapore (bom/Mumbai had no capacity at deploy time)
 
+# Deploys now run from the REPO ROOT (the image needs the shared llm_gateway/ package):
+#   fly deploy --config backend/fly.toml --dockerfile backend/Dockerfile .
+# The root .dockerignore allowlists backend/ and llm_gateway/ only.
 [build]
-  dockerfile = "Dockerfile"
+  dockerfile = "backend/Dockerfile"
 
 [http_service]
   internal_port = 8080
@@ -35,6 +38,7 @@ primary_region = "sin"  # Singapore (bom/Mumbai had no capacity at deploy time)
 
 # Secrets (do NOT put them here). Set them once with:
 #   fly secrets set ANTHROPIC_API_KEY=sk-ant-...
+#   (or LLM_PROVIDER=bedrock + AWS_REGION / AWS_ACCESS_KEY_ID / AWS_SECRET_ACCESS_KEY)
 #   fly secrets set FRONTEND_ORIGIN=https://your-frontend.example.com
 [env]
   VECTOR_BACKEND = "qdrant"

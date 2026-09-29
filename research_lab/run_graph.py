@@ -69,9 +69,12 @@ def _stream(graph, payload, cfg) -> bool:
 def _print_llm(state: dict[str, Any]) -> None:
     if state.get("use_llm"):
         fails = state.get("llm_failures", 0)
-        print(f"  proposer: llm · context '{state.get('context_mode')}' · "
-              f"{state.get('llm_calls', 0)} calls"
-              + (f" · {fails} fell back" if fails else ""))
+        who = f"{state.get('llm_provider', state.get('provider') or '?')}/" \
+              f"{state.get('llm_model', '?')}"
+        print(f"  proposer: {who} · structured={state.get('llm_structured_mode', 'none')} · "
+              f"{state.get('llm_calls', 0)} calls · ${state.get('llm_cost_usd', 0.0):.4f} · "
+              f"context '{state.get('context_mode')}'"
+              + (f" · llm_failures={fails} (fell back to the heuristic)" if fails else ""))
         print()
 
 
@@ -135,7 +138,11 @@ def _main(argv: list[str] | None = None) -> int:
     ap.add_argument("--seed", type=int, default=0)
     ap.add_argument("--strategy", default=DEFAULT_STRATEGY, choices=list_strategies())
     ap.add_argument("--use-llm", action="store_true",
-                    help="propose with Claude (needs ANTHROPIC_API_KEY and the llm extra)")
+                    help="propose with an LLM via llm_gateway (needs the llm extra and "
+                         "the chosen provider's credentials)")
+    ap.add_argument("--provider", choices=["anthropic", "bedrock", "ollama"],
+                    default=os.environ.get("LLM_PROVIDER") or None,
+                    help="LLM provider for --use-llm (default: $LLM_PROVIDER or anthropic)")
     ap.add_argument("--context-mode", default="compacted", choices=list(CONSTRUCTIONS))
     ap.add_argument("--engine", default="inprocess", choices=["inprocess", "mcp"],
                     help="call the engine in-process (default) or over MCP stdio via "
@@ -181,6 +188,8 @@ def _main(argv: list[str] | None = None) -> int:
             load_env()
         except ImportError:
             pass
+        if args.provider:
+            os.environ["LLM_PROVIDER"] = args.provider
 
     thread = args.thread or (
         f"{args.strategy}-s{args.seed}-{datetime.now(UTC).strftime('%Y%m%dT%H%M%SZ')}"
@@ -197,6 +206,7 @@ def _main(argv: list[str] | None = None) -> int:
         strategy=args.strategy, seed=args.seed, iterations=args.iterations,
         variants_per_iter=args.variants, use_llm=args.use_llm,
         context_mode=args.context_mode, engine=args.engine,
+        provider=args.provider if args.use_llm else None,
     ), cfg)
     state = graph.get_state(cfg).values
     print(render_report(to_run_result(state), args.strategy, engine=args.engine))

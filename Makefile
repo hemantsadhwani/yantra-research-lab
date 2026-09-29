@@ -1,4 +1,4 @@
-.PHONY: demo demo-llm demo-graph demo-mcp resume context-study test gate lint install install-all
+.PHONY: demo demo-llm demo-bedrock demo-ollama demo-graph demo-mcp resume context-study test gate lint install install-all
 
 install:            ## editable install with dev tools
 	pip install -e '.[dev]'
@@ -11,6 +11,12 @@ demo:               ## run one autonomous research session
 
 demo-llm:           ## same session, but with Claude proposing (needs .[llm] + API key)
 	python -m research_lab.run --iterations 5 --variants 6 --seed 3 --use-llm
+
+demo-bedrock:       ## graph session with Claude on AWS Bedrock proposing (needs .[agents,llm] + AWS creds)
+	LLM_PROVIDER=bedrock python -m research_lab.run_graph --use-llm --iterations 2 --variants 4 --seed 3
+
+demo-ollama:        ## graph session with a local Ollama model proposing (needs .[agents] + ollama serve)
+	LLM_PROVIDER=ollama python -m research_lab.run_graph --use-llm --iterations 2 --variants 4 --seed 3
 
 demo-graph:         ## same session as a checkpointed LangGraph; pauses at the human gate (needs .[agents])
 	python -m research_lab.run_graph --iterations 5 --variants 6 --seed 3

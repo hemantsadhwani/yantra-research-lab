@@ -13,6 +13,7 @@ from __future__ import annotations
 
 import logging
 import os
+import sys
 import threading
 import time
 from collections import defaultdict, deque
@@ -29,6 +30,14 @@ from fastapi.responses import JSONResponse
 from pydantic import BaseModel, Field
 from retriever import get_retriever
 
+try:
+    from llm_gateway import get_provider
+    from llm_gateway.base import ProviderUnavailable
+except ImportError:  # local dev from backend/ without the repo installed: use the sibling
+    sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+    from llm_gateway import get_provider
+    from llm_gateway.base import ProviderUnavailable
+
 # --------------------------------------------------------------------------- #
 # Config / setup
 # --------------------------------------------------------------------------- #
@@ -38,7 +47,12 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger("chatbot")
 
 FRONTEND_ORIGIN = os.environ.get("FRONTEND_ORIGIN", "http://localhost:3000")
-MODEL = os.environ.get("CHAT_MODEL", "claude-haiku-4-5")
+# LLM_PROVIDER=anthropic|bedrock|ollama and LLM_MODEL pick the model (see llm_gateway).
+# CHAT_MODEL is the pre-gateway name, still honoured for the anthropic provider.
+LLM_PROVIDER = (os.environ.get("LLM_PROVIDER") or "anthropic").strip().lower()
+MODEL = os.environ.get("LLM_MODEL") or (
+    os.environ.get("CHAT_MODEL") if LLM_PROVIDER == "anthropic" else None
+)
 MAX_TOKENS = int(os.environ.get("MAX_TOKENS", "1024"))
 TOP_K = int(os.environ.get("TOP_K", "4"))
 RATE_LIMIT_PER_MIN = int(os.environ.get("RATE_LIMIT_PER_MIN", "20"))
@@ -53,7 +67,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Observability: traces every request + the Anthropic call. No-op without LOGFIRE_TOKEN.
+# Observability: traces every request + the LLM call. No-op without LOGFIRE_TOKEN.
 _LOGFIRE_ACTIVE = obs.configure(app)
 logger.info("logfire active=%s", _LOGFIRE_ACTIVE)
 
@@ -75,7 +89,7 @@ def _take_cold_start() -> bool:
 
 
 # --------------------------------------------------------------------------- #
-# Lazy singletons: retriever + Anthropic client
+# Lazy singletons: retriever + LLM provider
 # --------------------------------------------------------------------------- #
 _retriever = None
 _retriever_lock = threading.Lock()
@@ -114,22 +128,30 @@ def get_books_cached() -> list[books.BookDoc]:
     return _books
 
 
-_client = None
-_client_lock = threading.Lock()
+_provider = None
+_provider_lock = threading.Lock()
 
 
-def get_client():
-    """Return a cached Anthropic client, or None if no API key is configured."""
-    global _client
-    if _client is None:
-        with _client_lock:
-            if _client is None:
-                if not os.environ.get("ANTHROPIC_API_KEY"):
-                    return None
-                import anthropic
+def get_llm_provider():
+    """Return the cached ``llm_gateway`` provider (built once; no network until a call).
 
-                _client = anthropic.Anthropic()  # reads ANTHROPIC_API_KEY from env
-    return _client
+    Tests monkeypatch ``app.get_provider`` (the gateway factory) to inject a fake.
+    """
+    global _provider
+    if _provider is None:
+        with _provider_lock:
+            if _provider is None:
+                _provider = get_provider(LLM_PROVIDER, model=MODEL)
+    return _provider
+
+
+def _provider_labels() -> dict:
+    """``{"provider": ..., "model": ...}`` for spans and /api/metrics; never raises."""
+    try:
+        p = get_llm_provider()
+        return {"provider": p.name, "model": p.model}
+    except Exception:  # noqa: BLE001 - misconfigured provider: still serve metrics
+        return {"provider": LLM_PROVIDER, "model": MODEL or "default"}
 
 
 # --------------------------------------------------------------------------- #
@@ -206,8 +228,9 @@ def api_metrics():
 
     Returns only counts / latency percentiles / cost / guardrail blocks queried back
     from Logfire — never user text, IPs, or raw logs. Degrades to {available:false}.
+    ``llm`` names the configured provider/model (config, not telemetry).
     """
-    return metrics_mod.get_metrics()
+    return {**metrics_mod.get_metrics(), "llm": _provider_labels()}
 
 
 def _snippet(text: str, limit: int = 240) -> str:
@@ -243,7 +266,7 @@ def chat(req: ChatRequest, request: Request):
         attrs: dict = {
             "cold_start": cold_start,
             "msg_chars": len(message),
-            "model": MODEL,
+            **_provider_labels(),
             "refused": False,
             "leak_rate": 0,
         }
@@ -311,8 +334,7 @@ def chat(req: ChatRequest, request: Request):
         blocks = book_blocks + chunk_blocks
         context = "\n\n".join(blocks) if blocks else "(no retrieved context)"
 
-        client = get_client()
-        if client is None:
+        def not_configured() -> ChatResponse:
             attrs.update(
                 llm_configured=False,
                 total_ms=round((time.monotonic() - t0) * 1000, 1),
@@ -325,6 +347,12 @@ def chat(req: ChatRequest, request: Request):
                 sources=sources,
                 leak_rate=0,
             )
+
+        try:
+            provider = get_llm_provider()
+        except (ProviderUnavailable, ValueError) as e:
+            logger.warning("LLM provider not configured: %s", e)
+            return not_configured()
 
         # Build messages: prior turns + the current (PII-redacted) question with context.
         messages = [
@@ -345,28 +373,31 @@ def chat(req: ChatRequest, request: Request):
         with obs.span("llm") as lsp:
             l0 = time.monotonic()
             try:
-                resp = client.messages.create(
-                    model=MODEL,
-                    max_tokens=MAX_TOKENS,
-                    system=[
-                        {
-                            "type": "text",
-                            "text": guardrails.SYSTEM_PROMPT
-                            + "\n\n"
-                            + books.BOOKS_SYSTEM_ADDENDUM,
-                            "cache_control": {"type": "ephemeral"},  # cache stable prefix
-                        }
-                    ],
+                resp = provider.complete(
+                    system=guardrails.SYSTEM_PROMPT + "\n\n" + books.BOOKS_SYSTEM_ADDENDUM,
                     messages=messages,
+                    max_tokens=MAX_TOKENS,
+                    cache_system=True,  # cache the stable prefix
                 )
-                answer = "".join(b.text for b in resp.content if b.type == "text").strip()
+                answer = resp.text.strip()
                 if not answer:
                     answer = "I wasn't able to produce an answer for that. Try rephrasing."
-                tokens = obs.usage_tokens(getattr(resp, "usage", None))
-                cost = obs.estimate_cost_usd(getattr(resp, "usage", None))
+                tokens = {
+                    "input_tokens": resp.input_tokens,
+                    "output_tokens": resp.output_tokens,
+                    "cache_write_tokens": resp.cache_write_tokens,
+                    "cache_read_tokens": resp.cache_read_tokens,
+                }
+                cost = round(resp.cost_usd, 6)
                 attrs.update(tokens, est_cost_usd=cost)
-                obs.set_attributes(lsp, {**tokens, "est_cost_usd": cost})
-            except Exception as e:  # anthropic.APIError, RateLimitError, connection, etc.
+                obs.set_attributes(
+                    lsp, {**tokens, "est_cost_usd": cost,
+                          "provider": resp.provider, "model": resp.model}
+                )
+            except ProviderUnavailable as e:  # no key / no AWS creds / Ollama down
+                logger.warning("LLM provider unavailable: %s", e)
+                return not_configured()
+            except Exception as e:  # API error, rate limit, connection, etc.
                 # Never 500 the whole request for an LLM hiccup — friendly message.
                 logger.warning("LLM call failed: %s", e)
                 answer = (
