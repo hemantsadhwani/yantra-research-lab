@@ -5,15 +5,21 @@ identified by their uniform width and a shared zero line) scaled by the factor
 that reconciles the series to the book's PRINTED total. Cross-checked against
 the 1-3 months matplotlib labels as text. Nothing about engines, exits or
 individual trades is read or emitted -- outputs only (ADR-0001).
+
+The source PDFs live in a PRIVATE directory outside this repo (the private
+trading-bot repo's monthly_reports folder); they are never committed here.
+Pass that directory with --source; only the resulting JSON is published.
+
+    python scripts/extract_monthly_from_reports.py \
+        --source /path/to/private/monthly_reports  monthly.json
 """
+import argparse
 import json
 import pathlib
 import re
-import sys
 import zlib
 from collections import Counter
 
-REPORTS = pathlib.Path(r"D:\Projects\index-options-trading-bot\quick_reference\monthly_reports")
 MONTH_RE = re.compile(r'^(Sep|Oct|Nov|Dec|Jan|Feb|Mar|Apr|May|Jun|Jul|Aug)\s*(\d{2})$')
 MON2NUM = {m: i for i, m in enumerate(
     ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"], 1)}
@@ -94,21 +100,37 @@ BOOKS = {
     "nifty-expiry-low-vix": ("nifty_expiry_low_vix_report.pdf", 339.11),
     "sensex-weekday-r1s1": ("sensex_weekday_r1s1_report.pdf", 1313.82),
 }
-out, bad = {}, []
-for bid, (fn, total) in BOOKS.items():
-    r = extract(REPORTS / fn, total)
-    if not r:
-        print(f"{bid:26} FAILED"); bad.append(bid); continue
-    seq, vals, s, checks = r
-    ok = all(abs(a - b) < max(1.0, abs(a) * 0.01) for a, b in checks)
-    print(f"{bid:26} months={len(vals):2} sum={s:9.2f} printed={total:9.2f} "
-          f"diff={s-total:+6.2f} labels_matched={len(checks)} {'OK' if ok else 'LABEL MISMATCH'}")
-    for a, b in checks: print(f"    printed {a:+9.2f}  derived {b:+9.2f}  delta {b-a:+.2f}")
-    rows = []
-    for label, v in zip(seq, vals):
-        mm = MONTH_RE.match(label)
-        rows.append({"month": f"20{mm.group(2)}-{MON2NUM[mm.group(1)]:02d}", "pnl_points": v})
-    out[bid] = {"rows": rows, "sum": s, "printed": total}
-with open(sys.argv[1], "w", encoding="utf-8") as fh:
-    json.dump(out, fh, indent=2)
-print(f"\nwrote {sys.argv[1]}  ({len(out)}/7 books)" + (f"  FAILED: {bad}" if bad else ""))
+
+
+def main(argv=None):
+    ap = argparse.ArgumentParser(
+        description="Extract monthly P&L series from the private monthly-report PDFs.")
+    ap.add_argument("--source", required=True, type=pathlib.Path,
+                    help="private directory holding the *_report.pdf files (never committed)")
+    ap.add_argument("output", help="path of the JSON file to write")
+    args = ap.parse_args(argv)
+    reports = args.source
+    if not reports.is_dir():
+        ap.error(f"--source {reports} is not a directory")
+    out, bad = {}, []
+    for bid, (fn, total) in BOOKS.items():
+        r = extract(reports / fn, total)
+        if not r:
+            print(f"{bid:26} FAILED"); bad.append(bid); continue
+        seq, vals, s, checks = r
+        ok = all(abs(a - b) < max(1.0, abs(a) * 0.01) for a, b in checks)
+        print(f"{bid:26} months={len(vals):2} sum={s:9.2f} printed={total:9.2f} "
+              f"diff={s-total:+6.2f} labels_matched={len(checks)} {'OK' if ok else 'LABEL MISMATCH'}")
+        for a, b in checks: print(f"    printed {a:+9.2f}  derived {b:+9.2f}  delta {b-a:+.2f}")
+        rows = []
+        for label, v in zip(seq, vals):
+            mm = MONTH_RE.match(label)
+            rows.append({"month": f"20{mm.group(2)}-{MON2NUM[mm.group(1)]:02d}", "pnl_points": v})
+        out[bid] = {"rows": rows, "sum": s, "printed": total}
+    with open(args.output, "w", encoding="utf-8") as fh:
+        json.dump(out, fh, indent=2)
+    print(f"\nwrote {args.output}  ({len(out)}/7 books)" + (f"  FAILED: {bad}" if bad else ""))
+
+
+if __name__ == "__main__":
+    main()

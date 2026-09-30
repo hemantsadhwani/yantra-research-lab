@@ -1,23 +1,35 @@
 # yantra-research-lab
 
 > **Autonomous multi-agent platform for quant strategy research.** Agents propose strategy
-> variants, backtest each, judge them on risk-adjusted returns, rank, remember what worked,
-> and iterate — bounded by a budget, with a human-approval gate before promotion.
+> variants, backtest each, score them on risk-adjusted returns, rank, remember what worked,
+> and iterate for a fixed number of rounds, with a human-approval gate before promotion.
 
+[![ci](https://github.com/hemantsadhwani/yantra-research-lab/actions/workflows/ci.yml/badge.svg)](https://github.com/hemantsadhwani/yantra-research-lab/actions/workflows/ci.yml)
+![python](https://img.shields.io/badge/python-3.12%20%7C%203.13-blue)
 ![tier](https://img.shields.io/badge/tier--1-runnable-brightgreen)
-![python](https://img.shields.io/badge/python-3.12-blue)
-![tests](https://img.shields.io/badge/tests-16%20passing-brightgreen)
-![eval--gate](https://img.shields.io/badge/eval--gate-passing-success)
 ![deps](https://img.shields.io/badge/tier--1%20deps-stdlib%20only-success)
 ![license](https://img.shields.io/badge/license-MIT-lightgrey)
 
 Runs on a **public synthetic backtest engine** (zero proprietary IP) so anyone can reproduce it.
 The production version drives a private engine — referenced here only in the abstract.
 
-## Quickstart (no dependencies)
+## Quickstart: run, pause at the human gate, resume
 
 ```bash
-git clone <this-repo> && cd yantra-research-lab
+pip install -e '.[agents]'
+python -m research_lab.run_graph                  # runs the loop, then stops: PAUSED at human gate · thread <id>
+python -m research_lab.run_graph --resume <id> --decision approve    # or --decision reject
+```
+
+The pause is a real LangGraph interrupt persisted in a SQLite checkpoint, so the resume can come
+from another shell, another process, or tomorrow. Nothing promotes until a human says so.
+
+## Zero-dependency path
+
+The same loop also runs on the stdlib alone, with no install:
+
+```bash
+git clone https://github.com/hemantsadhwani/yantra-research-lab && cd yantra-research-lab
 python -m research_lab.run            # 4 iterations × 5 variants
 python -m research_lab.run --iterations 6 --variants 6 --seed 7
 python -m research_lab.run --strategy nifty-expiry   # drive a named strategy
@@ -29,20 +41,24 @@ surface it as `promote?` — held for a human gate (nothing promotes autonomousl
 ### Optional: put an LLM in the loop
 
 The proposer has two implementations behind one method. The default reasons by heuristic; add
-`--use-llm` and Claude proposes the variants instead — **without changing a line of the loop**,
+`--use-llm` and an LLM proposes the variants instead — **without changing a line of the loop**,
 which is the point:
 
 ```bash
-pip install -e '.[llm]'               # and set ANTHROPIC_API_KEY
+pip install -e '.[llm]'               # and set ANTHROPIC_API_KEY (or LLM_PROVIDER=ollama for local)
 python -m research_lab.run --use-llm --context compacted
 python -m research_lab.experiments.context_study --include-heuristic
 ```
 
-The second command measures what the proposer's context actually costs — the same loop run under
+**Providers:** `LLM_PROVIDER=anthropic|bedrock|ollama` (or `--provider`), routed through
+[`llm_gateway/`](llm_gateway/). Every provider's output is schema-validated before the loop sees it.
+
+The `context_study` command measures what the proposer's context actually costs — the same loop run under
 three context constructions (full history / best-so-far / a compacted summary), reporting input
 tokens against the best variant found. Across three seeds, **compaction held 95% of the
 full-history score for 46% of the input tokens**. Raw runs and a note on what the numbers do and
-do not support are in [`results/`](results/README.md).
+do not support are in [`results/`](results/README.md). (Those numbers came from the direct
+Anthropic proposer, before the gateway landed; a re-run through the gateway is pending.)
 
 The deterministic path remains the default: no key, no network, no SDK, byte-identical output.
 
@@ -56,46 +72,62 @@ proprietary** — protected by the contract boundary, not obfuscation, so this r
 and reproducible. This isn't a substitute for the real system; it's its **orchestration layer**, with
 the edge swapped for a stand-in. See [architecture/01-strategy-research.md](architecture/01-strategy-research.md).
 
+The contract is real MCP, not just a function signature. `--engine mcp` sends every backtest
+over MCP stdio to `mcp_server/`, and a test asserts the results are byte-identical to the
+in-process engine:
+
+```bash
+pip install -e '.[mcp]'
+python -m research_lab.run --engine mcp
+```
+
 ## What it demonstrates (the architecture)
 
 ```mermaid
 flowchart LR
-  S[Supervisor<br/>bounded loop] -->|propose| P[Proposer<br/>memory-guided]
-  P -->|variants| B[Backtester<br/>via MCP tool]
-  B -->|results| E[Evaluator<br/>risk-adjusted + LLM-judge]
+  S[Supervisor<br/>bounded loop] -->|propose| P[Proposer<br/>heuristic or LLM]
+  P -->|variants| B[Backtester<br/>in-process or MCP]
+  B -->|results| E[Evaluator<br/>risk-adjusted score]
   E -->|rank| S
-  E -->|best| M[(Memory<br/>episodic/semantic)]
+  E -->|best| M[(Memory<br/>best-so-far)]
   M -.exploit.-> P
-  E -->|promote?| H{{Human gate}}
+  S -.every step.-> C[(SQLite<br/>checkpoint)]
+  E -->|promote?| H{{Human gate<br/>interrupt}}
+  H -->|--resume approve / reject| R[Promoted or rejected]
+  C -.resume.-> H
 ```
 
-- **Supervisor–worker** orchestration, **bounded autonomy** (iteration/token budget)
+- **Supervisor–worker** orchestration, **bounded autonomy** (fixed iteration count)
 - **Memory-guided** proposals (exploit best-so-far + explore)
 - **Offline↔online parity** — every variant judged on the *same* synthetic market
-- **HITL** — the top variant is `promote?`, never auto-promoted
+- **Checkpointed** — the LangGraph arm persists state after every step, so a run survives a process restart
+- **HITL** — the top variant is `promote?`, and the graph interrupts until a human approves or rejects it
 
 ## Repository structure (monorepo — see [ADR-0004](docs/adr/0004-monorepo-and-environment-promotion.md))
 
 ```
-research_lab/          # ★ Tier-1 · the agentic engine (supervisor + agents + memory)   [runnable]
-synthetic_engine/      # ★ Tier-1 · public toy backtest engine (zero IP)                [runnable]
-mcp_server/            #   Tier-1 · MCP tools over the engine
-tests/  eval/          #   tests + the CI eval-gate (agent-loop regression)
-chatbot/               #   Tier-1/2 · RAG + dual IP/PII guardrails + RBAC
-slm_regime_classifier/ #   Tier-2 · fine-tuning use case (distill→QLoRA→serve→eval-gate)
-ingestion/             #   Tier-3 · multimodal document ingestion (knowledge base)
-api/  frontend/        #   Tier-3 · FastAPI gateway + React retail portal
-knowledge_base/        #   corpus seed-list + eval sets (raw/processed are gitignored)
-infra/                 #   IaC · environments/{dev,prod}  (dev/prod = envs, not branches)
-ops/                   #   observability (OTel→LangSmith/Logfire/Langfuse), scripts
-docs/                  #   architecture + ADRs
-.github/workflows/     #   path-filtered CI/CD: lint · test · eval-gate → dev → prod
+research_lab/          # the agentic engine: stdlib loop + LangGraph arm (checkpoint, human gate)
+synthetic_engine/      # public toy backtest engine (zero IP)
+mcp_server/            # MCP server exposing run_backtest over the engine
+llm_gateway/           # provider seam: Anthropic / Bedrock / Ollama, schema-validated output
+backend/               # RAG chatbot with IP + PII guardrails (FastAPI → Fly.io)
+frontend/              # Next.js public site (→ Vercel)
+ingestion/             # LangGraph ingestion DAG for the knowledge base (daily cron)
+eval/                  # CI eval-gate, guardrail red-team, chatbot eval
+tests/                 # core tests
+knowledge_base/        # corpus seed-list + eval sets
+scripts/               # regenerate cached site data
+architecture/  docs/   # system design, ADRs, design log
+.github/workflows/     # CI (lint · test · eval-gate) + the daily ingestion cron
 ```
 
-## Build tiers
-- **Tier 1 (this)** — autonomous research loop + MCP + eval-gate + basic guarded chatbot. *Interview-credible.*
-- **Tier 2** — model routing + the fine-tuning SLM.
-- **Tier 3** — A2A + AWS deploy + retail portal + full multimodal ingestion.
+## What's built and what's next
+
+[ROADMAP.md](ROADMAP.md) has two tables. **Built** lists each piece with its file path and the
+one command that proves it. **Phase 2** lists what is designed but not built (auth + RBAC,
+retail portal, model routing, the fine-tuned SLM, IaC environments, and more). The web app is
+a live app (deployed, traced, observable), not a live product. It has no real user traffic,
+and nothing here claims otherwise.
 
 ## Architecture
 Full system design across all subsystems — strategy research, ingestion, memory, guardrails,

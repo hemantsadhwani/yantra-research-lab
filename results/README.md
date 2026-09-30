@@ -4,6 +4,10 @@ Raw output from `research_lab/experiments/context_study.py` — the Day 6B conte
 study. Each JSON file is one full sweep at a given seed: three context constructions plus the
 deterministic control, same engine, same baseline, same iteration budget.
 
+These numbers were produced by the stdlib arm (`research_lab.run`) with the pre-gateway proposer,
+which called the Anthropic SDK directly; the `llm_gateway/` provider seam landed on 2026-09-29,
+and a re-run of the study through the gateway is pending.
+
 | File | Seed |
 |---|---|
 | `context_study.json` | 0 |

@@ -2,7 +2,7 @@
 
 Autonomous multi-agent platform for quant strategy research. Agents propose strategy
 variants → backtest each → judge on risk-adjusted returns → rank → remember what worked →
-iterate, bounded by a budget, with a human-approval gate before anything promotes.
+iterate for a fixed iteration count, with a human-approval gate before anything promotes.
 
 This repo is a **public, reproducible showcase** of the orchestration layer of a private
 trading system. It is also the flagship project on Hemant's resume and gets discussed in
@@ -12,8 +12,11 @@ interviews, so **accuracy matters more than polish** — see "Claims discipline"
 
 ```bash
 make install        # pip install -e '.[dev]'  — needed before pytest works
-make demo           # one autonomous research session (5 iterations x 6 variants)
-make demo-llm       # the same session with Claude proposing   (needs .[llm] + API key)
+make demo           # stdlib arm: one research session (5 iterations x 6 variants)
+make demo-graph     # LangGraph arm: same session, pauses at the human gate; then `make resume THREAD=... DECISION=approve`
+make demo-mcp       # LangGraph arm over the MCP server (--engine mcp)
+make demo-llm       # stdlib arm with the LLM proposer          (needs .[llm] + a provider: LLM_PROVIDER=)
+make demo-bedrock   # LLM proposer via Claude on AWS Bedrock    (needs AWS creds + model access)
 make context-study  # measure 3 context constructions          (needs .[llm] + API key, costs cents)
 make test           # pytest
 make gate           # CI eval-gate: the agent loop must still beat the baseline
@@ -26,9 +29,7 @@ the default path must never need an API key, a network call, or an installed SDK
 "clone it and it reproduces" is a load-bearing property of this repo, not a convenience. Optional extras (`agents`, `llm`, `mcp`, `rag`, `ops`, `dev`) are
 declared in `pyproject.toml` and installed per service.
 
-**On Windows, prefix commands with `PYTHONIOENCODING=utf-8`.** The report writer emits `→`
-and `⏸`, and the default `cp1252` console encoding raises `UnicodeEncodeError` at the end of
-an otherwise successful run. The loop itself is fine — only the final print dies.
+(Windows only: prefix commands with `PYTHONIOENCODING=utf-8`; the report prints `→` and `⏸`.)
 
 ## The core design idea: one contract, two engines
 
@@ -69,18 +70,31 @@ do not support before quoting them anywhere.
 ## Layout
 
 ```
-research_lab/          supervisor.py, memory.py, schemas.py, run.py
-research_lab/agents/   proposer.py, backtester.py, evaluator.py
+research_lab/          supervisor.py (stdlib loop, the spec) · graph.py + run_graph.py (LangGraph arm:
+                       SQLite checkpoint, human interrupt, resume) · memory.py (in-process) ·
+                       memory_store.py (SQLite: episodic / semantic / procedural) · mcp_client.py ·
+                       schemas.py (dataclasses) · schemas_llm.py (Pydantic, LLM I/O only) · verify.py · run.py
+research_lab/agents/   proposer.py, backtester.py (Backtester + MCPBacktester), evaluator.py, context.py
+llm_gateway/           one provider interface: Anthropic direct · Claude on Bedrock · Ollama (LLM_PROVIDER=)
 synthetic_engine/      engine.py — public toy backtest engine (zero IP)
-mcp_server/            server.py — MCP tools wrapping the engine
-eval/                  run_gate.py — the CI eval-gate
-chatbot/               RAG + dual IP/PII guardrails + RBAC
-slm_regime_classifier/ Tier-2: distill -> QLoRA -> serve -> eval-gate
-ingestion/             Tier-3: multimodal document ingestion
-api/ frontend/         FastAPI gateway + Next.js portal
-infra/ ops/            IaC (dev/prod are environments, not branches) + observability
-docs/                  architecture.md, DESIGN_LOG.md, adr/, runbooks/
+mcp_server/            server.py — MCP tools wrapping the engine (run_backtest, get_param_space, ...)
+eval/                  run_gate.py (CI eval-gate), redteam.py, chatbot_books_eval.py
+backend/               FastAPI RAG chatbot + guardrails + Logfire (Fly.io)
+ingestion/             LangGraph document-ingestion DAG (daily GitHub Actions cron)
+frontend/              Next.js portal (Vercel)
+docs/                  architecture.md, DESIGN_LOG.md, adr/
+architecture/          design docs 01–08 with honest "As built" sections
+ROADMAP.md             Built (with the proving command) vs Phase 2 / designed-not-built
 ```
+
+**Import boundary (enforced by `tests/test_smoke.py`):** only `research_lab/graph.py`, `run_graph.py`,
+`mcp_client.py`, `memory_store.py` (lazily), `schemas_llm.py`, `agents/judge.py` and `llm_gateway/*` may
+import langgraph / mcp / pydantic / anthropic / fastembed. `run.py`, `supervisor.py`, `memory.py`,
+`schemas.py`, `verify.py` and the heuristic proposer path never do.
+
+**Two arms, both eval-gated.** The stdlib supervisor and the LangGraph graph are individually deterministic
+but produce different variant sequences for the same seed (the graph reseeds per iteration so a resumed run
+reproduces). When quoting a number, say which arm produced it.
 
 ## Where the reasoning lives
 

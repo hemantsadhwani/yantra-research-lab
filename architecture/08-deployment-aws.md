@@ -49,8 +49,8 @@ anything:
 | `deploy-dev` | **stub** — `echo "deploy to dev (infra/environments/dev)"` |
 | `deploy-prod` | **stub** — `echo "promote same artifact to prod (infra/environments/prod)"`, behind a GitHub `prod` environment approval gate that exists but guards nothing real |
 
-`infra/environments/dev` and `infra/environments/prod` are empty directories — the environment
-split described above is a target, not wired.
+There is no `infra/` directory yet (the empty `infra/environments/{dev,prod}` placeholders were
+removed; see [ROADMAP.md](../ROADMAP.md)) — the environment split described above is a target, not wired.
 
 **Real deploys happen outside this CI file entirely:**
 - **Frontend:** Vercel auto-deploys on every push to `main` (its own GitHub integration, not a

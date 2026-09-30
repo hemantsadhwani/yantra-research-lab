@@ -43,9 +43,8 @@ routing logic — targeting **`claude-haiku-4-5`**, with **prompt caching on the
 `max_tokens=1024`, a 20/min/IP rate limit, and a 500/day cap. There is exactly one model in the
 loop; "route by task difficulty" is not implemented because there is only one task.
 
-**SLM status:** `slm_regime_classifier/` contains a design **README only** — the
-`distill/ finetune/ serve/ eval_gate/` layout it describes does not exist as code
-(`find slm_regime_classifier -name "*.py"` returns nothing). The fine-tuning lifecycle above is
+**SLM status:** not built. The former `slm_regime_classifier/` placeholder (a README only) was removed; its design now lives in [ROADMAP.md](../ROADMAP.md). The
+`distill/ finetune/ serve/ eval_gate/` layout it described was never written as code. The fine-tuning lifecycle above is
 the target design, not a built artifact. Everything else in this document — the gateway, the
 frontier/open-weight split, the full SLM lifecycle — is the target, not built.
 </content>

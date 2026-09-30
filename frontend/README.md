@@ -3,15 +3,16 @@
 The **"Signal Desk"** public frontend: a dark AI+quant terminal look (with a light theme) for the
 autonomous strategy-research showcase. Built with **Next.js (App Router) + TypeScript + Tailwind CSS**.
 
-> **ALL PAPER / SIMULATED — educational, not investment advice.** Every number in this app is a
-> placeholder or a simulated result. No real funds are held, moved, or managed.
+> **ALL PAPER / SIMULATED — educational, not investment advice.** Strategy numbers are labeled
+> backtest outputs (simulated fills, not live-executed); the research-lab run is from the public
+> synthetic engine. No real funds are held, moved, or managed.
 
 ## Screens
 
 | Route            | What it is                                                                              |
 | ---------------- | --------------------------------------------------------------------------------------- |
 | `/`              | Landing — explains the loop: propose → backtest → judge → rank → remember (budgeted, HITL gate). |
-| `/strategies`    | Strategy Explorer — 3 paper strategy cards + Plan-vs-Actual **capture-factor** panel. Reads `public/data/performance.json`. |
+| `/strategies`    | Strategy Explorer — 3 products / 7 books of labeled backtest outputs (`public/data/books/`) + Plan-vs-Actual **capture-factor** panel (`public/data/performance.json`). |
 | `/research-lab`  | Research Lab — the agentic pipeline, budget, baseline + ranked-variants table, and the `promote?` gate. Reads `public/data/run.json`. **Zero backend calls.** |
 | `/chat`          | Guardrail chatbot — POSTs to the backend, shows sources, refusals, and a live **leak-rate** badge. |
 
@@ -20,11 +21,15 @@ the full chat). It reuses the same backend endpoint and chat logic.
 
 ## Data files
 
-Static JSON in `public/data/` (server-rendered at build time; the owner overwrites these with real
-cached data):
+Static JSON in `public/data/` (server-rendered at build time):
 
-- `run.json` — one cached research run (baseline + ranked variants). Placeholder stub included.
-- `performance.json` — strategy + plan-vs-actual numbers. **Placeholder zeros — fill with real labeled numbers.**
+- `books/*.json` — real, labeled backtest outputs for the strategy books, including the monthly
+  P&L series (published 2026-09-12). Outputs only: no parameters, entry/exit logic or trade rows.
+- `run.json` — one cached deterministic run of the public synthetic engine
+  (regenerate with `python scripts/generate_run.py frontend/public/data/run.json`).
+- `performance.json` — feeds only the Plan-vs-Actual panel; its values are still placeholders
+  until live paper results are filled in.
+- `ingestion.json` — the ingestion pipeline manifest behind `/pipeline`.
 
 ## Run locally
 

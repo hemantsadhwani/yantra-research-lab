@@ -57,7 +57,7 @@ tooling. Each card names the product, its version, its role, and *where it runs*
 **The one thing to notice:** the two dashed strips on the right. AWS Fargate, S3+CloudFront,
 Cognito/Clerk, a LiteLLM gateway, LangSmith/Langfuse and ColQwen visual retrieval are all
 documented targets with a today-equivalent named underneath — they are not in the stack.
-Tier-2 `slm_regime_classifier/` is likewise a README plus four empty directories.
+The Tier-2 SLM classifier is likewise design only (see [ROADMAP.md](../../ROADMAP.md)).
 
 ### `02-chat-request-flow.excalidraw`
 

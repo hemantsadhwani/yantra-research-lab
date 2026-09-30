@@ -42,20 +42,24 @@ python scripts/generate_run.py frontend/public/data/run.json
 ```
 Deterministic (no LLM calls) — commit the regenerated `run.json`.
 
-## Fill the real performance numbers (separate, manual step)
-`frontend/public/data/performance.json` ships with **placeholders**. Replace them with the real,
-**labeled** figures from your private master when you're ready — keep the mandatory labels
-(*simulation / educational · backtest not live-executed · % summed, not compounded · no promises*).
-Do this by hand so real numbers never pass through a build tool.
+## Plan-vs-Actual panel (`performance.json`)
+The strategy cards on `/strategies` read the real book data in `frontend/public/data/books/`
+(published 2026-09-12, see below). `frontend/public/data/performance.json` now feeds only the
+**Plan-vs-Actual capture-factor panel**, and its values are still placeholders until live paper
+results are filled in. Fill them by hand, with the mandatory labels
+(*simulation / educational · backtest not live-executed · % summed, not compounded · no promises*),
+so real numbers never pass through a build tool.
 
 ## Strategy books (real numbers)
 `frontend/public/data/books/*.json` holds real, labeled backtest **outputs** for the private
 strategies (`nifty-weekday`, `nifty-expiry`, `sensex-expiry`) behind the Strategy Explorer —
 see `frontend/src/lib/types.ts` for the `Book`/`BooksIndex`/`RiskGatesData` shapes. The
-`headline`/`cost`/`sizing` figures are transcribed by hand from the private monthly reports;
-`monthly`/`daily` stay `[]` with `series_pending: true` until filled in. Fill them by running
-`scripts/export_books.py` **in the private repo** against the real trades CSV, then commit
-only the resulting JSON here — the CSV itself never enters this repo. Outputs only, always:
+`headline`/`cost`/`sizing` figures are transcribed by hand from the private monthly reports,
+and the monthly P&L series is published for all seven books (`series_pending: false`). The
+series come from `scripts/extract_monthly_from_reports.py --source <private reports dir>`, which
+reads the private report PDFs outside this repo (chart-derived, reconciled to each printed
+book total); running `scripts/export_books.py` in the private repo against the trades CSV
+supersedes them. Only the resulting JSON is committed here; the PDFs and CSV never enter this repo. Outputs only, always:
 no engine parameters, indicator names or thresholds, entry/exit logic, exit-type names, or
 trade-level rows ever get published, in these files or anywhere else on the public site.
 
