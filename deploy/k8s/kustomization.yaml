@@ -1,0 +1,30 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+# The v1 web app (FastAPI backend + Next.js frontend) as plain Kubernetes objects.
+#   kubectl apply -k deploy/k8s
+# Local cluster: `make k8s-up` (kind). Secrets: copy backend-secret.example.yaml -> backend-secret.yaml (git-ignored).
+
+namespace: yantra
+
+resources:
+  - namespace.yaml
+  - backend-configmap.yaml
+  - backend-deployment.yaml
+  - backend-service.yaml
+  - backend-hpa.yaml
+  - frontend-deployment.yaml
+  - frontend-service.yaml
+  - ingress.yaml
+
+labels:
+  - includeSelectors: false
+    pairs:
+      app.kubernetes.io/part-of: yantra-research-lab
+      app.kubernetes.io/managed-by: kustomize
+
+images:
+  - name: yantra-backend
+    newTag: local
+  - name: yantra-frontend
+    newTag: local

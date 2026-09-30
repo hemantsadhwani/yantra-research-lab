@@ -1,0 +1,61 @@
+# Local, containerised run of the v1 web app: FastAPI backend + Next.js frontend.
+#
+#   cp .env.example .env            # fill ANTHROPIC_API_KEY, or set LLM_PROVIDER=ollama
+#   docker compose up --build       # backend http://localhost:8000, frontend http://localhost:3000
+#   docker compose --profile private up --build   # adds a local Ollama; nothing leaves the machine
+#
+# The public demo runs on Fly.io + Vercel (backend/fly.toml). Kubernetes manifests: deploy/k8s.
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    image: yantra-backend:local
+    env_file:
+      - path: .env
+        required: false
+    environment:
+      FRONTEND_ORIGIN: http://localhost:3000
+      VECTOR_BACKEND: ${VECTOR_BACKEND:-qdrant}
+      RATE_LIMIT_PER_MIN: ${RATE_LIMIT_PER_MIN:-20}
+      DAILY_REQUEST_CAP: ${DAILY_REQUEST_CAP:-500}
+      # In-cluster Ollama when the `private` profile is on (see below).
+      OLLAMA_HOST: ${OLLAMA_HOST:-http://ollama:11434}
+    ports:
+      - "8000:8080"
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request,sys; sys.exit(0 if urllib.request.urlopen('http://localhost:8080/health', timeout=3).status == 200 else 1)"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+      start_period: 20s
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        # Inlined at build time by Next.js; the browser calls the backend on the host port.
+        NEXT_PUBLIC_BACKEND_URL: http://localhost:8000
+    image: yantra-frontend:local
+    ports:
+      - "3000:3000"
+    depends_on:
+      backend:
+        condition: service_healthy
+    restart: unless-stopped
+
+  # Private mode: a local model, so the chatbot answers without any vendor API.
+  #   LLM_PROVIDER=ollama docker compose --profile private up --build
+  #   docker compose exec ollama ollama pull qwen2.5:7b-instruct   (once)
+  ollama:
+    image: ollama/ollama:latest
+    profiles: ["private"]
+    volumes:
+      - ollama-models:/root/.ollama
+    ports:
+      - "11434:11434"
+
+volumes:
+  ollama-models:

@@ -51,3 +51,35 @@ demo-memory:        ## two graph runs over one SQLite memory: run 2 samples from
 	@if command -v sqlite3 >/dev/null 2>&1; then \
 		sqlite3 .yantra/research.sqlite 'select run_id, count(*) from trials group by run_id;'; \
 	else echo "  (install sqlite3 to inspect .yantra/research.sqlite)"; fi
+
+# ---- containers & Kubernetes (ADR-0011; deploy/k8s/README.md) ----
+.PHONY: docker-build docker-up k8s-up k8s-smoke k8s-status k8s-down
+KIND_CLUSTER ?= yantra
+
+docker-build:       ## build both app images locally (backend from the repo root, frontend from frontend/)
+	docker build -t yantra-backend:local -f backend/Dockerfile .
+	docker build -t yantra-frontend:local --build-arg NEXT_PUBLIC_BACKEND_URL=http://localhost:8000 frontend/
+
+docker-up:          ## run backend (:8000) + frontend (:3000) with Compose; add `--profile private` for Ollama
+	docker compose up --build
+
+k8s-up:             ## local kind cluster + ingress-nginx + images + `kubectl apply -k deploy/k8s`
+	kind get clusters | grep -qx $(KIND_CLUSTER) || kind create cluster --config deploy/kind/cluster.yaml
+	kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml
+	kubectl -n ingress-nginx rollout status deployment/ingress-nginx-controller --timeout=180s
+	docker build -t yantra-backend:local -f backend/Dockerfile .
+	docker build -t yantra-frontend:local --build-arg NEXT_PUBLIC_BACKEND_URL=http://yantra.local/api-backend frontend/
+	kind load docker-image yantra-backend:local yantra-frontend:local --name $(KIND_CLUSTER)
+	kubectl apply -k deploy/k8s
+
+k8s-smoke:          ## wait for the rollout, then GET /health through the Ingress
+	kubectl -n yantra rollout status deployment/backend --timeout=180s
+	kubectl -n yantra rollout status deployment/frontend --timeout=180s
+	curl -fsS -H 'Host: yantra.local' http://localhost/api-backend/health && echo
+	curl -fsS -o /dev/null -w 'frontend %{http_code}\n' -H 'Host: yantra.local' http://localhost/
+
+k8s-status:         ## pods, services, HPA in the yantra namespace
+	kubectl -n yantra get deploy,pods,svc,hpa,ingress
+
+k8s-down:           ## delete the local cluster
+	kind delete cluster --name $(KIND_CLUSTER)

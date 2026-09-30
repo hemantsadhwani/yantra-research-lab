@@ -114,6 +114,24 @@ On the chatbot, the output filter is measured end to end with a provider scripte
 **0/32 leaks reach the user with the filter on, 6/32 with it off** (`python -m eval.redteam --live`).
 The leaks are hand-written, so this measures the filter's coverage, not how often a real model leaks.
 
+## Containers and Kubernetes (the app layer)
+
+The public demo runs on Fly.io + Vercel because that is the cheapest way to keep a portfolio app
+live ([ADR-0005](docs/adr/0005-serverless-demo-aws-target.md)). The same two services are also packaged
+the way a platform team would run them ([ADR-0011](docs/adr/0011-containers-and-kubernetes.md)):
+
+```bash
+docker compose up --build                       # backend :8000 + frontend :3000
+docker compose --profile private up --build     # + local Ollama: the chatbot answers with no vendor API
+make k8s-up && make k8s-smoke                   # kind cluster, ingress-nginx, both images, kustomize apply, GET /health
+```
+
+`deploy/k8s/` holds plain kustomize manifests: Deployments with startup/readiness/liveness probes,
+resource limits and a non-root security context, Services, a CPU HPA and an Ingress. CI builds both
+images and renders the manifests on every relevant change. Honest claim: *containerised, Kubernetes
+manifests verified on a local cluster and in CI*, not "runs on Kubernetes in production".
+See [deploy/k8s/README.md](deploy/k8s/README.md) for what is deliberately left out.
+
 ## What CI proves
 
 | Job | What it shows |

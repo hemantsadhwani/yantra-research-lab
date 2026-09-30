@@ -1,7 +1,8 @@
 # Build context is the REPO ROOT (the backend now imports the shared llm_gateway package):
 #     fly deploy --config backend/fly.toml --dockerfile backend/Dockerfile .
 #     docker build -f backend/Dockerfile .
-FROM python:3.11-slim
+# 3.13 matches the CI matrix and the repo's requires-python (ADR-0011).
+FROM python:3.13-slim
 
 # Faster, cleaner Python in containers.
 ENV PYTHONDONTWRITEBYTECODE=1 \

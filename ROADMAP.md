@@ -25,6 +25,7 @@ notes are collected here and in [architecture/](architecture/).
 | Ingestion pipeline: LangGraph DAG (discover, fetch, parse, caption, enrich, quality, index) on a daily cron | `ingestion/`, `.github/workflows/ingest.yml` | `INGEST_CORPUS_SIZE=5 python -m ingestion.run` |
 | Evals: agent-loop regression gate, guardrail red-team, book-aware chatbot eval | `eval/` | `python -m eval.run_gate --arm both` / `python -m eval.redteam` |
 | Logfire tracing on the chatbot service | `backend/observability.py` | the `/ops` page on the live app |
+| Containers + Kubernetes for the app layer: backend and frontend images, Compose with a private Ollama profile, kustomize manifests (probes, limits, HPA, Ingress), local kind cluster, CI image builds and manifest render. Not production: Fly + Vercel remain the deploy | `backend/Dockerfile`, `frontend/Dockerfile`, `docker-compose.yml`, `deploy/` | `make k8s-up && make k8s-smoke` / CI job `containers` |
 | Next.js frontend on Vercel (Landing, Strategy Explorer, Research Lab, Chat, Ops, Pipeline) | `frontend/` | https://yantra-research-lab.vercel.app |
 
 ## Phase 2: designed, not built

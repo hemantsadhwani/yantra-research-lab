@@ -25,6 +25,8 @@ make context-study  # measure 3 context constructions          (needs .[llm] + A
 make test           # pytest
 make gate           # eval-gate, stdlib arm (CI runs `python -m eval.run_gate --arm both`)
 make lint           # ruff check .
+make docker-up      # backend + frontend with Compose (`--profile private` adds Ollama)
+make k8s-up         # local kind cluster + ingress + both images + kustomize apply; then `make k8s-smoke`
 ```
 
 Tier-1 core has **zero dependencies** — it runs on the stdlib, so `python -m research_lab.run`
@@ -88,7 +90,8 @@ mcp_server/            server.py — MCP tools wrapping the engine (run_backtest
 eval/                  run_gate.py (--arm stdlib|graph|both), redteam.py (--live), judge_eval.py, chatbot_books_eval.py
 backend/               FastAPI RAG chatbot + guardrails + Logfire (Fly.io)
 ingestion/             LangGraph document-ingestion DAG (daily GitHub Actions cron)
-frontend/              Next.js portal (Vercel)
+frontend/              Next.js portal (Vercel); frontend/Dockerfile for Compose / Kubernetes
+deploy/                k8s/ kustomize manifests (probes, limits, HPA, Ingress) · kind/ local cluster (ADR-0011)
 docs/                  architecture.md, DESIGN_LOG.md, adr/
 architecture/          design docs 01–08 with honest "As built" sections
 ROADMAP.md             Built (with the proving command) vs Phase 2 / designed-not-built
@@ -122,6 +125,7 @@ Read these before re-deriving a decision — they record the trade-offs as they 
 - `docs/adr/0008` one `Provider` protocol (Anthropic / Bedrock / Ollama); thin adapter, not LiteLLM
 - `docs/adr/0009` persistent memory over one SQLite file; promotions human-only
 - `docs/adr/0010` evaluation ladder: verify → score → judge (veto only) → human; budget; leak rate
+- `docs/adr/0011` app layer packaged for Kubernetes (Compose, kustomize, kind, CI image builds); Fly + Vercel stay the public demo
 
 ## Deployment
 

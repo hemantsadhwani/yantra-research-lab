@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: backend-config
+data:
+  # Non-secret runtime settings. Secrets (API keys, Qdrant Cloud, Logfire) live in the
+  # `backend-secrets` Secret — see backend-secret.example.yaml.
+  LLM_PROVIDER: "anthropic"          # anthropic | bedrock | ollama (private mode)
+  VECTOR_BACKEND: "qdrant"           # local on-disk unless QDRANT_URL is set in the Secret
+  FRONTEND_ORIGIN: "http://yantra.local"
+  RATE_LIMIT_PER_MIN: "20"
+  DAILY_REQUEST_CAP: "500"
+  # YANTRA_ENV=production is the only value that exports Logfire spans; keep clusters that
+  # are not the public demo on "staging" so they never pollute the live /ops numbers.
+  YANTRA_ENV: "staging"
+  OLLAMA_HOST: "http://ollama.yantra.svc.cluster.local:11434"
