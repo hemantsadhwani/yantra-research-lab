@@ -1,7 +1,7 @@
 {
   "_note": "Public run manifest of the Tier-3 agentic ingestion pipeline. Safe aggregates + provenance only; raw PDFs live in S3, not here.",
-  "run_id": "20260929T083344Z",
-  "generated_at": "2026-09-29T08:37:21+00:00",
+  "run_id": "20260930T083633Z",
+  "generated_at": "2026-09-30T08:46:08+00:00",
   "collection": "research_corpus",
   "embed_model": "BAAI/bge-small-en-v1.5",
   "dag": [
@@ -50,16 +50,16 @@
     "discovered": 10,
     "fetched": 10,
     "parsed": 10,
-    "chunks": 488,
-    "accepted": 459,
+    "chunks": 507,
+    "accepted": 478,
     "rejected": 29,
-    "images": 40,
+    "images": 684,
     "figures_captioned": 18,
-    "tables": 3,
+    "tables": 2,
     "with_math": 10,
-    "indexed": 459,
-    "spent_usd": 0.0321,
-    "duration_s": 216.4
+    "indexed": 478,
+    "spent_usd": 0.0347,
+    "duration_s": 574.5
   },
   "rejects_by_reason": {
     "low-relevance": 29
@@ -67,288 +67,288 @@
   "budget_usd": 3.0,
   "figures": [
     {
-      "doc_id": "2609.35744v1",
-      "title": "FinAutoRubric: Expert-Guided Automatic Rubric Generation for Evaluating Financial Research Agents",
-      "page": 2,
-      "thumb": "/data/figures/2609.35744v1_p2_0.jpg",
-      "caption": "Figure 1: Traditional benchmarks (top) have experts write each query and its reference answer, author or audit its rubric, and review every item, so each benchmark is costly to build, slow to update, and fixed to one context per item. In FinAutoRubric (bottom), experts write reusable guidance once and screen a model-drafted Task Bank, and agents and code generate, review, and validate a rubric for \u2014 This figure compares two evaluation methodologies for financial research tasks: the Traditional a",
+      "doc_id": "2609.37963v1",
+      "title": "Not All LPs Are Equal: The Active-Passive Gap in Automated Market Maker Liquidity Provision",
+      "page": 14,
+      "thumb": "/data/figures/2609.37963v1_p14_0.jpg",
+      "caption": "Fig. 1. Overall minus passive LIFO markout by active LIFO volume share, for Uniswap v3 (left) and v4 (right, log-scale volume share) pools. \u2014 This figure presents two scatter plots with fitted trend lines showing the relationship between active LIFO volume share (x-axis) and overall minus passive LIFO markout (y-axis) for Uniswap v3 (left panel) and v4 (right panel). The left panel uses linear scales while the right panel uses logarithmic scale for the x-axis. Both panels demonstrate a positive ",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2609.35744v1"
+      "source": "https://arxiv.org/pdf/2609.37963v1"
     },
     {
-      "doc_id": "2609.35744v1",
-      "title": "FinAutoRubric: Expert-Guided Automatic Rubric Generation for Evaluating Financial Research Agents",
-      "page": 3,
-      "thumb": "/data/figures/2609.35744v1_p3_1.jpg",
-      "caption": "Figure 2: The finance-benchmark landscape. (a) Properties of existing finance benchmarks. On- demand means a rubric can be generated for a new query or cutoff without re-authoring, and custom guidance means an evaluator can supply its own guidance and audit how it is applied. (b) Asset-class mix (top) and distinct primary-task count (bottom), measured on the public set of each benchmark. \u2014 This figure compares properties and composition of financial benchmarks used to evaluate AI agents. Panel (",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.35744v1"
-    },
-    {
-      "doc_id": "2609.35744v1",
-      "title": "FinAutoRubric: Expert-Guided Automatic Rubric Generation for Evaluating Financial Research Agents",
-      "page": 4,
-      "thumb": "/data/figures/2609.35744v1_p4_2.jpg",
-      "caption": "Figure 3: FinAutoRubric overview. Every agent follows an expert guide. Stage 1 builds a Task Bank of reusable task-level criteria from a query set. Stage 2 separates a query\u2019s task from its instance- specific context and matches the task to the bank. In the long-horizon Stage 3 loops, a reviewer from a different model family verifies every item of the writer\u2019s draft, and the reviewer side rather t \u2014 Figure 3 presents a three-stage pipeline for automatic rubric generation in financial research ev",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.35744v1"
-    },
-    {
-      "doc_id": "2609.35744v1",
-      "title": "FinAutoRubric: Expert-Guided Automatic Rubric Generation for Evaluating Financial Research Agents",
-      "page": 8,
-      "thumb": "/data/figures/2609.35744v1_p8_3.jpg",
-      "caption": "Figure 4: Blind test of expert and FinAu- toRubric rubrics. Analysts choose between two anonymized rubrics per query. \u2014 This figure displays a two-panel comparison of rubric evaluation methods in financial research. The left panel is a horizontal stacked bar chart showing the share of judgments across four datasets (BigFinanceBench, FrontierFinance, Finance Agent, and All combined), with three categories: Expert rubric (gray), Tie (light blue), and FinAutoRubric (dark blue). The right panel is a",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.35744v1"
-    },
-    {
-      "doc_id": "2609.35359v1",
-      "title": "From Cointegration to Out-of-Sample Failure: A Pairs-Trading Case Study on PEP-KO",
-      "page": 4,
-      "thumb": "/data/figures/2609.35359v1_p4_0.jpg",
-      "caption": "Figure 1: Equity curve under optimal trading during the 2018\u20132023 training window. \u2014 This line chart displays the equity curve Ct(\u03b8*) for a pairs-trading strategy on PEP-KO from 2018 to 2024, with the y-axis showing cumulative returns in dollars (ranging from 95 to 125) and the x-axis showing time. The solid blue line represents the equity curve under optimal parameters, while a dashed horizontal line at 100 indicates the initial capital baseline. Red squares mark trade entry points and green sq",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.35359v1"
-    },
-    {
-      "doc_id": "2609.35359v1",
-      "title": "From Cointegration to Out-of-Sample Failure: A Pairs-Trading Case Study on PEP-KO",
-      "page": 5,
-      "thumb": "/data/figures/2609.35359v1_p5_1.jpg",
-      "caption": "Figure 2: Walk-forward validation equity curve during the OOS window Sk for each fold k = 1, 2, 3. \u2014 This figure displays walk-forward validation results across three folds showing equity curves C_t(\u03b8*_k) for a pairs-trading strategy on PEP-KO during out-of-sample periods. Each subplot shows the strategy's cumulative returns over time with the baseline initial capital C_0 marked as a dashed red line, trade entry points marked in red dots, and trade exit points marked in green dots. The key takea",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.35359v1"
-    },
-    {
-      "doc_id": "2609.35359v1",
-      "title": "From Cointegration to Out-of-Sample Failure: A Pairs-Trading Case Study on PEP-KO",
-      "page": 6,
-      "thumb": "/data/figures/2609.35359v1_p6_2.jpg",
-      "caption": "Figure 3: Aggregate annualised net Sharpe ratio sur- face over the admissible grid \u0398 during the Pre- and Post-COVID windows. \u2014 This 3D surface plot displays the aggregate annualized net Sharpe ratio across a parameter grid during COVID-19 window exclusion periods, with axes representing z_exit (horizontal, 0.00 to 1.25) and z_entry (horizontal, 2.00 to 2.50), and the vertical axis showing Sharpe ratio values ranging from -1.00 to 0.2. The surface is color-coded from red (negative values) through",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.35359v1"
-    },
-    {
-      "doc_id": "2609.35359v1",
-      "title": "From Cointegration to Out-of-Sample Failure: A Pairs-Trading Case Study on PEP-KO",
-      "page": 7,
-      "thumb": "/data/figures/2609.35359v1_p7_3.jpg",
-      "caption": "Figure 4: Time-varying hedge ratio \u03b2t, 2023\u2013present: rolling OLS vs. Kalman filter. \u2014 This line chart compares two methods for estimating the adaptive hedge ratio (\u03b2t) in a pairs-trading strategy between PEP and KO from 2023 to present. The figure displays three lines: rolling OLS (blue), Kalman Filter (orange), and a static beta from 2013-2018 (gray reference). The y-axis shows the beta coefficient values ranging from approximately -0.5 to 1.5, while the x-axis shows dates throughout 2023-2024.",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.35359v1"
-    },
-    {
-      "doc_id": "2609.35086v1",
-      "title": "Retrieval-Augmented Diffusion Modeling for Stochastic Discount Factor Portfolios",
+      "doc_id": "2609.37903v1",
+      "title": "From Intraday Orderbook to Imbalance Price: Understanding Cross-Market Interaction",
       "page": 1,
-      "thumb": "/data/figures/2609.35086v1_p1_0.jpg",
-      "caption": "Figure 1: Comparison of forecasting and SDF objectives, and the impact of noisy representations. \u2014 The figure comprises three heatmap visualizations comparing different approaches in stochastic discount factor (SDF) modeling. Panel (a) shows a 2D heatmap of returns forecasting task optimization for a single point optimum, displaying a concentrated orange peak in the center. Panel (b) presents the SDF estimation task heatmap demonstrating that multiple equivalent solutions exist, showing a broade",
+      "thumb": "/data/figures/2609.37903v1_p1_0.jpg",
+      "caption": "Fig. 1 (a) illustrates how fundamentals such as renewable generation and load influence the intraday orderbook and imbalance price as established market context. This forms an implicit interaction between the intraday and balancing markets [19]. On the one hand, intraday prices become more volatile near delivery as traders reflect on fundamentals and seek to close their positions. This is because  \u2014 This figure illustrates the causal relationships and information flows between market fundamental",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2609.35086v1"
+      "source": "https://arxiv.org/pdf/2609.37903v1"
     },
     {
-      "doc_id": "2609.35086v1",
-      "title": "Retrieval-Augmented Diffusion Modeling for Stochastic Discount Factor Portfolios",
+      "doc_id": "2609.37903v1",
+      "title": "From Intraday Orderbook to Imbalance Price: Understanding Cross-Market Interaction",
       "page": 2,
-      "thumb": "/data/figures/2609.35086v1_p2_1.jpg",
-      "caption": "Figure 2: Overview of RADAR, which learns a clean market state representation for SDF estimation. \u2014 This figure presents a flowchart of the RADAR (Retrieval-Augmented Diffusion) framework for portfolio construction. The pipeline begins with encoding noisy price and news data, queries a historical database to retrieve similar market contexts, computes mean and variance statistics from these retrieved contexts, applies a denoising diffusion model to clean the representation, and finally optimizes ",
+      "thumb": "/data/figures/2609.37903v1_p2_1.jpg",
+      "caption": "Fig. 1. Overview of the work. (a) From fundamentals to electricity prices. Continuous intraday traders adjust their orders in response to renewable generation and load, forming the intraday orderbook, while the imbalance price also reflects fundamental supply\u2013demand in balancing markets. (b) Three representations of the orderbook (OHLCV, VWAP, and LMP) and their variants. (c) Three feature case st \u2014 This figure presents a methodological overview for predicting electricity imbalance prices using ",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2609.35086v1"
+      "source": "https://arxiv.org/pdf/2609.37903v1"
     },
     {
-      "doc_id": "2609.35086v1",
-      "title": "Retrieval-Augmented Diffusion Modeling for Stochastic Discount Factor Portfolios",
-      "page": 4,
-      "thumb": "/data/figures/2609.35086v1_p4_2.jpg",
-      "caption": "Figure 3: The RADAR framework. The price and text embeddings, noisy market representation and retrieved contextual noise are used in the diffusion process to obtain the clean market representation. \u2014 This figure illustrates the RADAR framework for stochastic discount factor portfolio optimization, comprising four interconnected components. Panel 1 shows multimodal encoders that process price data and news text into separate embeddings (e1, e2), which feed into a noisy market representation. Pane",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.35086v1"
-    },
-    {
-      "doc_id": "2609.35086v1",
-      "title": "Retrieval-Augmented Diffusion Modeling for Stochastic Discount Factor Portfolios",
-      "page": 8,
-      "thumb": "/data/figures/2609.35086v1_p8_3.jpg",
-      "caption": "Figure 4: Effect of different top-K values on performance and stability across random seeds. \u2014 This figure presents two subplots examining how the top-K parameter affects model performance and stability. Panel (a) is a bar chart showing Sharpe Ratio (mean \u00b1 standard deviation) across K values of 3, 5, 10, 20, and 50, with performance peaking around K=10 and K=20. Panel (b) is a dual-axis line plot displaying Coefficient of Variation (red line with circles, left axis) and Standard Deviation (blue",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.35086v1"
-    },
-    {
-      "doc_id": "2609.35063v1",
-      "title": "Optimal Liquidation with Support and Resistance Levels under Multi-Skew Brownian Motion",
-      "page": 10,
-      "thumb": "/data/figures/2609.35063v1_p10_0.jpg",
-      "caption": "Fig. 1: The three geometries, with r = 0.05, \u00b5 = 0.01, \u03c32 = 0.04, L = 1 and \u03b2L = 0.9, so that the L-band is (0.625, 1.465). (a) H = 1.60 lies above the L-band: b < H, and the solution is that of the single-skew problem at L whatever the value of \u03b2H (here \u03b2H = \u22120.30). (b) H = 1.15, \u03b2H = \u22120.20: the band straddles H, with smooth fit at both boundaries and \u2014 This figure displays three panels (a-c) showing the value function V(x) plotted against position x under different regime configurations of sup",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.35063v1"
-    },
-    {
-      "doc_id": "2609.35063v1",
-      "title": "Optimal Liquidation with Support and Resistance Levels under Multi-Skew Brownian Motion",
-      "page": 20,
-      "thumb": "/data/figures/2609.35063v1_p20_1.jpg",
-      "caption": "Fig. 2: Two support levels: \u03b2L = \u03b2H = 0.9, other parameters as in Fig. 1, so that Hc = 2.344 by (33). (a) H = 2.60 > Hc: the two single-skew bands (0.625, 1.465) and (1.626, 3.810) are disjoint, and V = g on the gap between them, so the holder sells there and the levels act independently. (b) H = 2.00 < Hc: the bands have merged into the single band (0.547, 2.939), which carries both skew points,  \u2014 This figure displays two line plots comparing value functions V(x) for optimal liquidation under ",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.35063v1"
-    },
-    {
-      "doc_id": "2609.35063v1",
-      "title": "Optimal Liquidation with Support and Resistance Levels under Multi-Skew Brownian Motion",
-      "page": 20,
-      "thumb": "/data/figures/2609.35063v1_p20_2.jpg",
-      "caption": "Fig. 2 shows the two configurations either side of Hc. \u2014 This figure displays two panels comparing optimal liquidation value functions V(x) across different support and resistance level configurations. The left panel (a) shows two disjoint support levels where \u03b2_L = \u03b2_H = 0.9, with the value function V (solid line) tracking above the diagonal g(x) = x (dashed line) and exhibiting kinks at the support points. The right panel (b) illustrates the merged band case where H = 2.00 > H_c, with the two ",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.35063v1"
-    },
-    {
-      "doc_id": "2609.34474v1",
-      "title": "Deep kernel hedging",
-      "page": 19,
-      "thumb": "/data/figures/2609.34474v1_p19_0.jpg",
-      "caption": "Figure 1: Deep Kernel Hedging architecture \u2014 This diagram illustrates a deep neural network architecture for kernel-based hedging with four sequential layers. The input layer contains d variables (x\u2081, x\u2082, x\u2083, x_d), which pass through a hidden layer using tanh activation, then to an intermediate representation z \u2208 \u211d\u1d56, and finally to output layer y \u2208 \u211d\u1d30 with cosine kernel outputs. The key architecture shows how raw market inputs are transformed through nonlinear feature extraction (z = \u03c8_\u03c6(x)) to ",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.34474v1"
-    },
-    {
-      "doc_id": "2609.34474v1",
-      "title": "Deep kernel hedging",
-      "page": 24,
-      "thumb": "/data/figures/2609.34474v1_p24_1.jpg",
-      "caption": "Figure 2: Hedging MSE PN OOS \u2014 These plots compare mean squared error (MSE) performance across four hedging methods: Black-Scholes, kernel hedging, deep kernel hedging, and deep hedging. Panel (a) shows MSE on the test set versus training epoch (0-300), where all methods converge to similar error levels around 10^-2, with deep kernel hedging and deep hedging showing faster initial convergence. Panel (b) displays MSE on the test set versus cumulative training runtime in seconds (0-10), revealing ",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.34474v1"
-    },
-    {
-      "doc_id": "2609.34169v1",
-      "title": "From Word Counts to Context: Topic Models for Asset Pricing",
+      "doc_id": "2609.37903v1",
+      "title": "From Intraday Orderbook to Imbalance Price: Understanding Cross-Market Interaction",
       "page": 3,
-      "thumb": "/data/figures/2609.34169v1_p3_0.jpg",
-      "caption": "Figure 1: End-to-end narrative asset-pricing architecture. Financial news text is mapped into contextual semantic embeddings and clustered into \ud835\udc3f= 60 narrative topics on the unit hypersphere. Unexpected deviations from trailing 5-day attention form narrative shocks, whose rolling stock-level covariances provide characteristic instruments for Sparse IPCA. The model extracts \ud835\udc3e= 3 latent narrative ri \u2014 This figure illustrates a six-stage pipeline for incorporating narrative shocks from financial ne",
+      "thumb": "/data/figures/2609.37903v1_p3_2.jpg",
+      "caption": "Fig. 2. Exploratory data analysis for Germany. Panel (a) shows annual traded volume distributions by product in the continuous intraday market. Panel (b) illustrates continuous intraday market VWAP by delivery time and minutes before delivery. Panels (c) to (e) overlay complete imbalance price weeks for 2022, 2023, and 2024. The line is the pointwise median and the band is the middle 50% of weeks. \u2014 This figure presents exploratory analysis of the German continuous intraday electricity market ac",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2609.34169v1"
+      "source": "https://arxiv.org/pdf/2609.37903v1"
+    },
+    {
+      "doc_id": "2609.37903v1",
+      "title": "From Intraday Orderbook to Imbalance Price: Understanding Cross-Market Interaction",
+      "page": 3,
+      "thumb": "/data/figures/2609.37903v1_p3_3.jpg",
+      "caption": "Fig. 3. Exploratory data analysis for Austria. Panel order, aggregation, and yearly definitions follow Fig. 2. \u2014 This figure presents exploratory data analysis for the Austrian electricity market across 2022-2024, mirroring the structure of the German analysis. Panel (a) shows annual distributions of traded volume per delivery (MWh) as stacked density plots for each year, with 2024 showing the lowest peak volume. Panels (c), (d), and (e) display time-series line charts of imbalance prices (EUR/M",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.37903v1"
+    },
+    {
+      "doc_id": "2609.37881v1",
+      "title": "Global Structure and Local Specifications in Sublinear Valuation",
+      "page": 4,
+      "thumb": "/data/figures/2609.37881v1_p4_0.jpg",
+      "caption": "Figure 1: Relations among valuations, stable uncertainty structures, and local specifications. The top maps are inverse order isomorphisms. Localization and globalization preserve order and satisfy the displayed equivalence, but their compositions need not recover the original valuation or specification. \u2014 This diagram illustrates the relationships between valuations, stable uncertainty structures, and local specifications in sublinear valuation theory. The figure shows two inverse order isomorp",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.37881v1"
+    },
+    {
+      "doc_id": "2609.37872v1",
+      "title": "A Generalized Langevin Model of Latent Liquidity and Concave Price Impact",
+      "page": 22,
+      "thumb": "/data/figures/2609.37872v1_p22_0.jpg",
+      "caption": "Figure 1 separates the Kyle line from the three variants with counterflow. The Kyle response is linear, I(V, T) = V/L0, and independent of duration. The fresh-pool response is lower and grows sublinearly over \u2014 This figure displays mathematical formulas defining impact metrics for order execution analysis. The image shows equations (64-66) that specify: the local exponent \u03b4(V,T) measuring price impact sensitivity on a logarithmic scale, a centered approximation \u03b4\u0302(Vk,T) for discrete volume level",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.37872v1"
+    },
+    {
+      "doc_id": "2609.37872v1",
+      "title": "A Generalized Langevin Model of Latent Liquidity and Concave Price Impact",
+      "page": 23,
+      "thumb": "/data/figures/2609.37872v1_p23_1.jpg",
+      "caption": "Figure 1. Terminal impact and local size exponent for the Kyle, fresh-pool, single-mode, and GLE variants \u2014 This figure displays six panels comparing terminal market impact and local size exponents across four model variants (Kyle, fresh-pool, single-mode, and GLE) at three different time horizons (T=1, 3, 10). The top panels use log-log scale on both axes to show terminal impact versus order size Q/Q\u2080, while bottom panels plot the local size exponent (slope) against order size on a log scale. K",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.37872v1"
+    },
+    {
+      "doc_id": "2609.37820v1",
+      "title": "Information Games: Strategic Crowding and Firm Repositioning in Language-Model Space",
+      "page": 13,
+      "thumb": "/data/figures/2609.37820v1_p13_0.jpg",
+      "caption": "Figure 1: Heterogeneous capabilities turn rivalry into differentiated repositioning. Bars decompose the strategic-minus-independent composition-change contrast into common and relative components, measured as weighted squared Euclidean distance on eight-site probability vectors. The 278-transition observation layout weights firms equally. Reporting share is zero; common reporting attenuates both c \u2014 This stacked bar chart compares squared composition-response differences between two scenarios: i",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.37820v1"
+    },
+    {
+      "doc_id": "2609.37741v1",
+      "title": "Dyson-Schwinger Effective-Action Methods for Rough Volatility: A Correlation-Response Architecture for Calibration, Exotics and Risk",
+      "page": 4,
+      "thumb": "/data/figures/2609.37741v1_p4_0.jpg",
+      "caption": "Figure 1: The correlation\u2013response architecture. A model SDE is mapped to a self-consistent Gaussian volatility field; the effective action then supplies three two-time blocks at no extra calibration cost\u2014the equal-time correlation C(t, t) (vanilla smiles and calibration, Part I), the off-diagonal correlation C(t, s) (forward smiles and barriers, Part II) and the causal response R(t, s) (latent-fa \u2014 This flowchart illustrates the correlation-response architecture for volatility modeling, showing",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.37741v1"
+    },
+    {
+      "doc_id": "2609.37741v1",
+      "title": "Dyson-Schwinger Effective-Action Methods for Rough Volatility: A Correlation-Response Architecture for Calibration, Exotics and Risk",
+      "page": 7,
+      "thumb": "/data/figures/2609.37741v1_p7_1.jpg",
+      "caption": "Figure 2: Exp-OU error order versus coupling (\u03b8 = 3, \u00b5 = \u22122, T = 1, \u03c1 = 0): price RMSE against the effective coupling \u03b3 = \u03c32/(2\u03b8) on log\u2013log axes. The moment/Edgeworth closure converges as \u03b3, the stationary Hartree closure as \u03b32, and the resummed SCG as \u03b33; the extra power comes from the exact-MGF resummation (5). Extended grids in Technical Supplement, S7. \u2014 This log-log plot shows the convergence behavior of three pricing error approximation methods (Cumulative Edgeworth, Hartree stationary, a",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.37741v1"
+    },
+    {
+      "doc_id": "2609.37741v1",
+      "title": "Dyson-Schwinger Effective-Action Methods for Rough Volatility: A Correlation-Response Architecture for Calibration, Exotics and Risk",
+      "page": 9,
+      "thumb": "/data/figures/2609.37741v1_p9_2.jpg",
+      "caption": "Figure 3: Exp-OU (\u03b8 = 3, \u03c3 = 1.5, \u00b5 = \u22122, \u03b8eff = 3.012): the Dyson\u2013Schwinger hierarchy con- verging to the exact characteristic function, diagram by diagram. The resummed SCG (purple) sits on the numerically exact tower CF (black) and the Sobol reference (220 paths) at 0.1\u20130.2 bp, while the perturbative truncations improve level by level\u2014the cumulant projection (orange) misses the Jensen gap by \u223c1 \u2014 This figure shows four subplots displaying implied volatility (%) versus strike price for an Exp-",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.37741v1"
+    },
+    {
+      "doc_id": "2609.37741v1",
+      "title": "Dyson-Schwinger Effective-Action Methods for Rough Volatility: A Correlation-Response Architecture for Calibration, Exotics and Risk",
+      "page": 11,
+      "thumb": "/data/figures/2609.37741v1_p11_3.jpg",
+      "caption": "Figure 4: SABR smiles (F0 = 100, ATM \u224820%, \u03bd = 0.4, \u03c1 = \u22120.5): the routed DS pricer (blue) against a martingale-controlled Sobol reference (grey dots) and Hagan (red dashed), across \u03b2 \u2208{0.1, 0.5, 0.9} (rows) and T \u2208{1, 2, 5} y (columns). DS stays within 0.6\u20138.7 bp everywhere; Hagan degrades to 51\u201372 bp at T = 5 y. The two long-dated low-\u03b2 cells tagged [MS] are routed to the multi-slice solver. \u2014 This figure displays SABR implied volatility smiles across three beta values (0.1, 0.5, 0.9 in rows) ",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.37741v1"
+    },
+    {
+      "doc_id": "2609.37108v1",
+      "title": "The Efficient Frontier from a LASSO Solver",
+      "page": 3,
+      "thumb": "/data/figures/2609.37108v1_p3_0.jpg",
+      "caption": "Figure 1: Both frontiers of the test problem, computed with a LASSO solver. (a) Long\u2013short under a gross-exposure cap. (b) Long-only, fully invested: blue corners come from a plain call, red squares are the two it misses (Section 7). Marked are the highest-return (triangle), maximum-Sharpe (diamond) and minimum-variance (star) portfolios; the inset magnifies the low-risk end. \u2014 These plots display efficient frontiers derived from LASSO optimization, showing the relationship between portfolio var",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.37108v1"
+    },
+    {
+      "doc_id": "2609.37108v1",
+      "title": "The Efficient Frontier from a LASSO Solver",
+      "page": 5,
+      "thumb": "/data/figures/2609.37108v1_p5_1.jpg",
+      "caption": "Figure 2: The long-only path of the test problem against the tilt \u03bb. Left: the weights; blue where a plain call supplies them, red (shaded) where it does not. Right: the budget multiplier \u03bd = (\u00b5 \u2212\u03a3v)j, j on the support. A plain call covers \u03bd \u22650 and ends at \u03bd = 0, \u03bb = 0.1414 (dashed); the shift (4) reaches the two further corners (squares) where \u03bd < 0. \u2014 This figure shows the evolution of a long-only portfolio along the efficient frontier as the tilt parameter \u03bb varies on a logarithmic scale. The",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.37108v1"
+    },
+    {
+      "doc_id": "2609.36631v1",
+      "title": "A Spread-Gated Hawkes-Flocking Model for Best Bid and Ask Dynamics, with an Application to Limit Order Placement",
+      "page": 17,
+      "thumb": "/data/figures/2609.36631v1_p17_0.jpg",
+      "caption": "Figure 1: Time-rescaled residual QQ-plots against Exponential(1), INTC: full model (top row) versus \u03a8 = 0 (bottom row), one panel per event type. The red line is the identity; deviation from it indicates departure from Exponential(1). Ad and Bu compress toward the origin much more severely under \u03a8 = 0; Au and Bd are comparatively stable across both models. \u2014 This figure presents eight Q-Q plots comparing time-rescaled residuals to an Exponential(1) distribution for INTC stock data, organized in ",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.36631v1"
+    },
+    {
+      "doc_id": "2609.36631v1",
+      "title": "A Spread-Gated Hawkes-Flocking Model for Best Bid and Ask Dynamics, with an Application to Limit Order Placement",
+      "page": 22,
+      "thumb": "/data/figures/2609.36631v1_p22_1.jpg",
+      "caption": "Figure 2 illustrates how the optimal placement decision of Corollary 1 shifts with the order- flow regime. In the top two panels, the ask side experiences elevated downward pressure or the bid side is simply more active overall; in both cases selling at the best ask remains the dominant choice across the full range of order quantities. This changes in the bottom-left panel, where ask- side orders  \u2014 This figure displays optimal limit order placement decisions across different order-flow regimes,",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.36631v1"
+    },
+    {
+      "doc_id": "2609.36631v1",
+      "title": "A Spread-Gated Hawkes-Flocking Model for Best Bid and Ask Dynamics, with an Application to Limit Order Placement",
+      "page": 23,
+      "thumb": "/data/figures/2609.36631v1_p23_2.jpg",
+      "caption": "Figure 2: The utility function H(t, \u03c0) = \u00b5G \u2212\u03b7\u03c32 \u2014 This figure displays four line plots comparing utility functions across different order placement strategies as a function of order quantity L. Each panel shows utility H on the y-axis (ranging approximately -0.3 to 0.4) plotted against L (order quantity, 0 to 40) on the x-axis, with separate curves for Sell(best), Sell(2nd), Buy(best), and Buy(2nd) strategies shown in solid and dashed lines. The utility function represents a trade-off between e",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.36631v1"
     }
   ],
   "docs": [
     {
-      "id": "2609.35744v1",
-      "title": "FinAutoRubric: Expert-Guided Automatic Rubric Generation for Evaluating Financial Research Agents",
-      "source": "https://arxiv.org/pdf/2609.35744v1",
-      "pages": 35,
-      "images": 6,
-      "figures_captioned": 4,
-      "tables": 2,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 59
-    },
-    {
-      "id": "2609.35359v1",
-      "title": "From Cointegration to Out-of-Sample Failure: A Pairs-Trading Case Study on PEP-KO",
-      "source": "https://arxiv.org/pdf/2609.35359v1",
-      "pages": 8,
-      "images": 4,
-      "figures_captioned": 4,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 24
-    },
-    {
-      "id": "2609.35086v1",
-      "title": "Retrieval-Augmented Diffusion Modeling for Stochastic Discount Factor Portfolios",
-      "source": "https://arxiv.org/pdf/2609.35086v1",
-      "pages": 19,
-      "images": 23,
-      "figures_captioned": 4,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 41
-    },
-    {
-      "id": "2609.35063v1",
-      "title": "Optimal Liquidation with Support and Resistance Levels under Multi-Skew Brownian Motion",
-      "source": "https://arxiv.org/pdf/2609.35063v1",
-      "pages": 31,
+      "id": "2609.37963v1",
+      "title": "Not All LPs Are Equal: The Active-Passive Gap in Automated Market Maker Liquidity Provision",
+      "source": "https://arxiv.org/pdf/2609.37963v1",
+      "pages": 33,
       "images": 0,
-      "figures_captioned": 3,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 67
-    },
-    {
-      "id": "2609.34474v1",
-      "title": "Deep kernel hedging",
-      "source": "https://arxiv.org/pdf/2609.34474v1",
-      "pages": 42,
-      "images": 2,
-      "figures_captioned": 2,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 58
-    },
-    {
-      "id": "2609.34169v1",
-      "title": "From Word Counts to Context: Topic Models for Asset Pricing",
-      "source": "https://arxiv.org/pdf/2609.34169v1",
-      "pages": 20,
-      "images": 1,
       "figures_captioned": 1,
-      "tables": 1,
+      "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 38
+      "chunks_indexed": 43
     },
     {
-      "id": "2609.33913v1",
-      "title": "Magic strikes for variance and gamma contracts, and other attainable claims",
-      "source": "https://arxiv.org/pdf/2609.33913v1",
-      "pages": 19,
-      "images": 0,
-      "figures_captioned": 0,
+      "id": "2609.37903v1",
+      "title": "From Intraday Orderbook to Imbalance Price: Understanding Cross-Market Interaction",
+      "source": "https://arxiv.org/pdf/2609.37903v1",
+      "pages": 10,
+      "images": 664,
+      "figures_captioned": 4,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
       "chunks_indexed": 32
     },
     {
-      "id": "2609.33799v1",
-      "title": "Oracle-Parametrized Constant Function Market Makers: From Price Feeds to Pricing Rules",
-      "source": "https://arxiv.org/pdf/2609.33799v1",
-      "pages": 45,
+      "id": "2609.37881v1",
+      "title": "Global Structure and Local Specifications in Sublinear Valuation",
+      "source": "https://arxiv.org/pdf/2609.37881v1",
+      "pages": 81,
+      "images": 0,
+      "figures_captioned": 1,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 56
+    },
+    {
+      "id": "2609.37872v1",
+      "title": "A Generalized Langevin Model of Latent Liquidity and Concave Price Impact",
+      "source": "https://arxiv.org/pdf/2609.37872v1",
+      "pages": 42,
+      "images": 0,
+      "figures_captioned": 2,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 65
+    },
+    {
+      "id": "2609.37820v1",
+      "title": "Information Games: Strategic Crowding and Firm Repositioning in Language-Model Space",
+      "source": "https://arxiv.org/pdf/2609.37820v1",
+      "pages": 37,
+      "images": 0,
+      "figures_captioned": 1,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 49
+    },
+    {
+      "id": "2609.37741v1",
+      "title": "Dyson-Schwinger Effective-Action Methods for Rough Volatility: A Correlation-Response Architecture for Calibration, Exotics and Risk",
+      "source": "https://arxiv.org/pdf/2609.37741v1",
+      "pages": 31,
+      "images": 15,
+      "figures_captioned": 4,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 55
+    },
+    {
+      "id": "2609.37108v1",
+      "title": "The Efficient Frontier from a LASSO Solver",
+      "source": "https://arxiv.org/pdf/2609.37108v1",
+      "pages": 8,
+      "images": 0,
+      "figures_captioned": 2,
+      "tables": 1,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 23
+    },
+    {
+      "id": "2609.36631v1",
+      "title": "A Spread-Gated Hawkes-Flocking Model for Best Bid and Ask Dynamics, with an Application to Limit Order Placement",
+      "source": "https://arxiv.org/pdf/2609.36631v1",
+      "pages": 34,
+      "images": 5,
+      "figures_captioned": 3,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 52
+    },
+    {
+      "id": "2609.36405v1",
+      "title": "Finite-Horizon Reversible Investment under Multi-Factor Dynamics",
+      "source": "https://arxiv.org/pdf/2609.36405v1",
+      "pages": 51,
       "images": 0,
       "figures_captioned": 0,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 48
+      "chunks_indexed": 49
     },
     {
-      "id": "2609.33767v1",
-      "title": "Taming the Greeks: Option Portfolios with Inductive Biases",
-      "source": "https://arxiv.org/pdf/2609.33767v1",
-      "pages": 32,
-      "images": 4,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 41
-    },
-    {
-      "id": "2609.33524v1",
-      "title": "EverMine: Dissecting the Self-Evolution of Research Capabilities in Long-Horizon Alpha Research",
-      "source": "https://arxiv.org/pdf/2609.33524v1",
-      "pages": 28,
+      "id": "2609.36257v1",
+      "title": "When Hedging Changes the Payoff: Option Replication with Price Impact and Execution Costs",
+      "source": "https://arxiv.org/pdf/2609.36257v1",
+      "pages": 52,
       "images": 0,
       "figures_captioned": 0,
-      "tables": 0,
+      "tables": 1,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 51
+      "chunks_indexed": 54
     }
   ]
 }
