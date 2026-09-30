@@ -235,3 +235,15 @@ def test_layout_eval_harness_runs_offline(tmp_path, capsys):
     rows = [ln for ln in text.splitlines() if ln.startswith("| ") and "backend" not in ln]
     assert [r.split("|")[1].strip() for r in rows] == ["rules", "slm", "frontier"]
     assert "| rules | thresholds (code) | 0.90 |" in text      # deterministic: synthetic seed 2026
+
+
+def test_distill_dataset_and_label_parser_need_no_torch():
+    from slm_regime_classifier.distill_layout import build_examples, parse_label
+
+    train, test = build_examples()
+    assert (len(train), len(test)) == (300, 60)
+    assert build_examples() == (train, test)                  # deterministic
+    assert {e["label"] for e in train + test} <= set(LABELS)
+    assert parse_label(" Table-heavy") == "table-heavy"
+    assert parse_label("The page is mostly text.") == "text"
+    assert parse_label("I cannot tell") == "invalid"

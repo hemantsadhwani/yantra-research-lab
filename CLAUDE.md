@@ -27,6 +27,8 @@ make gate           # eval-gate, stdlib arm (CI runs `python -m eval.run_gate --
 make lint           # ruff check .
 make demo-faiss     # chatbot retrieval with VECTOR_BACKEND=faiss (exact cosine, on-disk index; Qdrant stays the default)
 make ragas-eval     # RAGAS-style chatbot eval (faithfulness, relevancy, context precision/recall); --fake in CI, --provider anthropic for real
+make layout-eval    # layout router: rules vs slm vs frontier, one table (--fake; rules row real, model rows scripted)
+make distill-layout # CPU LoRA on SmolLM2-135M to emit layout labels (needs .[slm]; 25-min cap; not in CI)
 make mlflow-ui      # browse eval runs logged when MLFLOW_TRACKING_URI is set (opt-in; file store under .mlruns/)
 make docker-up      # backend + frontend with Compose (`--profile private` adds Ollama)
 make k8s-up         # local kind cluster + ingress + both images + kustomize apply; then `make k8s-smoke`
@@ -35,7 +37,7 @@ make k8s-up         # local kind cluster + ingress + both images + kustomize app
 Tier-1 core has **zero dependencies** — it runs on the stdlib, so `python -m research_lab.run`
 works on a fresh clone. **Keep it that way.** The LLM proposer (`--use-llm`) is strictly opt-in:
 the default path must never need an API key, a network call, or an installed SDK, because
-"clone it and it reproduces" is a load-bearing property of this repo, not a convenience. Optional extras (`agents`, `llm`, `mcp`, `rag`, `ops`, `dev`) are
+"clone it and it reproduces" is a load-bearing property of this repo, not a convenience. Optional extras (`agents`, `llm`, `mcp`, `rag`, `ops`, `dev`, and `slm`, which is kept out of `all`) are
 declared in `pyproject.toml` and installed per service.
 
 (Windows only: prefix commands with `PYTHONIOENCODING=utf-8`; the report prints `→` and `⏸`.)
@@ -90,9 +92,13 @@ research_lab/agents/   proposer.py, backtester.py (Backtester + MCPBacktester), 
 llm_gateway/           one provider interface: Anthropic direct · Claude on Bedrock · Ollama (LLM_PROVIDER=)
 synthetic_engine/      engine.py — public toy backtest engine (zero IP)
 mcp_server/            server.py — MCP tools wrapping the engine (run_backtest, get_param_space, ...)
-eval/                  run_gate.py (--arm stdlib|graph|both), redteam.py (--live), judge_eval.py, chatbot_books_eval.py
+eval/                  run_gate.py (--arm stdlib|graph|both), redteam.py (--live), judge_eval.py, chatbot_books_eval.py,
+                       layout_eval.py (--fake)
 backend/               FastAPI RAG chatbot + guardrails + Logfire (Fly.io)
-ingestion/             LangGraph document-ingestion DAG (daily GitHub Actions cron)
+ingestion/             LangGraph document-ingestion DAG (daily GitHub Actions cron) · layout_router.py (page
+                       layout: rules | slm | frontier, YANTRA_LAYOUT_BACKEND, default rules, advisory) ·
+                       layout_labels.py (page features + free teacher labels)
+slm_regime_classifier/ distill_layout.py: CPU LoRA kata on the layout labels (regime classifier itself not built)
 frontend/              Next.js portal (Vercel); frontend/Dockerfile for Compose / Kubernetes
 deploy/                k8s/ kustomize manifests (probes, limits, HPA, Ingress) · kind/ local cluster (ADR-0011)
 docs/                  architecture.md, DESIGN_LOG.md, adr/
@@ -129,6 +135,7 @@ Read these before re-deriving a decision — they record the trade-offs as they 
 - `docs/adr/0009` persistent memory over one SQLite file; promotions human-only
 - `docs/adr/0010` evaluation ladder: verify → score → judge (veto only) → human; budget; leak rate
 - `docs/adr/0011` app layer packaged for Kubernetes (Compose, kustomize, kind, CI image builds); Fly + Vercel stay the public demo
+- `docs/adr/0012` SLM cascade: code → SLM → frontier; SLMs decide and score, frontier writes; swap in at ≥ 95% agreement
 
 ## Deployment
 

@@ -1,4 +1,4 @@
-.PHONY: layout-eval demo-faiss ragas-eval mlflow-ui demo demo-llm demo-bedrock demo-ollama demo-graph demo-mcp demo-memory demo-budget resume context-study judge-eval test gate lint install install-all
+.PHONY: layout-eval distill-layout demo-faiss ragas-eval mlflow-ui demo demo-llm demo-bedrock demo-ollama demo-graph demo-mcp demo-memory demo-budget resume context-study judge-eval test gate lint install install-all
 
 install:            ## editable install with dev tools
 	pip install -e '.[dev]'
@@ -44,6 +44,9 @@ ragas-eval:         ## RAGAS-style metrics over 12 golden chatbot questions; --f
 
 layout-eval:        ## layout router: rules vs slm vs frontier, one table; --fake = scripted model rows (rules row is real)
 	python -m eval.layout_eval --fake
+
+distill-layout:     ## CPU LoRA: SmolLM2-135M learns the layout labels; base vs tuned on 60 held out (needs .[slm]; 25-min cap)
+	python slm_regime_classifier/distill_layout.py
 
 mlflow-ui:          ## browse eval runs tracked with MLFLOW_TRACKING_URI=file:./.mlruns (needs .[dev]; MLflow 3 needs the opt-in for a file store)
 	MLFLOW_ALLOW_FILE_STORE=true mlflow ui --backend-store-uri file:./.mlruns

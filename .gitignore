@@ -39,3 +39,6 @@ frontend/tsconfig.tsbuildinfo
 
 # local Kubernetes secret (deploy/k8s/backend-secret.example.yaml is the template)
 deploy/k8s/backend-secret.yaml
+
+# LoRA adapters are local build outputs (slm_regime_classifier/adapter_card.md is the committed record)
+slm_regime_classifier/adapters/

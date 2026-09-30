@@ -20,6 +20,10 @@ memory = ["fastembed>=0.3,<0.8"]                  # optional semantic layer; std
 ops    = ["logfire>=4,<5"]                        # bundles OpenTelemetry
 dev    = ["pytest>=8", "ruff>=0.6", "mlflow>=3,<4"]   # mlflow: optional eval-run tracking (eval/mlflow_tracking.py)
 all    = ["yantra-research-lab[agents,llm,mcp,memory,ops,dev]"]
+# LoRA distillation kata (slm_regime_classifier/distill_layout.py), CPU. Deliberately NOT in `all`:
+# torch is large, and PyTorch ships no Intel-macOS wheels for Python 3.13 (the dev Mac ran it from a
+# 3.12 venv with torch 2.2.2 + transformers 4.46.3 + peft 0.13.2; see results/distill_2026-09-30.md).
+slm    = ["torch>=2.2", "transformers>=4.46", "peft>=0.13", "datasets>=2.20"]
 
 [project.scripts]
 yantra-research = "research_lab.run:main"

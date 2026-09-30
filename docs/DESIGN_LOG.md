@@ -10,6 +10,36 @@ newest entries first. Complements the two other design surfaces:
 
 ---
 
+## 2026-09-30 — WP12: SLMs route and score; frontier models write
+
+### WP12 — A page layout router with three tiers, an eval table, and a CPU LoRA
+Every model call went to one frontier tier. Some calls are closed-set decisions that do not
+need one. The ingestion DAG had a clean first case: after `parse`, each page is text,
+table-heavy, figure-heavy, scanned or mixed, and that label decides whether it needs OCR or a
+vision caption. `ingestion/layout_router.py` puts three backends behind one
+`LayoutClassifier` protocol (`rules` default, `slm` via Ollama, `frontier` Haiku 4.5), with
+a strict Pydantic verdict and no silent fallback. The labels are free:
+`ingestion/layout_labels.py` derives them from what the parser already found.
+
+Two choices worth recording. First, the rules backend reads coarse counts and the teacher
+reads content shares, so rules-vs-labels is a measurement, not an identity; they still share
+the parser's signals, and the results file says so. Second, the node is advisory: a test runs
+the DAG on a 4-page fixture with and without it and asserts byte-identical outputs, so CI and
+the daily cron do not change. Gating captions on the router is one env var, opt-in.
+
+`python -m eval.layout_eval --fake` on 215 real parsed pages: rules 0.99 against a 0.83
+always-`text` baseline; the slm and frontier rows are scripted and only prove the harness.
+Frontier cost is about $0.21 to $0.28 per 1,000 pages at list price. The LoRA kata ran twice on
+the dev Mac's CPU (Python 3.12 venv, because PyTorch has no Intel-macOS wheel for 3.13). Run 1
+collapsed to the majority class (0.57, exactly the always-`text` score). Run 2, with
+class-balanced batches, reached 0.87 on 60 held-out pages; the rule it copies scores 0.92.
+Both hit the 25-minute cap.
+**Claim it unlocks:** "SLMs route and score, frontier models write; a cheaper tier swaps in at
+95% agreement with the dearer one, and here is the table that would measure it."
+**Deliberately not built:** real slm and frontier eval rows (no Ollama on the dev Mac; the
+frontier row costs money), frontier-as-teacher labelling, GPU QLoRA, a vLLM benchmark, a
+DocLayNet-style block-level model ([ADR-0012](adr/0012-slm-cascade.md)).
+
 ## 2026-09-30 — Memory, budget, judge, CI tiers, output filter, docs
 
 ### WP10 — Documentation catches up with the code

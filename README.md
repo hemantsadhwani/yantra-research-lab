@@ -128,6 +128,43 @@ definitions (error and definitions in [results/ragas_2026-09-30.md](results/raga
 `make ragas-eval` runs it offline with a fake judge, which proves the harness, not answer quality.
 The real judge (`--provider anthropic`, Haiku 4.5 via `llm_gateway`) has not been run yet.
 
+## SLM cascade: small models route and score, frontier models write
+
+The ingestion DAG has a `layout` node after `parse` that labels every page `text`,
+`table-heavy`, `figure-heavy`, `scanned` or `mixed`, and marks scanned pages for OCR and
+figure-heavy pages for vision captioning ([ADR-0012](docs/adr/0012-slm-cascade.md)). Three
+backends sit behind one `LayoutClassifier` protocol (`ingestion/layout_router.py`), picked by
+`YANTRA_LAYOUT_BACKEND`: `rules` (code, the default, offline), `slm` (a local Qwen 2.5 1.5B
+through `llm_gateway`'s Ollama provider) and `frontier` (Haiku 4.5). Both model tiers return a
+strict Pydantic verdict, and an unreachable Ollama raises instead of falling back. The node is
+advisory: a test proves the DAG's other outputs are byte-identical with it
+(`pytest ingestion/tests/test_layout.py`). The labels are free, derived from what the parser
+already found (`ingestion/layout_labels.py`); a frontier model as teacher is designed, not run.
+
+`make layout-eval` (`python -m eval.layout_eval --fake`) on 215 real parsed arXiv pages:
+
+**fake providers: proves the harness; the rules backend numbers are real**
+
+| backend | model | accuracy vs labels | agreement with frontier | cost / 1,000 pages | p50 ms | p95 ms |
+|---|---|---:|---:|---:|---:|---:|
+| rules | thresholds (code) | 0.99 | 0.95 | $0.0000 | 0.002 | 0.003 |
+| slm | fake qwen2.5:1.5b | 0.89 | 0.86 | $0.0000 | 0.017 | 0.044 |
+| frontier | fake claude-haiku-4-5 | 0.96 | 1.00 | $0.2840 | 0.019 | 0.045 |
+
+Read it with care: 83% of those pages are `text`, so always answering `text` scores 0.83; the
+rules and the labels read the same parser output; the fake rows are scripted. CI runs the same
+command over a 200-page synthetic set. Details: [results/layout_2026-09-30.md](results/layout_2026-09-30.md).
+A real `slm` or `frontier` row has not been run. The swap-in rule for a cheaper tier is at least
+95% agreement with the frontier tier on held-out pages.
+
+**LoRA distillation, on a laptop CPU.** `make distill-layout` LoRA-tunes SmolLM2-135M-Instruct
+to emit the layout label from the feature line (300 examples, 25-minute cap). On 60 held-out
+pages: base 0.00 (no valid label in any reply), tuned **0.87** with class-balanced batches, against
+0.57 for always answering `text` and 0.92 for the `rules` backend; about 1.3 s per page on the
+dev Mac's CPU. A first run without balancing collapsed to `text` (0.57). Both runs hit the cap.
+So the kata proves the pipeline, not a win over code. GPU QLoRA was not run.
+Details: [results/distill_2026-09-30.md](results/distill_2026-09-30.md).
+
 ## Versioning and tracking
 
 Golden sets live in git (`eval/datasets/*.jsonl`), and so do the specs and prompts, so their
@@ -164,7 +201,7 @@ See [deploy/k8s/README.md](deploy/k8s/README.md) for what is deliberately left o
 | `core` (Python 3.12, 3.13) | the stdlib loop runs and passes its tests with **no extras installed**; the import-boundary tests keep langgraph, mcp, pydantic, anthropic, fastembed and logfire off the default path |
 | `agents` | with `.[all]`: the LangGraph arm (checkpoint, interrupt, cross-process resume), MCP byte-identical to in-process, `llm_gateway`, memory, budget, judge, eval tracking (164 root tests, all offline) |
 | `backend` | the FastAPI chatbot, guardrails, output filter and both vector backends (109 tests), plus the offline red-team block rate and the RAGAS harness with a fake judge |
-| `ingestion` | the ingestion DAG and its interrupt gate, offline (13 tests) |
+| `ingestion` | the ingestion DAG, its interrupt gate and the layout router, offline (33 tests), plus the layout-eval harness with fake providers |
 | `eval-gate` | **both arms** must beat the fixed baseline: `python -m eval.run_gate --arm both` |
 | red-team | block rate ≥ 80% with zero false positives on benign controls (`tests/test_redteam.py` in `core`, `python -m eval.redteam` in `backend`) |
 
@@ -199,8 +236,9 @@ mcp_server/            # MCP server exposing run_backtest over the engine
 llm_gateway/           # provider seam: Anthropic / Bedrock / Ollama, schema-validated output
 backend/               # RAG chatbot with IP + PII guardrails (FastAPI → Fly.io)
 frontend/              # Next.js public site (→ Vercel)
-ingestion/             # LangGraph ingestion DAG for the knowledge base (daily cron)
-eval/                  # CI eval-gate, guardrail red-team, chatbot eval
+ingestion/             # LangGraph ingestion DAG for the knowledge base (daily cron) + page layout router
+slm_regime_classifier/ # CPU LoRA distillation kata for the layout labels (the regime classifier is not built)
+eval/                  # CI eval-gate, guardrail red-team, chatbot eval, layout-router eval
 tests/                 # core tests
 knowledge_base/        # corpus seed-list + eval sets
 scripts/               # regenerate cached site data
