@@ -41,3 +41,16 @@ both repos (`make test` / `make gate` / `make eval`) so a bad box is obvious in 
   and the kind Ingress.
 - Ubuntu with unattended upgrades on; an instance profile, not an IAM user.
 - Tag the instance `purpose=dev-public-repos` so nobody mistakes it for the trading control plane.
+
+## Letting an agent launch the box
+
+`iam/launcher-policy.json` is a least-privilege policy for whoever launches and manages the dev box
+(you, or Claude Code with a named AWS profile). It can:
+- launch only in ap-south-1, only the listed instance types, and only if the instance is tagged
+  `purpose=dev-public-repos`;
+- start, stop, resize, snapshot or terminate **only** resources carrying that tag. Tags can be set only
+  at creation, so it cannot re-tag and then touch `nifty_dev` / `nifty_prod*`;
+- pass only the `yantra-dev-bedrock` role to EC2; request the GPU quota; create a `yantra-dev-*` idle alarm.
+
+It cannot create IAM users or roles, touch S3, Lambda, EventBridge, or any untagged instance.
+Create the `yantra-dev-bedrock` role yourself once (policy: `iam/bedrock-dev-role-policy.json`).
