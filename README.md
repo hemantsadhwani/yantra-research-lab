@@ -120,6 +120,14 @@ index persisted in `backend/.faiss/`, same embedding model, no chatbot change: `
 A test asserts both engines return the same top-1 document on a 6-doc corpus
 (`pytest backend/tests/test_faiss_backend.py`). Prod still runs on Qdrant.
 
+**RAGAS-style chatbot eval.** `python -m eval.ragas_eval` scores faithfulness, answer relevancy,
+context precision and context recall over 12 golden questions (`eval/datasets/ragas_golden.jsonl`),
+through the same retrieval + answer path as the chatbot. The `ragas` package fails to import next to
+LangGraph 1.x on Python 3.13, so the four metrics are a small local implementation of the RAGAS
+definitions (error and definitions in [results/ragas_2026-09-30.md](results/ragas_2026-09-30.md)).
+`make ragas-eval` runs it offline with a fake judge, which proves the harness, not answer quality.
+The real judge (`--provider anthropic`, Haiku 4.5 via `llm_gateway`) has not been run yet.
+
 ## Containers and Kubernetes (the app layer)
 
 The public demo runs on Fly.io + Vercel because that is the cheapest way to keep a portfolio app

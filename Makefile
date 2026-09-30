@@ -1,4 +1,4 @@
-.PHONY: demo-faiss demo demo-llm demo-bedrock demo-ollama demo-graph demo-mcp demo-memory demo-budget resume context-study judge-eval test gate lint install install-all
+.PHONY: demo-faiss ragas-eval demo demo-llm demo-bedrock demo-ollama demo-graph demo-mcp demo-memory demo-budget resume context-study judge-eval test gate lint install install-all
 
 install:            ## editable install with dev tools
 	pip install -e '.[dev]'
@@ -38,6 +38,9 @@ judge-eval:         ## LLM judge vs 12 golden cases, exit 1 below 9/12 (needs .[
 
 demo-faiss:         ## chatbot retriever on FAISS: build backend/.faiss, then one query (needs backend/requirements.txt)
 	cd backend && VECTOR_BACKEND=faiss python ingest.py && VECTOR_BACKEND=faiss python retriever.py "what is a maximum drawdown?"
+
+ragas-eval:         ## RAGAS-style metrics over 12 golden chatbot questions; --fake = offline judge (proves the harness only)
+	python -m eval.ragas_eval --fake
 
 test:               ## unit + smoke tests
 	pytest

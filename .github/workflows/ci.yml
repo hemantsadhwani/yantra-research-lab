@@ -129,6 +129,9 @@ jobs:
         working-directory: backend
       - name: red-team eval (offline guardrail probes)
         run: python -m eval.redteam
+      # Fake judge: proves the RAGAS harness runs end to end (~2 s), not answer quality.
+      - name: RAGAS-style eval harness (offline, fake judge)
+        run: python -m eval.ragas_eval --fake
 
   # ---- Tier-3 ingestion pipeline (offline tests; no tesseract binary needed) ----
   ingestion:
