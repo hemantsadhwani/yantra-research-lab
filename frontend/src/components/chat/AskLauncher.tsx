@@ -10,7 +10,7 @@ import ChatComposer from "./ChatComposer";
 export default function AskLauncher() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
-  const { messages, pending, leakRate, submit } = useChat();
+  const { messages, pending, outputFiltered, submit } = useChat();
   const bodyRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -35,7 +35,7 @@ export default function AskLauncher() {
     <div className="chatpop" role="dialog" aria-label="Chat assistant">
       <div className="cp-h">
         <span>
-          ▚ Ask · leak-rate {leakRate.toFixed(1)}%
+          ▚ Ask · output filter {outputFiltered}
         </span>
         <button onClick={() => setOpen(false)} aria-label="Close chat">
           ×

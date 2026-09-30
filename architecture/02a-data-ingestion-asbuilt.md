@@ -15,7 +15,7 @@ verification loop — are deliberately deferred; see that doc.)
 | Layer | Implementation | Status |
 |---|---|---|
 | Source discovery | arXiv q-fin API (`discover.py`) | LIVE |
-| Orchestration | LangGraph StateGraph — retries, dead-letter, HITL gate (`graph.py`) | LIVE |
+| Orchestration | LangGraph StateGraph — retries, dead-letter, HITL gate as a real `interrupt()`, SQLite checkpointer (`graph.py`) | LIVE |
 | Object storage (bronze) | **AWS S3** `yantra-research-lab-data` (ap-south-1), IAM least-privilege, public-access blocked | LIVE |
 | Compute | **GitHub Actions** — daily cron + manual, native runner, **3m6s/run**, ~$0 | LIVE |
 | Parse (silver) | PyMuPDF text+tables+images, formula heuristic, Tesseract OCR fallback | LIVE |
@@ -73,13 +73,38 @@ flowchart LR
   P --> C[caption\nrasterize figures - Claude vision]
   C --> E[enrich\nchunk + Haiku summary/topics]
   E --> Q[quality gate\ndedup - relevance - IP-leak]
-  Q --> G{human gate\nHITL - auto in CI}
+  Q --> G{human gate\ninterrupt - auto in CI}
   G -->|approve| I[index\nbge-small - Qdrant + catalog]
-  G -->|hold| X[stop]
+  G -->|reject| X[stop]
   F -.->|fail| DL[(dead-letter\nrejects + reason)]
   P -.->|fail| DL
   Q -.->|reject| DL
 ```
+
+### The human gate (as built 2026-09-30)
+
+Until 2026-09-30 the "gate" was an env flag that defaulted to auto-approve and the graph
+compiled without a checkpointer, so nothing was ever held and nothing could be resumed. Now:
+
+- `build_graph(checkpointer=None)` compiles with a `SqliteSaver` at
+  `ingestion/data/state/checkpoints.sqlite` (git-ignored; tests pass `InMemorySaver`). Every
+  super-step is checkpointed per `thread_id` (the run id).
+- The `gate` node calls `interrupt({"pending", "docs", "sample", "question"})` unless
+  `INGEST_AUTO_APPROVE=1`. **The default is now the human gate**; CI sets
+  `INGEST_AUTO_APPROVE: "1"` explicitly in `ingest.yml`. A run with nothing accepted skips the
+  pause (`approved_by: nothing-pending`) rather than paging a human for an empty batch.
+- `python -m ingestion.run` pauses with `PAUSED at gate · run_id <thread> · resume: python -m
+  ingestion.run --resume <thread> --approve`; `--resume <thread> --approve|--reject` continues
+  from the checkpoint in a new process without redoing discover → quality; `--list` shows each
+  run and where it stopped. A rejected run indexes nothing and leaves the public manifest
+  unchanged.
+- Nothing in the gate node before `interrupt()` has side effects (LangGraph re-runs the node from
+  the top on resume). Tested in `ingestion/tests/test_gate.py`: pause, approve → index runs,
+  reject → index does not, auto-approve does not pause, and a pause/resume across two compiled
+  graphs on the same SQLite file.
+- Caveats: the checkpoint stores the whole state, including parsed page text, so the SQLite file
+  grows with the corpus (one full-state snapshot per step per run; size not yet measured on a real run; old threads can be deleted freely). The
+  duration in the manifest of a resumed run covers the resume segment only.
 
 ## Medallion data flow
 
@@ -109,7 +134,7 @@ flowchart TD
 
 - **Medallion** bronze/silver/gold · **idempotent + incremental** (content-hash; daily re-run reprocesses only changes)
 - **Data contracts** — pydantic at every stage boundary (`state.py`)
-- **Retries + checkpointing** (LangGraph `RetryPolicy`, fetch backoff) · **dead-letter** with reasons, never silent drops
+- **Retries + checkpointing** (LangGraph `RetryPolicy`, fetch backoff, `SqliteSaver` per run thread; resumable human gate) · **dead-letter** with reasons, never silent drops
 - **Governance** — IP-leak quality gate enforces the privacy boundary for future private sources
 - **Lineage** — per-doc provenance in catalog + public manifest
 - **Observability** — Logfire traces + per-run cost · **FinOps** — offline batch, Haiku-only, hard USD budget, cached artifact

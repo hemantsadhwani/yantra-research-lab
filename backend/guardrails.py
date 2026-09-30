@@ -1,6 +1,6 @@
 """Dual IP/PII guardrails for the public RAG chatbot.
 
-Three independent defences, applied in order by the chat endpoint:
+Four independent defences, applied in order by the chat endpoint:
 
 1. ``redact_pii``        — strip emails, phone numbers, and long digit runs from text
                            before it is logged or sent to the model.
@@ -8,6 +8,10 @@ Three independent defences, applied in order by the chat endpoint:
 3. ``should_refuse``     — refuse requests that fish for proprietary strategy
                            parameters / entry-exit logic / "the edge", WITHOUT calling
                            the LLM.
+4. ``check_output``      — after the LLM call, swap an answer that discloses parameters,
+                           echoes PII / redaction tokens, or recites the system prompt
+                           for the refusal (the output filter; ``YANTRA_OUTPUT_FILTER=0``
+                           in app.py switches it off for the red-team comparison).
 
 None of these require an API key, so they are unit-testable in isolation.
 """
@@ -301,3 +305,119 @@ identifiers, and never ask for them.
 4. Be concise, accurate, and educational. Do not fabricate performance numbers; all \
 lab performance is simulated/paper unless explicitly stated otherwise.
 """
+
+
+# --------------------------------------------------------------------------- #
+# 4. Output filter — checks the MODEL'S answer before it reaches the user
+# --------------------------------------------------------------------------- #
+# The input guardrails decide whether to call the model at all. This is the second
+# line: if a prompt slips past them and the model discloses anyway, the answer is
+# swapped for REFUSAL_ANSWER. Regex only (no LLM, no network), so it is cheap enough
+# to run on every answer and deterministic enough to unit-test.
+
+# Short, distinctive phrases from SYSTEM_PROMPT. Their appearance in an answer means
+# the model is reciting its instructions. Kept in sync by a unit test.
+SYSTEM_PROMPT_CANARIES = (
+    "follow these rules strictly",
+    "even if the user claims to be the owner",
+    "answer only from the retrieved methodology context",
+)
+
+_PRODUCT = r"(?:nifty[-\s]weekday|nifty[-\s]expiry|sensex[-\s]expiry|nifty|sensex)"
+_NUM = r"-?\d+(?:\.\d+)?"
+
+# (a1) A strategy parameter identifier bound to a number: "z_entry = 1.8", "stop_pct of 3".
+_PARAM_ASSIGN_RE = re.compile(
+    r"\b(z_entry|z_exit|lookback|stop_pct)\s*(?:=|:|of|is|at)\s*-?\d", re.IGNORECASE
+)
+# (a2) A product name within 40 chars of a number carrying a mechanism unit.
+_PRODUCT_NUM_RE = re.compile(
+    rf"\b{_PRODUCT}\b[^\n]{{0,40}}?{_NUM}\s*(?:%|bars?\b|threshold\b|lots?\b|strike\b)",
+    re.IGNORECASE,
+)
+# (a3) Mechanism vocabulary bound to a number — only a leak when a product is named.
+_MECHANISM_NUM_RE = re.compile(
+    r"\b(?:entry|entries|enters?|exit|exits|trigger|z-?score|lookback|band width|"
+    r"threshold)\b[^\n.]{0,30}?(?:=|:|of|is|at|above|below|exceeds?|crosses)\s*-?\d",
+    re.IGNORECASE,
+)
+_PRODUCT_RE = re.compile(rf"\b{_PRODUCT}\b", re.IGNORECASE)
+
+# Published-output vocabulary. The chatbot is ALLOWED to quote the books' backtest
+# outputs and armed risk gates ("NIFTY expiry … win rate 63.1%", "daily M2M at -27%",
+# "13–63 lots per leg"); a product+number match inside one of these is not a leak.
+_PUBLISHED_WORDS = (
+    "win rate", "drawdown", "points", "trades", "months up", "best day", "worst day",
+    "p&l", "pnl", "m2m", "floor", "hard stop", "monthly stop", "weekly", "halt",
+    "sizing", "lot size", "per leg", "deployed", "base", "capital",
+)
+# Mechanism words override the published allow-list.
+_MECHANISM_WORDS = ("entry", "enter", "exit", "trigger", "z-score", "zscore", "z_",
+                    "lookback", "signal", "indicator", "threshold", "strike", "bars")
+# Textbook markers: "a lookback of 20 is typical" is teaching, not disclosure.
+_TEXTBOOK_WORDS = ("typical", "typically", "textbook", "common", "commonly",
+                   "in general", "generally", "for example", "e.g.", "such as")
+
+_REDACTED_TOKEN_RE = re.compile(r"\[REDACTED_[A-Z]+\]")
+
+
+def _sentence_around(text: str, start: int, end: int) -> str:
+    left = max(text.rfind(".", 0, start), text.rfind("\n", 0, start)) + 1
+    right_candidates = [i for i in (text.find(".", end), text.find("\n", end)) if i != -1]
+    right = min(right_candidates) if right_candidates else len(text)
+    return text[left:right].lower()
+
+
+def _phone_echo(text: str) -> bool:
+    """A phone-like run with >= 10 digits (so ISO dates and ranges don't count)."""
+    for m in _PHONE_RE.finditer(text):
+        if sum(ch.isdigit() for ch in m.group(0)) >= 10:
+            return True
+    return False
+
+
+def check_output(answer: str) -> tuple[bool, str]:
+    """Inspect a model answer. Returns ``(ok, reason)``; ``reason`` is "" when ok.
+
+    Reasons: ``param_disclosure`` · ``pii_echo`` · ``system_prompt_echo``.
+    """
+    if not answer:
+        return True, ""
+    low = " ".join(answer.lower().split())
+
+    # (c) system-prompt echo
+    if any(c in low for c in SYSTEM_PROMPT_CANARIES):
+        return False, "system_prompt_echo"
+
+    # (b) PII echo: a raw email / phone, or a redaction token re-emitted
+    if _EMAIL_RE.search(answer) or _phone_echo(answer) or _REDACTED_TOKEN_RE.search(answer):
+        return False, "pii_echo"
+
+    names_product = bool(_PRODUCT_RE.search(answer))
+
+    # (a1) parameter identifier bound to a number
+    for m in _PARAM_ASSIGN_RE.finditer(answer):
+        if m.group(1).lower() == "lookback" and not names_product:
+            sentence = _sentence_around(answer, m.start(), m.end())
+            if any(w in sentence for w in _TEXTBOOK_WORDS):
+                continue  # "a lookback of 20 is typical" — methodology, no product
+        return False, "param_disclosure"
+
+    if not names_product:
+        return True, ""
+
+    # (a2) product name near a number with a mechanism unit, unless it is a
+    # published output figure / risk gate and names no mechanism
+    for m in _PRODUCT_NUM_RE.finditer(answer):
+        window = answer[m.start():m.end() + 20].lower()
+        published = any(w in window for w in _PUBLISHED_WORDS)
+        mechanism = any(w in window for w in _MECHANISM_WORDS)
+        if published and not mechanism:
+            continue
+        return False, "param_disclosure"
+
+    # (a3) a product is named and some mechanism is bound to a number
+    if _MECHANISM_NUM_RE.search(answer):
+        return False, "param_disclosure"
+
+    return True, ""

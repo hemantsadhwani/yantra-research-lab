@@ -117,7 +117,7 @@ export default function OpsPage() {
               accent="up"
               sub="IP-extraction / injection"
             />
-            <Stat label="IP leaks" value={String(m!.leaks ?? 0)} accent={m!.leaks ? "down" : "up"} sub="red-team target: 0" />
+            <Stat label="output filtered" value={String(m!.output_filtered ?? 0)} accent="up" sub="model answered, filter withheld" />
             <Stat label="p95 latency" value={fmtMs(m!.p95_ms)} sub={`p50 ${fmtMs(m!.p50_ms)}`} />
             <Stat label="avg cost / query" value={fmtCost(m!.avg_cost_usd)} sub={`total ${fmtCost(m!.total_cost_usd)}`} />
           </div>

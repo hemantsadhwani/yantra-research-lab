@@ -43,6 +43,22 @@ _SQL = (
 _cache: dict = {"at": 0.0, "data": None}
 _lock = threading.Lock()
 
+# In-process guardrail counters since this process started. Logfire is the durable
+# source (above); these make the numbers visible without a read token and in tests.
+_since_boot = {"attacks_blocked": 0, "output_filtered": 0}
+_since_boot_lock = threading.Lock()
+
+
+def record(event: str) -> None:
+    """Increment an in-process counter (``attacks_blocked`` / ``output_filtered``)."""
+    with _since_boot_lock:
+        _since_boot[event] = _since_boot.get(event, 0) + 1
+
+
+def since_boot() -> dict:
+    with _since_boot_lock:
+        return dict(_since_boot)
+
 
 def _pct(sorted_vals: list[float], q: float) -> float:
     """Nearest-rank percentile (q in [0,1]). Returns 0.0 for an empty list."""
@@ -113,7 +129,7 @@ def _compute(rows: list[dict]) -> dict:
     costs: list[float] = []
     answered = 0
     blocked = 0
-    leaks = 0
+    output_filtered = 0
     feed: list[dict] = []
 
     for row in rows:
@@ -123,7 +139,10 @@ def _compute(rows: list[dict]) -> dict:
             blocked += 1
         else:
             answered += 1
-        leaks += int(a.get("leak_rate", 0) or 0)
+        # Answers the model produced but the output filter withheld. Also counted
+        # in attacks_blocked (the request was refused either way).
+        if a.get("output_filtered"):
+            output_filtered += 1
 
         total_ms = a.get("total_ms")
         if isinstance(total_ms, (int, float)):
@@ -135,11 +154,10 @@ def _compute(rows: list[dict]) -> dict:
         if len(feed) < FEED_LEN:
             if refused:
                 reason = a.get("refuse_reason")
-                detail = (
-                    "prompt-injection attempt"
-                    if reason == "injection"
-                    else "strategy-extraction attempt"
-                )
+                detail = {
+                    "injection": "prompt-injection attempt",
+                    "output_filter": "answer withheld by output filter",
+                }.get(reason, "strategy-extraction attempt")
                 feed.append({"ts": _hhmm(row.get("start_timestamp")), "type": "blocked", "detail": detail})
             else:
                 secs = (total_ms / 1000.0) if isinstance(total_ms, (int, float)) else None
@@ -156,7 +174,7 @@ def _compute(rows: list[dict]) -> dict:
         "queries_served": len(rows),
         "answered": answered,
         "attacks_blocked": blocked,
-        "leaks": leaks,
+        "output_filtered": output_filtered,
         "p50_ms": _pct(lat_sorted, 0.50),
         "p95_ms": _pct(lat_sorted, 0.95),
         "avg_cost_usd": avg_cost,

@@ -8,7 +8,7 @@ export const CHAT_ENDPOINT = `${BACKEND_URL}/api/chat`;
 /**
  * POSTs a message + prior history to the guardrail chatbot backend.
  * Request:  { message, history }
- * Response: { answer, refused, sources: [{title, snippet}], leak_rate }
+ * Response: { answer, refused, sources: [{title, snippet}], output_filtered, refuse_reason }
  */
 export async function sendChat(
   message: string,
@@ -35,6 +35,7 @@ export async function sendChat(
     answer: typeof data.answer === "string" ? data.answer : "",
     refused: Boolean(data.refused),
     sources: Array.isArray(data.sources) ? data.sources : [],
-    leak_rate: typeof data.leak_rate === "number" ? data.leak_rate : 0,
+    output_filtered: Boolean(data.output_filtered),
+    refuse_reason: typeof data.refuse_reason === "string" ? data.refuse_reason : null,
   };
 }

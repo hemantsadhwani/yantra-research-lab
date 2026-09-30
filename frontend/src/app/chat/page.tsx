@@ -14,7 +14,7 @@ const TRY_THESE = [
 ];
 
 export default function ChatPage() {
-  const { messages, pending, leakRate, submit } = useChat();
+  const { messages, pending, outputFiltered, submit } = useChat();
   const bodyRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -58,9 +58,9 @@ export default function ChatPage() {
             <span className="tag">guardrail status</span>
             <div style={{ display: "flex", flexDirection: "column", gap: 10, marginTop: 10 }}>
               <div className="row" style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                <span className="caption">red-team leak-rate</span>
-                <span className="chip up" aria-label={`leak rate ${leakRate}`}>
-                  {leakRate.toFixed(1)}%
+                <span className="caption">output filter · caught this session</span>
+                <span className="chip up" aria-label={`output filter caught ${outputFiltered}`}>
+                  {outputFiltered}
                 </span>
               </div>
               <div className="row" style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
@@ -81,8 +81,9 @@ export default function ChatPage() {
           </div>
 
           <div className="disc strong">
-            Try to break it. The red-team eval set is the proof — a <strong>leak-rate of 0</strong> is
-            the number to beat.
+            Try to break it. The red-team eval (<code className="mono">eval.redteam --live</code>) measures
+            the leak-rate with the output filter on and off — <strong>0 leaks with it on</strong> is the
+            number to beat.
           </div>
         </div>
       </div>
@@ -97,7 +98,7 @@ function EmptyState({ onPick }: { onPick: (t: string) => void }) {
         Ask about the methodology and the agents will answer from public docs. Ask for the{" "}
         <strong>proprietary parameters</strong> — thresholds, entry rules — and it refuses. Try a{" "}
         <strong>jailbreak</strong> and watch it hold. Every answer carries an answered/refused verdict,
-        and the <strong>leak-rate</strong> badge stays at 0.
+        and the <strong>output filter</strong> counter shows any answer withheld after the model spoke.
       </p>
       <span className="tag">try one</span>
       <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>

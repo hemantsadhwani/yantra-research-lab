@@ -4,8 +4,13 @@
 
 Each node returns a partial state update; lists accumulate as documents progress.
 Transient stages carry a RetryPolicy (bounded), fetch/parse dead-letter failures into
-``rejects`` rather than aborting the run, and a human-approval gate sits before indexing
-(auto-approved in CI via INGEST_AUTO_APPROVE, held for a human otherwise).
+``rejects`` rather than aborting the run, and a human-approval gate sits before indexing.
+
+The gate is a real LangGraph ``interrupt()``: the run checkpoints (SqliteSaver at
+``STATE_DIR/checkpoints.sqlite``) and stops before ``index``; ``python -m ingestion.run
+--resume <thread> --approve|--reject`` continues it from the checkpoint without redoing
+discover → quality. CI sets ``INGEST_AUTO_APPROVE=1`` explicitly; the default is the
+human gate.
 
 Keeping orchestration declarative here means the control flow — retries, the gate, the
 conditional skip when nothing is approved — is inspectable in one place.
@@ -14,8 +19,10 @@ conditional skip when nothing is approved — is inspectable in one place.
 from __future__ import annotations
 
 import os
+import sqlite3
 
 from langgraph.graph import END, START, StateGraph
+from langgraph.types import interrupt
 
 from ingestion import config
 from ingestion.caption import caption_figures
@@ -85,11 +92,38 @@ def _n_quality(state: PipelineState) -> dict:
             "rejects": state.get("rejects", []) + [r.model_dump() for r in rejects]}
 
 
+def auto_approve() -> bool:
+    """CI sets INGEST_AUTO_APPROVE=1; anything else (the default) holds for a human."""
+    return os.environ.get("INGEST_AUTO_APPROVE", "0").strip() == "1"
+
+
+def gate_payload(state: PipelineState) -> dict:
+    """What the human sees at the gate: how many chunks are pending, from which docs."""
+    accepted = state.get("accepted", [])
+    titles: list[str] = []
+    for c in accepted:
+        if c.get("title") and c["title"] not in titles:
+            titles.append(c["title"])
+    return {"pending": len(accepted), "docs": len(titles), "sample": titles[:3],
+            "question": "index these documents?"}
+
+
 def _n_gate(state: PipelineState) -> dict:
-    # HITL: CI auto-approves; a human run can hold indexing by unsetting the flag.
-    approved = os.environ.get("INGEST_AUTO_APPROVE", "1") == "1"
+    # HITL. On resume LangGraph re-runs this node from the top and interrupt() returns
+    # the resume value, so nothing before interrupt() may have side effects: it only
+    # reads env and state.
+    payload = gate_payload(state)
+    if auto_approve():
+        approved, by = True, "auto"
+    elif payload["pending"] == 0:
+        approved, by = True, "nothing-pending"  # nothing to index: don't page a human
+    else:
+        decision = interrupt(payload)
+        approved = str(decision).strip().lower() == "approve"
+        by = "human"
     stats = dict(state.get("stats", {}))
     stats["approved"] = approved
+    stats["approved_by"] = by
     return {"stats": stats}
 
 
@@ -105,7 +139,23 @@ def _n_index(state: PipelineState) -> dict:
     return {"indexed": n}
 
 
-def build_graph():
+def default_checkpointer():
+    """SqliteSaver at ``STATE_DIR/checkpoints.sqlite`` — survives the process, so a run
+    paused at the gate can be resumed later (or from another shell)."""
+    from langgraph.checkpoint.sqlite import SqliteSaver
+
+    config.STATE_DIR.mkdir(parents=True, exist_ok=True)
+    conn = sqlite3.connect(config.STATE_DIR / "checkpoints.sqlite", check_same_thread=False)
+    saver = SqliteSaver(conn)
+    saver.setup()
+    return saver
+
+
+def build_graph(checkpointer=None):
+    """Compile the DAG with a checkpointer (None → the SQLite default; tests pass
+    ``InMemorySaver``). Invoke with ``{"configurable": {"thread_id": ...}}``."""
+    if checkpointer is None:
+        checkpointer = default_checkpointer()
     g = StateGraph(PipelineState)
     kw = {"retry_policy": _RETRY} if _RETRY is not None else {}
     g.add_node("discover", _n_discover)
@@ -126,4 +176,4 @@ def build_graph():
     g.add_edge("quality", "gate")
     g.add_conditional_edges("gate", _route_after_gate, {"index": "index", END: END})
     g.add_edge("index", END)
-    return g.compile()
+    return g.compile(checkpointer=checkpointer)

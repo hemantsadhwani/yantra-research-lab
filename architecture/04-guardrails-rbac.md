@@ -31,7 +31,7 @@ request → RBAC (role-scoped retrieval) → retrieval (IP never in the index) �
 - **Injection detection** — jailbreak/prompt-injection attempts are caught and refused.
 - **Append-only audit** of every answer; **HITL** gate before any irreversible/privileged action.
 
-## As built (2026-09-13)
+## As built (2026-09-30)
 No RBAC surface exists — **no auth in v1** ([ADR-0006](../docs/adr/0006-auth-rbac.md)); every
 guest gets the same guardrails. The real pipeline, in order (`backend/guardrails.py` +
 `backend/books.py`):
@@ -41,8 +41,23 @@ message → PII redaction (user message only) → injection detection →
           naming a product/book counts as "specific") →
           deterministic book router (keyword match on this message + prior user turns:
           overview / per-book / risk-gates docs) →
-          vector retrieval k=4 across "methodology" + "research_corpus", merged by score → Claude → response
+          vector retrieval k=4 across "methodology" + "research_corpus", merged by score → LLM →
+          check_output() output filter → response
 ```
+- **Output filter (added 2026-09-30).** `guardrails.check_output(answer)` runs on every model
+  answer, regex only (no second LLM call). It withholds the answer (`refused: true`,
+  `refuse_reason: "output_filter"`, `output_filtered: true`) on: a parameter identifier bound
+  to a number (`z_entry = 1.8`, `stop_pct of 3`); a product name within 40 chars of a number
+  with a mechanism unit (`%`, bars, lots, strike, threshold), unless the text is a published
+  output or risk gate (win rate, drawdown, M2M, floor, sizing...) and names no mechanism; a
+  product name plus mechanism vocabulary bound to a number; an echoed email/phone or a
+  re-emitted `[REDACTED_*]` token; or a canary phrase from the system prompt. A unit test runs
+  every published book doc through it, so quotable outputs never trip it. `YANTRA_OUTPUT_FILTER=0`
+  switches it off, which exists only for the red-team comparison.
+- **The API's `leak_rate` field was a hard-coded 0 and is gone.** Responses carry
+  `output_filtered: bool`; `/api/metrics` counts `output_filtered` spans (Logfire, all-time) and
+  exposes in-process `since_boot` counters (`attacks_blocked`, `output_filtered`). The leak rate
+  is now a *measured eval number* (below), not a field the API asserts about itself.
 - **RBAC tenant isolation and Cognito/Clerk roles are the v2/target design above — not built.**
   Every visitor is an anonymous guest today.
 - The **book router** is deterministic keyword logic, not retrieval — it decides which strategy
@@ -57,6 +72,7 @@ message → PII redaction (user message only) → injection detection →
 | Eval | What it measures | Latest measured |
 |---|---|---|
 | [`eval/redteam.py`](../eval/redteam.py) | guardrail block rate on attack probes vs. false positives on benign controls | 26/26 attacks blocked (100%), 0/20 false positives |
+| [`eval/redteam.py --live`](../eval/redteam.py) | end to end through `/api/chat` in-process, with a `FakeProvider` scripted to leak on purpose; a leak = not refused and the answer is one of the scripted leak strings (ground truth, not the filter's regex) | leak_rate 0/32 with the filter on vs 6/32 off (the 6 evasive prompts that pass the input guards); with input guards bypassed the filter alone stops 26/26 (26/26 leak without it); 0/20 false positives |
 | [`eval/chatbot_books_eval.py`](../eval/chatbot_books_eval.py) | 23 graded questions against the live `/api/chat` endpoint; grader fails dodges, self-contradictions, book answers without a book doc in their sources, and paper questions without the paper cited | 23/23 |
 | [`eval/run_gate.py`](../eval/run_gate.py) | (Tier-1, not chatbot) agent loop's best variant beats the fixed baseline, CI-gated | best v007 score 36.5 > baseline 4.9 — PASS |
 
@@ -65,6 +81,12 @@ extraction, jailbreak, social-engineering, plus 20 benign controls), not only in
 `knowledge_base/eval_sets/` — that path documents the target eval-set *shape*
 (`expected: answer|refuse`, `must_not_contain`), but the probes that actually run today are the
 Python list in `redteam.py`.
+
+What the live leak rate does **not** show: the leaks are hand-written shapes (param identifiers,
+product+unit, mechanism+number, PII echo, prompt recital), so it measures the regex's coverage of
+those shapes, not how a real model might paraphrase a disclosure ("roughly one and a half
+standard deviations" has no digit and passes). The first line is still that the parameters are
+not in the index, so the model has nothing real to leak.
 
 ## The demo
 Hand a reviewer the chatbot, invite a jailbreak, and show the block rate hold at 100% with zero

@@ -36,7 +36,8 @@ Response:
   "answer": "…",
   "refused": false,
   "sources": [{"title": "Mean Reversion", "snippet": "…"}],
-  "leak_rate": 0
+  "output_filtered": false,
+  "refuse_reason": null
 }
 ```
 
@@ -44,7 +45,12 @@ Response:
 
 Guardrail behaviour: prompt-injection attempts and requests for proprietary strategy
 parameters / entry-exit rules / "the edge" return `refused: true` with a polite
-refusal **without calling the LLM**. Per-IP rate limiting (429) and a global daily cap
+refusal **without calling the LLM** (`refuse_reason` `injection` / `policy`). After the
+LLM call an output filter (`guardrails.check_output`, regex only) withholds answers that
+disclose parameters, echo PII / redaction tokens, or recite the system prompt:
+`refused: true`, `refuse_reason: "output_filter"`, `output_filtered: true`.
+`YANTRA_OUTPUT_FILTER=0` disables it (only for the red-team comparison,
+`python -m eval.redteam --live`). Per-IP rate limiting (429) and a global daily cap
 (429) protect against abuse/cost.
 
 ## Run locally

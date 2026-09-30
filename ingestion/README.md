@@ -51,9 +51,17 @@ caption is the fallback when vision is off/over-budget).
 
 ```bash
 pip install -r ingestion/requirements.txt          # separate from backend deps
-python -m ingestion.run                            # full run
+python -m ingestion.run                            # full run; pauses at the human gate
+python -m ingestion.run --resume <thread> --approve   # index what the paused run found
+python -m ingestion.run --resume <thread> --reject    # end it, index nothing
+python -m ingestion.run --list                     # checkpointed runs + where each stopped
+INGEST_AUTO_APPROVE=1 python -m ingestion.run      # no pause (CI sets this)
 INGEST_CORPUS_SIZE=3 python -m ingestion.run       # small smoke run
 ```
+
+The gate is a LangGraph `interrupt()`; runs are checkpointed to
+`ingestion/data/state/checkpoints.sqlite`, so a paused run resumes in a new process without
+redoing discover → quality.
 
 Reads `.env` (repo root) for `ANTHROPIC_API_KEY`, `QDRANT_URL`/`QDRANT_API_KEY`,
 optional `LOGFIRE_TOKEN`, and optional S3 (`S3_BUCKET`, `AWS_*`). Runs in CI daily via

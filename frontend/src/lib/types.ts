@@ -141,7 +141,9 @@ export interface ChatResponse {
   answer: string;
   refused: boolean;
   sources: ChatSource[];
-  leak_rate: number;
+  /** True when the model answered but the backend output filter withheld the answer. */
+  output_filtered: boolean;
+  refuse_reason?: string | null;
 }
 
 // ---------------------------------------------------------------------------

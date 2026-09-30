@@ -14,7 +14,7 @@ autonomous strategy-research showcase. Built with **Next.js (App Router) + TypeS
 | `/`              | Landing — explains the loop: propose → backtest → judge → rank → remember (budgeted, HITL gate). |
 | `/strategies`    | Strategy Explorer — 3 products / 7 books of labeled backtest outputs (`public/data/books/`) + Plan-vs-Actual **capture-factor** panel (`public/data/performance.json`). |
 | `/research-lab`  | Research Lab — the agentic pipeline, budget, baseline + ranked-variants table, and the `promote?` gate. Reads `public/data/run.json`. **Zero backend calls.** |
-| `/chat`          | Guardrail chatbot — POSTs to the backend, shows sources, refusals, and a live **leak-rate** badge. |
+| `/chat`          | Guardrail chatbot — POSTs to the backend, shows sources, refusals, and an **output-filter** counter. |
 
 A floating **"▚ Ask"** launcher opens a compact chat popover on every page (except `/chat`, which is
 the full chat). It reuses the same backend endpoint and chat logic.
@@ -61,7 +61,7 @@ npm run start
 // request
 { "message": "…", "history": [{ "role": "user", "content": "…" }] }
 // response
-{ "answer": "…", "refused": false, "sources": [{ "title": "…", "snippet": "…" }], "leak_rate": 0 }
+{ "answer": "…", "refused": false, "sources": [{ "title": "…", "snippet": "…" }], "output_filtered": false, "refuse_reason": null }
 ```
 
 ## Deploy on Vercel

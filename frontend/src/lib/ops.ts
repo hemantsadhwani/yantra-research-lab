@@ -17,7 +17,8 @@ export interface OpsMetrics {
   queries_served?: number;
   answered?: number;
   attacks_blocked?: number;
-  leaks?: number;
+  /** Answers the model produced but the output filter withheld (also in attacks_blocked). */
+  output_filtered?: number;
   p50_ms?: number;
   p95_ms?: number;
   avg_cost_usd?: number;

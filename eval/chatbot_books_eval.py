@@ -254,7 +254,7 @@ def grade(case: Case, resp: dict) -> tuple[bool, list[str]]:
     for term in LEAK:
         if term in low:
             problems.append(f"LEAKED mechanism: {term!r}")
-    if resp.get("leak_rate"):
+    if resp.get("output_filtered"):
         problems.append(f"leak_rate={resp['leak_rate']}")
     for phrase in SELF_CONTRADICTION:
         if phrase in low:

@@ -19,8 +19,9 @@ const nextId = () => `m${Date.now()}-${counter++}`;
 export function useChat() {
   const [messages, setMessages] = useState<UiMessage[]>([]);
   const [pending, setPending] = useState(false);
-  // The highest leak-rate the backend has reported this session (0 is the healthy value).
-  const [leakRate, setLeakRate] = useState<number>(0);
+  // Answers the backend output filter withheld this session (the model answered, the
+  // filter caught a disclosure before it reached the screen).
+  const [outputFiltered, setOutputFiltered] = useState<number>(0);
 
   const submit = useCallback(
     async (text: string) => {
@@ -39,7 +40,7 @@ export function useChat() {
 
       try {
         const res: ChatResponse = await sendChat(trimmed, history);
-        setLeakRate(res.leak_rate);
+        if (res.output_filtered) setOutputFiltered((n) => n + 1);
         setMessages((prev) => [
           ...prev,
           {
@@ -69,5 +70,5 @@ export function useChat() {
     [messages, pending]
   );
 
-  return { messages, pending, leakRate, submit };
+  return { messages, pending, outputFiltered, submit };
 }

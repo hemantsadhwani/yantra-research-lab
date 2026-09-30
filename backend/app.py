@@ -58,6 +58,15 @@ TOP_K = int(os.environ.get("TOP_K", "4"))
 RATE_LIMIT_PER_MIN = int(os.environ.get("RATE_LIMIT_PER_MIN", "20"))
 DAILY_REQUEST_CAP = int(os.environ.get("DAILY_REQUEST_CAP", "500"))
 
+
+def output_filter_enabled() -> bool:
+    """The output filter is on unless ``YANTRA_OUTPUT_FILTER=0``.
+
+    Read per request (not at import) so the red-team eval can measure the leak rate
+    with the filter off in the same process. Off exists only for that comparison.
+    """
+    return os.environ.get("YANTRA_OUTPUT_FILTER", "1").strip() != "0"
+
 app = FastAPI(title="Yantra Research Lab — RAG Chatbot", version="1.0.0")
 app.add_middleware(
     CORSMiddleware,
@@ -211,7 +220,10 @@ class ChatResponse(BaseModel):
     answer: str
     refused: bool = False
     sources: list[Source] = Field(default_factory=list)
-    leak_rate: int = 0
+    # True when the model DID answer but the output filter replaced the answer with
+    # the refusal (parameter disclosure / PII echo / system-prompt echo).
+    output_filtered: bool = False
+    refuse_reason: str | None = None
 
 
 # --------------------------------------------------------------------------- #
@@ -229,8 +241,11 @@ def api_metrics():
     Returns only counts / latency percentiles / cost / guardrail blocks queried back
     from Logfire — never user text, IPs, or raw logs. Degrades to {available:false}.
     ``llm`` names the configured provider/model (config, not telemetry).
+    ``since_boot`` holds in-process guardrail counters (attacks_blocked,
+    output_filtered) that work without Logfire and reset on restart.
     """
-    return {**metrics_mod.get_metrics(), "llm": _provider_labels()}
+    return {**metrics_mod.get_metrics(), "llm": _provider_labels(),
+            "since_boot": metrics_mod.since_boot()}
 
 
 def _snippet(text: str, limit: int = 240) -> str:
@@ -268,7 +283,7 @@ def chat(req: ChatRequest, request: Request):
             "msg_chars": len(message),
             **_provider_labels(),
             "refused": False,
-            "leak_rate": 0,
+            "output_filtered": False,
         }
 
         # 1. PII redaction — redact before we log or send anything to the model.
@@ -285,8 +300,10 @@ def chat(req: ChatRequest, request: Request):
                 total_ms=round((time.monotonic() - t0) * 1000, 1),
             )
             obs.set_attributes(sp, attrs)
+            metrics_mod.record("attacks_blocked")
             return ChatResponse(
-                answer=guardrails.REFUSAL_ANSWER, refused=True, sources=[], leak_rate=0
+                answer=guardrails.REFUSAL_ANSWER, refused=True, sources=[],
+                refuse_reason=attrs["refuse_reason"],
             )
 
         # Retrieve methodology context (top-k). Degrade gracefully if index is missing.
@@ -345,7 +362,6 @@ def chat(req: ChatRequest, request: Request):
                 "can't generate a full answer. Set ANTHROPIC_API_KEY and try again.",
                 refused=False,
                 sources=sources,
-                leak_rate=0,
             )
 
         try:
@@ -409,6 +425,26 @@ def chat(req: ChatRequest, request: Request):
             obs.set_attributes(lsp, {"llm_ms": llm_ms})
         attrs["llm_ms"] = llm_ms
 
+        # 4. Output filter — the model answered; check what it said before the user
+        # sees it. A prompt that slipped past the input guardrails still cannot carry
+        # parameters, echoed PII, or the system prompt out.
+        ok, reason = guardrails.check_output(answer)
+        if not ok:
+            attrs["output_filter_reason"] = reason
+            if output_filter_enabled():
+                logger.warning("output filter blocked an answer reason=%s", reason)
+                attrs.update(refused=True, refuse_reason="output_filter",
+                             output_filtered=True,
+                             total_ms=round((time.monotonic() - t0) * 1000, 1))
+                obs.set_attributes(sp, attrs)
+                metrics_mod.record("attacks_blocked")
+                metrics_mod.record("output_filtered")
+                return ChatResponse(
+                    answer=guardrails.REFUSAL_ANSWER, refused=True, sources=[],
+                    output_filtered=True, refuse_reason="output_filter",
+                )
+            logger.warning("output filter DISABLED; passing flagged answer reason=%s", reason)
+
         attrs["total_ms"] = round((time.monotonic() - t0) * 1000, 1)
         obs.set_attributes(sp, attrs)
-        return ChatResponse(answer=answer, refused=False, sources=sources, leak_rate=0)
+        return ChatResponse(answer=answer, refused=False, sources=sources)
