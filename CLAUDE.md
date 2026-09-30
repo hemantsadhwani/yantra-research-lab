@@ -25,6 +25,9 @@ make context-study  # measure 3 context constructions          (needs .[llm] + A
 make test           # pytest
 make gate           # eval-gate, stdlib arm (CI runs `python -m eval.run_gate --arm both`)
 make lint           # ruff check .
+make demo-faiss     # chatbot retrieval with VECTOR_BACKEND=faiss (exact cosine, on-disk index; Qdrant stays the default)
+make ragas-eval     # RAGAS-style chatbot eval (faithfulness, relevancy, context precision/recall); --fake in CI, --provider anthropic for real
+make mlflow-ui      # browse eval runs logged when MLFLOW_TRACKING_URI is set (opt-in; file store under .mlruns/)
 make docker-up      # backend + frontend with Compose (`--profile private` adds Ollama)
 make k8s-up         # local kind cluster + ingress + both images + kustomize apply; then `make k8s-smoke`
 ```
