@@ -1,6 +1,11 @@
 """Stage orchestration — a LangGraph StateGraph.
 
-    discover → fetch → parse → enrich → quality → [human gate] → index
+    discover → fetch → parse → layout → caption → enrich → quality → [human gate] → index
+
+``layout`` classifies every parsed page (``ingestion/layout_router.py``; backend from
+``YANTRA_LAYOUT_BACKEND``, default ``rules``, offline) and records ``layout`` in state.
+It is advisory unless ``INGEST_LAYOUT_GATE_CAPTION=1``, which limits ``caption`` to the
+pages it marked for vision; by default the DAG's other outputs are unchanged.
 
 Each node returns a partial state update; lists accumulate as documents progress.
 Transient stages carry a RetryPolicy (bounded), fetch/parse dead-letter failures into
@@ -30,6 +35,8 @@ from ingestion.discover import discover
 from ingestion.enrich import enrich
 from ingestion.fetch import fetch
 from ingestion.index import index_chunks, write_catalog
+from ingestion.layout_labels import page_features
+from ingestion.layout_router import gate_caption, get_classifier, route_pages, vision_pages
 from ingestion.parse import parse_pdf
 from ingestion.quality import quality_gate
 from ingestion.state import Chunk, FetchedDoc, ParsedDoc, PipelineState, Reject, SourceDoc
@@ -68,12 +75,23 @@ def _n_parse(state: PipelineState) -> dict:
     return {"parsed": parsed, "rejects": rejects}
 
 
+def _n_layout(state: PipelineState) -> dict:
+    # WP12: classify each parsed page; records only, so downstream output is unchanged.
+    clf = get_classifier()
+    layout: list[dict] = []
+    for p in state.get("parsed", []):
+        layout.extend(route_pages(page_features(ParsedDoc(**p)), clf))
+    return {"layout": layout}
+
+
 def _n_caption(state: PipelineState) -> dict:
     # Sub-project A: rasterize + vision-caption figures, appending image blocks.
     storage = get_storage()
     parsed = [ParsedDoc(**p) for p in state["parsed"]]
     fetched = [FetchedDoc(**f) for f in state["fetched"]]
-    parsed, spent, n_captioned = caption_figures(parsed, fetched, storage, state.get("spent_usd", 0.0))
+    pages = vision_pages(state.get("layout", [])) if gate_caption() else None
+    parsed, spent, n_captioned = caption_figures(parsed, fetched, storage, state.get("spent_usd", 0.0),
+                                                 pages=pages)
     stats = dict(state.get("stats", {}))
     stats["figures_captioned"] = n_captioned
     return {"parsed": [p.model_dump() for p in parsed], "spent_usd": spent, "stats": stats}
@@ -161,6 +179,7 @@ def build_graph(checkpointer=None):
     g.add_node("discover", _n_discover)
     g.add_node("fetch", _n_fetch, **kw)
     g.add_node("parse", _n_parse, **kw)
+    g.add_node("layout", _n_layout)
     g.add_node("caption", _n_caption, **kw)
     g.add_node("enrich", _n_enrich, **kw)
     g.add_node("quality", _n_quality)
@@ -170,7 +189,8 @@ def build_graph(checkpointer=None):
     g.add_edge(START, "discover")
     g.add_edge("discover", "fetch")
     g.add_edge("fetch", "parse")
-    g.add_edge("parse", "caption")
+    g.add_edge("parse", "layout")
+    g.add_edge("layout", "caption")
     g.add_edge("caption", "enrich")
     g.add_edge("enrich", "quality")
     g.add_edge("quality", "gate")

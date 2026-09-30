@@ -87,6 +87,7 @@ class PipelineState(TypedDict, total=False):
     sources: list[dict]        # SourceDoc dumps
     fetched: list[dict]        # FetchedDoc dumps
     parsed: list[dict]         # ParsedDoc dumps
+    layout: list[dict]         # per-page layout label + routing flags (layout_router.route_pages)
     chunks: list[dict]         # Chunk dumps (post-enrich)
     accepted: list[dict]       # Chunk dumps that passed the quality gate
     rejects: list[dict]        # Reject dumps

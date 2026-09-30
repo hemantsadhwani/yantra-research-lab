@@ -136,8 +136,12 @@ def _caption_clips(page):
         yield clip, " ".join(text.split())[:400]
 
 
-def render_figures(fetched: FetchedDoc, storage: Storage, max_per_doc: int) -> list[Figure]:
-    """Detect + rasterize up to ``max_per_doc`` figures from a PDF. No LLM here."""
+def render_figures(fetched: FetchedDoc, storage: Storage, max_per_doc: int,
+                   pages: set[int] | None = None) -> list[Figure]:
+    """Detect + rasterize up to ``max_per_doc`` figures from a PDF. No LLM here.
+
+    ``pages`` (1-based) restricts the scan to those pages; ``None`` scans every page.
+    """
     import fitz
 
     figs: list[Figure] = []
@@ -149,6 +153,8 @@ def render_figures(fetched: FetchedDoc, storage: Storage, max_per_doc: int) -> l
         for pno in range(n_process):
             if len(figs) >= max_per_doc:
                 break
+            if pages is not None and pno + 1 not in pages:
+                continue
             page = doc.load_page(pno)
             for clip, cap in _caption_clips(page):
                 if len(figs) >= max_per_doc:

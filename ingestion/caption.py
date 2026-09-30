@@ -47,10 +47,12 @@ def _caption_one(fig, title: str, spent: float) -> tuple[str, float, bool]:
 
 def caption_figures(
     parsed_docs: list[ParsedDoc], fetched: list[FetchedDoc], storage,
-    start_spent: float = 0.0,
+    start_spent: float = 0.0, pages: dict[str, set[int]] | None = None,
 ) -> tuple[list[ParsedDoc], float, int]:
     """Render + caption figures, appending image blocks to each doc.
 
+    ``pages`` (from the layout router, only when ``INGEST_LAYOUT_GATE_CAPTION=1``) limits
+    each doc to the pages marked for vision; ``None`` (the default) considers every page.
     Returns (parsed_docs, total_spent_usd, n_captioned_total).
     """
     reset_public_figures()
@@ -66,7 +68,8 @@ def caption_figures(
         if remaining <= 0:
             continue
         try:
-            figs = render_figures(fd, storage, max_per_doc=remaining)
+            figs = render_figures(fd, storage, max_per_doc=remaining,
+                                  pages=None if pages is None else pages.get(doc.source_id, set()))
         except Exception:
             continue
 
