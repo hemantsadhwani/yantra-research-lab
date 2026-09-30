@@ -22,20 +22,44 @@ Naming those two extra pillars is the difference between "we log stuff" and an o
 OTel backbone (vendor-neutral) → managed tools (LangSmith/Logfire) for DX, self-hostable (Langfuse)
 when data can't leave the building — the same cost/compliance routing logic as model selection.
 
-## As built (2026-09-13)
-Only one row of the table above is actually wired: **Logfire**, via OpenTelemetry, on the FastAPI
-backend.
+## As built (2026-09-30)
+Two rows of the table above are wired, both on **Logfire** over OpenTelemetry: the chatbot
+service, and (new this week) the research loop's graph arm. Everything else is a target.
+
+**Chatbot (`backend/observability.py`)**
 | What | Detail |
 |---|---|
-| Spans | `chat_request → retrieve → llm`, per-request, for every `/api/chat` call |
-| Metrics captured | latency split across those three spans, a token-cost estimate per call |
-| Exposed as | `/api/metrics` on the backend — reads Logfire's aggregates back out (safe aggregates only, no per-user content) |
+| Spans | `chat_request → retrieve → llm`, per request, for every `/api/chat` call; provider and model are span attributes |
+| Metrics captured | latency split across those spans, a token-cost estimate per call, `output_filtered` when the output guardrail withholds an answer |
+| Exposed as | `/api/metrics`: Logfire aggregates (safe aggregates only, no per-user content) plus in-process `since_boot` counters (`attacks_blocked`, `output_filtered`) |
 | Consumed by | the frontend's `/ops` "Live Ops" page, live on every page load |
 
-**LangSmith, Langfuse, and CloudWatch are documented targets — none are wired.** There is no
-agent-trajectory tracing (Tier-1's loop makes no LLM calls to trace), no self-hosted Langfuse
-instance, and no CloudWatch integration (the backend runs on Fly.io, not AWS). The "evals as
-observability" row is real in spirit but lives as standalone scripts (`eval/redteam.py`,
-`eval/chatbot_books_eval.py`, `eval/run_gate.py` — see [04](04-guardrails-rbac.md) and
-[README](README.md)), not wired into a drift-monitoring pipeline.
-</content>
+The provider/model attributes, `output_filtered` and `since_boot` are in code (WP4, WP8) but not
+yet deployed: on 2026-09-30 the live `/api/metrics` still returns the older shape (with the
+hard-coded `leaks` field). Two cautions when reading it. (1) Local runs with `LOGFIRE_TOKEN` in
+`.env` (backend `pytest`, `python -m eval.redteam --live`) send spans to the same project, tagged
+`production` by default, and are counted as queries: on 2026-09-30 the endpoint read 100 queries with a 1 ms p50, and
+its recent events were a local `eval.redteam --live` run. (2) So the all-time numbers are not user
+traffic.
+
+**Research loop (`research_lab/observability.py`, graph arm only)**
+| What | Detail |
+|---|---|
+| Spans | one `research_run` (or `research_resume`) span per CLI invocation, and one `node.<name>` span per graph node: `baseline`, `propose`, `backtest_all`, `record`, `judge`, `gate`, `finalize` |
+| Attributes | iteration, engine, provider, model, LLM calls and failures, input/output tokens, estimated cost, spend so far, stop reason, budget-exhausted iteration, judge calls / vetoes / abstentions. An `interrupt()` at the gate closes its span with `interrupted=true`, not as an error |
+| Privacy | rationales and parameter values are never span attributes unless `YANTRA_TRACE_PARAMS=1` |
+| Off by default | without `LOGFIRE_TOKEN` every helper is a no-op: no network, no console noise. The stdlib arm never imports it (`tests/test_smoke.py`) |
+
+**Budget as the FinOps control.** The "Cost / FinOps" row is partly real: `research_lab/budget.py`
+enforces a USD and call ceiling per run on both arms (`--max-usd`, `--max-llm-calls`), and every
+run prints a footer such as `budget: $0.0000/$0.0500 · llm calls 0/∞ · stopped: iterations`.
+Costs are list-price estimates from `llm_gateway/pricing.py`, not invoices.
+
+**Not wired:** LangSmith, Langfuse and CloudWatch are documented targets with no integration.
+The research-loop spans are tested against a stubbed `logfire` module
+(`research_lab/tests/test_budget.py`); no Logfire dashboard is built on them, and nothing runs the
+loop in a deployed environment that would emit them. There is no drift monitor. "Evals as
+observability" is real but lives as scripts and CI gates (`eval/run_gate.py --arm both`,
+`eval/redteam.py`, `eval/judge_eval.py`, `eval/chatbot_books_eval.py`; see
+[04](04-guardrails-rbac.md) and [ADR-0010](../docs/adr/0010-evaluation-ladder.md)), not a
+monitoring pipeline.

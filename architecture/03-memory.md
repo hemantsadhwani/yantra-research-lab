@@ -45,10 +45,18 @@ Memory is what makes each research run smarter than the last, without re-derivin
 Memory reads/writes are cheap and off the hot path. With fastembed, the first use downloads the
 model (roughly 0.1 GB) once; embedding a trial is then a few ms. The hashed embedder is free.
 
-## As built — and what is not claimed
+## As built (2026-09-30) — and what is not claimed
+Decision record: [ADR-0009](../docs/adr/0009-persistent-memory.md).
 - Built: everything above, covered by `research_lab/tests/test_memory_store.py`; demo with
   `make demo-memory` (two graph runs; the second one's header reads `priors from 1 prior run`).
 - The hashed embedder captures lexical overlap, not meaning. Heuristic rationales are
   near-identical strings, so for heuristic runs recall is mostly driven by the params summary.
 - No measurement yet that priors improve outcomes across seeds. One seed-3 demo run beating
   another is an anecdote, not evidence; it needs a multi-seed comparison like the context study.
+- **Memory keeps the pre-veto verdict.** The graph's `record` node writes each iteration's trials
+  before the optional judge runs, so a judge veto (`promote?` → `hold`) changes the ranked output
+  and the human gate, not the stored trial or the priors computed from it.
+- **Promotions come only from the graph arm.** The stdlib arm has no interrupt, so a
+  `python -m research_lab.run --memory sqlite` run writes trials and priors but never a promotion.
+- **Not built:** `sqlite-vec` (not needed at this row count), Postgres/OpenSearch-backed memory, and
+  any automatic pruning or decay of old trials.

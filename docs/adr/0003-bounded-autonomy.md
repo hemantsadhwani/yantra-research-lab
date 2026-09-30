@@ -53,3 +53,24 @@ but on one of three seeds the free, instant, deterministic proposer beat two of 
 context constructions. Whether full history genuinely beats compaction is not settled by n=3;
 the per-seed spread is wider than the gap. The decision this supports is unchanged: **pay for
 autonomy where the problem demands it**, and measure what it costs.
+
+## Addendum — the second and third swaps, and an enforced budget (2026-09-30)
+
+- **Evaluator score → score + LLM-as-judge: built, veto-only.** `research_lab/agents/judge.py`
+  (`--judge`) reviews the top-3 `promote?` candidates and can only downgrade them to `hold`. The
+  arithmetic score stays primary. See [ADR-0010](0010-evaluation-ladder.md).
+- **Episodic memory → semantic + procedural: built, over SQLite, without sqlite-vec.**
+  `research_lab/memory_store.py` (`--memory sqlite`); cosine is a Python loop until the trial
+  count justifies an extension. See [ADR-0009](0009-persistent-memory.md).
+- **Dataclasses → Pydantic v2: done at the LLM boundary only.** `schemas_llm.py` validates model
+  replies; `schemas.py` stays stdlib dataclasses so the default path imports nothing.
+- **The budget is enforced, not described.** `research_lab/budget.py` caps estimated USD and LLM
+  calls on both arms, is checked before every model call, and stops the loop with
+  `stop_reason="budget"`. The iteration count still bounds the shape of the run.
+- **The LangGraph re-expression exists** ([ADR-0007](0007-langgraph-primary-orchestrator.md)),
+  and the human gate is now a real `interrupt()`, not a printed line.
+
+The seam held again. The judge and the persistent store plug into both arms with no change to
+the loop's control flow, and with neither enabled the stdlib report is unchanged: `make demo` output
+before WP3 (`667ed8e`) and after WP5 matches byte for byte, and `test_stdlib_default_is_unchanged` and `test_inmem_memory_unchanged`
+guard the ranking.

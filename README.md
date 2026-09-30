@@ -24,6 +24,20 @@ python -m research_lab.run_graph --resume <id> --decision approve    # or --deci
 The pause is a real LangGraph interrupt persisted in a SQLite checkpoint, so the resume can come
 from another shell, another process, or tomorrow. Nothing promotes until a human says so.
 
+Three opt-in flags, on either CLI:
+
+```bash
+python -m research_lab.run_graph --memory sqlite            # persistent memory: samples from past runs' priors
+python -m research_lab.run_graph --judge                    # LLM judge may veto (never promote) the top-3 candidates
+python -m research_lab.run_graph --use-llm --max-usd 0.02   # LLM proposer under a hard spend cap
+```
+
+`--judge` and `--use-llm` need `pip install -e '.[llm]'` and a provider (see below). Without
+one, the judge abstains and the proposer falls back to the heuristic, and the run footer counts
+both, so a degraded run never looks like a clean one. Once the cap is spent the run stops early
+with `stopped: budget` (tested offline in `research_lab/tests/test_budget.py`; `make demo-budget`
+runs it against the real API).
+
 ## Zero-dependency path
 
 The same loop also runs on the stdlib alone, with no install:
@@ -80,6 +94,35 @@ in-process engine:
 pip install -e '.[mcp]'
 python -m research_lab.run --engine mcp
 ```
+
+## The evaluation ladder
+
+Each rung can only narrow what the one before it let through
+([ADR-0010](docs/adr/0010-evaluation-ladder.md)):
+
+```
+verify.py (deterministic)  →  Evaluator score (arithmetic)  →  Judge veto (LLM)  →  human gate
+```
+
+The arithmetic score ranks everything. The judge can downgrade `promote?` to `hold`; it cannot
+re-score, re-rank, upgrade or promote, and when it fails it abstains. The human gate is shown the
+best candidate that survived the veto. A spend budget (`--max-usd`, `--max-llm-calls`) bounds
+the LLM calls in both the proposer and the judge.
+
+On the chatbot, the output filter is measured end to end with a provider scripted to leak:
+**0/32 leaks reach the user with the filter on, 6/32 with it off** (`python -m eval.redteam --live`).
+The leaks are hand-written, so this measures the filter's coverage, not how often a real model leaks.
+
+## What CI proves
+
+| Job | What it shows |
+|---|---|
+| `core` (Python 3.12, 3.13) | the stdlib loop runs and passes its tests with **no extras installed**; the import-boundary tests keep langgraph, mcp, pydantic, anthropic, fastembed and logfire off the default path |
+| `agents` | with `.[all]`: the LangGraph arm (checkpoint, interrupt, cross-process resume), MCP byte-identical to in-process, `llm_gateway`, memory, budget, judge (151 root tests, all offline) |
+| `backend` | the FastAPI chatbot, guardrails and output filter (95 tests), plus the offline red-team block rate |
+| `ingestion` | the ingestion DAG and its interrupt gate, offline (13 tests) |
+| `eval-gate` | **both arms** must beat the fixed baseline: `python -m eval.run_gate --arm both` |
+| red-team | block rate ≥ 80% with zero false positives on benign controls (`tests/test_redteam.py` in `core`, `python -m eval.redteam` in `backend`) |
 
 ## What it demonstrates (the architecture)
 

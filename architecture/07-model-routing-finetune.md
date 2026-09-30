@@ -36,15 +36,25 @@ on the frontier API (fine-tuning would never amortize); only the **high-frequenc
 SLM. That is the textbook **fine-tune vs RAG vs prompt** call — *fine-tune to **distill** for
 cost/latency/compliance, not for knowledge* — and knowing where it *doesn't* pay is the senior signal.
 
-## As built (2026-09-13)
-**What actually runs today is the low-frequency path only, and without a gateway:** the deployed
-chatbot (`backend/app.py`) calls the **Anthropic SDK directly** — no LiteLLM, no gateway, no
-routing logic — targeting **`claude-haiku-4-5`**, with **prompt caching on the system prompt**,
-`max_tokens=1024`, a 20/min/IP rate limit, and a 500/day cap. There is exactly one model in the
-loop; "route by task difficulty" is not implemented because there is only one task.
+## As built (2026-09-30)
+**The gateway is built; routing and the SLM are not.** Decision record:
+[ADR-0008](../docs/adr/0008-provider-routing.md).
 
-**SLM status:** not built. The former `slm_regime_classifier/` placeholder (a README only) was removed; its design now lives in [ROADMAP.md](../ROADMAP.md). The
-`distill/ finetune/ serve/ eval_gate/` layout it described was never written as code. The fine-tuning lifecycle above is
-the target design, not a built artifact. Everything else in this document — the gateway, the
-frontier/open-weight split, the full SLM lifecycle — is the target, not built.
-</content>
+| Piece | Status |
+|---|---|
+| Provider seam (`llm_gateway/`) | **Built.** One `Provider.complete(...)` protocol; `LLM_PROVIDER=anthropic\|bedrock\|ollama` picks Claude direct (`claude-haiku-4-5`), Claude on AWS Bedrock (same SDK, `AnthropicBedrock` client), or a local Ollama model (stdlib HTTP, default `qwen2.5:7b-instruct`). Used by the research proposer, the judge and the chatbot backend |
+| Structured output | **Built.** A ladder per call: `native` (`messages.parse`) → `json_schema` (`output_config`) → `prompt` + one repair round-trip; the rung that held is recorded on every response |
+| Prompt caching | **Built** on the stable system prompt (`cache_system=True`), for the chatbot, the proposer and the judge |
+| Cost accounting | **Estimates only.** One list-price row (Haiku 4.5) in `llm_gateway/pricing.py`, applied to Bedrock ids too; Ollama is $0; unknown models estimate $0 with a warning. Feeds the enforced per-run budget (`research_lab/budget.py`) |
+| LiteLLM proxy | **Not built.** A thin adapter is enough for three providers in one process; a proxy is the Phase 2 answer once several services share keys and spend limits |
+| Route by task difficulty | **Not built.** Each task (propose, judge, chat) uses one configured model. Nothing escalates from a cheap model to a stronger one, and nothing has yet measured where the cheap model falls short |
+| Frontier ↔ open-weight split | **Selectable, not routed.** Ollama works as a drop-in provider (`make demo-ollama`), but choosing it is a human's environment variable, not a policy |
+
+**Deployment caveat.** The backend code calls the gateway since WP4. As of 2026-09-30 the live
+Fly app still serves the pre-WP4 build (its `/api/metrics` has no `llm` key), so the deployed
+chatbot is still the direct-SDK version until the next deploy.
+
+**SLM status:** not built. The former `slm_regime_classifier/` placeholder (a README only) was
+removed; its design now lives in [ROADMAP.md](../ROADMAP.md). The `distill/ finetune/ serve/
+eval_gate/` layout it described was never written as code. The fine-tuning lifecycle above is the
+target design, not a built artifact.

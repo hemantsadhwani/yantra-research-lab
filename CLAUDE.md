@@ -15,11 +15,14 @@ make install        # pip install -e '.[dev]'  — needed before pytest works
 make demo           # stdlib arm: one research session (5 iterations x 6 variants)
 make demo-graph     # LangGraph arm: same session, pauses at the human gate; then `make resume THREAD=... DECISION=approve`
 make demo-mcp       # LangGraph arm over the MCP server (--engine mcp)
+make demo-memory    # two graph runs over one SQLite memory; run 2 reads "priors from 1 prior run"
+make demo-budget    # LLM graph run capped at $0.02; stops with "stopped: budget" (needs .[llm] + ANTHROPIC_API_KEY)
+make judge-eval     # LLM judge vs 12 golden cases, pass >= 9/12 (needs a provider key; not in CI)
 make demo-llm       # stdlib arm with the LLM proposer          (needs .[llm] + a provider: LLM_PROVIDER=)
 make demo-bedrock   # LLM proposer via Claude on AWS Bedrock    (needs AWS creds + model access)
 make context-study  # measure 3 context constructions          (needs .[llm] + API key, costs cents)
 make test           # pytest
-make gate           # CI eval-gate: the agent loop must still beat the baseline
+make gate           # eval-gate, stdlib arm (CI runs `python -m eval.run_gate --arm both`)
 make lint           # ruff check .
 ```
 
@@ -72,13 +75,16 @@ do not support before quoting them anywhere.
 ```
 research_lab/          supervisor.py (stdlib loop, the spec) · graph.py + run_graph.py (LangGraph arm:
                        SQLite checkpoint, human interrupt, resume) · memory.py (in-process) ·
-                       memory_store.py (SQLite: episodic / semantic / procedural) · mcp_client.py ·
-                       schemas.py (dataclasses) · schemas_llm.py (Pydantic, LLM I/O only) · verify.py · run.py
-research_lab/agents/   proposer.py, backtester.py (Backtester + MCPBacktester), evaluator.py, context.py
+                       memory_store.py (SQLite: episodic / semantic / procedural) · embeddings.py ·
+                       budget.py (USD / call cap, both arms) · observability.py (Logfire spans, graph arm) ·
+                       mcp_client.py · schemas.py (dataclasses) · schemas_llm.py (Pydantic, LLM I/O only) ·
+                       verify.py · run.py
+research_lab/agents/   proposer.py, backtester.py (Backtester + MCPBacktester), evaluator.py,
+                       judge.py (veto-only LLM judge), context.py
 llm_gateway/           one provider interface: Anthropic direct · Claude on Bedrock · Ollama (LLM_PROVIDER=)
 synthetic_engine/      engine.py — public toy backtest engine (zero IP)
 mcp_server/            server.py — MCP tools wrapping the engine (run_backtest, get_param_space, ...)
-eval/                  run_gate.py (CI eval-gate), redteam.py, chatbot_books_eval.py
+eval/                  run_gate.py (--arm stdlib|graph|both), redteam.py (--live), judge_eval.py, chatbot_books_eval.py
 backend/               FastAPI RAG chatbot + guardrails + Logfire (Fly.io)
 ingestion/             LangGraph document-ingestion DAG (daily GitHub Actions cron)
 frontend/              Next.js portal (Vercel)
@@ -87,10 +93,14 @@ architecture/          design docs 01–08 with honest "As built" sections
 ROADMAP.md             Built (with the proving command) vs Phase 2 / designed-not-built
 ```
 
-**Import boundary (enforced by `tests/test_smoke.py`):** only `research_lab/graph.py`, `run_graph.py`,
-`mcp_client.py`, `memory_store.py` (lazily), `schemas_llm.py`, `agents/judge.py` and `llm_gateway/*` may
-import langgraph / mcp / pydantic / anthropic / fastembed. `run.py`, `supervisor.py`, `memory.py`,
-`schemas.py`, `verify.py` and the heuristic proposer path never do.
+**Import boundary (enforced by `tests/test_smoke.py`, and by the CI `core` job, which installs no
+extras):** optional SDKs are imported only in `graph.py` + `run_graph.py` (langgraph),
+`mcp_client.py` (mcp, lazily), `schemas_llm.py` (pydantic), `embeddings.py` (fastembed, lazily on
+first embed), `observability.py` (logfire, lazily; graph arm only) and `llm_gateway/*` (pydantic,
+anthropic). `agents/proposer.py`, `agents/judge.py` and `run.py` reach `llm_gateway` / `schemas_llm`
+only inside the LLM call or behind `--use-llm` / `--judge`. `run.py`, `supervisor.py`, `memory.py`,
+`memory_store.py`, `budget.py`, `schemas.py`, `verify.py` and the heuristic proposer path import
+none of langgraph / mcp / pydantic / anthropic / fastembed / logfire / opentelemetry at load time.
 
 **Two arms, both eval-gated.** The stdlib supervisor and the LangGraph graph are individually deterministic
 but produce different variant sequences for the same seed (the graph reseeds per iteration so a resumed run
@@ -107,6 +117,10 @@ Read these before re-deriving a decision — they record the trade-offs as they 
 - `docs/adr/0004` one monorepo for all tiers; dev/prod are environments, not repos
 - `docs/adr/0005` public demo on a minimal-cost serverless stack; AWS is the business target
 - `docs/adr/0006` auth & RBAC: none in v1; Clerk in v2
+- `docs/adr/0007` LangGraph StateGraph is the primary arm; the stdlib supervisor stays the spec
+- `docs/adr/0008` one `Provider` protocol (Anthropic / Bedrock / Ollama); thin adapter, not LiteLLM
+- `docs/adr/0009` persistent memory over one SQLite file; promotions human-only
+- `docs/adr/0010` evaluation ladder: verify → score → judge (veto only) → human; budget; leak rate
 
 ## Deployment
 
@@ -156,3 +170,13 @@ So: call it a **"live app," never a "live product."** "Product" implies adoption
 `/ops` page an interviewer clicks is the very dashboard that shows one lifetime query. The
 defensible claim is "deployed, reproducible, observable" — don't inflate past that, in the
 README, the resume, or generated copy.
+
+**Quote the arm and the test that proves it.** Any number or capability claim names which arm
+produced it (stdlib supervisor or LangGraph graph; they explore different variant sequences for
+the same seed) and the test or command that reproduces it, e.g. "graph arm, seed 3, best 36.5 vs
+baseline 4.9: `python -m eval.run_gate --arm graph`". Anything not in code is written as "not built".
+
+**Local runs can pollute the live metrics.** With `LOGFIRE_TOKEN` in `.env`, backend `pytest` and
+`python -m eval.redteam --live` send spans to the production Logfire project, and `/api/metrics`
+counts them as queries (on 2026-09-30 it read 100 queries at a 1 ms p50, mostly a local eval run).
+Unset the token for local evals, and don't quote the all-time count as traffic.

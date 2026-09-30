@@ -10,6 +10,115 @@ newest entries first. Complements the two other design surfaces:
 
 ---
 
+## 2026-09-30 — Memory, budget, judge, CI tiers, output filter, docs
+
+### WP10 — Documentation catches up with the code
+ADR-0007 to ADR-0010 record this week's decisions (LangGraph as the primary arm, provider
+routing, persistent memory, the evaluation ladder); ADR-0002 and ADR-0003 gain "as built"
+addenda; architecture 01, 03, 06 and 07 have their "As built" sections rewritten; README,
+CLAUDE.md and ROADMAP.md match what runs. Every command quoted was run offline
+(`ANTHROPIC_API_KEY=` empty, `YANTRA_EMBEDDER=hashed`), and test counts are from `pytest`
+output: root 151, backend 95, ingestion 13 (+2 skipped).
+**Claim it unlocks:** "every public claim names the file, the arm and the test behind it."
+**Deliberately not done:** no code changes; the context study was not re-run through the gateway
+(`results/` still says pre-gateway). Found while verifying: the live backend still serves the
+pre-WP4 build, and local eval runs with `LOGFIRE_TOKEN` set are counted in the production
+`/api/metrics` (see [06](../architecture/06-observability.md)).
+
+### WP8 — An output-side guardrail with a measured leak rate; the ingestion gate interrupts
+`backend/guardrails.check_output()` screens every model answer (parameter disclosure, PII echo,
+system-prompt canaries; regex, with an allow-list for published book vocabulary).
+`python -m eval.redteam --live` runs the app in-process against a provider scripted to leak and
+judges leaks against ground truth: 0/32 with the filter on, 6/32 off, 0 false positives. The
+API's hard-coded `leak_rate: 0` is gone. The ingestion pipeline's human gate became a real
+`interrupt()` over a `SqliteSaver`.
+**Claim it unlocks:** "the leak rate is measured end to end, and the filter is shown to matter by
+switching it off."
+**Deliberately not built:** a second-LLM output classifier; the leaks are hand-written, so the
+number measures regex coverage, not model behaviour ([ADR-0010](adr/0010-evaluation-ladder.md)).
+
+### WP7 — CI runs every tier and gates both arms
+Jobs: `core` (3.12 and 3.13, no extras, so optional-SDK tests skip and the stdlib story is
+proven), `agents` (`.[all]`), `backend`, `ingestion`, and `eval-gate` running
+`python -m eval.run_gate --arm both`. `tests/test_redteam.py` enforces a ≥ 80% block rate with zero
+false positives using only stdlib and `backend/guardrails.py`. `test_verify.py` went from 0 real
+tests to 23. The two `echo` deploy stubs were replaced by one gated `deploy-prod` job.
+**Claim it unlocks:** "both orchestrators must beat the baseline on every push, and the
+zero-dependency path is tested with nothing installed."
+**Deliberately not built:** a dev environment to promote from, and a live-model judge eval in CI
+(it needs a key; CI runs the `--fake` harness only). See the ADR-0004 as-built addendum.
+
+### WP5 — An LLM judge that can only veto
+`research_lab/agents/judge.py` reviews the top-3 `promote?` candidates against a fixed rubric
+and can only downgrade to `hold`. Failures are counted abstentions. The graph's gate now
+interrupts on the best *surviving* candidate. There is a 12-case golden set with
+`make judge-eval`.
+**Claim it unlocks:** "an LLM reviews the promotion, but cannot promote, re-rank or block."
+**Deliberately not built:** judge re-scoring or ranking (by design); no real-model agreement
+number has been recorded yet.
+
+### WP6 — An enforced budget and per-node tracing
+`research_lab/budget.py` (stdlib, both arms) caps estimated USD and LLM calls, checked before
+every call; the loop stops with `stop_reason="budget"`. Graph nodes are wrapped in Logfire spans
+that are no-ops without `LOGFIRE_TOKEN`.
+**Claim it unlocks:** "the loop cannot run away: spend is capped structurally, and every node is
+traceable."
+**Deliberately not built:** invoice-based cost (estimates are list price), token-level streaming,
+tracing on the stdlib arm (it must stay dependency-free).
+
+### WP3 — Persistent three-layer memory
+`research_lab/memory_store.py`: episodic, semantic and procedural layers over one SQLite file;
+learned priors; `CHECK (decided_by = 'human')` on promotions; hashed-embedder fallback.
+**Claim it unlocks:** "each run starts from what previous runs learned, and only a human can
+write a promotion."
+**Deliberately not built:** `sqlite-vec` (a linear scan is milliseconds at this size), and any
+claim that priors improve outcomes (one anecdote, no multi-seed study;
+[ADR-0009](adr/0009-persistent-memory.md)).
+
+## 2026-09-29 — LangGraph arm, real MCP client, provider gateway, hygiene
+
+### WP9 — Repo hygiene
+README-only stub directories (`chatbot/`, `api/`, `infra/`, `ops/`, `slm_regime_classifier/`)
+were deleted and their design folded into `ROADMAP.md` (Built, with a proving command, vs Phase
+2). The README was trimmed to what the code does, and a hard-coded private Windows path was
+removed from a script.
+**Claim it unlocks:** "every directory in the tree holds code that runs."
+**Deliberately not built:** anything on the Phase 2 list; it stays a list.
+
+### WP4 — `llm_gateway/`: one provider seam
+Anthropic, Bedrock and Ollama sit behind one `Provider` protocol, with a structured-output
+ladder (`native` → `json_schema` → `prompt` + repair) and a `FakeProvider` for offline tests. It
+fixed a real bug: `dict[str, float]` collapsed to `{}` under the strict-schema transform, so the
+"LLM" proposer was silently returning heuristic values ([ADR-0008](adr/0008-provider-routing.md)).
+**Claim it unlocks:** "the same loop runs on Claude direct, Claude on Bedrock or a local model,
+and every reply is schema-validated."
+**Deliberately not built:** LiteLLM, routing by difficulty.
+
+### WP2 — A real MCP client
+`research_lab/mcp_client.py` and `MCPBacktester`; `--engine mcp` on both CLIs. The server tool
+was renamed to `run_backtest` to match the documented contract, with `structured_output=True`.
+`test_mcp_and_inprocess_are_byte_identical` proves the two engines agree.
+**Claim it unlocks:** "one contract, two engines" is tested, not asserted.
+**Deliberately not built:** an HTTP/SSE MCP transport; stdio is enough for one host.
+
+### WP1 — The research loop as a checkpointed `StateGraph`
+`research_lab/graph.py` and `run_graph.py`: `SqliteSaver`, an `interrupt()` human gate,
+resume from another process, per-iteration reseeding
+([ADR-0007](adr/0007-langgraph-primary-orchestrator.md)).
+**Claim it unlocks:** "nothing promotes until a human resumes the thread, even from another
+shell tomorrow."
+**Deliberately not built:** `Send` fan-out for backtests, and a Postgres checkpointer.
+
+### WP0 — Pins
+LangGraph 1.x with `langgraph-checkpoint-sqlite` 3.x (2.x breaks against checkpoint 4.x), a
+Bedrock extra, Python 3.13 in CI, `.gitattributes` (renormalised 43 CRLF-only diffs), the
+`retry=` → `retry_policy=` rename, and unused `litellm`, `chromadb`, `voyageai`, `langsmith`
+removed.
+**Claim it unlocks:** "a fresh install resolves to versions the code was tested against."
+**Deliberately not built:** a lockfile; the extras are range-pinned.
+
+---
+
 ## 2026-07-05 — Public demo: deployment, IP boundary, cost model
 
 ### One contract, two engines — named strategies behind MCP

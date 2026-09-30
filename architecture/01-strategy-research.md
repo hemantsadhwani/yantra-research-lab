@@ -72,13 +72,17 @@ What actually runs in this repo, today:
   either way, which is the "one contract" claim above applied to the *agent* rather than the
   engine. The default stays deterministic so a fresh clone still runs with no API key, and LLM
   proposals are clamped into the parameter space before `verify_variant` sees them: the model is
-  not trusted to respect the contract. Needs `pip install -e '.[llm]'` and `ANTHROPIC_API_KEY`.
+  not trusted to respect the contract. The call goes through `llm_gateway/` (Anthropic, Claude on
+  Bedrock, or Ollama via `LLM_PROVIDER`), which validates the reply against a Pydantic schema;
+  see [ADR-0008](../docs/adr/0008-provider-routing.md). Needs `pip install -e '.[llm]'` and a
+  provider (an API key, AWS credentials, or a local `ollama serve`).
 - **`research_lab/verify.py`** adds the deterministic verification hooks this design implies:
   every proposed variant is checked against the declared parameter space *before* it's backtested,
   and every result is checked for NaN/inf/out-of-range *after* — loudly (raises), not silently,
   because a NaN score just never beats the baseline and the loop "succeeds" having learned nothing.
-- **`make gate` / `eval/run_gate.py`** is the CI eval-gate described above — it currently passes
-  (best variant score > fixed baseline).
+- **`make gate` / `eval/run_gate.py`** is the CI eval-gate described above. It has two arms:
+  `--arm stdlib` (the supervisor) and `--arm graph` (`run_graph --no-gate --assert-beats-baseline`);
+  CI runs both. On 2026-09-30 both pass at seed 3 (best 36.5 against a 4.9 baseline).
 - **`research_lab/experiments/context_study.py`** measures what the proposer's context costs:
   the same loop under three context constructions (full history / best-so-far / compacted
   summary), reporting input tokens against best score. Across three seeds, compaction held 95%
@@ -87,7 +91,18 @@ What actually runs in this repo, today:
   the honest reading are in `results/`.
 - **The LangGraph `StateGraph` arm is built** (`research_lab/graph.py`, `run_graph.py`: SQLite
   checkpoint, a real `interrupt()` human gate, resume from another process). The stdlib loop above
-  stays the spec and the zero-dependency default.
+  stays the spec and the zero-dependency default. The graph reseeds its proposer per iteration
+  (a live RNG cannot be checkpointed), so the two arms are each deterministic but explore
+  different variant sequences for the same seed. Backtests run serially in one node (no `Send`
+  fan-out). See [ADR-0007](../docs/adr/0007-langgraph-primary-orchestrator.md).
+- **The MCP contract is exercised, not just served.** `--engine mcp` (either CLI) sends every
+  backtest over MCP stdio through `research_lab/mcp_client.py`; `research_lab/tests/test_mcp.py`
+  asserts the results are byte-identical to the in-process engine for every named strategy.
+- **Persistent memory** (`--memory sqlite`, `research_lab/memory_store.py`): episodic, semantic
+  and procedural layers over one SQLite file; the heuristic explorer samples from learned priors
+  half the time. See [03](03-memory.md) and [ADR-0009](../docs/adr/0009-persistent-memory.md).
+- **An enforced budget** (`research_lab/budget.py`, `--max-usd` / `--max-llm-calls` on both arms):
+  checked before every model call; once spent, the loop stops with `stop_reason="budget"`.
 - **An LLM-as-judge, veto-only** (`research_lab/agents/judge.py`, opt-in with `--judge` on either
   CLI). The evaluation ladder is `verify.py` (deterministic) → Evaluator score (arithmetic,
   primary) → Judge veto (LLM) → human gate. When the loop is about to stop with a `promote?` best,
@@ -107,3 +122,7 @@ What actually runs in this repo, today:
   CI runs only `--fake`, which checks the harness, not the model. No real-model agreement number
   has been recorded yet, so none should be quoted.
 </content>
+- **Not built:** parallel backtests (the Goal above says "in parallel"; today every backtest runs
+  serially), token streaming from the graph, a Postgres checkpointer (a paused thread can only be
+  resumed on the host that holds the SQLite file), walk-forward validation, and a measured
+  real-model agreement rate for the judge.
