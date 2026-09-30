@@ -86,12 +86,12 @@ ANTHROPIC_API_KEY= LOGFIRE_TOKEN= .venv/bin/python -m eval.report_eval --fake | 
 log "bedrock check (instance role)"
 if aws sts get-caller-identity >/dev/null 2>&1; then
   aws sts get-caller-identity --output text
-  aws bedrock list-foundation-models --region "${AWS_REGION:-us-east-1}" \
+  aws bedrock list-foundation-models --region "${AWS_REGION:-ap-south-1}" \
     --by-provider anthropic --query 'modelSummaries[].modelId' --output text 2>/dev/null | tr '\t' '\n' | head -5 \
     || echo "bedrock list failed: enable model access in the console and check the role policy"
 else
   echo "no AWS identity: attach the instance profile from deploy/ec2/iam/bedrock-dev-role-policy.json"
 fi
 
-log "done. Next: LLM_PROVIDER=bedrock AWS_REGION=us-east-1 make demo-bedrock   (yantra)"
+log "done. Next: LLM_PROVIDER=bedrock AWS_REGION=ap-south-1 LLM_MODEL=apac.anthropic.claude-haiku-4-5-20251001-v1:0 make demo-bedrock   (yantra)"
 echo "     docker group: log out and back in once so 'docker' works without sudo."

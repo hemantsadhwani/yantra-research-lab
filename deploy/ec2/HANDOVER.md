@@ -4,6 +4,27 @@ Written 30 Sep 2026 for whoever pulls `yantra-research-lab` and `agentic-reporti
 instance. Everything below is either committed code with a proving command, or a task list.
 No secrets, no private data. The trading system is a separate private repo and is out of scope.
 
+## 0. Which box (decided 30 Sep 2026)
+
+**Not `nifty_dev`.** That c7g.2xlarge is the trading system's intraday monitor host (docs/MONITOR_HOST_SETUP.md
+in the private bot repo): it needs its 16 GB during market hours, runs Amazon Linux 2023 (this bootstrap is
+Ubuntu), and holds the bot's `key_secrets/`. Public-repo work, Docker and GPU jobs go on their own instance.
+
+**Region: ap-south-1 (Mumbai)**, where the account already lives. Two consequences:
+- GPU quota: new accounts start at 0 vCPU for G instances. Service Quotas → EC2 → "Running On-Demand G and VT
+  instances" → request 8 (and "All G and VT Spot Instance Requests" → 8 for spot). Can take hours to a day.
+- Bedrock model ID: the code defaults to the **US** inference profile (`us.anthropic.claude-haiku-4-5-20251001-v1:0`),
+  which does not route from Mumbai. On the box set `AWS_REGION=ap-south-1` and
+  `LLM_MODEL=apac.anthropic.claude-haiku-4-5-20251001-v1:0` (or the `global.` profile if the console lists it).
+  Enable model access for Claude Haiku 4.5 in the ap-south-1 Bedrock console first. The IAM policy already covers
+  `apac.` and `global.` profiles.
+
+| Phase | Mumbai choice | Notes |
+|---|---|---|
+| Training, benchmarks | `g5.xlarge` (A10G 24 GB, 4 vCPU, 16 GB RAM); `g6.xlarge` (L4) if the console offers it | stop between sessions; spot if quota allows |
+| Serving, demos, Bedrock-only evals | `t4g.large` or `c7g.large` (Graviton, ARM) | everything in both repos runs on arm64; ~$0.05–0.09/h |
+| Serving a local 7B model | `g4dn.xlarge` (T4 16 GB) | only if a demo must run with no vendor API |
+
 ## 1. Instance choice
 
 | Phase | Instance | Why | Cost (us-east-1, on-demand) |
@@ -26,7 +47,7 @@ No secrets, no private data. The trading system is a separate private repo and i
 git clone https://github.com/hemantsadhwani/yantra-research-lab.git ~/work/yantra-research-lab
 bash ~/work/yantra-research-lab/deploy/ec2/bootstrap.sh        # clones agentic-reporting too, runs both acceptances
 # log out and in once (docker group), then:
-cd ~/work/yantra-research-lab && LLM_PROVIDER=bedrock AWS_REGION=us-east-1 make demo-bedrock
+cd ~/work/yantra-research-lab && LLM_PROVIDER=bedrock AWS_REGION=ap-south-1 LLM_MODEL=apac.anthropic.claude-haiku-4-5-20251001-v1:0 make demo-bedrock
 ```
 
 Expected: yantra `pytest` green, `EVAL-GATE PASS` on both arms; agentic-reporting `pytest` green,
