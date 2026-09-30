@@ -229,8 +229,21 @@ def _leaks(results: list[dict]) -> int:
                if not r["body"].get("refused") and r["body"].get("answer") in LEAKS)
 
 
+def _offline_env() -> None:
+    """Before ``app`` is imported: no real model, no spans to the live Logfire project.
+
+    ``app`` runs ``load_dotenv``, which never overrides a variable that already exists,
+    so the ``.env`` key and token cannot come back; ``YANTRA_ENV=eval`` also keeps
+    ``observability.configure()`` a no-op, so eval traffic never reaches /ops metrics.
+    """
+    os.environ["ANTHROPIC_API_KEY"] = ""
+    os.environ["LOGFIRE_TOKEN"] = ""
+    os.environ["YANTRA_ENV"] = "eval"
+    os.environ.pop("YANTRA_TRACE_LOCAL", None)
+
+
 def live(verbose: bool) -> int:
-    os.environ["ANTHROPIC_API_KEY"] = ""  # never a real model, even if .env has a key
+    _offline_env()  # must run before _run_live imports the app
     n = len(ATTACKS)
     full_on = _run_live(ATTACKS, LEAKS, filter_on=True)
     full_off = _run_live(ATTACKS, LEAKS, filter_on=False)

@@ -141,3 +141,73 @@ def test_heuristic_graph_footer():
     final = _run_to_end()
     assert final["budget"]["llm_calls"] == 0
     assert budget_footer(final) == "budget: $0.0000/∞ · llm calls 0/∞ · stopped: iterations"
+
+
+def _cli(*args: str, db, timeout: float = 120):
+    import os
+    import subprocess
+    import sys
+    env = {**os.environ, "ANTHROPIC_API_KEY": "", "LOGFIRE_TOKEN": "", "YANTRA_ENV": "test"}
+    return subprocess.run([sys.executable, "-m", "research_lab.run_graph", *args,
+                           "--db", str(db)], capture_output=True, text=True, env=env, check=False,
+                          timeout=timeout)
+
+
+def _list_line(db, thread: str) -> str:
+    out = _cli("--list", db=db).stdout
+    lines = [ln for ln in out.splitlines() if ln.strip().startswith(thread + " ")]
+    assert lines, out
+    return lines[0]
+
+
+def test_cli_resume_continues_a_crashed_run(tmp_path):
+    """SIGKILL a CLI run mid-loop, then ``--resume <thread>`` (no decision) finishes it,
+    and lands on exactly the result of a run that was never interrupted."""
+    import os
+    import re
+    import signal
+    import subprocess
+    import sys
+
+    cfg = ["--iterations", "40", "--variants", "2", "--seed", "3", "--no-gate"]
+    db = tmp_path / "ckpt.sqlite"
+    env = {**os.environ, "ANTHROPIC_API_KEY": "", "LOGFIRE_TOKEN": "", "YANTRA_ENV": "test",
+           "PYTHONUNBUFFERED": "1"}
+    proc = subprocess.Popen(
+        [sys.executable, "-m", "research_lab.run_graph", *cfg, "--db", str(db),
+         "--thread", "crash1"],
+        stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, env=env)
+    # Kill on progress rather than a wall-clock delay: interpreter start-up time varies by
+    # machine, but "iter 2/" guarantees at least one iteration is checkpointed.
+    seen = []
+    for line in proc.stdout:
+        seen.append(line)
+        if " iter 2/" in line:
+            proc.send_signal(signal.SIGKILL)
+            break
+    proc.wait(timeout=30)
+    assert proc.returncode == -signal.SIGKILL, "".join(seen)
+    print("".join(seen), end="")
+
+    killed = _list_line(db, "crash1")
+    print(killed)
+    assert "PAUSED at gate" not in killed and "next: " in killed, killed
+    done_iter = int(re.search(r"iter (\d+)/40", killed).group(1))
+    assert 1 <= done_iter < 40
+
+    res = _cli("--resume", "crash1", db=db)
+    print(res.stdout)
+    assert res.returncode == 0, res.stderr
+    assert "continuing thread crash1" in res.stdout
+    assert ("PAUSED at human gate" in res.stdout
+            or "finished without a promotion candidate" in res.stdout)
+    resumed = _list_line(db, "crash1")
+    print(resumed)
+    assert "iter 40/40" in resumed
+
+    ref = _cli(*cfg, "--thread", "clean1", db=db)
+    assert ref.returncode == 0, ref.stderr
+    clean = _list_line(db, "clean1")
+    print(clean)
+    best = re.compile(r"best (\S+) (-?[\d.]+)")
+    assert best.search(resumed).groups() == best.search(clean).groups()

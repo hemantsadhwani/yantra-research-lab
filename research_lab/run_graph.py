@@ -2,6 +2,7 @@
 
     python -m research_lab.run_graph --iterations 5 --variants 6 --seed 3
     python -m research_lab.run_graph --resume <thread> --decision approve
+    python -m research_lab.run_graph --resume <thread>   # continue a crashed/killed run
     python -m research_lab.run_graph --list
     python -m research_lab.run_graph --engine mcp      # backtests over MCP stdio (needs .[mcp])
     python -m research_lab.run_graph --memory sqlite   # persistent memory; learns from past runs
@@ -54,10 +55,24 @@ def _cfg(thread: str) -> dict[str, Any]:
     return {"configurable": {"thread_id": thread}}
 
 
+def _pending(snap) -> tuple[str, ...]:
+    """Nodes a checkpointed thread still has to run.
+
+    ``snap.next`` hides tasks whose writes were saved but whose step checkpoint was not
+    (a process killed between the two). Those tasks are still unfinished business for
+    ``invoke(None, cfg)``, which replays their saved writes, so count them as pending.
+    """
+    return tuple(snap.next) or tuple(t.name for t in snap.tasks)
+
+
 def _stream(graph, payload, cfg) -> bool:
-    """Run to the next stop, logging progress. Returns True if paused at the gate."""
+    """Run to the next stop, logging progress. Returns True if paused at the gate.
+
+    ``durability="sync"`` persists each step's checkpoint before the next step starts, so a
+    SIGKILL loses at most the step in flight and ``--resume <thread>`` picks up from there.
+    """
     paused = False
-    for chunk in graph.stream(payload, cfg, stream_mode="updates"):
+    for chunk in graph.stream(payload, cfg, stream_mode="updates", durability="sync"):
         for node, update in chunk.items():
             if node == "__interrupt__":
                 paused = True
@@ -146,8 +161,9 @@ def _list(graph, saver, db: str) -> int:
         best = best_ranked(v.get("ranked", []))
         best_s = (f"best {best['variant']['id']} {best['evaluation']['score']:.1f}"
                   if best else "best -")
+        pending = _pending(snap)
         status = ("PAUSED at gate" if snap.next == ("gate",)
-                  else f"next {snap.next}" if snap.next
+                  else f"next: {', '.join(pending)}" if pending
                   else f"done · {v.get('approval') or v.get('stop_reason', '')}")
         print(f"  {t:<44} {v.get('strategy', '?')} s{v.get('seed', '?')} · "
               f"iter {v.get('iteration', 0)}/{v.get('iterations', '?')} · {best_s} · {status}")
@@ -186,8 +202,11 @@ def _main(argv: list[str] | None = None) -> int:
     ap.add_argument("--thread", help="thread id (default: <strategy>-s<seed>-<UTC timestamp>)")
     ap.add_argument("--db", help=f"checkpoint sqlite path (default: $RESEARCH_CHECKPOINT_DB "
                                  f"or {DEFAULT_CHECKPOINT_DB})")
-    ap.add_argument("--resume", metavar="THREAD", help="resume a thread paused at the gate")
-    ap.add_argument("--decision", choices=["approve", "reject"], help="with --resume")
+    ap.add_argument("--resume", metavar="THREAD",
+                    help="with --decision: answer a thread paused at the gate; without: "
+                         "continue a crashed or interrupted thread from its last checkpoint")
+    ap.add_argument("--decision", choices=["approve", "reject"],
+                    help="with --resume, for a thread paused at the human gate")
     ap.add_argument("--list", action="store_true", help="list checkpointed threads")
     ap.add_argument("--max-usd", type=float, default=None,
                     help="stop the loop once estimated LLM spend reaches this many USD "
@@ -214,13 +233,16 @@ def _main(argv: list[str] | None = None) -> int:
     if args.list:
         return _list(graph, saver, db)
 
+    if args.resume and not args.decision:
+        return _continue(graph, args, db)
+
     if args.resume:
-        if not args.decision:
-            ap.error("--resume needs --decision approve|reject")
         cfg = _cfg(args.resume)
         snap = graph.get_state(cfg)
         if snap.next != ("gate",):
-            print(f"  thread {args.resume!r} is not paused at the human gate in {db}",
+            hint = (" (it is mid-run: drop --decision to continue it)"
+                    if _pending(snap) else "")
+            print(f"  thread {args.resume!r} is not paused at the human gate in {db}{hint}",
                   file=sys.stderr)
             return 2
         with observability.span("research_resume", thread_id=args.resume,
@@ -286,8 +308,14 @@ def _main(argv: list[str] | None = None) -> int:
             "stop_reason": state.get("stop_reason") or "iterations",
             "paused_at_gate": paused,
         })
-    print(render_report(to_run_result(state), args.strategy, engine=args.engine,
-                        memory=memory_line))
+    return _report(graph, cfg, thread, state, paused, args, db,
+                   strategy=args.strategy, engine=args.engine, memory_line=memory_line)
+
+
+def _report(graph, cfg, thread: str, state: dict[str, Any], paused: bool, args, db: str, *,
+            strategy: str, engine: str, memory_line: str) -> int:
+    """Everything a run prints after the loop stops: report, gate prompt or footer."""
+    print(render_report(to_run_result(state), strategy, engine=engine, memory=memory_line))
     _print_llm(state)
     _print_judge(state)
     print(f"  {budget_footer(state)}")
@@ -314,6 +342,53 @@ def _main(argv: list[str] | None = None) -> int:
         return 1
     return 0
 
+
+def _continue(graph, args, db: str) -> int:
+    """``--resume <thread>`` without ``--decision``: pick up a crashed or killed run.
+
+    LangGraph re-executes from the last completed super-step (``invoke(None, cfg)``), and the
+    loop reseeds every iteration from (seed, iteration), so the continued run reaches the
+    same result as one that was never interrupted.
+    """
+    thread = args.resume
+    cfg = _cfg(thread)
+    snap = graph.get_state(cfg)
+    if not snap.values:
+        print(f"  no thread {thread!r} in {db}", file=sys.stderr)
+        return 2
+    if snap.next == ("gate",):
+        print(f"  thread {thread!r} is paused at the human gate: pass "
+              f"--decision approve|reject", file=sys.stderr)
+        return 2
+    pending = _pending(snap)
+    if not pending:
+        print(f"  thread {thread!r} already finished "
+              f"({snap.values.get('approval') or snap.values.get('stop_reason') or 'done'})",
+              file=sys.stderr)
+        return 2
+    v = snap.values
+    if v.get("use_llm") or v.get("judge"):
+        try:
+            from load_env import load_env
+            load_env()
+        except ImportError:
+            pass
+    print(f"  · continuing thread {thread} from checkpoint "
+          f"(iter {v.get('iteration', 0)}/{v.get('iterations', '?')}, "
+          f"next: {', '.join(pending)})")
+    engine = v.get("engine") or "inprocess"
+    if engine == "mcp":
+        print(f"  · {MCP_ENGINE_LABEL}")
+    memory_line = (f"memory: sqlite ({v['memory_db']}) · continued run"
+                   if v.get("memory") == "sqlite" and v.get("memory_db")
+                   else memory_label("inmem"))
+    with observability.span("research_continue", thread_id=thread,
+                            from_iteration=v.get("iteration", 0)):
+        paused = _stream(graph, None, cfg)
+    state = graph.get_state(cfg).values
+    return _report(graph, cfg, thread, state, paused, args, db,
+                   strategy=state.get("strategy", DEFAULT_STRATEGY), engine=engine,
+                   memory_line=memory_line)
 
 if __name__ == "__main__":
     sys.exit(main())

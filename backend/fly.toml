@@ -41,6 +41,9 @@ primary_region = "sin"  # Singapore (bom/Mumbai had no capacity at deploy time)
 #   (or LLM_PROVIDER=bedrock + AWS_REGION / AWS_ACCESS_KEY_ID / AWS_SECRET_ACCESS_KEY)
 #   fly secrets set FRONTEND_ORIGIN=https://your-frontend.example.com
 [env]
+  # Only YANTRA_ENV=production exports Logfire spans (backend/observability.py), and
+  # /api/metrics counts only spans tagged with it (backend/metrics.py).
+  YANTRA_ENV = "production"
   VECTOR_BACKEND = "qdrant"
   RATE_LIMIT_PER_MIN = "20"
   DAILY_REQUEST_CAP = "500"

@@ -24,6 +24,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import sys
 import time
 import urllib.error
@@ -271,6 +272,11 @@ def grade(case: Case, resp: dict) -> tuple[bool, list[str]]:
 
 
 def main() -> int:
+    # This eval is an HTTP client and never imports the app, but keep the process itself
+    # off the live Logfire project regardless (the requests it sends are served, and
+    # traced, by whichever server --url points at).
+    os.environ["LOGFIRE_TOKEN"] = ""
+    os.environ["YANTRA_ENV"] = "eval"
     ap = argparse.ArgumentParser()
     ap.add_argument("--url", default=DEFAULT_URL)
     ap.add_argument("--verbose", action="store_true")

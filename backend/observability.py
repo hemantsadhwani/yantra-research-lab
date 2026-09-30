@@ -4,6 +4,12 @@ Design goals:
   - **Zero-friction local dev / CI.** If the ``logfire`` package is missing or no
     ``LOGFIRE_TOKEN`` is set, every helper here is a safe no-op — the app runs
     identically, tests never need an account.
+  - **Only production exports.** ``configure()`` does nothing unless
+    ``YANTRA_ENV=production`` (set in ``backend/fly.toml``) or ``YANTRA_TRACE_LOCAL=1``
+    is set explicitly. A ``LOGFIRE_TOKEN`` in a laptop's ``.env`` is therefore not
+    enough to send spans, so local runs, tests and evals can never inflate the public
+    /ops numbers. Every span is tagged with ``environment=$YANTRA_ENV`` (Logfire's
+    ``deployment.environment.name`` resource attribute), which ``metrics.py`` filters on.
   - **One import surface.** ``app.py`` calls ``configure(app)`` once at startup and
     wraps request work in ``span(...)`` / ``set_attributes(...)``; nothing else needs
     to know whether Logfire is active.
@@ -33,20 +39,33 @@ except ImportError:  # package not installed → everything degrades to no-ops
 _configured = False
 
 
+def yantra_env() -> str:
+    """Deployment environment: ``production`` on Fly, ``local`` by default."""
+    return (os.environ.get("YANTRA_ENV") or "local").strip().lower()
+
+
+def export_allowed() -> bool:
+    """True only in production, or when a developer opts in with YANTRA_TRACE_LOCAL=1."""
+    return yantra_env() == "production" or os.environ.get("YANTRA_TRACE_LOCAL") == "1"
+
+
 def configure(app=None) -> bool:
     """Configure Logfire once and auto-instrument FastAPI + the Anthropic client.
 
-    Returns True only if telemetry is actually being exported (i.e. a token is set).
-    Uses ``send_to_logfire="if-token-present"`` so spans are created cheaply in dev
-    but nothing leaves the process without ``LOGFIRE_TOKEN``.
+    Returns True only if telemetry is actually being exported. Skipped entirely (no
+    ``logfire.configure``, no instrumentation) unless ``export_allowed()``; spans created
+    by ``span()`` then stay local no-ops of an unconfigured Logfire. Uses
+    ``send_to_logfire="if-token-present"`` so nothing leaves without ``LOGFIRE_TOKEN``.
     """
     global _configured
-    if logfire is None:
+    if logfire is None or not export_allowed():
         return False
     if not _configured:
         logfire.configure(
             service_name=os.environ.get("LOGFIRE_SERVICE_NAME", "yantra-chatbot"),
-            environment=os.environ.get("LOGFIRE_ENVIRONMENT", "production"),
+            # logfire>=4 writes this as the resource attribute deployment.environment.name,
+            # exposed as the ``deployment_environment`` column in Logfire SQL.
+            environment=yantra_env(),
             send_to_logfire="if-token-present",
             console=False,  # keep the app's own stdout clean
         )
@@ -81,8 +100,11 @@ class _NullSpan:
 
 
 def span(name: str, **attrs):
-    """A span context manager; a no-op ``_NullSpan`` when Logfire isn't installed."""
-    if logfire is None:
+    """A span context manager; a no-op ``_NullSpan`` unless ``configure()`` enabled Logfire.
+
+    An unconfigured Logfire creates no spans anyway (and warns on every call), so skip it.
+    """
+    if logfire is None or not _configured:
         return _NullSpan()
     return logfire.span(name, **attrs)
 

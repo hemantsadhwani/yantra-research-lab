@@ -6,6 +6,9 @@ Mirrors ``backend/observability.py``:
   ``LOGFIRE_TOKEN`` is set; otherwise every helper here is a null span and nothing
   leaves the process (no network, no console noise). ``logfire`` is imported lazily
   inside a ``try`` so this module imports without it installed.
+* **Not production → no-op.** A token alone is not enough: ``configure()`` also needs
+  ``YANTRA_ENV=production`` or an explicit ``YANTRA_TRACE_LOCAL=1``, so the token in a
+  laptop's ``.env`` never sends spans. Spans carry ``environment=$YANTRA_ENV``.
 * **One decorator.** ``traced("propose")`` wraps a node function in a ``node.propose``
   span and, after the node returns, copies the numbers from its state update onto the
   span: iteration, n_variants, engine, provider, model, llm_calls, llm_failures,
@@ -57,15 +60,27 @@ def _import_logfire() -> Any:
     return logfire
 
 
+def yantra_env() -> str:
+    """Deployment environment from ``YANTRA_ENV`` (default ``local``)."""
+    return (os.environ.get("YANTRA_ENV") or "local").strip().lower()
+
+
+def export_allowed() -> bool:
+    """True only in production, or when a developer opts in with YANTRA_TRACE_LOCAL=1."""
+    return yantra_env() == "production" or os.environ.get("YANTRA_TRACE_LOCAL") == "1"
+
+
 def configure(service_name: str = "yantra-research") -> bool:
-    """Turn tracing on iff ``logfire`` is importable AND ``LOGFIRE_TOKEN`` is set.
+    """Turn tracing on iff ``logfire`` is importable, ``LOGFIRE_TOKEN`` is set, AND this is
+    production (``YANTRA_ENV=production``) or local tracing is opted into
+    (``YANTRA_TRACE_LOCAL=1``).
 
     Returns True when spans are being exported. Idempotent.
     """
     global _logfire
     if _logfire is not None:
         return True
-    if not os.environ.get("LOGFIRE_TOKEN"):
+    if not os.environ.get("LOGFIRE_TOKEN") or not export_allowed():
         return False
     logfire = _import_logfire()
     if logfire is None:
@@ -73,7 +88,7 @@ def configure(service_name: str = "yantra-research") -> bool:
     try:
         logfire.configure(
             service_name=os.environ.get("LOGFIRE_SERVICE_NAME", service_name),
-            environment=os.environ.get("LOGFIRE_ENVIRONMENT", "development"),
+            environment=yantra_env(),
             send_to_logfire="if-token-present",
             console=False,       # the CLI's own stdout stays clean
         )

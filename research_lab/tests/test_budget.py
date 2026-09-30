@@ -204,6 +204,7 @@ def test_traced_node_sets_attributes(obs, monkeypatch):
     stub = _StubLogfire()
     monkeypatch.setitem(sys.modules, "logfire", stub)
     monkeypatch.setenv("LOGFIRE_TOKEN", "test-token")
+    monkeypatch.setenv("YANTRA_ENV", "production")
     monkeypatch.delenv("YANTRA_TRACE_PARAMS", raising=False)
     assert obs.configure() is True and stub.configured
 
@@ -220,6 +221,31 @@ def test_traced_node_sets_attributes(obs, monkeypatch):
     assert all("proposals" not in s for s in stub.spans)      # privacy by default
     gate = [s for s in stub.spans if s["name"] == "node.gate"]
     assert gate[0].get("interrupted") is True
+
+
+def test_configure_skipped_outside_production(obs, monkeypatch):
+    """A token in a laptop's .env is not enough: local runs never export spans."""
+    stub = types.SimpleNamespace(configure=lambda **k: pytest.fail("configured"))
+    monkeypatch.setitem(sys.modules, "logfire", stub)
+    monkeypatch.setenv("LOGFIRE_TOKEN", "abc")
+    monkeypatch.delenv("YANTRA_TRACE_LOCAL", raising=False)
+    for env in ("local", "test", "eval"):
+        monkeypatch.setenv("YANTRA_ENV", env)
+        assert obs.configure() is False
+    monkeypatch.delenv("YANTRA_ENV")
+    assert obs.configure() is False
+
+
+def test_configure_local_opt_in_tags_environment(obs, monkeypatch):
+    seen: dict = {}
+    stub = _StubLogfire()
+    stub.configure = lambda **k: seen.update(k)
+    monkeypatch.setitem(sys.modules, "logfire", stub)
+    monkeypatch.setenv("LOGFIRE_TOKEN", "abc")
+    monkeypatch.setenv("YANTRA_ENV", "local")
+    monkeypatch.setenv("YANTRA_TRACE_LOCAL", "1")
+    assert obs.configure() is True
+    assert seen["environment"] == "local"
 
 
 def test_trace_params_opt_in(obs, monkeypatch):

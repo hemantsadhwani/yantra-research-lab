@@ -30,12 +30,23 @@ CACHE_TTL_SEC = float(os.environ.get("METRICS_CACHE_TTL_SEC", "60"))
 ROW_LIMIT = int(os.environ.get("METRICS_ROW_LIMIT", "1000"))
 FEED_LEN = int(os.environ.get("METRICS_FEED_LEN", "12"))
 
+# Only spans from the deployed app count. Filter choice: Logfire's own environment
+# field, not a custom span attribute. ``observability.configure()`` passes
+# ``environment=$YANTRA_ENV`` to ``logfire.configure``; logfire>=4 (verified in the 4.41
+# SDK: ``RESOURCE_ATTRIBUTES_DEPLOYMENT_ENVIRONMENT_NAME``) writes it as the OTel resource
+# attribute ``deployment.environment.name``, which Logfire exposes as the
+# ``deployment_environment`` column of ``records`` (the SDK's query client filters on
+# that same name). It tags every span, including FastAPI/Anthropic auto-instrumentation,
+# so no call site can forget it. Local, test and eval processes never configure Logfire
+# at all (see ``observability.export_allowed``), so this filter is the second fence.
+_ENV_FILTER = "deployment_environment = 'production'"
+
 # Pull the raw per-request spans; we reduce them in Python so we don't depend on any
 # particular SQL percentile support in the query engine.
 _SQL = (
     "SELECT start_timestamp, attributes "
     "FROM records "
-    "WHERE span_name = 'chat_request' "
+    f"WHERE span_name = 'chat_request' AND {_ENV_FILTER} "
     "ORDER BY start_timestamp DESC "
     f"LIMIT {ROW_LIMIT}"
 )
