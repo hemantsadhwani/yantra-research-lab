@@ -14,6 +14,7 @@ interviews, so **accuracy matters more than polish** — see "Claims discipline"
 make install        # pip install -e '.[dev]'  — needed before pytest works
 make demo           # stdlib arm: one research session (5 iterations x 6 variants)
 make demo-graph     # LangGraph arm: same session, pauses at the human gate; then `make resume THREAD=... DECISION=approve`
+                    # killed mid-run? `python -m research_lab.run_graph --resume <thread>` continues from the last checkpoint
 make demo-mcp       # LangGraph arm over the MCP server (--engine mcp)
 make demo-memory    # two graph runs over one SQLite memory; run 2 reads "priors from 1 prior run"
 make demo-budget    # LLM graph run capped at $0.02; stops with "stopped: budget" (needs .[llm] + ANTHROPIC_API_KEY)

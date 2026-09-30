@@ -19,6 +19,7 @@ The production version drives a private engine — referenced here only in the a
 pip install -e '.[agents]'
 python -m research_lab.run_graph                  # runs the loop, then stops: PAUSED at human gate · thread <id>
 python -m research_lab.run_graph --resume <id> --decision approve    # or --decision reject
+python -m research_lab.run_graph --resume <id>                      # killed mid-run? continue from the last checkpoint
 ```
 
 The pause is a real LangGraph interrupt persisted in a SQLite checkpoint, so the resume can come
