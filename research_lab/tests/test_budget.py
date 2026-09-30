@@ -81,6 +81,7 @@ def test_budget_stops_loop_with_reason():
 
 
 def test_budget_stop_keeps_reason_through_finalize():
+    pytest.importorskip("langgraph")
     from langgraph.types import Command
 
     fake = _fake(calls=5)

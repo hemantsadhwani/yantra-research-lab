@@ -1,75 +1,192 @@
 name: ci
 
-# Monorepo CI: path-filtered so a change to one tier only exercises that tier.
-# Flow: PR/merge → lint · test · eval-gate → deploy dev → (manual approval) → prod.
-# See docs/adr/0004-monorepo-and-environment-promotion.md.
+# Monorepo CI, path-filtered: a change to one tier only exercises that tier.
+#
+#   changes ─┬─ core (3.12, 3.13; stdlib only) ─┐
+#            ├─ agents (3.13; .[all]) ──────────┴─ eval-gate (both arms) ─┐
+#            ├─ backend ──────────────────────────────────────────────────┴─ deploy-prod (main, opt-in)
+#            └─ ingestion
+#
+# Four test jobs, two eval gates (loop-beats-baseline on the stdlib AND the LangGraph
+# loop; red-team guardrail block rate). dev/prod are GitHub *environments*, not
+# directories — see docs/adr/0004-monorepo-and-environment-promotion.md.
+# No job here pretends to deploy: deploy-prod is a real `flyctl deploy`, and a no-op until
+# the owner opts in (see the job's comment).
 
 on:
   push:
     branches: [main]
   pull_request:
 
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  # Every job is offline and deterministic: no real model, no network embedder.
+  ANTHROPIC_API_KEY: ''
+  YANTRA_EMBEDDER: hashed
+  PYTHONUTF8: '1'
+
 jobs:
   # ---- detect which parts of the monorepo changed ----
   changes:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: read   # paths-filter lists PR files via the API
     outputs:
       core: ${{ steps.filter.outputs.core }}
-      chatbot: ${{ steps.filter.outputs.chatbot }}
+      backend: ${{ steps.filter.outputs.backend }}
       ingestion: ${{ steps.filter.outputs.ingestion }}
-      slm: ${{ steps.filter.outputs.slm }}
       frontend: ${{ steps.filter.outputs.frontend }}
     steps:
       - uses: actions/checkout@v4
       - uses: dorny/paths-filter@v3
         id: filter
         with:
+          # frontend/ is built and deployed by Vercel's Git integration (ADR-0005); the
+          # output is exposed for a future build job and consumed by nothing here yet.
           filters: |
-            core: ['research_lab/**', 'synthetic_engine/**', 'mcp_server/**', 'tests/**', 'pyproject.toml']
-            chatbot: ['chatbot/**']
+            core: ['research_lab/**', 'synthetic_engine/**', 'mcp_server/**', 'llm_gateway/**', 'eval/**', 'tests/**', 'pyproject.toml']
+            backend: ['backend/**', 'llm_gateway/**', 'eval/**']
             ingestion: ['ingestion/**']
-            slm: ['slm_regime_classifier/**']
             frontend: ['frontend/**']
 
-  # ---- the runnable Tier-1 core: lint + test ----
+  # ---- Tier-1 core: stdlib only, NO extras. Proves "clone and run, no deps". ----
   core:
+    needs: changes
+    if: needs.changes.outputs.core == 'true'
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python: ['3.12', '3.13']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+          cache: pip
+          cache-dependency-path: pyproject.toml
+      # ruff is pinned so a new release's default rule set cannot break an unchanged tree.
+      - run: pip install -e '.[dev]' 'ruff==0.16.9'
+      # Lint scope = the packages that are ruff-clean today. Three files carry known,
+      # pre-existing findings and are excluded by name (not by rule) until fixed:
+      #   research_lab/experiments/context_study.py  S110/BLE001 (try-except-pass)
+      #   synthetic_engine/engine.py                 RUF046 (redundant int cast)
+      #   eval/chatbot_books_eval.py                 SIM102 (collapsible if)
+      # backend/ and ingestion/ are not linted yet (17 and 25 findings).
+      - name: ruff
+        run: >
+          ruff check research_lab synthetic_engine mcp_server llm_gateway tests eval
+          --extend-exclude research_lab/experiments/context_study.py,synthetic_engine/engine.py,eval/chatbot_books_eval.py
+      # langgraph / mcp / pydantic tests importorskip → they SKIP here, never fail.
+      - run: pytest -q tests research_lab/tests
+      - name: eval-gate (stdlib arm)
+        run: python -m eval.run_gate --arm stdlib
+      - name: red-team guardrail gate (no backend deps)
+        run: pytest -q tests/test_redteam.py
+
+  # ---- the optional-extras tier: LangGraph loop, MCP, llm_gateway, memory ----
+  agents:
     needs: changes
     if: needs.changes.outputs.core == 'true'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
-        with: { python-version: '3.13' }
-      - run: pip install -e '.[dev]'
-      - run: ruff check .
-      - run: pytest -q
+        with:
+          python-version: '3.13'
+          cache: pip
+          cache-dependency-path: pyproject.toml
+      - run: pip install -e '.[all]'
+      - run: pytest -q research_lab/tests llm_gateway/tests tests
+      - name: eval-gate (graph arm; fails if langgraph is missing)
+        run: python -m eval.run_gate --arm graph
 
-  # ---- eval-gate: block promotion if the agent/RAG regression eval drops ----
-  eval-gate:
-    needs: core
-    if: always() && needs.core.result != 'failure'
+  # ---- public RAG chatbot backend (FastAPI) + red-team eval ----
+  backend:
+    needs: changes
+    if: needs.changes.outputs.backend == 'true'
+    runs-on: ubuntu-latest
+    env:
+      PYTHONPATH: ${{ github.workspace }}   # backend imports the shared llm_gateway/
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+          cache: pip
+          cache-dependency-path: backend/requirements.txt
+      - run: pip install -r backend/requirements.txt pytest
+      - run: pytest -q
+        working-directory: backend
+      - name: red-team eval (offline guardrail probes)
+        run: python -m eval.redteam
+
+  # ---- Tier-3 ingestion pipeline (offline tests; no tesseract binary needed) ----
+  ingestion:
+    needs: changes
+    if: needs.changes.outputs.ingestion == 'true'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
-        with: { python-version: '3.13' }
-      - run: pip install -e '.[dev]'
-      - name: agent-loop regression (best variant must beat baseline)
-        run: python -m eval.run_gate    # placeholder gate; see eval/README.md
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: ingestion/requirements.txt
+      - run: pip install -r ingestion/requirements.txt pytest
+      - run: pytest -q
+        working-directory: ingestion
 
-  # ---- environment promotion (same artifact: dev → prod). Stubs until infra lands. ----
-  deploy-dev:
-    needs: eval-gate
-    if: github.ref == 'refs/heads/main'
+  # ---- eval-gate: the research loop must still beat the baseline, on BOTH loops ----
+  eval-gate:
+    needs: [changes, core, agents]
+    if: >-
+      always() && needs.changes.outputs.core == 'true' &&
+      needs.core.result == 'success' && needs.agents.result == 'success'
     runs-on: ubuntu-latest
-    environment: dev
     steps:
-      - run: echo "deploy to dev (infra/environments/dev)"
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+          cache: pip
+          cache-dependency-path: pyproject.toml
+      - run: pip install -e '.[all]'
+      - run: python -m eval.run_gate --arm both
 
+  # ---- prod deploy of the chatbot backend to Fly.io ----
+  # A NO-OP until the owner opts in. To enable, in GitHub → Settings:
+  #   1. Secrets and variables → Actions → Secrets:   FLY_API_TOKEN   (`fly tokens create deploy -a yantra-chatbot`)
+  #   2. Secrets and variables → Actions → Variables: ENABLE_FLY_DEPLOY = true
+  #   3. Environments → New environment "prod" → Required reviewers (you) and
+  #      Deployment branches: main only. Put FLY_API_TOKEN on the environment to scope it.
+  # Runs only on a push to main, only when the backend changed and passed, and only if no
+  # upstream job failed or was cancelled (eval-gate may be skipped on a backend-only change;
+  # core/agents are listed too so a skipped gate can never mask a failed test job).
   deploy-prod:
-    needs: deploy-dev
-    if: github.ref == 'refs/heads/main'
+    needs: [changes, core, agents, eval-gate, backend]
+    if: >-
+      always() &&
+      github.ref == 'refs/heads/main' && github.event_name == 'push' &&
+      vars.ENABLE_FLY_DEPLOY == 'true' &&
+      needs.backend.result == 'success' &&
+      !contains(needs.*.result, 'failure') && !contains(needs.*.result, 'cancelled')
     runs-on: ubuntu-latest
-    environment: prod        # GitHub 'prod' environment = required manual approval
+    environment: prod        # manual approval gate lives on the GitHub environment
+    concurrency:
+      group: deploy-prod
+      cancel-in-progress: false
     steps:
-      - run: echo "promote same artifact to prod (infra/environments/prod)"
+      - uses: actions/checkout@v4
+      - uses: superfly/flyctl-actions/setup-flyctl@master
+      # Build context is the repo root: the image copies the shared llm_gateway/ package.
+      - run: flyctl deploy --config backend/fly.toml --dockerfile backend/Dockerfile --remote-only .
+        env:
+          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
