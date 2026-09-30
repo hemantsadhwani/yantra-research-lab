@@ -15,7 +15,13 @@ on a cost/quality curve over the *same* underlying memory:
 ``compacted``   a short rolling summary: best-so-far, what the losing region looks
                 like per parameter, and how many trials that summary stands for.
                 Anthropic's "compaction" technique — spend tokens on the *shape* of
-                the history rather than the history.
+                the history rather than the history. When the memory store persists
+                across runs (``SqliteMemory``), it also gets a *procedural* line (the
+                box previous runs' top variants sat in) and up to 3 *recalled* trials
+                from previous runs whose rationale reads like the current best.
+
+``everything`` and ``best_only`` never look past the current run's trial log, so the
+context study stays comparable whichever memory store backs the run.
 
 Each builder returns a plain string that goes in the user turn. The system prompt
 (the stable prefix, and the cacheable one) is identical across all three, so a token
@@ -23,6 +29,8 @@ delta between constructions is a delta in what the history costs, not prompt noi
 """
 
 from __future__ import annotations
+
+from typing import Any
 
 from research_lab.schemas import Trial
 from synthetic_engine import PARAM_SPACE
@@ -70,7 +78,34 @@ def build_best_only(trials: list[Trial], best_params, best_score) -> str:
     return "\n".join([_param_space_block(), "", _best_block(best_params, best_score)])
 
 
-def build_compacted(trials: list[Trial], best_params, best_score) -> str:
+def _memory_blocks(trials: list[Trial], best_params, memory: Any) -> list[str]:
+    """Procedural + semantic lines from a cross-run store; empty for plain ``Memory``."""
+    out: list[str] = []
+    get_priors = getattr(memory, "priors", None)
+    box = get_priors() if callable(get_priors) else None
+    if box:
+        n_runs = getattr(memory, "prior_run_count", lambda: 0)()
+        strategy = getattr(memory, "strategy", "") or "this strategy"
+        ranges = ", ".join(f"{k} {lo:g}–{hi:g}" for k, (lo, hi) in box.items())
+        plural = "s" if n_runs != 1 else ""
+        out += ["", f"Across {n_runs} prior run{plural} on {strategy}, top variants had "
+                    + f"{ranges}."]
+    recall = getattr(memory, "recall_similar", None)
+    if callable(recall):
+        best_id = getattr(memory, "best_id", lambda: None)()
+        query = next((t.rationale for t in trials if t.variant_id == best_id and t.rationale),
+                     None) or "mean reversion"
+        if best_params:
+            query += " | " + " ".join(f"{k} {v:g}" for k, v in best_params.items())
+        similar = recall(query, k=3, exclude_current_run=True)
+        if similar:
+            out += ["", "Similar trials from previous runs:"]
+            out += [f"  {_fmt(t.params)} -> score {t.score:.1f} ({t.verdict}) · {t.rationale}"
+                    for t in similar]
+    return out
+
+
+def build_compacted(trials: list[Trial], best_params, best_score, memory: Any = None) -> str:
     """A rolling summary: the peak, the losing region per parameter, and the trial count.
 
     The compression that matters is *per parameter*: knowing that every losing variant
@@ -78,6 +113,7 @@ def build_compacted(trials: list[Trial], best_params, best_score) -> str:
     on, and it costs a line instead of a hundred.
     """
     parts = [_param_space_block(), "", _best_block(best_params, best_score)]
+    parts += _memory_blocks(trials, best_params, memory)
     if not trials:
         return "\n".join(parts)
 
@@ -106,12 +142,17 @@ _BUILDERS = {
 }
 
 
-def build_context(construction: str, trials: list[Trial], best_params, best_score) -> str:
-    """Dispatch to one of the three constructions by name."""
+def build_context(construction: str, trials: list[Trial], best_params, best_score,
+                  memory: Any = None) -> str:
+    """Dispatch to one of the three constructions by name.
+
+    ``memory`` is only read by ``compacted`` (for cross-run priors and recall)."""
     try:
         builder = _BUILDERS[construction]
     except KeyError:
         raise ValueError(
             f"unknown context construction {construction!r}; choose from {list(CONSTRUCTIONS)}"
         ) from None
+    if builder is build_compacted:
+        return builder(trials, best_params, best_score, memory=memory)
     return builder(trials, best_params, best_score)

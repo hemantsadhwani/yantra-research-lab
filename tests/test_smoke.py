@@ -77,6 +77,14 @@ def test_stdlib_path_never_imports_langgraph():
     subprocess.run([sys.executable, "-c", code], cwd=REPO, check=True)
 
 
+def test_memory_modules_stay_stdlib():
+    # Persistent memory is stdlib sqlite3; fastembed is only imported on first embed().
+    code = ("import research_lab.memory, research_lab.memory_store, research_lab.embeddings, "
+            "sys; leaked = {'fastembed', 'pydantic', 'langgraph', 'mcp', 'anthropic'} "
+            "& set(sys.modules); assert not leaked, leaked")
+    subprocess.run([sys.executable, "-c", code], cwd=REPO, check=True)
+
+
 def test_run_graph_cli_pauses_at_gate(tmp_path):
     pytest.importorskip("langgraph")
     # 1x3 (not 1x2): with seed 3, 1x2 finds no 'promote?' candidate, so it never reaches the gate.

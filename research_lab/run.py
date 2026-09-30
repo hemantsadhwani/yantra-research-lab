@@ -4,6 +4,7 @@
     python -m research_lab.run --iterations 6 --variants 6 --seed 7
     python -m research_lab.run --strategy nifty-expiry
     python -m research_lab.run --engine mcp    # drive the engine over MCP stdio (needs .[mcp])
+    python -m research_lab.run --memory sqlite # persist trials; learn priors from past runs
 """
 
 from __future__ import annotations
@@ -27,7 +28,16 @@ from synthetic_engine import DEFAULT_STRATEGY, list_strategies
 MCP_ENGINE_LABEL = "engine: mcp (stdio → python -m mcp_server.server)"
 
 
-def render_report(run: RunResult, strategy: str, engine: str = "inprocess") -> str:
+def memory_label(memory: str, db: str | None = None, prior_runs: int = 0) -> str:
+    """Header line naming the memory store (and how many past runs it learned from)."""
+    if memory == "sqlite":
+        return (f"memory: sqlite ({db}) · priors from {prior_runs} prior "
+                f"run{'s' if prior_runs != 1 else ''}")
+    return "memory: inmem"
+
+
+def render_report(run: RunResult, strategy: str, engine: str = "inprocess",
+                  memory: str | None = None) -> str:
     lines: list[str] = []
     b = run.baseline
     lines.append("")
@@ -36,6 +46,8 @@ def render_report(run: RunResult, strategy: str, engine: str = "inprocess") -> s
     lines.append(f"  strategy: {strategy}  (synthetic stand-in · real logic is private)")
     if engine == "mcp":     # the in-process header stays byte-identical
         lines.append(f"  {MCP_ENGINE_LABEL}")
+    if memory:              # None keeps the default header byte-identical
+        lines.append(f"  {memory}")
     lines.append("=" * 68)
     lines.append(f"  iterations: {run.iterations}   variants tested: {run.variants_tested}")
     lines.append(f"  baseline:   return {b.total_return_pct:+8.1f}%   "
@@ -86,6 +98,12 @@ def main() -> None:
     ap.add_argument("--engine", default="inprocess", choices=["inprocess", "mcp"],
                     help="call the engine in-process (default) or over MCP stdio via "
                          "python -m mcp_server.server (needs the mcp extra)")
+    ap.add_argument("--memory", default="inmem", choices=["inmem", "sqlite"],
+                    help="in-process memory (default) or a persistent SQLite store that "
+                         "learns priors from previous runs")
+    ap.add_argument("--db-memory", metavar="PATH",
+                    help="SQLite memory path (default: $RESEARCH_MEMORY_DB or "
+                         ".yantra/research.sqlite)")
     args = ap.parse_args()
 
     if args.use_llm:
@@ -97,6 +115,15 @@ def main() -> None:
         if args.provider:
             os.environ["LLM_PROVIDER"] = args.provider
 
+    memory = None
+    memory_line = None
+    if args.memory == "sqlite":
+        from research_lab.memory_store import SqliteMemory, default_memory_db
+        db_memory = args.db_memory or default_memory_db()
+        memory = SqliteMemory(db_memory, args.strategy, seed=args.seed,
+                              arm="llm" if args.use_llm else "heuristic")
+        memory_line = memory_label("sqlite", db_memory, memory.prior_run_count())
+
     backtester = None
     if args.engine == "mcp":
         # Lazy: the default path never imports the mcp SDK.
@@ -106,13 +133,18 @@ def main() -> None:
     try:
         supervisor = Supervisor(seed=args.seed, strategy=args.strategy,
                                 use_llm=args.use_llm, context_mode=args.context,
-                                log=lambda m: print(f"  · {m}"), backtester=backtester)
+                                log=lambda m: print(f"  · {m}"), backtester=backtester,
+                                memory=memory)
         run = supervisor.run(iterations=args.iterations, variants_per_iter=args.variants)
+        if memory is not None:
+            memory.refresh_priors()
     finally:
+        if memory is not None:
+            memory.close()
         if backtester is not None:
             from research_lab.agents.backtester import close_mcp_clients
             close_mcp_clients()
-    print(render_report(run, args.strategy, engine=args.engine))
+    print(render_report(run, args.strategy, engine=args.engine, memory=memory_line))
     p = supervisor.proposer
     if p.use_llm:
         print(f"  proposer: {p.provider_name}/{p.model} · structured={p.llm_structured_mode} · "

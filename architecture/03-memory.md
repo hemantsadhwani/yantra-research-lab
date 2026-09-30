@@ -5,29 +5,50 @@ Memory is what makes each research run smarter than the last, without re-derivin
 ## The three kinds
 | Kind | Holds | In the loop |
 |---|---|---|
-| **Episodic** | run history — variants tried, their results, scores | steer the proposer toward the best-so-far (exploit) |
-| **Semantic** | distilled "what kinds of variants tend to win" | bias the sampling prior over the parameter space |
-| **Procedural** | learned heuristics / rules that worked | injected into the proposer's instructions |
+| **Episodic** | every trial of every run — variant, params, score, verdict, rationale | this run's best-so-far steers the exploit step; the full log feeds the LLM context |
+| **Semantic** | an embedding of each trial's rationale + params | `recall_similar(text)` pulls past trials that read like the current best into the LLM's `compacted` context |
+| **Procedural** | a narrowed sampling box learned from past winners | the heuristic explorer samples inside it half the time; the `compacted` context states it in one line |
 
 ## Design
-- **Reference build (Tier-1):** episodic best-so-far — the proposer perturbs the top variant
-  (exploit) while keeping ≥1 fresh sample per batch (explore). Deterministic and dependency-free.
-- **Production:** semantic + procedural layers over **SQLite + `sqlite-vec`** (start simple, local,
-  fast; graduate to OpenSearch only when multi-tenant/scale demands it — *simplest thing that works*).
+- **In-process (default):** `research_lab/memory.py` — episodic best-so-far plus the current
+  run's trial log. The proposer perturbs the top variant (exploit) while keeping ≥1 fresh
+  sample per batch (explore). Deterministic, dependency-free, forgets everything at run end.
+- **Persistent (`--memory sqlite`):** `research_lab/memory_store.py` — `SqliteMemory`, the same
+  duck-typed surface (`observe`, `best_*`, `trials`, `trial_count`) over one stdlib-`sqlite3`
+  file (`.yantra/research.sqlite`, or `$RESEARCH_MEMORY_DB`). Tables: `runs`, `trials`,
+  `promotions`, `priors`.
+  - The Memory-compatible methods are scoped to the current run, so a run's exploit step
+    behaves exactly as it would in-process. What crosses runs is recall and priors.
+  - **Priors:** per parameter, `[min, max]` over the top quartile (by score) of *previous*
+    runs' trials for the same strategy; `None` below 5 prior trials. Computed once per run
+    so the box cannot shift mid-run. `refresh_priors()` (run end) materialises the box over
+    all runs into the `priors` table for inspection.
+  - **Recall:** cosine similarity in a Python loop over stored float32 vectors, filtered to the
+    strategy and to vectors from the embedder in use. Embedder: fastembed
+    `BAAI/bge-small-en-v1.5` when the `memory` extra is installed, otherwise (or with
+    `YANTRA_EMBEDDER=hashed`, as in tests/CI) a deterministic 256-dim hashed bag-of-words.
+    Every row records which embedder produced it.
+  - **Promotions:** written only by `record_promotion(..., decided_by="human")`, which the
+    graph calls from `finalize` after a human resumed the gate with "approve". A table
+    `CHECK` constraint rejects any other `decided_by`.
 
 ## Decisions (ADR lens)
 | Decision | Why / trade-off |
 |---|---|
-| SQLite + sqlite-vec vs a managed vector store | zero infra, local, fast to iterate; upgrade path is mechanical |
-| Exploit + explore split | memory that only exploits gets stuck in a local optimum |
-| Externalized memory (not in-context) | agents stay stateless/restartable; memory is a checkpointable store |
+| Plain SQLite + Python-loop cosine, not `sqlite-vec` yet | zero extra deps; at hundreds–thousands of trials a linear scan is milliseconds. `sqlite-vec` is the upgrade when it isn't |
+| Priors as a box, sampled half the time | narrows exploration toward past winners without collapsing it: the other half still samples the full space, so a bad prior can't trap the loop |
+| Priors from *previous* runs only | a run can't bootstrap off its own trials, and its own proposals stay reproducible under a seed |
+| `everything` / `best_only` contexts ignore cross-run memory | keeps the context study comparable whichever store backs the run |
+| Externalized memory (not in-context) | agents stay stateless/restartable; the graph opens and closes the store inside each node, never in checkpointed state |
 
 ## Cost / latency
-Memory reads/writes are cheap and off the hot path. The value is **fewer wasted backtests** — the
-loop converges faster because it stops re-testing what already lost.
+Memory reads/writes are cheap and off the hot path. With fastembed, the first use downloads the
+model (roughly 0.1 GB) once; embedding a trial is then a few ms. The hashed embedder is free.
 
-## As built
-What's live is exactly the Tier-1 row above: `research_lab/memory.py` is a plain in-process
-`Memory` class holding episodic best-so-far (id, params, score) — no persistence, no vector store.
-Semantic/procedural layers over SQLite + `sqlite-vec` are the target described above, not built.
-</content>
+## As built — and what is not claimed
+- Built: everything above, covered by `research_lab/tests/test_memory_store.py`; demo with
+  `make demo-memory` (two graph runs; the second one's header reads `priors from 1 prior run`).
+- The hashed embedder captures lexical overlap, not meaning. Heuristic rationales are
+  near-identical strings, so for heuristic runs recall is mostly driven by the params summary.
+- No measurement yet that priors improve outcomes across seeds. One seed-3 demo run beating
+  another is an anecdote, not evidence; it needs a multi-seed comparison like the context study.

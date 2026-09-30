@@ -25,6 +25,13 @@ One deliberate difference from the stdlib loop: the proposer is rebuilt inside t
 reseeded per iteration with ``hash((seed, iteration))``. Runs are fully deterministic,
 but the variants differ from ``Supervisor(seed=...)`` for the same seed.
 
+**Memory.** ``state["memory"]`` picks the store: ``"inmem"`` rebuilds ``Memory`` from the
+checkpointed trial log in every ``propose`` (as before); ``"sqlite"`` opens a
+``SqliteMemory`` on ``state["memory_db"]`` keyed by ``state["run_id"]``. ``record`` writes
+each iteration's trials through to it, and ``finalize`` records a promotion *only* when a
+human approved at the gate, then refreshes the materialised priors. Connections are
+opened and closed inside each node — never stored in state — so state stays JSON.
+
 This module (and ``run_graph.py``) are the only places that import langgraph; the stdlib
 path in ``supervisor.py`` / ``run.py`` never does.
 """
@@ -33,6 +40,7 @@ from __future__ import annotations
 
 import os
 import sqlite3
+import uuid
 from dataclasses import asdict
 from pathlib import Path
 from typing import Any, TypedDict
@@ -41,7 +49,8 @@ from langgraph.graph import END, START, StateGraph
 from langgraph.types import interrupt
 
 from research_lab.agents import Evaluator, Proposer, make_backtester, score_result
-from research_lab.memory import Memory
+from research_lab.memory import Memory, MemoryLike
+from research_lab.memory_store import SqliteMemory, default_memory_db
 from research_lab.schemas import (
     BacktestResult,
     Evaluation,
@@ -66,6 +75,9 @@ class ResearchState(TypedDict, total=False):
     context_mode: str
     engine: str                    # "inprocess" | "mcp" (same contract, two transports)
     provider: str | None           # llm_gateway provider name; None = $LLM_PROVIDER
+    memory: str                    # "inmem" | "sqlite" (persistent, cross-run)
+    memory_db: str | None          # SqliteMemory path when memory == "sqlite"
+    run_id: str                    # this run's id in the memory store (defaults to thread)
     # progress
     iteration: int                 # completed iterations
     counter: int                   # last variant number issued (v001, v002, ...)
@@ -80,6 +92,7 @@ class ResearchState(TypedDict, total=False):
     llm_structured_mode: str       # last successful gateway rung: native|json_schema|prompt|none
     llm_provider: str              # which provider/model actually answered (for the report)
     llm_model: str
+    priors_used: int               # explorers drawn from learned priors (sqlite memory)
     # human gate
     approval: str | None           # only ever set by a human resume
     promoted_id: str | None
@@ -95,11 +108,20 @@ def initial_state(
     context_mode: str = "compacted",
     engine: str = "inprocess",
     provider: str | None = None,
+    memory: str = "inmem",
+    memory_db: str | None = None,
+    run_id: str | None = None,
 ) -> ResearchState:
+    if memory not in ("inmem", "sqlite"):
+        raise ValueError(f"memory must be 'inmem' or 'sqlite', not {memory!r}")
     return ResearchState(
         strategy=strategy, seed=seed, iterations=iterations,
         variants_per_iter=variants_per_iter, use_llm=use_llm, context_mode=context_mode,
         engine=engine, provider=provider,
+        memory=memory,
+        memory_db=(memory_db or default_memory_db()) if memory == "sqlite" else None,
+        run_id=run_id or f"{strategy}-s{seed}-{uuid.uuid4().hex[:8]}",
+        priors_used=0,
         iteration=0, counter=0, proposals=[], ranked=[], trials=[],
         llm_calls=0, llm_failures=0, llm_cost_usd=0.0, llm_structured_mode="none",
         approval=None, promoted_id=None,
@@ -124,6 +146,22 @@ def memory_from_trials(trials: list[dict[str, Any]]) -> Memory:
                                 verdict=trial.verdict, beats_baseline=False)
         memory.observe(variant, evaluation)
     return memory
+
+
+def open_memory(state: ResearchState) -> MemoryLike:
+    """The memory store for this state. Callers close a ``SqliteMemory`` when done."""
+    if state.get("memory", "inmem") == "sqlite":
+        return SqliteMemory(state.get("memory_db") or default_memory_db(),
+                            state.get("strategy", DEFAULT_STRATEGY), state["run_id"],
+                            seed=state.get("seed"),
+                            arm="llm" if state.get("use_llm") else "heuristic")
+    return memory_from_trials(state.get("trials", []))
+
+
+def _close(memory: MemoryLike) -> None:
+    close = getattr(memory, "close", None)
+    if callable(close):
+        close()
 
 
 def ranked_variant(d: dict[str, Any]) -> RankedVariant:
@@ -166,7 +204,6 @@ def baseline_node(state: ResearchState) -> dict[str, Any]:
 def propose_node(state: ResearchState, provider: Any = None) -> dict[str, Any]:
     """``provider`` is an injected ``llm_gateway`` provider (tests); by default one is
     built from ``state["provider"]`` / ``$LLM_PROVIDER`` — only when ``use_llm`` is set."""
-    memory = memory_from_trials(state.get("trials", []))
     use_llm = state.get("use_llm", False)
     if use_llm and provider is None:
         from llm_gateway import get_provider  # lazy: the heuristic graph never needs it
@@ -178,7 +215,11 @@ def propose_node(state: ResearchState, provider: Any = None) -> dict[str, Any]:
         context_mode=state.get("context_mode", "compacted"),
         provider=provider,
     )
-    variants = proposer.propose(state["variants_per_iter"], memory)
+    memory = open_memory(state)
+    try:
+        variants = proposer.propose(state["variants_per_iter"], memory)
+    finally:
+        _close(memory)
     for v in variants:
         verify_variant(v)               # in-space before we spend a backtest
     update: dict[str, Any] = {
@@ -187,6 +228,7 @@ def propose_node(state: ResearchState, provider: Any = None) -> dict[str, Any]:
         "llm_calls": state.get("llm_calls", 0) + proposer.llm_calls,
         "llm_failures": state.get("llm_failures", 0) + proposer.llm_failures,
         "llm_cost_usd": state.get("llm_cost_usd", 0.0) + proposer.llm_cost_usd,
+        "priors_used": state.get("priors_used", 0) + proposer.used_priors,
     }
     if use_llm:
         update["llm_provider"] = proposer.provider_name
@@ -211,7 +253,8 @@ def backtest_all_node(state: ResearchState) -> dict[str, Any]:
 
 
 def record_node(state: ResearchState) -> dict[str, Any]:
-    """The graph form of ``memory.observe``: append this iteration's trials."""
+    """The graph form of ``memory.observe``: append this iteration's trials (and, with
+    sqlite memory, write them through to the store — idempotent per variant id)."""
     n = len(state.get("proposals", []))
     ranked = state.get("ranked", [])
     this_iter = ranked[len(ranked) - n:] if n else []
@@ -221,6 +264,13 @@ def record_node(state: ResearchState) -> dict[str, Any]:
         trials.append(asdict(Trial(variant_id=v["id"], params=dict(v["params"]),
                                    score=e["score"], verdict=e["verdict"],
                                    rationale=v["rationale"])))
+    if state.get("memory") == "sqlite" and this_iter:
+        mem = open_memory(state)
+        try:
+            for d in this_iter:
+                mem.observe(StrategyVariant(**d["variant"]), Evaluation(**d["evaluation"]))
+        finally:
+            _close(mem)
     return {"trials": trials, "iteration": state.get("iteration", 0) + 1}
 
 
@@ -235,6 +285,15 @@ def gate_node(state: ResearchState) -> dict[str, Any]:
 
 
 def finalize_node(state: ResearchState) -> dict[str, Any]:
+    if state.get("memory") == "sqlite":
+        mem = open_memory(state)
+        try:
+            # ``approval`` is only ever set by a human resume of the gate.
+            if state.get("approval") == "approved" and state.get("promoted_id"):
+                mem.record_promotion(state["promoted_id"], decided_by="human")
+            mem.refresh_priors()
+        finally:
+            _close(mem)
     ranked = sorted(state.get("ranked", []), key=lambda d: d["evaluation"]["score"],
                     reverse=True)
     return {"ranked": ranked, "stop_reason": state.get("stop_reason") or "iterations"}

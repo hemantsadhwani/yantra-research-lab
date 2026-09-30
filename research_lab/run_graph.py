@@ -4,6 +4,7 @@
     python -m research_lab.run_graph --resume <thread> --decision approve
     python -m research_lab.run_graph --list
     python -m research_lab.run_graph --engine mcp      # backtests over MCP stdio (needs .[mcp])
+    python -m research_lab.run_graph --memory sqlite   # persistent memory; learns from past runs
 
 A fresh run executes until the human gate, prints the ranked table, and stops with the
 exact command to resume it. The pause is persisted in SQLite, so the resume can happen
@@ -35,7 +36,8 @@ from research_lab.graph import (
     initial_state,
     to_run_result,
 )
-from research_lab.run import MCP_ENGINE_LABEL, render_report
+from research_lab.memory_store import SqliteMemory, default_memory_db
+from research_lab.run import MCP_ENGINE_LABEL, memory_label, render_report
 from synthetic_engine import DEFAULT_STRATEGY, list_strategies
 
 
@@ -95,6 +97,8 @@ def _ask_tty() -> str | None:
 def _print_decision(state: dict[str, Any], db: str) -> None:
     if state.get("approval") == "approved":
         print(f"  APPROVED {state['promoted_id']} · promoted (human)")
+        if state.get("memory") == "sqlite":
+            print(f"  promotion recorded in {state.get('memory_db')}")
     else:
         print("  REJECTED · nothing promoted")
     print(f"  checkpoint: {db}")
@@ -147,6 +151,12 @@ def _main(argv: list[str] | None = None) -> int:
     ap.add_argument("--engine", default="inprocess", choices=["inprocess", "mcp"],
                     help="call the engine in-process (default) or over MCP stdio via "
                          "python -m mcp_server.server (needs the mcp extra)")
+    ap.add_argument("--memory", default="inmem", choices=["inmem", "sqlite"],
+                    help="rebuild memory from the checkpoint (default) or use a persistent "
+                         "SQLite store that learns priors from previous runs")
+    ap.add_argument("--db-memory", metavar="PATH",
+                    help="SQLite memory path (default: $RESEARCH_MEMORY_DB or "
+                         ".yantra/research.sqlite)")
     ap.add_argument("--thread", help="thread id (default: <strategy>-s<seed>-<UTC timestamp>)")
     ap.add_argument("--db", help=f"checkpoint sqlite path (default: $RESEARCH_CHECKPOINT_DB "
                                  f"or {DEFAULT_CHECKPOINT_DB})")
@@ -200,6 +210,14 @@ def _main(argv: list[str] | None = None) -> int:
               f"or --resume it", file=sys.stderr)
         return 2
 
+    db_memory = (args.db_memory or default_memory_db()) if args.memory == "sqlite" else None
+    memory_line = memory_label("inmem")
+    if db_memory:
+        # Count before the run writes anything: this run is excluded either way.
+        with SqliteMemory(db_memory, args.strategy, run_id=thread, seed=args.seed,
+                          arm="llm" if args.use_llm else "heuristic") as m:
+            memory_line = memory_label("sqlite", db_memory, m.prior_run_count())
+
     if args.engine == "mcp":
         print(f"  · {MCP_ENGINE_LABEL}")
     paused = _stream(graph, initial_state(
@@ -207,9 +225,11 @@ def _main(argv: list[str] | None = None) -> int:
         variants_per_iter=args.variants, use_llm=args.use_llm,
         context_mode=args.context_mode, engine=args.engine,
         provider=args.provider if args.use_llm else None,
+        memory=args.memory, memory_db=db_memory, run_id=thread,
     ), cfg)
     state = graph.get_state(cfg).values
-    print(render_report(to_run_result(state), args.strategy, engine=args.engine))
+    print(render_report(to_run_result(state), args.strategy, engine=args.engine,
+                        memory=memory_line))
     _print_llm(state)
 
     if paused:

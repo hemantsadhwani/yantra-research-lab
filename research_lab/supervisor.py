@@ -19,7 +19,7 @@ from __future__ import annotations
 from collections.abc import Callable
 
 from research_lab.agents import Backtester, Evaluator, Proposer, score_result
-from research_lab.memory import Memory
+from research_lab.memory import Memory, MemoryLike
 from research_lab.schemas import (
     RankedVariant,
     RunResult,
@@ -38,6 +38,7 @@ class Supervisor:
         use_llm: bool = False,
         context_mode: str = "compacted",
         backtester: Backtester | None = None,
+        memory: MemoryLike | None = None,
     ) -> None:
         self.strategy = strategy
         # The only line the LLM swap touches. Everything below — verification, the
@@ -45,7 +46,8 @@ class Supervisor:
         self.proposer = Proposer(seed=seed, use_llm=use_llm, context_mode=context_mode)
         # Injectable (e.g. an MCPBacktester); anything with ``.backtest(variant)`` works.
         self.backtester = backtester if backtester is not None else Backtester(strategy=strategy)
-        self.memory = Memory()
+        # In-process by default; pass a SqliteMemory to learn across runs.
+        self.memory: MemoryLike = memory if memory is not None else Memory()
         self._log = log or (lambda _msg: None)
 
     def run(self, iterations: int = 4, variants_per_iter: int = 5) -> RunResult:

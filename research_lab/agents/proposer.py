@@ -2,7 +2,9 @@
 
 Two proposers behind one method. The deterministic path is a memory-guided heuristic
 that runs offline with no API key: it exploits around the best variant found so far
-and keeps one explorer per batch. The LLM path (``use_llm=True``) replaces that
+and keeps one explorer per batch. When memory offers learned priors (``SqliteMemory``,
+see ``research_lab/memory_store.py``), each explorer draws from that narrowed box with
+probability 0.5 and from the full space otherwise. The LLM path (``use_llm=True``) replaces that
 heuristic with a structured Claude call that reasons about *why* to try a variant.
 
 **Both paths stay.** The offline one is not scaffolding to be thrown away — "it runs
@@ -34,7 +36,7 @@ import random
 from typing import Any
 
 from research_lab.agents.context import build_context
-from research_lab.memory import Memory
+from research_lab.memory import MemoryLike
 from research_lab.schemas import StrategyVariant
 from synthetic_engine import PARAM_SPACE
 
@@ -105,15 +107,18 @@ class Proposer:
         self.llm_failures = 0
         self.llm_cost_usd = 0.0
         self.llm_structured_mode = "none"   # last successful rung of the gateway ladder
+        self.used_priors = 0                # explorers drawn from learned priors
 
-    def propose(self, n: int, memory: Memory) -> list[StrategyVariant]:
+    def propose(self, n: int, memory: MemoryLike) -> list[StrategyVariant]:
         if self.use_llm:
             return self._propose_llm(n, memory)
         return self._propose_heuristic(n, memory)
 
     # ----------------------------------------------------------------- heuristic
-    def _propose_heuristic(self, n: int, memory: Memory) -> list[StrategyVariant]:
+    def _propose_heuristic(self, n: int, memory: MemoryLike) -> list[StrategyVariant]:
         best = memory.best_params()
+        get_priors = getattr(memory, "priors", None)
+        box = get_priors() if callable(get_priors) else None
         variants: list[StrategyVariant] = []
         for k in range(n):
             exploit = best is not None and k < n - 1   # always keep >=1 explorer
@@ -121,6 +126,11 @@ class Proposer:
                 params = self._perturb(best)
                 rationale = "memory-guided: perturb best-so-far (exploit)"
                 parent = memory.best_id()
+            elif box is not None and self._rng.random() < 0.5:
+                params = self._sample_box(box)
+                rationale = "exploration: sampled from learned priors (procedural memory)"
+                parent = None
+                self.used_priors += 1
             else:
                 params = self._sample()
                 rationale = "exploration: sampled fresh from the param space"
@@ -134,6 +144,15 @@ class Proposer:
 
     def _sample(self) -> dict[str, float]:
         return {k: round(self._rng.uniform(lo, hi), 3) for k, (lo, hi) in PARAM_SPACE.items()}
+
+    def _sample_box(self, box: dict[str, tuple[float, float]]) -> dict[str, float]:
+        """Sample inside the learned box, clipped to the declared space per parameter."""
+        out: dict[str, float] = {}
+        for k, (lo, hi) in PARAM_SPACE.items():
+            blo, bhi = box.get(k, (lo, hi))
+            blo, bhi = max(lo, min(blo, bhi)), min(hi, max(blo, bhi))
+            out[k] = round(self._rng.uniform(blo, bhi), 3)
+        return out
 
     def _perturb(self, base: dict[str, float]) -> dict[str, float]:
         out: dict[str, float] = {}
@@ -153,7 +172,7 @@ class Proposer:
             self.provider_name = self._provider.name
         return self._provider
 
-    def _fallback(self, n: int, memory: Memory, why: str) -> list[StrategyVariant]:
+    def _fallback(self, n: int, memory: MemoryLike, why: str) -> list[StrategyVariant]:
         # One batch failing must not lose the whole run; fall back for this batch only
         # and count it, so a degraded run never looks like a clean one.
         self.llm_failures += 1
@@ -161,9 +180,10 @@ class Proposer:
               f"for this batch")
         return self._propose_heuristic(n, memory)
 
-    def _propose_llm(self, n: int, memory: Memory) -> list[StrategyVariant]:
+    def _propose_llm(self, n: int, memory: MemoryLike) -> list[StrategyVariant]:
         context = build_context(
-            self.context_mode, memory.trials(), memory.best_params(), memory.best_score()
+            self.context_mode, memory.trials(), memory.best_params(), memory.best_score(),
+            memory=memory,
         )
         user_turn = (
             context

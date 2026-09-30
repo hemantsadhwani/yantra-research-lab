@@ -1,4 +1,4 @@
-.PHONY: demo demo-llm demo-bedrock demo-ollama demo-graph demo-mcp resume context-study test gate lint install install-all
+.PHONY: demo demo-llm demo-bedrock demo-ollama demo-graph demo-mcp demo-memory resume context-study test gate lint install install-all
 
 install:            ## editable install with dev tools
 	pip install -e '.[dev]'
@@ -38,3 +38,10 @@ gate:               ## CI eval-gate: agent loop must still beat baseline
 
 lint:               ## lint (needs .[dev])
 	ruff check .
+
+demo-memory:        ## two graph runs over one SQLite memory: run 2 samples from run 1's priors (needs .[agents])
+	python -m research_lab.run_graph --memory sqlite --strategy nifty-expiry --iterations 3 --variants 5 --seed 3 --no-gate --thread mem-$$(date +%Y%m%dT%H%M%S)-a
+	python -m research_lab.run_graph --memory sqlite --strategy nifty-expiry --iterations 3 --variants 5 --seed 3 --no-gate --thread mem-$$(date +%Y%m%dT%H%M%S)-b
+	@if command -v sqlite3 >/dev/null 2>&1; then \
+		sqlite3 .yantra/research.sqlite 'select run_id, count(*) from trials group by run_id;'; \
+	else echo "  (install sqlite3 to inspect .yantra/research.sqlite)"; fi
