@@ -114,6 +114,12 @@ On the chatbot, the output filter is measured end to end with a provider scripte
 **0/32 leaks reach the user with the filter on, 6/32 with it off** (`python -m eval.redteam --live`).
 The leaks are hand-written, so this measures the filter's coverage, not how often a real model leaks.
 
+**Two vector stores, one `Retriever` interface.** The chatbot retrieves from Qdrant by default
+(local on-disk, or Qdrant Cloud in prod). `VECTOR_BACKEND=faiss` swaps in an exact-cosine FAISS
+index persisted in `backend/.faiss/`, same embedding model, no chatbot change: `make demo-faiss`.
+A test asserts both engines return the same top-1 document on a 6-doc corpus
+(`pytest backend/tests/test_faiss_backend.py`). Prod still runs on Qdrant.
+
 ## Containers and Kubernetes (the app layer)
 
 The public demo runs on Fly.io + Vercel because that is the cheapest way to keep a portfolio app

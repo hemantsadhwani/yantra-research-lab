@@ -1,5 +1,6 @@
 # Build artifacts (rebuilt by ingest.py)
 .qdrant/
+.faiss/
 .faiss_index.npy
 .faiss_index.json
 

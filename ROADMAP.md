@@ -21,6 +21,7 @@ notes are collected here and in [architecture/](architecture/).
 | Chatbot output filter with a measured leak rate (0/32 on, 6/32 off, hand-written leaks) | `backend/guardrails.py` (`check_output`) | `python -m eval.redteam --live` |
 | Ingestion human gate as a real `interrupt()` over a SQLite checkpoint | `ingestion/graph.py`, `ingestion/run.py` | `pytest ingestion/tests/test_gate.py` |
 | CI tiers: `core` (no extras), `agents`, `backend`, `ingestion`, `eval-gate` on both arms, red-team; gated prod deploy | `.github/workflows/ci.yml`, `eval/run_gate.py` | `python -m eval.run_gate --arm both` |
+| FAISS backend for the chatbot retriever behind the same `Retriever` interface (`VECTOR_BACKEND=faiss`; Qdrant stays the default and the prod store); same top-1 as Qdrant on a 6-doc test corpus | `backend/retriever.py` (`FaissRetriever`), `backend/tests/test_faiss_backend.py` | `make demo-faiss` / `pytest backend/tests/test_faiss_backend.py` |
 | RAG chatbot with IP + PII guardrails, deployed on Fly.io | `backend/` | `pytest backend/tests` / https://yantra-chatbot.fly.dev/docs |
 | Ingestion pipeline: LangGraph DAG (discover, fetch, parse, caption, enrich, quality, index) on a daily cron | `ingestion/`, `.github/workflows/ingest.yml` | `INGEST_CORPUS_SIZE=5 python -m ingestion.run` |
 | Evals: agent-loop regression gate, guardrail red-team, book-aware chatbot eval | `eval/` | `python -m eval.run_gate --arm both` / `python -m eval.redteam` |

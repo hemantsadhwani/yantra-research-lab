@@ -1,4 +1,4 @@
-.PHONY: demo demo-llm demo-bedrock demo-ollama demo-graph demo-mcp demo-memory demo-budget resume context-study judge-eval test gate lint install install-all
+.PHONY: demo-faiss demo demo-llm demo-bedrock demo-ollama demo-graph demo-mcp demo-memory demo-budget resume context-study judge-eval test gate lint install install-all
 
 install:            ## editable install with dev tools
 	pip install -e '.[dev]'
@@ -35,6 +35,9 @@ context-study:      ## measure 3 context constructions (needs .[llm] + API key; 
 
 judge-eval:         ## LLM judge vs 12 golden cases, exit 1 below 9/12 (needs .[llm] + a provider key; not in CI; < 1 cent)
 	python -m eval.judge_eval
+
+demo-faiss:         ## chatbot retriever on FAISS: build backend/.faiss, then one query (needs backend/requirements.txt)
+	cd backend && VECTOR_BACKEND=faiss python ingest.py && VECTOR_BACKEND=faiss python retriever.py "what is a maximum drawdown?"
 
 test:               ## unit + smoke tests
 	pytest
