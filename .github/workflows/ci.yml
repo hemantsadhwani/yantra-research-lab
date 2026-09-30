@@ -54,7 +54,7 @@ jobs:
           filters: |
             core: ['research_lab/**', 'synthetic_engine/**', 'mcp_server/**', 'llm_gateway/**', 'eval/**', 'tests/**', 'pyproject.toml']
             backend: ['backend/**', 'llm_gateway/**', 'eval/**']
-            ingestion: ['ingestion/**']
+            ingestion: ['ingestion/**', 'llm_gateway/**', 'eval/layout_eval.py']
             frontend: ['frontend/**']
             containers: ['backend/**', 'frontend/**', 'llm_gateway/**', 'deploy/**', 'docker-compose.yml']
 
@@ -150,6 +150,10 @@ jobs:
       - run: pip install -r ingestion/requirements.txt pytest
       - run: pytest -q
         working-directory: ingestion
+      # Layout router eval (WP12): the rules row is real; the slm and frontier rows are
+      # FakeProviders over the 200-page synthetic set (CI has no parsed PDFs). Harness only.
+      - name: layout-router eval harness (offline, fake providers)
+        run: python -m eval.layout_eval --fake
 
   # ---- eval-gate: the research loop must still beat the baseline, on BOTH loops ----
   eval-gate:
