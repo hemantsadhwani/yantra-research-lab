@@ -15,7 +15,7 @@ log() { printf '\n==> %s\n' "$*"; }
 log "base packages"
 sudo apt-get update -qq
 sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq \
-  build-essential curl git jq make unzip ca-certificates gnupg lsb-release \
+  build-essential curl git jq make unzip ca-certificates gnupg lsb-release tmux gh \
   software-properties-common tesseract-ocr poppler-utils
 
 log "python 3.13"

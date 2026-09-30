@@ -91,3 +91,106 @@ about the box. "Verified on an AWS dev instance" is the phrase.
 ## 6. Not on the box
 
 Real `.env` keys, the trading system, any P&L or market-data files, customer data of any kind.
+
+## 7. Launch the box (from nifty_dev or any shell) — full runbook
+
+### 7a. Owner, once, in the AWS console (admin login)
+
+1. **Bedrock model access**, region ap-south-1: enable *Anthropic Claude Haiku 4.5* (Sonnet optional).
+2. **Role for the box**: IAM → Roles → Create → trusted entity *AWS service: EC2* → name `yantra-dev-bedrock`
+   → add an inline policy pasted from `deploy/ec2/iam/bedrock-dev-role-policy.json`. (The console also
+   creates the instance profile with the same name.)
+3. **Launcher login**: IAM → Users → Create `claude-dev-launcher` (no console access) → inline policy pasted from
+   `deploy/ec2/iam/launcher-policy.json` → Security credentials → Create access key (CLI).
+4. **Store it on nifty_dev yourself** (never paste keys into a chat or a file in a repo):
+   ```bash
+   aws configure --profile yantra-launcher      # region: ap-south-1, output: json
+   ```
+
+### 7b. The launch, step by step (`deploy/ec2/launch.sh`)
+
+```bash
+git clone https://github.com/hemantsadhwani/yantra-research-lab.git ~/work/yantra-research-lab   # separate from the bot checkout
+cd ~/work/yantra-research-lab
+bash deploy/ec2/launch.sh preflight          # identity, GPU quota, AZs offering g5.xlarge, role, AMI   (free)
+bash deploy/ec2/launch.sh quota 8            # only if the quota is below 4; then wait for approval    (free)
+bash deploy/ec2/launch.sh plan               # exactly what will be created                             (free)
+bash deploy/ec2/launch.sh launch --yes       # key pair, SSH-only security group, box, idle-stop alarm   (BILLS)
+bash deploy/ec2/launch.sh ssh                # log in as ubuntu
+```
+
+Options (env): `TYPE=g6.xlarge`, `MARKET=spot`, `DISK_GB=300`, `EXTRA_SSH_CIDR=<home IP>/32` so the laptop can
+SSH too. Day to day: `status`, `stop`, `start` (the public IP changes on each start), `resize t4g.large --yes`
+after training. The script and the IAM policy both act only on resources tagged `purpose=dev-public-repos`.
+
+### 7c. On the box, once
+
+```bash
+git clone https://github.com/hemantsadhwani/yantra-research-lab.git ~/work/yantra-research-lab
+tmux new -s boot 'bash ~/work/yantra-research-lab/deploy/ec2/bootstrap.sh 2>&1 | tee ~/bootstrap.log'
+# then log out and in once (docker group)
+curl -fsSL https://claude.ai/install.sh | bash        # Claude Code; log in when it asks
+gh auth login                                         # fine-grained token: yantra-research-lab + agentic-reporting,
+                                                      # Contents: read/write, Workflows: read/write, nothing else
+```
+
+## 8. Rules for any agent working here
+
+- On **nifty_dev**: never read or change `~/index-options-trading-bot`, the `~/shadow_bt*` worktrees, the crontab,
+  or `key_secrets/`. No Docker, no model downloads, no heavy installs there: it is the live monitor host
+  (09:00–15:45 IST). Its only job in this handover is to run `launch.sh`.
+- Any command that bills (`launch`, `resize`, `start` of a GPU type) or destroys (`terminate`) runs only after the
+  owner says yes in the chat. Never `terminate` unless asked in those words.
+- On the **GPU box**: Bedrock via the instance role only; every LLM command carries `--max-usd`; total Bedrock spend
+  for the whole task list stays under **$5** unless the owner raises it.
+- `git pull --rebase` before every push: yantra's daily ingest job commits to `main` on GitHub.
+- Every result names provider, model, date and command. Fake-provider results stay labelled as harness checks.
+
+## 9. Prompts to paste
+
+### Prompt 1 — Claude Code on **nifty_dev** (launches the box)
+
+```text
+You are on nifty_dev, the live trading system's monitor host. Your only job is to launch a separate GPU dev box
+with the committed launcher script, then bootstrap it. Hard rules: do not read, list or modify
+~/index-options-trading-bot, ~/shadow_bt*, the crontab or any key_secrets folder; no Docker, no pip installs, no
+model downloads on this machine; use only the AWS profile "yantra-launcher"; never print or store credentials.
+
+1. If ~/work/yantra-research-lab exists, `git pull --rebase` there; else clone
+   https://github.com/hemantsadhwani/yantra-research-lab.git into ~/work/yantra-research-lab.
+   Read deploy/ec2/HANDOVER.md sections 0, 1, 7 and 8, and deploy/ec2/launch.sh.
+2. Run `bash deploy/ec2/launch.sh preflight` and show me the output.
+   - If the G/VT on-demand quota is below 4: run `bash deploy/ec2/launch.sh quota 8`, tell me, and stop here.
+   - If the role or model access is missing: tell me the exact console step from section 7a and stop.
+3. Run `bash deploy/ec2/launch.sh plan`, show it to me, and WAIT until I reply "yes launch".
+4. Run `bash deploy/ec2/launch.sh launch --yes` (add EXTRA_SSH_CIDR=<my home IP>/32 if I gave one).
+5. Bootstrap the box over SSH without keeping a session open:
+   ssh -i ~/.ssh/yantra-dev.pem -o StrictHostKeyChecking=accept-new ubuntu@<ip> \
+     "git clone https://github.com/hemantsadhwani/yantra-research-lab.git ~/work/yantra-research-lab && \
+      tmux new -d -s boot 'bash ~/work/yantra-research-lab/deploy/ec2/bootstrap.sh > ~/bootstrap.log 2>&1'"
+   Poll `tail -5 ~/bootstrap.log` over SSH every few minutes until it prints "done". Report the acceptance lines
+   (pytest summaries, EVAL-GATE, REPORT-EVAL, SCHEMA-EVAL) and the Bedrock check.
+6. Give me: the SSH command, how to stop the box (`bash deploy/ec2/launch.sh stop`), and remind me to install
+   Claude Code and run `gh auth login` on the box (section 7c) before Prompt 2. Do not terminate anything.
+```
+
+### Prompt 2 — Claude Code on the **GPU box**, in `~/work/yantra-research-lab`
+
+```text
+You are on the yantra dev GPU box (g5/g6, Ubuntu, ap-south-1). Read CLAUDE.md, deploy/ec2/HANDOVER.md (all of it,
+especially sections 4, 5 and 8), then ../agentic-reporting/CLAUDE.md. Work through HANDOVER section 4, tasks 1 to 7,
+in order. Environment for every LLM call:
+  export LLM_PROVIDER=bedrock AWS_REGION=ap-south-1 LLM_MODEL=apac.anthropic.claude-haiku-4-5-20251001-v1:0
+Credentials come from the instance role only. Put --max-usd on every LLM run; keep total Bedrock spend under $5
+and print a running total after each task.
+
+For each task:
+- run it, write or update results/<task>_<YYYY-MM-DD>.md with provider, model, date, exact command, numbers and cost;
+- update README / ROADMAP / adapter_card only where a real result replaces a "not run" or fake-only line;
+- keep all tests and both eval gates green; stdlib hash of
+  `python -m research_lab.run --iterations 2 --variants 3 --seed 3 | md5sum` must stay b9af72166a5ad9b8d015c808625e1fb4;
+- commit (message ends with the Co-Authored-By line the session gives you), `git pull --rebase`, push.
+Long jobs (QLoRA, vLLM) run inside tmux with logs under ~/logs/. If a task fails twice, write down exactly why in
+its results file, commit that, and move on. After task 7, give me a table of every task: done or not, the headline
+number, cost, and the file to open. Then remind me to stop the box from nifty_dev.
+```

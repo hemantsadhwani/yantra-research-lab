@@ -23,6 +23,11 @@ Stop the instance when idle. A GPU box left on for a week costs more than the wh
    model ARNs and inference profiles; no `bedrock:*`). Attach it as an instance profile.
 3. On the box, no `AWS_ACCESS_KEY_ID` at all. The SDK reads the role. `LLM_PROVIDER=bedrock AWS_REGION=us-east-1`.
 
+## Launch and handover
+
+The full runbook, the agent rules and the two paste-in prompts are in [HANDOVER.md](HANDOVER.md)
+sections 7–9. `launch.sh` creates and manages the box; `bootstrap.sh` sets it up.
+
 ## One-command setup
 
 ```bash
