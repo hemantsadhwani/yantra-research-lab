@@ -5,6 +5,7 @@
     python -m research_lab.run_graph --list
     python -m research_lab.run_graph --engine mcp      # backtests over MCP stdio (needs .[mcp])
     python -m research_lab.run_graph --memory sqlite   # persistent memory; learns from past runs
+    python -m research_lab.run_graph --judge           # LLM judge may veto 'promote?' before the gate
 
 A fresh run executes until the human gate, prints the ranked table, and stops with the
 exact command to resume it. The pause is persisted in SQLite, so the resume can happen
@@ -29,6 +30,8 @@ from langgraph.types import Command
 from research_lab import observability
 from research_lab.agents.backtester import close_mcp_clients
 from research_lab.agents.context import CONSTRUCTIONS
+from research_lab.agents.judge import footer as judge_footer
+from research_lab.agents.judge import veto_line
 from research_lab.graph import (
     DEFAULT_CHECKPOINT_DB,
     best_ranked,
@@ -81,10 +84,21 @@ def _print_llm(state: dict[str, Any]) -> None:
         who = f"{state.get('llm_provider', state.get('provider') or '?')}/" \
               f"{state.get('llm_model', '?')}"
         print(f"  proposer: {who} · structured={state.get('llm_structured_mode', 'none')} · "
-              f"{state.get('llm_calls', 0)} calls · ${state.get('llm_cost_usd', 0.0):.4f} · "
+              f"{state.get('llm_calls', 0) - state.get('judge_calls', 0)} calls · "
+              f"${state.get('llm_cost_usd', 0.0) - state.get('judge_cost_usd', 0.0):.4f} · "
               f"context '{state.get('context_mode')}'"
               + (f" · llm_failures={fails} (fell back to the heuristic)" if fails else ""))
         print()
+
+
+def _print_judge(state: dict[str, Any]) -> None:
+    """One line per veto, then ``judge: <calls> calls · <vetoes> vetoes · <n> abstained``."""
+    if not state.get("judge"):
+        return
+    for entry in state.get("judge_log", []):
+        print(f"  {veto_line(entry['variant_id'], entry['verdict'])}")
+    print("  " + judge_footer(state.get("judge_calls", 0), state.get("judge_vetoes", 0),
+                              state.get("judge_failures", 0), state.get("judge_error")))
 
 
 def budget_footer(state: dict[str, Any]) -> str:
@@ -181,6 +195,11 @@ def _main(argv: list[str] | None = None) -> int:
     ap.add_argument("--max-llm-calls", type=int, default=None,
                     help="stop the loop once this many LLM calls have been made "
                          "(default: unbounded)")
+    ap.add_argument("--judge", action="store_true",
+                    help="before the human gate, an LLM judge reviews the top-3 'promote?' "
+                         "candidates and may downgrade them to 'hold' (never upgrade); if all "
+                         "are vetoed the run finishes without pausing. Uses --provider / "
+                         "$LLM_PROVIDER; no key → it abstains.")
     ap.add_argument("--no-gate", action="store_true",
                     help="never prompt: stop at the gate and exit 0 (for CI)")
     ap.add_argument("--assert-beats-baseline", action="store_true",
@@ -209,12 +228,13 @@ def _main(argv: list[str] | None = None) -> int:
             _stream(graph, Command(resume=args.decision), cfg)
         state = graph.get_state(cfg).values
         _print_decision(state, db)
+        _print_judge(state)
         print(f"  {budget_footer(state)}")
         if args.assert_beats_baseline and not _beats_baseline(state):
             return 1
         return 0
 
-    if args.use_llm:
+    if args.use_llm or args.judge:
         try:
             from load_env import load_env
             load_env()
@@ -242,7 +262,7 @@ def _main(argv: list[str] | None = None) -> int:
 
     if args.engine == "mcp":
         print(f"  · {MCP_ENGINE_LABEL}")
-    provider = args.provider if args.use_llm else None
+    provider = args.provider if (args.use_llm or args.judge) else None
     with observability.span("research_run", thread_id=thread, strategy=args.strategy,
                             seed=args.seed, engine=args.engine,
                             provider=(provider or os.environ.get("LLM_PROVIDER")
@@ -256,6 +276,7 @@ def _main(argv: list[str] | None = None) -> int:
             provider=provider,
             memory=args.memory, memory_db=db_memory, run_id=thread,
             max_usd=args.max_usd, max_llm_calls=args.max_llm_calls,
+            judge=args.judge,
         ), cfg)
         state = graph.get_state(cfg).values
         observability.set_attributes(run_span, {
@@ -268,6 +289,7 @@ def _main(argv: list[str] | None = None) -> int:
     print(render_report(to_run_result(state), args.strategy, engine=args.engine,
                         memory=memory_line))
     _print_llm(state)
+    _print_judge(state)
     print(f"  {budget_footer(state)}")
     print()
 

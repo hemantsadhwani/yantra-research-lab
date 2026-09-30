@@ -36,6 +36,7 @@ class Evaluation:
     verdict: str          # "promote?" | "hold" | "reject"
     beats_baseline: bool
     notes: str = ""
+    judge: dict | None = None   # the LLM judge's verdict, set only when it vetoed (veto-only)
 
 
 @dataclass

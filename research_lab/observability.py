@@ -40,6 +40,9 @@ _UPDATE_ATTRS = {
     "model": "llm_model",
     "stop_reason": "stop_reason",
     "budget_exhausted_at_iteration": "budget_exhausted_at_iteration",
+    "judge_calls": "judge_calls",
+    "judge_failures": "judge_failures",
+    "judge_vetoes": "judge_vetoes",
 }
 
 # Control-flow exceptions LangGraph raises through a node (``interrupt()``): not errors.

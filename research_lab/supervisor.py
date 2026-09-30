@@ -12,11 +12,17 @@ checkpointing, streaming and HITL interrupts for free. The control logic here is
 verification hooks, the evaluator, memory and the human gate all sit behind the same
 typed contracts either way. That is ADR-0003's claim made demonstrable — the loop is
 the spec, and what runs inside a step is an implementation detail.
+
+``judge`` (optional, duck-typed: anything with ``.review(ranked, baseline, summary)``, i.e.
+``research_lab.agents.judge.Judge``) runs once after the loop on the top-k ``promote?``
+results. It can only veto (``promote?`` → ``hold``); it is passed in, never imported here,
+so the default path stays stdlib-only.
 """
 
 from __future__ import annotations
 
 from collections.abc import Callable
+from typing import Any
 
 from research_lab.agents import Backtester, Evaluator, Proposer, score_result
 from research_lab.budget import Budget
@@ -42,6 +48,7 @@ class Supervisor:
         memory: MemoryLike | None = None,
         budget: Budget | None = None,
         proposer: Proposer | None = None,
+        judge: Any = None,
     ) -> None:
         self.strategy = strategy
         # The only line the LLM swap touches. Everything below — verification, the
@@ -59,6 +66,10 @@ class Supervisor:
         # In-process by default; pass a SqliteMemory to learn across runs.
         self.memory: MemoryLike = memory if memory is not None else Memory()
         self._log = log or (lambda _msg: None)
+        # Optional veto-only LLM judge; shares the run's budget unless it brought its own.
+        self.judge = judge
+        if judge is not None and budget is not None and getattr(judge, "budget", None) is None:
+            judge.budget = budget
 
     def run(self, iterations: int = 4, variants_per_iter: int = 5) -> RunResult:
         # Baseline first — every variant is judged against it (offline↔online parity).
@@ -92,6 +103,11 @@ class Supervisor:
                 break
 
         ranked.sort(key=lambda rv: rv.evaluation.score, reverse=True)
+        if self.judge is not None:
+            n_promote = sum(rv.evaluation.verdict == "promote?" for rv in ranked)
+            summary = (f"{len(ranked)} variants tested over {completed} iterations; baseline "
+                       f"score {evaluator.baseline_score:.1f}; {n_promote} reached 'promote?'.")
+            ranked = self.judge.review(ranked, baseline, summary)   # order is preserved
         return RunResult(
             iterations=completed,
             variants_tested=len(ranked),

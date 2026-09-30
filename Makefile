@@ -1,4 +1,4 @@
-.PHONY: demo demo-llm demo-bedrock demo-ollama demo-graph demo-mcp demo-memory demo-budget resume context-study test gate lint install install-all
+.PHONY: demo demo-llm demo-bedrock demo-ollama demo-graph demo-mcp demo-memory demo-budget resume context-study judge-eval test gate lint install install-all
 
 install:            ## editable install with dev tools
 	pip install -e '.[dev]'
@@ -32,6 +32,9 @@ resume:             ## resume a paused graph run: make resume THREAD=<id> DECISI
 
 context-study:      ## measure 3 context constructions (needs .[llm] + API key; costs cents)
 	python -m research_lab.experiments.context_study --include-heuristic
+
+judge-eval:         ## LLM judge vs 12 golden cases, exit 1 below 9/12 (needs .[llm] + a provider key; not in CI; < 1 cent)
+	python -m eval.judge_eval
 
 test:               ## unit + smoke tests
 	pytest

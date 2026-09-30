@@ -1,8 +1,9 @@
 """Evaluator agent — scores a backtest on risk-adjusted terms and judges it vs the baseline.
 
-Tier-1 uses a transparent risk-adjusted score. The production build adds an
-**LLM-as-judge** rubric on top (does the rationale hold? is the edge plausible or
-overfit?) and a regression eval set gated in CI. See ADR-0003.
+Tier-1 uses a transparent risk-adjusted score, and it stays primary. An optional
+**LLM-as-judge** (``agents/judge.py``, ``--judge``) sits after it and can only veto a
+``promote?`` (does the rationale hold? is the edge overfit?); it never re-scores or
+upgrades. See ADR-0003.
 """
 
 from __future__ import annotations

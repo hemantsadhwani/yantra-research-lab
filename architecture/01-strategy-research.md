@@ -62,9 +62,9 @@ HITL interrupts; the proposer becomes a structured **LLM** call; the evaluator a
 rubric and a regression eval set gated in CI. The control logic is unchanged — see
 [ADR-0003](../docs/adr/0003-bounded-autonomy.md).
 
-## As built (2026-09-13)
+## As built (2026-09-30)
 What actually runs in this repo, today:
-- **Plain Python, stdlib, deterministic by default** — no LangGraph
+- **Plain Python, stdlib, deterministic by default** — the default path imports no LangGraph
   (`research_lab/supervisor.py`, `agents/proposer.py`, `agents/backtester.py`, `agents/evaluator.py`).
 - **An optional LLM proposer.** `Proposer(use_llm=True)` swaps the heuristic for a structured
   Claude call; `Supervisor(use_llm=True, context_mode=...)` threads it through. Nothing else in
@@ -85,6 +85,25 @@ What actually runs in this repo, today:
   of the full-history score for 46% of the input tokens; whether full history genuinely beats
   compaction is *not* settled by that data (the per-seed spread exceeds the gap). Raw runs and
   the honest reading are in `results/`.
-- The **LangGraph `StateGraph` + LLM-as-judge** described in "Production mapping" above is the
-  remaining target production re-expression — not built in this repo.
+- **The LangGraph `StateGraph` arm is built** (`research_lab/graph.py`, `run_graph.py`: SQLite
+  checkpoint, a real `interrupt()` human gate, resume from another process). The stdlib loop above
+  stays the spec and the zero-dependency default.
+- **An LLM-as-judge, veto-only** (`research_lab/agents/judge.py`, opt-in with `--judge` on either
+  CLI). The evaluation ladder is `verify.py` (deterministic) → Evaluator score (arithmetic,
+  primary) → Judge veto (LLM) → human gate. When the loop is about to stop with a `promote?` best,
+  the judge reviews the top-3 `promote?` candidates against a fixed rubric (does the rationale
+  predict the direction the metrics moved? does the edge hinge on a parameter within 2% of a
+  `PARAM_SPACE` bound? is the trade count large enough to trust?) and returns a schema-validated
+  `JudgeVerdict`. `rationale_consistent=false` or `overfit_risk="high"` downgrades `promote?` to
+  `hold`; in the graph arm, if the best is no longer `promote?` the run finishes without pausing.
+  What it is **not** allowed to do: re-score, re-rank, upgrade any verdict, promote anything, or
+  block a run. A failure (no key, provider error, invalid JSON twice, budget exhausted) is an
+  abstention that leaves the verdict unchanged and is counted (`judge: N calls · V vetoes · A
+  abstained`). Judge calls share the run's `Budget`. Trials already written to memory keep the
+  Evaluator's verdict; the veto changes the ranked output and the gate, not the memory.
+- **Judge eval** (`make judge-eval`, `eval/judge_eval.py`): 12 hand-labelled golden cases in
+  `eval/datasets/judge_golden.jsonl` (params and metrics are real engine output; rationales and
+  labels are hand-written), pass at ≥ 9/12. It needs a provider key and is **not** run in CI;
+  CI runs only `--fake`, which checks the harness, not the model. No real-model agreement number
+  has been recorded yet, so none should be quoted.
 </content>

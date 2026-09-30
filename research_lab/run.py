@@ -6,6 +6,7 @@
     python -m research_lab.run --engine mcp    # drive the engine over MCP stdio (needs .[mcp])
     python -m research_lab.run --memory sqlite # persist trials; learn priors from past runs
     python -m research_lab.run --use-llm --max-usd 0.02   # stop once LLM spend hits $0.02
+    python -m research_lab.run --judge          # LLM judge may veto top-3 'promote?' (needs a provider)
 """
 
 from __future__ import annotations
@@ -110,12 +111,16 @@ def main() -> None:
                     help="stop once estimated LLM spend reaches this many USD (--use-llm)")
     ap.add_argument("--max-llm-calls", type=int, default=None,
                     help="stop once this many LLM calls have been made (--use-llm)")
+    ap.add_argument("--judge", action="store_true",
+                    help="after the loop, an LLM judge reviews the top-3 'promote?' candidates "
+                         "and may downgrade them to 'hold' (never upgrade). Works with either "
+                         "proposer; uses --provider / $LLM_PROVIDER. No key → it abstains.")
     args = ap.parse_args()
     budget = None
     if args.max_usd is not None or args.max_llm_calls is not None:
         budget = Budget(max_usd=args.max_usd, max_llm_calls=args.max_llm_calls)
 
-    if args.use_llm:
+    if args.use_llm or args.judge:
         try:
             from load_env import load_env
             load_env()
@@ -133,6 +138,8 @@ def main() -> None:
                               arm="llm" if args.use_llm else "heuristic")
         memory_line = memory_label("sqlite", db_memory, memory.prior_run_count())
 
+    judge = make_judge(args.provider, budget) if args.judge else None
+
     backtester = None
     if args.engine == "mcp":
         # Lazy: the default path never imports the mcp SDK.
@@ -143,7 +150,7 @@ def main() -> None:
         supervisor = Supervisor(seed=args.seed, strategy=args.strategy,
                                 use_llm=args.use_llm, context_mode=args.context,
                                 log=lambda m: print(f"  · {m}"), backtester=backtester,
-                                memory=memory, budget=budget)
+                                memory=memory, budget=budget, judge=judge)
         run = supervisor.run(iterations=args.iterations, variants_per_iter=args.variants)
         if memory is not None:
             memory.refresh_priors()
@@ -164,8 +171,41 @@ def main() -> None:
     if p.use_llm or budget is not None:   # the default heuristic output stays byte-identical
         shown = budget or Budget(spent_usd=p.llm_cost_usd, llm_calls=p.llm_calls)
         print(f"  {shown.footer(supervisor.stop_reason)}")
+    if args.judge:
+        print_judge(judge)
     if p.use_llm:
         print()
+
+
+def make_judge(provider_name: str | None, budget: Budget | None):
+    """Build the judge lazily (the default path never imports it, pydantic or llm_gateway)."""
+    from research_lab.agents.judge import Judge
+    try:
+        from llm_gateway import get_provider
+        provider = get_provider(provider_name)
+    except Exception as e:  # noqa: BLE001 - llm extra missing / unknown provider
+        print(f"  judge: no provider ({type(e).__name__}: {e}); every review will abstain")
+        provider = None
+    judge = Judge(provider=provider, top_k=3, budget=budget)
+    if provider is None:
+        judge._provider = _NoProvider()
+    return judge
+
+
+class _NoProvider:
+    name = model = "none"
+
+    def complete(self, **_kw):
+        raise RuntimeError("no LLM provider available")
+
+
+def print_judge(judge) -> None:
+    from research_lab.agents.judge import footer, veto_line
+    if judge is None:
+        return
+    for vid, verdict in judge.vetoes:
+        print(f"  {veto_line(vid, verdict)}")
+    print(f"  {footer(judge.judge_calls, len(judge.vetoes), judge.judge_failures, judge.last_error)}")
 
 
 if __name__ == "__main__":

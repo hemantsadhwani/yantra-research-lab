@@ -77,6 +77,17 @@ def test_stdlib_path_never_imports_langgraph():
     subprocess.run([sys.executable, "-c", code], cwd=REPO, check=True)
 
 
+def test_judge_is_opt_in_and_stdlib_at_import():
+    # The LLM judge is only imported behind --judge; importing it pulls no optional SDK
+    # (llm_gateway / pydantic load inside Judge.judge()).
+    code = ("import research_lab.run, research_lab.supervisor, sys; "
+            "assert 'research_lab.agents.judge' not in sys.modules; "
+            "import research_lab.agents.judge; "
+            "leaked = {'pydantic', 'llm_gateway', 'anthropic', 'langgraph'} & set(sys.modules); "
+            "assert not leaked, leaked")
+    subprocess.run([sys.executable, "-c", code], cwd=REPO, check=True)
+
+
 def test_budget_and_stdlib_run_never_import_optional_sdks():
     # The budget is shared by both arms, so it must stay stdlib; tracing is graph-arm only.
     code = ("import research_lab.budget, research_lab.run, sys; "

@@ -18,6 +18,9 @@ custom serialisers.
     START → baseline → propose → backtest_all → record ─┬→ propose        (iterations left,
                                                         │                   budget not hit)
                                                         ├→ gate → finalize (best is 'promote?')
+                                                        ├→ judge ─┬→ gate  (--judge; best still
+                                                        │         │         'promote?' after veto)
+                                                        │         └→ finalize (all vetoed)
                                                         └→ finalize        (nothing to promote)
     finalize → END
 
@@ -42,6 +45,14 @@ the counters and the ``budget`` mirror from that one object, so they never disag
 batch denied an LLM call runs on the heuristic, sets ``stop_reason="budget"`` and
 ``budget_exhausted_at_iteration``, and ``route_after_record`` stops iterating: straight
 to the human gate if the best is ``promote?``, else to finalize.
+
+**Judge (optional, ``state["judge"]``).** When the loop is about to stop with a
+``promote?`` best, the ``judge`` node asks an LLM judge (``agents/judge.py``) to review the
+top-k ``promote?`` entries. It can only veto (``promote?`` → ``hold``), never upgrade; an
+abstention (no key, error, budget exhausted) leaves the verdict unchanged and is counted in
+``judge_failures``. Its calls share the run's budget (``llm_calls`` / ``llm_cost_usd``). Then:
+``gate`` if the post-veto best is still ``promote?``, else ``finalize`` without pausing.
+Trials already written by ``record`` keep the Evaluator's verdict; only ``ranked`` changes.
 
 **Tracing.** Every node is wrapped in ``observability.traced`` (a ``node.<name>`` span
 with tokens / cost / spend / stop reason); a no-op unless Logfire is configured.
@@ -114,6 +125,15 @@ class ResearchState(TypedDict, total=False):
     # bounded autonomy: limits + a mirror of llm_calls / llm_cost_usd (see module doc)
     budget: dict[str, Any]         # {max_usd, max_llm_calls, spent_usd, llm_calls}
     budget_exhausted_at_iteration: int | None
+    # LLM judge (veto-only; see agents/judge.py)
+    judge: bool                    # run the judge node before the gate
+    judge_top_k: int
+    judge_calls: int
+    judge_failures: int            # abstentions: a degraded review never looks clean
+    judge_vetoes: int
+    judge_cost_usd: float
+    judge_log: list[dict[str, Any]]    # [{variant_id, verdict}] one per veto
+    judge_error: str | None        # why the last abstention happened (for the footer)
     # human gate
     approval: str | None           # only ever set by a human resume
     promoted_id: str | None
@@ -134,6 +154,8 @@ def initial_state(
     run_id: str | None = None,
     max_usd: float | None = None,
     max_llm_calls: int | None = None,
+    judge: bool = False,
+    judge_top_k: int = 3,
 ) -> ResearchState:
     if memory not in ("inmem", "sqlite"):
         raise ValueError(f"memory must be 'inmem' or 'sqlite', not {memory!r}")
@@ -150,6 +172,8 @@ def initial_state(
         llm_input_tokens=0, llm_output_tokens=0,
         budget=Budget(max_usd=max_usd, max_llm_calls=max_llm_calls).to_dict(),
         budget_exhausted_at_iteration=None,
+        judge=judge, judge_top_k=judge_top_k, judge_calls=0, judge_failures=0,
+        judge_vetoes=0, judge_cost_usd=0.0, judge_log=[], judge_error=None,
         approval=None, promoted_id=None,
     )
 
@@ -326,11 +350,45 @@ def record_node(state: ResearchState) -> dict[str, Any]:
     return {"trials": trials, "iteration": state.get("iteration", 0) + 1}
 
 
+@traced("judge")
+def judge_node(state: ResearchState, provider: Any = None) -> dict[str, Any]:
+    """Veto-only LLM review of the top-k ``promote?`` entries (see module doc).
+
+    ``provider`` is injected by tests; by default one is built from ``state["provider"]`` /
+    ``$LLM_PROVIDER``. A provider that cannot be built makes every review an abstention."""
+    from research_lab.agents.judge import Judge, history_summary, ranked_dicts_review
+
+    budget = budget_from_state(state)
+    ranked = list(state.get("ranked", []))
+    judge = Judge(provider=provider, top_k=int(state.get("judge_top_k", 3) or 3),
+                  budget=budget, provider_name=state.get("provider"))
+    n_promote = sum(d["evaluation"]["verdict"] == "promote?" for d in ranked)
+    summary = history_summary(len(ranked), state.get("iteration", 0),
+                              state["baseline_score"], n_promote)
+    # Judge.judge() turns every failure (incl. a missing llm extra) into a counted abstention.
+    ranked = ranked_dicts_review(judge, ranked, state["baseline"], summary)
+    log = list(state.get("judge_log", []))
+    log.extend({"variant_id": vid, "verdict": vd} for vid, vd in judge.vetoes)
+    return {
+        "ranked": ranked,
+        "judge_calls": state.get("judge_calls", 0) + judge.judge_calls,
+        "judge_failures": state.get("judge_failures", 0) + judge.judge_failures,
+        "judge_vetoes": state.get("judge_vetoes", 0) + len(judge.vetoes),
+        "judge_cost_usd": state.get("judge_cost_usd", 0.0) + judge.judge_cost_usd,
+        "judge_log": log,
+        "judge_error": judge.last_error or state.get("judge_error"),
+        # Shared budget: judge calls count toward the same limits as the proposer's.
+        "llm_calls": budget.llm_calls,
+        "llm_cost_usd": budget.spent_usd,
+        "budget": budget.to_dict(),
+    }
+
+
 @traced("gate")
 def gate_node(state: ResearchState) -> dict[str, Any]:
     # LangGraph re-runs this node from the top on resume: nothing above interrupt()
     # may have side effects. Computing ``best`` is pure.
-    best = best_ranked(state.get("ranked", []))
+    best = best_candidate(state.get("ranked", []))
     decision = interrupt({"best": best, "question": "promote?"})
     if isinstance(decision, str) and decision.strip().lower() == "approve":
         return {"approval": "approved", "promoted_id": best["variant"]["id"]}
@@ -357,10 +415,28 @@ def route_after_record(state: ResearchState) -> str:
     budget_stop = state.get("stop_reason") == "budget"
     if not budget_stop and state.get("iteration", 0) < state["iterations"]:
         return "propose"
-    best = best_ranked(state.get("ranked", []))
-    if best is not None and best["evaluation"]["verdict"] == "promote?":
-        return "gate"
-    return "finalize"
+    if not _best_is_candidate(state):
+        return "finalize"
+    return "judge" if state.get("judge") else "gate"
+
+
+def route_after_judge(state: ResearchState) -> str:
+    """After the veto: pause for the human if any candidate is *still* ``promote?``."""
+    return "gate" if _best_is_candidate(state) else "finalize"
+
+
+def best_candidate(ranked: list[dict[str, Any]]) -> dict[str, Any] | None:
+    """Highest-scoring entry whose verdict is still ``promote?`` after any veto.
+
+    The human gate is shown the best *surviving* candidate: a judge veto on the top
+    scorer must not silently hide a second candidate that passed.
+    """
+    survivors = [d for d in ranked if d["evaluation"]["verdict"] == "promote?"]
+    return best_ranked(survivors)
+
+
+def _best_is_candidate(state: ResearchState) -> bool:
+    return best_candidate(state.get("ranked", [])) is not None
 
 
 # ------------------------------------------------------------------ build / save
@@ -375,13 +451,15 @@ def default_checkpointer(path: str | os.PathLike[str] | None = None):
     return saver
 
 
-def build_graph(checkpointer=None, provider: Any = None):
+def build_graph(checkpointer=None, provider: Any = None, judge_provider: Any = None):
     """Compile the research graph.
 
     ``checkpointer=None`` uses an in-memory saver: ``interrupt()`` needs *some*
     checkpointer, and an in-process run should still reach the human gate.
     ``provider`` injects an ``llm_gateway`` provider object into every ``propose``
     step (used by tests with a ``FakeProvider``; it is not checkpointed).
+    ``judge_provider`` does the same for the ``judge`` node (default: ``provider``); the
+    node only runs when the state has ``judge=True``.
     """
     if checkpointer is None:
         from langgraph.checkpoint.memory import InMemorySaver
@@ -397,6 +475,13 @@ def build_graph(checkpointer=None, provider: Any = None):
         g.add_node("propose", propose_with_provider)
     g.add_node("backtest_all", backtest_all_node)
     g.add_node("record", record_node)
+    jp = judge_provider if judge_provider is not None else provider
+    if jp is None:
+        g.add_node("judge", judge_node)
+    else:
+        def judge_with_provider(state: ResearchState) -> dict[str, Any]:
+            return judge_node(state, provider=jp)
+        g.add_node("judge", judge_with_provider)
     g.add_node("gate", gate_node)
     g.add_node("finalize", finalize_node)
 
@@ -404,7 +489,9 @@ def build_graph(checkpointer=None, provider: Any = None):
     g.add_edge("baseline", "propose")
     g.add_edge("propose", "backtest_all")
     g.add_edge("backtest_all", "record")
-    g.add_conditional_edges("record", route_after_record, ["propose", "gate", "finalize"])
+    g.add_conditional_edges("record", route_after_record,
+                            ["propose", "judge", "gate", "finalize"])
+    g.add_conditional_edges("judge", route_after_judge, ["gate", "finalize"])
     g.add_edge("gate", "finalize")
     g.add_edge("finalize", END)
     return g.compile(checkpointer=checkpointer)

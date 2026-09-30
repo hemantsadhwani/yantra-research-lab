@@ -15,6 +15,8 @@ that; ``test_proposal_schema_survives_strict_transform`` guards it.
 
 from __future__ import annotations
 
+from typing import Literal
+
 from pydantic import BaseModel, Field
 
 
@@ -34,3 +36,17 @@ class Proposal(BaseModel):
 
 class ProposalBatch(BaseModel):
     variants: list[Proposal] = Field(min_length=1)
+
+
+class JudgeVerdict(BaseModel):
+    """The LLM judge's review of one ``promote?`` candidate (see ``agents/judge.py``).
+
+    Only two fields can change anything: ``rationale_consistent=False`` or
+    ``overfit_risk="high"`` downgrades ``promote?`` to ``hold``. ``plausibility`` and
+    ``note`` are recorded for the human at the gate; they never upgrade a verdict.
+    """
+
+    rationale_consistent: bool
+    overfit_risk: Literal["low", "medium", "high"]
+    plausibility: int = Field(ge=1, le=5)
+    note: str = Field(max_length=300)
