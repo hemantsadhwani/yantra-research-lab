@@ -36,6 +36,16 @@ SEED, ITERATIONS, VARIANTS = 3, 5, 6
 _ROOT = Path(__file__).resolve().parent.parent
 
 
+def _track(arm: str, best: float, baseline: float, passed: bool) -> None:
+    """Log the gate result to MLflow; a no-op unless MLFLOW_TRACKING_URI is set."""
+    from eval.mlflow_tracking import track_run  # stdlib module; mlflow itself is lazy
+
+    track_run(f"run_gate-{arm}",
+              params={"arm": arm, "seed": SEED, "iterations": ITERATIONS, "variants": VARIANTS},
+              metrics={"best_score": best, "baseline_score": baseline,
+                       "margin": best - baseline, "pass": int(passed)})
+
+
 def stdlib_arm() -> bool:
     from research_lab.agents.evaluator import score_result
     from research_lab.supervisor import Supervisor
@@ -46,7 +56,10 @@ def stdlib_arm() -> bool:
     if best is None or best.evaluation.score <= baseline_score or best.evaluation.verdict != "promote?":
         got = f"{best.evaluation.score:.1f}" if best else "none"
         print(f"EVAL-GATE FAIL (stdlib) · best={got} baseline={baseline_score:.1f}")
+        if best is not None:
+            _track("stdlib", best.evaluation.score, baseline_score, False)
         return False
+    _track("stdlib", best.evaluation.score, baseline_score, True)
     print(f"EVAL-GATE PASS (stdlib) · best {best.variant.id} score {best.evaluation.score:.1f} "
           f"> baseline {baseline_score:.1f} ({best.evaluation.verdict})")
     return True
@@ -92,6 +105,7 @@ def graph_arm() -> bool:
               f"(thread {thread})")
         return False
     best_id, best, baseline = scores
+    _track("graph", best, baseline, True)
     print(f"EVAL-GATE PASS (graph) · best {best_id} score {best:.1f} > baseline "
           f"{baseline:.1f} (thread {thread})")
     return True

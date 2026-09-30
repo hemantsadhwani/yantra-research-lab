@@ -32,6 +32,8 @@ answer quality**, and its numbers must never be quoted as the chatbot's RAGAS sc
 ``claude-haiku-4-5`` as both the answer model and the judge, and fastembed ``bge-small``
 (the retriever's model) for answer_relevancy. That mode needs a key and costs cents; it has
 not been run for the results file.
+
+Tracked in MLflow when ``MLFLOW_TRACKING_URI`` is set (``eval/mlflow_tracking.py``).
 """
 
 from __future__ import annotations
@@ -441,6 +443,13 @@ def main(argv: list[str] | None = None) -> int:
     print(table)
     if args.out:
         args.out.write_text(table + "\n", encoding="utf-8")
+
+    from eval.mlflow_tracking import track_run  # no-op unless MLFLOW_TRACKING_URI is set
+
+    track_run("ragas_eval", params={"mode": "fake" if args.fake else "provider",
+                                    "judge": judge.name, "questions": out["n"], "top_k": TOP_K},
+              metrics={**out["means"], "expected_source_hits": out["hits"]},
+              artifacts=[args.out] if args.out else [])
 
     bad = [m for m in METRICS if not 0.0 <= out["means"][m] <= 1.0]
     if bad:

@@ -75,7 +75,9 @@ jobs:
           cache: pip
           cache-dependency-path: pyproject.toml
       # ruff is pinned so a new release's default rule set cannot break an unchanged tree.
-      - run: pip install -e '.[dev]' 'ruff==0.16.9'
+      # pytest + ruff only, not the `dev` extra: `dev` also carries mlflow (optional eval
+      # tracking), which would pull pydantic into a job whose point is "no extras".
+      - run: pip install -e . 'pytest>=8' 'ruff==0.16.9'
       # Lint scope = the packages that are ruff-clean today. Three files carry known,
       # pre-existing findings and are excluded by name (not by rule) until fixed:
       #   research_lab/experiments/context_study.py  S110/BLE001 (try-except-pass)

@@ -140,7 +140,16 @@ def main(argv: list[str] | None = None) -> int:
     print(f"  overfit_risk exact agreement:   {out['overfit_exact']}/{n}  (info)")
     print(f"  case agreement (veto-relevant): {out['agree']}/{n}  (pass ≥ {PASS_AT})"
           f" · abstained {out['abstained']} · ${out['cost_usd']:.4f}")
-    if out["abstained"] or out["agree"] < PASS_AT:
+    passed = not out["abstained"] and out["agree"] >= PASS_AT
+    from eval.mlflow_tracking import track_run  # no-op unless MLFLOW_TRACKING_URI is set
+
+    track_run("judge_eval",
+              params={"provider": getattr(provider, "name", "?"),
+                      "model": getattr(provider, "model", "?"), "fake": args.fake, "cases": n},
+              metrics={"agreement": out["agree"] / n, "rationale_agreement": out["rationale"] / n,
+                       "abstained": out["abstained"], "cost_usd": out["cost_usd"],
+                       "pass": int(passed)})
+    if not passed:
         print("  FAIL", file=sys.stderr)
         return 1
     print("  PASS")

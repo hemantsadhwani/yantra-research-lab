@@ -20,6 +20,8 @@ knowledge_base/processed/
 chroma_db/
 *.sqlite
 .yantra/
+.mlruns/
+mlruns/
 
 # frontend
 node_modules/

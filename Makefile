@@ -1,4 +1,4 @@
-.PHONY: demo-faiss ragas-eval demo demo-llm demo-bedrock demo-ollama demo-graph demo-mcp demo-memory demo-budget resume context-study judge-eval test gate lint install install-all
+.PHONY: demo-faiss ragas-eval mlflow-ui demo demo-llm demo-bedrock demo-ollama demo-graph demo-mcp demo-memory demo-budget resume context-study judge-eval test gate lint install install-all
 
 install:            ## editable install with dev tools
 	pip install -e '.[dev]'
@@ -41,6 +41,9 @@ demo-faiss:         ## chatbot retriever on FAISS: build backend/.faiss, then on
 
 ragas-eval:         ## RAGAS-style metrics over 12 golden chatbot questions; --fake = offline judge (proves the harness only)
 	python -m eval.ragas_eval --fake
+
+mlflow-ui:          ## browse eval runs tracked with MLFLOW_TRACKING_URI=file:./.mlruns (needs .[dev]; MLflow 3 needs the opt-in for a file store)
+	MLFLOW_ALLOW_FILE_STORE=true mlflow ui --backend-store-uri file:./.mlruns
 
 test:               ## unit + smoke tests
 	pytest

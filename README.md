@@ -128,6 +128,17 @@ definitions (error and definitions in [results/ragas_2026-09-30.md](results/raga
 `make ragas-eval` runs it offline with a fake judge, which proves the harness, not answer quality.
 The real judge (`--provider anthropic`, Haiku 4.5 via `llm_gateway`) has not been run yet.
 
+## Versioning and tracking
+
+Golden sets live in git (`eval/datasets/*.jsonl`), and so do the specs and prompts, so their
+versions are git commits. Eval runs are tracked in MLflow when `MLFLOW_TRACKING_URI` is set:
+`run_gate` (arm, seed, iterations, variants; best, baseline, margin, pass), `judge_eval`
+(provider, model; agreement, pass) and `ragas_eval` (the four metrics), each tagged with the git
+SHA. Without the URI the helper is a no-op and mlflow is never imported, so the stdlib path and CI
+are unchanged. Local file store: `MLFLOW_TRACKING_URI=file:./.mlruns python -m eval.run_gate --arm both`,
+then `make mlflow-ui`. Sample output: [results/mlflow_2026-09-30.md](results/mlflow_2026-09-30.md).
+The MLflow model registry is not used yet.
+
 ## Containers and Kubernetes (the app layer)
 
 The public demo runs on Fly.io + Vercel because that is the cheapest way to keep a portfolio app
@@ -151,8 +162,8 @@ See [deploy/k8s/README.md](deploy/k8s/README.md) for what is deliberately left o
 | Job | What it shows |
 |---|---|
 | `core` (Python 3.12, 3.13) | the stdlib loop runs and passes its tests with **no extras installed**; the import-boundary tests keep langgraph, mcp, pydantic, anthropic, fastembed and logfire off the default path |
-| `agents` | with `.[all]`: the LangGraph arm (checkpoint, interrupt, cross-process resume), MCP byte-identical to in-process, `llm_gateway`, memory, budget, judge (151 root tests, all offline) |
-| `backend` | the FastAPI chatbot, guardrails and output filter (95 tests), plus the offline red-team block rate |
+| `agents` | with `.[all]`: the LangGraph arm (checkpoint, interrupt, cross-process resume), MCP byte-identical to in-process, `llm_gateway`, memory, budget, judge, eval tracking (164 root tests, all offline) |
+| `backend` | the FastAPI chatbot, guardrails, output filter and both vector backends (109 tests), plus the offline red-team block rate and the RAGAS harness with a fake judge |
 | `ingestion` | the ingestion DAG and its interrupt gate, offline (13 tests) |
 | `eval-gate` | **both arms** must beat the fixed baseline: `python -m eval.run_gate --arm both` |
 | red-team | block rate ≥ 80% with zero false positives on benign controls (`tests/test_redteam.py` in `core`, `python -m eval.redteam` in `backend`) |

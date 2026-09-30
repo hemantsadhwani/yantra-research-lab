@@ -18,7 +18,7 @@ llm    = ["anthropic[bedrock]>=0.49,<2"]          # Anthropic direct + Claude on
 mcp    = ["mcp>=1.10,<2"]
 memory = ["fastembed>=0.3,<0.8"]                  # optional semantic layer; stdlib hashed embedder is the fallback
 ops    = ["logfire>=4,<5"]                        # bundles OpenTelemetry
-dev    = ["pytest>=8", "ruff>=0.6"]
+dev    = ["pytest>=8", "ruff>=0.6", "mlflow>=3,<4"]   # mlflow: optional eval-run tracking (eval/mlflow_tracking.py)
 all    = ["yantra-research-lab[agents,llm,mcp,memory,ops,dev]"]
 
 [project.scripts]
