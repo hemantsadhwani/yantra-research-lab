@@ -1,4 +1,4 @@
-.PHONY: demo demo-llm demo-bedrock demo-ollama demo-graph demo-mcp demo-memory resume context-study test gate lint install install-all
+.PHONY: demo demo-llm demo-bedrock demo-ollama demo-graph demo-mcp demo-memory demo-budget resume context-study test gate lint install install-all
 
 install:            ## editable install with dev tools
 	pip install -e '.[dev]'
@@ -23,6 +23,9 @@ demo-graph:         ## same session as a checkpointed LangGraph; pauses at the h
 
 demo-mcp:           ## graph session with every backtest over MCP stdio (needs .[agents,mcp])
 	python -m research_lab.run_graph --engine mcp --iterations 3 --variants 4 --seed 3
+
+demo-budget:        ## LLM graph session capped at $0.02: stops early with 'stopped: budget' (needs .[agents,llm] + ANTHROPIC_API_KEY)
+	LLM_PROVIDER=anthropic python -m research_lab.run_graph --use-llm --max-usd 0.02 --iterations 5 --variants 4 --seed 3 --no-gate
 
 resume:             ## resume a paused graph run: make resume THREAD=<id> DECISION=approve|reject
 	python -m research_lab.run_graph --resume $(THREAD) --decision $(DECISION)

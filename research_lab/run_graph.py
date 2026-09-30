@@ -26,11 +26,13 @@ if hasattr(sys.stdout, "reconfigure"):
 
 from langgraph.types import Command
 
+from research_lab import observability
 from research_lab.agents.backtester import close_mcp_clients
 from research_lab.agents.context import CONSTRUCTIONS
 from research_lab.graph import (
     DEFAULT_CHECKPOINT_DB,
     best_ranked,
+    budget_from_state,
     build_graph,
     default_checkpointer,
     initial_state,
@@ -56,6 +58,11 @@ def _stream(graph, payload, cfg) -> bool:
         for node, update in chunk.items():
             if node == "__interrupt__":
                 paused = True
+            elif node == "propose" and update.get("stop_reason") == "budget":
+                b = update["budget"]
+                print(f"  · budget exhausted before iter {update.get('budget_exhausted_at_iteration', '?')}"
+                      f" (${b['spent_usd']:.4f} spent, {b['llm_calls']} llm calls): "
+                      f"heuristic batch, then stop")
             elif node == "baseline":
                 b = update["baseline"]
                 print(f"  · baseline: return {b['total_return_pct']:+.1f}% · "
@@ -78,6 +85,11 @@ def _print_llm(state: dict[str, Any]) -> None:
               f"context '{state.get('context_mode')}'"
               + (f" · llm_failures={fails} (fell back to the heuristic)" if fails else ""))
         print()
+
+
+def budget_footer(state: dict[str, Any]) -> str:
+    """``budget: $0.0000/∞ · llm calls 0/∞ · stopped: iterations``."""
+    return budget_from_state(state).footer(state.get("stop_reason"))
 
 
 def _beats_baseline(state: dict[str, Any]) -> bool:
@@ -163,12 +175,19 @@ def _main(argv: list[str] | None = None) -> int:
     ap.add_argument("--resume", metavar="THREAD", help="resume a thread paused at the gate")
     ap.add_argument("--decision", choices=["approve", "reject"], help="with --resume")
     ap.add_argument("--list", action="store_true", help="list checkpointed threads")
+    ap.add_argument("--max-usd", type=float, default=None,
+                    help="stop the loop once estimated LLM spend reaches this many USD "
+                         "(checked before each call; default: unbounded)")
+    ap.add_argument("--max-llm-calls", type=int, default=None,
+                    help="stop the loop once this many LLM calls have been made "
+                         "(default: unbounded)")
     ap.add_argument("--no-gate", action="store_true",
                     help="never prompt: stop at the gate and exit 0 (for CI)")
     ap.add_argument("--assert-beats-baseline", action="store_true",
                     help="exit 1 unless the best variant beats the baseline score")
     args = ap.parse_args(argv)
 
+    observability.configure()      # no LOGFIRE_TOKEN → no-op, nothing leaves the process
     db = _db_path(args.db)
     saver = default_checkpointer(db)
     graph = build_graph(saver)
@@ -185,9 +204,12 @@ def _main(argv: list[str] | None = None) -> int:
             print(f"  thread {args.resume!r} is not paused at the human gate in {db}",
                   file=sys.stderr)
             return 2
-        _stream(graph, Command(resume=args.decision), cfg)
+        with observability.span("research_resume", thread_id=args.resume,
+                                decision=args.decision):
+            _stream(graph, Command(resume=args.decision), cfg)
         state = graph.get_state(cfg).values
         _print_decision(state, db)
+        print(f"  {budget_footer(state)}")
         if args.assert_beats_baseline and not _beats_baseline(state):
             return 1
         return 0
@@ -220,17 +242,34 @@ def _main(argv: list[str] | None = None) -> int:
 
     if args.engine == "mcp":
         print(f"  · {MCP_ENGINE_LABEL}")
-    paused = _stream(graph, initial_state(
-        strategy=args.strategy, seed=args.seed, iterations=args.iterations,
-        variants_per_iter=args.variants, use_llm=args.use_llm,
-        context_mode=args.context_mode, engine=args.engine,
-        provider=args.provider if args.use_llm else None,
-        memory=args.memory, memory_db=db_memory, run_id=thread,
-    ), cfg)
-    state = graph.get_state(cfg).values
+    provider = args.provider if args.use_llm else None
+    with observability.span("research_run", thread_id=thread, strategy=args.strategy,
+                            seed=args.seed, engine=args.engine,
+                            provider=(provider or os.environ.get("LLM_PROVIDER")
+                                      or "anthropic") if args.use_llm else "heuristic",
+                            iterations=args.iterations, variants=args.variants,
+                            max_usd=args.max_usd, max_llm_calls=args.max_llm_calls) as run_span:
+        paused = _stream(graph, initial_state(
+            strategy=args.strategy, seed=args.seed, iterations=args.iterations,
+            variants_per_iter=args.variants, use_llm=args.use_llm,
+            context_mode=args.context_mode, engine=args.engine,
+            provider=provider,
+            memory=args.memory, memory_db=db_memory, run_id=thread,
+            max_usd=args.max_usd, max_llm_calls=args.max_llm_calls,
+        ), cfg)
+        state = graph.get_state(cfg).values
+        observability.set_attributes(run_span, {
+            "iterations_completed": state.get("iteration", 0),
+            "llm_calls": state.get("llm_calls", 0),
+            "llm_cost_usd": state.get("llm_cost_usd", 0.0),
+            "stop_reason": state.get("stop_reason") or "iterations",
+            "paused_at_gate": paused,
+        })
     print(render_report(to_run_result(state), args.strategy, engine=args.engine,
                         memory=memory_line))
     _print_llm(state)
+    print(f"  {budget_footer(state)}")
+    print()
 
     if paused:
         decision = None

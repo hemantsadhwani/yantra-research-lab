@@ -77,6 +77,21 @@ def test_stdlib_path_never_imports_langgraph():
     subprocess.run([sys.executable, "-c", code], cwd=REPO, check=True)
 
 
+def test_budget_and_stdlib_run_never_import_optional_sdks():
+    # The budget is shared by both arms, so it must stay stdlib; tracing is graph-arm only.
+    code = ("import research_lab.budget, research_lab.run, sys; "
+            "leaked = {'logfire', 'pydantic', 'langgraph', 'mcp', 'anthropic', 'fastembed', "
+            "'opentelemetry', 'llm_gateway', 'research_lab.observability'} & set(sys.modules); "
+            "assert not leaked, leaked")
+    subprocess.run([sys.executable, "-c", code], cwd=REPO, check=True)
+
+
+def test_observability_module_imports_without_logfire():
+    code = ("import sys; sys.modules['logfire'] = None; "
+            "import research_lab.observability as o; assert o.configure() is False")
+    subprocess.run([sys.executable, "-c", code], cwd=REPO, check=True)
+
+
 def test_memory_modules_stay_stdlib():
     # Persistent memory is stdlib sqlite3; fastembed is only imported on first embed().
     code = ("import research_lab.memory, research_lab.memory_store, research_lab.embeddings, "

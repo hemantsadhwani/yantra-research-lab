@@ -36,6 +36,7 @@ import random
 from typing import Any
 
 from research_lab.agents.context import build_context
+from research_lab.budget import Budget
 from research_lab.memory import MemoryLike
 from research_lab.schemas import StrategyVariant
 from synthetic_engine import PARAM_SPACE
@@ -79,6 +80,9 @@ class Proposer:
             Only meaningful when ``use_llm`` is set.
         start_counter: last variant number already issued, so a proposer rebuilt from a
             checkpoint (see ``research_lab/graph.py``) continues ``vNNN`` numbering.
+        budget: an optional ``research_lab.budget.Budget``. Checked before every LLM
+            call (exhausted → this batch uses the heuristic and ``budget_exhausted`` is
+            set; not a failure) and charged with each response's cost.
     """
 
     def __init__(
@@ -89,6 +93,7 @@ class Proposer:
         context_mode: str = "compacted",
         start_counter: int = 0,
         provider: Any = None,
+        budget: Budget | None = None,
     ) -> None:
         self._rng = random.Random(seed)
         self._counter = start_counter
@@ -108,9 +113,16 @@ class Proposer:
         self.llm_cost_usd = 0.0
         self.llm_structured_mode = "none"   # last successful rung of the gateway ladder
         self.used_priors = 0                # explorers drawn from learned priors
+        self.budget = budget
+        self.budget_exhausted = False       # set once a batch was denied an LLM call
 
     def propose(self, n: int, memory: MemoryLike) -> list[StrategyVariant]:
         if self.use_llm:
+            if self.budget is not None and self.budget.exhausted():
+                # Bounded autonomy: no provider call past the budget. The heuristic
+                # proposes this batch; the loop sees ``budget_exhausted`` and stops.
+                self.budget_exhausted = True
+                return self._propose_heuristic(n, memory)
             return self._propose_llm(n, memory)
         return self._propose_heuristic(n, memory)
 
@@ -210,6 +222,8 @@ class Proposer:
                               + resp.cache_write_tokens)
         self.output_tokens += resp.output_tokens
         self.llm_cost_usd += resp.cost_usd
+        if self.budget is not None:
+            self.budget.charge(resp.cost_usd)
 
         batch = resp.parsed
         proposals = list(getattr(batch, "variants", None) or [])

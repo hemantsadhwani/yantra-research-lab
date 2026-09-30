@@ -15,7 +15,8 @@ Nodes are thin adapters over the existing agents (``Proposer``, ``Backtester``,
 State is plain JSON (dicts/lists/scalars) so any checkpointer round-trips it without
 custom serialisers.
 
-    START → baseline → propose → backtest_all → record ─┬→ propose        (budget left)
+    START → baseline → propose → backtest_all → record ─┬→ propose        (iterations left,
+                                                        │                   budget not hit)
                                                         ├→ gate → finalize (best is 'promote?')
                                                         └→ finalize        (nothing to promote)
     finalize → END
@@ -31,6 +32,19 @@ checkpointed trial log in every ``propose`` (as before); ``"sqlite"`` opens a
 each iteration's trials through to it, and ``finalize`` records a promotion *only* when a
 human approved at the gate, then refreshes the materialised priors. Connections are
 opened and closed inside each node — never stored in state — so state stays JSON.
+
+**Budget.** ``state["budget"]`` holds the run's limits (``max_usd``, ``max_llm_calls``)
+and a mirror of what has been spent. The single source of truth for *spend* is the
+top-level ``llm_calls`` / ``llm_cost_usd`` counters: ``propose`` rebuilds a
+``research_lab.budget.Budget`` from the limits plus those counters, hands it to the
+proposer (which checks it before calling the model and charges it after), then writes
+the counters and the ``budget`` mirror from that one object, so they never disagree. A
+batch denied an LLM call runs on the heuristic, sets ``stop_reason="budget"`` and
+``budget_exhausted_at_iteration``, and ``route_after_record`` stops iterating: straight
+to the human gate if the best is ``promote?``, else to finalize.
+
+**Tracing.** Every node is wrapped in ``observability.traced`` (a ``node.<name>`` span
+with tokens / cost / spend / stop reason); a no-op unless Logfire is configured.
 
 This module (and ``run_graph.py``) are the only places that import langgraph; the stdlib
 path in ``supervisor.py`` / ``run.py`` never does.
@@ -49,8 +63,10 @@ from langgraph.graph import END, START, StateGraph
 from langgraph.types import interrupt
 
 from research_lab.agents import Evaluator, Proposer, make_backtester, score_result
+from research_lab.budget import Budget
 from research_lab.memory import Memory, MemoryLike
 from research_lab.memory_store import SqliteMemory, default_memory_db
+from research_lab.observability import traced
 from research_lab.schemas import (
     BacktestResult,
     Evaluation,
@@ -89,10 +105,15 @@ class ResearchState(TypedDict, total=False):
     llm_calls: int                 # LLM accounting survives node-local proposers
     llm_failures: int              # a degraded run must never look like a clean one
     llm_cost_usd: float            # estimated (list price) across all LLM calls
+    llm_input_tokens: int          # incl. cache reads/writes
+    llm_output_tokens: int
     llm_structured_mode: str       # last successful gateway rung: native|json_schema|prompt|none
     llm_provider: str              # which provider/model actually answered (for the report)
     llm_model: str
     priors_used: int               # explorers drawn from learned priors (sqlite memory)
+    # bounded autonomy: limits + a mirror of llm_calls / llm_cost_usd (see module doc)
+    budget: dict[str, Any]         # {max_usd, max_llm_calls, spent_usd, llm_calls}
+    budget_exhausted_at_iteration: int | None
     # human gate
     approval: str | None           # only ever set by a human resume
     promoted_id: str | None
@@ -111,6 +132,8 @@ def initial_state(
     memory: str = "inmem",
     memory_db: str | None = None,
     run_id: str | None = None,
+    max_usd: float | None = None,
+    max_llm_calls: int | None = None,
 ) -> ResearchState:
     if memory not in ("inmem", "sqlite"):
         raise ValueError(f"memory must be 'inmem' or 'sqlite', not {memory!r}")
@@ -124,6 +147,9 @@ def initial_state(
         priors_used=0,
         iteration=0, counter=0, proposals=[], ranked=[], trials=[],
         llm_calls=0, llm_failures=0, llm_cost_usd=0.0, llm_structured_mode="none",
+        llm_input_tokens=0, llm_output_tokens=0,
+        budget=Budget(max_usd=max_usd, max_llm_calls=max_llm_calls).to_dict(),
+        budget_exhausted_at_iteration=None,
         approval=None, promoted_id=None,
     )
 
@@ -190,7 +216,16 @@ def to_run_result(state: ResearchState) -> RunResult:
     )
 
 
+def budget_from_state(state: ResearchState) -> Budget:
+    """Limits from ``state["budget"]``; spend from the top-level counters (the truth)."""
+    limits = state.get("budget") or {}
+    return Budget(max_usd=limits.get("max_usd"), max_llm_calls=limits.get("max_llm_calls"),
+                  spent_usd=float(state.get("llm_cost_usd", 0.0) or 0.0),
+                  llm_calls=int(state.get("llm_calls", 0) or 0))
+
+
 # ------------------------------------------------------------------------ nodes
+@traced("baseline")
 def baseline_node(state: ResearchState) -> dict[str, Any]:
     strategy = state.get("strategy", DEFAULT_STRATEGY)
     variant = StrategyVariant(id="baseline", params=get_baseline(strategy),
@@ -201,10 +236,16 @@ def baseline_node(state: ResearchState) -> dict[str, Any]:
     return {"baseline": asdict(result), "baseline_score": score_result(result)}
 
 
+@traced("propose")
 def propose_node(state: ResearchState, provider: Any = None) -> dict[str, Any]:
     """``provider`` is an injected ``llm_gateway`` provider (tests); by default one is
-    built from ``state["provider"]`` / ``$LLM_PROVIDER`` — only when ``use_llm`` is set."""
+    built from ``state["provider"]`` / ``$LLM_PROVIDER`` — only when ``use_llm`` is set
+    and the budget still allows a call."""
     use_llm = state.get("use_llm", False)
+    budget = budget_from_state(state)
+    denied = use_llm and budget.exhausted()
+    if denied:
+        use_llm = False     # this batch is heuristic; the provider is never called
     if use_llm and provider is None:
         from llm_gateway import get_provider  # lazy: the heuristic graph never needs it
         provider = get_provider(state.get("provider"))
@@ -214,6 +255,7 @@ def propose_node(state: ResearchState, provider: Any = None) -> dict[str, Any]:
         use_llm=use_llm,
         context_mode=state.get("context_mode", "compacted"),
         provider=provider,
+        budget=budget,
     )
     memory = open_memory(state)
     try:
@@ -225,11 +267,19 @@ def propose_node(state: ResearchState, provider: Any = None) -> dict[str, Any]:
     update: dict[str, Any] = {
         "proposals": [asdict(v) for v in variants],
         "counter": proposer._counter,
-        "llm_calls": state.get("llm_calls", 0) + proposer.llm_calls,
+        # One object, one truth: the counters and the budget mirror come from ``budget``.
+        "llm_calls": budget.llm_calls,
         "llm_failures": state.get("llm_failures", 0) + proposer.llm_failures,
-        "llm_cost_usd": state.get("llm_cost_usd", 0.0) + proposer.llm_cost_usd,
+        "llm_cost_usd": budget.spent_usd,
+        "llm_input_tokens": state.get("llm_input_tokens", 0) + proposer.input_tokens,
+        "llm_output_tokens": state.get("llm_output_tokens", 0) + proposer.output_tokens,
+        "budget": budget.to_dict(),
         "priors_used": state.get("priors_used", 0) + proposer.used_priors,
     }
+    if denied:
+        update["stop_reason"] = "budget"
+        if state.get("budget_exhausted_at_iteration") is None:
+            update["budget_exhausted_at_iteration"] = state.get("iteration", 0) + 1
     if use_llm:
         update["llm_provider"] = proposer.provider_name
         update["llm_model"] = proposer.model
@@ -238,6 +288,7 @@ def propose_node(state: ResearchState, provider: Any = None) -> dict[str, Any]:
     return update
 
 
+@traced("backtest_all")
 def backtest_all_node(state: ResearchState) -> dict[str, Any]:
     backtester = make_backtester(state.get("engine", "inprocess"),
                                  state.get("strategy", DEFAULT_STRATEGY))
@@ -252,6 +303,7 @@ def backtest_all_node(state: ResearchState) -> dict[str, Any]:
     return {"ranked": ranked}
 
 
+@traced("record")
 def record_node(state: ResearchState) -> dict[str, Any]:
     """The graph form of ``memory.observe``: append this iteration's trials (and, with
     sqlite memory, write them through to the store — idempotent per variant id)."""
@@ -274,6 +326,7 @@ def record_node(state: ResearchState) -> dict[str, Any]:
     return {"trials": trials, "iteration": state.get("iteration", 0) + 1}
 
 
+@traced("gate")
 def gate_node(state: ResearchState) -> dict[str, Any]:
     # LangGraph re-runs this node from the top on resume: nothing above interrupt()
     # may have side effects. Computing ``best`` is pure.
@@ -284,6 +337,7 @@ def gate_node(state: ResearchState) -> dict[str, Any]:
     return {"approval": "rejected", "promoted_id": None}
 
 
+@traced("finalize")
 def finalize_node(state: ResearchState) -> dict[str, Any]:
     if state.get("memory") == "sqlite":
         mem = open_memory(state)
@@ -300,7 +354,8 @@ def finalize_node(state: ResearchState) -> dict[str, Any]:
 
 
 def route_after_record(state: ResearchState) -> str:
-    if state.get("iteration", 0) < state["iterations"]:
+    budget_stop = state.get("stop_reason") == "budget"
+    if not budget_stop and state.get("iteration", 0) < state["iterations"]:
         return "propose"
     best = best_ranked(state.get("ranked", []))
     if best is not None and best["evaluation"]["verdict"] == "promote?":

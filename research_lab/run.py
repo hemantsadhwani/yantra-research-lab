@@ -5,6 +5,7 @@
     python -m research_lab.run --strategy nifty-expiry
     python -m research_lab.run --engine mcp    # drive the engine over MCP stdio (needs .[mcp])
     python -m research_lab.run --memory sqlite # persist trials; learn priors from past runs
+    python -m research_lab.run --use-llm --max-usd 0.02   # stop once LLM spend hits $0.02
 """
 
 from __future__ import annotations
@@ -21,6 +22,7 @@ if hasattr(sys.stdout, "reconfigure"):
     sys.stderr.reconfigure(encoding="utf-8", errors="replace")
 
 from research_lab.agents.context import CONSTRUCTIONS
+from research_lab.budget import Budget
 from research_lab.schemas import RunResult
 from research_lab.supervisor import Supervisor
 from synthetic_engine import DEFAULT_STRATEGY, list_strategies
@@ -104,7 +106,14 @@ def main() -> None:
     ap.add_argument("--db-memory", metavar="PATH",
                     help="SQLite memory path (default: $RESEARCH_MEMORY_DB or "
                          ".yantra/research.sqlite)")
+    ap.add_argument("--max-usd", type=float, default=None,
+                    help="stop once estimated LLM spend reaches this many USD (--use-llm)")
+    ap.add_argument("--max-llm-calls", type=int, default=None,
+                    help="stop once this many LLM calls have been made (--use-llm)")
     args = ap.parse_args()
+    budget = None
+    if args.max_usd is not None or args.max_llm_calls is not None:
+        budget = Budget(max_usd=args.max_usd, max_llm_calls=args.max_llm_calls)
 
     if args.use_llm:
         try:
@@ -134,7 +143,7 @@ def main() -> None:
         supervisor = Supervisor(seed=args.seed, strategy=args.strategy,
                                 use_llm=args.use_llm, context_mode=args.context,
                                 log=lambda m: print(f"  · {m}"), backtester=backtester,
-                                memory=memory)
+                                memory=memory, budget=budget)
         run = supervisor.run(iterations=args.iterations, variants_per_iter=args.variants)
         if memory is not None:
             memory.refresh_priors()
@@ -152,6 +161,10 @@ def main() -> None:
               f"{p.input_tokens:,} in / {p.output_tokens:,} out tokens"
               + (f" · llm_failures={p.llm_failures} (fell back to the heuristic)"
                  if p.llm_failures else ""))
+    if p.use_llm or budget is not None:   # the default heuristic output stays byte-identical
+        shown = budget or Budget(spent_usd=p.llm_cost_usd, llm_calls=p.llm_calls)
+        print(f"  {shown.footer(supervisor.stop_reason)}")
+    if p.use_llm:
         print()
 
 

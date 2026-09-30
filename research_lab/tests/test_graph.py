@@ -115,3 +115,29 @@ def test_graph_runs_over_mcp():
 
     assert ids_scores(over_mcp) == ids_scores(in_process)
     assert over_mcp["baseline"] == in_process["baseline"]
+
+
+def test_route_after_record_stops_on_budget():
+    from research_lab.graph import route_after_record
+
+    promote = [{"variant": {"id": "v1"}, "evaluation": {"score": 9.0, "verdict": "promote?"}}]
+    hold = [{"variant": {"id": "v1"}, "evaluation": {"score": 1.0, "verdict": "hold"}}]
+    base = {"iteration": 1, "iterations": 5}
+    assert route_after_record({**base, "ranked": promote}) == "propose"
+    assert route_after_record({**base, "ranked": promote, "stop_reason": "budget"}) == "gate"
+    assert route_after_record({**base, "ranked": hold, "stop_reason": "budget"}) == "finalize"
+
+
+def test_initial_state_budget_defaults_unbounded():
+    s = initial_state(max_usd=0.05, max_llm_calls=3)
+    assert s["budget"] == {"max_usd": 0.05, "max_llm_calls": 3, "spent_usd": 0.0,
+                           "llm_calls": 0}
+    assert initial_state()["budget"]["max_usd"] is None
+
+
+def test_heuristic_graph_footer():
+    from research_lab.run_graph import budget_footer
+
+    final = _run_to_end()
+    assert final["budget"]["llm_calls"] == 0
+    assert budget_footer(final) == "budget: $0.0000/∞ · llm calls 0/∞ · stopped: iterations"

@@ -19,6 +19,7 @@ from __future__ import annotations
 from collections.abc import Callable
 
 from research_lab.agents import Backtester, Evaluator, Proposer, score_result
+from research_lab.budget import Budget
 from research_lab.memory import Memory, MemoryLike
 from research_lab.schemas import (
     RankedVariant,
@@ -39,11 +40,20 @@ class Supervisor:
         context_mode: str = "compacted",
         backtester: Backtester | None = None,
         memory: MemoryLike | None = None,
+        budget: Budget | None = None,
+        proposer: Proposer | None = None,
     ) -> None:
         self.strategy = strategy
         # The only line the LLM swap touches. Everything below — verification, the
         # evaluator, memory, the HITL gate — is indifferent to which proposer ran.
-        self.proposer = Proposer(seed=seed, use_llm=use_llm, context_mode=context_mode)
+        # ``proposer`` is injectable (tests pass one wired to a FakeProvider).
+        self.proposer = proposer if proposer is not None else Proposer(
+            seed=seed, use_llm=use_llm, context_mode=context_mode)
+        # One Budget instance for the whole run; the proposer checks and charges it.
+        self.budget = budget
+        if budget is not None:
+            self.proposer.budget = budget
+        self.stop_reason: str | None = None
         # Injectable (e.g. an MCPBacktester); anything with ``.backtest(variant)`` works.
         self.backtester = backtester if backtester is not None else Backtester(strategy=strategy)
         # In-process by default; pass a SqliteMemory to learn across runs.
@@ -63,6 +73,8 @@ class Supervisor:
                   f"score {evaluator.baseline_score:.1f} · {baseline.trades} trades")
 
         ranked: list[RankedVariant] = []
+        completed = 0
+        self.stop_reason = "iterations"
         for it in range(1, iterations + 1):
             for variant in self.proposer.propose(variants_per_iter, self.memory):
                 verify_variant(variant)                 # in-space before we spend a backtest
@@ -72,10 +84,16 @@ class Supervisor:
                 self.memory.observe(variant, evaluation)
                 ranked.append(RankedVariant(variant, result, evaluation))
             self._log(f"iter {it}/{iterations}: best score so far {self.memory.best_score():.1f}")
+            completed = it
+            if self.proposer.budget_exhausted:
+                # The batch that found the budget spent ran on the heuristic; stop here.
+                self.stop_reason = "budget"
+                self._log(f"budget exhausted at iter {it}: stopping early")
+                break
 
         ranked.sort(key=lambda rv: rv.evaluation.score, reverse=True)
         return RunResult(
-            iterations=iterations,
+            iterations=completed,
             variants_tested=len(ranked),
             baseline=baseline,
             ranked=ranked,
