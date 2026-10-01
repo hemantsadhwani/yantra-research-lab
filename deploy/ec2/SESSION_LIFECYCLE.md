@@ -3,6 +3,7 @@
 The dev GPU box is disposable. Everything that must outlive a session lives in S3 or GitHub, so
 each session starts from a fresh box and ends with `terminate`. Written 2026-10-01 after the
 first two retraining sessions; every command below was run that day.
+Diagrams of this flow: [docs/diagrams/yantra_slm_finetuning.drawio](../../docs/diagrams/README.md).
 
 ## What survives a terminate
 
@@ -30,7 +31,7 @@ TYPE=g6.xlarge DISK_GB=100 bash deploy/ec2/launch.sh launch --yes     # bills fr
 Mumbai often has no g5/g6 capacity (2026-10-01: none in either zone for an hour). Try in order:
 `g6.xlarge` → `g5.xlarge` → `g4dn.xlarge` (T4 16 GB; the code switches to fp16 there), each with
 `AZ=ap-south-1a` and `AZ=ap-south-1b`. The fallback region `us-east-1` is allowed by the launcher
-policy; its GPU quota was requested on 2026-10-01.
+policy; its GPU quota (8 vCPU on-demand and spot) was approved on 2026-10-01.
 
 ## 2. Bootstrap and train (on the box, in tmux)
 

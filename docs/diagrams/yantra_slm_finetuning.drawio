@@ -1,0 +1,473 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="drawio" agent="Claude Code" version="24.0.0">
+  <diagram name="1 Architecture" id="1_Architecture">
+    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1900" pageHeight="1150" math="0" shadow="0" background="#FFFFFF">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="p1-1" value="Layout SLM — fine-tuning → infra → S3 → MLflow → serving" style="text;html=1;align=left;verticalAlign=middle;fontSize=26;fontStyle=1;fontFamily=Helvetica;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="40" y="14" width="1100" height="40" />
+        </mxCell>
+        <mxCell id="p1-2" value="A 1.5B model learns to label a PDF page (text · table-heavy · figure-heavy · scanned · mixed) from the parser's one-line page summary. Teacher = the parser's own rule. Everything that must survive lives in S3 or GitHub; the GPU box is disposable." style="text;html=1;align=left;verticalAlign=top;fontSize=13;fontColor=#555555;whiteSpace=wrap;fontFamily=Helvetica;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="40" y="54" width="1100" height="44" />
+        </mxCell>
+        <mxCell id="p1-3" value="Built and measured ✓" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;align=center;verticalAlign=middle;fontFamily=Helvetica;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1040" y="20" width="160" height="26" />
+        </mxCell>
+        <mxCell id="p1-4" value="Data in S3" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;align=center;verticalAlign=middle;fontFamily=Helvetica;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1210" y="20" width="160" height="26" />
+        </mxCell>
+        <mxCell id="p1-5" value="Champion / human gate" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;align=center;verticalAlign=middle;fontFamily=Helvetica;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1380" y="20" width="160" height="26" />
+        </mxCell>
+        <mxCell id="p1-6" value="Rejected" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;align=center;verticalAlign=middle;fontFamily=Helvetica;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1550" y="20" width="160" height="26" />
+        </mxCell>
+        <mxCell id="p1-7" value="Designed, not built" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;align=center;verticalAlign=middle;fontFamily=Helvetica;fillColor=#f5f5f5;strokeColor=#999999;dashed=1;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1720" y="20" width="160" height="26" />
+        </mxCell>
+        <mxCell id="p1-8" value="① Control plane" style="rounded=1;arcSize=2;whiteSpace=wrap;html=1;verticalAlign=top;align=center;fontSize=15;fontStyle=1;spacingTop=8;fontFamily=Helvetica;fillColor=#f0f0f0;strokeColor=#888888;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="40" y="110" width="340" height="1000" />
+        </mxCell>
+        <mxCell id="p1-9" value="② Data — S3" style="rounded=1;arcSize=2;whiteSpace=wrap;html=1;verticalAlign=top;align=center;fontSize=15;fontStyle=1;spacingTop=8;fontFamily=Helvetica;fillColor=#eef4fb;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="410" y="110" width="340" height="1000" />
+        </mxCell>
+        <mxCell id="p1-10" value="③ Fine-tuning — GPU box" style="rounded=1;arcSize=2;whiteSpace=wrap;html=1;verticalAlign=top;align=center;fontSize=15;fontStyle=1;spacingTop=8;fontFamily=Helvetica;fillColor=#eef7ec;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="780" y="110" width="340" height="1000" />
+        </mxCell>
+        <mxCell id="p1-11" value="④ Registry — MLflow" style="rounded=1;arcSize=2;whiteSpace=wrap;html=1;verticalAlign=top;align=center;fontSize=15;fontStyle=1;spacingTop=8;fontFamily=Helvetica;fillColor=#fdf8e6;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1150" y="110" width="340" height="1000" />
+        </mxCell>
+        <mxCell id="p1-12" value="⑤ Serving — next" style="rounded=1;arcSize=2;whiteSpace=wrap;html=1;verticalAlign=top;align=center;fontSize=15;fontStyle=1;spacingTop=8;fontFamily=Helvetica;fillColor=#f7f7f7;strokeColor=#aaaaaa;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1520" y="110" width="340" height="1000" />
+        </mxCell>
+        <mxCell id="p1-13" value="&lt;b&gt;🖥 nifty_dev&lt;/b&gt; (trading monitor host)&lt;br&gt;&lt;font face=&quot;Courier New&quot; color=&quot;#0b5394&quot;&gt;launch.sh&lt;/font&gt; · profile &lt;b&gt;yantra-launcher&lt;/b&gt;&lt;br&gt;can only launch/stop/terminate boxes tagged &lt;i&gt;purpose=dev-public-repos&lt;/i&gt;, in Mumbai or Virginia&lt;br&gt;never runs training itself" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fontFamily=Helvetica;fillColor=#ffffff;strokeColor=#cccccc;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="55" y="160" width="310" height="175" />
+        </mxCell>
+        <mxCell id="p1-14" value="&lt;b&gt;🔑 Box identity&lt;/b&gt; — role &lt;b&gt;yantra-dev-bedrock&lt;/b&gt;&lt;br&gt;no keys on the box (instance metadata)&lt;br&gt;S3: read &lt;b&gt;yantra-corpus/*&lt;/b&gt; · read+write &lt;b&gt;ml/*&lt;/b&gt; · no delete" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fontFamily=Helvetica;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="55" y="350" width="310" height="120" />
+        </mxCell>
+        <mxCell id="p1-15" value="&lt;b&gt;One command per session&lt;/b&gt;&lt;br&gt;&lt;font face=&quot;Courier New&quot; color=&quot;#0b5394&quot;&gt;layout_session.sh&lt;/font&gt;&lt;br&gt;install → pull mlflow.db → dataset → QLoRA → eval → register → push mlflow.db (pushed even if a step fails)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fontFamily=Helvetica;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="55" y="485" width="310" height="135" />
+        </mxCell>
+        <mxCell id="p1-16" value="&lt;b&gt;Capacity fallbacks&lt;/b&gt; (Mumbai ran out, 1 Oct)&lt;br&gt;g6.xlarge (L4) → g5.xlarge (A10G) → &lt;b&gt;g4dn.xlarge (T4)&lt;/b&gt;, zones 1a/1b&lt;br&gt;us-east-1: launcher allowed, GPU quota 8 vCPU (approved)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fontFamily=Helvetica;fillColor=#ffffff;strokeColor=#cccccc;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="55" y="635" width="310" height="150" />
+        </mxCell>
+        <mxCell id="p1-17" value="&lt;b&gt;Session end&lt;/b&gt;&lt;br&gt;copy the card → &lt;b&gt;terminate&lt;/b&gt;&lt;br&gt;nothing on the box is needed again (see page 4)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fontFamily=Helvetica;fillColor=#ffffff;strokeColor=#cccccc;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="55" y="800" width="310" height="120" />
+        </mxCell>
+        <mxCell id="p1-18" value="&lt;b&gt;Cost, 1 Oct&lt;/b&gt;&lt;br&gt;2 training sessions on a T4 ≈ $1.1 total&lt;br&gt;S3 ≈ 1.2 GB ≈ $0.03/month&lt;br&gt;LLM API calls: none" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fontFamily=Helvetica;fillColor=#ffffff;strokeColor=#cccccc;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="55" y="935" width="310" height="155" />
+        </mxCell>
+        <mxCell id="p1-19" value="&lt;b&gt;🥉 Bronze — raw PDFs&lt;/b&gt;&lt;br&gt;&lt;font face=&quot;Courier New&quot; color=&quot;#0b5394&quot;&gt;yantra-corpus/raw/&lt;/font&gt;&lt;br&gt;&lt;b&gt;426&lt;/b&gt; arXiv q-fin papers · 807 MB&lt;br&gt;written daily by the ingest job (GitHub Actions)&lt;br&gt;box: &lt;b&gt;read only&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fontFamily=Helvetica;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="425" y="160" width="310" height="150" />
+        </mxCell>
+        <mxCell id="p1-20" value="&lt;b&gt;🥈 Silver — page features&lt;/b&gt;&lt;br&gt;&lt;font face=&quot;Courier New&quot; color=&quot;#0b5394&quot;&gt;ml/silver/layout_features/&lt;/font&gt;&lt;br&gt;426 files · &lt;b&gt;7,506 pages&lt;/b&gt;&lt;br&gt;first parse 8 min · later rebuilds 10 s" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fontFamily=Helvetica;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="425" y="380" width="310" height="150" />
+        </mxCell>
+        <mxCell id="p1-21" value="&lt;b&gt;🥇 Dataset 87060948b499&lt;/b&gt;&lt;br&gt;&lt;font face=&quot;Courier New&quot; color=&quot;#0b5394&quot;&gt;ml/datasets/layout/87060948b499/&lt;/font&gt;&lt;hr&gt;split &lt;b&gt;by paper&lt;/b&gt; (hash, 80/10/10)&lt;br&gt;&lt;b&gt;train&lt;/b&gt; 344 papers · 6,022 pages&lt;br&gt;&lt;b&gt;val&lt;/b&gt; 41 papers · 741 pages&lt;br&gt;&lt;b&gt;test&lt;/b&gt; 41 papers · 743 pages — &lt;b&gt;locked&lt;/b&gt;&lt;br&gt;+ manifest.json (sha256 of every file)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fontFamily=Helvetica;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="425" y="600" width="310" height="230" />
+        </mxCell>
+        <mxCell id="p1-22" value="&lt;b&gt;Labels&lt;/b&gt; = &lt;font face=&quot;Courier New&quot; color=&quot;#0b5394&quot;&gt;layout_labels.derive_label&lt;/font&gt;&lt;br&gt;a fixed rule over the parser's counts — free, not human&lt;br&gt;rare in real papers: table-heavy 22, scanned 6" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fontFamily=Helvetica;fillColor=#ffffff;strokeColor=#cccccc;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="425" y="845" width="310" height="125" />
+        </mxCell>
+        <mxCell id="p1-23" value="parse every page&lt;br&gt;(PyMuPDF, tables on all pages)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#555555;fontFamily=Helvetica;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="p1-19" target="p1-20">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="p1-24" value="label + split by paper" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#555555;fontFamily=Helvetica;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="p1-20" target="p1-21">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="p1-25" value="&lt;b&gt;🧠 GPU box (disposable)&lt;/b&gt;&lt;br&gt;g4dn.xlarge · NVIDIA T4 16 GB · 4 vCPU&lt;br&gt;Deep Learning AMI, Ubuntu 24.04&lt;br&gt;fp16 on T4 · bf16 on A10G/L4" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fontFamily=Helvetica;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="795" y="160" width="310" height="125" />
+        </mxCell>
+        <mxCell id="p1-26" value="&lt;b&gt;Training sample (v2)&lt;/b&gt;&lt;br&gt;2,654 rows · natural mix, &lt;b&gt;text capped at 50%&lt;/b&gt;&lt;br&gt;rare labels kept whole" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fontFamily=Helvetica;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="795" y="300" width="310" height="95" />
+        </mxCell>
+        <mxCell id="p1-27" value="&lt;b&gt;QLoRA&lt;/b&gt; on &lt;b&gt;Qwen2.5-1.5B-Instruct&lt;/b&gt;&lt;br&gt;base frozen in 4-bit (nf4)&lt;br&gt;LoRA r=16 on q/k/v/o · &lt;b&gt;4.36 M&lt;/b&gt; trainable of 893 M&lt;br&gt;lr 2e-4 · grad clip 1.0 · 1,000 steps · 15 min" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fontFamily=Helvetica;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="795" y="410" width="310" height="140" />
+        </mxCell>
+        <mxCell id="p1-28" value="&lt;b&gt;Checkpoint selection&lt;/b&gt;&lt;br&gt;every 200 steps, score a 200-page &lt;b&gt;val&lt;/b&gt; slice&lt;br&gt;keep the best → step 400" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fontFamily=Helvetica;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="795" y="565" width="310" height="110" />
+        </mxCell>
+        <mxCell id="p1-29" value="&lt;b&gt;Evaluation&lt;/b&gt;&lt;br&gt;base vs tuned on 600 val + 600 &lt;b&gt;test&lt;/b&gt; pages&lt;br&gt;per-label accuracy · p50 latency&lt;br&gt;test touched &lt;b&gt;once&lt;/b&gt;, at the end" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fontFamily=Helvetica;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="795" y="690" width="310" height="140" />
+        </mxCell>
+        <mxCell id="p1-30" value="&lt;b&gt;Result (champion v2)&lt;/b&gt;&lt;br&gt;test &lt;b&gt;0.978&lt;/b&gt; vs 0.787 always-'text'&lt;br&gt;base model 0.032 · 152 ms/page on the T4" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fontFamily=Helvetica;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="795" y="845" width="310" height="125" />
+        </mxCell>
+        <mxCell id="p1-31" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#555555;fontFamily=Helvetica;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="p1-26" target="p1-27">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="p1-32" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#555555;fontFamily=Helvetica;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="p1-27" target="p1-28">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="p1-33" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#555555;fontFamily=Helvetica;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="p1-28" target="p1-29">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="p1-34" value="&lt;b&gt;📒 Tracking&lt;/b&gt; — SQLite &lt;font face=&quot;Courier New&quot; color=&quot;#0b5394&quot;&gt;mlflow.db&lt;/font&gt;&lt;br&gt;lives in &lt;font face=&quot;Courier New&quot; color=&quot;#0b5394&quot;&gt;ml/mlflow/mlflow.db&lt;/font&gt;&lt;br&gt;pulled at session start, pushed at the end&lt;br&gt;params · metrics · loss curve · val-selection curve" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fontFamily=Helvetica;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1165" y="160" width="310" height="150" />
+        </mxCell>
+        <mxCell id="p1-35" value="&lt;b&gt;📦 Artifacts&lt;/b&gt; → &lt;font face=&quot;Courier New&quot; color=&quot;#0b5394&quot;&gt;ml/mlflow/artifacts/&lt;/font&gt;&lt;br&gt;adapter_model.safetensors (17 MB)&lt;br&gt;pyfunc wrapper + code · MLmodel&lt;br&gt;card · dataset manifest" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fontFamily=Helvetica;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1165" y="325" width="310" height="150" />
+        </mxCell>
+        <mxCell id="p1-36" value="&lt;b&gt;Registered model&lt;/b&gt; &lt;font face=&quot;Courier New&quot; color=&quot;#0b5394&quot;&gt;layout-classifier&lt;/font&gt;&lt;br&gt;each version tagged with dataset_version + test_accuracy" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fontFamily=Helvetica;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1165" y="490" width="310" height="120" />
+        </mxCell>
+        <mxCell id="p1-37" value="&lt;b&gt;v1&lt;/b&gt;&lt;br&gt;test 0.662&lt;br&gt;&lt;i&gt;rejected&lt;/i&gt;&lt;br&gt;below baseline" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fontFamily=Helvetica;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1165" y="625" width="145" height="120" />
+        </mxCell>
+        <mxCell id="p1-38" value="&lt;b&gt;v2&lt;/b&gt;&lt;br&gt;test 0.978&lt;br&gt;@candidate&lt;br&gt;&lt;b&gt;@champion&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fontFamily=Helvetica;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1330" y="625" width="145" height="120" />
+        </mxCell>
+        <mxCell id="p1-39" value="&lt;b&gt;👤 Promotion = human gate&lt;/b&gt;&lt;br&gt;new versions get &lt;b&gt;@candidate&lt;/b&gt; automatically;&lt;br&gt;&lt;b&gt;@champion&lt;/b&gt; is set by a person after reading the card" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fontFamily=Helvetica;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1165" y="760" width="310" height="125" />
+        </mxCell>
+        <mxCell id="p1-40" value="backup before every manual change:&lt;br&gt;&lt;font face=&quot;Courier New&quot; color=&quot;#0b5394&quot;&gt;ml/mlflow/backups/&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fontFamily=Helvetica;fillColor=#ffffff;strokeColor=#cccccc;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1165" y="900" width="310" height="90" />
+        </mxCell>
+        <mxCell id="p1-41" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#555555;fontFamily=Helvetica;exitX=0.25;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="p1-36" target="p1-37">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="p1-42" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#555555;fontFamily=Helvetica;exitX=0.75;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="p1-36" target="p1-38">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="p1-43" value="&lt;b&gt;Load the champion&lt;/b&gt;&lt;br&gt;&lt;font face=&quot;Courier New&quot; color=&quot;#0b5394&quot;&gt;mlflow.pyfunc.load_model(&lt;br&gt;&amp;nbsp;&quot;models:/layout-classifier@champion&quot;)&lt;/font&gt;&lt;br&gt;= base model (Hugging Face) + adapter" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fontFamily=Helvetica;fillColor=#f5f5f5;strokeColor=#999999;dashed=1;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1535" y="160" width="310" height="140" />
+        </mxCell>
+        <mxCell id="p1-44" value="&lt;b&gt;Where it would plug in&lt;/b&gt;&lt;br&gt;&lt;font face=&quot;Courier New&quot; color=&quot;#0b5394&quot;&gt;ingestion/layout_router.py&lt;/font&gt;, tier &lt;b&gt;slm&lt;/b&gt;&lt;br&gt;today that tier calls Ollama qwen2.5:1.5b through &lt;font face=&quot;Courier New&quot; color=&quot;#0b5394&quot;&gt;llm_gateway&lt;/font&gt; — &lt;b&gt;not this adapter&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fontFamily=Helvetica;fillColor=#f5f5f5;strokeColor=#999999;dashed=1;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1535" y="315" width="310" height="150" />
+        </mxCell>
+        <mxCell id="p1-45" value="&lt;b&gt;Serving options&lt;/b&gt;&lt;br&gt;a) pyfunc inside the batch ingest job (CPU, slow)&lt;br&gt;b) merge adapter → GGUF → Ollama (CPU/T4)&lt;br&gt;c) vLLM with the LoRA on a T4/L4 (fast, always-on cost)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fontFamily=Helvetica;fillColor=#f5f5f5;strokeColor=#999999;dashed=1;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1535" y="480" width="310" height="175" />
+        </mxCell>
+        <mxCell id="p1-46" value="&lt;b&gt;Gate before serving&lt;/b&gt; (ADR-0012)&lt;br&gt;swap in only at &lt;b&gt;≥95% agreement with the frontier model&lt;/b&gt; on held-out pages&lt;br&gt;v2 is measured against the &lt;b&gt;rule&lt;/b&gt;, not the frontier — that eval is still to do" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fontFamily=Helvetica;fillColor=#f5f5f5;strokeColor=#999999;dashed=1;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1535" y="670" width="310" height="170" />
+        </mxCell>
+        <mxCell id="p1-47" value="&lt;b&gt;Why it is not served yet&lt;/b&gt;&lt;br&gt;the rule is 100% on its own labels, in microseconds, at $0 — a model earns its place only with frontier-made labels" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fontFamily=Helvetica;fillColor=#ffffff;strokeColor=#cccccc;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1535" y="855" width="310" height="135" />
+        </mxCell>
+        <mxCell id="p1-48" value="launch · ssh · terminate" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#555555;fontFamily=Helvetica;exitX=1;exitY=0.35;entryX=0;entryY=0.3;" edge="1" parent="1" source="p1-13" target="p1-25">
+          <mxGeometry as="geometry" relative="1">
+            <Array as="points">
+              <mxPoint x="380" y="222" />
+              <mxPoint x="380" y="104" />
+              <mxPoint x="760" y="104" />
+              <mxPoint x="760" y="200" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="p1-49" value="read" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#555555;fontFamily=Helvetica;exitX=1;exitY=0.15;entryX=0;entryY=0.5;" edge="1" parent="1" source="p1-21" target="p1-26">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="p1-50" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#555555;fontFamily=Helvetica;dashed=1;strokeColor=#999999;fontColor=#666666;exitX=0;exitY=0.15;entryX=1;entryY=0.5;" edge="1" parent="1" source="p1-27" target="p1-20">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="p1-51" value="log run" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#555555;fontFamily=Helvetica;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="p1-29" target="p1-34">
+          <mxGeometry as="geometry" relative="1">
+            <Array as="points">
+              <mxPoint x="1135" y="760" />
+              <mxPoint x="1135" y="235" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="p1-52" value="adapter + card" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#555555;fontFamily=Helvetica;exitX=1;exitY=0.8;entryX=0;entryY=0.5;" edge="1" parent="1" source="p1-29" target="p1-35">
+          <mxGeometry as="geometry" relative="1">
+            <Array as="points">
+              <mxPoint x="1125" y="800" />
+              <mxPoint x="1125" y="400" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="p1-53" value="@champion" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#555555;fontFamily=Helvetica;dashed=1;strokeColor=#999999;fontColor=#666666;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="p1-38" target="p1-43">
+          <mxGeometry as="geometry" relative="1">
+            <Array as="points">
+              <mxPoint x="1500" y="685" />
+              <mxPoint x="1500" y="230" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="2 v1 vs v2 champion" id="2_v1_vs_v2_champion">
+    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1900" pageHeight="1100" math="0" shadow="0" background="#FFFFFF">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="p2-1" value="v1 vs v2 (champion) — same data, same model, three changes" style="text;html=1;align=left;verticalAlign=middle;fontSize=26;fontStyle=1;fontFamily=Helvetica;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="40" y="14" width="1200" height="40" />
+        </mxCell>
+        <mxCell id="p2-2" value="Both runs: dataset 87060948b499 · Qwen2.5-1.5B-Instruct · QLoRA 4-bit, LoRA r=16 · 1,000 steps · batch 8 · NVIDIA T4. Only the training recipe changed." style="text;html=1;align=left;verticalAlign=top;fontSize=13;fontColor=#555555;whiteSpace=wrap;fontFamily=Helvetica;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="40" y="54" width="1300" height="40" />
+        </mxCell>
+        <mxCell id="p2-3" value="Built and measured ✓" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;align=center;verticalAlign=middle;fontFamily=Helvetica;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1040" y="20" width="160" height="26" />
+        </mxCell>
+        <mxCell id="p2-4" value="Data in S3" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;align=center;verticalAlign=middle;fontFamily=Helvetica;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1210" y="20" width="160" height="26" />
+        </mxCell>
+        <mxCell id="p2-5" value="Champion / human gate" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;align=center;verticalAlign=middle;fontFamily=Helvetica;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1380" y="20" width="160" height="26" />
+        </mxCell>
+        <mxCell id="p2-6" value="Rejected" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;align=center;verticalAlign=middle;fontFamily=Helvetica;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1550" y="20" width="160" height="26" />
+        </mxCell>
+        <mxCell id="p2-7" value="Designed, not built" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;align=center;verticalAlign=middle;fontFamily=Helvetica;fillColor=#f5f5f5;strokeColor=#999999;dashed=1;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1720" y="20" width="160" height="26" />
+        </mxCell>
+        <mxCell id="p2-8" value="&lt;b style='font-size:16px'&gt;v1 — rejected&lt;/b&gt;&lt;hr&gt;&lt;b&gt;learning rate&lt;/b&gt; 1e-3 (fine for the 135M CPU kata, too high for 1.5B)&lt;br&gt;&lt;br&gt;&lt;b&gt;batches&lt;/b&gt; class-balanced: round-robin over the 5 labels, so every batch is ~equal parts text / mixed / figure / table / scanned (6 scanned pages repeated over and over)&lt;br&gt;&lt;br&gt;&lt;b&gt;gradient clipping&lt;/b&gt; none&lt;br&gt;&lt;br&gt;&lt;b&gt;checkpoint&lt;/b&gt; the final weights, step 1000&lt;br&gt;&lt;br&gt;&lt;b&gt;what happened&lt;/b&gt; loss fell to 0.09 by step 700, &lt;b&gt;spiked to 2.07 at step 900&lt;/b&gt;; the saved model came from just after the spike. Trained on a balanced world, it over-guessed rare labels on real pages, where 79% are text." style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fontFamily=Helvetica;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="40" y="120" width="560" height="460" />
+        </mxCell>
+        <mxCell id="p2-9" value="&lt;b style='font-size:16px'&gt;v2 — champion&lt;/b&gt;&lt;hr&gt;&lt;b&gt;learning rate&lt;/b&gt; 2e-4&lt;br&gt;&lt;br&gt;&lt;b&gt;batches&lt;/b&gt; shuffled over a &lt;b&gt;natural mix with text capped at 50%&lt;/b&gt; (1,500 text · 891 mixed · 241 figure · 16 table · 6 scanned): rare labels kept whole, the model still learns that most pages are text&lt;br&gt;&lt;br&gt;&lt;b&gt;gradient clipping&lt;/b&gt; norm 1.0&lt;br&gt;&lt;br&gt;&lt;b&gt;checkpoint&lt;/b&gt; scored a 200-page val slice every 200 steps, kept the best: &lt;b&gt;step 400&lt;/b&gt; (val slice 0.97 → 1.00 → 1.00 → 1.00 → 1.00)&lt;br&gt;&lt;br&gt;&lt;b&gt;what happened&lt;/b&gt; stable all the way, no spike. Test set used once, at the end." style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fontFamily=Helvetica;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="640" y="120" width="560" height="460" />
+        </mxCell>
+        <mxCell id="p2-10" value="&lt;b&gt;Test accuracy (600 pages, 41 unseen papers)&lt;/b&gt;" style="text;html=1;fontSize=13;fontFamily=Helvetica;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1240" y="110" width="600" height="30" />
+        </mxCell>
+        <mxCell id="p2-11" value="" style="rounded=0;html=1;fillColor=#ffffff;strokeColor=#cccccc;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1300" y="528" width="70" height="12" />
+        </mxCell>
+        <mxCell id="p2-12" value="&lt;b&gt;0.032&lt;/b&gt;" style="text;html=1;align=center;fontSize=13;fontFamily=Helvetica;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1285" y="506" width="100" height="22" />
+        </mxCell>
+        <mxCell id="p2-13" value="base" style="text;html=1;align=center;fontSize=13;fontFamily=Helvetica;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1285" y="544" width="100" height="22" />
+        </mxCell>
+        <mxCell id="p2-14" value="" style="rounded=0;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1450" y="288" width="70" height="252" />
+        </mxCell>
+        <mxCell id="p2-15" value="&lt;b&gt;0.662&lt;/b&gt;" style="text;html=1;align=center;fontSize=13;fontFamily=Helvetica;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1435" y="266" width="100" height="22" />
+        </mxCell>
+        <mxCell id="p2-16" value="v1" style="text;html=1;align=center;fontSize=13;fontFamily=Helvetica;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1435" y="544" width="100" height="22" />
+        </mxCell>
+        <mxCell id="p2-17" value="" style="rounded=0;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1600" y="168" width="70" height="372" />
+        </mxCell>
+        <mxCell id="p2-18" value="&lt;b&gt;0.978&lt;/b&gt;" style="text;html=1;align=center;fontSize=13;fontFamily=Helvetica;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1585" y="146" width="100" height="22" />
+        </mxCell>
+        <mxCell id="p2-19" value="v2" style="text;html=1;align=center;fontSize=13;fontFamily=Helvetica;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1585" y="544" width="100" height="22" />
+        </mxCell>
+        <mxCell id="p2-20" value="" style="rounded=0;html=1;fillColor=#333333;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1280" y="241" width="470" height="2" />
+        </mxCell>
+        <mxCell id="p2-21" value="always answering 'text' = 0.787" style="text;html=1;align=right;fontSize=11;fontColor=#333333;fontFamily=Helvetica;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1280" y="217" width="470" height="22" />
+        </mxCell>
+        <mxCell id="p2-22" value="" style="rounded=0;html=1;fillColor=#999999;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1280" y="540" width="470" height="2" />
+        </mxCell>
+        <mxCell id="p2-23" value="&lt;table style='border-collapse:collapse;font-size:13px;width:100%'&gt;&lt;tr&gt;&lt;th style='border:1px solid #bbb;padding:6px;background:#eeeeee;text-align:left'&gt;Test, per label&lt;/th&gt;&lt;th style='border:1px solid #bbb;padding:6px;background:#eeeeee;text-align:left'&gt;pages&lt;/th&gt;&lt;th style='border:1px solid #bbb;padding:6px;background:#eeeeee;text-align:left'&gt;v1 correct&lt;/th&gt;&lt;th style='border:1px solid #bbb;padding:6px;background:#eeeeee;text-align:left'&gt;v2 correct&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style='border:1px solid #bbb;padding:6px'&gt;text&lt;/td&gt;&lt;td style='border:1px solid #bbb;padding:6px'&gt;472&lt;/td&gt;&lt;td style='border:1px solid #bbb;padding:6px'&gt;375 (79%)&lt;/td&gt;&lt;td style='border:1px solid #bbb;padding:6px'&gt;&lt;b&gt;472 (100%)&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style='border:1px solid #bbb;padding:6px'&gt;mixed&lt;/td&gt;&lt;td style='border:1px solid #bbb;padding:6px'&gt;104&lt;/td&gt;&lt;td style='border:1px solid #bbb;padding:6px'&gt;14 (13%)&lt;/td&gt;&lt;td style='border:1px solid #bbb;padding:6px'&gt;&lt;b&gt;92 (88%)&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style='border:1px solid #bbb;padding:6px'&gt;figure-heavy&lt;/td&gt;&lt;td style='border:1px solid #bbb;padding:6px'&gt;19&lt;/td&gt;&lt;td style='border:1px solid #bbb;padding:6px'&gt;6 (32%)&lt;/td&gt;&lt;td style='border:1px solid #bbb;padding:6px'&gt;&lt;b&gt;18 (95%)&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style='border:1px solid #bbb;padding:6px'&gt;table-heavy&lt;/td&gt;&lt;td style='border:1px solid #bbb;padding:6px'&gt;5&lt;/td&gt;&lt;td style='border:1px solid #bbb;padding:6px'&gt;2 (40%)&lt;/td&gt;&lt;td style='border:1px solid #bbb;padding:6px'&gt;&lt;b&gt;5 (100%)&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style='border:1px solid #bbb;padding:6px'&gt;scanned&lt;/td&gt;&lt;td style='border:1px solid #bbb;padding:6px'&gt;0&lt;/td&gt;&lt;td style='border:1px solid #bbb;padding:6px'&gt;—&lt;/td&gt;&lt;td style='border:1px solid #bbb;padding:6px'&gt;—&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style='border:1px solid #bbb;padding:6px'&gt;&lt;b&gt;all&lt;/b&gt;&lt;/td&gt;&lt;td style='border:1px solid #bbb;padding:6px'&gt;&lt;b&gt;600&lt;/b&gt;&lt;/td&gt;&lt;td style='border:1px solid #bbb;padding:6px'&gt;&lt;b&gt;397 (0.662)&lt;/b&gt;&lt;/td&gt;&lt;td style='border:1px solid #bbb;padding:6px'&gt;&lt;b&gt;587 (0.978)&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;" style="text;html=1;whiteSpace=wrap;align=left;verticalAlign=top;overflow=fill;fontFamily=Helvetica;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="40" y="610" width="760" height="260" />
+        </mxCell>
+        <mxCell id="p2-24" value="&lt;b&gt;How to read this honestly&lt;/b&gt;&lt;br&gt;• v2 copies the parser's rule at 97.8% on papers it never saw. It does &lt;b&gt;not&lt;/b&gt; beat the rule: the rule is 100% on its own labels, in microseconds.&lt;br&gt;• &lt;b&gt;table-heavy&lt;/b&gt; was tested on only 5 pages and &lt;b&gt;scanned&lt;/b&gt; on 0 — no claim either way.&lt;br&gt;• &lt;b&gt;mixed&lt;/b&gt; (88%) is the weak spot: it needs both a table and a figure signal.&lt;br&gt;• Quote 0.978 with its baseline (0.787) and the command that reproduces it: &lt;font face=&quot;Courier New&quot; color=&quot;#0b5394&quot;&gt;bash deploy/ec2/layout_session.sh&lt;/font&gt; on dataset 87060948b499." style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fontFamily=Helvetica;fillColor=#ffffff;strokeColor=#cccccc;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="840" y="610" width="1000" height="260" />
+        </mxCell>
+        <mxCell id="p2-25" value="&lt;b&gt;Where each version lives&lt;/b&gt;&lt;br&gt;&lt;b&gt;v1&lt;/b&gt; — MLflow run 83b7eeba… · artifacts &lt;font face=&quot;Courier New&quot; color=&quot;#0b5394&quot;&gt;ml/mlflow/artifacts/models/m-5feda329…/&lt;/font&gt; · tag status = rejected (below baseline)&lt;br&gt;&lt;b&gt;v2&lt;/b&gt; — MLflow run 7e312cdc… · artifacts &lt;font face=&quot;Courier New&quot; color=&quot;#0b5394&quot;&gt;ml/mlflow/artifacts/models/m-ae63ce79…/&lt;/font&gt; · aliases &lt;b&gt;@candidate @champion&lt;/b&gt; (promoted by hand, 1 Oct)&lt;br&gt;both read the same dataset &lt;font face=&quot;Courier New&quot; color=&quot;#0b5394&quot;&gt;ml/datasets/layout/87060948b499/&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fontFamily=Helvetica;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="40" y="900" width="1800" height="160" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="3 S3 bucket layout" id="3_S3_bucket_layout">
+    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1900" pageHeight="1050" math="0" shadow="0" background="#FFFFFF">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="p3-1" value="S3 — what lives where, who writes it" style="text;html=1;align=left;verticalAlign=middle;fontSize=26;fontStyle=1;fontFamily=Helvetica;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="40" y="14" width="1200" height="40" />
+        </mxCell>
+        <mxCell id="p3-2" value="Bucket &lt;b&gt;yantra-research-lab-data&lt;/b&gt; · ap-south-1 (Mumbai) · encrypted (AES256) · the only durable store besides GitHub. Sizes from &lt;font face=&quot;Courier New&quot; color=&quot;#0b5394&quot;&gt;aws s3 ls&lt;/font&gt;, 1 Oct 2026." style="text;html=1;align=left;verticalAlign=top;fontSize=13;fontColor=#555555;whiteSpace=wrap;fontFamily=Helvetica;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="40" y="54" width="1300" height="40" />
+        </mxCell>
+        <mxCell id="p3-3" value="Built and measured ✓" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;align=center;verticalAlign=middle;fontFamily=Helvetica;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1040" y="20" width="160" height="26" />
+        </mxCell>
+        <mxCell id="p3-4" value="Data in S3" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;align=center;verticalAlign=middle;fontFamily=Helvetica;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1210" y="20" width="160" height="26" />
+        </mxCell>
+        <mxCell id="p3-5" value="Champion / human gate" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;align=center;verticalAlign=middle;fontFamily=Helvetica;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1380" y="20" width="160" height="26" />
+        </mxCell>
+        <mxCell id="p3-6" value="Rejected" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;align=center;verticalAlign=middle;fontFamily=Helvetica;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1550" y="20" width="160" height="26" />
+        </mxCell>
+        <mxCell id="p3-7" value="Designed, not built" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;align=center;verticalAlign=middle;fontFamily=Helvetica;fillColor=#f5f5f5;strokeColor=#999999;dashed=1;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1720" y="20" width="160" height="26" />
+        </mxCell>
+        <mxCell id="p3-8" value="&lt;b style='font-size:15px'&gt;🪣 yantra-research-lab-data&lt;/b&gt;&lt;br&gt;≈ 1.2 GB in total · ≈ $0.03/month" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fontFamily=Helvetica;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="40" y="120" width="380" height="110" />
+        </mxCell>
+        <mxCell id="p3-9" value="&lt;b&gt;yantra-corpus/&lt;/b&gt; — owned by the &lt;b&gt;nightly ingest job&lt;/b&gt;&lt;br&gt;GitHub Actions, IAM user &lt;b&gt;yantra-ingest&lt;/b&gt; (S3 only)&lt;br&gt;dev box: &lt;b&gt;read only&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fontFamily=Helvetica;fillColor=#ffffff;strokeColor=#cccccc;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="520" y="120" width="520" height="120" />
+        </mxCell>
+        <mxCell id="p3-10" value="&lt;b&gt;ml/&lt;/b&gt; — owned by the &lt;b&gt;dev box role&lt;/b&gt; (yantra-dev-bedrock)&lt;br&gt;read + write, &lt;b&gt;no delete&lt;/b&gt;&lt;br&gt;everything the fine-tuning needs to survive a terminate" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fontFamily=Helvetica;fillColor=#ffffff;strokeColor=#cccccc;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="520" y="520" width="520" height="120" />
+        </mxCell>
+        <mxCell id="p3-11" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#555555;fontFamily=Helvetica;exitX=1;exitY=0.3;entryX=0;entryY=0.5;" edge="1" parent="1" source="p3-8" target="p3-9">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="p3-12" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#555555;fontFamily=Helvetica;exitX=1;exitY=0.7;entryX=0;entryY=0.5;" edge="1" parent="1" source="p3-8" target="p3-10">
+          <mxGeometry as="geometry" relative="1">
+            <Array as="points">
+              <mxPoint x="470" y="200" />
+              <mxPoint x="470" y="580" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="p3-13" value="&lt;b&gt;&lt;font face=&quot;Courier New&quot; color=&quot;#0b5394&quot;&gt;raw/&lt;/font&gt;&lt;/b&gt;&lt;br&gt;426 PDFs · 807 MB&lt;br&gt;&lt;i&gt;bronze: the source of every dataset&lt;/i&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fontFamily=Helvetica;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1120" y="120" width="740" height="90" />
+        </mxCell>
+        <mxCell id="p3-14" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#555555;fontFamily=Helvetica;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="p3-9" target="p3-13">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="p3-15" value="&lt;b&gt;&lt;font face=&quot;Courier New&quot; color=&quot;#0b5394&quot;&gt;images/&lt;/font&gt;&lt;/b&gt;&lt;br&gt;3,776 files · 262 MB&lt;br&gt;&lt;i&gt;embedded images (chatbot pipeline)&lt;/i&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fontFamily=Helvetica;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1120" y="225" width="740" height="90" />
+        </mxCell>
+        <mxCell id="p3-16" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#555555;fontFamily=Helvetica;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="p3-9" target="p3-15">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="p3-17" value="&lt;b&gt;&lt;font face=&quot;Courier New&quot; color=&quot;#0b5394&quot;&gt;figures/&lt;/font&gt;&lt;/b&gt;&lt;br&gt;892 files · 52 MB&lt;br&gt;&lt;i&gt;captioned figures (chatbot pipeline)&lt;/i&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fontFamily=Helvetica;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1120" y="330" width="740" height="90" />
+        </mxCell>
+        <mxCell id="p3-18" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#555555;fontFamily=Helvetica;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="p3-9" target="p3-17">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="p3-19" value="&lt;b&gt;&lt;font face=&quot;Courier New&quot; color=&quot;#0b5394&quot;&gt;silver/layout_features/pymupdf-p20-tables-all/&lt;/font&gt;&lt;/b&gt;&lt;br&gt;426 JSON · 2.8 MB&lt;br&gt;&lt;i&gt;parsed page features, one file per paper — the cache&lt;/i&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fontFamily=Helvetica;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1120" y="520" width="740" height="90" />
+        </mxCell>
+        <mxCell id="p3-20" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#555555;fontFamily=Helvetica;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="p3-10" target="p3-19">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="p3-21" value="&lt;b&gt;&lt;font face=&quot;Courier New&quot; color=&quot;#0b5394&quot;&gt;datasets/layout/87060948b499/&lt;/font&gt;&lt;/b&gt;&lt;br&gt;train · val · test .jsonl + manifest · 2.8 MB&lt;br&gt;&lt;i&gt;versioned by content hash; test split is locked&lt;/i&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fontFamily=Helvetica;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1120" y="625" width="740" height="90" />
+        </mxCell>
+        <mxCell id="p3-22" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#555555;fontFamily=Helvetica;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="p3-10" target="p3-21">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="p3-23" value="&lt;b&gt;&lt;font face=&quot;Courier New&quot; color=&quot;#0b5394&quot;&gt;mlflow/mlflow.db&lt;/font&gt;&lt;/b&gt;&lt;br&gt;SQLite · 1.4 MB&lt;br&gt;&lt;i&gt;runs, metrics, registry, aliases (pulled/pushed)&lt;/i&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fontFamily=Helvetica;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1120" y="730" width="740" height="90" />
+        </mxCell>
+        <mxCell id="p3-24" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#555555;fontFamily=Helvetica;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="p3-10" target="p3-23">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="p3-25" value="&lt;b&gt;&lt;font face=&quot;Courier New&quot; color=&quot;#0b5394&quot;&gt;mlflow/artifacts/models/&lt;/font&gt;&lt;/b&gt;&lt;br&gt;v1 + v2 · 35 MB&lt;br&gt;&lt;i&gt;adapter, pyfunc code, MLmodel, card&lt;/i&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fontFamily=Helvetica;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1120" y="835" width="740" height="90" />
+        </mxCell>
+        <mxCell id="p3-26" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#555555;fontFamily=Helvetica;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="p3-10" target="p3-25">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="p3-27" value="&lt;b&gt;&lt;font face=&quot;Courier New&quot; color=&quot;#0b5394&quot;&gt;mlflow/backups/&lt;/font&gt;&lt;/b&gt;&lt;br&gt;1 file&lt;br&gt;&lt;i&gt;copy taken before the manual promotion&lt;/i&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fontFamily=Helvetica;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1120" y="940" width="740" height="90" />
+        </mxCell>
+        <mxCell id="p3-28" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#555555;fontFamily=Helvetica;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="p3-10" target="p3-27">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="p3-29" value="&lt;b&gt;Who can do what&lt;/b&gt;&lt;br&gt;&lt;b&gt;ingest job&lt;/b&gt; writes yantra-corpus/&lt;br&gt;&lt;b&gt;dev box role&lt;/b&gt; reads yantra-corpus/, writes ml/, deletes nothing&lt;br&gt;&lt;b&gt;launcher&lt;/b&gt; (nifty_dev) has no S3 access at all&lt;br&gt;&lt;b&gt;admin&lt;/b&gt; (temporary key) used for cleanup and the promotion backup" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fontFamily=Helvetica;fillColor=#ffffff;strokeColor=#cccccc;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="40" y="300" width="420" height="200" />
+        </mxCell>
+        <mxCell id="p3-30" value="&lt;b&gt;Lineage of one model&lt;/b&gt;&lt;br&gt;raw PDF → silver features → dataset 87060948b499 (manifest has every file's sha256) → MLflow run (tags dataset_version, git sha) → registered version → @champion&lt;br&gt;any number can be traced back to exact PDFs" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fontFamily=Helvetica;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="40" y="680" width="420" height="200" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="4 Session lifecycle" id="4_Session_lifecycle">
+    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1900" pageHeight="1050" math="0" shadow="0" background="#FFFFFF">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="p4-1" value="One retraining session — the box is disposable" style="text;html=1;align=left;verticalAlign=middle;fontSize=26;fontStyle=1;fontFamily=Helvetica;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="40" y="14" width="1200" height="40" />
+        </mxCell>
+        <mxCell id="p4-2" value="Runbook: &lt;font face=&quot;Courier New&quot; color=&quot;#0b5394&quot;&gt;deploy/ec2/SESSION_LIFECYCLE.md&lt;/font&gt;. Times from a T4 on 1 Oct 2026. Only the inner loop costs money; S3 and GitHub carry everything to the next session." style="text;html=1;align=left;verticalAlign=top;fontSize=13;fontColor=#555555;whiteSpace=wrap;fontFamily=Helvetica;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="40" y="54" width="1400" height="40" />
+        </mxCell>
+        <mxCell id="p4-3" value="Built and measured ✓" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;align=center;verticalAlign=middle;fontFamily=Helvetica;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1040" y="20" width="160" height="26" />
+        </mxCell>
+        <mxCell id="p4-4" value="Data in S3" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;align=center;verticalAlign=middle;fontFamily=Helvetica;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1210" y="20" width="160" height="26" />
+        </mxCell>
+        <mxCell id="p4-5" value="Champion / human gate" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;align=center;verticalAlign=middle;fontFamily=Helvetica;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1380" y="20" width="160" height="26" />
+        </mxCell>
+        <mxCell id="p4-6" value="Rejected" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;align=center;verticalAlign=middle;fontFamily=Helvetica;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1550" y="20" width="160" height="26" />
+        </mxCell>
+        <mxCell id="p4-7" value="Designed, not built" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;align=center;verticalAlign=middle;fontFamily=Helvetica;fillColor=#f5f5f5;strokeColor=#999999;dashed=1;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1720" y="20" width="160" height="26" />
+        </mxCell>
+        <mxCell id="p4-8" value="&lt;b style='font-size:14px'&gt;1 · Launch&lt;/b&gt;&lt;hr&gt;&lt;font face=&quot;Courier New&quot; color=&quot;#0b5394&quot;&gt;launch.sh launch --yes&lt;/font&gt;&lt;br&gt;g6 → g5 → g4dn, zone 1a/1b&lt;br&gt;~2 min" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fontFamily=Helvetica;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="60" y="180" width="260" height="150" />
+        </mxCell>
+        <mxCell id="p4-9" value="&lt;b style='font-size:14px'&gt;2 · Bootstrap&lt;/b&gt;&lt;hr&gt;&lt;font face=&quot;Courier New&quot; color=&quot;#0b5394&quot;&gt;bootstrap.sh&lt;/font&gt;&lt;br&gt;tools + venvs + 170 tests&lt;br&gt;~4 min" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fontFamily=Helvetica;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="360" y="180" width="260" height="150" />
+        </mxCell>
+        <mxCell id="p4-10" value="&lt;b style='font-size:14px'&gt;3 · Pull state&lt;/b&gt;&lt;hr&gt;&lt;font face=&quot;Courier New&quot; color=&quot;#0b5394&quot;&gt;mlflow.db&lt;/font&gt; from S3&lt;br&gt;seconds" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fontFamily=Helvetica;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="660" y="180" width="260" height="150" />
+        </mxCell>
+        <mxCell id="p4-11" value="&lt;b style='font-size:14px'&gt;4 · Dataset&lt;/b&gt;&lt;hr&gt;build from S3 bronze&lt;br&gt;cached: 10 s (first time 8 min)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fontFamily=Helvetica;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="960" y="180" width="260" height="150" />
+        </mxCell>
+        <mxCell id="p4-12" value="&lt;b style='font-size:14px'&gt;5 · Train&lt;/b&gt;&lt;hr&gt;QLoRA, select best on val&lt;br&gt;~15 min" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fontFamily=Helvetica;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1260" y="180" width="260" height="150" />
+        </mxCell>
+        <mxCell id="p4-13" value="&lt;b style='font-size:14px'&gt;6 · Evaluate&lt;/b&gt;&lt;hr&gt;val + locked test, per label&lt;br&gt;~3 min" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fontFamily=Helvetica;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1560" y="180" width="260" height="150" />
+        </mxCell>
+        <mxCell id="p4-14" value="&lt;b style='font-size:14px'&gt;7 · Register&lt;/b&gt;&lt;hr&gt;new version @candidate&lt;br&gt;push mlflow.db to S3" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fontFamily=Helvetica;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1560" y="470" width="260" height="150" />
+        </mxCell>
+        <mxCell id="p4-15" value="&lt;b style='font-size:14px'&gt;8 · Review (human)&lt;/b&gt;&lt;hr&gt;read the card&lt;br&gt;promote → @champion?" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fontFamily=Helvetica;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1110" y="470" width="260" height="150" />
+        </mxCell>
+        <mxCell id="p4-16" value="&lt;b style='font-size:14px'&gt;9 · Terminate&lt;/b&gt;&lt;hr&gt;copy the card, then&lt;br&gt;&lt;font face=&quot;Courier New&quot; color=&quot;#0b5394&quot;&gt;launch.sh terminate --yes&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fontFamily=Helvetica;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="660" y="470" width="260" height="150" />
+        </mxCell>
+        <mxCell id="p4-17" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#555555;fontFamily=Helvetica;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="p4-8" target="p4-9">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="p4-18" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#555555;fontFamily=Helvetica;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="p4-9" target="p4-10">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="p4-19" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#555555;fontFamily=Helvetica;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="p4-10" target="p4-11">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="p4-20" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#555555;fontFamily=Helvetica;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="p4-11" target="p4-12">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="p4-21" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#555555;fontFamily=Helvetica;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="p4-12" target="p4-13">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="p4-22" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#555555;fontFamily=Helvetica;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="p4-13" target="p4-14">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="p4-23" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#555555;fontFamily=Helvetica;exitX=0;exitY=0.5;entryX=1;entryY=0.5;" edge="1" parent="1" source="p4-14" target="p4-15">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="p4-24" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#555555;fontFamily=Helvetica;exitX=0;exitY=0.5;entryX=1;entryY=0.5;" edge="1" parent="1" source="p4-15" target="p4-16">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="p4-25" value="&lt;b style='font-size:14px'&gt;Next session&lt;/b&gt;&lt;hr&gt;starts again at step 1 on a fresh box — nothing is lost" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fontFamily=Helvetica;fillColor=#ffffff;strokeColor=#cccccc;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="60" y="470" width="400" height="150" />
+        </mxCell>
+        <mxCell id="p4-26" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#555555;fontFamily=Helvetica;dashed=1;strokeColor=#999999;fontColor=#666666;exitX=0;exitY=0.5;entryX=1;entryY=0.5;" edge="1" parent="1" source="p4-16" target="p4-25">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="p4-27" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#555555;fontFamily=Helvetica;dashed=1;strokeColor=#999999;fontColor=#666666;exitX=0.25;exitY=0;entryX=0.25;entryY=1;" edge="1" parent="1" source="p4-25" target="p4-8">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="p4-28" value="&lt;b&gt;Survives the terminate&lt;/b&gt;&lt;br&gt;• GitHub: code, tests, runbook, the committed card&lt;br&gt;• S3 bronze: raw PDFs (ingest job)&lt;br&gt;• S3 ml/: page-feature cache, datasets, mlflow.db, adapters&lt;br&gt;&lt;br&gt;&lt;b&gt;Thrown away&lt;/b&gt;&lt;br&gt;• the box and its 100 GB disk: packages, Hugging Face model cache, logs&lt;br&gt;&lt;br&gt;&lt;b&gt;Cost&lt;/b&gt; one session on a T4 ≈ $0.30–0.70 · idle cost between sessions ≈ $0" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fontFamily=Helvetica;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="60" y="690" width="820" height="300" />
+        </mxCell>
+        <mxCell id="p4-29" value="&lt;b&gt;Safety rails&lt;/b&gt;&lt;br&gt;• nothing bills until &lt;font face=&quot;Courier New&quot; color=&quot;#0b5394&quot;&gt;launch --yes&lt;/font&gt;; anything over $1 needs the owner's yes&lt;br&gt;• idle alarm stops a forgotten box after 60 min below 2% CPU&lt;br&gt;• &lt;font face=&quot;Courier New&quot; color=&quot;#0b5394&quot;&gt;layout_session.sh&lt;/font&gt; pushes mlflow.db even when a step fails&lt;br&gt;• a 20-step smoke run before every long run (two bugs caught that way on 1 Oct)&lt;br&gt;• the box role cannot delete anything in S3; promotion to @champion is a human step&lt;br&gt;• terminate only on the owner's words" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fontFamily=Helvetica;fillColor=#ffffff;strokeColor=#cccccc;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="920" y="690" width="900" height="300" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

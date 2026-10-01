@@ -1,0 +1,327 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="drawio" agent="Claude Code" version="24.0.0">
+  <diagram name="1 Big picture" id="1_Big_picture">
+    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1820" pageHeight="1180" math="0" shadow="0" background="#FFFFFF">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="p1-1" value="Yantra GPU dev box — how it is provisioned on AWS" style="text;html=1;align=left;verticalAlign=middle;fontSize=24;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="40" y="10" width="800" height="40" />
+        </mxCell>
+        <mxCell id="p1-2" value="State as of 1 Oct 2026, evening. Green = built and verified. The GPU box is now &lt;b&gt;disposable&lt;/b&gt;: created per session, terminated at the end. Fine-tuning detail: &lt;b&gt;yantra_slm_finetuning.drawio&lt;/b&gt;." style="text;html=1;align=left;verticalAlign=top;fontSize=13;fontColor=#555555;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="40" y="48" width="1000" height="40" />
+        </mxCell>
+        <mxCell id="p1-3" value="&lt;b&gt;Legend&lt;/b&gt;" style="text;html=1;align=left;verticalAlign=middle;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="860" y="15" width="90" height="26" />
+        </mxCell>
+        <mxCell id="p1-4" value="Done ✓" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;align=center;verticalAlign=middle;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="940" y="15" width="165" height="26" />
+        </mxCell>
+        <mxCell id="p1-5" value="Waiting on AWS ⏳" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;align=center;verticalAlign=middle;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1115" y="15" width="165" height="26" />
+        </mxCell>
+        <mxCell id="p1-6" value="Next — not created yet" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;align=center;verticalAlign=middle;fillColor=#f5f5f5;strokeColor=#999999;dashed=1;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1290" y="15" width="165" height="26" />
+        </mxCell>
+        <mxCell id="p1-7" value="Removed / to delete" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;align=center;verticalAlign=middle;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1465" y="15" width="165" height="26" />
+        </mxCell>
+        <mxCell id="p1-8" value="Existing, untouched" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;align=center;verticalAlign=middle;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1640" y="15" width="165" height="26" />
+        </mxCell>
+        <mxCell id="p1-9" value="&lt;b&gt;💻 Your Mac&lt;/b&gt;&lt;br&gt;VS Code + Remote-SSH&lt;br&gt;AWS console (your admin login)&lt;br&gt;&lt;i&gt;you created the temp admin key here&lt;/i&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=6;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="40" y="130" width="330" height="110" />
+        </mxCell>
+        <mxCell id="p1-10" value="GitHub · hemantsadhwani" style="rounded=1;arcSize=3;html=1;whiteSpace=wrap;fillColor=#f6f8fa;strokeColor=#24292e;verticalAlign=top;align=left;spacingLeft=10;spacingTop=6;fontColor=#24292e;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="40" y="720" width="330" height="420" />
+        </mxCell>
+        <mxCell id="p1-11" value="&lt;b&gt;yantra-research-lab&lt;/b&gt; (public)&lt;br&gt;deploy/ec2/launch.sh · setup_account.sh&lt;br&gt;bootstrap.sh · iam/*.json · HANDOVER.md" style="rounded=1;whiteSpace=wrap;html=1;arcSize=6;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="60" y="760" width="290" height="95" />
+        </mxCell>
+        <mxCell id="p1-12" value="&lt;b&gt;agentic-reporting&lt;/b&gt; (public, 2nd showcase)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=6;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="60" y="865" width="290" height="50" />
+        </mxCell>
+        <mxCell id="p1-13" value="&lt;b&gt;founder-profile&lt;/b&gt; (career workspace)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=6;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="60" y="925" width="290" height="50" />
+        </mxCell>
+        <mxCell id="p1-14" value="&lt;b&gt;Actions: ingest-corpus&lt;/b&gt;&lt;br&gt;daily 02:17 UTC&lt;br&gt;uses &lt;b&gt;yantra-ingest&lt;/b&gt; key (repo secret)&lt;br&gt;→ S3 yantra-research-lab-data&lt;br&gt;&lt;i&gt;not part of the dev box&lt;/i&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=6;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="60" y="985" width="290" height="135" />
+        </mxCell>
+        <mxCell id="p1-15" value="AWS account" style="shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_aws_cloud_alt;strokeColor=#232F3E;fillColor=none;verticalAlign=top;align=left;spacingLeft=30;fontColor=#232F3E;dashed=0;html=1;whiteSpace=wrap;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="400" y="100" width="1400" height="1060" />
+        </mxCell>
+        <mxCell id="p1-16" value="IAM — account-wide (who can do what)" style="rounded=1;arcSize=2;html=1;whiteSpace=wrap;fillColor=#fdf3f4;strokeColor=#DD344C;verticalAlign=top;align=left;spacingLeft=10;spacingTop=6;fontColor=#B0084D;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="420" y="150" width="420" height="990" />
+        </mxCell>
+        <mxCell id="p1-17" value="Users (long-term keys)" style="text;html=1;align=left;verticalAlign=middle;fontSize=12;fontStyle=1;fontColor=#B0084D;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="440" y="185" width="200" height="22" />
+        </mxCell>
+        <mxCell id="p1-18" value="&lt;b&gt;hemant-window&lt;/b&gt; · your Windows CLI user · untouched" style="rounded=1;whiteSpace=wrap;html=1;arcSize=6;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="440" y="212" width="380" height="45" />
+        </mxCell>
+        <mxCell id="p1-19" value="&lt;b&gt;yantra-ingest&lt;/b&gt; · S3-only · used by GitHub Actions&lt;br&gt;untouched — never reuse it for admin" style="rounded=1;whiteSpace=wrap;html=1;arcSize=6;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="440" y="265" width="380" height="60" />
+        </mxCell>
+        <mxCell id="p1-20" value="&lt;b&gt;claude-dev-launcher&lt;/b&gt; ✓ created&lt;br&gt;policy &lt;b&gt;yantra-dev-launcher&lt;/b&gt; (managed)&lt;br&gt;can launch / stop / resize &lt;u&gt;only&lt;/u&gt; boxes tagged&lt;br&gt;purpose=dev-public-repos, allowed types, Mumbai&lt;br&gt;key → nifty_dev ~/.aws profile &lt;b&gt;yantra-launcher&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=6;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="440" y="335" width="380" height="135" />
+        </mxCell>
+        <mxCell id="p1-21" value="&lt;b&gt;yantra-admin-temp&lt;/b&gt; · AdministratorAccess&lt;br&gt;used 30 Sep (setup) + 1 Oct (S3 access);&lt;br&gt;a fresh key each time, deleted right after" style="rounded=1;whiteSpace=wrap;html=1;arcSize=6;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="440" y="480" width="380" height="80" />
+        </mxCell>
+        <mxCell id="p1-22" value="Roles (no keys — temporary creds)" style="text;html=1;align=left;verticalAlign=middle;fontSize=12;fontStyle=1;fontColor=#B0084D;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="440" y="575" width="200" height="22" />
+        </mxCell>
+        <mxCell id="p1-23" value="&lt;b&gt;yantra-dev-bedrock&lt;/b&gt; ✓ role + instance profile&lt;br&gt;trusted by: EC2&lt;br&gt;Bedrock: InvokeModel on anthropic.*&lt;br&gt;S3: read &lt;b&gt;yantra-corpus/*&lt;/b&gt; · read+write &lt;b&gt;ml/*&lt;/b&gt; · no delete&lt;br&gt;attached to the dev box" style="rounded=1;whiteSpace=wrap;html=1;arcSize=6;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="440" y="602" width="380" height="115" />
+        </mxCell>
+        <mxCell id="p1-24" value="&lt;b&gt;AWSServiceRoleForCloudWatchEvents&lt;/b&gt; ✓&lt;br&gt;lets the idle alarm stop the box" style="rounded=1;whiteSpace=wrap;html=1;arcSize=6;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="440" y="727" width="380" height="60" />
+        </mxCell>
+        <mxCell id="p1-25" value="&lt;b&gt;Source of truth (in the repo)&lt;/b&gt;&lt;br&gt;deploy/ec2/iam/launcher-policy.json&lt;br&gt;deploy/ec2/iam/bedrock-dev-role-policy.json&lt;br&gt;deploy/ec2/setup_account.sh re-applies them" style="rounded=1;whiteSpace=wrap;html=1;arcSize=6;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fillColor=#ffffff;strokeColor=#bbbbbb;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="440" y="805" width="380" height="110" />
+        </mxCell>
+        <mxCell id="p1-26" value="&lt;b&gt;Why two identities?&lt;/b&gt;&lt;br&gt;• &lt;b&gt;Admin&lt;/b&gt; used once, then its key deleted.&lt;br&gt;• &lt;b&gt;Launcher&lt;/b&gt; (daily) can only touch tagged dev resources — it cannot see or stop the trading bot.&lt;br&gt;• &lt;b&gt;Role&lt;/b&gt; gives the dev box Bedrock with no keys stored on it (auto-rotating creds from instance metadata)." style="rounded=1;whiteSpace=wrap;html=1;arcSize=6;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fillColor=#ffffff;strokeColor=#bbbbbb;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="440" y="930" width="380" height="190" />
+        </mxCell>
+        <mxCell id="p1-27" value="Region ap-south-1 (Mumbai)" style="shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_region;strokeColor=#00A4A6;fillColor=none;verticalAlign=top;align=left;spacingLeft=30;fontColor=#147EBA;dashed=1;html=1;whiteSpace=wrap;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="860" y="150" width="920" height="990" />
+        </mxCell>
+        <mxCell id="p1-28" value="&lt;b&gt;🖥 nifty_dev&lt;/b&gt; — EC2 c7g.2xlarge (Graviton, 8 vCPU, 16 GB)&lt;br&gt;AZ 1c · Amazon Linux 2023&lt;br&gt;&lt;i&gt;Live trading monitor host · cron 08:15–15:15 IST&lt;/i&gt;&lt;hr&gt;~/index-options-trading-bot · data_pull · shadow_bt* — &lt;b&gt;never touched&lt;/b&gt;&lt;br&gt;~/work/ yantra-research-lab · agentic-reporting · founder-profile&lt;br&gt;~/.aws → profile &lt;b&gt;yantra-launcher&lt;/b&gt; only&lt;br&gt;Job here: run setup_account.sh (once) and launch.sh.&lt;br&gt;No Docker · no GPU · no model downloads" style="rounded=1;whiteSpace=wrap;html=1;arcSize=6;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="880" y="195" width="420" height="265" />
+        </mxCell>
+        <mxCell id="p1-29" value="&lt;b&gt;Service Quotas&lt;/b&gt; ✓&lt;br&gt;Running On-Demand G and VT: 0 → &lt;b&gt;8 vCPU approved&lt;/b&gt; (20:34)&lt;br&gt;All G and VT Spot: 0 → &lt;b&gt;8&lt;/b&gt; (applied by 1 Oct)&lt;br&gt;g5.xlarge needs 4 · first launch hit a short capacity gap in Mumbai" style="rounded=1;whiteSpace=wrap;html=1;arcSize=6;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1320" y="195" width="440" height="125" />
+        </mxCell>
+        <mxCell id="p1-30" value="&lt;b&gt;Amazon Bedrock&lt;/b&gt; ✓ — Claude Haiku 4.5&lt;br&gt;in.anthropic.claude-haiku-4-5-20251001-v1:0&lt;br&gt;global.anthropic.claude-haiku-4-5-20251001-v1:0&lt;br&gt;test call answered “ok” (18 tokens)&lt;br&gt;role check from the box ✓ · ⚠ &lt;b&gt;not&lt;/b&gt; apac." style="rounded=1;whiteSpace=wrap;html=1;arcSize=6;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1320" y="335" width="440" height="125" />
+        </mxCell>
+        <mxCell id="p1-31" value="Default VPC" style="shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_vpc2;strokeColor=#8C4FFF;fillColor=none;verticalAlign=top;align=left;spacingLeft=30;fontColor=#AAB7B8;dashed=0;html=1;whiteSpace=wrap;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="880" y="500" width="880" height="460" />
+        </mxCell>
+        <mxCell id="p1-32" value="Security group yantra-dev-ssh — inbound: port 22 from nifty_dev IP (+ home IP) only" style="rounded=0;html=1;whiteSpace=wrap;fillColor=none;strokeColor=#DD3522;dashed=1;verticalAlign=bottom;align=left;spacingLeft=10;fontColor=#DD3522;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="900" y="545" width="520" height="400" />
+        </mxCell>
+        <mxCell id="p1-33" value="&lt;b&gt;🧠 yantra_dev&lt;/b&gt; ✓ disposable — none running between sessions&lt;br&gt;g6.xlarge (L4) → g5.xlarge (A10G) → &lt;b&gt;g4dn.xlarge (T4)&lt;/b&gt;, whichever Mumbai has; 1 Oct used g4dn · new IP each launch&lt;br&gt;AMI: Deep Learning Base OSS NVIDIA, Ubuntu 24.04&lt;br&gt;disk &lt;b&gt;100 GB&lt;/b&gt; gp3 (AMI uses ~54) · tag purpose=dev-public-repos&lt;br&gt;instance profile &lt;b&gt;yantra-dev-bedrock&lt;/b&gt; (no keys on box)&lt;hr&gt;bootstrap ✓ yantra 164 passed · agentic-reporting 70 passed&lt;br&gt;EVAL-GATE PASS (both arms) · REPORT-EVAL PASS · SCHEMA-EVAL PASS&lt;br&gt;then: Claude Code + gh auth login&lt;br&gt;AWS_REGION=ap-south-1&lt;br&gt;LLM_MODEL=in.anthropic.claude-haiku-4-5-…&lt;br&gt;≈ $1–1.4/h while running — &lt;b&gt;stop when idle&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=6;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="920" y="590" width="480" height="315" />
+        </mxCell>
+        <mxCell id="p1-34" value="&lt;b&gt;Key pair yantra-dev&lt;/b&gt; ✓&lt;br&gt;private key → nifty_dev ~/.ssh/yantra-dev.pem" style="rounded=1;whiteSpace=wrap;html=1;arcSize=6;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1440" y="590" width="300" height="70" />
+        </mxCell>
+        <mxCell id="p1-35" value="&lt;b&gt;CloudWatch alarm yantra-dev-idle-stop&lt;/b&gt; ✓&lt;br&gt;CPU &amp;lt; 2% for 60 min → stop the box" style="rounded=1;whiteSpace=wrap;html=1;arcSize=6;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1440" y="680" width="300" height="80" />
+        </mxCell>
+        <mxCell id="p1-36" value="&lt;b&gt;Session policy (1 Oct)&lt;/b&gt;&lt;br&gt;MLflow store + adapters live in S3, so each session ends with &lt;font face=&quot;Courier New&quot; color=&quot;#0b5394&quot;&gt;launch.sh terminate --yes&lt;/font&gt;.&lt;br&gt;Runbook: deploy/ec2/SESSION_LIFECYCLE.md" style="rounded=1;whiteSpace=wrap;html=1;arcSize=6;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fillColor=#ffffff;strokeColor=#bbbbbb;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1440" y="780" width="300" height="145" />
+        </mxCell>
+        <mxCell id="p1-37" value="&lt;b&gt;How the box gets AWS access (no keys)&lt;/b&gt;&lt;br&gt;1. Code calls Bedrock or S3 (boto3).&lt;br&gt;2. The SDK gets short-lived creds for role &lt;b&gt;yantra-dev-bedrock&lt;/b&gt; from instance metadata.&lt;br&gt;3. IAM checks the role policy → allowed / denied.&lt;br&gt;4. Bedrock bills per token; S3 per GB." style="rounded=1;whiteSpace=wrap;html=1;arcSize=6;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fillColor=#ffffff;strokeColor=#bbbbbb;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="900" y="975" width="400" height="150" />
+        </mxCell>
+        <mxCell id="p1-38" value="&lt;b&gt;🪣 S3 yantra-research-lab-data&lt;/b&gt; ✓ (AES256)&lt;br&gt;&lt;b&gt;yantra-corpus/&lt;/b&gt; — owned by the nightly ingest job&lt;br&gt;&amp;nbsp;&amp;nbsp;raw/ &lt;b&gt;426 arXiv PDFs&lt;/b&gt; (807 MB, since 5 Jul) · images/ · figures/&lt;br&gt;&lt;b&gt;ml/&lt;/b&gt; — dev box writes here (empty yet)&lt;br&gt;&amp;nbsp;&amp;nbsp;datasets/ · mlflow/ · models/" style="rounded=1;whiteSpace=wrap;html=1;arcSize=6;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1320" y="975" width="440" height="150" />
+        </mxCell>
+        <mxCell id="p1-39" value="VS Code Remote-SSH" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeWidth=1.5;exitX=1;exitY=0.18;entryX=0.2857;entryY=0;" edge="1" parent="1" source="p1-9" target="p1-28">
+          <mxGeometry as="geometry" relative="1">
+            <Array as="points">
+              <mxPoint x="385" y="150" />
+              <mxPoint x="385" y="94" />
+              <mxPoint x="1000" y="94" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="p1-40" value="console: temp admin key (now deleted)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeWidth=1.5;strokeColor=#b85450;fontColor=#b85450;exitX=0.5;exitY=1;entryX=0;entryY=0.5;" edge="1" parent="1" source="p1-9" target="p1-21">
+          <mxGeometry as="geometry" relative="1">
+            <Array as="points">
+              <mxPoint x="205" y="520" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="p1-41" value="uses profile&lt;br&gt;yantra-launcher" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeWidth=1.5;exitX=0;exitY=0.62;entryX=1;entryY=0.18;" edge="1" parent="1" source="p1-28" target="p1-20">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="p1-42" value="launch / stop / resize&lt;br&gt;(tag-scoped)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeWidth=1.5;exitX=1;exitY=0.78;entryX=0;entryY=0.73;" edge="1" parent="1" source="p1-20" target="p1-33">
+          <mxGeometry as="geometry" relative="1">
+            <Array as="points">
+              <mxPoint x="850" y="440" />
+              <mxPoint x="850" y="820" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="p1-43" value="attached" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeWidth=1.5;exitX=1;exitY=0.4;entryX=0;entryY=0.18;" edge="1" parent="1" source="p1-23" target="p1-33">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="p1-44" value="SSH · yantra-dev.pem" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeWidth=1.5;exitX=0.45;exitY=1;entryX=0.31;entryY=0;" edge="1" parent="1" source="p1-28" target="p1-33">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="p1-45" value="InvokeModel&lt;br&gt;via instance role" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeWidth=1.5;exitX=1;exitY=0.06;entryX=0.5;entryY=1;" edge="1" parent="1" source="p1-33" target="p1-30">
+          <mxGeometry as="geometry" relative="1">
+            <Array as="points">
+              <mxPoint x="1420" y="610" />
+              <mxPoint x="1420" y="480" />
+              <mxPoint x="1540" y="480" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="p1-46" value="stops" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeWidth=1.5;exitX=0;exitY=0.5;entryX=1;entryY=0.4;" edge="1" parent="1" source="p1-35" target="p1-33">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="p1-47" value="read corpus · write ml/&lt;br&gt;via instance role" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeWidth=1.5;exitX=0.9;exitY=1;entryX=0.07;entryY=0;" edge="1" parent="1" source="p1-33" target="p1-38">
+          <mxGeometry as="geometry" relative="1">
+            <Array as="points">
+              <mxPoint x="1352" y="960" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="p1-48" value="repo secret" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeWidth=1.5;exitX=1;exitY=0.48;entryX=0;entryY=0.5;" edge="1" parent="1" source="p1-14" target="p1-19">
+          <mxGeometry as="geometry" relative="1">
+            <Array as="points">
+              <mxPoint x="390" y="1050" />
+              <mxPoint x="390" y="295" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="2 What we did - steps" id="2_What_we_did_-_steps">
+    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1820" pageHeight="1100" math="0" shadow="0" background="#FFFFFF">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="p2-1" value="What we did, step by step — and what comes next" style="text;html=1;align=left;verticalAlign=middle;fontSize=24;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="40" y="10" width="800" height="40" />
+        </mxCell>
+        <mxCell id="p2-2" value="Read left → right on the top row, then right → left on the bottom row. Steps 1–10 done on 30 Sep. On 1 Oct: S3 access for the box, two QLoRA sessions, and terminate-after-session." style="text;html=1;align=left;verticalAlign=top;fontSize=13;fontColor=#555555;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="40" y="48" width="1100" height="40" />
+        </mxCell>
+        <mxCell id="p2-3" value="&lt;b&gt;Legend&lt;/b&gt;" style="text;html=1;align=left;verticalAlign=middle;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="860" y="15" width="90" height="26" />
+        </mxCell>
+        <mxCell id="p2-4" value="Done ✓" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;align=center;verticalAlign=middle;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="940" y="15" width="165" height="26" />
+        </mxCell>
+        <mxCell id="p2-5" value="Waiting on AWS ⏳" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;align=center;verticalAlign=middle;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1115" y="15" width="165" height="26" />
+        </mxCell>
+        <mxCell id="p2-6" value="Next — not created yet" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;align=center;verticalAlign=middle;fillColor=#f5f5f5;strokeColor=#999999;dashed=1;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1290" y="15" width="165" height="26" />
+        </mxCell>
+        <mxCell id="p2-7" value="Removed / to delete" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;align=center;verticalAlign=middle;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1465" y="15" width="165" height="26" />
+        </mxCell>
+        <mxCell id="p2-8" value="Existing, untouched" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;align=center;verticalAlign=middle;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1640" y="15" width="165" height="26" />
+        </mxCell>
+        <mxCell id="p2-9" value="&lt;b&gt;1 · Tidy nifty_dev&lt;/b&gt;&lt;hr&gt;Home folder 30 → 15 GB (Cursor, stale data copy, old VS Code servers, caches).&lt;br&gt;Repos cloned into &lt;b&gt;~/work&lt;/b&gt;. Dotfiles hidden in VS Code." style="rounded=1;whiteSpace=wrap;html=1;arcSize=6;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="40" y="130" width="260" height="190" />
+        </mxCell>
+        <mxCell id="p2-10" value="&lt;b&gt;2 · Temp admin (you)&lt;/b&gt;&lt;hr&gt;Console: user &lt;b&gt;yantra-admin-temp&lt;/b&gt; + AdministratorAccess → access key.&lt;br&gt;&lt;font face=&quot;Courier New&quot; color=&quot;#0b5394&quot;&gt;aws configure --profile yantra-admin&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=6;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="350" y="130" width="260" height="190" />
+        </mxCell>
+        <mxCell id="p2-11" value="&lt;b&gt;3 · setup_account.sh (me)&lt;/b&gt;&lt;hr&gt;Role + instance profile &lt;b&gt;yantra-dev-bedrock&lt;/b&gt;, alarm service-linked role, user &lt;b&gt;claude-dev-launcher&lt;/b&gt; + managed policy, key → profile &lt;b&gt;yantra-launcher&lt;/b&gt;, GPU quota requests." style="rounded=1;whiteSpace=wrap;html=1;arcSize=6;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="660" y="130" width="260" height="190" />
+        </mxCell>
+        <mxCell id="p2-12" value="&lt;b&gt;4 · Verify&lt;/b&gt;&lt;hr&gt;preflight as launcher ✓&lt;br&gt;dry-run RunInstances / CreateKeyPair / CreateSecurityGroup → “would have succeeded” ✓&lt;br&gt;Bedrock Haiku call → “ok” ✓" style="rounded=1;whiteSpace=wrap;html=1;arcSize=6;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="970" y="130" width="260" height="190" />
+        </mxCell>
+        <mxCell id="p2-13" value="&lt;b&gt;5 · Remove admin&lt;/b&gt;&lt;hr&gt;Admin access key deleted in AWS, profile removed from nifty_dev.&lt;br&gt;&lt;b&gt;You: delete user yantra-admin-temp in the console.&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=6;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1280" y="130" width="260" height="190" />
+        </mxCell>
+        <mxCell id="p2-14" value="&lt;b&gt;6 · GPU quota ✓&lt;/b&gt;&lt;hr&gt;On-demand G/VT 0 → 8 approved after ~1.5 h (spot stayed 0).&lt;br&gt;Then the EC2 limit took ~20 min more to apply, and Mumbai had no g5 capacity for ~20 min." style="rounded=1;whiteSpace=wrap;html=1;arcSize=6;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1590" y="130" width="260" height="190" />
+        </mxCell>
+        <mxCell id="p2-15" value="&lt;b&gt;7 · Plan (free)&lt;/b&gt;&lt;hr&gt;&lt;font face=&quot;Courier New&quot; color=&quot;#0b5394&quot;&gt;launch.sh plan&lt;/font&gt; prints type, AMI, subnet, disk, role, key pair, SSH IP, idle alarm. Nothing is created." style="rounded=1;whiteSpace=wrap;html=1;arcSize=6;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1590" y="420" width="260" height="190" />
+        </mxCell>
+        <mxCell id="p2-16" value="&lt;b&gt;8 · You said&lt;br&gt;“yes launch” ✓&lt;/b&gt;&lt;br&gt;&lt;span style='font-size:11px'&gt;(+ approval rule: anything &amp;gt; $1)&lt;/span&gt;" style="rhombus;whiteSpace=wrap;html=1;fontSize=13;align=center;verticalAlign=middle;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1280" y="420" width="260" height="190" />
+        </mxCell>
+        <mxCell id="p2-17" value="&lt;b&gt;9 · Launch (bills)&lt;/b&gt;&lt;hr&gt;&lt;font face=&quot;Courier New&quot; color=&quot;#0b5394&quot;&gt;launch.sh launch --yes&lt;/font&gt;&lt;br&gt;key pair + SG (SSH from this IP) + g5.xlarge + idle-stop alarm. Launched with DISK_GB=100 (not 200) to halve disk cost." style="rounded=1;whiteSpace=wrap;html=1;arcSize=6;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="970" y="420" width="260" height="190" />
+        </mxCell>
+        <mxCell id="p2-18" value="&lt;b&gt;10 · Bootstrap&lt;/b&gt;&lt;hr&gt;SSH once: git clone yantra → tmux runs &lt;b&gt;bootstrap.sh&lt;/b&gt; → poll ~/bootstrap.log.&lt;br&gt;All PASS. First try died on the first-boot apt lock → bootstrap.sh now waits for it." style="rounded=1;whiteSpace=wrap;html=1;arcSize=6;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="660" y="420" width="260" height="190" />
+        </mxCell>
+        <mxCell id="p2-19" value="&lt;b&gt;11 · Hand-off&lt;/b&gt;&lt;hr&gt;On the box: install Claude Code, &lt;font face=&quot;Courier New&quot; color=&quot;#0b5394&quot;&gt;gh auth login&lt;/font&gt; (fine-grained token, 2 repos). Set LLM_MODEL=in.anthropic… &lt;b&gt;(you, now)&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=6;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="350" y="420" width="260" height="190" />
+        </mxCell>
+        <mxCell id="p2-20" value="&lt;b&gt;12 · Day to day&lt;/b&gt;&lt;hr&gt;&lt;font face=&quot;Courier New&quot; color=&quot;#0b5394&quot;&gt;launch.sh stop&lt;/font&gt; when idle · &lt;font face=&quot;Courier New&quot; color=&quot;#0b5394&quot;&gt;start&lt;/font&gt; (new IP) · &lt;font face=&quot;Courier New&quot; color=&quot;#0b5394&quot;&gt;resize t4g.large --yes&lt;/font&gt; after training · never terminate unless you say so." style="rounded=1;whiteSpace=wrap;html=1;arcSize=6;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fillColor=#f5f5f5;strokeColor=#999999;dashed=1;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="40" y="420" width="260" height="190" />
+        </mxCell>
+        <mxCell id="p2-21" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeWidth=1.5;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="p2-9" target="p2-10">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="p2-22" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeWidth=1.5;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="p2-10" target="p2-11">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="p2-23" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeWidth=1.5;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="p2-11" target="p2-12">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="p2-24" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeWidth=1.5;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="p2-12" target="p2-13">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="p2-25" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeWidth=1.5;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="p2-13" target="p2-14">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="p2-26" value="quota approved" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeWidth=1.5;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="p2-14" target="p2-15">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="p2-27" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeWidth=1.5;exitX=0;exitY=0.5;entryX=1;entryY=0.5;" edge="1" parent="1" source="p2-15" target="p2-16">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="p2-28" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeWidth=1.5;exitX=0;exitY=0.5;entryX=1;entryY=0.5;" edge="1" parent="1" source="p2-16" target="p2-17">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="p2-29" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeWidth=1.5;exitX=0;exitY=0.5;entryX=1;entryY=0.5;" edge="1" parent="1" source="p2-17" target="p2-18">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="p2-30" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeWidth=1.5;dashed=1;strokeColor=#888888;fontColor=#555555;exitX=0;exitY=0.5;entryX=1;entryY=0.5;" edge="1" parent="1" source="p2-18" target="p2-19">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="p2-31" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeWidth=1.5;dashed=1;strokeColor=#888888;fontColor=#555555;exitX=0;exitY=0.5;entryX=1;entryY=0.5;" edge="1" parent="1" source="p2-19" target="p2-20">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="p2-32" value="📍 you are here" style="rounded=1;html=1;fontSize=12;fontStyle=1;fillColor=#d6b656;fontColor=#ffffff;strokeColor=none;align=center;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="405" y="620" width="150" height="30" />
+        </mxCell>
+        <mxCell id="p2-33" value="Five ideas worth remembering" style="text;html=1;fontSize=16;fontStyle=1;align=left;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="40" y="660" width="1760" height="30" />
+        </mxCell>
+        <mxCell id="p2-34" value="&lt;b&gt;Least privilege&lt;/b&gt;&lt;br&gt;Admin power was used &lt;b&gt;once&lt;/b&gt; and its key deleted. The daily login can only act on resources tagged purpose=dev-public-repos — it cannot touch the trading bot." style="rounded=1;whiteSpace=wrap;html=1;arcSize=6;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fillColor=#ffffff;strokeColor=#bbbbbb;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="40" y="700" width="335" height="150" />
+        </mxCell>
+        <mxCell id="p2-35" value="&lt;b&gt;No keys on servers&lt;/b&gt;&lt;br&gt;The dev box gets Bedrock through an &lt;b&gt;instance role&lt;/b&gt;. Credentials are short-lived and rotate automatically — nothing to leak from ~/.aws on the box." style="rounded=1;whiteSpace=wrap;html=1;arcSize=6;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fillColor=#ffffff;strokeColor=#bbbbbb;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="395" y="700" width="335" height="150" />
+        </mxCell>
+        <mxCell id="p2-36" value="&lt;b&gt;Money gates&lt;/b&gt;&lt;br&gt;Quota, plan and dry-runs are free. Only &lt;b&gt;launch&lt;/b&gt;, &lt;b&gt;start&lt;/b&gt; and &lt;b&gt;resize&lt;/b&gt; bill. The idle alarm stops the box after 60 quiet minutes." style="rounded=1;whiteSpace=wrap;html=1;arcSize=6;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fillColor=#ffffff;strokeColor=#bbbbbb;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="750" y="700" width="335" height="150" />
+        </mxCell>
+        <mxCell id="p2-37" value="&lt;b&gt;Keep the live host clean&lt;/b&gt;&lt;br&gt;nifty_dev runs the market-hours monitor. It only launches the box — no Docker, GPU jobs or model downloads there." style="rounded=1;whiteSpace=wrap;html=1;arcSize=6;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fillColor=#ffffff;strokeColor=#bbbbbb;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1105" y="700" width="335" height="150" />
+        </mxCell>
+        <mxCell id="p2-38" value="&lt;b&gt;Mumbai model IDs&lt;/b&gt;&lt;br&gt;Use &lt;b&gt;in.&lt;/b&gt; (India) or &lt;b&gt;global.&lt;/b&gt; inference profiles. &lt;b&gt;us.&lt;/b&gt; and &lt;b&gt;apac.&lt;/b&gt; do not route from ap-south-1 here." style="rounded=1;whiteSpace=wrap;html=1;arcSize=6;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fillColor=#ffffff;strokeColor=#bbbbbb;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1460" y="700" width="335" height="150" />
+        </mxCell>
+        <mxCell id="p2-39" value="&lt;b&gt;Files involved&lt;/b&gt;&lt;br&gt;~/work/yantra-research-lab/deploy/ec2/&lt;b&gt;setup_account.sh&lt;/b&gt; — one-time account setup (new, not committed yet)&lt;br&gt;~/work/yantra-research-lab/deploy/ec2/&lt;b&gt;launch.sh&lt;/b&gt; — preflight · quota · plan · launch · status · ssh · stop · start · resize · terminate&lt;br&gt;~/work/yantra-research-lab/deploy/ec2/&lt;b&gt;bootstrap.sh&lt;/b&gt; — runs on the dev box&lt;br&gt;~/work/yantra-research-lab/deploy/ec2/iam/&lt;b&gt;launcher-policy.json&lt;/b&gt;, &lt;b&gt;bedrock-dev-role-policy.json&lt;/b&gt;, &lt;b&gt;dev-box-s3-policy.json&lt;/b&gt;&lt;br&gt;~/.aws/credentials — profile &lt;b&gt;yantra-launcher&lt;/b&gt; (only profile on nifty_dev) · ~/.ssh/yantra-dev.pem — created at launch" style="rounded=1;whiteSpace=wrap;html=1;arcSize=6;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fillColor=#ffffff;strokeColor=#bbbbbb;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="40" y="880" width="1760" height="180" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="3 Who can do what" id="3_Who_can_do_what">
+    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1820" pageHeight="1000" math="0" shadow="0" background="#FFFFFF">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="p3-1" value="Who can do what — and the commands you will use" style="text;html=1;align=left;verticalAlign=middle;fontSize=24;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="40" y="10" width="1200" height="40" />
+        </mxCell>
+        <mxCell id="p3-2" value="&lt;table style='border-collapse:collapse;font-size:12px;width:100%'&gt;&lt;tr&gt;&lt;th style='border:1px solid #bbb;padding:6px;background:#eeeeee;text-align:left'&gt;Identity&lt;/th&gt;&lt;th style='border:1px solid #bbb;padding:6px;background:#eeeeee;text-align:left'&gt;Where its credentials live&lt;/th&gt;&lt;th style='border:1px solid #bbb;padding:6px;background:#eeeeee;text-align:left'&gt;Can do&lt;/th&gt;&lt;th style='border:1px solid #bbb;padding:6px;background:#eeeeee;text-align:left'&gt;Cannot / notes&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style='border:1px solid #bbb;padding:6px;vertical-align:top;background:#f8cecc'&gt;&lt;b&gt;yantra-admin-temp&lt;/b&gt;&lt;/td&gt;&lt;td style='border:1px solid #bbb;padding:6px;vertical-align:top'&gt;none — key deleted&lt;/td&gt;&lt;td style='border:1px solid #bbb;padding:6px;vertical-align:top'&gt;everything (AdministratorAccess)&lt;/td&gt;&lt;td style='border:1px solid #bbb;padding:6px;vertical-align:top'&gt;Used once for setup_account.sh. Delete the user in the console.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style='border:1px solid #bbb;padding:6px;vertical-align:top;background:#d5e8d4'&gt;&lt;b&gt;claude-dev-launcher&lt;/b&gt;&lt;/td&gt;&lt;td style='border:1px solid #bbb;padding:6px;vertical-align:top'&gt;nifty_dev ~/.aws profile yantra-launcher&lt;/td&gt;&lt;td style='border:1px solid #bbb;padding:6px;vertical-align:top'&gt;describe EC2 · launch g5/g6/g4dn/t4g/c7g/m7i with tag purpose=dev-public-repos · start/stop/resize/terminate tagged boxes · create key pair + SG · pass role yantra-dev-bedrock · request GPU quota · idle alarm yantra-dev-*&lt;/td&gt;&lt;td style='border:1px solid #bbb;padding:6px;vertical-align:top'&gt;IAM changes · untagged resources (the trading bot) · other regions · Bedrock · S3&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style='border:1px solid #bbb;padding:6px;vertical-align:top;background:#d5e8d4'&gt;&lt;b&gt;yantra-dev-bedrock (role)&lt;/b&gt;&lt;/td&gt;&lt;td style='border:1px solid #bbb;padding:6px;vertical-align:top'&gt;none stored — instance metadata, auto-rotating&lt;/td&gt;&lt;td style='border:1px solid #bbb;padding:6px;vertical-align:top'&gt;bedrock:InvokeModel(+stream) on anthropic.* models and *.anthropic.* profiles · list models/profiles · S3 read yantra-corpus/* · S3 read+write ml/* (policy dev-box-s3-policy.json)&lt;/td&gt;&lt;td style='border:1px solid #bbb;padding:6px;vertical-align:top'&gt;EC2 · IAM · writing yantra-corpus/ · deleting anything in S3 · other buckets · non-Anthropic models&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style='border:1px solid #bbb;padding:6px;vertical-align:top;background:#dae8fc'&gt;&lt;b&gt;yantra-ingest&lt;/b&gt;&lt;/td&gt;&lt;td style='border:1px solid #bbb;padding:6px;vertical-align:top'&gt;GitHub Actions secret&lt;/td&gt;&lt;td style='border:1px solid #bbb;padding:6px;vertical-align:top'&gt;S3 corpus bucket (unchanged)&lt;/td&gt;&lt;td style='border:1px solid #bbb;padding:6px;vertical-align:top'&gt;everything else&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style='border:1px solid #bbb;padding:6px;vertical-align:top;background:#dae8fc'&gt;&lt;b&gt;hemant-window&lt;/b&gt;&lt;/td&gt;&lt;td style='border:1px solid #bbb;padding:6px;vertical-align:top'&gt;your Windows machine&lt;/td&gt;&lt;td style='border:1px solid #bbb;padding:6px;vertical-align:top'&gt;unchanged&lt;/td&gt;&lt;td style='border:1px solid #bbb;padding:6px;vertical-align:top'&gt;—&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;" style="text;html=1;whiteSpace=wrap;align=left;verticalAlign=top;overflow=fill;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="40" y="70" width="1740" height="360" />
+        </mxCell>
+        <mxCell id="p3-3" value="&lt;table style='border-collapse:collapse;font-size:12px;width:100%'&gt;&lt;tr&gt;&lt;th style='border:1px solid #bbb;padding:6px;background:#eeeeee;text-align:left'&gt;Command (from ~/work/yantra-research-lab)&lt;/th&gt;&lt;th style='border:1px solid #bbb;padding:6px;background:#eeeeee;text-align:left'&gt;What it does&lt;/th&gt;&lt;th style='border:1px solid #bbb;padding:6px;background:#eeeeee;text-align:left'&gt;Cost&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style='border:1px solid #bbb;padding:6px;vertical-align:top'&gt;&lt;font face=&quot;Courier New&quot; color=&quot;#0b5394&quot;&gt;bash deploy/ec2/launch.sh preflight&lt;/font&gt;&lt;/td&gt;&lt;td style='border:1px solid #bbb;padding:6px;vertical-align:top'&gt;who am I, GPU quota, AZs, role, AMI, existing box&lt;/td&gt;&lt;td style='border:1px solid #bbb;padding:6px;vertical-align:top;background:#ffffff'&gt;free&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style='border:1px solid #bbb;padding:6px;vertical-align:top'&gt;&lt;font face=&quot;Courier New&quot; color=&quot;#0b5394&quot;&gt;bash deploy/ec2/launch.sh plan&lt;/font&gt;&lt;/td&gt;&lt;td style='border:1px solid #bbb;padding:6px;vertical-align:top'&gt;print exactly what launch would create&lt;/td&gt;&lt;td style='border:1px solid #bbb;padding:6px;vertical-align:top;background:#ffffff'&gt;free&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style='border:1px solid #bbb;padding:6px;vertical-align:top'&gt;&lt;font face=&quot;Courier New&quot; color=&quot;#0b5394&quot;&gt;bash deploy/ec2/launch.sh launch --yes&lt;/font&gt;&lt;/td&gt;&lt;td style='border:1px solid #bbb;padding:6px;vertical-align:top'&gt;key pair + SG + g5.xlarge + idle alarm&lt;/td&gt;&lt;td style='border:1px solid #bbb;padding:6px;vertical-align:top;background:#fff2cc'&gt;💰 bills (~$1/h)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style='border:1px solid #bbb;padding:6px;vertical-align:top'&gt;&lt;font face=&quot;Courier New&quot; color=&quot;#0b5394&quot;&gt;bash deploy/ec2/launch.sh status&lt;/font&gt;&lt;/td&gt;&lt;td style='border:1px solid #bbb;padding:6px;vertical-align:top'&gt;instance id, type, state, public IP&lt;/td&gt;&lt;td style='border:1px solid #bbb;padding:6px;vertical-align:top;background:#ffffff'&gt;free&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style='border:1px solid #bbb;padding:6px;vertical-align:top'&gt;&lt;font face=&quot;Courier New&quot; color=&quot;#0b5394&quot;&gt;bash deploy/ec2/launch.sh ssh&lt;/font&gt;&lt;/td&gt;&lt;td style='border:1px solid #bbb;padding:6px;vertical-align:top'&gt;log in as ubuntu&lt;/td&gt;&lt;td style='border:1px solid #bbb;padding:6px;vertical-align:top;background:#ffffff'&gt;—&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style='border:1px solid #bbb;padding:6px;vertical-align:top'&gt;&lt;font face=&quot;Courier New&quot; color=&quot;#0b5394&quot;&gt;bash deploy/ec2/launch.sh stop&lt;/font&gt;&lt;/td&gt;&lt;td style='border:1px solid #bbb;padding:6px;vertical-align:top'&gt;stop the box (disk kept, ~$9/month for 100 GB)&lt;/td&gt;&lt;td style='border:1px solid #bbb;padding:6px;vertical-align:top;background:#ffffff'&gt;stops GPU billing&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style='border:1px solid #bbb;padding:6px;vertical-align:top'&gt;&lt;font face=&quot;Courier New&quot; color=&quot;#0b5394&quot;&gt;bash deploy/ec2/launch.sh start&lt;/font&gt;&lt;/td&gt;&lt;td style='border:1px solid #bbb;padding:6px;vertical-align:top'&gt;start again — public IP changes&lt;/td&gt;&lt;td style='border:1px solid #bbb;padding:6px;vertical-align:top;background:#fff2cc'&gt;💰 bills&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style='border:1px solid #bbb;padding:6px;vertical-align:top'&gt;&lt;font face=&quot;Courier New&quot; color=&quot;#0b5394&quot;&gt;bash deploy/ec2/launch.sh resize t4g.large --yes&lt;/font&gt;&lt;/td&gt;&lt;td style='border:1px solid #bbb;padding:6px;vertical-align:top'&gt;switch to a cheap CPU type after training&lt;/td&gt;&lt;td style='border:1px solid #bbb;padding:6px;vertical-align:top;background:#fff2cc'&gt;💰 bills (cheaper)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style='border:1px solid #bbb;padding:6px;vertical-align:top'&gt;&lt;font face=&quot;Courier New&quot; color=&quot;#0b5394&quot;&gt;bash deploy/ec2/launch.sh terminate --yes&lt;/font&gt;&lt;/td&gt;&lt;td style='border:1px solid #bbb;padding:6px;vertical-align:top'&gt;delete box and disk — only if you say so&lt;/td&gt;&lt;td style='border:1px solid #bbb;padding:6px;vertical-align:top;background:#f8cecc'&gt;irreversible&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style='border:1px solid #bbb;padding:6px;vertical-align:top'&gt;&lt;font face=&quot;Courier New&quot; color=&quot;#0b5394&quot;&gt;bash deploy/ec2/setup_account.sh&lt;/font&gt;&lt;/td&gt;&lt;td style='border:1px solid #bbb;padding:6px;vertical-align:top'&gt;re-apply IAM + quota (needs a temp admin profile)&lt;/td&gt;&lt;td style='border:1px solid #bbb;padding:6px;vertical-align:top;background:#ffffff'&gt;free&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;" style="text;html=1;whiteSpace=wrap;align=left;verticalAlign=top;overflow=fill;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="40" y="460" width="1740" height="420" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
