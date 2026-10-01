@@ -1,7 +1,7 @@
 {
   "_note": "Public run manifest of the Tier-3 agentic ingestion pipeline. Safe aggregates + provenance only; raw PDFs live in S3, not here.",
-  "run_id": "20260930T083633Z",
-  "generated_at": "2026-09-30T08:46:08+00:00",
+  "run_id": "20261001T085859Z",
+  "generated_at": "2026-10-01T09:07:26+00:00",
   "collection": "research_corpus",
   "embed_model": "BAAI/bge-small-en-v1.5",
   "dag": [
@@ -50,197 +50,269 @@
     "discovered": 10,
     "fetched": 10,
     "parsed": 10,
-    "chunks": 507,
-    "accepted": 478,
-    "rejected": 29,
-    "images": 684,
+    "chunks": 532,
+    "accepted": 513,
+    "rejected": 19,
+    "images": 668,
     "figures_captioned": 18,
     "tables": 2,
     "with_math": 10,
-    "indexed": 478,
-    "spent_usd": 0.0347,
-    "duration_s": 574.5
+    "indexed": 513,
+    "spent_usd": 0.0329,
+    "duration_s": 507.2
   },
   "rejects_by_reason": {
-    "low-relevance": 29
+    "low-relevance": 19
   },
   "budget_usd": 3.0,
   "figures": [
     {
-      "doc_id": "2609.37963v1",
-      "title": "Not All LPs Are Equal: The Active-Passive Gap in Automated Market Maker Liquidity Provision",
-      "page": 14,
-      "thumb": "/data/figures/2609.37963v1_p14_0.jpg",
-      "caption": "Fig. 1. Overall minus passive LIFO markout by active LIFO volume share, for Uniswap v3 (left) and v4 (right, log-scale volume share) pools. \u2014 This figure presents two scatter plots with fitted trend lines showing the relationship between active LIFO volume share (x-axis) and overall minus passive LIFO markout (y-axis) for Uniswap v3 (left panel) and v4 (right panel). The left panel uses linear scales while the right panel uses logarithmic scale for the x-axis. Both panels demonstrate a positive ",
+      "doc_id": "2609.39569v1",
+      "title": "Spouse-Protected Tontines: Household Decumulation via Neural-Network Optimization",
+      "page": 24,
+      "thumb": "/data/figures/2609.39569v1_p24_0.jpg",
+      "caption": "Figure 7.1: Household-state probabilities and spouse-only duration for the baseline Australian household. \u2014 Figure 7.1 displays two panels analyzing household dynamics for an Australian household in a tontine framework. Panel (a) is a line chart showing the evolution of household-state probabilities over 35 years, with four states (11, 10, 01, 00) representing different configurations of spouse survival status, where state 11 indicates both spouses alive and state 00 indicates both deceased; sta",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2609.37963v1"
+      "source": "https://arxiv.org/pdf/2609.39569v1"
     },
     {
-      "doc_id": "2609.37903v1",
-      "title": "From Intraday Orderbook to Imbalance Price: Understanding Cross-Market Interaction",
-      "page": 1,
-      "thumb": "/data/figures/2609.37903v1_p1_0.jpg",
-      "caption": "Fig. 1 (a) illustrates how fundamentals such as renewable generation and load influence the intraday orderbook and imbalance price as established market context. This forms an implicit interaction between the intraday and balancing markets [19]. On the one hand, intraday prices become more volatile near delivery as traders reflect on fundamentals and seek to close their positions. This is because  \u2014 This figure illustrates the causal relationships and information flows between market fundamental",
+      "doc_id": "2609.39569v1",
+      "title": "Spouse-Protected Tontines: Household Decumulation via Neural-Network Optimization",
+      "page": 24,
+      "thumb": "/data/figures/2609.39569v1_p24_1.jpg",
+      "caption": "Figure 7.1(a) reports the analytic household-state probabilities \u03c011(m), \u03c010(m), \u03c001(m), \u03c000(m) over the full horizon. As expected, the probability of state 11 declines monotonically, while the probability of state 00 rises monotonically. More importantly, the spouse-only state 01 is materially more likely than the retiree-only state 10 over the economically relevant part of the horizon, reflectin \u2014 Figure 7.1 presents household-state probabilities and spouse-only duration distributions for a ba",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2609.37903v1"
+      "source": "https://arxiv.org/pdf/2609.39569v1"
     },
     {
-      "doc_id": "2609.37903v1",
-      "title": "From Intraday Orderbook to Imbalance Price: Understanding Cross-Market Interaction",
-      "page": 2,
-      "thumb": "/data/figures/2609.37903v1_p2_1.jpg",
-      "caption": "Fig. 1. Overview of the work. (a) From fundamentals to electricity prices. Continuous intraday traders adjust their orders in response to renewable generation and load, forming the intraday orderbook, while the imbalance price also reflects fundamental supply\u2013demand in balancing markets. (b) Three representations of the orderbook (OHLCV, VWAP, and LMP) and their variants. (c) Three feature case st \u2014 This figure presents a methodological overview for predicting electricity imbalance prices using ",
+      "doc_id": "2609.39420v1",
+      "title": "QuantCode Model: Specializing Language Models for Executable Algorithmic Trading Code",
+      "page": 8,
+      "thumb": "/data/figures/2609.39420v1_p8_0.jpg",
+      "caption": "Figure 1 visualizes the Judge Pass changes. The magnitude of the continued-pretraining gains is moderate, whereas the SFT gain on the Qwen3.6-35B-A3B model is substantially larger. \u2014 This table presents single-turn QuantCode-Bench results comparing different training interventions across two model checkpoints (Qwen3.5-397B-A17B and Qwen3.6-35B-A3B), with three evaluation metrics: Backtest (%), Trades (%), and Judge Pass (%). The data shows sequential improvements from base models through continu",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2609.37903v1"
+      "source": "https://arxiv.org/pdf/2609.39420v1"
     },
     {
-      "doc_id": "2609.37903v1",
-      "title": "From Intraday Orderbook to Imbalance Price: Understanding Cross-Market Interaction",
-      "page": 3,
-      "thumb": "/data/figures/2609.37903v1_p3_2.jpg",
-      "caption": "Fig. 2. Exploratory data analysis for Germany. Panel (a) shows annual traded volume distributions by product in the continuous intraday market. Panel (b) illustrates continuous intraday market VWAP by delivery time and minutes before delivery. Panels (c) to (e) overlay complete imbalance price weeks for 2022, 2023, and 2024. The line is the pointwise median and the band is the middle 50% of weeks. \u2014 This figure presents exploratory analysis of the German continuous intraday electricity market ac",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.37903v1"
-    },
-    {
-      "doc_id": "2609.37903v1",
-      "title": "From Intraday Orderbook to Imbalance Price: Understanding Cross-Market Interaction",
-      "page": 3,
-      "thumb": "/data/figures/2609.37903v1_p3_3.jpg",
-      "caption": "Fig. 3. Exploratory data analysis for Austria. Panel order, aggregation, and yearly definitions follow Fig. 2. \u2014 This figure presents exploratory data analysis for the Austrian electricity market across 2022-2024, mirroring the structure of the German analysis. Panel (a) shows annual distributions of traded volume per delivery (MWh) as stacked density plots for each year, with 2024 showing the lowest peak volume. Panels (c), (d), and (e) display time-series line charts of imbalance prices (EUR/M",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.37903v1"
-    },
-    {
-      "doc_id": "2609.37881v1",
-      "title": "Global Structure and Local Specifications in Sublinear Valuation",
-      "page": 4,
-      "thumb": "/data/figures/2609.37881v1_p4_0.jpg",
-      "caption": "Figure 1: Relations among valuations, stable uncertainty structures, and local specifications. The top maps are inverse order isomorphisms. Localization and globalization preserve order and satisfy the displayed equivalence, but their compositions need not recover the original valuation or specification. \u2014 This diagram illustrates the relationships between valuations, stable uncertainty structures, and local specifications in sublinear valuation theory. The figure shows two inverse order isomorp",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.37881v1"
-    },
-    {
-      "doc_id": "2609.37872v1",
-      "title": "A Generalized Langevin Model of Latent Liquidity and Concave Price Impact",
-      "page": 22,
-      "thumb": "/data/figures/2609.37872v1_p22_0.jpg",
-      "caption": "Figure 1 separates the Kyle line from the three variants with counterflow. The Kyle response is linear, I(V, T) = V/L0, and independent of duration. The fresh-pool response is lower and grows sublinearly over \u2014 This figure displays mathematical formulas defining impact metrics for order execution analysis. The image shows equations (64-66) that specify: the local exponent \u03b4(V,T) measuring price impact sensitivity on a logarithmic scale, a centered approximation \u03b4\u0302(Vk,T) for discrete volume level",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.37872v1"
-    },
-    {
-      "doc_id": "2609.37872v1",
-      "title": "A Generalized Langevin Model of Latent Liquidity and Concave Price Impact",
-      "page": 23,
-      "thumb": "/data/figures/2609.37872v1_p23_1.jpg",
-      "caption": "Figure 1. Terminal impact and local size exponent for the Kyle, fresh-pool, single-mode, and GLE variants \u2014 This figure displays six panels comparing terminal market impact and local size exponents across four model variants (Kyle, fresh-pool, single-mode, and GLE) at three different time horizons (T=1, 3, 10). The top panels use log-log scale on both axes to show terminal impact versus order size Q/Q\u2080, while bottom panels plot the local size exponent (slope) against order size on a log scale. K",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.37872v1"
-    },
-    {
-      "doc_id": "2609.37820v1",
-      "title": "Information Games: Strategic Crowding and Firm Repositioning in Language-Model Space",
-      "page": 13,
-      "thumb": "/data/figures/2609.37820v1_p13_0.jpg",
-      "caption": "Figure 1: Heterogeneous capabilities turn rivalry into differentiated repositioning. Bars decompose the strategic-minus-independent composition-change contrast into common and relative components, measured as weighted squared Euclidean distance on eight-site probability vectors. The 278-transition observation layout weights firms equally. Reporting share is zero; common reporting attenuates both c \u2014 This stacked bar chart compares squared composition-response differences between two scenarios: i",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.37820v1"
-    },
-    {
-      "doc_id": "2609.37741v1",
-      "title": "Dyson-Schwinger Effective-Action Methods for Rough Volatility: A Correlation-Response Architecture for Calibration, Exotics and Risk",
-      "page": 4,
-      "thumb": "/data/figures/2609.37741v1_p4_0.jpg",
-      "caption": "Figure 1: The correlation\u2013response architecture. A model SDE is mapped to a self-consistent Gaussian volatility field; the effective action then supplies three two-time blocks at no extra calibration cost\u2014the equal-time correlation C(t, t) (vanilla smiles and calibration, Part I), the off-diagonal correlation C(t, s) (forward smiles and barriers, Part II) and the causal response R(t, s) (latent-fa \u2014 This flowchart illustrates the correlation-response architecture for volatility modeling, showing",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.37741v1"
-    },
-    {
-      "doc_id": "2609.37741v1",
-      "title": "Dyson-Schwinger Effective-Action Methods for Rough Volatility: A Correlation-Response Architecture for Calibration, Exotics and Risk",
-      "page": 7,
-      "thumb": "/data/figures/2609.37741v1_p7_1.jpg",
-      "caption": "Figure 2: Exp-OU error order versus coupling (\u03b8 = 3, \u00b5 = \u22122, T = 1, \u03c1 = 0): price RMSE against the effective coupling \u03b3 = \u03c32/(2\u03b8) on log\u2013log axes. The moment/Edgeworth closure converges as \u03b3, the stationary Hartree closure as \u03b32, and the resummed SCG as \u03b33; the extra power comes from the exact-MGF resummation (5). Extended grids in Technical Supplement, S7. \u2014 This log-log plot shows the convergence behavior of three pricing error approximation methods (Cumulative Edgeworth, Hartree stationary, a",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.37741v1"
-    },
-    {
-      "doc_id": "2609.37741v1",
-      "title": "Dyson-Schwinger Effective-Action Methods for Rough Volatility: A Correlation-Response Architecture for Calibration, Exotics and Risk",
+      "doc_id": "2609.39420v1",
+      "title": "QuantCode Model: Specializing Language Models for Executable Algorithmic Trading Code",
       "page": 9,
-      "thumb": "/data/figures/2609.37741v1_p9_2.jpg",
-      "caption": "Figure 3: Exp-OU (\u03b8 = 3, \u03c3 = 1.5, \u00b5 = \u22122, \u03b8eff = 3.012): the Dyson\u2013Schwinger hierarchy con- verging to the exact characteristic function, diagram by diagram. The resummed SCG (purple) sits on the numerically exact tower CF (black) and the Sobol reference (220 paths) at 0.1\u20130.2 bp, while the perturbative truncations improve level by level\u2014the cumulant projection (orange) misses the Jensen gap by \u223c1 \u2014 This figure shows four subplots displaying implied volatility (%) versus strike price for an Exp-",
+      "thumb": "/data/figures/2609.39420v1_p9_1.jpg",
+      "caption": "Figure 1: Single-turn Judge Pass under domain specialization. \u2014 This figure displays two bar charts comparing Judge Pass rates (%) across three training approaches on the QuantCode-Bench benchmark. The left chart (a) shows results on the 35B-class checkpoint (Qwen3.6-35B-A3B) with Base at 27.8%, Continued pretraining at 33.0%, and SFT at 58.2%. The right chart (b) shows results on the 397B-class checkpoint (Qwen3.5-397B-A17B) with Base at 41.5% and Continued pretraining at 47.5%. The key takeawa",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2609.37741v1"
+      "source": "https://arxiv.org/pdf/2609.39420v1"
     },
     {
-      "doc_id": "2609.37741v1",
-      "title": "Dyson-Schwinger Effective-Action Methods for Rough Volatility: A Correlation-Response Architecture for Calibration, Exotics and Risk",
-      "page": 11,
-      "thumb": "/data/figures/2609.37741v1_p11_3.jpg",
-      "caption": "Figure 4: SABR smiles (F0 = 100, ATM \u224820%, \u03bd = 0.4, \u03c1 = \u22120.5): the routed DS pricer (blue) against a martingale-controlled Sobol reference (grey dots) and Hagan (red dashed), across \u03b2 \u2208{0.1, 0.5, 0.9} (rows) and T \u2208{1, 2, 5} y (columns). DS stays within 0.6\u20138.7 bp everywhere; Hagan degrades to 51\u201372 bp at T = 5 y. The two long-dated low-\u03b2 cells tagged [MS] are routed to the multi-slice solver. \u2014 This figure displays SABR implied volatility smiles across three beta values (0.1, 0.5, 0.9 in rows) ",
+      "doc_id": "2609.39420v1",
+      "title": "QuantCode Model: Specializing Language Models for Executable Algorithmic Trading Code",
+      "page": 10,
+      "thumb": "/data/figures/2609.39420v1_p10_2.jpg",
+      "caption": "Figure 2 compares the base and SFT checkpoints directly. \u2014 This table presents Agentic QuantCode-Bench Judge Pass scores for the Qwen3.6-35B-A3B model across three training checkpoints (base, domain pretraining, and domain pretraining + SFT) evaluated at T1 and T10 turn budgets. The base model achieves 22.3% at T1 and 47.5% at T10, domain pretraining alone reaches 32.3% at T1 but drops to 32.5% at T10 (showing degraded multi-turn performance), while domain pretraining with SFT substantially impr",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2609.37741v1"
+      "source": "https://arxiv.org/pdf/2609.39420v1"
     },
     {
-      "doc_id": "2609.37108v1",
-      "title": "The Efficient Frontier from a LASSO Solver",
-      "page": 3,
-      "thumb": "/data/figures/2609.37108v1_p3_0.jpg",
-      "caption": "Figure 1: Both frontiers of the test problem, computed with a LASSO solver. (a) Long\u2013short under a gross-exposure cap. (b) Long-only, fully invested: blue corners come from a plain call, red squares are the two it misses (Section 7). Marked are the highest-return (triangle), maximum-Sharpe (diamond) and minimum-variance (star) portfolios; the inset magnifies the low-risk end. \u2014 These plots display efficient frontiers derived from LASSO optimization, showing the relationship between portfolio var",
+      "doc_id": "2609.39420v1",
+      "title": "QuantCode Model: Specializing Language Models for Executable Algorithmic Trading Code",
+      "page": 10,
+      "thumb": "/data/figures/2609.39420v1_p10_3.jpg",
+      "caption": "Figure 2: Agentic Judge Pass for the Qwen3.6-35B-A3B base and final domain-pretraining-plus-SFT checkpoints. The final checkpoint improves both the initial policy (T1) and the outcome after up to 10 turns (T10). \u2014 This bar chart compares the agentic judge pass rates (%) for the 35B-class QuantCode-Bench across two model checkpoints: Base and SFT (supervised fine-tuning). Each checkpoint is evaluated at two stages: T1 (initial policy, blue bars) and T10 (after up to 10 turns, orange bars). The Ba",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2609.37108v1"
+      "source": "https://arxiv.org/pdf/2609.39420v1"
     },
     {
-      "doc_id": "2609.37108v1",
-      "title": "The Efficient Frontier from a LASSO Solver",
+      "doc_id": "2609.39261v1",
+      "title": "Jacobian Rank Collapse in Decision-Focused Learning",
+      "page": 1,
+      "thumb": "/data/figures/2609.39261v1_p1_0.jpg",
+      "caption": "Figure 1: Local geometry restricts directions; task gains require evidence. Left: rank-one parameter Jacobians map nonzero loss gradients onto one line, but batch directions can differ across examples. Right: full-capacity regret reductions in the controlled extension, with pointwise 95% paired-dataset bootstrap in- tervals over ten datasets. Only knapsack passes Holm correction across eight compa \u2014 This figure illustrates the geometric constraints in decision-focused learning (DFL) and empirica",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.39261v1"
+    },
+    {
+      "doc_id": "2609.39261v1",
+      "title": "Jacobian Rank Collapse in Decision-Focused Learning",
+      "page": 4,
+      "thumb": "/data/figures/2609.39261v1_p4_1.jpg",
+      "caption": "Figure 2: Two objectives, one predictor. MSE directly supervises covariance prediction; task loss differen- tiates through the QP. Both reach \u03b8 through J\u22a4, with selection detached. The toy example illustrates sparse weighting for an equal-weight index with identity covariance. \u2014 This figure illustrates a predict-then-optimize framework for financial machine learning with two separate training objectives sharing a single predictor. Panel (a) shows the financial task package with market history in",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.39261v1"
+    },
+    {
+      "doc_id": "2609.39261v1",
+      "title": "Jacobian Rank Collapse in Decision-Focused Learning",
       "page": 5,
-      "thumb": "/data/figures/2609.37108v1_p5_1.jpg",
-      "caption": "Figure 2: The long-only path of the test problem against the tilt \u03bb. Left: the weights; blue where a plain call supplies them, red (shaded) where it does not. Right: the budget multiplier \u03bd = (\u00b5 \u2212\u03a3v)j, j on the support. A plain call covers \u03bd \u22650 and ends at \u03bd = 0, \u03bb = 0.1414 (dashed); the shift (4) reaches the two further corners (squares) where \u03bd < 0. \u2014 This figure shows the evolution of a long-only portfolio along the efficient frontier as the tilt parameter \u03bb varies on a logarithmic scale. The",
+      "thumb": "/data/figures/2609.39261v1_p5_2.jpg",
+      "caption": "Figure 3: Where gradient directions are lost. (a) The task-relevant support has 2NK \u2212K2 entries (36% here). (b) A rank-one predictor Jacobian maps nonzero gradients onto one line, with either sign. (c) With multiple active singular directions, angular separation can survive; improved task performance is possible, not guaranteed. \u2014 This figure illustrates the gradient direction collapse problem in decision-focused learning through three panels: (a) shows a sparsity pattern where only 36% of entri",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2609.37108v1"
+      "source": "https://arxiv.org/pdf/2609.39261v1"
     },
     {
-      "doc_id": "2609.36631v1",
-      "title": "A Spread-Gated Hawkes-Flocking Model for Best Bid and Ask Dynamics, with an Application to Limit Order Placement",
-      "page": 17,
-      "thumb": "/data/figures/2609.36631v1_p17_0.jpg",
-      "caption": "Figure 1: Time-rescaled residual QQ-plots against Exponential(1), INTC: full model (top row) versus \u03a8 = 0 (bottom row), one panel per event type. The red line is the identity; deviation from it indicates departure from Exponential(1). Ad and Bu compress toward the origin much more severely under \u03a8 = 0; Au and Bd are comparatively stable across both models. \u2014 This figure presents eight Q-Q plots comparing time-rescaled residuals to an Exponential(1) distribution for INTC stock data, organized in ",
+      "doc_id": "2609.39261v1",
+      "title": "Jacobian Rank Collapse in Decision-Focused Learning",
+      "page": 8,
+      "thumb": "/data/figures/2609.39261v1_p8_3.jpg",
+      "caption": "Figure 4: Pointwise Jacobian measurements on 54 inputs per model class. A 385-parameter conditional predictor is numerically rank one because its output passes through a scalar shrinkage intensity. Its gradient direction can still vary across inputs. These measurements distinguish parameter count from local rank; they do not measure the stacked batch rank. \u2014 Panel (a) shows a box plot of pointwise rank versus three parameter model types (Shrinkage, Structured, Conditional), with the y-axis on a ",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2609.36631v1"
+      "source": "https://arxiv.org/pdf/2609.39261v1"
     },
     {
-      "doc_id": "2609.36631v1",
-      "title": "A Spread-Gated Hawkes-Flocking Model for Best Bid and Ask Dynamics, with an Application to Limit Order Placement",
-      "page": 22,
-      "thumb": "/data/figures/2609.36631v1_p22_1.jpg",
-      "caption": "Figure 2 illustrates how the optimal placement decision of Corollary 1 shifts with the order- flow regime. In the top two panels, the ask side experiences elevated downward pressure or the bid side is simply more active overall; in both cases selling at the best ask remains the dominant choice across the full range of order quantities. This changes in the bottom-left panel, where ask- side orders  \u2014 This figure displays optimal limit order placement decisions across different order-flow regimes,",
+      "doc_id": "2609.39256v1",
+      "title": "Stochastic Knothe-Rosenblatt: Light-speed Calibration of Stochastic Local Volatility Models",
+      "page": 2,
+      "thumb": "/data/figures/2609.39256v1_p2_0.jpg",
+      "caption": "Figure 1: Minimal Distortion Calibration via Stochastic Knothe\u2013Rosenblatt. At each maturity, the propagated state has law \u03bai = Law(XTi, LTi), whose first marginal is \u00b5i. \u2014 This is a block diagram showing a sequential calibration process for stochastic local volatility models using the Knothe-Rosenblatt rearrangement method. The diagram displays multiple stages indexed by maturity times T\u2080 through T\u2099, where each stage contains a \"Bridge\" component that transforms the propagated state (X\u209c\u1d62, L\u209c\u1d62) u",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2609.36631v1"
+      "source": "https://arxiv.org/pdf/2609.39256v1"
     },
     {
-      "doc_id": "2609.36631v1",
-      "title": "A Spread-Gated Hawkes-Flocking Model for Best Bid and Ask Dynamics, with an Application to Limit Order Placement",
-      "page": 23,
-      "thumb": "/data/figures/2609.36631v1_p23_2.jpg",
-      "caption": "Figure 2: The utility function H(t, \u03c0) = \u00b5G \u2212\u03b7\u03c32 \u2014 This figure displays four line plots comparing utility functions across different order placement strategies as a function of order quantity L. Each panel shows utility H on the y-axis (ranging approximately -0.3 to 0.4) plotted against L (order quantity, 0 to 40) on the x-axis, with separate curves for Sell(best), Sell(2nd), Buy(best), and Buy(2nd) strategies shown in solid and dashed lines. The utility function represents a trade-off between e",
+      "doc_id": "2609.39256v1",
+      "title": "Stochastic Knothe-Rosenblatt: Light-speed Calibration of Stochastic Local Volatility Models",
+      "page": 3,
+      "thumb": "/data/figures/2609.39256v1_p3_1.jpg",
+      "caption": "Figure 2: An R-Bass martingale. The reference model is started in \u03ba and shifted by A = a(R0); the increasing map g carries the shifted terminal law \u03c1a onto \u03bd, and Xt = E[g(A + Y1) | A, Rt] is the resulting martingale. The shift is pinned down by the martingale condition X0 = (g \u22c6\u03b3R0)(A). Each fibre over the latent axis carries the conditional law of the initial value given L0; the paths are starte \u2014 This figure illustrates a stochastic martingale construction diagram showing two parallel time-se",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2609.36631v1"
+      "source": "https://arxiv.org/pdf/2609.39256v1"
+    },
+    {
+      "doc_id": "2609.39256v1",
+      "title": "Stochastic Knothe-Rosenblatt: Light-speed Calibration of Stochastic Local Volatility Models",
+      "page": 4,
+      "thumb": "/data/figures/2609.39256v1_p4_2.jpg",
+      "caption": "Figure 3: The Bass diagram behind Definition 1.2, in the notation of Figure 2. The prescribed data are the marginals \u03ba and \u03bd; the unknown is the shift a, equivalently the initial law of the shifted reference process. The martingale condition determines A from the initial state, running the reference dynamics from A + Y0 produces \u03c1a, and the increasing map g carries \u03c1a onto \u03bd. Composing the three o \u2014 This is a commutative diagram showing the relationships between probability laws and martingale c",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.39256v1"
+    },
+    {
+      "doc_id": "2609.39256v1",
+      "title": "Stochastic Knothe-Rosenblatt: Light-speed Calibration of Stochastic Local Volatility Models",
+      "page": 4,
+      "thumb": "/data/figures/2609.39256v1_p4_3.jpg",
+      "caption": "Figure 4: Comparison of Bass LV with Dupire LV and Heston SKR with Heston SLV for the reverse cliquet of Section 6.2. All models use the SPX-based ESSVI targets of Section 6.1, with identical reference parameters for the two Heston models. The plot varies the loss cap L; the table reports prices, Monte Carlo standard errors, and timings at L = 7.5% for 105 pricing paths.2 \u2014 This figure compares four volatility models (Bass LV, Dupire LV, Heston SKR, and Heston SLV) for pricing a reverse cliquet ",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.39256v1"
+    },
+    {
+      "doc_id": "2609.38765v1",
+      "title": "Multiperiod bond portfolio optimization with transaction costs using a Markov Decision process",
+      "page": 12,
+      "thumb": "/data/figures/2609.38765v1_p12_0.jpg",
+      "caption": "Fig. 1: Simulation of Yields of 5 Year Bond over six months using the Markov Chain Approximation with a 40 bps discretization. \u2014 This line chart displays simulated yield paths for a 5-year bond over six monthly time steps using a Markov Chain approximation with 40 basis point discretization. The y-axis represents yield in percent (ranging from approximately 2.5% to 7%), while the x-axis shows time steps from 0 to 6. Multiple colored lines represent different simulated yield trajectories, illustr",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.38765v1"
+    },
+    {
+      "doc_id": "2609.38765v1",
+      "title": "Multiperiod bond portfolio optimization with transaction costs using a Markov Decision process",
+      "page": 12,
+      "thumb": "/data/figures/2609.38765v1_p12_1.jpg",
+      "caption": "Figure 1 illustrates the resulting discretized yield paths for the five-year bond over the six-month horizon. \u2014 This line chart displays simulated yield paths for a 5-year bond with initial maturity of 5.0 years over a six-month time horizon (0 to 6 time steps). The y-axis represents yield in percentage (ranging from approximately 2.5% to 7%), and the x-axis shows time steps. Multiple colored lines represent different simulated yield scenarios generated using a Markov Chain approximation with 40",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.38765v1"
+    },
+    {
+      "doc_id": "2609.38545v1",
+      "title": "Say, Echo, Do: Strategic Narratives and Revealed Positioning in Financial Markets",
+      "page": 2,
+      "thumb": "/data/figures/2609.38545v1_p2_0.jpg",
+      "caption": "Figure 1: Overview. Three observable voices are turned into measurements, and the theory says which sign each measurement should carry. The central object is the Say\u2013Do covariance: when institutions\u2019 words and positions move in opposite directions, their words should be faded. \u2014 This flowchart diagram presents a framework for analyzing strategic narratives in financial markets using three observable communication channels. The left side shows three input types: \"Say statements, notes\" (purple), ",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.38545v1"
+    },
+    {
+      "doc_id": "2609.38545v1",
+      "title": "Say, Echo, Do: Strategic Narratives and Revealed Positioning in Financial Markets",
+      "page": 4,
+      "thumb": "/data/figures/2609.38545v1_p4_1.jpg",
+      "caption": "Figure 2: a: regime map of Theorem 3. False alarms occupy the thin wedge \u03c62 < a < \u03c6, and virality moves a market to the right. b: bifurcation diagram of adaptive trust (Theorem 5). Dots show the numerically computed long-run attractor, and dashed curves show the closed-form 2-cycle. Trust converges to truth only when a > 2; below a = 5 \u2014 This figure consists of two panels analyzing narrative dynamics in financial markets. Panel (a) is a regime map with crowd credulity \u03c6 on the x-axis and inferen",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2609.38545v1"
     }
   ],
   "docs": [
+    {
+      "id": "2609.39569v1",
+      "title": "Spouse-Protected Tontines: Household Decumulation via Neural-Network Optimization",
+      "source": "https://arxiv.org/pdf/2609.39569v1",
+      "pages": 41,
+      "images": 2,
+      "figures_captioned": 2,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 60
+    },
+    {
+      "id": "2609.39420v1",
+      "title": "QuantCode Model: Specializing Language Models for Executable Algorithmic Trading Code",
+      "source": "https://arxiv.org/pdf/2609.39420v1",
+      "pages": 16,
+      "images": 0,
+      "figures_captioned": 4,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 35
+    },
+    {
+      "id": "2609.39261v1",
+      "title": "Jacobian Rank Collapse in Decision-Focused Learning",
+      "source": "https://arxiv.org/pdf/2609.39261v1",
+      "pages": 53,
+      "images": 1,
+      "figures_captioned": 4,
+      "tables": 1,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 57
+    },
+    {
+      "id": "2609.39256v1",
+      "title": "Stochastic Knothe-Rosenblatt: Light-speed Calibration of Stochastic Local Volatility Models",
+      "source": "https://arxiv.org/pdf/2609.39256v1",
+      "pages": 24,
+      "images": 0,
+      "figures_captioned": 4,
+      "tables": 1,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 65
+    },
+    {
+      "id": "2609.38765v1",
+      "title": "Multiperiod bond portfolio optimization with transaction costs using a Markov Decision process",
+      "source": "https://arxiv.org/pdf/2609.38765v1",
+      "pages": 27,
+      "images": 1,
+      "figures_captioned": 2,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 47
+    },
+    {
+      "id": "2609.38545v1",
+      "title": "Say, Echo, Do: Strategic Narratives and Revealed Positioning in Financial Markets",
+      "source": "https://arxiv.org/pdf/2609.38545v1",
+      "pages": 31,
+      "images": 0,
+      "figures_captioned": 2,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 61
+    },
     {
       "id": "2609.37963v1",
       "title": "Not All LPs Are Equal: The Active-Passive Gap in Automated Market Maker Liquidity Provision",
       "source": "https://arxiv.org/pdf/2609.37963v1",
       "pages": 33,
       "images": 0,
-      "figures_captioned": 1,
+      "figures_captioned": 0,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 43
+      "chunks_indexed": 42
     },
     {
       "id": "2609.37903v1",
@@ -248,11 +320,11 @@
       "source": "https://arxiv.org/pdf/2609.37903v1",
       "pages": 10,
       "images": 664,
-      "figures_captioned": 4,
+      "figures_captioned": 0,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 32
+      "chunks_indexed": 28
     },
     {
       "id": "2609.37881v1",
@@ -260,11 +332,11 @@
       "source": "https://arxiv.org/pdf/2609.37881v1",
       "pages": 81,
       "images": 0,
-      "figures_captioned": 1,
+      "figures_captioned": 0,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 56
+      "chunks_indexed": 55
     },
     {
       "id": "2609.37872v1",
@@ -272,83 +344,11 @@
       "source": "https://arxiv.org/pdf/2609.37872v1",
       "pages": 42,
       "images": 0,
-      "figures_captioned": 2,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 65
-    },
-    {
-      "id": "2609.37820v1",
-      "title": "Information Games: Strategic Crowding and Firm Repositioning in Language-Model Space",
-      "source": "https://arxiv.org/pdf/2609.37820v1",
-      "pages": 37,
-      "images": 0,
-      "figures_captioned": 1,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 49
-    },
-    {
-      "id": "2609.37741v1",
-      "title": "Dyson-Schwinger Effective-Action Methods for Rough Volatility: A Correlation-Response Architecture for Calibration, Exotics and Risk",
-      "source": "https://arxiv.org/pdf/2609.37741v1",
-      "pages": 31,
-      "images": 15,
-      "figures_captioned": 4,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 55
-    },
-    {
-      "id": "2609.37108v1",
-      "title": "The Efficient Frontier from a LASSO Solver",
-      "source": "https://arxiv.org/pdf/2609.37108v1",
-      "pages": 8,
-      "images": 0,
-      "figures_captioned": 2,
-      "tables": 1,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 23
-    },
-    {
-      "id": "2609.36631v1",
-      "title": "A Spread-Gated Hawkes-Flocking Model for Best Bid and Ask Dynamics, with an Application to Limit Order Placement",
-      "source": "https://arxiv.org/pdf/2609.36631v1",
-      "pages": 34,
-      "images": 5,
-      "figures_captioned": 3,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 52
-    },
-    {
-      "id": "2609.36405v1",
-      "title": "Finite-Horizon Reversible Investment under Multi-Factor Dynamics",
-      "source": "https://arxiv.org/pdf/2609.36405v1",
-      "pages": 51,
-      "images": 0,
       "figures_captioned": 0,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 49
-    },
-    {
-      "id": "2609.36257v1",
-      "title": "When Hedging Changes the Payoff: Option Replication with Price Impact and Execution Costs",
-      "source": "https://arxiv.org/pdf/2609.36257v1",
-      "pages": 52,
-      "images": 0,
-      "figures_captioned": 0,
-      "tables": 1,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 54
+      "chunks_indexed": 63
     }
   ]
 }
