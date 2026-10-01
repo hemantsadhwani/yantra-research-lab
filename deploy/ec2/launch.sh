@@ -12,7 +12,7 @@
 #   bash deploy/ec2/launch.sh terminate --yes      # delete the box and its disk                     (irreversible)
 #
 # Settings (env): PROFILE=yantra-launcher REGION=ap-south-1 TYPE=g5.xlarge MARKET=ondemand|spot
-#                 DISK_GB=200 NAME=yantra_dev EXTRA_SSH_CIDR=<your home IP>/32
+#                 DISK_GB=200 NAME=yantra_dev EXTRA_SSH_CIDR=<your home IP>/32 AZ=<zone>
 set -euo pipefail
 
 PROFILE="${PROFILE:-yantra-launcher}"
@@ -86,8 +86,9 @@ quota() {
 
 pick_subnet() {
   local az
-  for az in $(aws_ ec2 describe-instance-type-offerings --location-type availability-zone \
-                --filters "Name=instance-type,Values=$TYPE" --query 'InstanceTypeOfferings[].Location' --output text); do
+  # AZ=<zone> pins the zone (e.g. when the default zone has no capacity for $TYPE)
+  for az in ${AZ:-$(aws_ ec2 describe-instance-type-offerings --location-type availability-zone \
+                --filters "Name=instance-type,Values=$TYPE" --query 'InstanceTypeOfferings[].Location' --output text)}; do
     local s; s=$(aws_ ec2 describe-subnets --filters "Name=default-for-az,Values=true" "Name=availability-zone,Values=$az" \
                    --query 'Subnets[0].SubnetId' --output text)
     [[ "$s" != "None" && -n "$s" ]] && { echo "$s"; return; }
@@ -108,7 +109,7 @@ PLAN (nothing created yet)
   ssh from   $myip/32 ${EXTRA_SSH_CIDR:+and $EXTRA_SSH_CIDR}
   tags       $TAG_KEY=$TAG_VAL, Name=$NAME
   idle stop  CloudWatch alarm yantra-dev-idle-stop: CPU < 2% for 60 min -> stop
-  cost       starts billing at launch; see HANDOVER.md section 1 for the hourly rate
+  cost       starts billing at launch; see deploy/ec2/SESSION_LIFECYCLE.md for typical session costs
 EOF
 }
 

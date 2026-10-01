@@ -43,3 +43,5 @@ deploy/k8s/backend-secret.yaml
 
 # LoRA adapters are local build outputs (slm_regime_classifier/adapter_card.md is the committed record)
 slm_regime_classifier/adapters/
+slm_regime_classifier/datasets/
+mlflow.db

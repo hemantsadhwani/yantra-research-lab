@@ -162,7 +162,15 @@ to emit the layout label from the feature line (300 examples, 25-minute cap). On
 pages: base 0.00 (no valid label in any reply), tuned **0.87** with class-balanced batches, against
 0.57 for always answering `text` and 0.92 for the `rules` backend; about 1.3 s per page on the
 dev Mac's CPU. A first run without balancing collapsed to `text` (0.57). Both runs hit the cap.
-So the kata proves the pipeline, not a win over code. GPU QLoRA was not run.
+So the kata proves the pipeline, not a win over code.
+
+**QLoRA on a GPU, on real pages.** `deploy/ec2/layout_session.sh` builds a dataset from the 426
+arXiv PDFs in S3 (7,506 pages, split by paper so no paper is on both sides), QLoRA-tunes
+Qwen2.5-1.5B-Instruct on a T4 and registers the adapter in MLflow, whose store lives in S3. On the
+locked test split (600 pages from 41 unseen papers): **0.978**, against 0.787 for always `text`. A
+first run at a higher learning rate with round-robin batches scored 0.662 and was rejected. It
+still copies the rule rather than beating it, and it is not served yet.
+Details: [results/layout_qlora_2026-10-01.md](results/layout_qlora_2026-10-01.md).
 Details: [results/distill_2026-09-30.md](results/distill_2026-09-30.md).
 
 ## Versioning and tracking

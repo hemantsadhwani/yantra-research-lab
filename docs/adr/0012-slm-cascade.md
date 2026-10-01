@@ -60,13 +60,19 @@ sends the page anywhere" is a stronger property than any vendor contract.
   (majority baseline 0.57; the rules backend 0.92), about 1.3 s per page on the dev Mac's CPU.
   An unbalanced first run collapsed to the majority class. Both runs hit the 25-minute cap.
   See `slm_regime_classifier/adapter_card.md` and `results/distill_2026-09-30.md`.
+- GPU QLoRA on real pages (2026-10-01): Qwen2.5-1.5B-Instruct, 4-bit, on 7,506 pages from 426
+  arXiv papers split by paper. Locked test (600 pages, 41 unseen papers): **0.978** against 0.787
+  for always `text` (a first run at lr 1e-3 with round-robin batches scored 0.662). 152 ms per
+  page on a T4. Versioned in MLflow (`layout-classifier` v2, `@champion`), store in S3.
+  See `results/layout_qlora_2026-10-01.md`.
 
 ## Not built
 
 - A real `slm` or `frontier` eval row (Ollama is not installed on the dev Mac; the frontier row
   costs money).
 - A vLLM serving benchmark (throughput, p95 under load).
-- GPU QLoRA (4-bit). `--qlora` exists in the script and refuses to run without CUDA.
+- Serving the tuned adapter. The router's `slm` tier still calls Ollama through `llm_gateway`.
+- A frontier-labelled SFT set. The GPU run, like the kata, learned the rule's labels.
 - A DocLayNet-style block-level layout model (boxes per region from pixels). This router is
   page-level and reads parser features, not pixels.
 - Routing for the other closed-set calls (the judge's veto, the quality gate).

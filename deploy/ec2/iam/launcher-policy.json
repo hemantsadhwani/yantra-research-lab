@@ -2,7 +2,21 @@
   "Version": "2012-10-17",
   "Statement": [
     {
-      "Sid": "ReadOnlyInMumbai",
+      "Sid": "OnlyMumbaiAndVirginia",
+      "Effect": "Deny",
+      "Action": "*",
+      "Resource": "*",
+      "Condition": {
+        "StringNotEquals": {
+          "aws:RequestedRegion": [
+            "ap-south-1",
+            "us-east-1"
+          ]
+        }
+      }
+    },
+    {
+      "Sid": "ReadOnlyInDevRegions",
       "Effect": "Allow",
       "Action": [
         "ec2:Describe*",
@@ -17,7 +31,10 @@
       "Resource": "*",
       "Condition": {
         "StringEquals": {
-          "aws:RequestedRegion": "ap-south-1"
+          "aws:RequestedRegion": [
+            "ap-south-1",
+            "us-east-1"
+          ]
         }
       }
     },
@@ -25,7 +42,7 @@
       "Sid": "LaunchOnlyTaggedDevBoxesOfAllowedTypes",
       "Effect": "Allow",
       "Action": "ec2:RunInstances",
-      "Resource": "arn:aws:ec2:ap-south-1:*:instance/*",
+      "Resource": "arn:aws:ec2:*:*:instance/*",
       "Condition": {
         "StringEquals": {
           "aws:RequestTag/purpose": "dev-public-repos",
@@ -46,20 +63,20 @@
       "Effect": "Allow",
       "Action": "ec2:RunInstances",
       "Resource": [
-        "arn:aws:ec2:ap-south-1::image/*",
-        "arn:aws:ec2:ap-south-1:*:volume/*",
-        "arn:aws:ec2:ap-south-1:*:network-interface/*",
-        "arn:aws:ec2:ap-south-1:*:security-group/*",
-        "arn:aws:ec2:ap-south-1:*:subnet/*",
-        "arn:aws:ec2:ap-south-1:*:key-pair/*",
-        "arn:aws:ec2:ap-south-1:*:spot-instances-request/*"
+        "arn:aws:ec2:*::image/*",
+        "arn:aws:ec2:*:*:volume/*",
+        "arn:aws:ec2:*:*:network-interface/*",
+        "arn:aws:ec2:*:*:security-group/*",
+        "arn:aws:ec2:*:*:subnet/*",
+        "arn:aws:ec2:*:*:key-pair/*",
+        "arn:aws:ec2:*:*:spot-instances-request/*"
       ]
     },
     {
       "Sid": "TagOnlyAtCreation",
       "Effect": "Allow",
       "Action": "ec2:CreateTags",
-      "Resource": "arn:aws:ec2:ap-south-1:*:*/*",
+      "Resource": "arn:aws:ec2:*:*:*/*",
       "Condition": {
         "StringEquals": {
           "ec2:CreateAction": [
@@ -83,7 +100,10 @@
       "Resource": "*",
       "Condition": {
         "StringEquals": {
-          "aws:RequestedRegion": "ap-south-1"
+          "aws:RequestedRegion": [
+            "ap-south-1",
+            "us-east-1"
+          ]
         }
       }
     },
@@ -151,7 +171,10 @@
       "Resource": "*",
       "Condition": {
         "StringEquals": {
-          "aws:RequestedRegion": "ap-south-1"
+          "aws:RequestedRegion": [
+            "ap-south-1",
+            "us-east-1"
+          ]
         }
       }
     },
@@ -162,7 +185,7 @@
         "cloudwatch:PutMetricAlarm",
         "cloudwatch:DeleteAlarms"
       ],
-      "Resource": "arn:aws:cloudwatch:ap-south-1:*:alarm:yantra-dev-*"
+      "Resource": "arn:aws:cloudwatch:*:*:alarm:yantra-dev-*"
     }
   ]
 }

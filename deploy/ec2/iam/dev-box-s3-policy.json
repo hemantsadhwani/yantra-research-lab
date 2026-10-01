@@ -1,0 +1,33 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "ListOnlyCorpusAndMl",
+      "Effect": "Allow",
+      "Action": "s3:ListBucket",
+      "Resource": "arn:aws:s3:::yantra-research-lab-data",
+      "Condition": {
+        "StringLike": {
+          "s3:prefix": ["yantra-corpus/*", "ml/*", "yantra-corpus/", "ml/", ""]
+        }
+      }
+    },
+    {
+      "Sid": "ReadCorpus",
+      "Effect": "Allow",
+      "Action": "s3:GetObject",
+      "Resource": "arn:aws:s3:::yantra-research-lab-data/yantra-corpus/*"
+    },
+    {
+      "Sid": "ReadWriteMlNoDelete",
+      "Effect": "Allow",
+      "Action": [
+        "s3:GetObject",
+        "s3:PutObject",
+        "s3:AbortMultipartUpload",
+        "s3:ListMultipartUploadParts"
+      ],
+      "Resource": "arn:aws:s3:::yantra-research-lab-data/ml/*"
+    }
+  ]
+}

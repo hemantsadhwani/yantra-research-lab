@@ -27,7 +27,7 @@ Held-out labels: {'figure-heavy': 3, 'mixed': 19, 'scanned': 2, 'table-heavy': 2
 What this shows: a 135M model can learn most of a deterministic five-way rule from a one-line
 feature string on a laptop CPU. What it does not show: that it beats the rules backend (it is
 distilled *from* those labels and cannot exceed them), or anything about real layout
-understanding from pixels. QLoRA (4-bit) needs CUDA and was not run.
+understanding from pixels. The GPU QLoRA run on real pages is in `adapter_card_dataset.md`.
 
 ## Run history (hand-written, 2026-09-30)
 

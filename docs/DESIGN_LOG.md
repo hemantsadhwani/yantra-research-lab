@@ -350,3 +350,23 @@ beat two of the three LLM constructions while costing nothing and running in 0.1
 One incidental fix: `testpaths` was `["tests"]`, so `research_lab/tests/` never ran in CI —
 the verification-hook tests had been silently skipped since they were written. Now `["tests",
 "research_lab/tests"]`, and `make test` runs 26 instead of 7.
+
+### QLoRA on real pages: the recipe mattered more than the model (2026-10-01)
+
+The layout kata moved from 60 synthetic-heavy pages on a laptop to 7,506 real pages on a GPU.
+The dataset is built from the 426 arXiv PDFs the ingest job had already put in S3, split 80/10/10
+**by paper** with a salted hash, so no paper has pages on both sides and adding papers never moves
+an existing one. Parsed features are cached in S3, so a rebuild takes seconds and a fresh box loses
+nothing. MLflow's SQLite file and its artifacts also live in S3: the GPU box is disposable.
+
+The first run (lr 1e-3, round-robin batches over the labels, final weights) scored **0.662** on the
+locked test split, below the 0.787 of always answering `text`. Two causes: a loss spike at step
+900 that nothing recovered from, and batches that showed every label 20% of the time, so the model
+over-guessed rare labels on real pages. The second run changed only the recipe (lr 2e-4, gradient
+clipping, shuffled batches over a natural mix with `text` capped at 50%, best checkpoint on a val
+slice) and scored **0.978**. Same data, same model, same hardware.
+
+Promotion stays a human step: new versions get `@candidate`; v2 was made `@champion` by hand after
+reading its card. The honest limit is unchanged from the kata: the model copies the rule and does
+not beat it, so it is not served. It earns a place only once the labels come from a frontier model
+(ADR-0012). Details: `results/layout_qlora_2026-10-01.md`.

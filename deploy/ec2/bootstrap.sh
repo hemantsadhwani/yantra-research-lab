@@ -11,18 +11,23 @@ YANTRA_REPO="${YANTRA_REPO:-https://github.com/hemantsadhwani/yantra-research-la
 REPORTING_REPO="${REPORTING_REPO:-https://github.com/hemantsadhwani/agentic-reporting.git}"
 
 log() { printf '\n==> %s\n' "$*"; }
+# A fresh Ubuntu box runs unattended-upgrades on first boot and holds the dpkg lock for minutes;
+# wait for it instead of failing (first launch on 2026-09-30 died here).
+APT=(sudo DEBIAN_FRONTEND=noninteractive apt-get -o DPkg::Lock::Timeout=900)
+wait_apt() { while sudo fuser /var/lib/dpkg/lock-frontend /var/lib/dpkg/lock /var/lib/apt/lists/lock >/dev/null 2>&1; do sleep 10; done; }
 
 log "base packages"
-sudo apt-get update -qq
-sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq \
+wait_apt
+"${APT[@]}" update -qq
+"${APT[@]}" install -y -qq \
   build-essential curl git jq make unzip ca-certificates gnupg lsb-release tmux gh \
   software-properties-common tesseract-ocr poppler-utils
 
 log "python 3.13"
 if ! command -v python3.13 >/dev/null; then
-  sudo add-apt-repository -y ppa:deadsnakes/ppa
-  sudo apt-get update -qq
-  sudo apt-get install -y -qq python3.13 python3.13-venv python3.13-dev
+  wait_apt; sudo add-apt-repository -y ppa:deadsnakes/ppa
+  "${APT[@]}" update -qq
+  "${APT[@]}" install -y -qq python3.13 python3.13-venv python3.13-dev
 fi
 
 log "docker"
@@ -55,9 +60,9 @@ fi
 
 if [[ $GPU -eq 1 ]]; then
   log "NVIDIA driver + CUDA toolkit (reboot once after this)"
-  sudo apt-get install -y -qq ubuntu-drivers-common
+  "${APT[@]}" install -y -qq ubuntu-drivers-common
   sudo ubuntu-drivers install || true
-  sudo apt-get install -y -qq nvidia-cuda-toolkit || true
+  "${APT[@]}" install -y -qq nvidia-cuda-toolkit || true
 fi
 
 log "repos"
@@ -73,7 +78,7 @@ cd "$WORK/yantra-research-lab"
 .venv/bin/pip install -q --upgrade pip
 .venv/bin/pip install -q -e ".[all]"
 if [[ $GPU -eq 1 ]]; then .venv/bin/pip install -q -e ".[slm]" bitsandbytes || true; fi
-ANTHROPIC_API_KEY= LOGFIRE_TOKEN= .venv/bin/python -m pytest -q | tail -1
+ANTHROPIC_API_KEY= LOGFIRE_TOKEN= .venv/bin/python -m pytest | tail -1   # pyproject addopts already has -q; a second -q hides the summary
 ANTHROPIC_API_KEY= LOGFIRE_TOKEN= .venv/bin/python -m eval.run_gate --arm both | tail -2
 
 cd "$WORK/agentic-reporting"
@@ -82,6 +87,7 @@ cd "$WORK/agentic-reporting"
 .venv/bin/pip install -q -e ".[all]"
 ANTHROPIC_API_KEY= LOGFIRE_TOKEN= .venv/bin/python -m pytest -q | tail -1
 ANTHROPIC_API_KEY= LOGFIRE_TOKEN= .venv/bin/python -m eval.report_eval --fake | tail -1
+ANTHROPIC_API_KEY= LOGFIRE_TOKEN= .venv/bin/python -m eval.schema_linking_eval --fake | tail -1
 
 log "bedrock check (instance role)"
 if aws sts get-caller-identity >/dev/null 2>&1; then
@@ -93,5 +99,5 @@ else
   echo "no AWS identity: attach the instance profile from deploy/ec2/iam/bedrock-dev-role-policy.json"
 fi
 
-log "done. Next: LLM_PROVIDER=bedrock AWS_REGION=ap-south-1 LLM_MODEL=apac.anthropic.claude-haiku-4-5-20251001-v1:0 make demo-bedrock   (yantra)"
+log "done. Next: LLM_PROVIDER=bedrock AWS_REGION=ap-south-1 LLM_MODEL=in.anthropic.claude-haiku-4-5-20251001-v1:0 make demo-bedrock   (yantra)"
 echo "     docker group: log out and back in once so 'docker' works without sudo."
