@@ -1,10 +1,19 @@
 """The layout dataset's split and sampling rules (stdlib only; no torch, boto3 or PDFs needed)."""
 
+import importlib
 import json
+import sys
 from collections import Counter
+from pathlib import Path
 
-from slm_regime_classifier.build_layout_dataset import split_of
-from slm_regime_classifier.distill_layout import balanced_sample, eval_sample, load_dataset_dir
+# slm_regime_classifier is a script folder, not an installed package: put the repo root on the path.
+REPO = Path(__file__).resolve().parents[1]
+if str(REPO) not in sys.path:
+    sys.path.insert(0, str(REPO))
+split_of = importlib.import_module("slm_regime_classifier.build_layout_dataset").split_of
+_distill = importlib.import_module("slm_regime_classifier.distill_layout")
+balanced_sample, eval_sample, load_dataset_dir = (
+    _distill.balanced_sample, _distill.eval_sample, _distill.load_dataset_dir)
 
 PAPERS = [f"2607.{i:05d}v1" for i in range(2000)]
 
