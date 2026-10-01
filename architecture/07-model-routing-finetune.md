@@ -54,7 +54,10 @@ cost/latency/compliance, not for knowledge* — and knowing where it *doesn't* p
 Fly app still serves the pre-WP4 build (its `/api/metrics` has no `llm` key), so the deployed
 chatbot is still the direct-SDK version until the next deploy.
 
-**SLM status:** not built. The former `slm_regime_classifier/` placeholder (a README only) was
-removed; its design now lives in [ROADMAP.md](../ROADMAP.md). The `distill/ finetune/ serve/
-eval_gate/` layout it described was never written as code. The fine-tuning lifecycle above is the
-target design, not a built artifact.
+**SLM status (updated 2026-10-01):** partly built. `slm_regime_classifier/` now holds the page-layout
+classifier, not the old placeholder: `distill_layout.py` (a CPU LoRA kata, measured in `adapter_card.md`,
+plus a GPU QLoRA dataset mode), `build_layout_dataset.py` (versioned dataset, split by paper) and
+`layout_pyfunc.py` (an MLflow pyfunc for registry). The layout router's `slm` tier is wired through
+`llm_gateway/` (see ADR-0012). A *regime* classifier is still not built, and the `distill/ finetune/
+serve/ eval_gate/` layout described earlier was never written. The rest of the lifecycle above is
+target design.

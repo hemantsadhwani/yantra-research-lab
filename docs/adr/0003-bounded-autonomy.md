@@ -3,7 +3,8 @@
 **Status:** accepted · 2026-07-04
 
 **Decision.** The research loop is a **bounded** supervisor–worker workflow: propose → backtest →
-judge → rank → remember → iterate, stopped by an **iteration/token budget**, with a
+judge → rank → remember → iterate, stopped by an **iteration budget** (a USD / LLM-call cap was added
+on 2026-09-30, see the addendum; there is no token budget), with a
 **human-in-the-loop** gate before any promotion (the top variant is `promote?`, never
 auto-promoted). Memory steers proposals (exploit best-so-far + explore).
 

@@ -20,13 +20,17 @@ Stop the instance when idle. A GPU box left on for a week costs more than the wh
    wanted) in the region you will use. `us-east-1` has everything; `ap-south-1` (Mumbai) serves Claude via
    cross-region inference profiles — check the console.
 2. IAM role for the instance: `iam/bedrock-dev-role-policy.json` (invoke only, scoped to the Anthropic
-   model ARNs and inference profiles; no `bedrock:*`). Attach it as an instance profile.
+   model ARNs and inference profiles; no `bedrock:*`; plus `bedrock-mantle:CreateInference` for the
+   Messages-API client, which AWS cannot yet scope by model). Attach it as an instance profile.
+   (As of 2026-10-01 the mantle statement is in this file but not yet applied to the live
+   `yantra-dev-bedrock` role; the default InvokeModel client does not need it.)
 3. On the box, no `AWS_ACCESS_KEY_ID` at all. The SDK reads the role. `LLM_PROVIDER=bedrock AWS_REGION=us-east-1`.
 
 ## Launch and handover
 
-The full runbook, the agent rules and the two paste-in prompts are in [HANDOVER.md](HANDOVER.md)
-sections 7–9. `launch.sh` creates and manages the box; `bootstrap.sh` sets it up.
+The runbook (launch, retrain, register, terminate) is [SESSION_LIFECYCLE.md](SESSION_LIFECYCLE.md).
+`launch.sh` creates and manages the box; `bootstrap.sh` sets it up. (The older HANDOVER.md was removed
+on 2026-10-01; it is in git history.)
 
 ## One-command setup
 

@@ -51,6 +51,11 @@ never changes when the store does. Consistent with the vector row in
 1. **Scale-to-zero / free tiers only** — no idle compute billing.
 2. **LLM spend cap + per-IP rate limit + prompt caching** — a hard daily token/$ ceiling so a
    viral moment *or a jailbreak-spammer* (the chatbot literally invites attack) cannot drain the wallet.
+   *As built (checked 2026-10-01):* `backend/app.py` enforces a global **request** cap
+   (`DAILY_REQUEST_CAP`, default 500/day) and a per-IP limit (`RATE_LIMIT_PER_MIN`, default 20), both in
+   memory and per process. There is no token or dollar ceiling; `max_tokens` bounds each answer. Prompt
+   caching is marked (`cache_system=True`) but the system prompt is below Claude Haiku 4.5's 4,096-token
+   cache minimum, so it does not cache today.
 3. **Static frontend on a CDN free tier** — never pay to serve HTML.
 4. **Embedded vector store** — no managed-DB monthly bill until multi-tenant.
 5. **Billing alarm at ~$10** on the cloud account.
