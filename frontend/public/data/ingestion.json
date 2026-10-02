@@ -1,7 +1,7 @@
 {
   "_note": "Public run manifest of the Tier-3 agentic ingestion pipeline. Safe aggregates + provenance only; raw PDFs live in S3, not here.",
-  "run_id": "20261001T085859Z",
-  "generated_at": "2026-10-01T09:07:26+00:00",
+  "run_id": "20261002T083416Z",
+  "generated_at": "2026-10-02T08:37:36+00:00",
   "collection": "research_corpus",
   "embed_model": "BAAI/bge-small-en-v1.5",
   "dag": [
@@ -50,305 +50,305 @@
     "discovered": 10,
     "fetched": 10,
     "parsed": 10,
-    "chunks": 532,
-    "accepted": 513,
-    "rejected": 19,
-    "images": 668,
+    "chunks": 506,
+    "accepted": 449,
+    "rejected": 57,
+    "images": 6,
     "figures_captioned": 18,
-    "tables": 2,
+    "tables": 3,
     "with_math": 10,
-    "indexed": 513,
-    "spent_usd": 0.0329,
-    "duration_s": 507.2
+    "indexed": 449,
+    "spent_usd": 0.0321,
+    "duration_s": 200.7
   },
   "rejects_by_reason": {
-    "low-relevance": 19
+    "low-relevance": 57
   },
   "budget_usd": 3.0,
   "figures": [
     {
-      "doc_id": "2609.39569v1",
-      "title": "Spouse-Protected Tontines: Household Decumulation via Neural-Network Optimization",
-      "page": 24,
-      "thumb": "/data/figures/2609.39569v1_p24_0.jpg",
-      "caption": "Figure 7.1: Household-state probabilities and spouse-only duration for the baseline Australian household. \u2014 Figure 7.1 displays two panels analyzing household dynamics for an Australian household in a tontine framework. Panel (a) is a line chart showing the evolution of household-state probabilities over 35 years, with four states (11, 10, 01, 00) representing different configurations of spouse survival status, where state 11 indicates both spouses alive and state 00 indicates both deceased; sta",
+      "doc_id": "2610.01897v1",
+      "title": "Shared Models, Selective Trading, and Order Flow",
+      "page": 11,
+      "thumb": "/data/figures/2610.01897v1_p11_0.jpg",
+      "caption": "Figure 1: Presentation changes the representation of model families \u2014 Panel A shows a stacked 100% bar chart comparing the composition of active family decisions across four scenarios: Financing original, Financing factual, Layoff explanatory, and Layoff factual, with each bar decomposed into three model families (Mistral, Qwen, and Llama) by percentage share. Panel B displays a horizontal bar chart showing the exact accounting of buy-share changes, decomposing the contribution of active composi",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2609.39569v1"
+      "source": "https://arxiv.org/pdf/2610.01897v1"
     },
     {
-      "doc_id": "2609.39569v1",
-      "title": "Spouse-Protected Tontines: Household Decumulation via Neural-Network Optimization",
-      "page": 24,
-      "thumb": "/data/figures/2609.39569v1_p24_1.jpg",
-      "caption": "Figure 7.1(a) reports the analytic household-state probabilities \u03c011(m), \u03c010(m), \u03c001(m), \u03c000(m) over the full horizon. As expected, the probability of state 11 declines monotonically, while the probability of state 00 rises monotonically. More importantly, the spouse-only state 01 is materially more likely than the retiree-only state 10 over the economically relevant part of the horizon, reflectin \u2014 Figure 7.1 presents household-state probabilities and spouse-only duration distributions for a ba",
+      "doc_id": "2610.01897v1",
+      "title": "Shared Models, Selective Trading, and Order Flow",
+      "page": 15,
+      "thumb": "/data/figures/2610.01897v1_p15_1.jpg",
+      "caption": "Figure 2: From a shared decision technology to active order flow \u2014 This is a flowchart diagram showing the information flow in a shared decision technology framework for trading. The chart illustrates how common event text and presentation combined with model family, mandate, inventory, and market state feed into participation and conditional direction decisions, which then determine active family weights and submitted order balance, ultimately leading to price-error consequences in a responsive",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2609.39569v1"
+      "source": "https://arxiv.org/pdf/2610.01897v1"
     },
     {
-      "doc_id": "2609.39420v1",
-      "title": "QuantCode Model: Specializing Language Models for Executable Algorithmic Trading Code",
-      "page": 8,
-      "thumb": "/data/figures/2609.39420v1_p8_0.jpg",
-      "caption": "Figure 1 visualizes the Judge Pass changes. The magnitude of the continued-pretraining gains is moderate, whereas the SFT gain on the Qwen3.6-35B-A3B model is substantially larger. \u2014 This table presents single-turn QuantCode-Bench results comparing different training interventions across two model checkpoints (Qwen3.5-397B-A17B and Qwen3.6-35B-A3B), with three evaluation metrics: Backtest (%), Trades (%), and Judge Pass (%). The data shows sequential improvements from base models through continu",
+      "doc_id": "2610.01897v1",
+      "title": "Shared Models, Selective Trading, and Order Flow",
+      "page": 22,
+      "thumb": "/data/figures/2610.01897v1_p22_2.jpg",
+      "caption": "Figure 3: Individual precision, active concentration, and price error \u2014 Panel A shows a line chart comparing mean squared price error against single-family interpretation-error variance for two scenarios: a single concentrated family (solid orange line) and three equal families with variance 1 each (dashed blue line). The precision threshold of 1/3 is marked, with an example point at (0.5, 0.34375) where the single family curve intersects the threshold. Panel B displays mean squared price error ",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2609.39420v1"
+      "source": "https://arxiv.org/pdf/2610.01897v1"
     },
     {
-      "doc_id": "2609.39420v1",
-      "title": "QuantCode Model: Specializing Language Models for Executable Algorithmic Trading Code",
-      "page": 9,
-      "thumb": "/data/figures/2609.39420v1_p9_1.jpg",
-      "caption": "Figure 1: Single-turn Judge Pass under domain specialization. \u2014 This figure displays two bar charts comparing Judge Pass rates (%) across three training approaches on the QuantCode-Bench benchmark. The left chart (a) shows results on the 35B-class checkpoint (Qwen3.6-35B-A3B) with Base at 27.8%, Continued pretraining at 33.0%, and SFT at 58.2%. The right chart (b) shows results on the 397B-class checkpoint (Qwen3.5-397B-A17B) with Base at 41.5% and Continued pretraining at 47.5%. The key takeawa",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.39420v1"
-    },
-    {
-      "doc_id": "2609.39420v1",
-      "title": "QuantCode Model: Specializing Language Models for Executable Algorithmic Trading Code",
-      "page": 10,
-      "thumb": "/data/figures/2609.39420v1_p10_2.jpg",
-      "caption": "Figure 2 compares the base and SFT checkpoints directly. \u2014 This table presents Agentic QuantCode-Bench Judge Pass scores for the Qwen3.6-35B-A3B model across three training checkpoints (base, domain pretraining, and domain pretraining + SFT) evaluated at T1 and T10 turn budgets. The base model achieves 22.3% at T1 and 47.5% at T10, domain pretraining alone reaches 32.3% at T1 but drops to 32.5% at T10 (showing degraded multi-turn performance), while domain pretraining with SFT substantially impr",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.39420v1"
-    },
-    {
-      "doc_id": "2609.39420v1",
-      "title": "QuantCode Model: Specializing Language Models for Executable Algorithmic Trading Code",
-      "page": 10,
-      "thumb": "/data/figures/2609.39420v1_p10_3.jpg",
-      "caption": "Figure 2: Agentic Judge Pass for the Qwen3.6-35B-A3B base and final domain-pretraining-plus-SFT checkpoints. The final checkpoint improves both the initial policy (T1) and the outcome after up to 10 turns (T10). \u2014 This bar chart compares the agentic judge pass rates (%) for the 35B-class QuantCode-Bench across two model checkpoints: Base and SFT (supervised fine-tuning). Each checkpoint is evaluated at two stages: T1 (initial policy, blue bars) and T10 (after up to 10 turns, orange bars). The Ba",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.39420v1"
-    },
-    {
-      "doc_id": "2609.39261v1",
-      "title": "Jacobian Rank Collapse in Decision-Focused Learning",
-      "page": 1,
-      "thumb": "/data/figures/2609.39261v1_p1_0.jpg",
-      "caption": "Figure 1: Local geometry restricts directions; task gains require evidence. Left: rank-one parameter Jacobians map nonzero loss gradients onto one line, but batch directions can differ across examples. Right: full-capacity regret reductions in the controlled extension, with pointwise 95% paired-dataset bootstrap in- tervals over ten datasets. Only knapsack passes Holm correction across eight compa \u2014 This figure illustrates the geometric constraints in decision-focused learning (DFL) and empirica",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.39261v1"
-    },
-    {
-      "doc_id": "2609.39261v1",
-      "title": "Jacobian Rank Collapse in Decision-Focused Learning",
-      "page": 4,
-      "thumb": "/data/figures/2609.39261v1_p4_1.jpg",
-      "caption": "Figure 2: Two objectives, one predictor. MSE directly supervises covariance prediction; task loss differen- tiates through the QP. Both reach \u03b8 through J\u22a4, with selection detached. The toy example illustrates sparse weighting for an equal-weight index with identity covariance. \u2014 This figure illustrates a predict-then-optimize framework for financial machine learning with two separate training objectives sharing a single predictor. Panel (a) shows the financial task package with market history in",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.39261v1"
-    },
-    {
-      "doc_id": "2609.39261v1",
-      "title": "Jacobian Rank Collapse in Decision-Focused Learning",
-      "page": 5,
-      "thumb": "/data/figures/2609.39261v1_p5_2.jpg",
-      "caption": "Figure 3: Where gradient directions are lost. (a) The task-relevant support has 2NK \u2212K2 entries (36% here). (b) A rank-one predictor Jacobian maps nonzero gradients onto one line, with either sign. (c) With multiple active singular directions, angular separation can survive; improved task performance is possible, not guaranteed. \u2014 This figure illustrates the gradient direction collapse problem in decision-focused learning through three panels: (a) shows a sparsity pattern where only 36% of entri",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.39261v1"
-    },
-    {
-      "doc_id": "2609.39261v1",
-      "title": "Jacobian Rank Collapse in Decision-Focused Learning",
-      "page": 8,
-      "thumb": "/data/figures/2609.39261v1_p8_3.jpg",
-      "caption": "Figure 4: Pointwise Jacobian measurements on 54 inputs per model class. A 385-parameter conditional predictor is numerically rank one because its output passes through a scalar shrinkage intensity. Its gradient direction can still vary across inputs. These measurements distinguish parameter count from local rank; they do not measure the stacked batch rank. \u2014 Panel (a) shows a box plot of pointwise rank versus three parameter model types (Shrinkage, Structured, Conditional), with the y-axis on a ",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.39261v1"
-    },
-    {
-      "doc_id": "2609.39256v1",
-      "title": "Stochastic Knothe-Rosenblatt: Light-speed Calibration of Stochastic Local Volatility Models",
-      "page": 2,
-      "thumb": "/data/figures/2609.39256v1_p2_0.jpg",
-      "caption": "Figure 1: Minimal Distortion Calibration via Stochastic Knothe\u2013Rosenblatt. At each maturity, the propagated state has law \u03bai = Law(XTi, LTi), whose first marginal is \u00b5i. \u2014 This is a block diagram showing a sequential calibration process for stochastic local volatility models using the Knothe-Rosenblatt rearrangement method. The diagram displays multiple stages indexed by maturity times T\u2080 through T\u2099, where each stage contains a \"Bridge\" component that transforms the propagated state (X\u209c\u1d62, L\u209c\u1d62) u",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2609.39256v1"
-    },
-    {
-      "doc_id": "2609.39256v1",
-      "title": "Stochastic Knothe-Rosenblatt: Light-speed Calibration of Stochastic Local Volatility Models",
+      "doc_id": "2610.01562v1",
+      "title": "Social welfare and price discovery in double auction markets",
       "page": 3,
-      "thumb": "/data/figures/2609.39256v1_p3_1.jpg",
-      "caption": "Figure 2: An R-Bass martingale. The reference model is started in \u03ba and shifted by A = a(R0); the increasing map g carries the shifted terminal law \u03c1a onto \u03bd, and Xt = E[g(A + Y1) | A, Rt] is the resulting martingale. The shift is pinned down by the martingale condition X0 = (g \u22c6\u03b3R0)(A). Each fibre over the latent axis carries the conditional law of the initial value given L0; the paths are starte \u2014 This figure illustrates a stochastic martingale construction diagram showing two parallel time-se",
+      "thumb": "/data/figures/2610.01562v1_p3_0.jpg",
+      "caption": "Figure 1: Market clearing in a double auction. The market clearing quantity \u2014 Figure 1 displays two panels illustrating market clearing in a double auction. Panel (a) shows demand and supply curves (solid and dashed lines respectively) plotted against quantity on the x-axis and price on the y-axis, with the intersection point indicating market equilibrium. Panel (b) shows revenue function D and cost function S (solid and dashed curves) against quantity, demonstrating how surplus is maximized at ",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2609.39256v1"
+      "source": "https://arxiv.org/pdf/2610.01562v1"
     },
     {
-      "doc_id": "2609.39256v1",
-      "title": "Stochastic Knothe-Rosenblatt: Light-speed Calibration of Stochastic Local Volatility Models",
+      "doc_id": "2610.01348v1",
+      "title": "Verify Claims, Not Scores: Evidence-Based Verification of Modular Agents",
       "page": 4,
-      "thumb": "/data/figures/2609.39256v1_p4_2.jpg",
-      "caption": "Figure 3: The Bass diagram behind Definition 1.2, in the notation of Figure 2. The prescribed data are the marginals \u03ba and \u03bd; the unknown is the shift a, equivalently the initial law of the shifted reference process. The martingale condition determines A from the initial state, running the reference dynamics from A + Y0 produces \u03c1a, and the increasing map g carries \u03c1a onto \u03bd. Composing the three o \u2014 This is a commutative diagram showing the relationships between probability laws and martingale c",
+      "thumb": "/data/figures/2610.01348v1_p4_0.jpg",
+      "caption": "Figure 1: ARC-AGENT, the agent under audit, and its three verification layers. Arrows trace one rebalancing decision at date t. (A) Information and model layer: a regime HMM turns past returns into regime posteriors \u03c0t (walk-forward), and a regime-conditioned diffusion generator, whose base and crisis experts are mixed by a gate gt and trained with a tail-weighted loss Ltail, draws return scenario \u2014 This figure illustrates ARC-AGENT, a multi-layer verification system for an automated portfolio r",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2609.39256v1"
+      "source": "https://arxiv.org/pdf/2610.01348v1"
     },
     {
-      "doc_id": "2609.39256v1",
-      "title": "Stochastic Knothe-Rosenblatt: Light-speed Calibration of Stochastic Local Volatility Models",
-      "page": 4,
-      "thumb": "/data/figures/2609.39256v1_p4_3.jpg",
-      "caption": "Figure 4: Comparison of Bass LV with Dupire LV and Heston SKR with Heston SLV for the reverse cliquet of Section 6.2. All models use the SPX-based ESSVI targets of Section 6.1, with identical reference parameters for the two Heston models. The plot varies the loss cap L; the table reports prices, Monte Carlo standard errors, and timings at L = 7.5% for 105 pricing paths.2 \u2014 This figure compares four volatility models (Bass LV, Dupire LV, Heston SKR, and Heston SLV) for pricing a reverse cliquet ",
+      "doc_id": "2610.01348v1",
+      "title": "Verify Claims, Not Scores: Evidence-Based Verification of Modular Agents",
+      "page": 6,
+      "thumb": "/data/figures/2610.01348v1_p6_1.jpg",
+      "caption": "Figure 2: Three failure modes exposed by the audit (Sharpe; seeds and intervals in Table 14). (a) Representational underreach: regime-conditional weights (L2) sit +0.38 above the static frontier at matched drawdown, but switching between two portfolios (L1) only +0.18, a paired gain over L0 of +0.07 \u00b1 0.08. (b) Interventional diagnosis: the true-regime replacement recovers nothing and is unresolve \u2014 This figure presents three failure mode analyses of a modular agent system using performance metr",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2609.39256v1"
+      "source": "https://arxiv.org/pdf/2610.01348v1"
     },
     {
-      "doc_id": "2609.38765v1",
-      "title": "Multiperiod bond portfolio optimization with transaction costs using a Markov Decision process",
-      "page": 12,
-      "thumb": "/data/figures/2609.38765v1_p12_0.jpg",
-      "caption": "Fig. 1: Simulation of Yields of 5 Year Bond over six months using the Markov Chain Approximation with a 40 bps discretization. \u2014 This line chart displays simulated yield paths for a 5-year bond over six monthly time steps using a Markov Chain approximation with 40 basis point discretization. The y-axis represents yield in percent (ranging from approximately 2.5% to 7%), while the x-axis shows time steps from 0 to 6. Multiple colored lines represent different simulated yield trajectories, illustr",
+      "doc_id": "2610.01348v1",
+      "title": "Verify Claims, Not Scores: Evidence-Based Verification of Modular Agents",
+      "page": 15,
+      "thumb": "/data/figures/2610.01348v1_p15_2.jpg",
+      "caption": "Figure 3: Oracles versus the static EW/MinVar frontier (24 seeds; bars are \u00b11 s.e.; confirmatory, paired under common random numbers; Sharpe at rf=1.6%). Construct: attainable decision value of perfect latent-state information under each action representation. The wider L2 and L3 action representations exhibit positive matched-risk oracle headroom in U3. ARC-AGENT lies close to the evaluated stati \u2014 This scatter plot compares Sharpe ratio performance against maximum drawdown (MaxDD) for various ",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2609.38765v1"
+      "source": "https://arxiv.org/pdf/2610.01348v1"
     },
     {
-      "doc_id": "2609.38765v1",
-      "title": "Multiperiod bond portfolio optimization with transaction costs using a Markov Decision process",
-      "page": 12,
-      "thumb": "/data/figures/2609.38765v1_p12_1.jpg",
-      "caption": "Figure 1 illustrates the resulting discretized yield paths for the five-year bond over the six-month horizon. \u2014 This line chart displays simulated yield paths for a 5-year bond with initial maturity of 5.0 years over a six-month time horizon (0 to 6 time steps). The y-axis represents yield in percentage (ranging from approximately 2.5% to 7%), and the x-axis shows time steps. Multiple colored lines represent different simulated yield scenarios generated using a Markov Chain approximation with 40",
+      "doc_id": "2610.01348v1",
+      "title": "Verify Claims, Not Scores: Evidence-Based Verification of Modular Agents",
+      "page": 23,
+      "thumb": "/data/figures/2610.01348v1_p23_3.jpg",
+      "caption": "Figure 4: The U3 benchmark, drawn on an illustrative 4,536-day path from the same generator (panel (d) uses 2,600-day paths per seed); this is for visualising the data-generating process and is not the evaluated horizon, which is 2,200 days per seed (756 warm-up, 1,444 evaluated). (a) ground-truth regimes; (b) crisis returns are fat-tailed and left-skewed; (c) correlations and lower-tail dependenc \u2014 This figure presents four panels of a financial simulation benchmark (U3) analyzing regime detect",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2609.38765v1"
+      "source": "https://arxiv.org/pdf/2610.01348v1"
     },
     {
-      "doc_id": "2609.38545v1",
-      "title": "Say, Echo, Do: Strategic Narratives and Revealed Positioning in Financial Markets",
-      "page": 2,
-      "thumb": "/data/figures/2609.38545v1_p2_0.jpg",
-      "caption": "Figure 1: Overview. Three observable voices are turned into measurements, and the theory says which sign each measurement should carry. The central object is the Say\u2013Do covariance: when institutions\u2019 words and positions move in opposite directions, their words should be faded. \u2014 This flowchart diagram presents a framework for analyzing strategic narratives in financial markets using three observable communication channels. The left side shows three input types: \"Say statements, notes\" (purple), ",
+      "doc_id": "2610.01325v1",
+      "title": "PPO-HRAP: Proximal Policy Optimization with a Hybrid Regime-Aware Policy for Risk-Controlled Trading",
+      "page": 3,
+      "thumb": "/data/figures/2610.01325v1_p3_0.jpg",
+      "caption": "Figure 1: PPO-HRAP architecture. \u2014 This flowchart depicts the PPO-HRAP (Proximal Policy Optimization with Hybrid Regime-Aware Policy) architecture for algorithmic trading, organized into five main layers: State Construction, Hybrid Policy Decision, Trading Environment, Execution and Reward, and Policy Update. The state construction layer processes ETF price history and technical indicators through feature engineering and observation state modules. The hybrid policy layer combines a PPO Actor wit",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2609.38545v1"
+      "source": "https://arxiv.org/pdf/2610.01325v1"
     },
     {
-      "doc_id": "2609.38545v1",
-      "title": "Say, Echo, Do: Strategic Narratives and Revealed Positioning in Financial Markets",
-      "page": 4,
-      "thumb": "/data/figures/2609.38545v1_p4_1.jpg",
-      "caption": "Figure 2: a: regime map of Theorem 3. False alarms occupy the thin wedge \u03c62 < a < \u03c6, and virality moves a market to the right. b: bifurcation diagram of adaptive trust (Theorem 5). Dots show the numerically computed long-run attractor, and dashed curves show the closed-form 2-cycle. Trust converges to truth only when a > 2; below a = 5 \u2014 This figure consists of two panels analyzing narrative dynamics in financial markets. Panel (a) is a regime map with crowd credulity \u03c6 on the x-axis and inferen",
+      "doc_id": "2610.01325v1",
+      "title": "PPO-HRAP: Proximal Policy Optimization with a Hybrid Regime-Aware Policy for Risk-Controlled Trading",
+      "page": 3,
+      "thumb": "/data/figures/2610.01325v1_p3_1.jpg",
+      "caption": "Figure 1 summarizes the full training-time data flow. During inference the same feature computation, regime detector, action blending, and execution steps are used, but the reward is not used to update the policy. This distinction matters because reward is a learning signal during training and an evaluation diagnostic during testing, not an input required by the deployed policy. \u2014 This figure illustrates the PPO-HRAP (Proximal Policy Optimization with Hybrid Regime-Aware Policy) architecture for",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2609.38545v1"
+      "source": "https://arxiv.org/pdf/2610.01325v1"
+    },
+    {
+      "doc_id": "2610.01325v1",
+      "title": "PPO-HRAP: Proximal Policy Optimization with a Hybrid Regime-Aware Policy for Risk-Controlled Trading",
+      "page": 5,
+      "thumb": "/data/figures/2610.01325v1_p5_2.jpg",
+      "caption": "Figure 2: SPY return\u2013drawdown trade-off. \u2014 This scatter plot displays the risk-return trade-off for various trading strategies applied to the SPY (S&P 500 ETF), with absolute maximum drawdown on the x-axis and annualized return on the y-axis. Each point represents a different strategy, including Naive Buy-and-Hold, PPO-based variants, GAM, and the proposed PPO-HRAP approach, with the upper-right region representing superior performance. The key takeaway is that PPO-HRAP achieves favorable positi",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.01325v1"
+    },
+    {
+      "doc_id": "2610.01325v1",
+      "title": "PPO-HRAP: Proximal Policy Optimization with a Hybrid Regime-Aware Policy for Risk-Controlled Trading",
+      "page": 6,
+      "thumb": "/data/figures/2610.01325v1_p6_3.jpg",
+      "caption": "Figure 3: SPY cumulative returns across methods. \u2014 This line chart compares cumulative returns across multiple trading strategy methods applied to the SPY (S&P 500 ETF) from 2009 to 2021. The chart displays seven different trading approaches including Buy & Hold, Buy & Proxy, CPPI, PPO+Profit Only, SAC+Profit Only, PPO+Static MDD Reward, and PPO+HRAP (the proposed hybrid regime-aware policy method), with returns ranging from approximately -35% to +50%. The key takeaway is that PPO+HRAP (purple l",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.01325v1"
+    },
+    {
+      "doc_id": "2610.01115v1",
+      "title": "Certified Alpha Capacity: Statistical Evidence, Economic Lifetime, and Arbitrage under Decay",
+      "page": 14,
+      "thumb": "/data/figures/2610.01115v1_p14_0.jpg",
+      "caption": "Figure 1: Canonical Alpha Survival Frontier for familywise false-deployment level 0.05 and power 0.90. Each curve gives the minimum half-life required at a given instantaneous Sharpe for a Bonferroni search over M candidates. The highlighted point is S = 2, M = 100, for which the minimum half-life is 7.245 years. \u2014 This log-scale line plot shows the minimum half-life (in years) required for alpha strategies to survive statistical testing as a function of instantaneous Sharpe ratio, with separate",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.01115v1"
+    },
+    {
+      "doc_id": "2610.01115v1",
+      "title": "Certified Alpha Capacity: Statistical Evidence, Economic Lifetime, and Arbitrage under Decay",
+      "page": 19,
+      "thumb": "/data/figures/2610.01115v1_p19_1.jpg",
+      "caption": "Figure 2: Residual excess lifetime information in the exact linear-information strategic benchmark. With zero research cost the residual fraction is exactly 1/N; positive research cost creates an \u2014 This line plot displays residual excess lifetime information (y-axis, logarithmic scale 0-0.6) against the number of arbitrageurs N (x-axis, logarithmic scale 10^0 to 10^2) for three research cost scenarios. Three curves represent different levels of research cost \u03c8/(\u03b1K): zero cost (dashed line), 0.1 ",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.01115v1"
+    },
+    {
+      "doc_id": "2610.01115v1",
+      "title": "Certified Alpha Capacity: Statistical Evidence, Economic Lifetime, and Arbitrage under Decay",
+      "page": 23,
+      "thumb": "/data/figures/2610.01115v1_p23_2.jpg",
+      "caption": "Figure 3: Association with next-seven-day sign-oriented funding for the same 543 events. Points report Spearman associations; horizontal bars report calendar-month cluster bootstrap 95% intervals from 5,000 resamples. The final row is the association of future funding with the lifetime-score rank after residualizing it on current-edge rank. \u2014 This figure displays a horizontal dot-plot showing Spearman rank correlations between four signal variables and next-seven-day signed funding, with 95% con",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.01115v1"
+    },
+    {
+      "doc_id": "2610.01115v1",
+      "title": "Certified Alpha Capacity: Statistical Evidence, Economic Lifetime, and Arbitrage under Decay",
+      "page": 23,
+      "thumb": "/data/figures/2610.01115v1_p23_3.jpg",
+      "caption": "Figure 4: Average same-sign survival length Ssign \u2014 This figure consists of two panels showing survival metrics for trading signals. The top panel displays a forest plot comparing Spearman associations with next-seven-day sign-oriented funding across three metrics: current edge magnitude (0.383), historical/statistic (0.361), and lifetime component/edge (0.282), with horizontal bars indicating 95% confidence intervals from 5,000 resamples. The bottom panel is a bar chart comparing mean same-sign",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.01115v1"
+    },
+    {
+      "doc_id": "2610.00998v1",
+      "title": "Portfolio Choice under General Utility with Transaction Costs and Search Frictions",
+      "page": 21,
+      "thumb": "/data/figures/2610.00998v1_p21_0.jpg",
+      "caption": "Figure 1: The figure shows the form of the utility functions U1, U2, U3 as functions of total wealth, used in the numerical examples. \u2014 This line graph displays three utility functions (U\u2081, U\u2082, U\u2083) plotted against wealth w on the horizontal axis and utility values on the vertical axis ranging from approximately -10 to 10. The red curve (U\u2081) exhibits concave behavior, increasing rapidly then flattening as wealth increases. The blue curve (U\u2082) shows a steeper initial increase with a sharp inflecti",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.00998v1"
+    },
+    {
+      "doc_id": "2610.00998v1",
+      "title": "Portfolio Choice under General Utility with Transaction Costs and Search Frictions",
+      "page": 23,
+      "thumb": "/data/figures/2610.00998v1_p23_1.jpg",
+      "caption": "Figure 2: Numerically computed optimal post-trade risky weight \u02c6\u03c0 as a function of the pre-trade risky weight \u03c0, evaluated at t = 0 for U = U1, \u03f5 = \u03f5 = 0.05, and pre-trade wealth w = 1.51 (left) and w = 1.96 (right). For w = 1.51, the selected actions follow the usual buy\u2013no-trade\u2013sell ordering. For w = 1.96, two no-trade intervals alternate with two selling intervals, and no buying is selected. \u2014 These line plots show optimal post-trade risky asset weight as a function of pre-trade risky weight",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.00998v1"
     }
   ],
   "docs": [
     {
-      "id": "2609.39569v1",
-      "title": "Spouse-Protected Tontines: Household Decumulation via Neural-Network Optimization",
-      "source": "https://arxiv.org/pdf/2609.39569v1",
-      "pages": 41,
-      "images": 2,
-      "figures_captioned": 2,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 60
-    },
-    {
-      "id": "2609.39420v1",
-      "title": "QuantCode Model: Specializing Language Models for Executable Algorithmic Trading Code",
-      "source": "https://arxiv.org/pdf/2609.39420v1",
-      "pages": 16,
-      "images": 0,
-      "figures_captioned": 4,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 35
-    },
-    {
-      "id": "2609.39261v1",
-      "title": "Jacobian Rank Collapse in Decision-Focused Learning",
-      "source": "https://arxiv.org/pdf/2609.39261v1",
-      "pages": 53,
-      "images": 1,
-      "figures_captioned": 4,
-      "tables": 1,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 57
-    },
-    {
-      "id": "2609.39256v1",
-      "title": "Stochastic Knothe-Rosenblatt: Light-speed Calibration of Stochastic Local Volatility Models",
-      "source": "https://arxiv.org/pdf/2609.39256v1",
-      "pages": 24,
-      "images": 0,
-      "figures_captioned": 4,
-      "tables": 1,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 65
-    },
-    {
-      "id": "2609.38765v1",
-      "title": "Multiperiod bond portfolio optimization with transaction costs using a Markov Decision process",
-      "source": "https://arxiv.org/pdf/2609.38765v1",
-      "pages": 27,
-      "images": 1,
-      "figures_captioned": 2,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 47
-    },
-    {
-      "id": "2609.38545v1",
-      "title": "Say, Echo, Do: Strategic Narratives and Revealed Positioning in Financial Markets",
-      "source": "https://arxiv.org/pdf/2609.38545v1",
-      "pages": 31,
-      "images": 0,
-      "figures_captioned": 2,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 61
-    },
-    {
-      "id": "2609.37963v1",
-      "title": "Not All LPs Are Equal: The Active-Passive Gap in Automated Market Maker Liquidity Provision",
-      "source": "https://arxiv.org/pdf/2609.37963v1",
-      "pages": 33,
+      "id": "2610.02106v1",
+      "title": "Densities for scalar-valued BSDEs via unique continuation and backward uniqueness",
+      "source": "https://arxiv.org/pdf/2610.02106v1",
+      "pages": 46,
       "images": 0,
       "figures_captioned": 0,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 48
+    },
+    {
+      "id": "2610.01897v1",
+      "title": "Shared Models, Selective Trading, and Order Flow",
+      "source": "https://arxiv.org/pdf/2610.01897v1",
+      "pages": 44,
+      "images": 0,
+      "figures_captioned": 3,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 38
+    },
+    {
+      "id": "2610.01585v1",
+      "title": "Distribution-constrained maximum stopping of maximum type",
+      "source": "https://arxiv.org/pdf/2610.01585v1",
+      "pages": 27,
+      "images": 0,
+      "figures_captioned": 0,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 49
+    },
+    {
+      "id": "2610.01562v1",
+      "title": "Social welfare and price discovery in double auction markets",
+      "source": "https://arxiv.org/pdf/2610.01562v1",
+      "pages": 28,
+      "images": 0,
+      "figures_captioned": 1,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 49
+    },
+    {
+      "id": "2610.01348v1",
+      "title": "Verify Claims, Not Scores: Evidence-Based Verification of Modular Agents",
+      "source": "https://arxiv.org/pdf/2610.01348v1",
+      "pages": 32,
+      "images": 0,
+      "figures_captioned": 4,
+      "tables": 2,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 63
+    },
+    {
+      "id": "2610.01325v1",
+      "title": "PPO-HRAP: Proximal Policy Optimization with a Hybrid Regime-Aware Policy for Risk-Controlled Trading",
+      "source": "https://arxiv.org/pdf/2610.01325v1",
+      "pages": 8,
+      "images": 6,
+      "figures_captioned": 4,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 23
+    },
+    {
+      "id": "2610.01187v1",
+      "title": "On the Pricing of American Options under Stochastic Local Volatility and Stochastic Correlation via the RBSDE Framework",
+      "source": "https://arxiv.org/pdf/2610.01187v1",
+      "pages": 32,
+      "images": 0,
+      "figures_captioned": 0,
+      "tables": 1,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 40
+    },
+    {
+      "id": "2610.01115v1",
+      "title": "Certified Alpha Capacity: Statistical Evidence, Economic Lifetime, and Arbitrage under Decay",
+      "source": "https://arxiv.org/pdf/2610.01115v1",
+      "pages": 39,
+      "images": 0,
+      "figures_captioned": 4,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 52
+    },
+    {
+      "id": "2610.00998v1",
+      "title": "Portfolio Choice under General Utility with Transaction Costs and Search Frictions",
+      "source": "https://arxiv.org/pdf/2610.00998v1",
+      "pages": 39,
+      "images": 0,
+      "figures_captioned": 2,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
       "chunks_indexed": 42
     },
     {
-      "id": "2609.37903v1",
-      "title": "From Intraday Orderbook to Imbalance Price: Understanding Cross-Market Interaction",
-      "source": "https://arxiv.org/pdf/2609.37903v1",
-      "pages": 10,
-      "images": 664,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 28
-    },
-    {
-      "id": "2609.37881v1",
-      "title": "Global Structure and Local Specifications in Sublinear Valuation",
-      "source": "https://arxiv.org/pdf/2609.37881v1",
-      "pages": 81,
+      "id": "2610.00951v1",
+      "title": "Negative Oil & Nickel Squeeze: A Feedback Model for Extreme Commodity Futures Prices",
+      "source": "https://arxiv.org/pdf/2610.00951v1",
+      "pages": 30,
       "images": 0,
       "figures_captioned": 0,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 55
-    },
-    {
-      "id": "2609.37872v1",
-      "title": "A Generalized Langevin Model of Latent Liquidity and Concave Price Impact",
-      "source": "https://arxiv.org/pdf/2609.37872v1",
-      "pages": 42,
-      "images": 0,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 63
+      "chunks_indexed": 45
     }
   ]
 }
