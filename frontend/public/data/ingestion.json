@@ -1,7 +1,7 @@
 {
   "_note": "Public run manifest of the Tier-3 agentic ingestion pipeline. Safe aggregates + provenance only; raw PDFs live in S3, not here.",
-  "run_id": "20261003T080850Z",
-  "generated_at": "2026-10-03T08:11:59+00:00",
+  "run_id": "20261004T082948Z",
+  "generated_at": "2026-10-04T08:32:42+00:00",
   "collection": "research_corpus",
   "embed_model": "BAAI/bge-small-en-v1.5",
   "dag": [
@@ -58,8 +58,8 @@
     "tables": 3,
     "with_math": 10,
     "indexed": 449,
-    "spent_usd": 0.0319,
-    "duration_s": 188.7
+    "spent_usd": 0.0322,
+    "duration_s": 173.6
   },
   "rejects_by_reason": {
     "low-relevance": 57
@@ -71,7 +71,7 @@
       "title": "Shared Models, Selective Trading, and Order Flow",
       "page": 11,
       "thumb": "/data/figures/2610.01897v1_p11_0.jpg",
-      "caption": "Figure 1: Presentation changes the representation of model families \u2014 Panel A is a stacked bar chart showing the composition of active family decisions across four scenarios (Financing: original/factual and Layoff: explanatory/factual), with three model families (Mistral, Qwen, Llama) represented by percentages that sum to 100%. Panel B is a horizontal bar chart decomposing the contribution to buy-share change into two components: active composition (dark blue) and conditional direction (orange)",
+      "caption": "Figure 1: Presentation changes the representation of model families \u2014 Panel A is a stacked bar chart showing the composition of active family decisions across four scenarios (Financing original/factual and Layoff explanatory/factual), with three model families (Mistral, Qwen, Llama) represented by different colors and their percentage shares labeled. Panel B is a horizontal diverging bar chart decomposing the buy-share change into contributions from active composition (dark blue bars) and condit",
       "vision": true,
       "source": "https://arxiv.org/pdf/2610.01897v1"
     },
@@ -80,7 +80,7 @@
       "title": "Shared Models, Selective Trading, and Order Flow",
       "page": 15,
       "thumb": "/data/figures/2610.01897v1_p15_1.jpg",
-      "caption": "Figure 2: From a shared decision technology to active order flow \u2014 This is a flowchart diagram showing how shared decision technology translates into active order flow in financial markets. The diagram has three solid-bordered input boxes at the top (common event text and presentation; model family, mandate, inventory, and market state; active family weights and submitted order balance) that feed into a central processing node labeled \"Participation and conditional direction,\" which then generat",
+      "caption": "Figure 2: From a shared decision technology to active order flow \u2014 This is a flowchart diagram showing how shared decision technology generates active order flow in a trading context. The diagram flows left-to-right, with \"Common event text and presentation\" and \"Model family, mandate, inventory, and market state\" feeding into \"Participation and conditional direction,\" which then branches to \"Active family weights and submitted order balance\" and \"Price-error consequences in a responsive market\"",
       "vision": true,
       "source": "https://arxiv.org/pdf/2610.01897v1"
     },
@@ -89,7 +89,7 @@
       "title": "Shared Models, Selective Trading, and Order Flow",
       "page": 22,
       "thumb": "/data/figures/2610.01897v1_p22_2.jpg",
-      "caption": "Figure 3: Individual precision, active concentration, and price error \u2014 Panel A shows a line plot comparing mean squared prediction error against single-family interpretation-error variance for a single family (solid line) versus three equal families with unit variance each (dashed line), with a precision threshold of 1/3 marked at approximately 0.26 error. Panel B displays mean squared price error versus aggregate model-family demand sensitivity (K), comparing three equal families with variance",
+      "caption": "Figure 3: Individual precision, active concentration, and price error \u2014 This figure contains two line plots examining mean squared pricing errors under different model deployment strategies. Panel A shows how concentrated a single family's interpretation must be to match the precision of three equal families, with the x-axis representing single-family interpretation-error variance (0 to 1.0) and y-axis showing mean squared error (0 to 0.7); the precision threshold of 1/3 is marked where curves i",
       "vision": true,
       "source": "https://arxiv.org/pdf/2610.01897v1"
     },
@@ -98,7 +98,7 @@
       "title": "Social welfare and price discovery in double auction markets",
       "page": 3,
       "thumb": "/data/figures/2610.01562v1_p3_0.jpg",
-      "caption": "Figure 1: Market clearing in a double auction. The market clearing quantity \u2014 Figure 1 consists of two panels illustrating market mechanics in a double auction. Panel (a) shows demand (solid line) and supply (dashed line) curves plotted against quantity, with the demand curve stepping down from 10 to 2 and supply curve stepping up from 2 to 8, intersecting around quantity 4. Panel (b) displays revenue function D (solid curve) and cost function S (dashed curve) against quantity, both increasing n",
+      "caption": "Figure 1: Market clearing in a double auction. The market clearing quantity \u2014 Figure 1 shows two panels illustrating market clearing in a double auction. Panel (a) displays demand and supply curves (solid and dashed lines respectively) plotted against quantity, with the y-axis representing price ranging from 0 to 10; the curves intersect at the market clearing point. Panel (b) shows revenue function D and cost function S plotted against quantity (0 to 4), with both curves increasing and intersec",
       "vision": true,
       "source": "https://arxiv.org/pdf/2610.01562v1"
     },
@@ -107,7 +107,7 @@
       "title": "Verify Claims, Not Scores: Evidence-Based Verification of Modular Agents",
       "page": 4,
       "thumb": "/data/figures/2610.01348v1_p4_0.jpg",
-      "caption": "Figure 1: ARC-AGENT, the agent under audit, and its three verification layers. Arrows trace one rebalancing decision at date t. (A) Information and model layer: a regime HMM turns past returns into regime posteriors \u03c0t (walk-forward), and a regime-conditioned diffusion generator, whose base and crisis experts are mixed by a gate gt and trained with a tail-weighted loss Ltail, draws return scenario \u2014 This figure illustrates ARC-AGENT, a modular portfolio rebalancing system with three verification",
+      "caption": "Figure 1: ARC-AGENT, the agent under audit, and its three verification layers. Arrows trace one rebalancing decision at date t. (A) Information and model layer: a regime HMM turns past returns into regime posteriors \u03c0t (walk-forward), and a regime-conditioned diffusion generator, whose base and crisis experts are mixed by a gate gt and trained with a tail-weighted loss Ltail, draws return scenario \u2014 This figure illustrates a three-layer verification framework for an agent that makes portfolio re",
       "vision": true,
       "source": "https://arxiv.org/pdf/2610.01348v1"
     },
@@ -116,7 +116,7 @@
       "title": "Verify Claims, Not Scores: Evidence-Based Verification of Modular Agents",
       "page": 6,
       "thumb": "/data/figures/2610.01348v1_p6_1.jpg",
-      "caption": "Figure 2: Three failure modes exposed by the audit (Sharpe; seeds and intervals in Table 14). (a) Representational underreach: regime-conditional weights (L2) sit +0.38 above the static frontier at matched drawdown, but switching between two portfolios (L1) only +0.18, a paired gain over L0 of +0.07 \u00b1 0.08. (b) Interventional diagnosis: the true-regime replacement recovers nothing and is unresolve \u2014 This figure presents three diagnostic analyses of portfolio strategy failures. Panel (a) shows re",
+      "caption": "Figure 2: Three failure modes exposed by the audit (Sharpe; seeds and intervals in Table 14). (a) Representational underreach: regime-conditional weights (L2) sit +0.38 above the static frontier at matched drawdown, but switching between two portfolios (L1) only +0.18, a paired gain over L0 of +0.07 \u00b1 0.08. (b) Interventional diagnosis: the true-regime replacement recovers nothing and is unresolve \u2014 This figure displays three subfigures demonstrating failure modes in modular agent verification. ",
       "vision": true,
       "source": "https://arxiv.org/pdf/2610.01348v1"
     },
@@ -125,7 +125,7 @@
       "title": "Verify Claims, Not Scores: Evidence-Based Verification of Modular Agents",
       "page": 15,
       "thumb": "/data/figures/2610.01348v1_p15_2.jpg",
-      "caption": "Figure 3: Oracles versus the static EW/MinVar frontier (24 seeds; bars are \u00b11 s.e.; confirmatory, paired under common random numbers; Sharpe at rf=1.6%). Construct: attainable decision value of perfect latent-state information under each action representation. The wider L2 and L3 action representations exhibit positive matched-risk oracle headroom in U3. ARC-AGENT lies close to the evaluated stati \u2014 This figure compares the performance of various oracle strategies against the static Efficient Fr",
+      "caption": "Figure 3: Oracles versus the static EW/MinVar frontier (24 seeds; bars are \u00b11 s.e.; confirmatory, paired under common random numbers; Sharpe at rf=1.6%). Construct: attainable decision value of perfect latent-state information under each action representation. The wider L2 and L3 action representations exhibit positive matched-risk oracle headroom in U3. ARC-AGENT lies close to the evaluated stati \u2014 This scatter plot with error bars compares the Sharpe ratio performance of different oracle strat",
       "vision": true,
       "source": "https://arxiv.org/pdf/2610.01348v1"
     },
@@ -134,7 +134,7 @@
       "title": "Verify Claims, Not Scores: Evidence-Based Verification of Modular Agents",
       "page": 23,
       "thumb": "/data/figures/2610.01348v1_p23_3.jpg",
-      "caption": "Figure 4: The U3 benchmark, drawn on an illustrative 4,536-day path from the same generator (panel (d) uses 2,600-day paths per seed); this is for visualising the data-generating process and is not the evaluated horizon, which is 2,200 days per seed (756 warm-up, 1,444 evaluated). (a) ground-truth regimes; (b) crisis returns are fat-tailed and left-skewed; (c) correlations and lower-tail dependenc \u2014 This figure presents a financial benchmark called U3 with four panels analyzing market regimes an",
+      "caption": "Figure 4: The U3 benchmark, drawn on an illustrative 4,536-day path from the same generator (panel (d) uses 2,600-day paths per seed); this is for visualising the data-generating process and is not the evaluated horizon, which is 2,200 days per seed (756 warm-up, 1,444 evaluated). (a) ground-truth regimes; (b) crisis returns are fat-tailed and left-skewed; (c) correlations and lower-tail dependenc \u2014 This figure presents the U3 benchmark, a synthetic financial dataset with four panels illustratin",
       "vision": true,
       "source": "https://arxiv.org/pdf/2610.01348v1"
     },
@@ -143,7 +143,7 @@
       "title": "PPO-HRAP: Proximal Policy Optimization with a Hybrid Regime-Aware Policy for Risk-Controlled Trading",
       "page": 3,
       "thumb": "/data/figures/2610.01325v1_p3_0.jpg",
-      "caption": "Figure 1: PPO-HRAP architecture. \u2014 This figure presents a block diagram of the PPO-HRAP (Proximal Policy Optimization with Hybrid Regime-Aware Policy) architecture for algorithmic trading. The diagram is organized into five main layers: State Construction (top) which processes ETF price history through feature engineering and observation state creation; Hybrid Policy Decision (middle-upper) which combines a PPO Actor with a Regime Detector and Target Exposure module through action blending; Trad",
+      "caption": "Figure 1: PPO-HRAP architecture. \u2014 This flowchart illustrates the architecture of PPO-HRAP (Proximal Policy Optimization with Hybrid Regime-Aware Policy), a reinforcement learning framework for algorithmic trading. The diagram shows a hierarchical structure with five main components: (1) State Construction, which processes ETF price history and technical indicators; (2) Feature Engineering that extracts technical indicators from observation states; (3) Hybrid Policy Decision combining a PPO Acto",
       "vision": true,
       "source": "https://arxiv.org/pdf/2610.01325v1"
     },
@@ -152,7 +152,7 @@
       "title": "PPO-HRAP: Proximal Policy Optimization with a Hybrid Regime-Aware Policy for Risk-Controlled Trading",
       "page": 3,
       "thumb": "/data/figures/2610.01325v1_p3_1.jpg",
-      "caption": "Figure 1 summarizes the full training-time data flow. During inference the same feature computation, regime detector, action blending, and execution steps are used, but the reward is not used to update the policy. This distinction matters because reward is a learning signal during training and an evaluation diagnostic during testing, not an input required by the deployed policy. \u2014 This figure illustrates the PPO-HRAP (Proximal Policy Optimization with Hybrid Regime-Aware Policy) architecture, a ",
+      "caption": "Figure 1 summarizes the full training-time data flow. During inference the same feature computation, regime detector, action blending, and execution steps are used, but the reward is not used to update the policy. This distinction matters because reward is a learning signal during training and an evaluation diagnostic during testing, not an input required by the deployed policy. \u2014 This figure illustrates the PPO-HRAP (Proximal Policy Optimization with Hybrid Regime-Aware Policy) architecture for",
       "vision": true,
       "source": "https://arxiv.org/pdf/2610.01325v1"
     },
@@ -161,7 +161,7 @@
       "title": "PPO-HRAP: Proximal Policy Optimization with a Hybrid Regime-Aware Policy for Risk-Controlled Trading",
       "page": 5,
       "thumb": "/data/figures/2610.01325v1_p5_2.jpg",
-      "caption": "Figure 2: SPY return\u2013drawdown trade-off. \u2014 This scatter plot displays the Pareto frontier of annualized returns versus maximum drawdown for SPY (S&P 500 ETF) trading strategies. The x-axis represents absolute maximum drawdown (ranging from 0 to 1.0) and the y-axis shows annualized return (0 to 1.0), with multiple strategy points labeled including Buy-and-Hold, Naive ML Policy, PPO+Kalman-Augmented Reward, and PPO+Hybrid Regime-Aware (HRAP). The key takeaway is that the proposed PPO-HRAP strategy",
+      "caption": "Figure 2: SPY return\u2013drawdown trade-off. \u2014 This scatter plot displays the Pareto frontier of annualized return versus absolute maximum drawdown for SPY (S&P 500 ETF) trading strategies. The x-axis shows absolute maximum drawdown (ranging from 0 to 1.0) and the y-axis shows annualized return (ranging from approximately 0.05 to 1.0), with each point representing a different trading strategy or model including PPO-HRAP, baseline strategies, and Buy-Hold Policy. The key takeaway is that PPO-HRAP ach",
       "vision": true,
       "source": "https://arxiv.org/pdf/2610.01325v1"
     },
@@ -170,7 +170,7 @@
       "title": "PPO-HRAP: Proximal Policy Optimization with a Hybrid Regime-Aware Policy for Risk-Controlled Trading",
       "page": 6,
       "thumb": "/data/figures/2610.01325v1_p6_3.jpg",
-      "caption": "Figure 3: SPY cumulative returns across methods. \u2014 This line chart compares cumulative returns of the SPY (S&P 500 ETF) across multiple trading strategies from 2020 to 2023. The y-axis shows cumulative return percentage ranging from -30% to 50%, while the x-axis displays the time period. The plot demonstrates that PPO-based methods (purple lines) consistently outperform traditional approaches like Buy & Hold (blue) and SAC-based strategies (green), with PPO + Static MDD Reward and PPO-HRAP achie",
+      "caption": "Figure 3: SPY cumulative returns across methods. \u2014 This line chart displays cumulative returns over time from 2009 to 2023 for the SPY (S&P 500 ETF) comparing eight different trading strategy methods: Buy & Hold, Buy & Proxy, CPPI, PPO + Profit Only, SAC + Profit Only, PPO + Variance-Penalized Reward, PPO + Static MDD Reward, and PPO-HRAP (Hybrid Regime-Aware Policy). The y-axis shows cumulative return percentage ranging from -35% to 50%, while the x-axis represents the date timeline. The key ta",
       "vision": true,
       "source": "https://arxiv.org/pdf/2610.01325v1"
     },
@@ -179,7 +179,7 @@
       "title": "Certified Alpha Capacity: Statistical Evidence, Economic Lifetime, and Arbitrage under Decay",
       "page": 14,
       "thumb": "/data/figures/2610.01115v1_p14_0.jpg",
-      "caption": "Figure 1: Canonical Alpha Survival Frontier for familywise false-deployment level 0.05 and power 0.90. Each curve gives the minimum half-life required at a given instantaneous Sharpe for a Bonferroni search over M candidates. The highlighted point is S = 2, M = 100, for which the minimum half-life is 7.245 years. \u2014 This line chart displays the minimum half-life (in years, log scale) required for alpha strategies as a function of instantaneous Sharpe ratio, with separate curves for different numb",
+      "caption": "Figure 1: Canonical Alpha Survival Frontier for familywise false-deployment level 0.05 and power 0.90. Each curve gives the minimum half-life required at a given instantaneous Sharpe for a Bonferroni search over M candidates. The highlighted point is S = 2, M = 100, for which the minimum half-life is 7.245 years. \u2014 This figure displays a log-scale line chart showing the relationship between instantaneous Sharpe ratio (x-axis, ranging from 1.0 to 4.0) and minimum half-life in years (y-axis, log s",
       "vision": true,
       "source": "https://arxiv.org/pdf/2610.01115v1"
     },
@@ -188,7 +188,7 @@
       "title": "Certified Alpha Capacity: Statistical Evidence, Economic Lifetime, and Arbitrage under Decay",
       "page": 19,
       "thumb": "/data/figures/2610.01115v1_p19_1.jpg",
-      "caption": "Figure 2: Residual excess lifetime information in the exact linear-information strategic benchmark. With zero research cost the residual fraction is exactly 1/N; positive research cost creates an \u2014 This line chart plots residual excess lifetime information (y-axis) against the number of arbitrageurs N (x-axis, logarithmic scale from 10^0 to 10^2) for three scenarios with different research cost parameters \u03c8/(\u03b1K). The three curves show: zero research cost (dashed line, \u03c8/(\u03b1K)=0), moderate cost (s",
+      "caption": "Figure 2: Residual excess lifetime information in the exact linear-information strategic benchmark. With zero research cost the residual fraction is exactly 1/N; positive research cost creates an \u2014 This line plot displays residual excess lifetime information (y-axis) against the number of arbitrageurs N on a logarithmic scale (x-axis) for three research cost scenarios. Three curves represent different values of \u03c8/(\u03b1\u03ba): zero cost (dashed line), 0.1 (solid red line), and 0.5 (dash-dot line), all d",
       "vision": true,
       "source": "https://arxiv.org/pdf/2610.01115v1"
     },
@@ -197,7 +197,7 @@
       "title": "Certified Alpha Capacity: Statistical Evidence, Economic Lifetime, and Arbitrage under Decay",
       "page": 23,
       "thumb": "/data/figures/2610.01115v1_p23_2.jpg",
-      "caption": "Figure 3: Association with next-seven-day sign-oriented funding for the same 543 events. Points report Spearman associations; horizontal bars report calendar-month cluster bootstrap 95% intervals from 5,000 resamples. The final row is the association of future funding with the lifetime-score rank after residualizing it on current-edge rank. \u2014 This figure displays a horizontal dot-and-whisker plot showing Spearman rank correlations between four different metrics and next-seven-day signed funding.",
+      "caption": "Figure 3: Association with next-seven-day sign-oriented funding for the same 543 events. Points report Spearman associations; horizontal bars report calendar-month cluster bootstrap 95% intervals from 5,000 resamples. The final row is the association of future funding with the lifetime-score rank after residualizing it on current-edge rank. \u2014 This figure displays a forest plot showing Spearman correlation coefficients and their 95% confidence intervals for four metrics' associations with next-se",
       "vision": true,
       "source": "https://arxiv.org/pdf/2610.01115v1"
     },
@@ -206,7 +206,7 @@
       "title": "Certified Alpha Capacity: Statistical Evidence, Economic Lifetime, and Arbitrage under Decay",
       "page": 23,
       "thumb": "/data/figures/2610.01115v1_p23_3.jpg",
-      "caption": "Figure 4: Average same-sign survival length Ssign \u2014 This figure shows a bar chart comparing mean same-sign survival time (in calendar days) between two groups: lifetime-score top quintile (red bar, 16.97 days) and current-edge top quintile (gray bar, 14.97 days). Both groups had 109 observations with 100 out of 109 maintaining positive sign, indicating that strategies selected by lifetime-score ranking maintain directional consistency slightly longer than those selected by current-edge ranking. ",
+      "caption": "Figure 4: Average same-sign survival length Ssign \u2014 This figure contains two panels comparing predictive power for same-sign funding outcomes. The top panel is a horizontal error-bar plot showing Spearman rank correlations (with 95% confidence intervals from 5,000 bootstrap resamples) between three variables and next-seven-day sign-oriented funding: current edge magnitude (0.383), historical/statistic measure (0.361), and lifetime component/edge (0.282, shown in red). The bottom panel is a bar c",
       "vision": true,
       "source": "https://arxiv.org/pdf/2610.01115v1"
     },
@@ -215,7 +215,7 @@
       "title": "Portfolio Choice under General Utility with Transaction Costs and Search Frictions",
       "page": 21,
       "thumb": "/data/figures/2610.00998v1_p21_0.jpg",
-      "caption": "Figure 1: The figure shows the form of the utility functions U1, U2, U3 as functions of total wealth, used in the numerical examples. \u2014 This line plot displays three utility functions (U\u2081, U\u2082, U\u2083) graphed against wealth w on the horizontal axis and utility values on the vertical axis ranging from approximately -15 to 10. The red curve (U\u2081) shows concave utility that levels off around 9.5, the blue curve (U\u2082) displays a steep initial increase that flattens at higher wealth levels around 9.5, and ",
+      "caption": "Figure 1: The figure shows the form of the utility functions U1, U2, U3 as functions of total wealth, used in the numerical examples. \u2014 This line chart displays three utility functions (U\u2081, U\u2082, and U\u2083) plotted against wealth w on the horizontal axis, with utility values on the vertical axis ranging from approximately -10 to 10. The red curve (U\u2081) exhibits concave behavior, the blue curve (U\u2082) shows an S-shaped or sigmoid pattern, and the green curve (U\u2083) demonstrates a step-function-like behavio",
       "vision": true,
       "source": "https://arxiv.org/pdf/2610.00998v1"
     },
@@ -224,7 +224,7 @@
       "title": "Portfolio Choice under General Utility with Transaction Costs and Search Frictions",
       "page": 23,
       "thumb": "/data/figures/2610.00998v1_p23_1.jpg",
-      "caption": "Figure 2: Numerically computed optimal post-trade risky weight \u02c6\u03c0 as a function of the pre-trade risky weight \u03c0, evaluated at t = 0 for U = U1, \u03f5 = \u03f5 = 0.05, and pre-trade wealth w = 1.51 (left) and w = 1.96 (right). For w = 1.51, the selected actions follow the usual buy\u2013no-trade\u2013sell ordering. For w = 1.96, two no-trade intervals alternate with two selling intervals, and no buying is selected. \u2014 These line plots show the optimal post-trade risky asset weight as a function of pre-trade risky we",
+      "caption": "Figure 2: Numerically computed optimal post-trade risky weight \u02c6\u03c0 as a function of the pre-trade risky weight \u03c0, evaluated at t = 0 for U = U1, \u03f5 = \u03f5 = 0.05, and pre-trade wealth w = 1.51 (left) and w = 1.96 (right). For w = 1.51, the selected actions follow the usual buy\u2013no-trade\u2013sell ordering. For w = 1.96, two no-trade intervals alternate with two selling intervals, and no buying is selected. \u2014 These line plots show the optimal post-trade risky weight as a function of pre-trade risky weight u",
       "vision": true,
       "source": "https://arxiv.org/pdf/2610.00998v1"
     }
