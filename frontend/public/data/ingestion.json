@@ -1,7 +1,7 @@
 {
   "_note": "Public run manifest of the Tier-3 agentic ingestion pipeline. Safe aggregates + provenance only; raw PDFs live in S3, not here.",
-  "run_id": "20261005T090713Z",
-  "generated_at": "2026-10-05T09:11:04+00:00",
+  "run_id": "20261006T090103Z",
+  "generated_at": "2026-10-06T09:04:48+00:00",
   "collection": "research_corpus",
   "embed_model": "BAAI/bge-small-en-v1.5",
   "dag": [
@@ -50,204 +50,192 @@
     "discovered": 10,
     "fetched": 10,
     "parsed": 10,
-    "chunks": 350,
-    "accepted": 333,
-    "rejected": 17,
-    "images": 76,
+    "chunks": 493,
+    "accepted": 465,
+    "rejected": 28,
+    "images": 37,
     "figures_captioned": 18,
-    "tables": 4,
+    "tables": 0,
     "with_math": 10,
-    "indexed": 333,
-    "spent_usd": 0.0321,
-    "duration_s": 231.2
+    "indexed": 465,
+    "spent_usd": 0.0344,
+    "duration_s": 225.7
   },
   "rejects_by_reason": {
-    "low-relevance": 17
+    "low-relevance": 28
   },
   "budget_usd": 3.0,
   "figures": [
     {
-      "doc_id": "2610.03598v1",
-      "title": "When a Correct Reward Is Not Enough: Diagnosing and Guiding PPO in an Analytically Solved Broker-Trader Game",
-      "page": 3,
-      "thumb": "/data/figures/2610.03598v1_p3_0.jpg",
-      "caption": "Figure 1: Information and feedback for one broker decision. The policy maps the full- or partial-information observation to a trading rate, which is clipped to [\u2212100, 100] before the environment updates the state and reward. Red variables are hidden under partial information; past informed flow \ud835\udf02\ud835\udc58is reconstructible at decision \ud835\udc58+ 1. The reference action (\ud835\udf08ref \u2014 This diagram illustrates a broker decision cycle in a reinforcement learning environment with three main stages: (1) information availab",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.03598v1"
-    },
-    {
-      "doc_id": "2610.03598v1",
-      "title": "When a Correct Reward Is Not Enough: Diagnosing and Guiding PPO in an Analytically Solved Broker-Trader Game",
-      "page": 5,
-      "thumb": "/data/figures/2610.03598v1_p5_1.jpg",
-      "caption": "Figure 2: Trajectories and PPO diagnostics. Panels (a)\u2013(b) show the zero-flow experiment and (c)\u2013(d) the change from \ud835\udc4e= 0.0012 to 0.0006. Lines are means and bands span the 5th\u201395th percentiles; (a)\u2013(b) use signed symmetric-log vertical scales. Panel (e) uses separate payoff scales and normalises progress by each training budget; markers denote checkpoints. Panels (f)\u2013(g) show losses smoothed over \u2014 This figure displays six subpanels (a-g) presenting diagnostics and trajectories from a PPO (Prox",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.03598v1"
-    },
-    {
-      "doc_id": "2610.03598v1",
-      "title": "When a Correct Reward Is Not Enough: Diagnosing and Guiding PPO in an Analytically Solved Broker-Trader Game",
-      "page": 7,
-      "thumb": "/data/figures/2610.03598v1_p7_2.jpg",
-      "caption": "Figure 3: Learning diagnostics. Left and centre: each point compares \ud835\udc4e+ and \ud835\udc4e\u2212at one of 120 test states. The horizontal axis is their difference in cumulative reward estimated by Monte Carlo; the vertical axis is the difference predicted using the immediate reward and critic value of the next state. Each point is (\u0394\ud835\udc44MC \u2014 This figure presents learning diagnostics for a PPO agent in a broker-trader game across three panels. The left and center panels are scatter plots comparing Monte Carlo cumulat",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.03598v1"
-    },
-    {
-      "doc_id": "2610.03406v1",
-      "title": "PreFER: Interactive Robo-Advisor with Scoring Mechanism",
-      "page": 3,
-      "thumb": "/data/figures/2610.03406v1_p3_0.jpg",
-      "caption": "Figure 1 illustrates the process of risk-preference learning and investment recommenda- \u2014 I can see this is a text excerpt from an academic paper about a robo-advisor system, but the actual Figure 1 is not visible in the image provided. The image only shows the paper text discussing the PreFER framework, which specializes in inverse reinforcement learning with CARA (Constant Absolute Risk Aversion) preferences to infer a client's risk-aversion parameter from feedback. The caption references Tabl",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.03406v1"
-    },
-    {
-      "doc_id": "2610.03406v1",
-      "title": "PreFER: Interactive Robo-Advisor with Scoring Mechanism",
+      "doc_id": "2610.06504v1",
+      "title": "Retirement Planning with Minimum Guarantees for Both Beneficiaries and Fund Managers",
       "page": 4,
-      "thumb": "/data/figures/2610.03406v1_p4_1.jpg",
-      "caption": "Figure 1: Schematic of the interactive learning process \u2014 This flowchart illustrates an interactive robo-advisory system where a communicated market outlook flows through preference learning and estimated risk aversion to generate a recommended strategy. The client receives this recommendation and can either accept it for execution or reject it, with rejection feedback looping back to refine the preference learning model. The diagram demonstrates an iterative human-in-the-loop process that conti",
+      "thumb": "/data/figures/2610.06504v1_p4_0.jpg",
+      "caption": "Figure 1: Structure of the retirement planning model with guarantees. Closely related arrange- ments include pension funds with minimum guarantees [23], and income-drawdown plans with minimum guarantees [24] \u2014 This is a flow diagram illustrating a retirement planning model structure with multiple stakeholders and constraints. The diagram shows interactions between a Retiree (who receives initial wealth x\u2080 and benefit b(t)), a Manager (who controls fees \u03ba\u2081X(t) and \u03ba\u2082X(\u03c4d) and maintains fund value",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2610.03406v1"
+      "source": "https://arxiv.org/pdf/2610.06504v1"
     },
     {
-      "doc_id": "2610.03406v1",
-      "title": "PreFER: Interactive Robo-Advisor with Scoring Mechanism",
-      "page": 23,
-      "thumb": "/data/figures/2610.03406v1_p23_2.jpg",
-      "caption": "Figure 2: acceptance interval and acceptance probability when varying transition probability \u2014 The left panel shows a line chart with probability \u03c1\u2082 on the x-axis (0.65\u20130.75) and acceptance interval on the y-axis (4.6\u20136.2), displaying two lines representing right boundary and left boundary that diverge as probability increases. The right panel shows a line chart with the same x-axis (probability \u03c1\u2082) and acceptance probability on the y-axis (0.93\u20130.99), with two lines representing H\u2081>\u03c1\u2082 and H\u2081>\u03c1\u2081",
+      "doc_id": "2610.06504v1",
+      "title": "Retirement Planning with Minimum Guarantees for Both Beneficiaries and Fund Managers",
+      "page": 20,
+      "thumb": "/data/figures/2610.06504v1_p20_1.jpg",
+      "caption": "Figure 2 schematically depicts the selected solution H , its strict increase, and the two-sided bounds. The strict increase of H translates into the strict concavity v\u2032\u2032 < 0 of the value function ((i) of Theorem 3.5), reflecting the diminishing marginal utility of wealth. The upper growth bound, in turn, ensures that v(x) grows at most like x\u03b3 with \u03b3 < 1 ((ii) of Theorem 3.5), so that total welfar \u2014 This image displays mathematical equations and theoretical results from a paper on retirement pla",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2610.03406v1"
+      "source": "https://arxiv.org/pdf/2610.06504v1"
     },
     {
-      "doc_id": "2610.03406v1",
-      "title": "PreFER: Interactive Robo-Advisor with Scoring Mechanism",
-      "page": 24,
-      "thumb": "/data/figures/2610.03406v1_p24_3.jpg",
-      "caption": "Figure 3: Benefit of robo-advising: (a) Approaching actual strategy (b) Relative to solo investor \u2014 These two line charts illustrate the benefits of robo-advisory services by comparing performance metrics against a threshold score parameter. The left panel shows portfolio accuracy (y-axis, 0-0.2) declining as the threshold score increases from 0.5 to 1.0, indicating that robo-advisors approach actual investment strategies more closely at lower threshold scores. The right panel displays expected ",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.03406v1"
-    },
-    {
-      "doc_id": "2610.03369v1",
-      "title": "Mixture-of-Experts for Cryptocurrency Order Execution: Training Stability, Tail Risk, and Failure Modes",
-      "page": 5,
-      "thumb": "/data/figures/2610.03369v1_p5_0.jpg",
-      "caption": "Figure 1: Across-seed distribution of per-run mean IS in the main 100-run CUDA campaign (\ud835\udf19=0.5). Triangles mark runs whose 500-episode result vector is identical to the never- trade policy\u2019s; dashed lines show the TWAP and immediate- liquidation baselines on the same episodes. \u2014 This box plot shows the distribution of per-run mean in-sample (IS) Sharpe ratios across six different trading models (DDQN, K=2, K=4, K=8, cap4, cap8) from 100 training runs with \u03c6=0.5. Blue dots represent individual tr",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.03369v1"
-    },
-    {
-      "doc_id": "2610.03174v1",
-      "title": "FinNextAssist: Towards Professional Financial Deep Research Assistant",
-      "page": 1,
-      "thumb": "/data/figures/2610.03174v1_p1_0.jpg",
-      "caption": "Figure 1: Representative failures of existing Deep Research agents in financial analysis. \u2014 This figure illustrates three representative failure modes of existing deep research agents on financial analysis tasks, presented as case studies comparing incorrect (red X) versus correct (green checkmark) outputs. Panel (a) shows an Evidence Retrieval task for FY2024 Revenue where the agent incorrectly sourced from a web snippet ($391.2B) instead of authentic regulatory filings (correct: $395.8B); pane",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.03174v1"
-    },
-    {
-      "doc_id": "2610.03174v1",
-      "title": "FinNextAssist: Towards Professional Financial Deep Research Assistant",
-      "page": 3,
-      "thumb": "/data/figures/2610.03174v1_p3_1.jpg",
-      "caption": "Figure 2: Overview of the FinNextAssist framework. \u2014 This figure presents a system architecture diagram for FinNextAssist, a financial research assistant that processes natural language queries about companies. The workflow flows from left to right through five main components: a Task Planner that decomposes research queries into dimensions (Financial Statements, Ratios, Market Performance, Events, Qualitative Analysis) with constraints, an Evidence Compiler that retrieves and types data from mu",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.03174v1"
-    },
-    {
-      "doc_id": "2610.03174v1",
-      "title": "FinNextAssist: Towards Professional Financial Deep Research Assistant",
-      "page": 5,
-      "thumb": "/data/figures/2610.03174v1_p5_2.jpg",
-      "caption": "Figure 3: Information Precision of all evaluated methods on the FinDeepResearch benchmark. \u2014 This stacked bar chart displays information precision scores across multiple financial research tasks on the FinDeepResearch benchmark, comparing three approaches: LLM (Thinking) in teal, LLM (Thinking + Search) in orange, and Deep Research in blue. The x-axis lists approximately 15 different financial analysis tasks (such as \"Market Data/Movement,\" \"Disclosure/Filings,\" \"Valuation,\" etc.), while the y-a",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.03174v1"
-    },
-    {
-      "doc_id": "2610.03174v1",
-      "title": "FinNextAssist: Towards Professional Financial Deep Research Assistant",
-      "page": 7,
-      "thumb": "/data/figures/2610.03174v1_p7_3.jpg",
-      "caption": "Figure 4: Performance analysis across four different capabilities. \u2014 This figure displays a four-panel comparison of stacked bar charts evaluating three approaches (LLM Thinking, LLM Thinking + Search, and Deep Research) across four financial research capabilities: Recognition, Calculation, Abstraction, and Interpretation. Each panel shows accuracy scores (0-80%) on the y-axis and various financial models/datasets on the x-axis, with bars subdivided by method type and colored markers indicating ",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.03174v1"
-    },
-    {
-      "doc_id": "2610.03161v1",
-      "title": "Landscape-Dependent Performance of Photonic Quantum Solvers in QUBO Feature Selection for Financial Risk Detection",
-      "page": 7,
-      "thumb": "/data/figures/2610.03161v1_p7_0.jpg",
-      "caption": "Figure 1: Solver-aware method routing: each tier is assigned to the solver that handles its mathematical structure exactly (solid arrows). Tier 1 and Tier 2 QUBO methods are also run on Dirac-3 for a direct, method-matched comparison (dashed arrows). \u2014 This figure is a flowchart showing a solver routing architecture for quantum optimization methods applied to QUBO (Quadratic Unconstrained Binary Optimization) problems. Four input tiers containing different problem formulations and methods (Stand",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.03161v1"
-    },
-    {
-      "doc_id": "2610.03161v1",
-      "title": "Landscape-Dependent Performance of Photonic Quantum Solvers in QUBO Feature Selection for Financial Risk Detection",
-      "page": 13,
-      "thumb": "/data/figures/2610.03161v1_p13_1.jpg",
-      "caption": "Figure 2: F1 versus feature budget k for the best solver and method in each tier, together with Piquasso. For each tier, the line shows the solver\u2013method pair with the highest F1 at any budget (Table 4; ties broken by the smaller k, then by the higher mean F1 across budgets), plotted at every budget. Dirac-3 values are five-run means with 95% CI error bars; Gurobi values are deterministic and Piqu \u2014 These line charts display F1 scores versus feature budget k for different quantum and classical s",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.03161v1"
-    },
-    {
-      "doc_id": "2610.03161v1",
-      "title": "Landscape-Dependent Performance of Photonic Quantum Solvers in QUBO Feature Selection for Financial Risk Detection",
+      "doc_id": "2610.06504v1",
+      "title": "Retirement Planning with Minimum Guarantees for Both Beneficiaries and Fund Managers",
       "page": 21,
-      "thumb": "/data/figures/2610.03161v1_p21_2.jpg",
-      "caption": "Figure 3: Mean off-diagonal Jaccard similarity among QUBO/Graph feature-selection methods as a func- tion of relative feature budget k/n, for ULB and AmEx. Error bars show 95% CI across five independent Dirac-3 runs (Tables 15 and 16). The dashed line is the expected similarity between two random subsets of the same size (Eq. 9). Both datasets lie on this curve at every tested budget, so cross-met \u2014 This line plot compares mean off-diagonal Jaccard similarity across QUBO feature-selection method",
+      "thumb": "/data/figures/2610.06504v1_p21_2.jpg",
+      "caption": "Figure 2: Schematic illustration of the selected solution H in Theorem 4.1, together with the lower and upper bounds in (4.6). The arrow highlights H\u2032 > 0 ; H is not necessarily convex or concave. \u2014 This figure is a line graph showing the optimal solution H(h) for a retirement planning problem plotted against the guarantee level h on the horizontal axis and payoff H on the vertical axis. The solid curve labeled H(h) represents the selected solution from Theorem 4.1, bounded above by the upper bo",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2610.03161v1"
+      "source": "https://arxiv.org/pdf/2610.06504v1"
     },
     {
-      "doc_id": "2610.03080v1",
-      "title": "MintEval: Do LLMs Implement the Trading Strategy You Asked For? A Behavioural-Equivalence Benchmark for Natural-Language-to-Strategy Code",
+      "doc_id": "2610.06504v1",
+      "title": "Retirement Planning with Minimum Guarantees for Both Beneficiaries and Fund Managers",
+      "page": 23,
+      "thumb": "/data/figures/2610.06504v1_p23_3.jpg",
+      "caption": "Figure 3: Schematic illustration of the solution family H(\u00b7; y) to (4.10) for representative initial points y \u2208(0, z1) . \u2014 This figure illustrates a family of solution curves H(h; y) plotted against the horizon variable h on the horizontal axis and the value function H(h; y) on the vertical axis. Multiple curves are shown for different initial points y in the interval (0, z\u2081), displayed as a shaded region that fans outward, with the yellow curve representing the boundary case. The key takeaway i",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.06504v1"
+    },
+    {
+      "doc_id": "2610.06412v1",
+      "title": "Measuring Trade Direction in a Prediction Market: Settlement Ground Truth and Trading-Cost Measurement on Polymarket",
+      "page": 12,
+      "thumb": "/data/figures/2610.06412v1_p12_0.jpg",
+      "caption": "Figure 1: Cached-tape comparisons on twelve selected dates. Panel (a) scores every rule on the same four-rule signed intersection for each day. Panel (b) holds the scored rows fixed within each rule and compares full versus settlement-selected sign histories; the vertical scale is percentage points of balanced accuracy. Connecting segments guide the eye. BVC is a retrospective bar-majority diagnos \u2014 Panel (a) is a line chart showing balanced accuracy scores (y-axis, 0.5\u20131.0) across four months (",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.06412v1"
+    },
+    {
+      "doc_id": "2610.06412v1",
+      "title": "Measuring Trade Direction in a Prediction Market: Settlement Ground Truth and Trading-Cost Measurement on Polymarket",
+      "page": 14,
+      "thumb": "/data/figures/2610.06412v1_p14_1.jpg",
+      "caption": "Figure 2: Paired rule-minus-taker distortions in cents of collateral per share on identical primary eligible fills. Markers are equal-day means; circles use equal-fill weights and diamonds use printed-share-volume weights. Whiskers span the observed daily minimum and maximum, not confidence intervals. Signing rules and weights change the three accounting quantities differently; the twelve selected \u2014 This figure displays three panels (a, b, c) comparing order-execution cost distortions across fou",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.06412v1"
+    },
+    {
+      "doc_id": "2610.06168v1",
+      "title": "Model Risk Analysis for Entropic Hedging Strategies",
       "page": 2,
-      "thumb": "/data/figures/2610.03080v1_p2_0.jpg",
-      "caption": "Figure 1: ActionMatch by \ud835\udf0fmax quintile (mean, 95% bootstrap CI). \u2014 This figure displays line plots showing ActionMatch scores (y-axis, ranging from 0 to 0.8) across five quintiles of \u03c4max (x-axis, representing short-time-span threshold) for both open and closed trading settings. Four trading strategies are compared: SPY 0.4 basis (blue), Naive Bollinger (red), Spread 3 rules (green), and Spread 5 rules (orange), each with 95% bootstrap confidence intervals. The key takeaway is that ActionMatch s",
+      "thumb": "/data/figures/2610.06168v1_p2_0.jpg",
+      "caption": "FIG. 1. Entropy-adjusted mean as a function of risk aversion \u03b1 for one-factor quadratic Gaussian variables with a range of quadratic coefficients \u03b3. The central curve is for the standard normal variable. The curve is defined on an open interval containing \u03b1 = 0 which is bounded below when \u03b3 > 0 and bounded above when \u03b3 < 0. \u2014 This line plot displays the entropy-adjusted mean as a function of risk aversion parameter \u03b1 for one-factor quadratic Gaussian variables with varying quadratic coefficients",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2610.03080v1"
+      "source": "https://arxiv.org/pdf/2610.06168v1"
     },
     {
-      "doc_id": "2610.03080v1",
-      "title": "MintEval: Do LLMs Implement the Trading Strategy You Asked For? A Behavioural-Equivalence Benchmark for Natural-Language-to-Strategy Code",
-      "page": 3,
-      "thumb": "/data/figures/2610.03080v1_p3_1.jpg",
-      "caption": "Figure 2: Closed setting: SpecMatch vs ActionMatch per task. Shaded: specification fully correct but behaviour diverges. \u2014 This stacked bar chart compares SpecMatch (fraction of 4 slots exact) on the x-axis against ActionMatch on the y-axis across four LLM models: gpt-5.4-mini, claude-haiku, qwen2.5-coder-32b, and qwen2.5-coder-7b. The chart shows that as SpecMatch increases from 0 to 1.0, ActionMatch generally increases as well, but shaded regions indicate cases where specifications are fully c",
+      "doc_id": "2610.06168v1",
+      "title": "Model Risk Analysis for Entropic Hedging Strategies",
+      "page": 7,
+      "thumb": "/data/figures/2610.06168v1_p7_1.jpg",
+      "caption": "FIG. 2. The profit and loss P \u2212\u03b4 \u00b7 Q of the funded derivative is initially assessed by its risk penalties and finally explained by its attribution. These decompose into convexity, dimension, funding and strategy contributions, where the risk penalty equals the incremental entropy-adjusted mean from the corresponding attribution. The investor eliminates the strategy penalty via optimal hedging. The \u2014 This figure presents mathematical formulas comparing risk penalty and attribution decompositions ",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2610.03080v1"
+      "source": "https://arxiv.org/pdf/2610.06168v1"
     },
     {
-      "doc_id": "2610.03080v1",
-      "title": "MintEval: Do LLMs Implement the Trading Strategy You Asked For? A Behavioural-Equivalence Benchmark for Natural-Language-to-Strategy Code",
-      "page": 5,
-      "thumb": "/data/figures/2610.03080v1_p5_2.jpg",
-      "caption": "Figure 3: Histogram of log10 \ud835\udf0fmax over the task set. \u2014 This is a histogram showing the distribution of log\u2081\u2080 \u03c4_max (maximum drawdown duration) values across a task set in quantitative finance. The x-axis displays log\u2081\u2080 \u03c4_max in bars, ranging from 1.0 to 4.0, while the y-axis shows the number of tasks, peaking at approximately 75 tasks. The distribution is right-skewed with the highest frequency occurring around log\u2081\u2080 \u03c4_max of 2.5 bars, indicating that most trading strategies in the benchmark exp",
+      "doc_id": "2610.06168v1",
+      "title": "Model Risk Analysis for Entropic Hedging Strategies",
+      "page": 9,
+      "thumb": "/data/figures/2610.06168v1_p9_2.jpg",
+      "caption": "FIG. 3. P&L is a combination of normal and noncentral chi-squared variables. Optimal hedging in the mid model (\u03b1\u03bb = 0) is identified by varying the hedge ratio across the range \u22121 \u2264\u03b4 \u22643, with the optimal choice at \u03b4\u2217= 1 highlighted. Introducing market incompleteness via convexity, dimension and funding contributions reduces the effectiveness of the replication strategy. \u2014 This figure displays swap pricing and portfolio P&L distributions across four model cases with increasing complexity. The lef",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2610.03080v1"
+      "source": "https://arxiv.org/pdf/2610.06168v1"
+    },
+    {
+      "doc_id": "2610.06168v1",
+      "title": "Model Risk Analysis for Entropic Hedging Strategies",
+      "page": 10,
+      "thumb": "/data/figures/2610.06168v1_p10_3.jpg",
+      "caption": "FIG. 4. Impact of the quadratic coefficient \u03b3 on the indifference price and hedge ratio. In the top row, the different curves show results for notionals in the range \u22121 \u2264\u03b1\u03bb \u22641, highlighting the mid case \u03b1\u03bb = 0. In the top-left graph, long positions (\u03b1\u03bb > 0) correspond to the lower curves and short positions (\u03b1\u03bb < 0) correspond to the upper curves. In the top-right graph, long positions correspond  \u2014 This figure displays four panels analyzing the impact of the quadratic coefficient \u03b3 on entropic ",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.06168v1"
+    },
+    {
+      "doc_id": "2610.05926v1",
+      "title": "Comparing two approaches for modelling the loss given default of credit cards: Run-off triangles vs regression",
+      "page": 12,
+      "thumb": "/data/figures/2610.05926v1_p12_0.jpg",
+      "caption": "Fig. 1. Distribution of empirical loss rates, as calculated at the account-level for each resolved defaulted spell using Eq. 17. The inset graph shows the LGD-distribution for written-off loans only. Mean loss rates are overlaid. \u2014 This figure displays the distribution of realized loss rates for credit card defaults, shown as a histogram with the x-axis representing realized loss rate (0%-120%) and y-axis showing histogram density. The orange bars represent all resolved defaults with a mean loss",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.05926v1"
+    },
+    {
+      "doc_id": "2610.05926v1",
+      "title": "Comparing two approaches for modelling the loss given default of credit cards: Run-off triangles vs regression",
+      "page": 15,
+      "thumb": "/data/figures/2610.05926v1_p15_1.jpg",
+      "caption": "Fig. 2. The expected write-off resolution rates produced by the three PWGD-models over default date, having used the full dataset D, excluding right-censored observations. The actual (or empirical) resolution rate is overlaid across both panels. The top panel shows the expected resolution rates of the advanced Type A and B models, whilst the bottom panel shows the same for the basic model. The mea \u2014 This figure compares expected write-off resolution rates (y-axis, 20-80%) across default spell co",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.05926v1"
+    },
+    {
+      "doc_id": "2610.05926v1",
+      "title": "Comparing two approaches for modelling the loss given default of credit cards: Run-off triangles vs regression",
+      "page": 17,
+      "thumb": "/data/figures/2610.05926v1_p17_2.jpg",
+      "caption": "Fig. 3. The distributions of expected loss rates for written-off loans, as produced by the basic and advanced LGW models using the validation set DV. The corresponding distribution of empirical loss rates is overlaid. The mean of each distribution is annotated. Relative to the empirical loss rates, the following model performance metrics are presented: Kolmogorov-Smirnov (KS) test statistic, Jense \u2014 This figure shows a density histogram comparing three distributions of loss rates (%): Advanced m",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.05926v1"
+    },
+    {
+      "doc_id": "2610.05926v1",
+      "title": "Comparing two approaches for modelling the loss given default of credit cards: Run-off triangles vs regression",
+      "page": 18,
+      "thumb": "/data/figures/2610.05926v1_p18_3.jpg",
+      "caption": "Fig. 4. The mean empirical loss rate of written-off loans in the full set D over write-off date, compared to the mean loss rates obtained from the basic and advanced LGW-models. The MAE between the empirical loss rates and the expected loss rates are annotated per model, as is the overcast degrees between each rate pair. \u2014 This line chart compares empirical and modeled loss rates for credit card write-offs over time from January 2013 to July 2025. The y-axis shows member loss rate (70-100%), and",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.05926v1"
+    },
+    {
+      "doc_id": "2610.05873v1",
+      "title": "When Token Transfers Do Not Mean Liquidity in Tokenized Real-World Assets",
+      "page": 4,
+      "thumb": "/data/figures/2610.05873v1_p4_0.jpg",
+      "caption": "Figure 1: Structure of the proposed measurement framework. Event classification and ownership coverage provide complementary information for interpreting tokenized-asset activity. \u2014 This flowchart illustrates a two-pronged measurement framework for analyzing tokenized real-world assets, with inputs flowing from the left and right into an integrated interpretation at the bottom. The left pathway begins with transfer events classified by event conventions and configured roles, leading to activity ",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.05873v1"
+    },
+    {
+      "doc_id": "2610.05741v1",
+      "title": "A Dirichlet Mixed-Membership Model for Exact Multivariate Distributional Credibility",
+      "page": 18,
+      "thumb": "/data/figures/2610.05741v1_p18_0.jpg",
+      "caption": "Figure 1: Portfolio marginals for selected nested expert sets. \u2014 This figure displays four subplots comparing portfolio distributions across different Dirichlet Mixed-Membership (DMM) models with varying parameters against true empirical distributions. The top-left panel shows the portfolio distribution of N1 (count data) as a probability histogram, with the x-axis representing N1 values (0-6) and y-axis showing probability, comparing DMM models with K=12, 36, and 100 against true empirical data",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.05741v1"
+    },
+    {
+      "doc_id": "2610.05741v1",
+      "title": "A Dirichlet Mixed-Membership Model for Exact Multivariate Distributional Credibility",
+      "page": 20,
+      "thumb": "/data/figures/2610.05741v1_p20_1.jpg",
+      "caption": "Figure 2: Lower-risk policyholder (u = \u22120.25). \u2014 This figure displays four panels comparing posterior distributions for a lower-risk policyholder (u = \u22120.25) across different model specifications. The top-left panel shows probability mass function (PMF) for claim count (N_L) declining rapidly from 1.0 to near-zero; the top-right panel shows density for aggregate claim severity (X_L) with a sharp peak near 5000 and right tail decay. The bottom two panels show density plots for aggregate loss unde",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.05741v1"
+    },
+    {
+      "doc_id": "2610.05741v1",
+      "title": "A Dirichlet Mixed-Membership Model for Exact Multivariate Distributional Credibility",
+      "page": 20,
+      "thumb": "/data/figures/2610.05741v1_p20_2.jpg",
+      "caption": "Figure 3: Intermediate-risk policyholder (u = 1.00). \u2014 This figure displays four panels showing probability density distributions for a lower-risk policyholder (u = -0.25) across different metrics: Claims, Claim severity, N_t (claim counts), and X_t (claim amounts). Each panel uses line plots with multiple colored curves representing different time periods (T=1 through T=200 or various aggregate loss ranges), comparing \"True\" distributions against \"Portfolio\" predictions. The x-axes represent ag",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.05741v1"
     }
   ],
   "docs": [
     {
-      "id": "2610.03598v1",
-      "title": "When a Correct Reward Is Not Enough: Diagnosing and Guiding PPO in an Analytically Solved Broker-Trader Game",
-      "source": "https://arxiv.org/pdf/2610.03598v1",
-      "pages": 9,
+      "id": "2610.06504v1",
+      "title": "Retirement Planning with Minimum Guarantees for Both Beneficiaries and Fund Managers",
+      "source": "https://arxiv.org/pdf/2610.06504v1",
+      "pages": 82,
       "images": 0,
-      "figures_captioned": 3,
-      "tables": 3,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 31
-    },
-    {
-      "id": "2610.03406v1",
-      "title": "PreFER: Interactive Robo-Advisor with Scoring Mechanism",
-      "source": "https://arxiv.org/pdf/2610.03406v1",
-      "pages": 47,
-      "images": 1,
       "figures_captioned": 4,
       "tables": 0,
       "has_math": true,
@@ -255,100 +243,112 @@
       "chunks_indexed": 47
     },
     {
-      "id": "2610.03369v1",
-      "title": "Mixture-of-Experts for Cryptocurrency Order Execution: Training Stability, Tail Risk, and Failure Modes",
-      "source": "https://arxiv.org/pdf/2610.03369v1",
-      "pages": 8,
+      "id": "2610.06495v1",
+      "title": "A posteriori error bounds for the Uncertain Volatility Model",
+      "source": "https://arxiv.org/pdf/2610.06495v1",
+      "pages": 34,
       "images": 0,
-      "figures_captioned": 1,
-      "tables": 1,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 29
-    },
-    {
-      "id": "2610.03174v1",
-      "title": "FinNextAssist: Towards Professional Financial Deep Research Assistant",
-      "source": "https://arxiv.org/pdf/2610.03174v1",
-      "pages": 11,
-      "images": 21,
-      "figures_captioned": 4,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 31
-    },
-    {
-      "id": "2610.03161v1",
-      "title": "Landscape-Dependent Performance of Photonic Quantum Solvers in QUBO Feature Selection for Financial Risk Detection",
-      "source": "https://arxiv.org/pdf/2610.03161v1",
-      "pages": 39,
-      "images": 0,
-      "figures_captioned": 3,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 48
-    },
-    {
-      "id": "2610.03080v1",
-      "title": "MintEval: Do LLMs Implement the Trading Strategy You Asked For? A Behavioural-Equivalence Benchmark for Natural-Language-to-Strategy Code",
-      "source": "https://arxiv.org/pdf/2610.03080v1",
-      "pages": 5,
-      "images": 0,
-      "figures_captioned": 3,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 18
-    },
-    {
-      "id": "2610.03076v1",
-      "title": "Shapley-based Structural Analysis of Neural Calibration for Stochastic Volatility Models",
-      "source": "https://arxiv.org/pdf/2610.03076v1",
-      "pages": 19,
-      "images": 54,
       "figures_captioned": 0,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 40
+    },
+    {
+      "id": "2610.06412v1",
+      "title": "Measuring Trade Direction in a Prediction Market: Settlement Ground Truth and Trading-Cost Measurement on Polymarket",
+      "source": "https://arxiv.org/pdf/2610.06412v1",
+      "pages": 41,
+      "images": 0,
+      "figures_captioned": 2,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
       "chunks_indexed": 42
     },
     {
-      "id": "2610.02917v1",
-      "title": "Event History Over Scale: Compact Transformers for Low-Latency Limit Order Book Forecasting",
-      "source": "https://arxiv.org/pdf/2610.02917v1",
-      "pages": 11,
-      "images": 0,
-      "figures_captioned": 0,
+      "id": "2610.06168v1",
+      "title": "Model Risk Analysis for Entropic Hedging Strategies",
+      "source": "https://arxiv.org/pdf/2610.06168v1",
+      "pages": 14,
+      "images": 21,
+      "figures_captioned": 4,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 20
+      "chunks_indexed": 33
     },
     {
-      "id": "2610.02838v1",
-      "title": "Axient: Manifest-Bound Evidence for On-Chain Financial Protocols: Seven-Layer Derivation, Correlation, Tamper Rejection, and Reproducible Claim Promotion",
-      "source": "https://arxiv.org/pdf/2610.02838v1",
-      "pages": 21,
-      "images": 0,
-      "figures_captioned": 0,
+      "id": "2610.05926v1",
+      "title": "Comparing two approaches for modelling the loss given default of credit cards: Run-off triangles vs regression",
+      "source": "https://arxiv.org/pdf/2610.05926v1",
+      "pages": 41,
+      "images": 6,
+      "figures_captioned": 4,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 29
+      "chunks_indexed": 52
     },
     {
-      "id": "2610.02834v1",
-      "title": "Axient: Canonical Protocol-Graph Composition for Leveraged Event Markets: Single State Authority, Atomic Composition, Durable Sagas, and Exactly-Once Recovery",
-      "source": "https://arxiv.org/pdf/2610.02834v1",
-      "pages": 24,
+      "id": "2610.05873v1",
+      "title": "When Token Transfers Do Not Mean Liquidity in Tokenized Real-World Assets",
+      "source": "https://arxiv.org/pdf/2610.05873v1",
+      "pages": 14,
+      "images": 0,
+      "figures_captioned": 1,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 25
+    },
+    {
+      "id": "2610.05741v1",
+      "title": "A Dirichlet Mixed-Membership Model for Exact Multivariate Distributional Credibility",
+      "source": "https://arxiv.org/pdf/2610.05741v1",
+      "pages": 40,
+      "images": 9,
+      "figures_captioned": 3,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 46
+    },
+    {
+      "id": "2610.05740v1",
+      "title": "Latent Continuum of Regimes in Limit Order Book Dynamics",
+      "source": "https://arxiv.org/pdf/2610.05740v1",
+      "pages": 45,
+      "images": 1,
+      "figures_captioned": 0,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 58
+    },
+    {
+      "id": "2610.05675v1",
+      "title": "A Superprocess-based Approach to Rough CIR Processes and Feller Random Measures",
+      "source": "https://arxiv.org/pdf/2610.05675v1",
+      "pages": 53,
       "images": 0,
       "figures_captioned": 0,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 38
+      "chunks_indexed": 63
+    },
+    {
+      "id": "2610.05196v1",
+      "title": "Measuring Learned Monotone Temporal Aggregation at Matched Admissibility",
+      "source": "https://arxiv.org/pdf/2610.05196v1",
+      "pages": 55,
+      "images": 0,
+      "figures_captioned": 0,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 59
     }
   ]
 }
