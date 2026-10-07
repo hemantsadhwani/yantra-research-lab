@@ -1,7 +1,7 @@
 {
   "_note": "Public run manifest of the Tier-3 agentic ingestion pipeline. Safe aggregates + provenance only; raw PDFs live in S3, not here.",
-  "run_id": "20261006T090103Z",
-  "generated_at": "2026-10-06T09:04:48+00:00",
+  "run_id": "20261007T084202Z",
+  "generated_at": "2026-10-07T08:45:45+00:00",
   "collection": "research_corpus",
   "embed_model": "BAAI/bge-small-en-v1.5",
   "dag": [
@@ -50,28 +50,145 @@
     "discovered": 10,
     "fetched": 10,
     "parsed": 10,
-    "chunks": 493,
-    "accepted": 465,
-    "rejected": 28,
-    "images": 37,
+    "chunks": 441,
+    "accepted": 391,
+    "rejected": 50,
+    "images": 26,
     "figures_captioned": 18,
-    "tables": 0,
+    "tables": 4,
     "with_math": 10,
-    "indexed": 465,
-    "spent_usd": 0.0344,
-    "duration_s": 225.7
+    "indexed": 391,
+    "spent_usd": 0.0315,
+    "duration_s": 223.3
   },
   "rejects_by_reason": {
-    "low-relevance": 28
+    "low-relevance": 50
   },
   "budget_usd": 3.0,
   "figures": [
+    {
+      "doc_id": "2610.08169v1",
+      "title": "Modelling Regime Shifts in Continuous Intraday Electricity Markets with State-dependent Hawkes Processes",
+      "page": 2,
+      "thumb": "/data/figures/2610.08169v1_p2_0.jpg",
+      "caption": "Fig. 1. EPEX SPOT power trading timeline overview as for February 2025. \u2014 This figure illustrates the European day-ahead coupled auction trading timeline on a horizontal axis. The top timeline shows the 12 CET cutoff for the day-ahead market (D-1) with red shading, followed by the delivery day (D) period. The bottom timeline indicates the 14 CET start of intraday continuous trading (D-1), also shown in gray, extending through day D with 24/7 trading until delivery. The chart demonstrates how day",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.08169v1"
+    },
+    {
+      "doc_id": "2610.08169v1",
+      "title": "Modelling Regime Shifts in Continuous Intraday Electricity Markets with State-dependent Hawkes Processes",
+      "page": 3,
+      "thumb": "/data/figures/2610.08169v1_p3_1.jpg",
+      "caption": "Fig. 2 illustrates Dutch IDC transaction prices for the XBID hourly contract on the 16th of January for delivery hour 20:00. At the beginning of the trading session, the LOB is sparse and traded volumes are relatively low. As the market approaches gate closure, more accurate forecasts of renewable energy generation, system load, and cross-border capacity become available. Market participants react \u2014 This figure displays intraday electricity market microstructure for the XBID market during delive",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.08169v1"
+    },
+    {
+      "doc_id": "2610.08169v1",
+      "title": "Modelling Regime Shifts in Continuous Intraday Electricity Markets with State-dependent Hawkes Processes",
+      "page": 3,
+      "thumb": "/data/figures/2610.08169v1_p3_2.jpg",
+      "caption": "Fig. 2. Intraday evolution of the XBID market for the delivery hour 20:00\u2013 21:00 on the 16th of January 2024. The top panel shows the mid-price trajectory in euros, the middle panel displays the bid-ask spread, and the bottom panel displays the total volume of active orders in the LOB, computed as the average of bid and ask volumes. \u2014 This figure displays three time-series panels showing intraday market microstructure for the XBID electricity market during a specific delivery hour on January 16,",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.08169v1"
+    },
+    {
+      "doc_id": "2610.08169v1",
+      "title": "Modelling Regime Shifts in Continuous Intraday Electricity Markets with State-dependent Hawkes Processes",
+      "page": 3,
+      "thumb": "/data/figures/2610.08169v1_p3_3.jpg",
+      "caption": "Fig. 3. Scatter and density plots of order interarrival times against time-to- delivery for an XBID hourly contract (2024-01-16 20:00). The x-axis shows minutes before the delivery time, and the y-axis shows the interarrival time between consecutive orders or trades. Because this is an XBID product, the arrival of orders and trades stops 60 minutes before delivery as explained in II-B. \u2014 This figure displays four scatter plots with density heatmaps showing the relationship between order/trade in",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.08169v1"
+    },
+    {
+      "doc_id": "2610.07985v1",
+      "title": "A Finite Bid--Ask Spread from Replenishment Displaced from the Quote",
+      "page": 3,
+      "thumb": "/data/figures/2610.07985v1_p3_0.jpg",
+      "caption": "FIG. 1. Schematic of displaced replenishment on the sym- metric separated branch. The solid curves are the standing bid and ask densities \u03c1B and \u03c1A. Placement sources are with- held from (qb, qa) (shaded), while standing density diffuses in- ward from the placement edges. The dotted profiles indicate a latent-book reference geometry and vanish at the reaction price x\u03d5 = m on the symmetric branch;  \u2014 This schematic diagram illustrates the spatial structure of bid and ask order book densities in a",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.07985v1"
+    },
+    {
+      "doc_id": "2610.07888v1",
+      "title": "A Functional Representation of Credit Behavior for Probability of Default Modeling",
+      "page": 5,
+      "thumb": "/data/figures/2610.07888v1_p5_0.jpg",
+      "caption": "Figure 1: Visual illustration of when different information categories are available for retail borrowers. \u2014 This timeline chart illustrates the temporal availability of three information categories used in probability of default (PD) modeling for retail borrowers. The horizontal axis represents the loan lifecycle from transfer through recovery, with key events marked: loan origination, sampling, and default. Category 1 (pre-loan origination) includes transactional and advisor data available bef",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.07888v1"
+    },
+    {
+      "doc_id": "2610.07888v1",
+      "title": "A Functional Representation of Credit Behavior for Probability of Default Modeling",
+      "page": 8,
+      "thumb": "/data/figures/2610.07888v1_p8_1.jpg",
+      "caption": "Figure 2: Illustrations of the balance and credit paths of individual borrowers. Borrowers A, B, and C are all considered normal borrowers, while borrower D defaults within the coming year. The Y-axis is deliberately hidden. \u2014 This figure displays four time-series panels showing the balance trajectory (blue line, R(t)) and credit utilization (red line, C(t)) for individual borrowers over approximately one year. Borrowers A, B, and C exhibit relatively stable or slowly drifting balance and utiliz",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.07888v1"
+    },
+    {
+      "doc_id": "2610.07888v1",
+      "title": "A Functional Representation of Credit Behavior for Probability of Default Modeling",
+      "page": 9,
+      "thumb": "/data/figures/2610.07888v1_p9_2.jpg",
+      "caption": "Figure 3: The median balance across all borrowers. The Y-axis is deliberately hidden. \u2014 This line chart displays temporal patterns in median credit balances across all borrowers from January 2014 through September 2019, with the Y-axis scale intentionally omitted. The x-axis shows monthly observations with alternating background shading to distinguish quarters and January markers, while the black line traces balance values exhibiting pronounced seasonal cyclicality with sharp peaks typically occ",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.07888v1"
+    },
+    {
+      "doc_id": "2610.07888v1",
+      "title": "A Functional Representation of Credit Behavior for Probability of Default Modeling",
+      "page": 18,
+      "thumb": "/data/figures/2610.07888v1_p18_3.jpg",
+      "caption": "Figure 4: The \u02c6\u03b2 functions for each of the three functional variables \u2014 This figure presents three line plots showing estimated functional coefficients (\u03b2-hat functions) for credit risk variables in a probability of default model. The top panel displays Gearing (leverage ratio) on the x-axis (Relative Overdebt, T-9 to T), the middle panel shows Available Funds on the x-axis (T-12 to T-1), and the bottom panel displays Months before observation on the x-axis (T-3 to T), with the y-axis representi",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.07888v1"
+    },
+    {
+      "doc_id": "2610.07404v1",
+      "title": "Convex Order Beyond Dimension One: Projection Tests, Counterexamples and Gaussian Mixtures",
+      "page": 7,
+      "thumb": "/data/figures/2610.07404v1_p7_0.jpg",
+      "caption": "Figure 1: The open circles represent the possible values of X, each with probability 1/3. The filled circles represent the possible values of Y : each vertex has probability 1/6, and O has probability 1/2. Marker areas are proportional to the corresponding probabilities. \u2014 This is a geometric diagram showing two discrete probability distributions represented as triangular configurations with labeled points. The distribution X (open circles) has three equally likely outcomes at vertices A, F, and",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.07404v1"
+    },
+    {
+      "doc_id": "2610.07162v1",
+      "title": "Adversarial Training for Deep Hedging in Nonstationary Markets",
+      "page": 10,
+      "thumb": "/data/figures/2610.07162v1_p10_0.jpg",
+      "caption": "Figure 1: Loss landscapes across deep-hedging training schemes from Table 1: (A) ERM-W, (B) \u03d5-W, (C) OT-W, and (D) WRAP-W. Each surface depicts the mean hedging loss of a separately trained network on the same reference trajectories Xn. The axes show terminal moneyness and the root mean square (RMS) of daily log returns in percent. Markers represent reference paths and adversarial trajectories b X \u2014 This figure displays loss landscapes for four deep-hedging training schemes (ERM-W, \u03c6-W, OT-W, an",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.07162v1"
+    },
+    {
+      "doc_id": "2610.07162v1",
+      "title": "Adversarial Training for Deep Hedging in Nonstationary Markets",
+      "page": 10,
+      "thumb": "/data/figures/2610.07162v1_p10_1.jpg",
+      "caption": "Figure 1 shows how the two adversarial mechanisms reshape the training distribution and the resulting loss landscape. Panel (A) shows that under ERM-W, highly volatile paths generate a broad region of high losses. In Panel (B), \u03d5-W leaves the trajectories unchanged but reallocates probability toward adverse scenarios, particularly in regions of high realized variation (B.1). This concentration is  \u2014 This figure shows loss landscapes for deep hedging neural networks across four training schemes (",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.07162v1"
+    },
+    {
+      "doc_id": "2610.07162v1",
+      "title": "Adversarial Training for Deep Hedging in Nonstationary Markets",
+      "page": 11,
+      "thumb": "/data/figures/2610.07162v1_p11_2.jpg",
+      "caption": "Figure 2: Pathwise effects in nonstationary Heston: (A) ERM-U, (B) \u03d5-U, (C) WRAP-U, and (D) magnified view of the original and transported paths highlighted in (C). Panels (A)\u2013(C) show \u2014 This figure displays four panels comparing hedging performance under nonstationarity in a Heston model setting. Panels (A)-(C) show time-series plots of moneyness (S_t/K) over trading dates, with shaded bands representing 5-95% quantiles of reference, reweighted, and transported paths, overlaid with the highest-",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.07162v1"
+    },
     {
       "doc_id": "2610.06504v1",
       "title": "Retirement Planning with Minimum Guarantees for Both Beneficiaries and Fund Managers",
       "page": 4,
       "thumb": "/data/figures/2610.06504v1_p4_0.jpg",
-      "caption": "Figure 1: Structure of the retirement planning model with guarantees. Closely related arrange- ments include pension funds with minimum guarantees [23], and income-drawdown plans with minimum guarantees [24] \u2014 This is a flow diagram illustrating a retirement planning model structure with multiple stakeholders and constraints. The diagram shows interactions between a Retiree (who receives initial wealth x\u2080 and benefit b(t)), a Manager (who controls fees \u03ba\u2081X(t) and \u03ba\u2082X(\u03c4d) and maintains fund value",
+      "caption": "Figure 1: Structure of the retirement planning model with guarantees. Closely related arrange- ments include pension funds with minimum guarantees [23], and income-drawdown plans with minimum guarantees [24] \u2014 This diagram illustrates the structural framework of a retirement planning model with dual guarantees. The flow shows a Retiree receiving initial wealth x\u2080 at retirement, which flows to a Manager who controls investment allocation \u03c0 and fees (\u03ba\u2081X(t), \u03ba\u2082X(\u03c4d)) subject to constraints on mini",
       "vision": true,
       "source": "https://arxiv.org/pdf/2610.06504v1"
     },
@@ -80,7 +197,7 @@
       "title": "Retirement Planning with Minimum Guarantees for Both Beneficiaries and Fund Managers",
       "page": 20,
       "thumb": "/data/figures/2610.06504v1_p20_1.jpg",
-      "caption": "Figure 2 schematically depicts the selected solution H , its strict increase, and the two-sided bounds. The strict increase of H translates into the strict concavity v\u2032\u2032 < 0 of the value function ((i) of Theorem 3.5), reflecting the diminishing marginal utility of wealth. The upper growth bound, in turn, ensures that v(x) grows at most like x\u03b3 with \u03b3 < 1 ((ii) of Theorem 3.5), so that total welfar \u2014 This image displays mathematical equations and theoretical results from a paper on retirement pla",
+      "caption": "Figure 2 schematically depicts the selected solution H , its strict increase, and the two-sided bounds. The strict increase of H translates into the strict concavity v\u2032\u2032 < 0 of the value function ((i) of Theorem 3.5), reflecting the diminishing marginal utility of wealth. The upper growth bound, in turn, ensures that v(x) grows at most like x\u03b3 with \u03b3 < 1 ((ii) of Theorem 3.5), so that total welfar \u2014 This figure displays mathematical equations and theoretical bounds for a retirement planning opti",
       "vision": true,
       "source": "https://arxiv.org/pdf/2610.06504v1"
     },
@@ -89,7 +206,7 @@
       "title": "Retirement Planning with Minimum Guarantees for Both Beneficiaries and Fund Managers",
       "page": 21,
       "thumb": "/data/figures/2610.06504v1_p21_2.jpg",
-      "caption": "Figure 2: Schematic illustration of the selected solution H in Theorem 4.1, together with the lower and upper bounds in (4.6). The arrow highlights H\u2032 > 0 ; H is not necessarily convex or concave. \u2014 This figure is a line graph showing the optimal solution H(h) for a retirement planning problem plotted against the guarantee level h on the horizontal axis and payoff H on the vertical axis. The solid curve labeled H(h) represents the selected solution from Theorem 4.1, bounded above by the upper bo",
+      "caption": "Figure 2: Schematic illustration of the selected solution H in Theorem 4.1, together with the lower and upper bounds in (4.6). The arrow highlights H\u2032 > 0 ; H is not necessarily convex or concave. \u2014 This figure presents a schematic plot with wealth H on the vertical axis and some parameter h on the horizontal axis, illustrating an optimal retirement fund allocation solution. The solid curve labeled H(h) represents the selected solution from Theorem 4.1, bounded between two dotted curves represen",
       "vision": true,
       "source": "https://arxiv.org/pdf/2610.06504v1"
     },
@@ -98,7 +215,7 @@
       "title": "Retirement Planning with Minimum Guarantees for Both Beneficiaries and Fund Managers",
       "page": 23,
       "thumb": "/data/figures/2610.06504v1_p23_3.jpg",
-      "caption": "Figure 3: Schematic illustration of the solution family H(\u00b7; y) to (4.10) for representative initial points y \u2208(0, z1) . \u2014 This figure illustrates a family of solution curves H(h; y) plotted against the horizon variable h on the horizontal axis and the value function H(h; y) on the vertical axis. Multiple curves are shown for different initial points y in the interval (0, z\u2081), displayed as a shaded region that fans outward, with the yellow curve representing the boundary case. The key takeaway i",
+      "caption": "Figure 3: Schematic illustration of the solution family H(\u00b7; y) to (4.10) for representative initial points y \u2208(0, z1) . \u2014 This figure shows a family of solution curves plotted in the h-H(h;y) plane, where the horizontal axis represents h and the vertical axis represents H(h;y). Multiple curves emanate from points along the horizontal axis between 0 and z\u2081 for different initial values y \u2208 (0, z\u2081), with each curve increasing and diverging as h increases. The key takeaway is that the solution fami",
       "vision": true,
       "source": "https://arxiv.org/pdf/2610.06504v1"
     },
@@ -107,129 +224,84 @@
       "title": "Measuring Trade Direction in a Prediction Market: Settlement Ground Truth and Trading-Cost Measurement on Polymarket",
       "page": 12,
       "thumb": "/data/figures/2610.06412v1_p12_0.jpg",
-      "caption": "Figure 1: Cached-tape comparisons on twelve selected dates. Panel (a) scores every rule on the same four-rule signed intersection for each day. Panel (b) holds the scored rows fixed within each rule and compares full versus settlement-selected sign histories; the vertical scale is percentage points of balanced accuracy. Connecting segments guide the eye. BVC is a retrospective bar-majority diagnos \u2014 Panel (a) is a line chart showing balanced accuracy scores (y-axis, 0.5\u20131.0) across four months (",
+      "caption": "Figure 1: Cached-tape comparisons on twelve selected dates. Panel (a) scores every rule on the same four-rule signed intersection for each day. Panel (b) holds the scored rows fixed within each rule and compares full versus settlement-selected sign histories; the vertical scale is percentage points of balanced accuracy. Connecting segments guide the eye. BVC is a retrospective bar-majority diagnos \u2014 Panel (a) is a line chart showing balanced accuracy scores (y-axis, 0.5-1.0) across four months (",
       "vision": true,
       "source": "https://arxiv.org/pdf/2610.06412v1"
-    },
-    {
-      "doc_id": "2610.06412v1",
-      "title": "Measuring Trade Direction in a Prediction Market: Settlement Ground Truth and Trading-Cost Measurement on Polymarket",
-      "page": 14,
-      "thumb": "/data/figures/2610.06412v1_p14_1.jpg",
-      "caption": "Figure 2: Paired rule-minus-taker distortions in cents of collateral per share on identical primary eligible fills. Markers are equal-day means; circles use equal-fill weights and diamonds use printed-share-volume weights. Whiskers span the observed daily minimum and maximum, not confidence intervals. Signing rules and weights change the three accounting quantities differently; the twelve selected \u2014 This figure displays three panels (a, b, c) comparing order-execution cost distortions across fou",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.06412v1"
-    },
-    {
-      "doc_id": "2610.06168v1",
-      "title": "Model Risk Analysis for Entropic Hedging Strategies",
-      "page": 2,
-      "thumb": "/data/figures/2610.06168v1_p2_0.jpg",
-      "caption": "FIG. 1. Entropy-adjusted mean as a function of risk aversion \u03b1 for one-factor quadratic Gaussian variables with a range of quadratic coefficients \u03b3. The central curve is for the standard normal variable. The curve is defined on an open interval containing \u03b1 = 0 which is bounded below when \u03b3 > 0 and bounded above when \u03b3 < 0. \u2014 This line plot displays the entropy-adjusted mean as a function of risk aversion parameter \u03b1 for one-factor quadratic Gaussian variables with varying quadratic coefficients",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.06168v1"
-    },
-    {
-      "doc_id": "2610.06168v1",
-      "title": "Model Risk Analysis for Entropic Hedging Strategies",
-      "page": 7,
-      "thumb": "/data/figures/2610.06168v1_p7_1.jpg",
-      "caption": "FIG. 2. The profit and loss P \u2212\u03b4 \u00b7 Q of the funded derivative is initially assessed by its risk penalties and finally explained by its attribution. These decompose into convexity, dimension, funding and strategy contributions, where the risk penalty equals the incremental entropy-adjusted mean from the corresponding attribution. The investor eliminates the strategy penalty via optimal hedging. The \u2014 This figure presents mathematical formulas comparing risk penalty and attribution decompositions ",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.06168v1"
-    },
-    {
-      "doc_id": "2610.06168v1",
-      "title": "Model Risk Analysis for Entropic Hedging Strategies",
-      "page": 9,
-      "thumb": "/data/figures/2610.06168v1_p9_2.jpg",
-      "caption": "FIG. 3. P&L is a combination of normal and noncentral chi-squared variables. Optimal hedging in the mid model (\u03b1\u03bb = 0) is identified by varying the hedge ratio across the range \u22121 \u2264\u03b4 \u22643, with the optimal choice at \u03b4\u2217= 1 highlighted. Introducing market incompleteness via convexity, dimension and funding contributions reduces the effectiveness of the replication strategy. \u2014 This figure displays swap pricing and portfolio P&L distributions across four model cases with increasing complexity. The lef",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.06168v1"
-    },
-    {
-      "doc_id": "2610.06168v1",
-      "title": "Model Risk Analysis for Entropic Hedging Strategies",
-      "page": 10,
-      "thumb": "/data/figures/2610.06168v1_p10_3.jpg",
-      "caption": "FIG. 4. Impact of the quadratic coefficient \u03b3 on the indifference price and hedge ratio. In the top row, the different curves show results for notionals in the range \u22121 \u2264\u03b1\u03bb \u22641, highlighting the mid case \u03b1\u03bb = 0. In the top-left graph, long positions (\u03b1\u03bb > 0) correspond to the lower curves and short positions (\u03b1\u03bb < 0) correspond to the upper curves. In the top-right graph, long positions correspond  \u2014 This figure displays four panels analyzing the impact of the quadratic coefficient \u03b3 on entropic ",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.06168v1"
-    },
-    {
-      "doc_id": "2610.05926v1",
-      "title": "Comparing two approaches for modelling the loss given default of credit cards: Run-off triangles vs regression",
-      "page": 12,
-      "thumb": "/data/figures/2610.05926v1_p12_0.jpg",
-      "caption": "Fig. 1. Distribution of empirical loss rates, as calculated at the account-level for each resolved defaulted spell using Eq. 17. The inset graph shows the LGD-distribution for written-off loans only. Mean loss rates are overlaid. \u2014 This figure displays the distribution of realized loss rates for credit card defaults, shown as a histogram with the x-axis representing realized loss rate (0%-120%) and y-axis showing histogram density. The orange bars represent all resolved defaults with a mean loss",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.05926v1"
-    },
-    {
-      "doc_id": "2610.05926v1",
-      "title": "Comparing two approaches for modelling the loss given default of credit cards: Run-off triangles vs regression",
-      "page": 15,
-      "thumb": "/data/figures/2610.05926v1_p15_1.jpg",
-      "caption": "Fig. 2. The expected write-off resolution rates produced by the three PWGD-models over default date, having used the full dataset D, excluding right-censored observations. The actual (or empirical) resolution rate is overlaid across both panels. The top panel shows the expected resolution rates of the advanced Type A and B models, whilst the bottom panel shows the same for the basic model. The mea \u2014 This figure compares expected write-off resolution rates (y-axis, 20-80%) across default spell co",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.05926v1"
-    },
-    {
-      "doc_id": "2610.05926v1",
-      "title": "Comparing two approaches for modelling the loss given default of credit cards: Run-off triangles vs regression",
-      "page": 17,
-      "thumb": "/data/figures/2610.05926v1_p17_2.jpg",
-      "caption": "Fig. 3. The distributions of expected loss rates for written-off loans, as produced by the basic and advanced LGW models using the validation set DV. The corresponding distribution of empirical loss rates is overlaid. The mean of each distribution is annotated. Relative to the empirical loss rates, the following model performance metrics are presented: Kolmogorov-Smirnov (KS) test statistic, Jense \u2014 This figure shows a density histogram comparing three distributions of loss rates (%): Advanced m",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.05926v1"
-    },
-    {
-      "doc_id": "2610.05926v1",
-      "title": "Comparing two approaches for modelling the loss given default of credit cards: Run-off triangles vs regression",
-      "page": 18,
-      "thumb": "/data/figures/2610.05926v1_p18_3.jpg",
-      "caption": "Fig. 4. The mean empirical loss rate of written-off loans in the full set D over write-off date, compared to the mean loss rates obtained from the basic and advanced LGW-models. The MAE between the empirical loss rates and the expected loss rates are annotated per model, as is the overcast degrees between each rate pair. \u2014 This line chart compares empirical and modeled loss rates for credit card write-offs over time from January 2013 to July 2025. The y-axis shows member loss rate (70-100%), and",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.05926v1"
-    },
-    {
-      "doc_id": "2610.05873v1",
-      "title": "When Token Transfers Do Not Mean Liquidity in Tokenized Real-World Assets",
-      "page": 4,
-      "thumb": "/data/figures/2610.05873v1_p4_0.jpg",
-      "caption": "Figure 1: Structure of the proposed measurement framework. Event classification and ownership coverage provide complementary information for interpreting tokenized-asset activity. \u2014 This flowchart illustrates a two-pronged measurement framework for analyzing tokenized real-world assets, with inputs flowing from the left and right into an integrated interpretation at the bottom. The left pathway begins with transfer events classified by event conventions and configured roles, leading to activity ",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.05873v1"
-    },
-    {
-      "doc_id": "2610.05741v1",
-      "title": "A Dirichlet Mixed-Membership Model for Exact Multivariate Distributional Credibility",
-      "page": 18,
-      "thumb": "/data/figures/2610.05741v1_p18_0.jpg",
-      "caption": "Figure 1: Portfolio marginals for selected nested expert sets. \u2014 This figure displays four subplots comparing portfolio distributions across different Dirichlet Mixed-Membership (DMM) models with varying parameters against true empirical distributions. The top-left panel shows the portfolio distribution of N1 (count data) as a probability histogram, with the x-axis representing N1 values (0-6) and y-axis showing probability, comparing DMM models with K=12, 36, and 100 against true empirical data",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.05741v1"
-    },
-    {
-      "doc_id": "2610.05741v1",
-      "title": "A Dirichlet Mixed-Membership Model for Exact Multivariate Distributional Credibility",
-      "page": 20,
-      "thumb": "/data/figures/2610.05741v1_p20_1.jpg",
-      "caption": "Figure 2: Lower-risk policyholder (u = \u22120.25). \u2014 This figure displays four panels comparing posterior distributions for a lower-risk policyholder (u = \u22120.25) across different model specifications. The top-left panel shows probability mass function (PMF) for claim count (N_L) declining rapidly from 1.0 to near-zero; the top-right panel shows density for aggregate claim severity (X_L) with a sharp peak near 5000 and right tail decay. The bottom two panels show density plots for aggregate loss unde",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.05741v1"
-    },
-    {
-      "doc_id": "2610.05741v1",
-      "title": "A Dirichlet Mixed-Membership Model for Exact Multivariate Distributional Credibility",
-      "page": 20,
-      "thumb": "/data/figures/2610.05741v1_p20_2.jpg",
-      "caption": "Figure 3: Intermediate-risk policyholder (u = 1.00). \u2014 This figure displays four panels showing probability density distributions for a lower-risk policyholder (u = -0.25) across different metrics: Claims, Claim severity, N_t (claim counts), and X_t (claim amounts). Each panel uses line plots with multiple colored curves representing different time periods (T=1 through T=200 or various aggregate loss ranges), comparing \"True\" distributions against \"Portfolio\" predictions. The x-axes represent ag",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.05741v1"
     }
   ],
   "docs": [
+    {
+      "id": "2610.08631v1",
+      "title": "Exponential investors with weakly mean-reverting prices",
+      "source": "https://arxiv.org/pdf/2610.08631v1",
+      "pages": 10,
+      "images": 0,
+      "figures_captioned": 0,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 18
+    },
+    {
+      "id": "2610.08169v1",
+      "title": "Modelling Regime Shifts in Continuous Intraday Electricity Markets with State-dependent Hawkes Processes",
+      "source": "https://arxiv.org/pdf/2610.08169v1",
+      "pages": 15,
+      "images": 5,
+      "figures_captioned": 4,
+      "tables": 2,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 51
+    },
+    {
+      "id": "2610.07985v1",
+      "title": "A Finite Bid--Ask Spread from Replenishment Displaced from the Quote",
+      "source": "https://arxiv.org/pdf/2610.07985v1",
+      "pages": 6,
+      "images": 0,
+      "figures_captioned": 1,
+      "tables": 1,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 24
+    },
+    {
+      "id": "2610.07888v1",
+      "title": "A Functional Representation of Credit Behavior for Probability of Default Modeling",
+      "source": "https://arxiv.org/pdf/2610.07888v1",
+      "pages": 30,
+      "images": 0,
+      "figures_captioned": 4,
+      "tables": 1,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 54
+    },
+    {
+      "id": "2610.07404v1",
+      "title": "Convex Order Beyond Dimension One: Projection Tests, Counterexamples and Gaussian Mixtures",
+      "source": "https://arxiv.org/pdf/2610.07404v1",
+      "pages": 28,
+      "images": 0,
+      "figures_captioned": 1,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 40
+    },
+    {
+      "id": "2610.07162v1",
+      "title": "Adversarial Training for Deep Hedging in Nonstationary Markets",
+      "source": "https://arxiv.org/pdf/2610.07162v1",
+      "pages": 59,
+      "images": 0,
+      "figures_captioned": 3,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 47
+    },
     {
       "id": "2610.06504v1",
       "title": "Retirement Planning with Minimum Guarantees for Both Beneficiaries and Fund Managers",
@@ -260,11 +332,11 @@
       "source": "https://arxiv.org/pdf/2610.06412v1",
       "pages": 41,
       "images": 0,
-      "figures_captioned": 2,
+      "figures_captioned": 1,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 42
+      "chunks_indexed": 41
     },
     {
       "id": "2610.06168v1",
@@ -272,83 +344,11 @@
       "source": "https://arxiv.org/pdf/2610.06168v1",
       "pages": 14,
       "images": 21,
-      "figures_captioned": 4,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 33
-    },
-    {
-      "id": "2610.05926v1",
-      "title": "Comparing two approaches for modelling the loss given default of credit cards: Run-off triangles vs regression",
-      "source": "https://arxiv.org/pdf/2610.05926v1",
-      "pages": 41,
-      "images": 6,
-      "figures_captioned": 4,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 52
-    },
-    {
-      "id": "2610.05873v1",
-      "title": "When Token Transfers Do Not Mean Liquidity in Tokenized Real-World Assets",
-      "source": "https://arxiv.org/pdf/2610.05873v1",
-      "pages": 14,
-      "images": 0,
-      "figures_captioned": 1,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 25
-    },
-    {
-      "id": "2610.05741v1",
-      "title": "A Dirichlet Mixed-Membership Model for Exact Multivariate Distributional Credibility",
-      "source": "https://arxiv.org/pdf/2610.05741v1",
-      "pages": 40,
-      "images": 9,
-      "figures_captioned": 3,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 46
-    },
-    {
-      "id": "2610.05740v1",
-      "title": "Latent Continuum of Regimes in Limit Order Book Dynamics",
-      "source": "https://arxiv.org/pdf/2610.05740v1",
-      "pages": 45,
-      "images": 1,
       "figures_captioned": 0,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 58
-    },
-    {
-      "id": "2610.05675v1",
-      "title": "A Superprocess-based Approach to Rough CIR Processes and Feller Random Measures",
-      "source": "https://arxiv.org/pdf/2610.05675v1",
-      "pages": 53,
-      "images": 0,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 63
-    },
-    {
-      "id": "2610.05196v1",
-      "title": "Measuring Learned Monotone Temporal Aggregation at Matched Admissibility",
-      "source": "https://arxiv.org/pdf/2610.05196v1",
-      "pages": 55,
-      "images": 0,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 59
+      "chunks_indexed": 29
     }
   ]
 }
