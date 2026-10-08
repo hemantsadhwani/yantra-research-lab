@@ -1,7 +1,7 @@
 {
   "_note": "Public run manifest of the Tier-3 agentic ingestion pipeline. Safe aggregates + provenance only; raw PDFs live in S3, not here.",
-  "run_id": "20261007T084202Z",
-  "generated_at": "2026-10-07T08:45:45+00:00",
+  "run_id": "20261008T090043Z",
+  "generated_at": "2026-10-08T09:04:22+00:00",
   "collection": "research_corpus",
   "embed_model": "BAAI/bge-small-en-v1.5",
   "dag": [
@@ -50,16 +50,16 @@
     "discovered": 10,
     "fetched": 10,
     "parsed": 10,
-    "chunks": 441,
-    "accepted": 391,
+    "chunks": 531,
+    "accepted": 481,
     "rejected": 50,
-    "images": 26,
+    "images": 22,
     "figures_captioned": 18,
-    "tables": 4,
+    "tables": 1,
     "with_math": 10,
-    "indexed": 391,
-    "spent_usd": 0.0315,
-    "duration_s": 223.3
+    "indexed": 481,
+    "spent_usd": 0.033,
+    "duration_s": 219.0
   },
   "rejects_by_reason": {
     "low-relevance": 50
@@ -67,288 +67,288 @@
   "budget_usd": 3.0,
   "figures": [
     {
-      "doc_id": "2610.08169v1",
-      "title": "Modelling Regime Shifts in Continuous Intraday Electricity Markets with State-dependent Hawkes Processes",
-      "page": 2,
-      "thumb": "/data/figures/2610.08169v1_p2_0.jpg",
-      "caption": "Fig. 1. EPEX SPOT power trading timeline overview as for February 2025. \u2014 This figure illustrates the European day-ahead coupled auction trading timeline on a horizontal axis. The top timeline shows the 12 CET cutoff for the day-ahead market (D-1) with red shading, followed by the delivery day (D) period. The bottom timeline indicates the 14 CET start of intraday continuous trading (D-1), also shown in gray, extending through day D with 24/7 trading until delivery. The chart demonstrates how day",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.08169v1"
-    },
-    {
-      "doc_id": "2610.08169v1",
-      "title": "Modelling Regime Shifts in Continuous Intraday Electricity Markets with State-dependent Hawkes Processes",
-      "page": 3,
-      "thumb": "/data/figures/2610.08169v1_p3_1.jpg",
-      "caption": "Fig. 2 illustrates Dutch IDC transaction prices for the XBID hourly contract on the 16th of January for delivery hour 20:00. At the beginning of the trading session, the LOB is sparse and traded volumes are relatively low. As the market approaches gate closure, more accurate forecasts of renewable energy generation, system load, and cross-border capacity become available. Market participants react \u2014 This figure displays intraday electricity market microstructure for the XBID market during delive",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.08169v1"
-    },
-    {
-      "doc_id": "2610.08169v1",
-      "title": "Modelling Regime Shifts in Continuous Intraday Electricity Markets with State-dependent Hawkes Processes",
-      "page": 3,
-      "thumb": "/data/figures/2610.08169v1_p3_2.jpg",
-      "caption": "Fig. 2. Intraday evolution of the XBID market for the delivery hour 20:00\u2013 21:00 on the 16th of January 2024. The top panel shows the mid-price trajectory in euros, the middle panel displays the bid-ask spread, and the bottom panel displays the total volume of active orders in the LOB, computed as the average of bid and ask volumes. \u2014 This figure displays three time-series panels showing intraday market microstructure for the XBID electricity market during a specific delivery hour on January 16,",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.08169v1"
-    },
-    {
-      "doc_id": "2610.08169v1",
-      "title": "Modelling Regime Shifts in Continuous Intraday Electricity Markets with State-dependent Hawkes Processes",
-      "page": 3,
-      "thumb": "/data/figures/2610.08169v1_p3_3.jpg",
-      "caption": "Fig. 3. Scatter and density plots of order interarrival times against time-to- delivery for an XBID hourly contract (2024-01-16 20:00). The x-axis shows minutes before the delivery time, and the y-axis shows the interarrival time between consecutive orders or trades. Because this is an XBID product, the arrival of orders and trades stops 60 minutes before delivery as explained in II-B. \u2014 This figure displays four scatter plots with density heatmaps showing the relationship between order/trade in",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.08169v1"
-    },
-    {
-      "doc_id": "2610.07985v1",
-      "title": "A Finite Bid--Ask Spread from Replenishment Displaced from the Quote",
-      "page": 3,
-      "thumb": "/data/figures/2610.07985v1_p3_0.jpg",
-      "caption": "FIG. 1. Schematic of displaced replenishment on the sym- metric separated branch. The solid curves are the standing bid and ask densities \u03c1B and \u03c1A. Placement sources are with- held from (qb, qa) (shaded), while standing density diffuses in- ward from the placement edges. The dotted profiles indicate a latent-book reference geometry and vanish at the reaction price x\u03d5 = m on the symmetric branch;  \u2014 This schematic diagram illustrates the spatial structure of bid and ask order book densities in a",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.07985v1"
-    },
-    {
-      "doc_id": "2610.07888v1",
-      "title": "A Functional Representation of Credit Behavior for Probability of Default Modeling",
-      "page": 5,
-      "thumb": "/data/figures/2610.07888v1_p5_0.jpg",
-      "caption": "Figure 1: Visual illustration of when different information categories are available for retail borrowers. \u2014 This timeline chart illustrates the temporal availability of three information categories used in probability of default (PD) modeling for retail borrowers. The horizontal axis represents the loan lifecycle from transfer through recovery, with key events marked: loan origination, sampling, and default. Category 1 (pre-loan origination) includes transactional and advisor data available bef",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.07888v1"
-    },
-    {
-      "doc_id": "2610.07888v1",
-      "title": "A Functional Representation of Credit Behavior for Probability of Default Modeling",
-      "page": 8,
-      "thumb": "/data/figures/2610.07888v1_p8_1.jpg",
-      "caption": "Figure 2: Illustrations of the balance and credit paths of individual borrowers. Borrowers A, B, and C are all considered normal borrowers, while borrower D defaults within the coming year. The Y-axis is deliberately hidden. \u2014 This figure displays four time-series panels showing the balance trajectory (blue line, R(t)) and credit utilization (red line, C(t)) for individual borrowers over approximately one year. Borrowers A, B, and C exhibit relatively stable or slowly drifting balance and utiliz",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.07888v1"
-    },
-    {
-      "doc_id": "2610.07888v1",
-      "title": "A Functional Representation of Credit Behavior for Probability of Default Modeling",
-      "page": 9,
-      "thumb": "/data/figures/2610.07888v1_p9_2.jpg",
-      "caption": "Figure 3: The median balance across all borrowers. The Y-axis is deliberately hidden. \u2014 This line chart displays temporal patterns in median credit balances across all borrowers from January 2014 through September 2019, with the Y-axis scale intentionally omitted. The x-axis shows monthly observations with alternating background shading to distinguish quarters and January markers, while the black line traces balance values exhibiting pronounced seasonal cyclicality with sharp peaks typically occ",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.07888v1"
-    },
-    {
-      "doc_id": "2610.07888v1",
-      "title": "A Functional Representation of Credit Behavior for Probability of Default Modeling",
-      "page": 18,
-      "thumb": "/data/figures/2610.07888v1_p18_3.jpg",
-      "caption": "Figure 4: The \u02c6\u03b2 functions for each of the three functional variables \u2014 This figure presents three line plots showing estimated functional coefficients (\u03b2-hat functions) for credit risk variables in a probability of default model. The top panel displays Gearing (leverage ratio) on the x-axis (Relative Overdebt, T-9 to T), the middle panel shows Available Funds on the x-axis (T-12 to T-1), and the bottom panel displays Months before observation on the x-axis (T-3 to T), with the y-axis representi",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.07888v1"
-    },
-    {
-      "doc_id": "2610.07404v1",
-      "title": "Convex Order Beyond Dimension One: Projection Tests, Counterexamples and Gaussian Mixtures",
-      "page": 7,
-      "thumb": "/data/figures/2610.07404v1_p7_0.jpg",
-      "caption": "Figure 1: The open circles represent the possible values of X, each with probability 1/3. The filled circles represent the possible values of Y : each vertex has probability 1/6, and O has probability 1/2. Marker areas are proportional to the corresponding probabilities. \u2014 This is a geometric diagram showing two discrete probability distributions represented as triangular configurations with labeled points. The distribution X (open circles) has three equally likely outcomes at vertices A, F, and",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.07404v1"
-    },
-    {
-      "doc_id": "2610.07162v1",
-      "title": "Adversarial Training for Deep Hedging in Nonstationary Markets",
-      "page": 10,
-      "thumb": "/data/figures/2610.07162v1_p10_0.jpg",
-      "caption": "Figure 1: Loss landscapes across deep-hedging training schemes from Table 1: (A) ERM-W, (B) \u03d5-W, (C) OT-W, and (D) WRAP-W. Each surface depicts the mean hedging loss of a separately trained network on the same reference trajectories Xn. The axes show terminal moneyness and the root mean square (RMS) of daily log returns in percent. Markers represent reference paths and adversarial trajectories b X \u2014 This figure displays loss landscapes for four deep-hedging training schemes (ERM-W, \u03c6-W, OT-W, an",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.07162v1"
-    },
-    {
-      "doc_id": "2610.07162v1",
-      "title": "Adversarial Training for Deep Hedging in Nonstationary Markets",
-      "page": 10,
-      "thumb": "/data/figures/2610.07162v1_p10_1.jpg",
-      "caption": "Figure 1 shows how the two adversarial mechanisms reshape the training distribution and the resulting loss landscape. Panel (A) shows that under ERM-W, highly volatile paths generate a broad region of high losses. In Panel (B), \u03d5-W leaves the trajectories unchanged but reallocates probability toward adverse scenarios, particularly in regions of high realized variation (B.1). This concentration is  \u2014 This figure shows loss landscapes for deep hedging neural networks across four training schemes (",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.07162v1"
-    },
-    {
-      "doc_id": "2610.07162v1",
-      "title": "Adversarial Training for Deep Hedging in Nonstationary Markets",
-      "page": 11,
-      "thumb": "/data/figures/2610.07162v1_p11_2.jpg",
-      "caption": "Figure 2: Pathwise effects in nonstationary Heston: (A) ERM-U, (B) \u03d5-U, (C) WRAP-U, and (D) magnified view of the original and transported paths highlighted in (C). Panels (A)\u2013(C) show \u2014 This figure displays four panels comparing hedging performance under nonstationarity in a Heston model setting. Panels (A)-(C) show time-series plots of moneyness (S_t/K) over trading dates, with shaded bands representing 5-95% quantiles of reference, reweighted, and transported paths, overlaid with the highest-",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.07162v1"
-    },
-    {
-      "doc_id": "2610.06504v1",
-      "title": "Retirement Planning with Minimum Guarantees for Both Beneficiaries and Fund Managers",
+      "doc_id": "2610.10407v1",
+      "title": "SOTA: Stock Options Trading Agents Guided by Option-Implied Return Distributions",
       "page": 4,
-      "thumb": "/data/figures/2610.06504v1_p4_0.jpg",
-      "caption": "Figure 1: Structure of the retirement planning model with guarantees. Closely related arrange- ments include pension funds with minimum guarantees [23], and income-drawdown plans with minimum guarantees [24] \u2014 This diagram illustrates the structural framework of a retirement planning model with dual guarantees. The flow shows a Retiree receiving initial wealth x\u2080 at retirement, which flows to a Manager who controls investment allocation \u03c0 and fees (\u03ba\u2081X(t), \u03ba\u2082X(\u03c4d)) subject to constraints on mini",
+      "thumb": "/data/figures/2610.10407v1_p4_0.jpg",
+      "caption": "Figure 1: From contract-level to strategy-level decisions. Left: at the contract level, an agent must choose among thousands of listed contracts that differ in strike, expiry, and call/put type. Right: SOTA instead has the agent select one of nine option-strategy families and its parameters (here, a long straddle), and deterministic tools resolve that choice into exact contracts, a position size,  \u2014 This figure illustrates a two-level decision hierarchy for options trading: the left panel (pink)",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2610.06504v1"
+      "source": "https://arxiv.org/pdf/2610.10407v1"
     },
     {
-      "doc_id": "2610.06504v1",
-      "title": "Retirement Planning with Minimum Guarantees for Both Beneficiaries and Fund Managers",
-      "page": 20,
-      "thumb": "/data/figures/2610.06504v1_p20_1.jpg",
-      "caption": "Figure 2 schematically depicts the selected solution H , its strict increase, and the two-sided bounds. The strict increase of H translates into the strict concavity v\u2032\u2032 < 0 of the value function ((i) of Theorem 3.5), reflecting the diminishing marginal utility of wealth. The upper growth bound, in turn, ensures that v(x) grows at most like x\u03b3 with \u03b3 < 1 ((ii) of Theorem 3.5), so that total welfar \u2014 This figure displays mathematical equations and theoretical bounds for a retirement planning opti",
+      "doc_id": "2610.10256v1",
+      "title": "OOM-RL II: Reality Is an Oracle, Not a Debugger Provenance-Constrained Diagnosis in Continually Evolving Agent-Engineered Systems",
+      "page": 4,
+      "thumb": "/data/figures/2610.10256v1_p4_0.jpg",
+      "caption": "Figure 1: Reality provides outcome evidence; diagnostic resolution requires additional structure. Recommendations pass through an execution path before producing account outcomes. The right- hand arrows mark evidentiary requirements, not sufficient conditions or an automatic route to causal identification. The levels characterize increasing claim granularity, rather than a mandatory diagnostic wor \u2014 This figure illustrates a causal inference framework for diagnosing outcomes in evolving agent-en",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2610.06504v1"
+      "source": "https://arxiv.org/pdf/2610.10256v1"
     },
     {
-      "doc_id": "2610.06504v1",
-      "title": "Retirement Planning with Minimum Guarantees for Both Beneficiaries and Fund Managers",
-      "page": 21,
-      "thumb": "/data/figures/2610.06504v1_p21_2.jpg",
-      "caption": "Figure 2: Schematic illustration of the selected solution H in Theorem 4.1, together with the lower and upper bounds in (4.6). The arrow highlights H\u2032 > 0 ; H is not necessarily convex or concave. \u2014 This figure presents a schematic plot with wealth H on the vertical axis and some parameter h on the horizontal axis, illustrating an optimal retirement fund allocation solution. The solid curve labeled H(h) represents the selected solution from Theorem 4.1, bounded between two dotted curves represen",
+      "doc_id": "2610.10256v1",
+      "title": "OOM-RL II: Reality Is an Oracle, Not a Debugger Provenance-Constrained Diagnosis in Continually Evolving Agent-Engineered Systems",
+      "page": 10,
+      "thumb": "/data/figures/2610.10256v1_p10_1.jpg",
+      "caption": "Figure 2 places analysis episodes beside inspected engineering/configuration record dates. Their overlap motivates the identity question; it does not establish production activation boundaries. Supplementary Dataset S1 supplies the daily account/reference paths and pseudonymous closing holdings separately from the manuscript (Appendix H). Table 3 retains source identifiers. The annual window and P \u2014 This text excerpt describes methodological approaches for performance analysis in quantitative fi",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2610.06504v1"
+      "source": "https://arxiv.org/pdf/2610.10256v1"
     },
     {
-      "doc_id": "2610.06504v1",
-      "title": "Retirement Planning with Minimum Guarantees for Both Beneficiaries and Fund Managers",
-      "page": 23,
-      "thumb": "/data/figures/2610.06504v1_p23_3.jpg",
-      "caption": "Figure 3: Schematic illustration of the solution family H(\u00b7; y) to (4.10) for representative initial points y \u2208(0, z1) . \u2014 This figure shows a family of solution curves plotted in the h-H(h;y) plane, where the horizontal axis represents h and the vertical axis represents H(h;y). Multiple curves emanate from points along the horizontal axis between 0 and z\u2081 for different initial values y \u2208 (0, z\u2081), with each curve increasing and diverging as h increases. The key takeaway is that the solution fami",
+      "doc_id": "2610.10256v1",
+      "title": "OOM-RL II: Reality Is an Oracle, Not a Debugger Provenance-Constrained Diagnosis in Continually Evolving Agent-Engineered Systems",
+      "page": 10,
+      "thumb": "/data/figures/2610.10256v1_p10_2.jpg",
+      "caption": "Figure 2: Retrospective spans and known engineering/configuration record dates. Counts are trading-day return observations within calendar spans. The March\u2013June statistical segment differs from the April\u2013June incident narrative. Solid dots identify record dates only; exact per-action activation is unknown. No deployment epoch is inferred from a commit or note date. \u2014 This timeline chart displays the analysis window for a retrospective study spanning October 2025 to September 2026, with a freeze ",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2610.06504v1"
+      "source": "https://arxiv.org/pdf/2610.10256v1"
     },
     {
-      "doc_id": "2610.06412v1",
-      "title": "Measuring Trade Direction in a Prediction Market: Settlement Ground Truth and Trading-Cost Measurement on Polymarket",
+      "doc_id": "2610.10256v1",
+      "title": "OOM-RL II: Reality Is an Oracle, Not a Debugger Provenance-Constrained Diagnosis in Continually Evolving Agent-Engineered Systems",
       "page": 12,
-      "thumb": "/data/figures/2610.06412v1_p12_0.jpg",
-      "caption": "Figure 1: Cached-tape comparisons on twelve selected dates. Panel (a) scores every rule on the same four-rule signed intersection for each day. Panel (b) holds the scored rows fixed within each rule and compares full versus settlement-selected sign histories; the vertical scale is percentage points of balanced accuracy. Connecting segments guide the eye. BVC is a retrospective bar-majority diagnos \u2014 Panel (a) is a line chart showing balanced accuracy scores (y-axis, 0.5-1.0) across four months (",
+      "thumb": "/data/figures/2610.10256v1_p12_3.jpg",
+      "caption": "Figure 3: Annual account, CSI300, and approximate subset EW wealth and drawdown. Account returns use recorded execution and beginning-of-day cash-flow adjustment; EW is a gross ideal reference with carried suspension prices. \u2014 This figure displays time series performance metrics for a live trading account, CSI 300 index, and equal-weight reference portfolio from October 2025 to September 2026. The top panel shows wealth baselines (normalized to 1.0) on a log scale, while the bottom panel shows c",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2610.06412v1"
+      "source": "https://arxiv.org/pdf/2610.10256v1"
+    },
+    {
+      "doc_id": "2610.10053v1",
+      "title": "On Bonart's interpretation of the Square-Root Impact Law",
+      "page": 14,
+      "thumb": "/data/figures/2610.10053v1_p14_0.jpg",
+      "caption": "Figure 1: Two poles of post-execution impact decay; the impact at the end of execution (the peak of the build-up, dot) is normalised to 1, and all curves share the concave \u2014 This line chart displays post-execution market impact decay over time, with the y-axis showing impact I(t) normalized to peak=1 and the x-axis showing time in units of execution time Texec. Three curves are plotted: an empirical uninformed impact (solid blue) that decays to near zero, an all-pass high-frequency impact (dashe",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.10053v1"
+    },
+    {
+      "doc_id": "2610.10046v1",
+      "title": "Optimal Investment to Reach a Financial Goal: A Stochastic Control Framework",
+      "page": 19,
+      "thumb": "/data/figures/2610.10046v1_p19_0.jpg",
+      "caption": "Figure 1: Hyperbolic and exponential discount functions and their first derivative \u2014 This figure contains two side-by-side line plots comparing hyperbolic and exponential discount functions. The left panel shows discount functions (y-axis: \"Discount factor\") plotted against time in seconds (x-axis: 0-10), with hyperbolic functions (pink/magenta) declining more slowly than exponential functions (blue and red), which decay more steeply. The right panel displays the first derivatives of these disco",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.10046v1"
+    },
+    {
+      "doc_id": "2610.10046v1",
+      "title": "Optimal Investment to Reach a Financial Goal: A Stochastic Control Framework",
+      "page": 19,
+      "thumb": "/data/figures/2610.10046v1_p19_1.jpg",
+      "caption": "Figure 1 compares the hyperbolic and exponential discount functions and their first deriva- \u2014 This figure shows line plots comparing hyperbolic and exponential discount functions (left panel) and their first derivatives (right panel) over a 6-second time horizon. The left panel displays discount factors on the y-axis ranging from 0.1 to 1.0, with both hyperbolic and exponential functions shown in solid and dashed lines at different parameter values; the hyperbolic function decays more slowly ini",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.10046v1"
+    },
+    {
+      "doc_id": "2610.10046v1",
+      "title": "Optimal Investment to Reach a Financial Goal: A Stochastic Control Framework",
+      "page": 20,
+      "thumb": "/data/figures/2610.10046v1_p20_2.jpg",
+      "caption": "Figure 2 plots the optimal policy at t = 5 against the funding ratio, respectively the optimal \u2014 This text describes the Black-Scholes model setup and parameter choices for a stochastic control problem, but the actual Figure 2 is not visible in the provided image. The passage explains that the benchmark model uses geometric Brownian motion for stock dynamics with drift \u03bc = 0.09 and volatility \u03c3 = 0.35, preference parameters k \u2208 {0.05, 0.1, 0.2} and \u03b3 = 2, and an initial funding ratio z\u2080 = 0.6 wi",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.10046v1"
+    },
+    {
+      "doc_id": "2610.10046v1",
+      "title": "Optimal Investment to Reach a Financial Goal: A Stochastic Control Framework",
+      "page": 21,
+      "thumb": "/data/figures/2610.10046v1_p21_3.jpg",
+      "caption": "Figure 2: Optimal policy \u03c0\u2217under different levels of time risk aversion for the CARA terminal \u2014 This figure contains four line plots comparing optimal investment policies under different levels of time risk aversion (k=0.01, 0.05, 0.1, and 0.2) for a CARA (Constant Absolute Risk Aversion) utility framework. The top two panels plot consumption (left) and surplus (right) against ratio z on the x-axis and time s on the x-axis respectively, while the bottom two panels show consumption (left) and sur",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.10046v1"
+    },
+    {
+      "doc_id": "2610.09654v1",
+      "title": "DSTNet: Dynamic Spectral Trajectory Network for Causal Multi-Horizon Financial Forecasting",
+      "page": 3,
+      "thumb": "/data/figures/2610.09654v1_p3_0.jpg",
+      "caption": "Fig. 1 contrasts the DST tensor with the static-snapshot representation used by several reviewed wavelet hybrids, and Fig. 2 gives the full pipeline. Formal correctness arguments and complexity analyses are stated as theorems and proved in Section IV. Algorithmic realisations appear in Appendix A, with Algorithms 1 and 2 covering preprocessing and the causal filter bank, and Algorithms 4, 5, and 6 \u2014 This figure illustrates the DSTNet methodology for multi-horizon equity index forecasting, showin",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.09654v1"
+    },
+    {
+      "doc_id": "2610.09654v1",
+      "title": "DSTNet: Dynamic Spectral Trajectory Network for Causal Multi-Horizon Financial Forecasting",
+      "page": 4,
+      "thumb": "/data/figures/2610.09654v1_p4_1.jpg",
+      "caption": "Fig. 1. Conceptual contributions of DSTNet. (a) The Dynamic Spectral Trajectory tensor D(i) \u2208Rw\u00d7S\u00d7M retains the full evolution of filter-bank magnitudes across the lookback window. The static-snapshot representation used by several reviewed wavelet hybrids is the single time-slice D(i)[w, :, :] highlighted in red. Because this slice is a deterministic projection of the full tensor, the data-proces \u2014 This figure illustrates the core conceptual contribution of DSTNet, comparing dynamic spectral tr",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.09654v1"
+    },
+    {
+      "doc_id": "2610.09654v1",
+      "title": "DSTNet: Dynamic Spectral Trajectory Network for Causal Multi-Horizon Financial Forecasting",
+      "page": 5,
+      "thumb": "/data/figures/2610.09654v1_p5_2.jpg",
+      "caption": "Fig. 2. Full DSTNet pipeline. Pre-processing (dashed lane) is provably causal (Proposition 1) and excludes a B=192-sample burn-in. The temporal branch (CNN-BiLSTM) and the factorised Scale-Temporal Spectral Transformer (STST: Stream A reshapes D(i) into w time-tokens of dimension SM=56, while Stream B permutes into S filter-bank tokens of dimension wM=140) produce 64-dim summaries f1 and f2. The V \u2014 This figure illustrates the complete DSTNet architecture for multi-horizon financial forecasting,",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.09654v1"
+    },
+    {
+      "doc_id": "2610.09654v1",
+      "title": "DSTNet: Dynamic Spectral Trajectory Network for Causal Multi-Horizon Financial Forecasting",
+      "page": 6,
+      "thumb": "/data/figures/2610.09654v1_p6_3.jpg",
+      "caption": "Fig. 3 contrasts this construction with bilateral wavelet anal- ysis and marks the burn-in region that Corollary 1 derives. The spectral-magnitude tensor W is a function of three indices. Several reviewed wavelet-based hybrids consume it as a static snapshot, retaining only the slice C(i) \u2014 This figure presents equation (4) defining the spectral-magnitude tensor feature W[t,s,m] = |C[t,s,m]| \u2208 \u211d\u22650, where C represents a complex-valued wavelet coefficient tensor with dimensions T\u00d7S\u00d7M (time, scale,",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.09654v1"
+    },
+    {
+      "doc_id": "2610.09622v1",
+      "title": "Robust distortion riskmetrics under Wasserstein ambiguity",
+      "page": 24,
+      "thumb": "/data/figures/2610.09622v1_p24_0.jpg",
+      "caption": "Figure 1 shows the small-radius limits in Example 3. For the continuous quantile, both \u2206VaR\u03b1(\u03b5) \u2014 This text passage discusses a quantitative comparison of two Value-at-Risk (VaR) conventions at confidence level \u03b1 = 0.99, analyzing the bounds on VaR under Wasserstein ambiguity for distorted risk measures. The analysis compares reference distributions before and after standardization, showing that quantile jumps are approximately 0.02078 and that computed reference bounds are below a chosen tolera",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.09622v1"
+    },
+    {
+      "doc_id": "2610.09613v1",
+      "title": "Residual Learning in Empirical Asset Pricing",
+      "page": 7,
+      "thumb": "/data/figures/2610.09613v1_p7_0.jpg",
+      "caption": "Figure 1: From Feedforward Networks to Residual Neural Networks. The left panel shows a feedforward block, where FNN denotes a feedforward neural network. The right panel shows a residual block. A feedforward block performs a simple function mapping, whereas a residual block keeps the input x intact through a shortcut path and adds a learned residual update E(x) from the residual branch. \u2014 This figure compares two neural network architectures used in asset pricing models. The left panel shows a ",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.09613v1"
+    },
+    {
+      "doc_id": "2610.09613v1",
+      "title": "Residual Learning in Empirical Asset Pricing",
+      "page": 7,
+      "thumb": "/data/figures/2610.09613v1_p7_1.jpg",
+      "caption": "Figure 1 highlights the block-level architectural difference between feedforward and residual networks (He et al., 2016a,b). In a feedforward block, the learned transformation becomes the next representation. A residual block supplies a second route, in which the shortcut path carries the input and the residual branch contributes a residual update. A deep residual neural network contains multiple  \u2014 This figure compares two neural network block architectures: a Classical Neural Network (left) an",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.09613v1"
+    },
+    {
+      "doc_id": "2610.09613v1",
+      "title": "Residual Learning in Empirical Asset Pricing",
+      "page": 8,
+      "thumb": "/data/figures/2610.09613v1_p8_2.jpg",
+      "caption": "Figure 2: Simplified Building Blocks. Circles represent hidden states; arrows represent sequences of operations; text boxes, e.g., FNN and BatchNorm, represent functions. The drawings show the core building blocks of the four models when the input and output dimensions of the building block are the same. For projections and technical formulations, see Appendix A.2. \u2014 This diagram illustrates four neural network architectures used in the paper: a basic feedforward network (NN), ResNet with identi",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.09613v1"
     }
   ],
   "docs": [
     {
-      "id": "2610.08631v1",
-      "title": "Exponential investors with weakly mean-reverting prices",
-      "source": "https://arxiv.org/pdf/2610.08631v1",
-      "pages": 10,
+      "id": "2610.10525v1",
+      "title": "A Hawkes Microfoundation for Multitype Inverse Gaussian Subordinators",
+      "source": "https://arxiv.org/pdf/2610.10525v1",
+      "pages": 35,
       "images": 0,
       "figures_captioned": 0,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 18
+      "chunks_indexed": 58
     },
     {
-      "id": "2610.08169v1",
-      "title": "Modelling Regime Shifts in Continuous Intraday Electricity Markets with State-dependent Hawkes Processes",
-      "source": "https://arxiv.org/pdf/2610.08169v1",
-      "pages": 15,
-      "images": 5,
-      "figures_captioned": 4,
-      "tables": 2,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 51
-    },
-    {
-      "id": "2610.07985v1",
-      "title": "A Finite Bid--Ask Spread from Replenishment Displaced from the Quote",
-      "source": "https://arxiv.org/pdf/2610.07985v1",
-      "pages": 6,
-      "images": 0,
-      "figures_captioned": 1,
-      "tables": 1,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 24
-    },
-    {
-      "id": "2610.07888v1",
-      "title": "A Functional Representation of Credit Behavior for Probability of Default Modeling",
-      "source": "https://arxiv.org/pdf/2610.07888v1",
-      "pages": 30,
-      "images": 0,
-      "figures_captioned": 4,
-      "tables": 1,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 54
-    },
-    {
-      "id": "2610.07404v1",
-      "title": "Convex Order Beyond Dimension One: Projection Tests, Counterexamples and Gaussian Mixtures",
-      "source": "https://arxiv.org/pdf/2610.07404v1",
-      "pages": 28,
-      "images": 0,
-      "figures_captioned": 1,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 40
-    },
-    {
-      "id": "2610.07162v1",
-      "title": "Adversarial Training for Deep Hedging in Nonstationary Markets",
-      "source": "https://arxiv.org/pdf/2610.07162v1",
-      "pages": 59,
-      "images": 0,
-      "figures_captioned": 3,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 47
-    },
-    {
-      "id": "2610.06504v1",
-      "title": "Retirement Planning with Minimum Guarantees for Both Beneficiaries and Fund Managers",
-      "source": "https://arxiv.org/pdf/2610.06504v1",
-      "pages": 82,
-      "images": 0,
-      "figures_captioned": 4,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 47
-    },
-    {
-      "id": "2610.06495v1",
-      "title": "A posteriori error bounds for the Uncertain Volatility Model",
-      "source": "https://arxiv.org/pdf/2610.06495v1",
-      "pages": 34,
-      "images": 0,
+      "id": "2610.10476v1",
+      "title": "From a Hierarchy of Stochastic Differential Equations to a Hierarchy of Generalized Beta Distributions",
+      "source": "https://arxiv.org/pdf/2610.10476v1",
+      "pages": 25,
+      "images": 3,
       "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 40
-    },
-    {
-      "id": "2610.06412v1",
-      "title": "Measuring Trade Direction in a Prediction Market: Settlement Ground Truth and Trading-Cost Measurement on Polymarket",
-      "source": "https://arxiv.org/pdf/2610.06412v1",
-      "pages": 41,
-      "images": 0,
-      "figures_captioned": 1,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
       "chunks_indexed": 41
     },
     {
-      "id": "2610.06168v1",
-      "title": "Model Risk Analysis for Entropic Hedging Strategies",
-      "source": "https://arxiv.org/pdf/2610.06168v1",
-      "pages": 14,
-      "images": 21,
+      "id": "2610.10407v1",
+      "title": "SOTA: Stock Options Trading Agents Guided by Option-Implied Return Distributions",
+      "source": "https://arxiv.org/pdf/2610.10407v1",
+      "pages": 19,
+      "images": 0,
+      "figures_captioned": 1,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 34
+    },
+    {
+      "id": "2610.10256v1",
+      "title": "OOM-RL II: Reality Is an Oracle, Not a Debugger Provenance-Constrained Diagnosis in Continually Evolving Agent-Engineered Systems",
+      "source": "https://arxiv.org/pdf/2610.10256v1",
+      "pages": 38,
+      "images": 0,
+      "figures_captioned": 4,
+      "tables": 1,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 42
+    },
+    {
+      "id": "2610.10053v1",
+      "title": "On Bonart's interpretation of the Square-Root Impact Law",
+      "source": "https://arxiv.org/pdf/2610.10053v1",
+      "pages": 19,
+      "images": 0,
+      "figures_captioned": 1,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 50
+    },
+    {
+      "id": "2610.10046v1",
+      "title": "Optimal Investment to Reach a Financial Goal: A Stochastic Control Framework",
+      "source": "https://arxiv.org/pdf/2610.10046v1",
+      "pages": 47,
+      "images": 0,
+      "figures_captioned": 4,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 48
+    },
+    {
+      "id": "2610.09654v1",
+      "title": "DSTNet: Dynamic Spectral Trajectory Network for Causal Multi-Horizon Financial Forecasting",
+      "source": "https://arxiv.org/pdf/2610.09654v1",
+      "pages": 27,
+      "images": 3,
+      "figures_captioned": 4,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 67
+    },
+    {
+      "id": "2610.09622v1",
+      "title": "Robust distortion riskmetrics under Wasserstein ambiguity",
+      "source": "https://arxiv.org/pdf/2610.09622v1",
+      "pages": 54,
+      "images": 0,
+      "figures_captioned": 1,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 47
+    },
+    {
+      "id": "2610.09613v1",
+      "title": "Residual Learning in Empirical Asset Pricing",
+      "source": "https://arxiv.org/pdf/2610.09613v1",
+      "pages": 58,
+      "images": 2,
+      "figures_captioned": 3,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 45
+    },
+    {
+      "id": "2610.09246v1",
+      "title": "Conditional value-at-risk under reward-penalty mechanism with applications to robust portfolio management",
+      "source": "https://arxiv.org/pdf/2610.09246v1",
+      "pages": 38,
+      "images": 14,
       "figures_captioned": 0,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 29
+      "chunks_indexed": 49
     }
   ]
 }
