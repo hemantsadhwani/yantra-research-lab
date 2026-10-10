@@ -1,7 +1,7 @@
 {
   "_note": "Public run manifest of the Tier-3 agentic ingestion pipeline. Safe aggregates + provenance only; raw PDFs live in S3, not here.",
-  "run_id": "20261009T090742Z",
-  "generated_at": "2026-10-09T09:10:46+00:00",
+  "run_id": "20261010T083135Z",
+  "generated_at": "2026-10-10T08:33:48+00:00",
   "collection": "research_corpus",
   "embed_model": "BAAI/bge-small-en-v1.5",
   "dag": [
@@ -58,8 +58,8 @@
     "tables": 1,
     "with_math": 10,
     "indexed": 428,
-    "spent_usd": 0.0303,
-    "duration_s": 184.4
+    "spent_usd": 0.03,
+    "duration_s": 133.1
   },
   "rejects_by_reason": {
     "low-relevance": 34
@@ -71,7 +71,7 @@
       "title": "Multi-period Mean-Expectile Portfolio Optimization under Wasserstein Ambiguity: Reformulation, Degeneracy and the Role of the Ground Metric",
       "page": 20,
       "thumb": "/data/figures/2610.11917v1_p20_0.jpg",
-      "caption": "Figure 1 complements the terminal statistics by showing how the differences accumulate through \u2014 This text passage compares portfolio optimization models, specifically analyzing the cell (\u03c1, \u03bb) = (0.005, 0.10) which outperforms an equally weighted benchmark across multiple dimensions: annualized return 13.9% versus 9.5%, volatility 14.4% versus 15.4%, maximum drawdown 33.8% versus 37.6%, and CVaR metrics. Table 3 presents performance specifications for robust model families at \u03bb = 0.10 with effe",
+      "caption": "Figure 1 complements the terminal statistics by showing how the differences accumulate through \u2014 This text passage compares robust portfolio optimization models across multiple performance dimensions including return, volatility, maximum drawdown, CVaR, and Sharpe ratio. The key takeaway is that the cell (\u03c1, \u03bb) = (0.005, 0.10) dominates an equally weighted benchmark simultaneously across all four dimensions, delivering 13.9% annualized return versus 9.5%, 14.4% volatility versus 15.4%, and super",
       "vision": true,
       "source": "https://arxiv.org/pdf/2610.11917v1"
     },
@@ -80,7 +80,7 @@
       "title": "Multi-period Mean-Expectile Portfolio Optimization under Wasserstein Ambiguity: Reformulation, Degeneracy and the Role of the Ground Metric",
       "page": 21,
       "thumb": "/data/figures/2610.11917v1_p21_1.jpg",
-      "caption": "Figure 1: Cumulative out-of-sample wealth, FTSE 2012\u20132026. Proposed model at (\u03c1, \u03bb) = (0.005, 0.10), DR-CVaR under both ground metrics, and the equally weighted benchmark. \u2014 This line chart displays cumulative out-of-sample wealth over 3,500 trading days from 2012\u20132026 on the FTSE index, comparing four portfolio strategies on a log scale. The black line represents the proposed model with parameters \u03c1=0.005 and \u03bb=0.10, which achieves the highest cumulative wealth reaching approximately 5.5; compe",
+      "caption": "Figure 1: Cumulative out-of-sample wealth, FTSE 2012\u20132026. Proposed model at (\u03c1, \u03bb) = (0.005, 0.10), DR-CVaR under both ground metrics, and the equally weighted benchmark. \u2014 This line chart plots cumulative out-of-sample wealth on a log scale over 3,500 trading days from 2012\u20132026 for the FTSE index. Four strategies are compared: the proposed model (\u03c1, \u03bb) = (0.005, 0.10) shown in black, DR-CVaR with two different ground metrics (l\u2081 in red and l\u221e in blue), and an equally weighted 1/N benchmark in",
       "vision": true,
       "source": "https://arxiv.org/pdf/2610.11917v1"
     },
@@ -89,7 +89,7 @@
       "title": "Deep Learning vs. Statistical Models for Multi-Horizon Price Forecasting of Second-Hand Electronics: A Systematic Benchmark",
       "page": 8,
       "thumb": "/data/figures/2610.10727v1_p8_0.jpg",
-      "caption": "Figure 1: A schema of the time series preparation system \u2014 This figure illustrates a three-stage time series data preparation pipeline for price forecasting. The first stage shows document selection filtering ads that match a query (depicted as four document icons), the second stage organizes selected prices by date into daily groups (shown as a matrix of price values across three dates: 2024-02-23, 2024-03-01, 2024-03-02), and the third stage computes a moving average of daily average prices to",
+      "caption": "Figure 1: A schema of the time series preparation system \u2014 This figure illustrates a three-stage time series data preparation pipeline for price forecasting. The first stage shows document selection filtering advertisements that match query criteria, the second stage organizes average daily prices by date (2024-02-29, 2024-03-01, 2024-03-02), and the third stage computes a moving average to smooth the daily price time series. The output is a smoothed time series suitable for training forecasting",
       "vision": true,
       "source": "https://arxiv.org/pdf/2610.10727v1"
     },
@@ -98,7 +98,7 @@
       "title": "Deep Learning vs. Statistical Models for Multi-Horizon Price Forecasting of Second-Hand Electronics: A Systematic Benchmark",
       "page": 10,
       "thumb": "/data/figures/2610.10727v1_p10_1.jpg",
-      "caption": "Figure 2: Exemplary historical postprocessed time series of used goods analysed in this paper \u2014 This line chart displays the price trajectories of six used electronic devices from January 2022 through July 2025, measured in PLN (Polish Zloty) on the y-axis and time on the x-axis. The devices tracked include iPhone 11 Pro Max 512GB, MacBook Air M1 13\", ASUS VivoBook 15, MacBook Pro M1 Pro 14\", iPhone 13 256GB, and Galaxy S21 Ultra 512GB, each represented by a distinct colored line. The figure dem",
+      "caption": "Figure 2: Exemplary historical postprocessed time series of used goods analysed in this paper \u2014 This line chart displays historical price trajectories for six used electronic devices from January 2022 through July 2025, with price in PLN on the y-axis and date on the x-axis. The iPhone 11 Pro Max 512GB (red line) shows the highest prices, starting around 12,000 PLN and declining to approximately 5,500 PLN, while the Galaxy S21 Ultra 512GB (green line) maintains the lowest prices near 1,000-1,500",
       "vision": true,
       "source": "https://arxiv.org/pdf/2610.10727v1"
     },
@@ -107,7 +107,7 @@
       "title": "Deep Learning vs. Statistical Models for Multi-Horizon Price Forecasting of Second-Hand Electronics: A Systematic Benchmark",
       "page": 24,
       "thumb": "/data/figures/2610.10727v1_p24_2.jpg",
-      "caption": "Figure 4: MAPE and RMSE results for all tested models with all forecast horizons \u2014 These two line charts compare Mean Absolute Percentage Error (MAPE, left) and Root Mean Squared Error (RMSE, right) across multiple forecasting models at increasing forecast horizons (1, 7, 30, 90, 180, and 365 days) for second-hand electronics price prediction. The left panel shows MAPE values ranging from near 0% to 0.35%, while the right panel displays RMSE values scaling from 0 to 1400, with both metrics incre",
+      "caption": "Figure 4: MAPE and RMSE results for all tested models with all forecast horizons \u2014 These two line charts display MAPE (Mean Absolute Percentage Error, left) and RMSE (Root Mean Squared Error, right) for multiple forecasting models across increasing forecast horizons of 1, 7, 30, 90, 180, and 365 days. The models compared include statistical approaches (NHITS, PatchTST, TCN, LSTM, NBEATS, Naive) and deep learning variants (TFT, AutoARIMA, AutoETS, Informer, AutoTheta), with an inset zoom showing ",
       "vision": true,
       "source": "https://arxiv.org/pdf/2610.10727v1"
     },
@@ -116,7 +116,7 @@
       "title": "Deep Learning vs. Statistical Models for Multi-Horizon Price Forecasting of Second-Hand Electronics: A Systematic Benchmark",
       "page": 24,
       "thumb": "/data/figures/2610.10727v1_p24_3.jpg",
-      "caption": "Figure 5: Forecasts for exemplary items for forecast horizon = 1 \u2014 Figure 4 displays line charts comparing MAPE (left) and RMSE (right) error metrics across multiple forecasting models at four forecast horizons: 1, 7, 30, 90, 180, and 365 days. The x-axis shows forecast horizon in days on a logarithmic scale, while the y-axis shows error values (MAPE in percentage and RMSE in absolute terms). The chart demonstrates that TFT and AutoETS models generally achieve the lowest errors at short horizons",
+      "caption": "Figure 5: Forecasts for exemplary items for forecast horizon = 1 \u2014 This figure displays MAPE (left panel) and RMSE (right panel) error metrics across four forecast horizons (1, 7, 30, 90, 180, and 365 days) for ten forecasting models including NHITS, PatchTST, TCN, LSTM, TFT, AutoETS, AutoARIMA, Informer, Naive, and NBEATS. Both charts show line plots with forecast horizon on the x-axis and error magnitude on the y-axis, with an inset zoomed view highlighting performance differences at shorter h",
       "vision": true,
       "source": "https://arxiv.org/pdf/2610.10727v1"
     },
@@ -125,7 +125,7 @@
       "title": "SOTA: Stock Options Trading Agents Guided by Option-Implied Return Distributions",
       "page": 4,
       "thumb": "/data/figures/2610.10407v1_p4_0.jpg",
-      "caption": "Figure 1: From contract-level to strategy-level decisions. Left: at the contract level, an agent must choose among thousands of listed contracts that differ in strike, expiry, and call/put type. Right: SOTA instead has the agent select one of nine option-strategy families and its parameters (here, a long straddle), and deterministic tools resolve that choice into exact contracts, a position size,  \u2014 This figure illustrates the two-level decision hierarchy in SOTA, an options trading agent system",
+      "caption": "Figure 1: From contract-level to strategy-level decisions. Left: at the contract level, an agent must choose among thousands of listed contracts that differ in strike, expiry, and call/put type. Right: SOTA instead has the agent select one of nine option-strategy families and its parameters (here, a long straddle), and deterministic tools resolve that choice into exact contracts, a position size,  \u2014 This figure illustrates a two-level decision hierarchy for options trading. The left panel shows ",
       "vision": true,
       "source": "https://arxiv.org/pdf/2610.10407v1"
     },
@@ -134,7 +134,7 @@
       "title": "OOM-RL II: Reality Is an Oracle, Not a Debugger Provenance-Constrained Diagnosis in Continually Evolving Agent-Engineered Systems",
       "page": 4,
       "thumb": "/data/figures/2610.10256v1_p4_0.jpg",
-      "caption": "Figure 1: Reality provides outcome evidence; diagnostic resolution requires additional structure. Recommendations pass through an execution path before producing account outcomes. The right- hand arrows mark evidentiary requirements, not sufficient conditions or an automatic route to causal identification. The levels characterize increasing claim granularity, rather than a mandatory diagnostic wor \u2014 This figure is a flow diagram showing two parallel processes for diagnosing outcomes in agent-eng",
+      "caption": "Figure 1: Reality provides outcome evidence; diagnostic resolution requires additional structure. Recommendations pass through an execution path before producing account outcomes. The right- hand arrows mark evidentiary requirements, not sufficient conditions or an automatic route to causal identification. The levels characterize increasing claim granularity, rather than a mandatory diagnostic wor \u2014 This figure is a flow diagram depicting the causal pathway from agent actions to outcomes and the",
       "vision": true,
       "source": "https://arxiv.org/pdf/2610.10256v1"
     },
@@ -143,7 +143,7 @@
       "title": "OOM-RL II: Reality Is an Oracle, Not a Debugger Provenance-Constrained Diagnosis in Continually Evolving Agent-Engineered Systems",
       "page": 10,
       "thumb": "/data/figures/2610.10256v1_p10_1.jpg",
-      "caption": "Figure 2 places analysis episodes beside inspected engineering/configuration record dates. Their overlap motivates the identity question; it does not establish production activation boundaries. Supplementary Dataset S1 supplies the daily account/reference paths and pseudonymous closing holdings separately from the manuscript (Appendix H). Table 3 retains source identifiers. The annual window and P \u2014 This section discusses performance measurement methodology for daily return analysis, explaining ",
+      "caption": "Figure 2 places analysis episodes beside inspected engineering/configuration record dates. Their overlap motivates the identity question; it does not establish production activation boundaries. Supplementary Dataset S1 supplies the daily account/reference paths and pseudonymous closing holdings separately from the manuscript (Appendix H). Table 3 retains source identifiers. The annual window and P \u2014 This image shows a text excerpt from a quantitative finance research paper discussing methodology",
       "vision": true,
       "source": "https://arxiv.org/pdf/2610.10256v1"
     },
@@ -152,7 +152,7 @@
       "title": "OOM-RL II: Reality Is an Oracle, Not a Debugger Provenance-Constrained Diagnosis in Continually Evolving Agent-Engineered Systems",
       "page": 10,
       "thumb": "/data/figures/2610.10256v1_p10_2.jpg",
-      "caption": "Figure 2: Retrospective spans and known engineering/configuration record dates. Counts are trading-day return observations within calendar spans. The March\u2013June statistical segment differs from the April\u2013June incident narrative. Solid dots identify record dates only; exact per-action activation is unknown. No deployment epoch is inferred from a commit or note date. \u2014 This timeline chart displays a retrospective analysis window from October 2025 to September 2026, divided into three observation s",
+      "caption": "Figure 2: Retrospective spans and known engineering/configuration record dates. Counts are trading-day return observations within calendar spans. The March\u2013June statistical segment differs from the April\u2013June incident narrative. Solid dots identify record dates only; exact per-action activation is unknown. No deployment epoch is inferred from a commit or note date. \u2014 This timeline chart displays the temporal structure of a retrospective analysis spanning October 2025 to September 2026, with a fr",
       "vision": true,
       "source": "https://arxiv.org/pdf/2610.10256v1"
     },
@@ -161,7 +161,7 @@
       "title": "OOM-RL II: Reality Is an Oracle, Not a Debugger Provenance-Constrained Diagnosis in Continually Evolving Agent-Engineered Systems",
       "page": 12,
       "thumb": "/data/figures/2610.10256v1_p12_3.jpg",
-      "caption": "Figure 3: Annual account, CSI300, and approximate subset EW wealth and drawdown. Account returns use recorded execution and beginning-of-day cash-flow adjustment; EW is a gross ideal reference with carried suspension prices. \u2014 This figure presents two time-series panels tracking performance metrics from October 2025 to September 2026. The upper panel shows wealth baselines indexed to 1.0, comparing three series: a live account (blue), CSI 300 index (orange), and a subset equal-weight reference p",
+      "caption": "Figure 3: Annual account, CSI300, and approximate subset EW wealth and drawdown. Account returns use recorded execution and beginning-of-day cash-flow adjustment; EW is a gross ideal reference with carried suspension prices. \u2014 This figure displays the performance comparison of a live trading account, CSI 300 index, and a subset equal-weight (EW) reference portfolio from October 2025 to September 2026. The top panel shows wealth baselines (normalized to 1.0) as line charts, while the bottom panel",
       "vision": true,
       "source": "https://arxiv.org/pdf/2610.10256v1"
     },
@@ -170,7 +170,7 @@
       "title": "On Bonart's interpretation of the Square-Root Impact Law",
       "page": 14,
       "thumb": "/data/figures/2610.10053v1_p14_0.jpg",
-      "caption": "Figure 1: Two poles of post-execution impact decay; the impact at the end of execution (the peak of the build-up, dot) is normalised to 1, and all curves share the concave \u2014 This line plot shows the post-execution price impact decay over time, with the y-axis representing impact I(t) normalized to peak = 1 and the x-axis showing time in units of execution time T_exec. The figure compares three impact trajectories: an empirical uninformed impact (solid blue line) that decays rapidly and plateaus ",
+      "caption": "Figure 1: Two poles of post-execution impact decay; the impact at the end of execution (the peak of the build-up, dot) is normalised to 1, and all curves share the concave \u2014 This line chart shows post-execution market impact decay over time, with impact I(t) normalized to 1 at the peak (t=0) on the vertical axis and time measured in units of execution time T_exec on the horizontal axis. Three curves are plotted: the empirical uninformed impact (solid blue line) decays concavely toward zero, whil",
       "vision": true,
       "source": "https://arxiv.org/pdf/2610.10053v1"
     },
@@ -179,7 +179,7 @@
       "title": "Optimal Investment to Reach a Financial Goal: A Stochastic Control Framework",
       "page": 19,
       "thumb": "/data/figures/2610.10046v1_p19_0.jpg",
-      "caption": "Figure 1: Hyperbolic and exponential discount functions and their first derivative \u2014 This figure displays two line plots comparing hyperbolic and exponential discount functions (left panel) and their first derivatives (right panel) over time (0-10 on x-axis). The left panel shows discount factors on the y-axis (0-1 scale), with hyperbolic functions (magenta) declining more gradually than exponential functions (blue and red), while dashed lines represent alternative parameterizations of each func",
+      "caption": "Figure 1: Hyperbolic and exponential discount functions and their first derivative \u2014 This figure shows two line plots comparing hyperbolic and exponential discount functions with their derivatives over time (0-10 time steps). The left panel displays discount factor values (y-axis: 0.1 to 1.0) for four functions: hyperbolic with \u03b2=0.5, exponential with \u03bb=log(1+0.5), hyperbolic with \u03bb=log(1+0.1), and exponential with \u03bb=log(1+0.1), where hyperbolic functions decay more slowly than their exponential",
       "vision": true,
       "source": "https://arxiv.org/pdf/2610.10046v1"
     },
@@ -188,7 +188,7 @@
       "title": "Optimal Investment to Reach a Financial Goal: A Stochastic Control Framework",
       "page": 19,
       "thumb": "/data/figures/2610.10046v1_p19_1.jpg",
-      "caption": "Figure 1 compares the hyperbolic and exponential discount functions and their first deriva- \u2014 This figure displays two line charts comparing hyperbolic and exponential discount functions over time (0-9 years). The left panel shows discount factor values (y-axis: 0.1-1.0) for four models: hyperbolic, exponential with \u03bb=0 and \u03bb=0.5, and exponential with \u03bb=1 and \u03bb=0.1; the right panel shows the first derivatives (y-axis: -0.18 to 0.02) of these same functions. Both panels use solid and dashed lines",
+      "caption": "Figure 1 compares the hyperbolic and exponential discount functions and their first deriva- \u2014 This figure contains two line charts comparing hyperbolic and exponential discount functions. The left panel shows discount factor values (y-axis, ranging 0\u20131) over time in seconds (x-axis, 0\u20139), displaying both hyperbolic and exponential discount functions with solid and dashed lines for different parameter specifications. The right panel plots the first derivatives of these discount functions (y-axis,",
       "vision": true,
       "source": "https://arxiv.org/pdf/2610.10046v1"
     },
@@ -197,7 +197,7 @@
       "title": "Optimal Investment to Reach a Financial Goal: A Stochastic Control Framework",
       "page": 20,
       "thumb": "/data/figures/2610.10046v1_p20_2.jpg",
-      "caption": "Figure 2 plots the optimal policy at t = 5 against the funding ratio, respectively the optimal \u2014 The figure plots the optimal investment policy as a function of the funding ratio at an intermediate time point (t=5) within a stochastic goal-based wealth management framework. The x-axis represents the funding ratio (current wealth relative to the stochastic goal), while the y-axis shows the optimal allocation to the risky asset, with multiple curves corresponding to different benchmark preference ",
+      "caption": "Figure 2 plots the optimal policy at t = 5 against the funding ratio, respectively the optimal \u2014 This figure presents a line plot comparing optimal investment policies as a function of the funding ratio at time t=5 in a stochastic control framework for reaching financial goals. The x-axis represents the funding ratio (z) and the y-axis represents the optimal policy value, with multiple curves shown for different benchmark preference parameters (k=0.05, 0.1, 0.2) and risk aversion (\u03b3=2) under the",
       "vision": true,
       "source": "https://arxiv.org/pdf/2610.10046v1"
     },
@@ -206,7 +206,7 @@
       "title": "Optimal Investment to Reach a Financial Goal: A Stochastic Control Framework",
       "page": 21,
       "thumb": "/data/figures/2610.10046v1_p21_3.jpg",
-      "caption": "Figure 2: Optimal policy \u03c0\u2217under different levels of time risk aversion for the CARA terminal \u2014 This figure comprises four line charts comparing optimal investment policies (\u03c0*) under different levels of time risk aversion in a CARA (Constant Absolute Risk Aversion) utility framework. The top-left and bottom-left panels plot consumption or investment ratios against ratio z (ranging 0-1), while the top-right and bottom-right panels plot wealth against time s (ranging 0-10 seconds). Each panel dis",
+      "caption": "Figure 2: Optimal policy \u03c0\u2217under different levels of time risk aversion for the CARA terminal \u2014 This figure displays four panels comparing optimal investment policies under different levels of time risk aversion in a CARA (Constant Absolute Risk Aversion) terminal wealth framework. The top-left and bottom-left panels show consumption rate versus ratio z (wealth-to-goal ratio), while the top-right and bottom-right panels show wealth versus time s, with different colored lines representing hyperbo",
       "vision": true,
       "source": "https://arxiv.org/pdf/2610.10046v1"
     }
