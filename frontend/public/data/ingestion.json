@@ -1,7 +1,7 @@
 {
   "_note": "Public run manifest of the Tier-3 agentic ingestion pipeline. Safe aggregates + provenance only; raw PDFs live in S3, not here.",
-  "run_id": "20261012T091526Z",
-  "generated_at": "2026-10-12T09:18:18+00:00",
+  "run_id": "20261013T092721Z",
+  "generated_at": "2026-10-13T09:30:41+00:00",
   "collection": "research_corpus",
   "embed_model": "BAAI/bge-small-en-v1.5",
   "dag": [
@@ -58,8 +58,8 @@
     "tables": 9,
     "with_math": 10,
     "indexed": 371,
-    "spent_usd": 0.0321,
-    "duration_s": 172.6
+    "spent_usd": 0.0331,
+    "duration_s": 200.3
   },
   "rejects_by_reason": {
     "low-relevance": 28
@@ -71,7 +71,7 @@
       "title": "CorrFlow: Exact and Permutation-Equivariant Flow Matching on the Correlation Elliptope",
       "page": 3,
       "thumb": "/data/figures/2610.13606v1_p3_0.jpg",
-      "caption": "Figure 1: Geometry versus domain distribution for 3 \u00d7 3 matrices. Valid correlations lie \u2014 This figure shows three 3D scatter plots comparing different domains for 3\u00d73 correlation matrices. Panel (a) displays arbitrary entries with invalid correlations marked in red, illustrating the constraint violation in unconstrained spaces. Panel (b) shows the valid region under GFT (geometric flow transform) inversion, where all points satisfy correlation matrix constraints. Panel (c) presents empirical su",
+      "caption": "Figure 1: Geometry versus domain distribution for 3 \u00d7 3 matrices. Valid correlations lie \u2014 This figure displays three 3D scatter plots comparing correlation matrix distributions across different domains. Panel (a) shows arbitrary matrix entries with invalid correlations marked in red, panel (b) shows the valid correlation space (elliptope) under the GFT inverse transformation with points colored by construction validity, and panel (c) displays empirical support from Taiwan stock estimates. The a",
       "vision": true,
       "source": "https://arxiv.org/pdf/2610.13606v1"
     },
@@ -80,7 +80,7 @@
       "title": "CorrFlow: Exact and Permutation-Equivariant Flow Matching on the Correlation Elliptope",
       "page": 5,
       "thumb": "/data/figures/2610.13606v1_p5_1.jpg",
-      "caption": "Figure 2: What permutation equivariance guarantees. Colors track eight variable identities. \u2014 This figure demonstrates permutation equivariance in CorrFlow by showing two parallel processing paths through correlation matrices. The top path applies CorrFlow directly to edge noise X\u2080 to produce valid output C, while the bottom path reorders the noise as PX\u2080P^T and applies the same CorrFlow to produce reordered output PCP^T, where both paths preserve the same relationships between variables A throu",
+      "caption": "Figure 2: What permutation equivariance guarantees. Colors track eight variable identities. \u2014 This figure demonstrates the permutation equivariance property of CorrFlow by showing two parallel processing paths on correlation matrices. The top path processes edge noise X\u2080 directly to valid output C, while the bottom path applies the same reordering operation to both input (P X\u2080 P\u1d40) and output (P C P\u1d40) before applying CorrFlow; both paths produce consistent correlation structures despite variable ",
       "vision": true,
       "source": "https://arxiv.org/pdf/2610.13606v1"
     },
@@ -89,7 +89,7 @@
       "title": "CorrFlow: Exact and Permutation-Equivariant Flow Matching on the Correlation Elliptope",
       "page": 18,
       "thumb": "/data/figures/2610.13606v1_p18_2.jpg",
-      "caption": "Figure 3 compares the eigenvalue spectra of all Taiwan training and test matrices. Each matrix receives equal weight, preserving the observed regime frequencies within each split. Table 1 evaluates a balanced subset of 1,500 test cases, with 500 from each regime. \u2014 This text section discusses parameter sharing limitations and model evaluation metrics rather than describing a figure. The passage notes that applying an 80-asset checkpoint at n=40 produced F-SWD score of 2.070 and precision/recall ",
+      "caption": "Figure 3 compares the eigenvalue spectra of all Taiwan training and test matrices. Each matrix receives equal weight, preserving the observed regime frequencies within each split. Table 1 evaluates a balanced subset of 1,500 test cases, with 500 from each regime. \u2014 This section discusses parameter sharing across different model sizes and its implications for cross-size generalization accuracy. The text notes that applying an 80-asset checkpoint directly to n=40 assets resulted in degraded perfor",
       "vision": true,
       "source": "https://arxiv.org/pdf/2610.13606v1"
     },
@@ -98,7 +98,7 @@
       "title": "CorrFlow: Exact and Permutation-Equivariant Flow Matching on the Correlation Elliptope",
       "page": 18,
       "thumb": "/data/figures/2610.13606v1_p18_3.jpg",
-      "caption": "Figure 3: The spectral change between the full, naturally weighted training and test splits. \u2014 This figure compares spectral properties between training data (2014-2020, blue) and test data (2023-Jul 2026, orange) across three panels. Panel (a) shows cumulative explained variance as a function of leading components, with both datasets reaching ~80% variance explained at 30 components. Panels (b) and (c) are histograms showing the distribution of variance share in the five largest eigenvalues and",
+      "caption": "Figure 3: The spectral change between the full, naturally weighted training and test splits. \u2014 This figure displays three panels analyzing spectral properties of correlation matrices across training and test periods. Panel (a) shows cumulative explained variance as a function of leading components, comparing training data (2014-2020, blue) versus test data (2023-Jul 2026, orange) with confidence bands. Panels (b) and (c) are histograms showing the distribution of variance share in the five large",
       "vision": true,
       "source": "https://arxiv.org/pdf/2610.13606v1"
     },
@@ -107,7 +107,7 @@
       "title": "$L_0$ Feature Selection via Monte Carlo Tree Search in High-Dimensional Financial Regression",
       "page": 3,
       "thumb": "/data/figures/2610.13574v1_p3_0.jpg",
-      "caption": "Figure 1: Overview of the proposed search framework. \u2014 This flowchart illustrates a Monte Carlo Tree Search (MCTS) based feature selection framework for high-dimensional financial regression. The diagram shows the process flow from raw financial data (OHLCV variables) through candidate feature generation, an MCTS algorithm with state evaluation and rollout phases, and culminating in three validation steps: temporal validation, temporal-spatial validation, and multiperiod validation. Key componen",
+      "caption": "Figure 1: Overview of the proposed search framework. \u2014 This figure is a flow diagram illustrating a feature selection framework that progresses from left to right. The process begins with \"Candidate Features (DJIA Variables)\" on the left, flows through \"Random Forest Features\" and intermediate processing steps including \"ARIMA GARCH Dimension Reduction\" and \"Extreme Gradient Boosting Ranking,\" then enters a \"Market Decision Process\" box containing a state representation (State: C, S, T) and Mont",
       "vision": true,
       "source": "https://arxiv.org/pdf/2610.13574v1"
     },
@@ -116,7 +116,7 @@
       "title": "$L_0$ Feature Selection via Monte Carlo Tree Search in High-Dimensional Financial Regression",
       "page": 7,
       "thumb": "/data/figures/2610.13574v1_p7_1.jpg",
-      "caption": "Figure 2: Correlation matrix of the best performing individual 15-feature GNRPA subset. \u2014 This is a correlation matrix heatmap displaying Pearson correlation coefficients among 15 financial features selected by the GNRPA algorithm. The matrix uses a red-blue diverging color scale where red indicates positive correlations (up to 1.00) and blue indicates negative correlations (down to -1.00), with values displayed in each cell. The key takeaway is that most feature pairs show weak to moderate corr",
+      "caption": "Figure 2: Correlation matrix of the best performing individual 15-feature GNRPA subset. \u2014 This figure shows a correlation matrix heatmap displaying pairwise correlations among 15 financial features selected from a GNRPA (Generalized Nonlinear Regression with Penalized Aggregation) model. The matrix uses a red-blue diverging color scale ranging from -1.0 (dark blue) to +1.0 (dark red) to represent correlation strength, with numerical values displayed in each cell. The key takeaway is that most se",
       "vision": true,
       "source": "https://arxiv.org/pdf/2610.13574v1"
     },
@@ -125,7 +125,7 @@
       "title": "Three options are roughly enough - Variance-optimal semi-static hedging in the rough Heston model",
       "page": 17,
       "thumb": "/data/figures/2610.13543v1_p17_0.jpg",
-      "caption": "Figure 1: Composition of the optimal static portfolio as a function of the basket size m, for H = 0.1, H = 0.3, and H = 0.5. Long and short positions are allowed. \u2014 This figure displays three heatmaps showing the optimal static hedging portfolio composition across different Hurst parameters (H = 0.1, 0.3, 0.5) in the rough Heston model. Each heatmap uses the x-axis for strike price K and y-axis for basket size m, with colored cells indicating position weights (red for long positions, blue for sh",
+      "caption": "Figure 1: Composition of the optimal static portfolio as a function of the basket size m, for H = 0.1, H = 0.3, and H = 0.5. Long and short positions are allowed. \u2014 These three heatmaps display the composition of optimal static hedging portfolios across different Hurst parameters (H = 0.1, 0.3, 0.5), with x-axis showing strike prices (K) and y-axis showing portfolio size (m). Red cells indicate long positions and blue cells indicate short positions in call options at each strike, while white cel",
       "vision": true,
       "source": "https://arxiv.org/pdf/2610.13543v1"
     },
@@ -134,7 +134,7 @@
       "title": "Three options are roughly enough - Variance-optimal semi-static hedging in the rough Heston model",
       "page": 18,
       "thumb": "/data/figures/2610.13543v1_p18_1.jpg",
-      "caption": "Figure 2: Composition of the optimal static portfolio as a function of the basket size m, for H = 0.1, H = 0.3, and H = 0.5. Only long positions are allowed. \u2014 This figure displays three heatmaps showing the composition of optimal static hedging portfolios across different Hurst parameters (H = 0.1, 0.3, 0.5) in the rough Heston model. Each heatmap has strike price (K) on the x-axis and portfolio index (m) on the y-axis, with color intensity (dark red to light) representing the position size in ",
+      "caption": "Figure 2: Composition of the optimal static portfolio as a function of the basket size m, for H = 0.1, H = 0.3, and H = 0.5. Only long positions are allowed. \u2014 These three heatmaps display the composition of optimal static hedging portfolios across different Hurst parameters (H = 0.1, 0.3, 0.5) in the rough Heston model. Each heatmap uses color intensity to represent position sizes in options (red indicating long positions), with strike price K on the x-axis and maturity m on the y-axis, showing",
       "vision": true,
       "source": "https://arxiv.org/pdf/2610.13543v1"
     },
@@ -143,7 +143,7 @@
       "title": "Three options are roughly enough - Variance-optimal semi-static hedging in the rough Heston model",
       "page": 19,
       "thumb": "/data/figures/2610.13543v1_p19_2.jpg",
-      "caption": "Figure 6 displays the optimal static positions in a log-log plot, with the strike on the horizontal axis and the corresponding portfolio weight on the vertical axis. Across all three values of H, the optimal weights exhibit a slope that is close to the theoretical slope implied by \u03bd(K) proportional to K\u22122 as in (5.4). Indeed, taking logarithms gives \u2014 Table 5 presents normalized hedging effectiveness \u03b7(m) across three Hurst regimes (H = 0.1, 0.3, 0.5) and basket sizes (m = 1, 2, 3), showing that",
+      "caption": "Figure 6 displays the optimal static positions in a log-log plot, with the strike on the horizontal axis and the corresponding portfolio weight on the vertical axis. Across all three values of H, the optimal weights exhibit a slope that is close to the theoretical slope implied by \u03bd(K) proportional to K\u22122 as in (5.4). Indeed, taking logarithms gives \u2014 Table 5 presents normalized hedging effectiveness \u03b7(m) across three Hurst parameter regimes (H = 0.1, 0.3, 0.5) and basket sizes (m = 1, 2, 3), wi",
       "vision": true,
       "source": "https://arxiv.org/pdf/2610.13543v1"
     },
@@ -152,7 +152,7 @@
       "title": "Three options are roughly enough - Variance-optimal semi-static hedging in the rough Heston model",
       "page": 21,
       "thumb": "/data/figures/2610.13543v1_p21_3.jpg",
-      "caption": "Figure 3: Optimal residual hedging error \u03b52(m) in log-plot for selected basket sizes and for the three Hurst regimes. \u2014 This log-scale line plot displays the optimal residual hedging error \u03b5\u00b2 as a function of portfolio size m (in millions), comparing three Hurst parameter regimes (H=0.1, H=0.3, H=0.5) in the rough Heston model. All three curves show rapid initial decay from portfolio size 0 to approximately 5 million, after which the error stabilizes at different levels depending on the Hurst pa",
+      "caption": "Figure 3: Optimal residual hedging error \u03b52(m) in log-plot for selected basket sizes and for the three Hurst regimes. \u2014 This log-scale plot shows the optimal residual hedging error (\u03b5\u00b2) versus portfolio size (m) for three Hurst parameter values (H=0.1, 0.3, 0.5) in the rough Heston model. Each curve exhibits rapid initial decay from approximately 10\u207b\u2074 to a plateau, with lower Hurst values producing higher asymptotic errors. The key takeaway is that hedging error stabilizes after m\u22483-5 instrument",
       "vision": true,
       "source": "https://arxiv.org/pdf/2610.13543v1"
     },
@@ -161,7 +161,7 @@
       "title": "Realized Tail-Risk Conditional Autoregressive Expectile Models: Accurate and Stable Forecasting Performance",
       "page": 12,
       "thumb": "/data/figures/2610.13446v1_p12_0.jpg",
-      "caption": "Figure 1: Boxplots of mean FZ0 loss across the 50 replications. Boxes show the interquartile range, the center line is the median, and whiskers show the observed range. \u2014 This figure presents boxplots comparing mean FZ0 loss across 50 replications for 18 different forecasting models across four significance levels (5%, 2.5%, 1%, and 0.5%). The models are grouped by family (RTCARE, CARE RV, GAS, GARCH, and HAR variants) shown in different colors, with boxes indicating interquartile ranges, center",
+      "caption": "Figure 1: Boxplots of mean FZ0 loss across the 50 replications. Boxes show the interquartile range, the center line is the median, and whiskers show the observed range. \u2014 This figure displays boxplots comparing mean FZ0 loss across 50 replications for multiple volatility forecasting models, organized in four panels by loss threshold levels (5%, 2.5%, 1%, and 0.5%). Each panel shows models grouped by family (RTCARE in purple, CARE in green, GAS in orange, GARCH in blue, and HAR in gray) with boxe",
       "vision": true,
       "source": "https://arxiv.org/pdf/2610.13446v1"
     },
@@ -170,7 +170,7 @@
       "title": "Realized Tail-Risk Conditional Autoregressive Expectile Models: Accurate and Stable Forecasting Performance",
       "page": 13,
       "thumb": "/data/figures/2610.13446v1_p13_1.jpg",
-      "caption": "Figure 2: Boxplots of the D diagnostic across the 50 replications. Boxes show the interquartile range, the center line is the median, and whiskers show the observed range. \u2014 This figure displays boxplots of the Diebold-Mariano diagnostic statistic across 50 Monte Carlo replications for multiple volatility forecasting models, organized in four panels representing different loss levels (5%, 2.5%, 1%, and 0.5%). The x-axis shows the D diagnostic values (ranging from 0 to approximately 4 across pane",
+      "caption": "Figure 2: Boxplots of the D diagnostic across the 50 replications. Boxes show the interquartile range, the center line is the median, and whiskers show the observed range. \u2014 This figure displays boxplots comparing the D diagnostic statistic across 50 replications for various volatility forecasting models organized into five families (RTCARE, CARE RV, GAS, GARCH, and HAR), shown at four different quantile levels (5%, 2.5%, 1%, and 0.5%). The x-axis represents the D diagnostic value (ranging from ",
       "vision": true,
       "source": "https://arxiv.org/pdf/2610.13446v1"
     },
@@ -179,7 +179,7 @@
       "title": "Realized Tail-Risk Conditional Autoregressive Expectile Models: Accurate and Stable Forecasting Performance",
       "page": 14,
       "thumb": "/data/figures/2610.13446v1_p14_2.jpg",
-      "caption": "Figure 3: Boxplots of VaR violation rates across the 50 replications. The red horizontal line marks the nominal violation rate for each tail level. \u2014 This figure presents four panels of boxplots comparing VaR violation rates across 50 replications for different models at nominal levels of 5%, 2.5%, 1%, and 0.5%. Each panel groups models into families (RTCARE models in purple, CARE RV family in green, GAS models in orange, and GARCH family in blue, with HAR-RQ-RES in gray), with boxes showing the",
+      "caption": "Figure 3: Boxplots of VaR violation rates across the 50 replications. The red horizontal line marks the nominal violation rate for each tail level. \u2014 This figure contains four boxplots (one for each tail level: 5%, 2.5%, 1%, and 0.5%) comparing VaR violation rates across different forecasting models including RTCARE variants, CARE family models, GAS variants, GARCH family models, and HAR models. The x-axis shows the VaR violation rate (%) and the y-axis lists the models, with boxes displaying th",
       "vision": true,
       "source": "https://arxiv.org/pdf/2610.13446v1"
     },
@@ -188,7 +188,7 @@
       "title": "Realized Tail-Risk Conditional Autoregressive Expectile Models: Accurate and Stable Forecasting Performance",
       "page": 24,
       "thumb": "/data/figures/2610.13446v1_p24_3.jpg",
-      "caption": "Figure 4: One-day-ahead VaR and ES forecasts at \u03b1 = 2.5% (out-of-sample). The upper and lower panels show VaR and ES, respectively. Solid gray: daily return series. Solid red: forecasts from RTCARE. Dashed blue: forecasts from HAR-RQ-RES. \u2014 This figure presents two time series panels comparing one-day-ahead Value-at-Risk (VaR) and Expected Shortfall (ES) forecasts at the 2.5% tail level from January 2012 to December 2024. The upper panel shows VaR forecasts and the lower panel shows ES forecasts",
+      "caption": "Figure 4: One-day-ahead VaR and ES forecasts at \u03b1 = 2.5% (out-of-sample). The upper and lower panels show VaR and ES, respectively. Solid gray: daily return series. Solid red: forecasts from RTCARE. Dashed blue: forecasts from HAR-RQ-RES. \u2014 This figure presents two time series panels comparing one-day-ahead Value-at-Risk (VaR) and Expected Shortfall (ES) forecasts at the 2.5% quantile from January 2012 to December 2024. The upper panel shows VaR forecasts while the lower panel shows ES forecasts",
       "vision": true,
       "source": "https://arxiv.org/pdf/2610.13446v1"
     },
@@ -197,7 +197,7 @@
       "title": "Enhancing credit risk scorecards with transactional-based behavioural features",
       "page": 4,
       "thumb": "/data/figures/2610.13199v1_p4_0.jpg",
-      "caption": "Figure 1: Flow diagram of the methodology structure. \u2014 This is a flowchart diagram illustrating a machine learning methodology for credit risk scorecard development. The chart maps the complete workflow from left to right, starting with \"Methodology\" as the primary input, which branches into three main processes: Data acquisition, Text-mining categorisation algorithm, Feature engineering, and Scorecard Evaluation. The Data acquisition phase splits into acquiring transactional categorisation data",
+      "caption": "Figure 1: Flow diagram of the methodology structure. \u2014 This is a flow diagram illustrating the methodology for enhancing credit risk scorecards with transactional data. The diagram shows four main branches emanating from \"Methodology\": Data acquisition (collecting categorization and scorecard data), Text-mining categorization algorithm (involving data preparation, RegEx pattern vocabularies, category assignment, and accuracy assessment), Feature engineering (including data aggregation and spendi",
       "vision": true,
       "source": "https://arxiv.org/pdf/2610.13199v1"
     },
@@ -206,7 +206,7 @@
       "title": "Enhancing credit risk scorecards with transactional-based behavioural features",
       "page": 6,
       "thumb": "/data/figures/2610.13199v1_p6_1.jpg",
-      "caption": "Figure 2: Example of the categorisation process. \u2014 This flowchart illustrates a hierarchical categorization process for transaction data used in credit risk assessment. The diagram shows how merchant payment transactions flow through multiple decision stages: first identifying \"PAY\" or \"PAYMENT\" keywords to create an interim category, then classifying \"CARD\" transactions with \"PURCHASE\" identifiers, and finally assigning transactions to final categories like \"GROCERIES.\" The key takeaway is that",
+      "caption": "Figure 2: Example of the categorisation process. \u2014 This flowchart illustrates a hierarchical categorization process for transaction data used in credit risk assessment. The diagram shows how transaction descriptions containing payment-related keywords (\"PAY\" or \"PAYMENT\") and card-based purchase keywords (\"CARD\" with \"PURCHASE\") are progressively classified through interim categories (EFT_TYPE_1 and POS) into final merchant categories (GROCERIES). The process demonstrates a sequential decision-t",
       "vision": true,
       "source": "https://arxiv.org/pdf/2610.13199v1"
     },
@@ -215,7 +215,7 @@
       "title": "Enhancing credit risk scorecards with transactional-based behavioural features",
       "page": 9,
       "thumb": "/data/figures/2610.13199v1_p9_2.jpg",
-      "caption": "Figure 3: Precision, recall, and F1 score distributions across all categories per year. \u2014 This figure displays three boxplots showing the distributions of Recall, Precision, and F1 Score (all measured in %) across 34 retail categories for different years. Each boxplot represents a single year, with the boxes colored to distinguish years (2023 in blue, 2024-2025 in green/yellow, and out-of-time samples in pink). The key takeaway is that the classification algorithm achieves consistently high reca",
+      "caption": "Figure 3: Precision, recall, and F1 score distributions across all categories per year. \u2014 This figure displays three boxplots showing the distribution of recall, precision, and F1 score metrics (all in percentages) across M=34 retailer categories for different years, with separate boxes for each year from 2023 and earlier years. The boxplots reveal that the classification algorithm achieves high median recall, precision, and F1 scores (typically 85-100%) for 2023 data, but shows substantially gr",
       "vision": true,
       "source": "https://arxiv.org/pdf/2610.13199v1"
     },
@@ -224,7 +224,7 @@
       "title": "Enhancing credit risk scorecards with transactional-based behavioural features",
       "page": 11,
       "thumb": "/data/figures/2610.13199v1_p11_3.jpg",
-      "caption": "Figure 4: Stability analysis for all transaction categories. \u2014 This figure displays a stacked bar chart with an overlaid line graph tracking Population Stability Index (PSI) across transaction categories from 2021 to 2025. The stacked bars show the relative frequency distribution of categorical transaction features by month (left y-axis, in %), while the solid black line tracks the monthly PSI values (right y-axis, in %). Horizontal yellow and red dotted reference lines indicate thresholds for m",
+      "caption": "Figure 4: Stability analysis for all transaction categories. \u2014 This stacked area chart displays the Stability Index (PSI) for transaction categories over time from 2021 to 2025, with a 100% stacked bar representation showing the relative frequency distribution of categorical transaction features on the left vertical axis and PSI values on the right vertical axis. The solid black line tracks monthly PSI trends, while horizontal yellow and red dotted reference lines indicate thresholds for margina",
       "vision": true,
       "source": "https://arxiv.org/pdf/2610.13199v1"
     }
