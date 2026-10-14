@@ -1,7 +1,7 @@
 {
   "_note": "Public run manifest of the Tier-3 agentic ingestion pipeline. Safe aggregates + provenance only; raw PDFs live in S3, not here.",
-  "run_id": "20261013T092721Z",
-  "generated_at": "2026-10-13T09:30:41+00:00",
+  "run_id": "20261014T074019Z",
+  "generated_at": "2026-10-14T07:43:35+00:00",
   "collection": "research_corpus",
   "embed_model": "BAAI/bge-small-en-v1.5",
   "dag": [
@@ -50,305 +50,278 @@
     "discovered": 10,
     "fetched": 10,
     "parsed": 10,
-    "chunks": 399,
-    "accepted": 371,
-    "rejected": 28,
-    "images": 47,
-    "figures_captioned": 18,
-    "tables": 9,
-    "with_math": 10,
-    "indexed": 371,
-    "spent_usd": 0.0331,
-    "duration_s": 200.3
+    "chunks": 477,
+    "accepted": 454,
+    "rejected": 23,
+    "images": 13,
+    "figures_captioned": 15,
+    "tables": 4,
+    "with_math": 9,
+    "indexed": 454,
+    "spent_usd": 0.0279,
+    "duration_s": 195.8
   },
   "rejects_by_reason": {
-    "low-relevance": 28
+    "low-relevance": 23
   },
   "budget_usd": 3.0,
   "figures": [
     {
-      "doc_id": "2610.13606v1",
-      "title": "CorrFlow: Exact and Permutation-Equivariant Flow Matching on the Correlation Elliptope",
-      "page": 3,
-      "thumb": "/data/figures/2610.13606v1_p3_0.jpg",
-      "caption": "Figure 1: Geometry versus domain distribution for 3 \u00d7 3 matrices. Valid correlations lie \u2014 This figure displays three 3D scatter plots comparing correlation matrix distributions across different domains. Panel (a) shows arbitrary matrix entries with invalid correlations marked in red, panel (b) shows the valid correlation space (elliptope) under the GFT inverse transformation with points colored by construction validity, and panel (c) displays empirical support from Taiwan stock estimates. The a",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.13606v1"
-    },
-    {
-      "doc_id": "2610.13606v1",
-      "title": "CorrFlow: Exact and Permutation-Equivariant Flow Matching on the Correlation Elliptope",
-      "page": 5,
-      "thumb": "/data/figures/2610.13606v1_p5_1.jpg",
-      "caption": "Figure 2: What permutation equivariance guarantees. Colors track eight variable identities. \u2014 This figure demonstrates the permutation equivariance property of CorrFlow by showing two parallel processing paths on correlation matrices. The top path processes edge noise X\u2080 directly to valid output C, while the bottom path applies the same reordering operation to both input (P X\u2080 P\u1d40) and output (P C P\u1d40) before applying CorrFlow; both paths produce consistent correlation structures despite variable ",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.13606v1"
-    },
-    {
-      "doc_id": "2610.13606v1",
-      "title": "CorrFlow: Exact and Permutation-Equivariant Flow Matching on the Correlation Elliptope",
-      "page": 18,
-      "thumb": "/data/figures/2610.13606v1_p18_2.jpg",
-      "caption": "Figure 3 compares the eigenvalue spectra of all Taiwan training and test matrices. Each matrix receives equal weight, preserving the observed regime frequencies within each split. Table 1 evaluates a balanced subset of 1,500 test cases, with 500 from each regime. \u2014 This section discusses parameter sharing across different model sizes and its implications for cross-size generalization accuracy. The text notes that applying an 80-asset checkpoint directly to n=40 assets resulted in degraded perfor",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.13606v1"
-    },
-    {
-      "doc_id": "2610.13606v1",
-      "title": "CorrFlow: Exact and Permutation-Equivariant Flow Matching on the Correlation Elliptope",
-      "page": 18,
-      "thumb": "/data/figures/2610.13606v1_p18_3.jpg",
-      "caption": "Figure 3: The spectral change between the full, naturally weighted training and test splits. \u2014 This figure displays three panels analyzing spectral properties of correlation matrices across training and test periods. Panel (a) shows cumulative explained variance as a function of leading components, comparing training data (2014-2020, blue) versus test data (2023-Jul 2026, orange) with confidence bands. Panels (b) and (c) are histograms showing the distribution of variance share in the five large",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.13606v1"
-    },
-    {
-      "doc_id": "2610.13574v1",
-      "title": "$L_0$ Feature Selection via Monte Carlo Tree Search in High-Dimensional Financial Regression",
-      "page": 3,
-      "thumb": "/data/figures/2610.13574v1_p3_0.jpg",
-      "caption": "Figure 1: Overview of the proposed search framework. \u2014 This figure is a flow diagram illustrating a feature selection framework that progresses from left to right. The process begins with \"Candidate Features (DJIA Variables)\" on the left, flows through \"Random Forest Features\" and intermediate processing steps including \"ARIMA GARCH Dimension Reduction\" and \"Extreme Gradient Boosting Ranking,\" then enters a \"Market Decision Process\" box containing a state representation (State: C, S, T) and Mont",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.13574v1"
-    },
-    {
-      "doc_id": "2610.13574v1",
-      "title": "$L_0$ Feature Selection via Monte Carlo Tree Search in High-Dimensional Financial Regression",
+      "doc_id": "2610.18795v1",
+      "title": "Discrete-Time Survival Modelling with Dynamic Industrial Graphs for Mortgage Credit Risk",
       "page": 7,
-      "thumb": "/data/figures/2610.13574v1_p7_1.jpg",
-      "caption": "Figure 2: Correlation matrix of the best performing individual 15-feature GNRPA subset. \u2014 This figure shows a correlation matrix heatmap displaying pairwise correlations among 15 financial features selected from a GNRPA (Generalized Nonlinear Regression with Penalized Aggregation) model. The matrix uses a red-blue diverging color scale ranging from -1.0 (dark blue) to +1.0 (dark red) to represent correlation strength, with numerical values displayed in each cell. The key takeaway is that most se",
+      "thumb": "/data/figures/2610.18795v1_p7_0.jpg",
+      "caption": "Figure 1: Static industrial graph across annual layers (left) and its weighted adjacency matrix (right). Each layer corresponds to one year and contains the same area vertex. Coloured within-layer \u2014 The figure displays a multi-layer industrial graph structure on the left showing three temporal snapshots (t, t+1, t+2) with nodes connected by edges across time periods, colored in blue, orange, and green respectively. On the right is the corresponding weighted adjacency matrix visualizing the conne",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2610.13574v1"
+      "source": "https://arxiv.org/pdf/2610.18795v1"
     },
     {
-      "doc_id": "2610.13543v1",
-      "title": "Three options are roughly enough - Variance-optimal semi-static hedging in the rough Heston model",
-      "page": 17,
-      "thumb": "/data/figures/2610.13543v1_p17_0.jpg",
-      "caption": "Figure 1: Composition of the optimal static portfolio as a function of the basket size m, for H = 0.1, H = 0.3, and H = 0.5. Long and short positions are allowed. \u2014 These three heatmaps display the composition of optimal static hedging portfolios across different Hurst parameters (H = 0.1, 0.3, 0.5), with x-axis showing strike prices (K) and y-axis showing portfolio size (m). Red cells indicate long positions and blue cells indicate short positions in call options at each strike, while white cel",
+      "doc_id": "2610.18795v1",
+      "title": "Discrete-Time Survival Modelling with Dynamic Industrial Graphs for Mortgage Credit Risk",
+      "page": 8,
+      "thumb": "/data/figures/2610.18795v1_p8_1.jpg",
+      "caption": "Figure 2: Dynamic industrial graph across annual layers (left) and its weighted adjacency matrix (right). Each layer corresponds to one year and contains the same area vertex. Coloured within-layer \u2014 This figure illustrates a dynamic industrial graph with three temporal layers (t, t+1, t+2) shown on the left as interconnected networks with vertices and edges, and their corresponding weighted adjacency matrix on the right displayed as a heatmap. The left panel shows how the same area vertex conne",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2610.13543v1"
+      "source": "https://arxiv.org/pdf/2610.18795v1"
     },
     {
-      "doc_id": "2610.13543v1",
-      "title": "Three options are roughly enough - Variance-optimal semi-static hedging in the rough Heston model",
-      "page": 18,
-      "thumb": "/data/figures/2610.13543v1_p18_1.jpg",
-      "caption": "Figure 2: Composition of the optimal static portfolio as a function of the basket size m, for H = 0.1, H = 0.3, and H = 0.5. Only long positions are allowed. \u2014 These three heatmaps display the composition of optimal static hedging portfolios across different Hurst parameters (H = 0.1, 0.3, 0.5) in the rough Heston model. Each heatmap uses color intensity to represent position sizes in options (red indicating long positions), with strike price K on the x-axis and maturity m on the y-axis, showing",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.13543v1"
-    },
-    {
-      "doc_id": "2610.13543v1",
-      "title": "Three options are roughly enough - Variance-optimal semi-static hedging in the rough Heston model",
-      "page": 19,
-      "thumb": "/data/figures/2610.13543v1_p19_2.jpg",
-      "caption": "Figure 6 displays the optimal static positions in a log-log plot, with the strike on the horizontal axis and the corresponding portfolio weight on the vertical axis. Across all three values of H, the optimal weights exhibit a slope that is close to the theoretical slope implied by \u03bd(K) proportional to K\u22122 as in (5.4). Indeed, taking logarithms gives \u2014 Table 5 presents normalized hedging effectiveness \u03b7(m) across three Hurst parameter regimes (H = 0.1, 0.3, 0.5) and basket sizes (m = 1, 2, 3), wi",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.13543v1"
-    },
-    {
-      "doc_id": "2610.13543v1",
-      "title": "Three options are roughly enough - Variance-optimal semi-static hedging in the rough Heston model",
-      "page": 21,
-      "thumb": "/data/figures/2610.13543v1_p21_3.jpg",
-      "caption": "Figure 3: Optimal residual hedging error \u03b52(m) in log-plot for selected basket sizes and for the three Hurst regimes. \u2014 This log-scale plot shows the optimal residual hedging error (\u03b5\u00b2) versus portfolio size (m) for three Hurst parameter values (H=0.1, 0.3, 0.5) in the rough Heston model. Each curve exhibits rapid initial decay from approximately 10\u207b\u2074 to a plateau, with lower Hurst values producing higher asymptotic errors. The key takeaway is that hedging error stabilizes after m\u22483-5 instrument",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.13543v1"
-    },
-    {
-      "doc_id": "2610.13446v1",
-      "title": "Realized Tail-Risk Conditional Autoregressive Expectile Models: Accurate and Stable Forecasting Performance",
-      "page": 12,
-      "thumb": "/data/figures/2610.13446v1_p12_0.jpg",
-      "caption": "Figure 1: Boxplots of mean FZ0 loss across the 50 replications. Boxes show the interquartile range, the center line is the median, and whiskers show the observed range. \u2014 This figure displays boxplots comparing mean FZ0 loss across 50 replications for multiple volatility forecasting models, organized in four panels by loss threshold levels (5%, 2.5%, 1%, and 0.5%). Each panel shows models grouped by family (RTCARE in purple, CARE in green, GAS in orange, GARCH in blue, and HAR in gray) with boxe",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.13446v1"
-    },
-    {
-      "doc_id": "2610.13446v1",
-      "title": "Realized Tail-Risk Conditional Autoregressive Expectile Models: Accurate and Stable Forecasting Performance",
+      "doc_id": "2610.18795v1",
+      "title": "Discrete-Time Survival Modelling with Dynamic Industrial Graphs for Mortgage Credit Risk",
       "page": 13,
-      "thumb": "/data/figures/2610.13446v1_p13_1.jpg",
-      "caption": "Figure 2: Boxplots of the D diagnostic across the 50 replications. Boxes show the interquartile range, the center line is the median, and whiskers show the observed range. \u2014 This figure displays boxplots comparing the D diagnostic statistic across 50 replications for various volatility forecasting models organized into five families (RTCARE, CARE RV, GAS, GARCH, and HAR), shown at four different quantile levels (5%, 2.5%, 1%, and 0.5%). The x-axis represents the D diagnostic value (ranging from ",
+      "thumb": "/data/figures/2610.18795v1_p13_2.jpg",
+      "caption": "Figure 3: Framework of the proposed model. For simplicity, the cross-area dependence structure is illustrated using the graph from a single year. \u2014 This figure illustrates the complete framework of a dynamic industrial graph-based survival model for mortgage credit risk. Panel 1 shows annual industrial profiles organized as matrices by area and sector; Panel 2 displays the temporal evolution of annual industrial graphs across consecutive years t, t+1, t+2 with nodes and edges representing econom",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2610.13446v1"
+      "source": "https://arxiv.org/pdf/2610.18795v1"
     },
     {
-      "doc_id": "2610.13446v1",
-      "title": "Realized Tail-Risk Conditional Autoregressive Expectile Models: Accurate and Stable Forecasting Performance",
-      "page": 14,
-      "thumb": "/data/figures/2610.13446v1_p14_2.jpg",
-      "caption": "Figure 3: Boxplots of VaR violation rates across the 50 replications. The red horizontal line marks the nominal violation rate for each tail level. \u2014 This figure contains four boxplots (one for each tail level: 5%, 2.5%, 1%, and 0.5%) comparing VaR violation rates across different forecasting models including RTCARE variants, CARE family models, GAS variants, GARCH family models, and HAR models. The x-axis shows the VaR violation rate (%) and the y-axis lists the models, with boxes displaying th",
+      "doc_id": "2610.18795v1",
+      "title": "Discrete-Time Survival Modelling with Dynamic Industrial Graphs for Mortgage Credit Risk",
+      "page": 20,
+      "thumb": "/data/figures/2610.18795v1_p20_3.jpg",
+      "caption": "Fig. 5 shows the corresponding distribution of the net drift TVnet \u2014 This section describes results from an industrial information diagnosis examining temporal variation in industrial composition across counties. The text references Fig. 4, which displays distributions of total variation (TVa,t) across counties for 13 year-to-year transitions, showing these distributions are unimodal and right-skewed with most counties clustered at low variation values. Table 3 reports average total variation ov",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2610.13446v1"
+      "source": "https://arxiv.org/pdf/2610.18795v1"
     },
     {
-      "doc_id": "2610.13446v1",
-      "title": "Realized Tail-Risk Conditional Autoregressive Expectile Models: Accurate and Stable Forecasting Performance",
+      "doc_id": "2610.18387v1",
+      "title": "Risk Measures for the Climate Transition Age: Why Symmetric Risk Budgets are unlikely to mitigate two-dimensionally asymmetric Climate Change risks",
+      "page": 5,
+      "thumb": "/data/figures/2610.18387v1_p5_0.jpg",
+      "caption": "Fig. 1. Comparison of Standard Deviation and Standard Risk identification of risk per week for \u2014 This figure displays three horizontal bar charts comparing Russell 1000 index metrics from Q2 2023 to Q1 2025 on a weekly basis. The three panels show Russell 1000 Return (center-left), R1000 Standard Deviation (center-right), and R1000 Standard Risk (right), with red bars indicating negative values and green bars indicating positive values. The key takeaway is that standard deviation and standard ri",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.18387v1"
+    },
+    {
+      "doc_id": "2610.18332v1",
+      "title": "Portfolio Decarbonization under Incomplete Carbon and Transition Information",
+      "page": 20,
+      "thumb": "/data/figures/2610.18332v1_p20_0.jpg",
+      "caption": "Figure 1 illustrates the temporal evolution of the principal state variables along a representative sample path, with the aim of providing an intuitive visualization of the model\u2019s core mechanisms. In particular, the filtered estimates of the transition factor exhibit only minor differences under continuous versus discrete observation of carbon intensity; however, disclosure at predetermined times \u2014 This figure displays the temporal evolution of state variables along a representative sample path",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.18332v1"
+    },
+    {
+      "doc_id": "2610.18332v1",
+      "title": "Portfolio Decarbonization under Incomplete Carbon and Transition Information",
+      "page": 22,
+      "thumb": "/data/figures/2610.18332v1_p22_1.jpg",
+      "caption": "Figure 1: Simulated market paths and filtered estimates of the transition state (one representa- tive path). \u2014 This figure displays simulated market data and filtered state estimates across four panels over a 25-year period. Panel (a) shows normalized asset prices as line charts for brown assets, z-misaligned intensity, brown asset disclosure, and green assets. Panel (b) presents carbon intensities and disclosure-based estimates as time series, comparing true carbon intensities (brown and green ",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.18332v1"
+    },
+    {
+      "doc_id": "2610.18332v1",
+      "title": "Portfolio Decarbonization under Incomplete Carbon and Transition Information",
+      "page": 23,
+      "thumb": "/data/figures/2610.18332v1_p23_2.jpg",
+      "caption": "Figure 2: Portfolio allocation effects of the carbon objective and incomplete climate information. \u2014 Figure 2 contains three stacked area and line charts showing portfolio allocation dynamics over 25 years under different information regimes. Panel (a) displays the unspecialized benchmark portfolio (\u03bb=0) as stacked areas representing allocations to Risk-free, Green, Blue, Decarbonizing, and Brown asset classes. Panel (b) plots the carbon-induced allocation tilt under full information as line pat",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.18332v1"
+    },
+    {
+      "doc_id": "2610.18332v1",
+      "title": "Portfolio Decarbonization under Incomplete Carbon and Transition Information",
       "page": 24,
-      "thumb": "/data/figures/2610.13446v1_p24_3.jpg",
-      "caption": "Figure 4: One-day-ahead VaR and ES forecasts at \u03b1 = 2.5% (out-of-sample). The upper and lower panels show VaR and ES, respectively. Solid gray: daily return series. Solid red: forecasts from RTCARE. Dashed blue: forecasts from HAR-RQ-RES. \u2014 This figure presents two time series panels comparing one-day-ahead Value-at-Risk (VaR) and Expected Shortfall (ES) forecasts at the 2.5% quantile from January 2012 to December 2024. The upper panel shows VaR forecasts while the lower panel shows ES forecasts",
+      "thumb": "/data/figures/2610.18332v1_p24_3.jpg",
+      "caption": "Figure 3: Welfare and probability of exceeding the emissions budget. \u2014 Panel (a) shows carbon-adjusted certainty equivalence wealth (relative to initial wealth) on the y-axis versus target cumulative financed-emissions reduction percentage on the x-axis, comparing four investment strategies: an unpenalized benchmark, F investor, U investor, and Z investor. Panel (b) displays the probability of exceeding the emissions budget on the y-axis across the same emissions reduction targets, again for all",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2610.13446v1"
+      "source": "https://arxiv.org/pdf/2610.18332v1"
     },
     {
-      "doc_id": "2610.13199v1",
-      "title": "Enhancing credit risk scorecards with transactional-based behavioural features",
-      "page": 4,
-      "thumb": "/data/figures/2610.13199v1_p4_0.jpg",
-      "caption": "Figure 1: Flow diagram of the methodology structure. \u2014 This is a flow diagram illustrating the methodology for enhancing credit risk scorecards with transactional data. The diagram shows four main branches emanating from \"Methodology\": Data acquisition (collecting categorization and scorecard data), Text-mining categorization algorithm (involving data preparation, RegEx pattern vocabularies, category assignment, and accuracy assessment), Feature engineering (including data aggregation and spendi",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.13199v1"
-    },
-    {
-      "doc_id": "2610.13199v1",
-      "title": "Enhancing credit risk scorecards with transactional-based behavioural features",
+      "doc_id": "2610.17732v1",
+      "title": "Structured SDEs for Realized GARCH: Continuous-Time Volatility Modelling and Component-Level Analysis",
       "page": 6,
-      "thumb": "/data/figures/2610.13199v1_p6_1.jpg",
-      "caption": "Figure 2: Example of the categorisation process. \u2014 This flowchart illustrates a hierarchical categorization process for transaction data used in credit risk assessment. The diagram shows how transaction descriptions containing payment-related keywords (\"PAY\" or \"PAYMENT\") and card-based purchase keywords (\"CARD\" with \"PURCHASE\") are progressively classified through interim categories (EFT_TYPE_1 and POS) into final merchant categories (GROCERIES). The process demonstrates a sequential decision-t",
+      "thumb": "/data/figures/2610.17732v1_p6_0.jpg",
+      "caption": "Figure 1 illustrates forecast behavior for KS11, MXX, and STI. Compared with Realized GARCH, the proposed SDE generally tracks RV more closely and exhibits less overshooting during several high-volatility episodes. \u2014 This figure presents a time series comparison chart showing realized volatility (RV) forecasts across three equity indices: KS11, MXX, and STI. The x-axis represents time periods (numbered 0-17 with additional markers), while the y-axis displays volatility values ranging approximate",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2610.13199v1"
+      "source": "https://arxiv.org/pdf/2610.17732v1"
     },
     {
-      "doc_id": "2610.13199v1",
-      "title": "Enhancing credit risk scorecards with transactional-based behavioural features",
-      "page": 9,
-      "thumb": "/data/figures/2610.13199v1_p9_2.jpg",
-      "caption": "Figure 3: Precision, recall, and F1 score distributions across all categories per year. \u2014 This figure displays three boxplots showing the distribution of recall, precision, and F1 score metrics (all in percentages) across M=34 retailer categories for different years, with separate boxes for each year from 2023 and earlier years. The boxplots reveal that the classification algorithm achieves high median recall, precision, and F1 scores (typically 85-100%) for 2023 data, but shows substantially gr",
+      "doc_id": "2610.17732v1",
+      "title": "Structured SDEs for Realized GARCH: Continuous-Time Volatility Modelling and Component-Level Analysis",
+      "page": 6,
+      "thumb": "/data/figures/2610.17732v1_p6_1.jpg",
+      "caption": "Figure 1: One-step-ahead variance forecasts of the proposed SDE and Realized GARCH for representative equity indices. \u2014 This figure displays one-step-ahead variance forecasts comparing an SDE-based model against Realized GARCH for three equity indices: KS11 (South Korea), MXX (Mexico), and STI (Singapore). Each panel shows a time series plot with realized volatility in the upper subplot and forecast errors or residuals in the lower subplot, with the x-axis representing time and y-axis representi",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2610.13199v1"
+      "source": "https://arxiv.org/pdf/2610.17732v1"
     },
     {
-      "doc_id": "2610.13199v1",
-      "title": "Enhancing credit risk scorecards with transactional-based behavioural features",
+      "doc_id": "2610.17481v1",
+      "title": "Designing Independent Variation: A Guided Iteration Methodology for Price Experiments in Short, Correlated Panels",
       "page": 11,
-      "thumb": "/data/figures/2610.13199v1_p11_3.jpg",
-      "caption": "Figure 4: Stability analysis for all transaction categories. \u2014 This stacked area chart displays the Stability Index (PSI) for transaction categories over time from 2021 to 2025, with a 100% stacked bar representation showing the relative frequency distribution of categorical transaction features on the left vertical axis and PSI values on the right vertical axis. The solid black line tracks monthly PSI trends, while horizontal yellow and red dotted reference lines indicate thresholds for margina",
+      "thumb": "/data/figures/2610.17481v1_p11_0.jpg",
+      "caption": "Figure 1: (a) Information \u03a6\u22c6obtained by concentrating versus spreading the budget equally across heterogeneous candidates (solid and dashed), and by concentrating it across a homogeneous pool (dotted), as a function of the budget (V4). (b) Greedy-to-exhaustive ratio with 14 candidates, six \u2014 The left panel (V4) shows a line plot of information \u03a6* (y-axis, ranging 0-18) versus budget as fraction of full cost (x-axis, 0-1.2), comparing three strategies: concentrating budget heterogeneously (solid ",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2610.13199v1"
+      "source": "https://arxiv.org/pdf/2610.17481v1"
+    },
+    {
+      "doc_id": "2610.17481v1",
+      "title": "Designing Independent Variation: A Guided Iteration Methodology for Price Experiments in Short, Correlated Panels",
+      "page": 16,
+      "thumb": "/data/figures/2610.17481v1_p16_1.jpg",
+      "caption": "Figure 2: Task 1a, synthetic eight-unit panel: realized variance of the GLS combination built from each covariance estimator, relative to equal weighting (dashed line at 1), against the relative noise of \u02c6\u03a30, \u2014 This log-scale line plot compares the realized GLS variance of five covariance regularization methods applied to a synthetic 8-unit grid panel, with variance normalized relative to equal weighting (baseline at 1.0). The x-axis shows approximate relative \u03a3\u2080 noise (\u221a(2/ngroup)), while the y",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.17481v1"
+    },
+    {
+      "doc_id": "2610.17481v1",
+      "title": "Designing Independent Variation: A Guided Iteration Methodology for Price Experiments in Short, Correlated Panels",
+      "page": 19,
+      "thumb": "/data/figures/2610.17481v1_p19_2.jpg",
+      "caption": "Figure 3: Anchor category (Soft Drinks), real historical windows (Task 3), in the context of ten Dominick\u2019s categories. (a) Realized variance reduction of the Ledoit\u2013Wolf GLS combination relative to equal weights, by category (exploratory check); for Soft Drinks shrinkage saturates at \u02c6\u03b1 = 100%, \u2014 This figure contains three panels analyzing price experiment design across product categories at Dominick's grocery store. Panel (a) is a horizontal bar chart showing GLS (Generalized Least Squares) va",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.17481v1"
+    },
+    {
+      "doc_id": "2610.17481v1",
+      "title": "Designing Independent Variation: A Guided Iteration Methodology for Price Experiments in Short, Correlated Panels",
+      "page": 19,
+      "thumb": "/data/figures/2610.17481v1_p19_3.jpg",
+      "caption": "Figure 4: Guided iteration on the anchor-category (Soft Drinks) illustration (Task 3). (a) Accu- mulated information \u03b9(c) under the discounted recursion (\u03b4 = 0.90), one active unit per cycle at V = 0.45, the operational target (dashed), c\u22c6= 10.15 (vertical line) and its 95% delta-method in- terval [2, 19] (shaded; it assumes a pilot of 40 replicates). (b) Parametric-bootstrap distribution of c\u22c6, r \u2014 This figure illustrates guided iteration methodology for price experiments in the Soft Drinks cat",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.17481v1"
     }
   ],
   "docs": [
     {
-      "id": "2610.13606v1",
-      "title": "CorrFlow: Exact and Permutation-Equivariant Flow Matching on the Correlation Elliptope",
-      "source": "https://arxiv.org/pdf/2610.13606v1",
-      "pages": 18,
-      "images": 3,
-      "figures_captioned": 4,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 42
-    },
-    {
-      "id": "2610.13574v1",
-      "title": "$L_0$ Feature Selection via Monte Carlo Tree Search in High-Dimensional Financial Regression",
-      "source": "https://arxiv.org/pdf/2610.13574v1",
-      "pages": 8,
-      "images": 12,
-      "figures_captioned": 2,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 26
-    },
-    {
-      "id": "2610.13543v1",
-      "title": "Three options are roughly enough - Variance-optimal semi-static hedging in the rough Heston model",
-      "source": "https://arxiv.org/pdf/2610.13543v1",
-      "pages": 27,
-      "images": 6,
-      "figures_captioned": 4,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 53
-    },
-    {
-      "id": "2610.13446v1",
-      "title": "Realized Tail-Risk Conditional Autoregressive Expectile Models: Accurate and Stable Forecasting Performance",
-      "source": "https://arxiv.org/pdf/2610.13446v1",
-      "pages": 39,
-      "images": 0,
-      "figures_captioned": 4,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 43
-    },
-    {
-      "id": "2610.13199v1",
-      "title": "Enhancing credit risk scorecards with transactional-based behavioural features",
-      "source": "https://arxiv.org/pdf/2610.13199v1",
-      "pages": 17,
-      "images": 6,
-      "figures_captioned": 4,
-      "tables": 4,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 32
-    },
-    {
-      "id": "2610.13162v1",
-      "title": "Entropy Regularization under No-Shorting: Structure Preservation and Convexity in Dynamic Mean-Variance Portfolio Selection",
-      "source": "https://arxiv.org/pdf/2610.13162v1",
-      "pages": 36,
+      "id": "2610.18823v1",
+      "title": "The Missile and the Toll: Two-Way Flow Through the Strait of Hormuz",
+      "source": "https://arxiv.org/pdf/2610.18823v1",
+      "pages": 11,
       "images": 0,
       "figures_captioned": 0,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 30
+      "chunks_indexed": 28
     },
     {
-      "id": "2610.13126v1",
-      "title": "MLP-Initialized Reinforcement Learning for Exit Timing in SPX Short-Straddle Portfolios",
-      "source": "https://arxiv.org/pdf/2610.13126v1",
-      "pages": 13,
-      "images": 2,
-      "figures_captioned": 0,
-      "tables": 1,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 39
-    },
-    {
-      "id": "2610.13044v1",
-      "title": "FOMO: FLEX Options and Market Outcomes",
-      "source": "https://arxiv.org/pdf/2610.13044v1",
-      "pages": 21,
-      "images": 1,
-      "figures_captioned": 0,
-      "tables": 4,
+      "id": "2610.18795v1",
+      "title": "Discrete-Time Survival Modelling with Dynamic Industrial Graphs for Mortgage Credit Risk",
+      "source": "https://arxiv.org/pdf/2610.18795v1",
+      "pages": 47,
+      "images": 0,
+      "figures_captioned": 4,
+      "tables": 2,
       "has_math": true,
       "ocr_used": false,
       "chunks_indexed": 38
     },
     {
-      "id": "2610.12875v1",
-      "title": "The Financing of Debt Relief: Intermediary Liquidity and the Value of Borrower Information",
-      "source": "https://arxiv.org/pdf/2610.12875v1",
-      "pages": 92,
+      "id": "2610.18706v1",
+      "title": "A GLE-LSV model with state-dependent leverage and colored noise",
+      "source": "https://arxiv.org/pdf/2610.18706v1",
+      "pages": 41,
       "images": 0,
       "figures_captioned": 0,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 34
+      "chunks_indexed": 65
     },
     {
-      "id": "2610.12718v1",
-      "title": "A Distributional Framework for Behavioral Characterization and Risk Management of Large Language Models",
-      "source": "https://arxiv.org/pdf/2610.12718v1",
-      "pages": 29,
-      "images": 17,
+      "id": "2610.18387v1",
+      "title": "Risk Measures for the Climate Transition Age: Why Symmetric Risk Budgets are unlikely to mitigate two-dimensionally asymmetric Climate Change risks",
+      "source": "https://arxiv.org/pdf/2610.18387v1",
+      "pages": 13,
+      "images": 3,
+      "figures_captioned": 1,
+      "tables": 1,
+      "has_math": false,
+      "ocr_used": false,
+      "chunks_indexed": 17
+    },
+    {
+      "id": "2610.18332v1",
+      "title": "Portfolio Decarbonization under Incomplete Carbon and Transition Information",
+      "source": "https://arxiv.org/pdf/2610.18332v1",
+      "pages": 46,
+      "images": 3,
+      "figures_captioned": 4,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 55
+    },
+    {
+      "id": "2610.17915v1",
+      "title": "On integrability of local utility maximizing strategies",
+      "source": "https://arxiv.org/pdf/2610.17915v1",
+      "pages": 28,
+      "images": 0,
       "figures_captioned": 0,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 34
+      "chunks_indexed": 51
+    },
+    {
+      "id": "2610.17732v1",
+      "title": "Structured SDEs for Realized GARCH: Continuous-Time Volatility Modelling and Component-Level Analysis",
+      "source": "https://arxiv.org/pdf/2610.17732v1",
+      "pages": 22,
+      "images": 3,
+      "figures_captioned": 2,
+      "tables": 1,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 45
+    },
+    {
+      "id": "2610.17681v1",
+      "title": "E-Backtesting Expected Shortfall without Value-at-Risk Forecasts under Time-series Models",
+      "source": "https://arxiv.org/pdf/2610.17681v1",
+      "pages": 40,
+      "images": 0,
+      "figures_captioned": 0,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 44
+    },
+    {
+      "id": "2610.17481v1",
+      "title": "Designing Independent Variation: A Guided Iteration Methodology for Price Experiments in Short, Correlated Panels",
+      "source": "https://arxiv.org/pdf/2610.17481v1",
+      "pages": 25,
+      "images": 4,
+      "figures_captioned": 4,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 62
+    },
+    {
+      "id": "2610.17304v1",
+      "title": "Dirichlet sub-mixtures: A new reading of multiplicative background risk models with Pareto margins",
+      "source": "https://arxiv.org/pdf/2610.17304v1",
+      "pages": 48,
+      "images": 0,
+      "figures_captioned": 0,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 49
     }
   ]
 }
