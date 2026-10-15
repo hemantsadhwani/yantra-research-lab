@@ -1,7 +1,7 @@
 {
   "_note": "Public run manifest of the Tier-3 agentic ingestion pipeline. Safe aggregates + provenance only; raw PDFs live in S3, not here.",
-  "run_id": "20261014T074019Z",
-  "generated_at": "2026-10-14T07:43:35+00:00",
+  "run_id": "20261015T072832Z",
+  "generated_at": "2026-10-15T07:32:08+00:00",
   "collection": "research_corpus",
   "embed_model": "BAAI/bge-small-en-v1.5",
   "dag": [
@@ -50,28 +50,172 @@
     "discovered": 10,
     "fetched": 10,
     "parsed": 10,
-    "chunks": 477,
-    "accepted": 454,
-    "rejected": 23,
-    "images": 13,
-    "figures_captioned": 15,
-    "tables": 4,
+    "chunks": 515,
+    "accepted": 474,
+    "rejected": 41,
+    "images": 7,
+    "figures_captioned": 18,
+    "tables": 3,
     "with_math": 9,
-    "indexed": 454,
-    "spent_usd": 0.0279,
-    "duration_s": 195.8
+    "indexed": 474,
+    "spent_usd": 0.033,
+    "duration_s": 216.8
   },
   "rejects_by_reason": {
-    "low-relevance": 23
+    "low-relevance": 41
   },
   "budget_usd": 3.0,
   "figures": [
+    {
+      "doc_id": "2610.20366v1",
+      "title": "Regime Detection in Latent Factor Models -- A Bayesian Decision-Theoretic Approach",
+      "page": 3,
+      "thumb": "/data/figures/2610.20366v1_p3_0.jpg",
+      "caption": "Figure 1. Schematic of the decision-theoretic problem in regime-switching multi- factor models. Filtering draws inference on the latent factors and the hidden regime, which is then used to construct a decision rule. The downstream actions taken based on these decisions are outside the scope of this paper. \u2014 This is a flow diagram illustrating a regime-switching multi-factor model framework with four main components connected by solid and dashed arrows: a hidden regime state Z_t, latent factors X",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.20366v1"
+    },
+    {
+      "doc_id": "2610.20366v1",
+      "title": "Regime Detection in Latent Factor Models -- A Bayesian Decision-Theoretic Approach",
+      "page": 7,
+      "thumb": "/data/figures/2610.20366v1_p7_1.jpg",
+      "caption": "Figure 2. Optimal stopping boundary for the oracle version of the Heston model with a single change-point. Here m1 < m2, depicted by horizontal dashed lines. The left panel is the asset price and variance process as time progresses while the two-dimensional diffusion (\u03c0, \u03bd) is graphed in the right panel with the optimal stop- ping boundary (black curve) and \u03c0 (dashed vertical line). The parameters \u2014 This figure illustrates optimal stopping in a regime-detection problem using the Heston stochasti",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.20366v1"
+    },
+    {
+      "doc_id": "2610.20366v1",
+      "title": "Regime Detection in Latent Factor Models -- A Bayesian Decision-Theoretic Approach",
+      "page": 15,
+      "thumb": "/data/figures/2610.20366v1_p15_2.jpg",
+      "caption": "Figure 3 shows that the oracle rule based on the observed stock and true variance attains the lowest estimated loss. Among the implementable rules, PFMCDP has the lowest estimated loss. Both particle-filter-based estimated losses are below those of RV, EWMA, and the deterministic benchmark. The decomposition also shows that RV and EWMA attain shorter detection delays at the expense of higher false \u2014 This figure displays a bar chart comparing estimated losses and their decomposition across multip",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.20366v1"
+    },
+    {
+      "doc_id": "2610.20366v1",
+      "title": "Regime Detection in Latent Factor Models -- A Bayesian Decision-Theoretic Approach",
+      "page": 16,
+      "thumb": "/data/figures/2610.20366v1_p16_3.jpg",
+      "caption": "Figure 3. Performance of stopping rules in the single-change-point Heston model. Each bar decomposes the estimated risk in (5) into its false-alarm and detection- delay contributions, b d PFA and c [ EDD, with b = c = 1. Total estimated losses and pointwise 95% Monte Carlo confidence intervals (Ntest = 5000), calculated from the pathwise losses in (41) conditional on the fitted rules, are reported \u2014 This figure is a horizontal stacked bar chart comparing six stopping rules (True variance, PFMCDP",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.20366v1"
+    },
+    {
+      "doc_id": "2610.20037v1",
+      "title": "Data-Driven Dynamic Portfolio Selection with Vine Copula Simulation and Reinforcement Learning",
+      "page": 14,
+      "thumb": "/data/figures/2610.20037v1_p14_0.jpg",
+      "caption": "Figure 1: Conditional return modelling, policy learning, and portfolio evaluation. Estimation and policy fitting use the training sample. During evaluation, each decision uses the available history, followed by the realised holding-period return. \u2014 This flowchart depicts a four-stage pipeline for data-driven portfolio optimization combining conditional return modeling with reinforcement learning. The stages progress from top to bottom: (1) conditional return law estimation using marginal models ",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.20037v1"
+    },
+    {
+      "doc_id": "2610.20037v1",
+      "title": "Data-Driven Dynamic Portfolio Selection with Vine Copula Simulation and Reinforcement Learning",
+      "page": 17,
+      "thumb": "/data/figures/2610.20037v1_p17_1.jpg",
+      "caption": "Figure 2 shows how portfolio transitions supply the replay data for the actor and critic updates. Training uses historical trajectories, simulated trajectories, or their mixture, as specified in Sec- tion 5.3. For the mixed scheme, a separate fit on 37 early historical trajectories diagnoses one-pass historical adaptation on a later trajectory with disjoint targets, with per-seed metrics retained  \u2014 This figure presents mathematical formulations for a reinforcement learning framework with dual c",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.20037v1"
+    },
+    {
+      "doc_id": "2610.20037v1",
+      "title": "Data-Driven Dynamic Portfolio Selection with Vine Copula Simulation and Reinforcement Learning",
+      "page": 18,
+      "thumb": "/data/figures/2610.20037v1_p18_2.jpg",
+      "caption": "Figure 2: Recurrent TD3. The actor maps the masked history to portfolio weights, and realised transitions and scenario-risk charges supply the replay rewards. The two critics use separate history encoders. Dashed arrows indicate parameter updates. \u2014 This figure is a flow diagram illustrating a Recurrent Twin Delayed DDPG (TD3) reinforcement learning architecture for portfolio optimization. The system processes a 30\u00d788 masked price history through an LN-LSTM actor head to generate portfolio weigh",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.20037v1"
+    },
+    {
+      "doc_id": "2610.20037v1",
+      "title": "Data-Driven Dynamic Portfolio Selection with Vine Copula Simulation and Reinforcement Learning",
+      "page": 21,
+      "thumb": "/data/figures/2610.20037v1_p21_3.jpg",
+      "caption": "Figure 3: Net wealth and drawdown re-compounded from the 22 retained net returns, with initial wealth of 100,000. The two incomplete holding periods do not enter either path. \u2014 This figure displays two line charts tracking portfolio performance metrics across holding periods from 2024 to 2030. The top panel (b) shows net wealth evolution for five strategies (Equal weight, Rolling vine, Shrinkage MV, NN-vine, DCC-GARCH, NN-vine-RL, and Static vine), with values ranging from 1.0 to 1.8, while the ",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.20037v1"
+    },
+    {
+      "doc_id": "2610.19428v1",
+      "title": "Common Signals, Spurious Cross-Excitation, and Identification in Multivariate Hawkes Processes",
+      "page": 10,
+      "thumb": "/data/figures/2610.19428v1_p10_0.jpg",
+      "caption": "Figure 1 shows the shape of the apparent cross-excitation produced by heterogeneous responses to a common signal. Both panels set the structural excitation kernel to zero, \u03c6 \u22610, so every nonzero projected cross-kernel is due to the omitted signal. In panel (a), type 1 responds immediately, while \u2014 This image presents mathematical formulas and theoretical analysis rather than a traditional figure. The text defines a function Q(r,x) and derives properties of a directional ratio D(r,x) that measure",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.19428v1"
+    },
+    {
+      "doc_id": "2610.19428v1",
+      "title": "Common Signals, Spurious Cross-Excitation, and Identification in Multivariate Hawkes Processes",
+      "page": 11,
+      "thumb": "/data/figures/2610.19428v1_p11_1.jpg",
+      "caption": "Figure 1: Spurious cross-excitation kernels when there is no imitation (\u03c6 \u22610). Two agents have equal loadings and mean intensities \u039b = 50\u03ba, with latent covariance ve\u2212\u03ba|\u03c4| and r = 2\u03b22v/(\u03ba\u039b) = 25. (a) Pure delays 0 and \u2206= 0.3/\u03ba, evaluated from the normalized kernels in Corollary 3. (b) \u2014 This figure displays spurious cross-excitation kernels in a two-agent Hawkes process system with no true imitation, plotted across two panels showing different kernel specifications. Panel (a) shows pure delay ker",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.19428v1"
+    },
+    {
+      "doc_id": "2610.19428v1",
+      "title": "Common Signals, Spurious Cross-Excitation, and Identification in Multivariate Hawkes Processes",
+      "page": 11,
+      "thumb": "/data/figures/2610.19428v1_p11_2.jpg",
+      "caption": "Figure 2 quantifies this asymmetry in the symmetric pure-delay benchmark. Its horizontal axis x = \u03ba\u2206measures the reaction-time gap relative to the persistence timescale 1/\u03ba of the common signal; r measures the strength of common-signal variation relative to the event-noise level. With simultaneous responses (x = 0), the two projected cross-masses are equal and the directional asymmetry index D(r,  \u2014 This figure displays spurious cross-excitation kernels in a bivariate Hawkes process setting with",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.19428v1"
+    },
+    {
+      "doc_id": "2610.19428v1",
+      "title": "Common Signals, Spurious Cross-Excitation, and Identification in Multivariate Hawkes Processes",
+      "page": 12,
+      "thumb": "/data/figures/2610.19428v1_p12_3.jpg",
+      "caption": "Figure 2: Exact directional asymmetry (\u00af\u03a821 \u2212\u00af\u03a812)/(\u00af\u03a821 + \u00af\u03a812) in the symmetric pure-delay model against \u03ba\u2206, for signal-to-noise ratios r = 2\u03b22v/(\u03ba\u039b). Dashed: the weak-signal limit 1 \u2212e\u2212\u03ba\u2206. \u2014 This line plot displays directional asymmetry in a symmetric pure-delay Hawkes process model as a function of \u03ba\u0394 (x-axis, ranging 0 to 1.4) against directional asymmetry (y-axis, ranging 0 to 1.0). Five curves represent different signal-to-noise ratios (r = 0.25, 1, 6.25, 25) with solid lines, plus a dash",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.19428v1"
+    },
+    {
+      "doc_id": "2610.19254v1",
+      "title": "Beyond Time Induction: Structured Conditional Neural Solvers for Parametric Stochastic-Volatility Pricing",
+      "page": 4,
+      "thumb": "/data/figures/2610.19254v1_p4_0.jpg",
+      "caption": "Figure 1: Architecture Description. (a) TINN uses time-conditioned modulation to adapt backbone param- eters over time. (b) BeTINN generalizes time-induced modulation into a structured time\u2013parameter conditional parameterization. Joint conditioning moves each backbone parameter group along multiple learned adaptation directions, yielding a structured family of regime-dependent networks. In paralle \u2014 Figure 1 shows the architecture comparison between TINN and BeTINN neural network models for pric",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.19254v1"
+    },
+    {
+      "doc_id": "2610.19254v1",
+      "title": "Beyond Time Induction: Structured Conditional Neural Solvers for Parametric Stochastic-Volatility Pricing",
+      "page": 6,
+      "thumb": "/data/figures/2610.19254v1_p6_1.jpg",
+      "caption": "Figure 2: Joint option-value and derivative accuracy. Price MAE is plotted against the MAE of \u2206, K\u0393, and variance sensitivity uv. Highlighted markers denote the final benchmark models, while light-gray markers show additional controlled configurations. The two sets correspond to their respective frozen evaluation protocols. Lower-left indicates lower error in both option value and the correspondin \u2014 This figure presents three scatter plots comparing pricing accuracy against derivative Greeks acc",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.19254v1"
+    },
+    {
+      "doc_id": "2610.19254v1",
+      "title": "Beyond Time Induction: Structured Conditional Neural Solvers for Parametric Stochastic-Volatility Pricing",
+      "page": 6,
+      "thumb": "/data/figures/2610.19254v1_p6_2.jpg",
+      "caption": "Figure 2 complements the aggregate benchmark by ex- amining value and derivative errors jointly. BeTINN lies in the low-error region in each price\u2013derivative plane, showing that its lower option-value error is ac- companied by low error in \u2206, K\u0393, and uv. The com- parison does not indicate an evident trade-off between improving the solution value and preserving its differ- ential structure. Further \u2014 This figure presents three scatter plots comparing Price MAE (x-axis) against derivative accuracy",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.19254v1"
+    },
+    {
+      "doc_id": "2610.19254v1",
+      "title": "Beyond Time Induction: Structured Conditional Neural Solvers for Parametric Stochastic-Volatility Pricing",
+      "page": 7,
+      "thumb": "/data/figures/2610.19254v1_p7_3.jpg",
+      "caption": "Figure 3: Solution and derivative profiles across representative Heston regimes. We sweep log- moneyness x over three fixed (\u03c4, v, r, \u03c1, \u03ba, \u03b8, \u03c3) settings: interior (1.84, 0.52, 0.08, \u22120.38, 1.92, 0.39, 0.55), near- maturity (0.07, 0.57, 0.16, \u22120.48, 1.61, 0.40, 0.75), and stress (3.78, 0.64, 0.15, \u22120.47, 1.89, 0.99, 0.60). While all models closely match the price profiles, sensitivity errors are  \u2014 This figure compares pricing derivatives and Greeks across three Heston model regimes (interior, ",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.19254v1"
+    },
     {
       "doc_id": "2610.18795v1",
       "title": "Discrete-Time Survival Modelling with Dynamic Industrial Graphs for Mortgage Credit Risk",
       "page": 7,
       "thumb": "/data/figures/2610.18795v1_p7_0.jpg",
-      "caption": "Figure 1: Static industrial graph across annual layers (left) and its weighted adjacency matrix (right). Each layer corresponds to one year and contains the same area vertex. Coloured within-layer \u2014 The figure displays a multi-layer industrial graph structure on the left showing three temporal snapshots (t, t+1, t+2) with nodes connected by edges across time periods, colored in blue, orange, and green respectively. On the right is the corresponding weighted adjacency matrix visualizing the conne",
+      "caption": "Figure 1: Static industrial graph across annual layers (left) and its weighted adjacency matrix (right). Each layer corresponds to one year and contains the same area vertex. Coloured within-layer \u2014 The figure displays a temporal graph structure with three annual layers (t, t+1, t+2) on the left, where each layer contains interconnected nodes representing industrial entities, with colored shading indicating different time periods. The right panel shows the corresponding weighted adjacency matrix",
       "vision": true,
       "source": "https://arxiv.org/pdf/2610.18795v1"
     },
@@ -80,129 +224,72 @@
       "title": "Discrete-Time Survival Modelling with Dynamic Industrial Graphs for Mortgage Credit Risk",
       "page": 8,
       "thumb": "/data/figures/2610.18795v1_p8_1.jpg",
-      "caption": "Figure 2: Dynamic industrial graph across annual layers (left) and its weighted adjacency matrix (right). Each layer corresponds to one year and contains the same area vertex. Coloured within-layer \u2014 This figure illustrates a dynamic industrial graph with three temporal layers (t, t+1, t+2) shown on the left as interconnected networks with vertices and edges, and their corresponding weighted adjacency matrix on the right displayed as a heatmap. The left panel shows how the same area vertex conne",
+      "caption": "Figure 2: Dynamic industrial graph across annual layers (left) and its weighted adjacency matrix (right). Each layer corresponds to one year and contains the same area vertex. Coloured within-layer \u2014 The figure depicts a dynamic industrial graph representing mortgage credit risk across three consecutive time periods (t, t+1, t+2). The left panel shows a three-layer network structure with nodes connected by edges within and across layers, where each colored layer (blue, orange, green) represents ",
       "vision": true,
       "source": "https://arxiv.org/pdf/2610.18795v1"
-    },
-    {
-      "doc_id": "2610.18795v1",
-      "title": "Discrete-Time Survival Modelling with Dynamic Industrial Graphs for Mortgage Credit Risk",
-      "page": 13,
-      "thumb": "/data/figures/2610.18795v1_p13_2.jpg",
-      "caption": "Figure 3: Framework of the proposed model. For simplicity, the cross-area dependence structure is illustrated using the graph from a single year. \u2014 This figure illustrates the complete framework of a dynamic industrial graph-based survival model for mortgage credit risk. Panel 1 shows annual industrial profiles organized as matrices by area and sector; Panel 2 displays the temporal evolution of annual industrial graphs across consecutive years t, t+1, t+2 with nodes and edges representing econom",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.18795v1"
-    },
-    {
-      "doc_id": "2610.18795v1",
-      "title": "Discrete-Time Survival Modelling with Dynamic Industrial Graphs for Mortgage Credit Risk",
-      "page": 20,
-      "thumb": "/data/figures/2610.18795v1_p20_3.jpg",
-      "caption": "Fig. 5 shows the corresponding distribution of the net drift TVnet \u2014 This section describes results from an industrial information diagnosis examining temporal variation in industrial composition across counties. The text references Fig. 4, which displays distributions of total variation (TVa,t) across counties for 13 year-to-year transitions, showing these distributions are unimodal and right-skewed with most counties clustered at low variation values. Table 3 reports average total variation ov",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.18795v1"
-    },
-    {
-      "doc_id": "2610.18387v1",
-      "title": "Risk Measures for the Climate Transition Age: Why Symmetric Risk Budgets are unlikely to mitigate two-dimensionally asymmetric Climate Change risks",
-      "page": 5,
-      "thumb": "/data/figures/2610.18387v1_p5_0.jpg",
-      "caption": "Fig. 1. Comparison of Standard Deviation and Standard Risk identification of risk per week for \u2014 This figure displays three horizontal bar charts comparing Russell 1000 index metrics from Q2 2023 to Q1 2025 on a weekly basis. The three panels show Russell 1000 Return (center-left), R1000 Standard Deviation (center-right), and R1000 Standard Risk (right), with red bars indicating negative values and green bars indicating positive values. The key takeaway is that standard deviation and standard ri",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.18387v1"
-    },
-    {
-      "doc_id": "2610.18332v1",
-      "title": "Portfolio Decarbonization under Incomplete Carbon and Transition Information",
-      "page": 20,
-      "thumb": "/data/figures/2610.18332v1_p20_0.jpg",
-      "caption": "Figure 1 illustrates the temporal evolution of the principal state variables along a representative sample path, with the aim of providing an intuitive visualization of the model\u2019s core mechanisms. In particular, the filtered estimates of the transition factor exhibit only minor differences under continuous versus discrete observation of carbon intensity; however, disclosure at predetermined times \u2014 This figure displays the temporal evolution of state variables along a representative sample path",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.18332v1"
-    },
-    {
-      "doc_id": "2610.18332v1",
-      "title": "Portfolio Decarbonization under Incomplete Carbon and Transition Information",
-      "page": 22,
-      "thumb": "/data/figures/2610.18332v1_p22_1.jpg",
-      "caption": "Figure 1: Simulated market paths and filtered estimates of the transition state (one representa- tive path). \u2014 This figure displays simulated market data and filtered state estimates across four panels over a 25-year period. Panel (a) shows normalized asset prices as line charts for brown assets, z-misaligned intensity, brown asset disclosure, and green assets. Panel (b) presents carbon intensities and disclosure-based estimates as time series, comparing true carbon intensities (brown and green ",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.18332v1"
-    },
-    {
-      "doc_id": "2610.18332v1",
-      "title": "Portfolio Decarbonization under Incomplete Carbon and Transition Information",
-      "page": 23,
-      "thumb": "/data/figures/2610.18332v1_p23_2.jpg",
-      "caption": "Figure 2: Portfolio allocation effects of the carbon objective and incomplete climate information. \u2014 Figure 2 contains three stacked area and line charts showing portfolio allocation dynamics over 25 years under different information regimes. Panel (a) displays the unspecialized benchmark portfolio (\u03bb=0) as stacked areas representing allocations to Risk-free, Green, Blue, Decarbonizing, and Brown asset classes. Panel (b) plots the carbon-induced allocation tilt under full information as line pat",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.18332v1"
-    },
-    {
-      "doc_id": "2610.18332v1",
-      "title": "Portfolio Decarbonization under Incomplete Carbon and Transition Information",
-      "page": 24,
-      "thumb": "/data/figures/2610.18332v1_p24_3.jpg",
-      "caption": "Figure 3: Welfare and probability of exceeding the emissions budget. \u2014 Panel (a) shows carbon-adjusted certainty equivalence wealth (relative to initial wealth) on the y-axis versus target cumulative financed-emissions reduction percentage on the x-axis, comparing four investment strategies: an unpenalized benchmark, F investor, U investor, and Z investor. Panel (b) displays the probability of exceeding the emissions budget on the y-axis across the same emissions reduction targets, again for all",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.18332v1"
-    },
-    {
-      "doc_id": "2610.17732v1",
-      "title": "Structured SDEs for Realized GARCH: Continuous-Time Volatility Modelling and Component-Level Analysis",
-      "page": 6,
-      "thumb": "/data/figures/2610.17732v1_p6_0.jpg",
-      "caption": "Figure 1 illustrates forecast behavior for KS11, MXX, and STI. Compared with Realized GARCH, the proposed SDE generally tracks RV more closely and exhibits less overshooting during several high-volatility episodes. \u2014 This figure presents a time series comparison chart showing realized volatility (RV) forecasts across three equity indices: KS11, MXX, and STI. The x-axis represents time periods (numbered 0-17 with additional markers), while the y-axis displays volatility values ranging approximate",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.17732v1"
-    },
-    {
-      "doc_id": "2610.17732v1",
-      "title": "Structured SDEs for Realized GARCH: Continuous-Time Volatility Modelling and Component-Level Analysis",
-      "page": 6,
-      "thumb": "/data/figures/2610.17732v1_p6_1.jpg",
-      "caption": "Figure 1: One-step-ahead variance forecasts of the proposed SDE and Realized GARCH for representative equity indices. \u2014 This figure displays one-step-ahead variance forecasts comparing an SDE-based model against Realized GARCH for three equity indices: KS11 (South Korea), MXX (Mexico), and STI (Singapore). Each panel shows a time series plot with realized volatility in the upper subplot and forecast errors or residuals in the lower subplot, with the x-axis representing time and y-axis representi",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.17732v1"
-    },
-    {
-      "doc_id": "2610.17481v1",
-      "title": "Designing Independent Variation: A Guided Iteration Methodology for Price Experiments in Short, Correlated Panels",
-      "page": 11,
-      "thumb": "/data/figures/2610.17481v1_p11_0.jpg",
-      "caption": "Figure 1: (a) Information \u03a6\u22c6obtained by concentrating versus spreading the budget equally across heterogeneous candidates (solid and dashed), and by concentrating it across a homogeneous pool (dotted), as a function of the budget (V4). (b) Greedy-to-exhaustive ratio with 14 candidates, six \u2014 The left panel (V4) shows a line plot of information \u03a6* (y-axis, ranging 0-18) versus budget as fraction of full cost (x-axis, 0-1.2), comparing three strategies: concentrating budget heterogeneously (solid ",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.17481v1"
-    },
-    {
-      "doc_id": "2610.17481v1",
-      "title": "Designing Independent Variation: A Guided Iteration Methodology for Price Experiments in Short, Correlated Panels",
-      "page": 16,
-      "thumb": "/data/figures/2610.17481v1_p16_1.jpg",
-      "caption": "Figure 2: Task 1a, synthetic eight-unit panel: realized variance of the GLS combination built from each covariance estimator, relative to equal weighting (dashed line at 1), against the relative noise of \u02c6\u03a30, \u2014 This log-scale line plot compares the realized GLS variance of five covariance regularization methods applied to a synthetic 8-unit grid panel, with variance normalized relative to equal weighting (baseline at 1.0). The x-axis shows approximate relative \u03a3\u2080 noise (\u221a(2/ngroup)), while the y",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.17481v1"
-    },
-    {
-      "doc_id": "2610.17481v1",
-      "title": "Designing Independent Variation: A Guided Iteration Methodology for Price Experiments in Short, Correlated Panels",
-      "page": 19,
-      "thumb": "/data/figures/2610.17481v1_p19_2.jpg",
-      "caption": "Figure 3: Anchor category (Soft Drinks), real historical windows (Task 3), in the context of ten Dominick\u2019s categories. (a) Realized variance reduction of the Ledoit\u2013Wolf GLS combination relative to equal weights, by category (exploratory check); for Soft Drinks shrinkage saturates at \u02c6\u03b1 = 100%, \u2014 This figure contains three panels analyzing price experiment design across product categories at Dominick's grocery store. Panel (a) is a horizontal bar chart showing GLS (Generalized Least Squares) va",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.17481v1"
-    },
-    {
-      "doc_id": "2610.17481v1",
-      "title": "Designing Independent Variation: A Guided Iteration Methodology for Price Experiments in Short, Correlated Panels",
-      "page": 19,
-      "thumb": "/data/figures/2610.17481v1_p19_3.jpg",
-      "caption": "Figure 4: Guided iteration on the anchor-category (Soft Drinks) illustration (Task 3). (a) Accu- mulated information \u03b9(c) under the discounted recursion (\u03b4 = 0.90), one active unit per cycle at V = 0.45, the operational target (dashed), c\u22c6= 10.15 (vertical line) and its 95% delta-method in- terval [2, 19] (shaded; it assumes a pilot of 40 replicates). (b) Parametric-bootstrap distribution of c\u22c6, r \u2014 This figure illustrates guided iteration methodology for price experiments in the Soft Drinks cat",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.17481v1"
     }
   ],
   "docs": [
+    {
+      "id": "2610.20366v1",
+      "title": "Regime Detection in Latent Factor Models -- A Bayesian Decision-Theoretic Approach",
+      "source": "https://arxiv.org/pdf/2610.20366v1",
+      "pages": 25,
+      "images": 0,
+      "figures_captioned": 4,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 59
+    },
+    {
+      "id": "2610.20037v1",
+      "title": "Data-Driven Dynamic Portfolio Selection with Vine Copula Simulation and Reinforcement Learning",
+      "source": "https://arxiv.org/pdf/2610.20037v1",
+      "pages": 36,
+      "images": 0,
+      "figures_captioned": 4,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 56
+    },
+    {
+      "id": "2610.20000v1",
+      "title": "Interior smoothness and zero-variance geometry for finite-maturity Heston American puts",
+      "source": "https://arxiv.org/pdf/2610.20000v1",
+      "pages": 41,
+      "images": 0,
+      "figures_captioned": 0,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 57
+    },
+    {
+      "id": "2610.19428v1",
+      "title": "Common Signals, Spurious Cross-Excitation, and Identification in Multivariate Hawkes Processes",
+      "source": "https://arxiv.org/pdf/2610.19428v1",
+      "pages": 33,
+      "images": 0,
+      "figures_captioned": 4,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 55
+    },
+    {
+      "id": "2610.19254v1",
+      "title": "Beyond Time Induction: Structured Conditional Neural Solvers for Parametric Stochastic-Volatility Pricing",
+      "source": "https://arxiv.org/pdf/2610.19254v1",
+      "pages": 30,
+      "images": 1,
+      "figures_captioned": 4,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 51
+    },
     {
       "id": "2610.18823v1",
       "title": "The Missile and the Toll: Two-Way Flow Through the Strait of Hormuz",
@@ -221,11 +308,11 @@
       "source": "https://arxiv.org/pdf/2610.18795v1",
       "pages": 47,
       "images": 0,
-      "figures_captioned": 4,
+      "figures_captioned": 2,
       "tables": 2,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 38
+      "chunks_indexed": 36
     },
     {
       "id": "2610.18706v1",
@@ -245,11 +332,11 @@
       "source": "https://arxiv.org/pdf/2610.18387v1",
       "pages": 13,
       "images": 3,
-      "figures_captioned": 1,
+      "figures_captioned": 0,
       "tables": 1,
       "has_math": false,
       "ocr_used": false,
-      "chunks_indexed": 17
+      "chunks_indexed": 16
     },
     {
       "id": "2610.18332v1",
@@ -257,71 +344,11 @@
       "source": "https://arxiv.org/pdf/2610.18332v1",
       "pages": 46,
       "images": 3,
-      "figures_captioned": 4,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 55
-    },
-    {
-      "id": "2610.17915v1",
-      "title": "On integrability of local utility maximizing strategies",
-      "source": "https://arxiv.org/pdf/2610.17915v1",
-      "pages": 28,
-      "images": 0,
       "figures_captioned": 0,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
       "chunks_indexed": 51
-    },
-    {
-      "id": "2610.17732v1",
-      "title": "Structured SDEs for Realized GARCH: Continuous-Time Volatility Modelling and Component-Level Analysis",
-      "source": "https://arxiv.org/pdf/2610.17732v1",
-      "pages": 22,
-      "images": 3,
-      "figures_captioned": 2,
-      "tables": 1,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 45
-    },
-    {
-      "id": "2610.17681v1",
-      "title": "E-Backtesting Expected Shortfall without Value-at-Risk Forecasts under Time-series Models",
-      "source": "https://arxiv.org/pdf/2610.17681v1",
-      "pages": 40,
-      "images": 0,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 44
-    },
-    {
-      "id": "2610.17481v1",
-      "title": "Designing Independent Variation: A Guided Iteration Methodology for Price Experiments in Short, Correlated Panels",
-      "source": "https://arxiv.org/pdf/2610.17481v1",
-      "pages": 25,
-      "images": 4,
-      "figures_captioned": 4,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 62
-    },
-    {
-      "id": "2610.17304v1",
-      "title": "Dirichlet sub-mixtures: A new reading of multiplicative background risk models with Pareto margins",
-      "source": "https://arxiv.org/pdf/2610.17304v1",
-      "pages": 48,
-      "images": 0,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 49
     }
   ]
 }
