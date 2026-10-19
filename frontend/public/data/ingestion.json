@@ -1,7 +1,7 @@
 {
   "_note": "Public run manifest of the Tier-3 agentic ingestion pipeline. Safe aggregates + provenance only; raw PDFs live in S3, not here.",
-  "run_id": "20261018T071457Z",
-  "generated_at": "2026-10-18T07:17:57+00:00",
+  "run_id": "20261019T074855Z",
+  "generated_at": "2026-10-19T07:51:42+00:00",
   "collection": "research_corpus",
   "embed_model": "BAAI/bge-small-en-v1.5",
   "dag": [
@@ -50,305 +50,305 @@
     "discovered": 10,
     "fetched": 10,
     "parsed": 10,
-    "chunks": 369,
-    "accepted": 334,
-    "rejected": 35,
-    "images": 15,
+    "chunks": 439,
+    "accepted": 399,
+    "rejected": 40,
+    "images": 20,
     "figures_captioned": 18,
     "tables": 8,
-    "with_math": 9,
-    "indexed": 334,
-    "spent_usd": 0.0327,
-    "duration_s": 180.0
+    "with_math": 10,
+    "indexed": 399,
+    "spent_usd": 0.0333,
+    "duration_s": 167.3
   },
   "rejects_by_reason": {
-    "low-relevance": 35
+    "low-relevance": 40
   },
   "budget_usd": 3.0,
   "figures": [
     {
-      "doc_id": "2610.22144v1",
-      "title": "Extending the Oracle Approximating Shrinkage to General Distributions",
-      "page": 11,
-      "thumb": "/data/figures/2610.22144v1_p11_0.jpg",
-      "caption": "Figure 1 shows loss curves and relative improvement over the full range \u2014 This figure displays line plots comparing the performance of covariance matrix estimation methods (OAS, OAS-Extended, LW, and RBLW) across different sample-to-dimension ratios (n/p). The x-axis represents n/p ranging from 0.25 to 5, while the y-axis measures relative losses or performance metrics under non-Gaussian data distributions with heavy tails (t(\u03bd=5)). The key finding is that OAS-Extended successfully recovers perf",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.22144v1"
-    },
-    {
-      "doc_id": "2610.22144v1",
-      "title": "Extending the Oracle Approximating Shrinkage to General Distributions",
-      "page": 12,
-      "thumb": "/data/figures/2610.22144v1_p12_1.jpg",
-      "caption": "Figure 1: Left: normalized Frobenius loss vs n/p for t(\u03bd =5) data (p = 120), all five estimators (dotted = sample covariance, long-dash = Ledoit\u2013Wolf, dash- dot = RBLW, dashed = OAS, solid = OAS-Extended). Right: relative loss reduction vs OAS (%) for OAS-Extended (solid), Ledoit\u2013Wolf (long-dash), and RBLW (dash-dot), across both non-Gaussian distributions (blue = t(\u03bd = 10), red = t(\u03bd = 5)), over  \u2014 The left panel is a line plot showing normalized Frobenius loss versus the ratio n/p (sample size",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.22144v1"
-    },
-    {
-      "doc_id": "2610.22144v1",
-      "title": "Extending the Oracle Approximating Shrinkage to General Distributions",
-      "page": 15,
-      "thumb": "/data/figures/2610.22144v1_p15_2.jpg",
-      "caption": "Figure 2: Left: rolling-window \u02c6\u03b1 for p = 50 large-cap US equities (January 2010 \u2013 December 2023), with stress periods (mean in-sample VIX \u226520) shaded in red. \u2014 The left panel shows a time series line chart of rolling-window shrinkage parameter \u03b1\u0302 from January 2012 to December 2024 for 50 large-cap US equities, with the y-axis ranging from 0 to 0.007 and red shaded regions indicating stress periods defined by mean in-sample VIX \u226520. The right panel displays a bar chart comparing VaR portfolio im",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.22144v1"
-    },
-    {
-      "doc_id": "2610.21867v1",
-      "title": "Algorithmic Collusion Without Deterrence: Auditing the Punishment Mechanism in Q-Learning Pricing Agents",
-      "page": 3,
-      "thumb": "/data/figures/2610.21867v1_p3_0.jpg",
-      "caption": "Figure 1: The standard evaluation framework of the algorith- mic collusion literature [8]: the pair of agents that learns together (training stage, learning ON) is the same pair that is evaluated after policy convergence (test stage, learning OFF): the partner design. All impulse-response evidence is collected within the original training dyad; training and test- ing contexts are never separated.  \u2014 This figure compares two reinforcement learning evaluation frameworks for studying algorithmic co",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.21867v1"
-    },
-    {
-      "doc_id": "2610.21867v1",
-      "title": "Algorithmic Collusion Without Deterrence: Auditing the Punishment Mechanism in Q-Learning Pricing Agents",
-      "page": 3,
-      "thumb": "/data/figures/2610.21867v1_p3_1.jpg",
-      "caption": "Figure 2: The stranger test: Calvano et al.\u2019s rematching con- fined to the test stage, with learning off. Training is identical to Calvano et al.\u2019s, replicated in independent runs (run A, run B); the manipulation is confined to the test stage: pair- ing an agent from run A with an agent from run B it never interacted with. If co-training produced individual collusive strategies, coordination would \u2014 This diagram illustrates a two-stage experimental framework for testing algorithmic collusion in ",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.21867v1"
-    },
-    {
-      "doc_id": "2610.21867v1",
-      "title": "Algorithmic Collusion Without Deterrence: Auditing the Punishment Mechanism in Q-Learning Pricing Agents",
-      "page": 4,
-      "thumb": "/data/figures/2610.21867v1_p4_2.jpg",
-      "caption": "Figure 3: Impulse-response functions: mean price (lines) and, in grey, the share of trajectories at each grid price in each period (1,024 pairs \u00d7 10 simulations). Rows: downward shock (static best response) and upward shock (to p\u02c6M); columns: co- trained pair vs cross-paired control. Within pairs (left), both shocks produce the drop-and-return pattern; across pairs (right), the shock is invisible  \u2014 This figure displays impulse-response functions comparing pricing behavior of co-trained versus i",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.21867v1"
-    },
-    {
-      "doc_id": "2610.21867v1",
-      "title": "Algorithmic Collusion Without Deterrence: Auditing the Punishment Mechanism in Q-Learning Pricing Agents",
-      "page": 5,
-      "thumb": "/data/figures/2610.21867v1_p5_3.jpg",
-      "caption": "Figure 4: Trained agent\u2019s price path against a grim-trigger punisher started cooperative (dashed red), a constant-Nash pricer (blue) and a constant-monopoly pricer (green), from a cooperative initial state; six of the 2,048 agents shown, one panel per independent training pair (letters A\u2013F), first agent of each pair. Vertical lines mark the period in which the agent\u2019s own undercut triggers grim\u2019s  \u2014 This figure displays six line graphs (panels A1-F1) showing price trajectories over 50 steps for ",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.21867v1"
-    },
-    {
-      "doc_id": "2610.21659v1",
-      "title": "When Does \"Post-Call\" Begin? An Availability Contract for Earnings-Call NLP Benchmarks",
-      "page": 3,
-      "thumb": "/data/figures/2610.21659v1_p3_0.jpg",
-      "caption": "Figure 1: Availability contract and paired three-clock audit. Panel A maps source and stipulated completion proxies to non- executable price anchors; transcript and model readiness remain unobserved. Panel B constructs three common-endpoint returns and their removed intervals. Panel C crosses four retrospective representations with three targets in 12 common-sample OLS fits. Panel D reports eight  \u2014 This figure illustrates a methodology for constructing earnings-call event-study datasets with pr",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.21659v1"
-    },
-    {
-      "doc_id": "2610.21659v1",
-      "title": "When Does \"Post-Call\" Begin? An Availability Contract for Earnings-Call NLP Benchmarks",
-      "page": 5,
-      "thumb": "/data/figures/2610.21659v1_p5_1.jpg",
-      "caption": "Figure 2: Target-clock sensitivity. (A) On 552 paired calls, \ud835\udc46\u2192\ud835\udc34changes 9.4% of raw-return signs, 28.3% of fixed-\ud835\udc34quintiles, and 30.1% of re-estimated relative quintiles. (B) A separate one-session perturbation of DEC before-market targets changes targets and four-stream MSE but not point rankings (\ud835\udf0f= 1). (C) Exploratory \ud835\udc3f\ud835\udc46and \ud835\udc46\ud835\udc34coefficient components; \u2020 marks the previously selected Qwen construc \u2014 This figure displays three panels examining timing sensitivity in earnings-call NLP analysis. Pan",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.21659v1"
-    },
-    {
-      "doc_id": "2610.21540v1",
-      "title": "Pricing the Unprovable: Ambiguity, Turnstile Runs, and the Verifiability Discount in Crypto Protocols",
-      "page": 3,
-      "thumb": "/data/figures/2610.21540v1_p3_0.jpg",
-      "caption": "Fig. 1. Evidence pipeline for the verifiability discount. Repair at tr closes future abuse but does not resolve the past. Public evidence q maps exposure \u03b8 to residual z = \u03b8(1\u2212q). On a locally stable branch, z enters D = \u2212CAR directly through \u03c1z and indirectly through turnstile exit m\u2217(z) and price pressure \u03bam\u2217(z); reported loss Lobs and severity s enter separately. Arrows encode model channels, n \u2014 This flow diagram illustrates the evidence pipeline for calculating a verifiability discount in c",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.21540v1"
-    },
-    {
-      "doc_id": "2610.21540v1",
-      "title": "Pricing the Unprovable: Ambiguity, Turnstile Runs, and the Verifiability Discount in Crypto Protocols",
+      "doc_id": "2610.23749v1",
+      "title": "From Alpha to Execution: Trading Horizons, Regimes, and Schedules under Concave Impact and Hurst Scaling",
       "page": 9,
-      "thumb": "/data/figures/2610.21540v1_p9_1.jpg",
-      "caption": "Figure 2 shows why this robustness is not a sharp break. CAR had already fallen by 0.208 since midnight (0.188 by 21:17). Turnover was comparable to the June 3 crisis day until about the time of the X release and about four times higher in the 16 minutes before the forum post; the post-anchor 60-minute decline was about 1.6 times the pre-anchor decline. Hayes confirms an exit announcement, not exe \u2014 This figure presents cumulative abnormal returns (CAR) around a disclosure event, with the x-axis",
+      "thumb": "/data/figures/2610.23749v1_p9_0.jpg",
+      "caption": "Figure 1: Regimes of Proposition 2 in the plane of net urgency \u03bd and duration elasticity of impact a, to leading order in T/tf. Beyond leading order, the hatched boundary layer 0 < a \u2272\u03b5V moves from regime (I) to regime (III) (Remark 3); its width is exaggerated in the figure. Under the structural prior, the upper half-plane is \u03b2 > H. Schematic: \u03bd and \u03b5V depend on T. \u2014 This figure is a phase diagram dividing the parameter space into four regimes based on net urgency \u03bd (horizontal axis) and durati",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2610.21540v1"
+      "source": "https://arxiv.org/pdf/2610.23749v1"
     },
     {
-      "doc_id": "2610.21540v1",
-      "title": "Pricing the Unprovable: Ambiguity, Turnstile Runs, and the Verifiability Discount in Crypto Protocols",
-      "page": 10,
-      "thumb": "/data/figures/2610.21540v1_p10_2.jpg",
-      "caption": "Fig. 2. Orchard market evidence. Panels A/C show hourly price and BTC-adjusted CAR; B/D show minute data through June 5 12:00 UTC. Shading marks the zoomed interval and largest 60-minute decline. N/F shares a top-rail tag because its two true lines are only 6 h 50 min apart; M\u2192C marks the true 16-minute gap between the 21:17 X article and the forum post. Negative movement predates the final anchor \u2014 This figure displays price and cumulative abnormal returns (CAR) around the Orchard protocol anno",
+      "doc_id": "2610.23749v1",
+      "title": "From Alpha to Execution: Trading Horizons, Regimes, and Schedules under Concave Impact and Hurst Scaling",
+      "page": 9,
+      "thumb": "/data/figures/2610.23749v1_p9_1.jpg",
+      "caption": "Figure 2: Sharpe-optimal duration under the structural prior a = \u03b2 \u2212H, linear alpha realization over \u03c4\u03b1 = tf, parameters of \u00a73.7, Tmin at 20% participation. Above the diagonal (a > 0) the optimum is interior. Below it (a \u22640) the optimum collapses to Tmin, except in a thin strip along the diagonal at H \u22720.35, where \u03bd < 0 at short durations and the optimum is interior (e.g. T \u22c6\u224813 min at \u03b2 = H = 0.3 \u2014 This is a contour plot showing Sharpe-optimal trading duration as a function of Hurst exponent H ",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2610.21540v1"
+      "source": "https://arxiv.org/pdf/2610.23749v1"
     },
     {
-      "doc_id": "2610.21540v1",
-      "title": "Pricing the Unprovable: Ambiguity, Turnstile Runs, and the Verifiability Discount in Crypto Protocols",
+      "doc_id": "2610.23749v1",
+      "title": "From Alpha to Execution: Trading Horizons, Regimes, and Schedules under Concave Impact and Hurst Scaling",
       "page": 11,
-      "thumb": "/data/figures/2610.21540v1_p11_3.jpg",
-      "caption": "Fig. 3. Aggregate shielded-pool balance and net unshielding around the Orchard disclo- sures. Panel A compares daily flow, reconstructed aggregate balance, and independent snapshots; Panel B shows June 1\u20137 hourly flow. The dotted band marks discovery; navy and hatched bars denote net outflow and inflow. Snapshot agreement supports the reconstruction, but net movement is not total holder exit. \u2014 Panel A shows daily net outflow (left y-axis, ZECJ) and reconstructed pool level (right y-axis, MZEC) ",
+      "thumb": "/data/figures/2610.23749v1_p11_2.jpg",
+      "caption": "Figure 3: SR(T) relative to its maximum, AMZN parameters, a = 0.1. Shading marks the 1% indifference band for each H. \u2014 This line chart displays the Sharpe ratio (SR) relative to maximum as a function of execution duration T (in minutes) on a log scale, comparing three Hurst exponent values (H = 0.3, 0.5, 0.7) for AMZN with impact parameter a = 0.1. The SR initially increases from approximately 0.94 at T=10 minutes, peaks near 1.0 around T=100 minutes, then declines sharply as execution duration",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2610.21540v1"
+      "source": "https://arxiv.org/pdf/2610.23749v1"
     },
     {
-      "doc_id": "2610.21510v1",
-      "title": "How Much Screening Buys a Second? Speed, Selection, and the Maker's Spread",
+      "doc_id": "2610.23749v1",
+      "title": "From Alpha to Execution: Trading Horizons, Regimes, and Schedules under Concave Impact and Hurst Scaling",
       "page": 14,
-      "thumb": "/data/figures/2610.21510v1_p14_0.jpg",
-      "caption": "FIG. 1. Feature-layer construction and integrity. (A) Median effective spread by pool, against the ETH-USDT mid and after subtracting the three-hundred-second rolling median basis. (B) The markout-sign toxicity proxy: the share of fills with a positive five-second markout lies below one-half in every pool because 19-34% of five-second markouts are exactly zero. (C) Daily median and interquartile r \u2014 This figure comprises three panels examining market microstructure metrics for cryptocurrency tra",
+      "thumb": "/data/figures/2610.23749v1_p14_3.jpg",
+      "caption": "Figure 4: Universal inventory curves (22) (\u03b2 = 1/2) against TWAP and an AC trajectory, each plotted over its own active period. \u2014 This line chart compares optimal inventory decay trajectories under different market impact regimes against benchmark trading strategies. The x-axis represents normalized time (\u03be = \u03b8t*), and the y-axis shows normalized inventory (x/x\u0304). Three envelope-optimal curves are plotted for different impact parameters (H = 0.3, 0.5, 0.7), each showing faster inventory reductio",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2610.21510v1"
+      "source": "https://arxiv.org/pdf/2610.23749v1"
     },
     {
-      "doc_id": "2610.21510v1",
-      "title": "How Much Screening Buys a Second? Speed, Selection, and the Maker's Spread",
-      "page": 15,
-      "thumb": "/data/figures/2610.21510v1_p15_1.jpg",
-      "caption": "FIG. 2. The reference choice. (A) Distribution of the Binance quoted spread, the empirical floor, with its median marked. (B) Return autocorrelations of the last-trade series and of the best-bid-and-ask (BBA) mid: no bounce signature on a one-second grid. (C) Median basis-adjusted effective spread by pool under the mid and under the last-trade reference: the choice leaves it essentially unchanged. \u2014 This figure analyzes the reference price choice for measuring effective spreads in cryptocurrency",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.21510v1"
-    },
-    {
-      "doc_id": "2610.21510v1",
-      "title": "How Much Screening Buys a Second? Speed, Selection, and the Maker's Spread",
-      "page": 16,
-      "thumb": "/data/figures/2610.21510v1_p16_2.jpg",
-      "caption": "FIG. 3. Left: the twelve-second innovation is far more peaked than the Gaussian N(\u02c6\u00b5h, \u02c6\u03c32h) implied by the one-second calibration, reflecting the zero atom and fat tails. Right: the volatility anchor \u03c3 \u2014 The left panel is a histogram showing the Forward Innovation Distribution, comparing the empirical distribution of price innovations over 12 seconds (blue bars) with a fitted normal distribution (orange curve), revealing a sharp peak at zero with fat tails that deviate substantially from Gaussi",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.21510v1"
-    },
-    {
-      "doc_id": "2610.21510v1",
-      "title": "How Much Screening Buys a Second? Speed, Selection, and the Maker's Spread",
-      "page": 17,
-      "thumb": "/data/figures/2610.21510v1_p17_3.jpg",
-      "caption": "FIG. 4. Left: forward benchmark move in the direction of the trailing sixty-second return, by horizon and regime, with 95% intervals from hour-clustered errors, against the move |\u02c6\u00b5|h implied by the mean absolute trailing drift (dotted). Right: cut in the participation-constrained break-even half-spread s\u2217from a twelve-second to a one-second cadence, at toxicity \u03b8 held fixed across cadences, on th \u2014 Panel A (left) displays a log-log plot of forward benchmark move magnitude versus forward horizon",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.21510v1"
-    },
-    {
-      "doc_id": "2610.21491v1",
-      "title": "NEST: Stale-Robust Tokenized-Stock Measurement for a Crypto-Treasury LETF Stack",
+      "doc_id": "2610.23619v1",
+      "title": "Cross-product Modelling in Continuous Intraday Electricity Markets via Hawkes Processes",
       "page": 3,
-      "thumb": "/data/figures/2610.21491v1_p3_0.jpg",
-      "caption": "Fig. 1. Information clock for one closed-market window (schematic, not to scale). The opening gap Gd and the token return Td share the move Yd from the previous close to the token mark, which raises raw fit mechanically (Proposition 1). NEST asks whether Td still explains Gd after conditioning on information observable by the 09:25 cutoff: the Bitcoin return Bd, the mark age Ad, and MSTR\u2019s premark \u2014 This figure shows a timeline schematic of a trading day's information sequence from 16:00 (previo",
+      "thumb": "/data/figures/2610.23619v1_p3_0.jpg",
+      "caption": "Figure 2 shows this phenomenon for IDC electricity markets. Rather than being evenly dispersed over time, order arrivals tend to occur in bursts, with periods of intense activity followed by relatively quiet intervals. The color scale repre- sents the density of order arrivals. The figure reveals that high- density regions are concentrated in the minutes immediately preceding delivery, indicating  \u2014 This figure displays a heatmap showing the temporal distribution of order arrivals in intraday el",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2610.21491v1"
+      "source": "https://arxiv.org/pdf/2610.23619v1"
+    },
+    {
+      "doc_id": "2610.23619v1",
+      "title": "Cross-product Modelling in Continuous Intraday Electricity Markets via Hawkes Processes",
+      "page": 4,
+      "thumb": "/data/figures/2610.23619v1_p4_1.jpg",
+      "caption": "Fig. 1. Annual traded volume across products. Left: Year-by-year evolution of traded volume for XBID and Intrazone product families (GWh) in the Netherlands. Right: Year-by-year evolution of traded volume for each individual product. \u2014 These bar and line charts display the annual traded volume evolution in the Dutch continuous intraday electricity market from 2015 to 2024. The left panel shows total volume for two product families (XBID and Intrazone) as stacked bars measured in GWh, while the r",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.23619v1"
+    },
+    {
+      "doc_id": "2610.23619v1",
+      "title": "Cross-product Modelling in Continuous Intraday Electricity Markets via Hawkes Processes",
+      "page": 4,
+      "thumb": "/data/figures/2610.23619v1_p4_2.jpg",
+      "caption": "Fig. 2. Scatter and density plots of order interarrival times against time-to-gate for an XBID hourly contract (2024-01-16 15:00-16:00) and its four constituent XBID quarter-hourly contracts (2024-01-16 15:00-15:15, 15:15-15:30, 15:30-15:45, 15:45-16:00). \u2014 Figure 2 displays five scatter plots with density coloring, comparing order interarrival times (y-axis, log scale) versus minutes before gate closure (x-axis) for one hourly XBID contract and its four constituent quarter-hourly contracts on 2",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.23619v1"
+    },
+    {
+      "doc_id": "2610.23619v1",
+      "title": "Cross-product Modelling in Continuous Intraday Electricity Markets via Hawkes Processes",
+      "page": 4,
+      "thumb": "/data/figures/2610.23619v1_p4_3.jpg",
+      "caption": "Fig. 3. Temporal alignment of Hourly and Quarter-Hourly contracts. The figure illustrates a single delivery hour (12:00\u201313:00) alongside its four nested quarter-hour products. The Hourly contract and the first Quarter-Hourly contract (Q1, 12:00\u201312:15) both close at 11:00. However, Q2 (12:15\u201312:30) closes at 11:15, Q3 (12:30\u201312:45) at 11:30, and Q4 (12:45\u201313:00) at 11:45. Therefore, between 11:00 a \u2014 This figure illustrates the temporal structure and trading windows of nested electricity contract",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.23619v1"
+    },
+    {
+      "doc_id": "2610.23517v1",
+      "title": "Combinatorial Arbitrage in Prediction Markets",
+      "page": 8,
+      "thumb": "/data/figures/2610.23517v1_p8_0.jpg",
+      "caption": "Figure 1 illustrates two contract pairs of different types drawn from the data. Panel (a) shows two \u2014 This is a text-based mathematical exposition rather than a figure, presenting Proposition 2 on guaranteed profit as \u2113\u2081 distance. The content explains that under unit-position normalization (\u2016y\u2016\u221e \u2264 1), a portfolio's maximum guaranteed profit equals the \u2113\u2081 distance from the quote vector to the coherent set M, formalized by the equation max min{y^T \u03c6(\u03c9) - y^T p} = min \u2016\u03bc - p\u2016\u2081. The key takeaway is ",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.23517v1"
+    },
+    {
+      "doc_id": "2610.23517v1",
+      "title": "Combinatorial Arbitrage in Prediction Markets",
+      "page": 9,
+      "thumb": "/data/figures/2610.23517v1_p9_1.jpg",
+      "caption": "Figure 1: Price coherence in two football contract pairs, June and July 2026. Panels (a) and (b) show the New Zealand\u2013Belgium exact score 0\u20132 versus over 2.5 goals and the Cumberland\u2013Heidelberg over 3.5 goals versus over 2.5 goals; arrows mark the \u21131 distance to coherence. \u2014 These two scatter plots illustrate price coherence violations in prediction market contract pairs, with each panel showing the relationship between two related betting contracts. Panel (a) plots P(0-2) versus P(over 2.5) for",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.23517v1"
+    },
+    {
+      "doc_id": "2610.23517v1",
+      "title": "Combinatorial Arbitrage in Prediction Markets",
+      "page": 15,
+      "thumb": "/data/figures/2610.23517v1_p15_2.jpg",
+      "caption": "Figure 2: Three relation layers and their checks. \u2014 This flow diagram illustrates three parallel processing layers for handling different data sources in prediction market arbitrage detection. Each layer (shown in different colors\u2014blue for negative-risk groups, purple for sports match fields, and red for contract text) progresses through three stages: initial data input, intermediate processing/mapping, and final validation/enforcement, with outputs feeding into relation graphs and constraint sy",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.23517v1"
+    },
+    {
+      "doc_id": "2610.23517v1",
+      "title": "Combinatorial Arbitrage in Prediction Markets",
+      "page": 16,
+      "thumb": "/data/figures/2610.23517v1_p16_3.jpg",
+      "caption": "Figure 3 shows how the three layers contribute differently across event classes and logical \u2014 Table 4 reports statistics on the relation system across three layers, counting 1,942,133 total relations recovered (Panel A) and 573,024 relations in the reduced system (Panel B), which compile into 603,242 rows of constraints. The table shows the contribution of each layer, with Layer 2 (score-state mapping) being the largest contributor due to its deterministic application to all contracts with typed",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.23517v1"
+    },
+    {
+      "doc_id": "2610.23488v1",
+      "title": "On the skew-curvature power law relationship in a stochastic volatility model with infinite variation L\u00e9vy jumps",
+      "page": 8,
+      "thumb": "/data/figures/2610.23488v1_p8_0.jpg",
+      "caption": "Figure 1: Dominance regions for the ATM implied-volatility skew and curvature in the (H, Y )- plane. \u2014 This figure displays a two-dimensional phase diagram in the (H, Y) plane showing regions where different volatility characteristics dominate for a stochastic volatility model with L\u00e9vy jumps. The chart is divided by two linear boundaries (Y = 2 - 4H and Y = 2 - 2H) into three regions labeled \"Rough skew/rough curvature\" (lower left), \"Jump skew/jump curvature\" (shaded gray central region), and ",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.23488v1"
+    },
+    {
+      "doc_id": "2610.23283v1",
+      "title": "Market Efficiency in a Changing Asset Population: Mobility, Entry, and Survival over Cryptocurrency's Full History",
+      "page": 14,
+      "thumb": "/data/figures/2610.23283v1_p14_0.jpg",
+      "caption": "Figure 1 plots the rolling 52-week version of A: it peaks at 0.062 in October 2014 and \u2014 This text section reports symmetry tests examining market efficiency across different eras of cryptocurrency markets using the reversibility statistic and joint directional Wald statistic with asymptotic and permutation p-values, alongside the magnitude index A. The key finding is that the magnitude index A declines monotonically from 0.040 in the frontier era to 0.028 in the expansion era and 0.022 in the c",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.23283v1"
+    },
+    {
+      "doc_id": "2610.23283v1",
+      "title": "Market Efficiency in a Changing Asset Population: Mobility, Entry, and Survival over Cryptocurrency's Full History",
+      "page": 17,
+      "thumb": "/data/figures/2610.23283v1_p17_1.jpg",
+      "caption": "Figure 1: Rolling directional asymmetry. The figure plots the 52-week rolling mean absolute gap between upward and downward transition probabilities across interior deciles (A of equa- tion (5)). Dashed vertical lines mark the era breaks of 19 November 2017 and 11 July 2021. Weekly data, 28 April 2013 to 12 July 2026, 690 cross-sections; source CoinMarketCap snap- shots. \u2014 This line chart displays the 52-week rolling directional asymmetry index (A) for cryptocurrency markets from April 2013 to J",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.23283v1"
+    },
+    {
+      "doc_id": "2610.23283v1",
+      "title": "Market Efficiency in a Changing Asset Population: Mobility, Entry, and Survival over Cryptocurrency's Full History",
+      "page": 20,
+      "thumb": "/data/figures/2610.23283v1_p20_2.jpg",
+      "caption": "Figure 2 summarises the argument in one picture: one dollar in the paper strategy \u2014 This figure presents a time series analysis of cryptocurrency bid-ask spread premiums across three market eras (frontier, expansion, and consolidation), showing how a hypothetical dollar invested in a statistical arbitrage strategy would perform. The chart displays premium survival rates and statistical significance (t-statistics) for different screening thresholds ($10,000 to $1 million participation limits), wi",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.23283v1"
+    },
+    {
+      "doc_id": "2610.22839v1",
+      "title": "Basis-Only Funding Is Not Dividend Fair: Settlement Design in Crypto Equity Perpetuals",
+      "page": 11,
+      "thumb": "/data/figures/2610.22839v1_p11_0.jpg",
+      "caption": "Fig. 1. Simulated long P&L across the ex-dividend date. \u2014 This line chart shows simulated profit and loss (P&L) for a long position in a cryptocurrency equity perpetual across the ex-dividend date, with time in hours from ex-date on the x-axis (-60 to +60) and P&L in basis points on the y-axis (-1.25 to +0.50). Three scenarios are plotted: physical shareholder (gets dividend) shown in blue, standard perpetual (no atomic lines) shown in green, and dividend drop shown in dashed line. The key takea",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.22839v1"
+    },
+    {
+      "doc_id": "2610.22839v1",
+      "title": "Basis-Only Funding Is Not Dividend Fair: Settlement Design in Crypto Equity Perpetuals",
+      "page": 12,
+      "thumb": "/data/figures/2610.22839v1_p12_1.jpg",
+      "caption": "Fig. 2. Simulated control-versus-settlement sign reversal. \u2014 This figure displays a simulation comparing control and settlement mechanisms in cryptocurrency perpetual futures over 250 simulated hours. The top panel shows basis in dollars fluctuating around zero with high-frequency noise, while the bottom panel plots cumulative P&L for three strategies: a dashed line representing pressure-induced long exposure (blue, hovering near zero), a solid blue line for linear regression long positions (fla",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.22839v1"
     }
   ],
   "docs": [
+    {
+      "id": "2610.23749v1",
+      "title": "From Alpha to Execution: Trading Horizons, Regimes, and Schedules under Concave Impact and Hurst Scaling",
+      "source": "https://arxiv.org/pdf/2610.23749v1",
+      "pages": 19,
+      "images": 0,
+      "figures_captioned": 4,
+      "tables": 1,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 43
+    },
+    {
+      "id": "2610.23619v1",
+      "title": "Cross-product Modelling in Continuous Intraday Electricity Markets via Hawkes Processes",
+      "source": "https://arxiv.org/pdf/2610.23619v1",
+      "pages": 24,
+      "images": 1,
+      "figures_captioned": 4,
+      "tables": 4,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 75
+    },
+    {
+      "id": "2610.23517v1",
+      "title": "Combinatorial Arbitrage in Prediction Markets",
+      "source": "https://arxiv.org/pdf/2610.23517v1",
+      "pages": 46,
+      "images": 1,
+      "figures_captioned": 4,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 56
+    },
+    {
+      "id": "2610.23488v1",
+      "title": "On the skew-curvature power law relationship in a stochastic volatility model with infinite variation L\u00e9vy jumps",
+      "source": "https://arxiv.org/pdf/2610.23488v1",
+      "pages": 45,
+      "images": 0,
+      "figures_captioned": 1,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 45
+    },
+    {
+      "id": "2610.23283v1",
+      "title": "Market Efficiency in a Changing Asset Population: Mobility, Entry, and Survival over Cryptocurrency's Full History",
+      "source": "https://arxiv.org/pdf/2610.23283v1",
+      "pages": 63,
+      "images": 0,
+      "figures_captioned": 3,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 43
+    },
+    {
+      "id": "2610.22839v1",
+      "title": "Basis-Only Funding Is Not Dividend Fair: Settlement Design in Crypto Equity Perpetuals",
+      "source": "https://arxiv.org/pdf/2610.22839v1",
+      "pages": 16,
+      "images": 2,
+      "figures_captioned": 2,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 32
+    },
+    {
+      "id": "2610.22745v1",
+      "title": "Reading the News Without Hindsight: NoLBERT Topics and the Cross-Section of Stock Returns",
+      "source": "https://arxiv.org/pdf/2610.22745v1",
+      "pages": 27,
+      "images": 5,
+      "figures_captioned": 0,
+      "tables": 3,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 41
+    },
+    {
+      "id": "2610.22727v1",
+      "title": "OrderFlowDiT: Transport-Regularized Diffusion Transformer for Probabilistic Limit-Order Supply Forecasting",
+      "source": "https://arxiv.org/pdf/2610.22727v1",
+      "pages": 9,
+      "images": 2,
+      "figures_captioned": 0,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 28
+    },
+    {
+      "id": "2610.22522v1",
+      "title": "Agentic AI in Automated Markets",
+      "source": "https://arxiv.org/pdf/2610.22522v1",
+      "pages": 10,
+      "images": 9,
+      "figures_captioned": 0,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 13
+    },
     {
       "id": "2610.22144v1",
       "title": "Extending the Oracle Approximating Shrinkage to General Distributions",
       "source": "https://arxiv.org/pdf/2610.22144v1",
       "pages": 18,
       "images": 0,
-      "figures_captioned": 3,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 26
-    },
-    {
-      "id": "2610.21867v1",
-      "title": "Algorithmic Collusion Without Deterrence: Auditing the Punishment Mechanism in Q-Learning Pricing Agents",
-      "source": "https://arxiv.org/pdf/2610.21867v1",
-      "pages": 9,
-      "images": 6,
-      "figures_captioned": 4,
-      "tables": 4,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 33
-    },
-    {
-      "id": "2610.21846v1",
-      "title": "Where Backtests and Live Trading Part Ways: Six Defects from One Intraday System",
-      "source": "https://arxiv.org/pdf/2610.21846v1",
-      "pages": 8,
-      "images": 1,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": false,
-      "ocr_used": false,
-      "chunks_indexed": 20
-    },
-    {
-      "id": "2610.21841v1",
-      "title": "Feeling the generalised rough SABR boundary",
-      "source": "https://arxiv.org/pdf/2610.21841v1",
-      "pages": 17,
-      "images": 0,
       "figures_captioned": 0,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 30
-    },
-    {
-      "id": "2610.21659v1",
-      "title": "When Does \"Post-Call\" Begin? An Availability Contract for Earnings-Call NLP Benchmarks",
-      "source": "https://arxiv.org/pdf/2610.21659v1",
-      "pages": 8,
-      "images": 2,
-      "figures_captioned": 2,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 24
-    },
-    {
-      "id": "2610.21540v1",
-      "title": "Pricing the Unprovable: Ambiguity, Turnstile Runs, and the Verifiability Discount in Crypto Protocols",
-      "source": "https://arxiv.org/pdf/2610.21540v1",
-      "pages": 17,
-      "images": 0,
-      "figures_captioned": 4,
-      "tables": 2,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 37
-    },
-    {
-      "id": "2610.21510v1",
-      "title": "How Much Screening Buys a Second? Speed, Selection, and the Maker's Spread",
-      "source": "https://arxiv.org/pdf/2610.21510v1",
-      "pages": 30,
-      "images": 6,
-      "figures_captioned": 4,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 72
-    },
-    {
-      "id": "2610.21491v1",
-      "title": "NEST: Stale-Robust Tokenized-Stock Measurement for a Crypto-Treasury LETF Stack",
-      "source": "https://arxiv.org/pdf/2610.21491v1",
-      "pages": 20,
-      "images": 0,
-      "figures_captioned": 1,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 38
-    },
-    {
-      "id": "2610.21447v1",
-      "title": "Long-Horizon Investment with Delayed Information in a Mean-Reverting Market",
-      "source": "https://arxiv.org/pdf/2610.21447v1",
-      "pages": 23,
-      "images": 0,
-      "figures_captioned": 0,
-      "tables": 2,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 34
-    },
-    {
-      "id": "2610.21442v1",
-      "title": "Fundamental Theorem of Discrete Asset Pricing",
-      "source": "https://arxiv.org/pdf/2610.21442v1",
-      "pages": 8,
-      "images": 0,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 20
+      "chunks_indexed": 23
     }
   ]
 }
