@@ -1,7 +1,7 @@
 {
   "_note": "Public run manifest of the Tier-3 agentic ingestion pipeline. Safe aggregates + provenance only; raw PDFs live in S3, not here.",
-  "run_id": "20261019T074855Z",
-  "generated_at": "2026-10-19T07:51:42+00:00",
+  "run_id": "20261020T073644Z",
+  "generated_at": "2026-10-20T07:39:41+00:00",
   "collection": "research_corpus",
   "embed_model": "BAAI/bge-small-en-v1.5",
   "dag": [
@@ -50,305 +50,305 @@
     "discovered": 10,
     "fetched": 10,
     "parsed": 10,
-    "chunks": 439,
-    "accepted": 399,
-    "rejected": 40,
+    "chunks": 391,
+    "accepted": 358,
+    "rejected": 33,
     "images": 20,
     "figures_captioned": 18,
-    "tables": 8,
+    "tables": 9,
     "with_math": 10,
-    "indexed": 399,
-    "spent_usd": 0.0333,
-    "duration_s": 167.3
+    "indexed": 358,
+    "spent_usd": 0.0319,
+    "duration_s": 177.5
   },
   "rejects_by_reason": {
-    "low-relevance": 40
+    "low-relevance": 33
   },
   "budget_usd": 3.0,
   "figures": [
     {
-      "doc_id": "2610.23749v1",
-      "title": "From Alpha to Execution: Trading Horizons, Regimes, and Schedules under Concave Impact and Hurst Scaling",
+      "doc_id": "2610.26797v1",
+      "title": "Teacher Supervision, Fixed Representations and Calibration: Exact Risk Calculations for Candidate-Scoring Decision Models",
       "page": 9,
-      "thumb": "/data/figures/2610.23749v1_p9_0.jpg",
-      "caption": "Figure 1: Regimes of Proposition 2 in the plane of net urgency \u03bd and duration elasticity of impact a, to leading order in T/tf. Beyond leading order, the hatched boundary layer 0 < a \u2272\u03b5V moves from regime (I) to regime (III) (Remark 3); its width is exaggerated in the figure. Under the structural prior, the upper half-plane is \u03b2 > H. Schematic: \u03bd and \u03b5V depend on T. \u2014 This figure is a phase diagram dividing the parameter space into four regimes based on net urgency \u03bd (horizontal axis) and durati",
+      "thumb": "/data/figures/2610.26797v1_p9_0.jpg",
+      "caption": "Figure 1 compares the formulas with simulation. In panel (a), 34 of the 36 Monte Carlo means lie within their 95% intervals of the formulas (3), (4), (9) and (12); the two exceptions lie at 1.01 \u2014 Table 1 presents simulation parameters for studying binary outcome prediction models with teacher distillation. Key settings include a design dimension d=5 with outcome coefficients \u03b2, teacher distortion \u03b4, error variance \u03c3\u00b2=1.3, sample sizes n ranging from 12 to 250, and probit calibration angles \u03b8 \u2208 ",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2610.23749v1"
+      "source": "https://arxiv.org/pdf/2610.26797v1"
     },
     {
-      "doc_id": "2610.23749v1",
-      "title": "From Alpha to Execution: Trading Horizons, Regimes, and Schedules under Concave Impact and Hurst Scaling",
-      "page": 9,
-      "thumb": "/data/figures/2610.23749v1_p9_1.jpg",
-      "caption": "Figure 2: Sharpe-optimal duration under the structural prior a = \u03b2 \u2212H, linear alpha realization over \u03c4\u03b1 = tf, parameters of \u00a73.7, Tmin at 20% participation. Above the diagonal (a > 0) the optimum is interior. Below it (a \u22640) the optimum collapses to Tmin, except in a thin strip along the diagonal at H \u22720.35, where \u03bd < 0 at short durations and the optimum is interior (e.g. T \u22c6\u224813 min at \u03b2 = H = 0.3 \u2014 This is a contour plot showing Sharpe-optimal trading duration as a function of Hurst exponent H ",
+      "doc_id": "2610.26797v1",
+      "title": "Teacher Supervision, Fixed Representations and Calibration: Exact Risk Calculations for Candidate-Scoring Decision Models",
+      "page": 10,
+      "thumb": "/data/figures/2610.26797v1_p10_1.jpg",
+      "caption": "Figure 1: Exact formulas (curves) and Monte Carlo estimates (points with 95% intervals, mostly smaller than the markers). (a) Excess prediction risk against training size for outcome and teacher supervision with all predictors, outcome supervision through the compressed representation and mixed supervision with \u03bb = 0.45 through the compressed representation. (b) Excess risk against teacher weight  \u2014 Figure 1 presents three panels analyzing prediction risk and calibration in supervised learning m",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2610.23749v1"
+      "source": "https://arxiv.org/pdf/2610.26797v1"
     },
     {
-      "doc_id": "2610.23749v1",
-      "title": "From Alpha to Execution: Trading Horizons, Regimes, and Schedules under Concave Impact and Hurst Scaling",
-      "page": 11,
-      "thumb": "/data/figures/2610.23749v1_p11_2.jpg",
-      "caption": "Figure 3: SR(T) relative to its maximum, AMZN parameters, a = 0.1. Shading marks the 1% indifference band for each H. \u2014 This line chart displays the Sharpe ratio (SR) relative to maximum as a function of execution duration T (in minutes) on a log scale, comparing three Hurst exponent values (H = 0.3, 0.5, 0.7) for AMZN with impact parameter a = 0.1. The SR initially increases from approximately 0.94 at T=10 minutes, peaks near 1.0 around T=100 minutes, then declines sharply as execution duration",
+      "doc_id": "2610.26797v1",
+      "title": "Teacher Supervision, Fixed Representations and Calibration: Exact Risk Calculations for Candidate-Scoring Decision Models",
+      "page": 13,
+      "thumb": "/data/figures/2610.26797v1_p13_2.jpg",
+      "caption": "Figure 2: The student model for credit card complaints. (a) The input: the company, the issue and the consumer\u2019s narrative, followed by the question and two or three candidates in random order. (b) One of the 24 blocks of Qwen2.5-0.5B; the pretrained weights stay fixed, and LoRA trains a rank-8 update BA to each projection matrix. (c) The candidate-scoring head reads the hidden state at each candi \u2014 This figure illustrates the architecture of a student model based on Qwen2.5-0.5B (494M parameter",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2610.23749v1"
+      "source": "https://arxiv.org/pdf/2610.26797v1"
     },
     {
-      "doc_id": "2610.23749v1",
-      "title": "From Alpha to Execution: Trading Horizons, Regimes, and Schedules under Concave Impact and Hurst Scaling",
-      "page": 14,
-      "thumb": "/data/figures/2610.23749v1_p14_3.jpg",
-      "caption": "Figure 4: Universal inventory curves (22) (\u03b2 = 1/2) against TWAP and an AC trajectory, each plotted over its own active period. \u2014 This line chart compares optimal inventory decay trajectories under different market impact regimes against benchmark trading strategies. The x-axis represents normalized time (\u03be = \u03b8t*), and the y-axis shows normalized inventory (x/x\u0304). Three envelope-optimal curves are plotted for different impact parameters (H = 0.3, 0.5, 0.7), each showing faster inventory reductio",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.23749v1"
-    },
-    {
-      "doc_id": "2610.23619v1",
-      "title": "Cross-product Modelling in Continuous Intraday Electricity Markets via Hawkes Processes",
-      "page": 3,
-      "thumb": "/data/figures/2610.23619v1_p3_0.jpg",
-      "caption": "Figure 2 shows this phenomenon for IDC electricity markets. Rather than being evenly dispersed over time, order arrivals tend to occur in bursts, with periods of intense activity followed by relatively quiet intervals. The color scale repre- sents the density of order arrivals. The figure reveals that high- density regions are concentrated in the minutes immediately preceding delivery, indicating  \u2014 This figure displays a heatmap showing the temporal distribution of order arrivals in intraday el",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.23619v1"
-    },
-    {
-      "doc_id": "2610.23619v1",
-      "title": "Cross-product Modelling in Continuous Intraday Electricity Markets via Hawkes Processes",
-      "page": 4,
-      "thumb": "/data/figures/2610.23619v1_p4_1.jpg",
-      "caption": "Fig. 1. Annual traded volume across products. Left: Year-by-year evolution of traded volume for XBID and Intrazone product families (GWh) in the Netherlands. Right: Year-by-year evolution of traded volume for each individual product. \u2014 These bar and line charts display the annual traded volume evolution in the Dutch continuous intraday electricity market from 2015 to 2024. The left panel shows total volume for two product families (XBID and Intrazone) as stacked bars measured in GWh, while the r",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.23619v1"
-    },
-    {
-      "doc_id": "2610.23619v1",
-      "title": "Cross-product Modelling in Continuous Intraday Electricity Markets via Hawkes Processes",
-      "page": 4,
-      "thumb": "/data/figures/2610.23619v1_p4_2.jpg",
-      "caption": "Fig. 2. Scatter and density plots of order interarrival times against time-to-gate for an XBID hourly contract (2024-01-16 15:00-16:00) and its four constituent XBID quarter-hourly contracts (2024-01-16 15:00-15:15, 15:15-15:30, 15:30-15:45, 15:45-16:00). \u2014 Figure 2 displays five scatter plots with density coloring, comparing order interarrival times (y-axis, log scale) versus minutes before gate closure (x-axis) for one hourly XBID contract and its four constituent quarter-hourly contracts on 2",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.23619v1"
-    },
-    {
-      "doc_id": "2610.23619v1",
-      "title": "Cross-product Modelling in Continuous Intraday Electricity Markets via Hawkes Processes",
-      "page": 4,
-      "thumb": "/data/figures/2610.23619v1_p4_3.jpg",
-      "caption": "Fig. 3. Temporal alignment of Hourly and Quarter-Hourly contracts. The figure illustrates a single delivery hour (12:00\u201313:00) alongside its four nested quarter-hour products. The Hourly contract and the first Quarter-Hourly contract (Q1, 12:00\u201312:15) both close at 11:00. However, Q2 (12:15\u201312:30) closes at 11:15, Q3 (12:30\u201312:45) at 11:30, and Q4 (12:45\u201313:00) at 11:45. Therefore, between 11:00 a \u2014 This figure illustrates the temporal structure and trading windows of nested electricity contract",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.23619v1"
-    },
-    {
-      "doc_id": "2610.23517v1",
-      "title": "Combinatorial Arbitrage in Prediction Markets",
-      "page": 8,
-      "thumb": "/data/figures/2610.23517v1_p8_0.jpg",
-      "caption": "Figure 1 illustrates two contract pairs of different types drawn from the data. Panel (a) shows two \u2014 This is a text-based mathematical exposition rather than a figure, presenting Proposition 2 on guaranteed profit as \u2113\u2081 distance. The content explains that under unit-position normalization (\u2016y\u2016\u221e \u2264 1), a portfolio's maximum guaranteed profit equals the \u2113\u2081 distance from the quote vector to the coherent set M, formalized by the equation max min{y^T \u03c6(\u03c9) - y^T p} = min \u2016\u03bc - p\u2016\u2081. The key takeaway is ",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.23517v1"
-    },
-    {
-      "doc_id": "2610.23517v1",
-      "title": "Combinatorial Arbitrage in Prediction Markets",
-      "page": 9,
-      "thumb": "/data/figures/2610.23517v1_p9_1.jpg",
-      "caption": "Figure 1: Price coherence in two football contract pairs, June and July 2026. Panels (a) and (b) show the New Zealand\u2013Belgium exact score 0\u20132 versus over 2.5 goals and the Cumberland\u2013Heidelberg over 3.5 goals versus over 2.5 goals; arrows mark the \u21131 distance to coherence. \u2014 These two scatter plots illustrate price coherence violations in prediction market contract pairs, with each panel showing the relationship between two related betting contracts. Panel (a) plots P(0-2) versus P(over 2.5) for",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.23517v1"
-    },
-    {
-      "doc_id": "2610.23517v1",
-      "title": "Combinatorial Arbitrage in Prediction Markets",
+      "doc_id": "2610.26797v1",
+      "title": "Teacher Supervision, Fixed Representations and Calibration: Exact Risk Calculations for Candidate-Scoring Decision Models",
       "page": 15,
-      "thumb": "/data/figures/2610.23517v1_p15_2.jpg",
-      "caption": "Figure 2: Three relation layers and their checks. \u2014 This flow diagram illustrates three parallel processing layers for handling different data sources in prediction market arbitrage detection. Each layer (shown in different colors\u2014blue for negative-risk groups, purple for sports match fields, and red for contract text) progresses through three stages: initial data input, intermediate processing/mapping, and final validation/enforcement, with outputs feeding into relation graphs and constraint sy",
+      "thumb": "/data/figures/2610.26797v1_p15_3.jpg",
+      "caption": "Figure 3: Credit card complaints, 10,000 test complaints. (a) Observed share with monetary relief against the forecast, by deciles of each forecast. (b) Decision cost per 1,000 complaints against the cutoff c. (c) Probability of monetary relief under the three-option and the two-option candidate sets for 1,500 complaints; a model satisfying (23) lies on the diagonal. \u2014 This figure analyzes model calibration and decision costs for a credit card complaints dataset with 10,000 test cases. Panel (a)",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2610.23517v1"
+      "source": "https://arxiv.org/pdf/2610.26797v1"
     },
     {
-      "doc_id": "2610.23517v1",
-      "title": "Combinatorial Arbitrage in Prediction Markets",
+      "doc_id": "2610.26789v1",
+      "title": "Cooperative Multi-Agent Reinforcement Learning for Market Making on Prediction-Market Order Books",
       "page": 16,
-      "thumb": "/data/figures/2610.23517v1_p16_3.jpg",
-      "caption": "Figure 3 shows how the three layers contribute differently across event classes and logical \u2014 Table 4 reports statistics on the relation system across three layers, counting 1,942,133 total relations recovered (Panel A) and 573,024 relations in the reduced system (Panel B), which compile into 603,242 rows of constraints. The table shows the contribution of each layer, with Layer 2 (score-state mapping) being the largest contributor due to its deterministic application to all contracts with typed",
+      "thumb": "/data/figures/2610.26789v1_p16_0.jpg",
+      "caption": "Figure 1: One step. All agents get their observations of the state and act on it simultaneously, receiving their reward from their actions. The desk is interchangeable with the single-agent, where the single-agent would perform both jobs. A step is a fixed number of messages rather than a fixed duration, meaning its length in market time varies by how busy the market is. \u2014 This flow diagram illustrates one simulation step in a multi-agent market-making system on prediction-market order books. Th",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2610.23517v1"
+      "source": "https://arxiv.org/pdf/2610.26789v1"
     },
     {
-      "doc_id": "2610.23488v1",
-      "title": "On the skew-curvature power law relationship in a stochastic volatility model with infinite variation L\u00e9vy jumps",
-      "page": 8,
-      "thumb": "/data/figures/2610.23488v1_p8_0.jpg",
-      "caption": "Figure 1: Dominance regions for the ATM implied-volatility skew and curvature in the (H, Y )- plane. \u2014 This figure displays a two-dimensional phase diagram in the (H, Y) plane showing regions where different volatility characteristics dominate for a stochastic volatility model with L\u00e9vy jumps. The chart is divided by two linear boundaries (Y = 2 - 4H and Y = 2 - 2H) into three regions labeled \"Rough skew/rough curvature\" (lower left), \"Jump skew/jump curvature\" (shaded gray central region), and ",
+      "doc_id": "2610.26746v1",
+      "title": "Probability-Weighting Functions for Normal Tempered-Stable Laws: Orthogonal Channels and Information-Theoretic Indices",
+      "page": 6,
+      "thumb": "/data/figures/2610.26746v1_p6_0.jpg",
+      "caption": "Fig. 2 shows the corresponding distribution functions with the same colour scheme. Volatility changes alter the slope at the median, the skewed variant moves the median to the left of zero and gains mass in the upper tail, and the thick-tailed variant crosses the benchmark three times, once near the median and once in each tail. \u2014 This section describes visualization methods for Normal Tempered-Stable (NTS) distribution parameter effects, specifically referencing Figures 1-3. Figure 1 displays p",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2610.23488v1"
+      "source": "https://arxiv.org/pdf/2610.26746v1"
     },
     {
-      "doc_id": "2610.23283v1",
-      "title": "Market Efficiency in a Changing Asset Population: Mobility, Entry, and Survival over Cryptocurrency's Full History",
-      "page": 14,
-      "thumb": "/data/figures/2610.23283v1_p14_0.jpg",
-      "caption": "Figure 1 plots the rolling 52-week version of A: it peaks at 0.062 in October 2014 and \u2014 This text section reports symmetry tests examining market efficiency across different eras of cryptocurrency markets using the reversibility statistic and joint directional Wald statistic with asymptotic and permutation p-values, alongside the magnitude index A. The key finding is that the magnitude index A declines monotonically from 0.040 in the frontier era to 0.028 in the expansion era and 0.022 in the c",
+      "doc_id": "2610.26746v1",
+      "title": "Probability-Weighting Functions for Normal Tempered-Stable Laws: Orthogonal Channels and Information-Theoretic Indices",
+      "page": 6,
+      "thumb": "/data/figures/2610.26746v1_p6_1.jpg",
+      "caption": "Fig. 3 plots the quantile functions QX(p) = F \u22121 \u2014 Fig. 3 plots quantile functions QX(p) = F^(-1)(p) for the Normal Tempered-Stable (NTS) distribution across multiple parameter variants, using the same color scheme as Figures 1-2. The x-axis represents probability p and the y-axis represents quantile values, displaying how the inverse cumulative distribution function changes across benchmark and perturbed NTS parameters including high/low volatility, skewness, and kurtosis variants. The figure d",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2610.23283v1"
+      "source": "https://arxiv.org/pdf/2610.26746v1"
     },
     {
-      "doc_id": "2610.23283v1",
-      "title": "Market Efficiency in a Changing Asset Population: Mobility, Entry, and Survival over Cryptocurrency's Full History",
-      "page": 17,
-      "thumb": "/data/figures/2610.23283v1_p17_1.jpg",
-      "caption": "Figure 1: Rolling directional asymmetry. The figure plots the 52-week rolling mean absolute gap between upward and downward transition probabilities across interior deciles (A of equa- tion (5)). Dashed vertical lines mark the era breaks of 19 November 2017 and 11 July 2021. Weekly data, 28 April 2013 to 12 July 2026, 690 cross-sections; source CoinMarketCap snap- shots. \u2014 This line chart displays the 52-week rolling directional asymmetry index (A) for cryptocurrency markets from April 2013 to J",
+      "doc_id": "2610.26746v1",
+      "title": "Probability-Weighting Functions for Normal Tempered-Stable Laws: Orthogonal Channels and Information-Theoretic Indices",
+      "page": 7,
+      "thumb": "/data/figures/2610.26746v1_p7_2.jpg",
+      "caption": "Fig. 1: Densities of the benchmark NTS (12), four single-channel perturbations and the standard normal. \u2014 This line plot displays probability density functions (PDFs) along the x-axis ranging from -4 to 4, with density values (f(x)) on the y-axis from 0 to 0.7. The figure compares five distributions: a benchmark Normal Tempered-Stable (NTS) distribution, high volatility variant (\u03b3=1.4), low volatility variant (\u03b3=0.7), right-skewed variant (skewness +0.5), and a standard normal distribution. The ",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2610.23283v1"
+      "source": "https://arxiv.org/pdf/2610.26746v1"
     },
     {
-      "doc_id": "2610.23283v1",
-      "title": "Market Efficiency in a Changing Asset Population: Mobility, Entry, and Survival over Cryptocurrency's Full History",
-      "page": 20,
-      "thumb": "/data/figures/2610.23283v1_p20_2.jpg",
-      "caption": "Figure 2 summarises the argument in one picture: one dollar in the paper strategy \u2014 This figure presents a time series analysis of cryptocurrency bid-ask spread premiums across three market eras (frontier, expansion, and consolidation), showing how a hypothetical dollar invested in a statistical arbitrage strategy would perform. The chart displays premium survival rates and statistical significance (t-statistics) for different screening thresholds ($10,000 to $1 million participation limits), wi",
+      "doc_id": "2610.26746v1",
+      "title": "Probability-Weighting Functions for Normal Tempered-Stable Laws: Orthogonal Channels and Information-Theoretic Indices",
+      "page": 7,
+      "thumb": "/data/figures/2610.26746v1_p7_3.jpg",
+      "caption": "Fig. 2: Distribution functions corresponding to the densities of Fig. 1, with the same colour scheme. \u2014 The figure displays cumulative distribution functions (CDFs) corresponding to the probability density functions shown in Figure 1, plotted on axes with x ranging from -4 to 4 and F(x) from 0 to 1.0. The plot compares five distributions: a benchmark NTS (Normal Tempered Stable) distribution, high volatility (\u03bd=1.4), low volatility (\u03bd=0.7), right skew (skewness +0.5), thick tails (\u03b1=0.9), and th",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2610.23283v1"
+      "source": "https://arxiv.org/pdf/2610.26746v1"
     },
     {
-      "doc_id": "2610.22839v1",
-      "title": "Basis-Only Funding Is Not Dividend Fair: Settlement Design in Crypto Equity Perpetuals",
-      "page": 11,
-      "thumb": "/data/figures/2610.22839v1_p11_0.jpg",
-      "caption": "Fig. 1. Simulated long P&L across the ex-dividend date. \u2014 This line chart shows simulated profit and loss (P&L) for a long position in a cryptocurrency equity perpetual across the ex-dividend date, with time in hours from ex-date on the x-axis (-60 to +60) and P&L in basis points on the y-axis (-1.25 to +0.50). Three scenarios are plotted: physical shareholder (gets dividend) shown in blue, standard perpetual (no atomic lines) shown in green, and dividend drop shown in dashed line. The key takea",
+      "doc_id": "2610.26456v1",
+      "title": "Regime-Aware Interpretable Ranking for Sector Rotation",
+      "page": 3,
+      "thumb": "/data/figures/2610.26456v1_p3_0.jpg",
+      "caption": "Figure 1: Overall framework for RegimeRank. The solid Regime Conditioning box is the per-sector plate, replicated \ud835\udc46times, and the dashed boxes are the two per-pillar encoders, conditioned on the shared latent states eG\ud835\udc61(dashed arrows). Boxes are labelled by their outputs, and the pillar embeddings are concatenated before the Cross-Sector Attention component. \u2014 This figure presents the RegimeRank framework for sector rotation, organized into four main components: Temporal Projection (left), Regim",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2610.22839v1"
+      "source": "https://arxiv.org/pdf/2610.26456v1"
     },
     {
-      "doc_id": "2610.22839v1",
-      "title": "Basis-Only Funding Is Not Dividend Fair: Settlement Design in Crypto Equity Perpetuals",
-      "page": 12,
-      "thumb": "/data/figures/2610.22839v1_p12_1.jpg",
-      "caption": "Fig. 2. Simulated control-versus-settlement sign reversal. \u2014 This figure displays a simulation comparing control and settlement mechanisms in cryptocurrency perpetual futures over 250 simulated hours. The top panel shows basis in dollars fluctuating around zero with high-frequency noise, while the bottom panel plots cumulative P&L for three strategies: a dashed line representing pressure-induced long exposure (blue, hovering near zero), a solid blue line for linear regression long positions (fla",
+      "doc_id": "2610.26456v1",
+      "title": "Regime-Aware Interpretable Ranking for Sector Rotation",
+      "page": 5,
+      "thumb": "/data/figures/2610.26456v1_p5_1.jpg",
+      "caption": "Figure 2: We adopt combinatorial purged cross-validation, which is often used in financial machine learning [4, 17]. \u2014 This figure illustrates combinatorial purged cross-validation for time series data, showing 15 data splits arranged chronologically. Each split is divided into colored segments representing train (teal), test (orange), purged (white diagonal lines), and embargo (gray diagonal lines) periods. The purged and embargo periods prevent data leakage by excluding observations near train",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2610.22839v1"
+      "source": "https://arxiv.org/pdf/2610.26456v1"
+    },
+    {
+      "doc_id": "2610.26456v1",
+      "title": "Regime-Aware Interpretable Ranking for Sector Rotation",
+      "page": 7,
+      "thumb": "/data/figures/2610.26456v1_p7_2.jpg",
+      "caption": "Figure 3: Top-5 attributions for each feature type. \u2014 This horizontal bar chart displays mean SHAP (SHapley Additive exPlanations) values measuring feature importance contributions to a sector rotation model. The chart compares Technical (orange) and Fundamental (blue) feature categories across 10 metrics, with OBV (On-Balance Volume) showing the highest attribution at 0.136, followed by ATR and negative skewness at 0.100 and 0.082 respectively. The key takeaway is that technical indicators, par",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.26456v1"
+    },
+    {
+      "doc_id": "2610.26456v1",
+      "title": "Regime-Aware Interpretable Ranking for Sector Rotation",
+      "page": 7,
+      "thumb": "/data/figures/2610.26456v1_p7_3.jpg",
+      "caption": "Figure 4: Attribution by temporal transformation. \u2014 This figure contains two charts analyzing feature attribution in a machine learning model for sector rotation. The top horizontal bar chart ranks the top 10 feature types by mean SHAP values, comparing technical features (orange bars) versus fundamental features (blue bars), with OBV showing the highest attribution at 0.136. The bottom bar chart displays mean SHAP values across five temporal transformations (Z-score, Persistence, Trend Forecast",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.26456v1"
+    },
+    {
+      "doc_id": "2610.26358v1",
+      "title": "SHADE: Shrinkage via Halted Alpha-stable Denoising for Heavy-Tailed Probabilistic Time Series Forecasting",
+      "page": 2,
+      "thumb": "/data/figures/2610.26358v1_p2_0.jpg",
+      "caption": "Figure 1: Why alpha-stable diffusion and halted shrinkage. A Gaussian/light-tail denoiser poorly matches jump-like observations, while LIM supplies an alpha-stable reverse process whose jumps and scale aggregation match heavy-tailed behavior (Yoon et al. 2023). Full reversal of LIM which is designed for CV, however, removes all stable smoothing is unreliable for time series probabilistic estimatio \u2014 This figure illustrates the motivation for alpha-stable diffusion in time series forecasting by c",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.26358v1"
+    },
+    {
+      "doc_id": "2610.26358v1",
+      "title": "SHADE: Shrinkage via Halted Alpha-stable Denoising for Heavy-Tailed Probabilistic Time Series Forecasting",
+      "page": 5,
+      "thumb": "/data/figures/2610.26358v1_p5_1.jpg",
+      "caption": "Figure 2: Architecture and four functions of a single SHADE. The time\u2013variable backbone is FiLM-modulated by \u03c8(\u03b1). The robust scale estimator summarizes level, adjacent-difference, and seasonal-difference MADs; the spectral rule maps that scale to the calibrated residual width C\u03b1b\u03b3q\u03b1 z ; alternatively, the context policy maps pooled history and \u03c8(\u03b1) to a distribution over depths without noise labe \u2014 This figure illustrates the architecture of SHADE (Shrinkage via Halted Alpha-stable Denoising), ",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.26358v1"
+    },
+    {
+      "doc_id": "2610.26358v1",
+      "title": "SHADE: Shrinkage via Halted Alpha-stable Denoising for Heavy-Tailed Probabilistic Time Series Forecasting",
+      "page": 6,
+      "thumb": "/data/figures/2610.26358v1_p6_2.jpg",
+      "caption": "Figure 3: Relative CRPS improvement and orders-of- magnitude NLL ratio over the complete 80-cell synthetic grid. \u2014 This figure displays two heatmaps comparing forecast performance metrics across a synthetic parameter grid with dimensions DVR (x-axis) and SMR (y-axis). The left heatmap shows relative CRPS (Continuous Ranked Probability Score) improvement in percentage terms, while the right heatmap displays the orders-of-magnitude NLL (Negative Log-Likelihood) ratio; both use color gradients from",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.26358v1"
+    },
+    {
+      "doc_id": "2610.26358v1",
+      "title": "SHADE: Shrinkage via Halted Alpha-stable Denoising for Heavy-Tailed Probabilistic Time Series Forecasting",
+      "page": 7,
+      "thumb": "/data/figures/2610.26358v1_p7_3.jpg",
+      "caption": "Figure 4: Paired comparison between stable halted shrinkage and equal-IQR variance inflation. \u2014 This figure presents two scatter plots comparing shrinkage methods for Conditional Value-at-Risk (CVaR) estimation in time series forecasting. Panel (a) shows total case CRPS on log-log axes, plotting stable halted shrinkage (SHADE) against equal-IQR counterfactual lower bound, while panel (b) compares tail-90 raw CRPS using the same methodology. Both plots display orange scatter points clustered abov",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.26358v1"
+    },
+    {
+      "doc_id": "2610.26031v1",
+      "title": "AuDQ: Auditable Data Quality through Agentic Rule Discovery",
+      "page": 2,
+      "thumb": "/data/figures/2610.26031v1_p2_0.jpg",
+      "caption": "Figure 1 shows the four-stage pipeline we have im- plemented. Data flows from a Statistical Profiler through an Ontology Generator and a Rule Dis- covery/Definition module to a Rule Implementer. Every stage reads from and writes to a central Ar- tifacts Repository, which stores versioned seman- tic profiles, ontology nodes, natural language and implemented rules alongside orchestrator plans, subag \u2014 This figure presents a four-stage pipeline architecture for automated data quality rule discovery",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.26031v1"
     }
   ],
   "docs": [
     {
-      "id": "2610.23749v1",
-      "title": "From Alpha to Execution: Trading Horizons, Regimes, and Schedules under Concave Impact and Hurst Scaling",
-      "source": "https://arxiv.org/pdf/2610.23749v1",
-      "pages": 19,
+      "id": "2610.26797v1",
+      "title": "Teacher Supervision, Fixed Representations and Calibration: Exact Risk Calculations for Candidate-Scoring Decision Models",
+      "source": "https://arxiv.org/pdf/2610.26797v1",
+      "pages": 18,
       "images": 0,
-      "figures_captioned": 4,
-      "tables": 1,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 43
-    },
-    {
-      "id": "2610.23619v1",
-      "title": "Cross-product Modelling in Continuous Intraday Electricity Markets via Hawkes Processes",
-      "source": "https://arxiv.org/pdf/2610.23619v1",
-      "pages": 24,
-      "images": 1,
-      "figures_captioned": 4,
-      "tables": 4,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 75
-    },
-    {
-      "id": "2610.23517v1",
-      "title": "Combinatorial Arbitrage in Prediction Markets",
-      "source": "https://arxiv.org/pdf/2610.23517v1",
-      "pages": 46,
-      "images": 1,
       "figures_captioned": 4,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 56
+      "chunks_indexed": 40
     },
     {
-      "id": "2610.23488v1",
-      "title": "On the skew-curvature power law relationship in a stochastic volatility model with infinite variation L\u00e9vy jumps",
-      "source": "https://arxiv.org/pdf/2610.23488v1",
-      "pages": 45,
-      "images": 0,
+      "id": "2610.26789v1",
+      "title": "Cooperative Multi-Agent Reinforcement Learning for Market Making on Prediction-Market Order Books",
+      "source": "https://arxiv.org/pdf/2610.26789v1",
+      "pages": 50,
+      "images": 1,
       "figures_captioned": 1,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 45
+      "chunks_indexed": 39
     },
     {
-      "id": "2610.23283v1",
-      "title": "Market Efficiency in a Changing Asset Population: Mobility, Entry, and Survival over Cryptocurrency's Full History",
-      "source": "https://arxiv.org/pdf/2610.23283v1",
-      "pages": 63,
+      "id": "2610.26746v1",
+      "title": "Probability-Weighting Functions for Normal Tempered-Stable Laws: Orthogonal Channels and Information-Theoretic Indices",
+      "source": "https://arxiv.org/pdf/2610.26746v1",
+      "pages": 25,
       "images": 0,
-      "figures_captioned": 3,
+      "figures_captioned": 4,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 43
+      "chunks_indexed": 49
     },
     {
-      "id": "2610.22839v1",
-      "title": "Basis-Only Funding Is Not Dividend Fair: Settlement Design in Crypto Equity Perpetuals",
-      "source": "https://arxiv.org/pdf/2610.22839v1",
-      "pages": 16,
+      "id": "2610.26456v1",
+      "title": "Regime-Aware Interpretable Ranking for Sector Rotation",
+      "source": "https://arxiv.org/pdf/2610.26456v1",
+      "pages": 9,
+      "images": 1,
+      "figures_captioned": 4,
+      "tables": 3,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 31
+    },
+    {
+      "id": "2610.26358v1",
+      "title": "SHADE: Shrinkage via Halted Alpha-stable Denoising for Heavy-Tailed Probabilistic Time Series Forecasting",
+      "source": "https://arxiv.org/pdf/2610.26358v1",
+      "pages": 9,
       "images": 2,
-      "figures_captioned": 2,
-      "tables": 0,
+      "figures_captioned": 4,
+      "tables": 1,
       "has_math": true,
       "ocr_used": false,
       "chunks_indexed": 32
     },
     {
-      "id": "2610.22745v1",
-      "title": "Reading the News Without Hindsight: NoLBERT Topics and the Cross-Section of Stock Returns",
-      "source": "https://arxiv.org/pdf/2610.22745v1",
-      "pages": 27,
-      "images": 5,
+      "id": "2610.26324v1",
+      "title": "The Control Layer Behind Rule-Following Agents Trading Across Market Conditions",
+      "source": "https://arxiv.org/pdf/2610.26324v1",
+      "pages": 47,
+      "images": 0,
       "figures_captioned": 0,
       "tables": 3,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 41
+      "chunks_indexed": 32
     },
     {
-      "id": "2610.22727v1",
-      "title": "OrderFlowDiT: Transport-Regularized Diffusion Transformer for Probabilistic Limit-Order Supply Forecasting",
-      "source": "https://arxiv.org/pdf/2610.22727v1",
-      "pages": 9,
-      "images": 2,
-      "figures_captioned": 0,
+      "id": "2610.26031v1",
+      "title": "AuDQ: Auditable Data Quality through Agentic Rule Discovery",
+      "source": "https://arxiv.org/pdf/2610.26031v1",
+      "pages": 19,
+      "images": 3,
+      "figures_captioned": 1,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 28
+      "chunks_indexed": 38
     },
     {
-      "id": "2610.22522v1",
-      "title": "Agentic AI in Automated Markets",
-      "source": "https://arxiv.org/pdf/2610.22522v1",
+      "id": "2610.25822v1",
+      "title": "Conflicting History in Foundation Model Return Forecasts",
+      "source": "https://arxiv.org/pdf/2610.25822v1",
       "pages": 10,
-      "images": 9,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 13
-    },
-    {
-      "id": "2610.22144v1",
-      "title": "Extending the Oracle Approximating Shrinkage to General Distributions",
-      "source": "https://arxiv.org/pdf/2610.22144v1",
-      "pages": 18,
       "images": 0,
       "figures_captioned": 0,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 23
+      "chunks_indexed": 19
+    },
+    {
+      "id": "2610.25802v1",
+      "title": "Amortized Neural Filtering for Calibrated Posteriors in Statistical Arbitrage",
+      "source": "https://arxiv.org/pdf/2610.25802v1",
+      "pages": 9,
+      "images": 1,
+      "figures_captioned": 0,
+      "tables": 2,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 35
+    },
+    {
+      "id": "2610.25756v1",
+      "title": "Topological Compression of Prediction Market Belief States for Event Forecasting",
+      "source": "https://arxiv.org/pdf/2610.25756v1",
+      "pages": 41,
+      "images": 12,
+      "figures_captioned": 0,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 43
     }
   ]
 }
