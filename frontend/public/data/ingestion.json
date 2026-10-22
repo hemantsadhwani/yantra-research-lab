@@ -1,7 +1,7 @@
 {
   "_note": "Public run manifest of the Tier-3 agentic ingestion pipeline. Safe aggregates + provenance only; raw PDFs live in S3, not here.",
-  "run_id": "20261021T074129Z",
-  "generated_at": "2026-10-21T07:44:41+00:00",
+  "run_id": "20261022T073702Z",
+  "generated_at": "2026-10-22T07:40:30+00:00",
   "collection": "research_corpus",
   "embed_model": "BAAI/bge-small-en-v1.5",
   "dag": [
@@ -50,197 +50,269 @@
     "discovered": 10,
     "fetched": 10,
     "parsed": 10,
-    "chunks": 385,
-    "accepted": 350,
-    "rejected": 35,
-    "images": 18,
+    "chunks": 434,
+    "accepted": 421,
+    "rejected": 13,
+    "images": 22,
     "figures_captioned": 18,
-    "tables": 10,
+    "tables": 4,
     "with_math": 9,
-    "indexed": 350,
-    "spent_usd": 0.031,
-    "duration_s": 192.3
+    "indexed": 421,
+    "spent_usd": 0.0323,
+    "duration_s": 208.4
   },
   "rejects_by_reason": {
-    "low-relevance": 35
+    "low-relevance": 13
   },
   "budget_usd": 3.0,
   "figures": [
     {
-      "doc_id": "2610.28075v1",
-      "title": "Speculative Imbalance Positions by Non-Physical Traders: Impacts on Electricity System Balancing in Great Britain",
-      "page": 6,
-      "thumb": "/data/figures/2610.28075v1_p6_0.jpg",
-      "caption": "Figure 1: Timeline of trading arrangements in the GB electricity market. NESO manages supply and demand imbalances and system network constraints primarily within the BM, which starts 60 minutes before delivery. Parties may trade up to 15 minutes before delivery on the continuous intraday market, overlapping with the BM. \u2014 This figure shows a timeline diagram of the Great Britain electricity market trading arrangements, with chart type being a horizontal process flow. The x-axis represents time ",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.28075v1"
-    },
-    {
-      "doc_id": "2610.28075v1",
-      "title": "Speculative Imbalance Positions by Non-Physical Traders: Impacts on Electricity System Balancing in Great Britain",
-      "page": 13,
-      "thumb": "/data/figures/2610.28075v1_p13_1.jpg",
-      "caption": "Figure 2 is an example of this assumption. Suppose a supplier over- forecasts their demand, and purchases power at intraday. In the factual scenario (where NPT is allowed), an NPT might sell this contract, but with- out backing the contract with physical output. In the counterfactual scenario (where NPT is disallowed), the supplier might purchase the same amount of energy from an asset-backed gene \u2014 This is a text passage from a research paper discussing assumptions about passive balancing volum",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.28075v1"
-    },
-    {
-      "doc_id": "2610.28075v1",
-      "title": "Speculative Imbalance Positions by Non-Physical Traders: Impacts on Electricity System Balancing in Great Britain",
-      "page": 13,
-      "thumb": "/data/figures/2610.28075v1_p13_2.jpg",
-      "caption": "Figure 2: Stages of SIP for a scenario in which the system ends up with excess power due to suppliers over-forecasting demand, demonstrating the differences in generation, system balancing, and imbalance settlement between the factual (with SIP) and the counterfactual (without). \u2014 This flow diagram illustrates three stages of electricity market operations comparing factual and counterfactual scenarios where suppliers over-forecast demand. The figure uses boxes and arrows to show supply chains ac",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.28075v1"
-    },
-    {
-      "doc_id": "2610.28075v1",
-      "title": "Speculative Imbalance Positions by Non-Physical Traders: Impacts on Electricity System Balancing in Great Britain",
-      "page": 16,
-      "thumb": "/data/figures/2610.28075v1_p16_3.jpg",
-      "caption": "Figure 3: Schematic of merit order simulation for two counterfactual imbalances: one in which the SO requires extra upward regulation, and another in which accepted volume must be removed and further bids accepted. \u2014 This figure is a schematic diagram showing merit order stacks for electricity balancing in Great Britain, comparing a factual scenario against two counterfactual imbalance situations. The diagram displays three vertical merit order stacks with assets ranked by price (y-axis: price p",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.28075v1"
-    },
-    {
-      "doc_id": "2610.28071v1",
-      "title": "Arithmetic Models for Commodity Futures, Vanilla, and Calendar Spread Options",
-      "page": 14,
-      "thumb": "/data/figures/2610.28071v1_p14_0.jpg",
-      "caption": "Figure 1: Term structure of NYMEX WTI futures prices Settlement prices, in $/bbl, of the M1\u2013M7, Q1\u2013Q3 and Y1\u2013Y3 contracts, plotted at constant maturities equal to their sample averages; the black line traces M1. Daily data from 2 January 2013 to 29 February 2024. \u2014 This 3D surface plot displays the evolution of NYMEX WTI crude oil futures prices from 2013 to 2024, with calendar time on the x-axis, contract maturity (ranging from 1 to 3 years) on the y-axis, and settlement prices in dollars per b",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.28071v1"
-    },
-    {
-      "doc_id": "2610.28071v1",
-      "title": "Arithmetic Models for Commodity Futures, Vanilla, and Calendar Spread Options",
-      "page": 15,
-      "thumb": "/data/figures/2610.28071v1_p15_1.jpg",
-      "caption": "Figure 2 shows the volatility smile averaged over all dates, measured as the implied volatility of options with moneyness K \u2212F less that of the ATM option on the same contract. We plot the smile with respect to both the implied Black and implied Bachelier volatility.8 The Black model assumes that the futures price follows a driftless geometric Brownian motion, such that it is log-normal and hence  \u2014 Table 2 presents vanilla option delta buckets for categorizing options by moneyness. Options are ",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.28071v1"
-    },
-    {
-      "doc_id": "2610.28071v1",
-      "title": "Arithmetic Models for Commodity Futures, Vanilla, and Calendar Spread Options",
-      "page": 16,
-      "thumb": "/data/figures/2610.28071v1_p16_2.jpg",
-      "caption": "Figure 2: Average NYMEX WTI implied smile in Black and Bachelier volatilities For M1, M3 and Q1, the implied volatility of the liquid out-of-the-money options less that at the money, against the moneyness K \u2212F, averaged over the dates on which the moneyness is quoted and lightly smoothed. (a) Black volatility, in percent. (b) Bachelier volatility, in $/bbl a year. Daily data from 2 January 2013 to \u2014 These two panels display the implied volatility smile for NYMEX WTI crude oil futures across diff",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.28071v1"
-    },
-    {
-      "doc_id": "2610.28071v1",
-      "title": "Arithmetic Models for Commodity Futures, Vanilla, and Calendar Spread Options",
-      "page": 17,
-      "thumb": "/data/figures/2610.28071v1_p17_3.jpg",
-      "caption": "Figure 3: Implied volatility of NYMEX WTI one-month calendar spread options (a) The average implied Bachelier volatility, in $/bbl a year, in each delta bucket (markers) for the calendar spread options on M1\u2013M3 and M6. (b) The average at-the-money implied Bachelier volatility for M1\u2013M6. Daily data from 2 January 2013 to 29 February 2024. \u2014 Panel (a) displays a volatility smile for NYMEX WTI one-month calendar spread options across four contracts (M1, M2, M3, M6), plotting implied Bachelier volat",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.28071v1"
-    },
-    {
-      "doc_id": "2610.27751v1",
-      "title": "Market Regime-Based Multi-Asset Portfolio Optimization Using Nested Clustered Optimization for Tactical Asset Allocation",
-      "page": 5,
-      "thumb": "/data/figures/2610.27751v1_p5_0.jpg",
-      "caption": "Fig. 1. Decoded market regimes overlaid on the LQ45 price index. Shaded areas represent the three regimes: Bullish (green), Sideways (yellow), and Bearish (red). \u2014 This line chart overlays decoded market regimes on the LQ45 Indonesian stock price index from 2022 to 2025. The y-axis displays the index level (ranging approximately 0.75 to 1.15), while the x-axis shows time progression, with colored background shading indicating three market regimes: green for bullish periods, yellow for sideways/n",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.27751v1"
-    },
-    {
-      "doc_id": "2610.27751v1",
-      "title": "Market Regime-Based Multi-Asset Portfolio Optimization Using Nested Clustered Optimization for Tactical Asset Allocation",
-      "page": 6,
-      "thumb": "/data/figures/2610.27751v1_p6_1.jpg",
-      "caption": "Fig. 2. Regime-conditional pairwise asset correlation matrices for the out-of-sample period. The three panels show shifts in correlation structures across Bullish (left), Sideways (middle), and Bearish (right) market states. \u2014 This figure displays three correlation matrices showing how pairwise asset correlations shift across different market regimes: Bullish (left), Sideways (middle), and Bearish (right). Each heatmap matrix uses color intensity (ranging from dark red for +1.00 to dark blue for",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.27751v1"
-    },
-    {
-      "doc_id": "2610.27751v1",
-      "title": "Market Regime-Based Multi-Asset Portfolio Optimization Using Nested Clustered Optimization for Tactical Asset Allocation",
-      "page": 6,
-      "thumb": "/data/figures/2610.27751v1_p6_2.jpg",
-      "caption": "Fig. 3. Cumulative portfolio value growth (logarithmic scale) for the proposed HMM-NCO strategy and all benchmark portfolios during the out-of-sample period (January 2021 \u2013 August 2025). \u2014 Figure 1 is a line chart showing cumulative portfolio growth on a logarithmic scale from January 2021 to August 2025, comparing four strategies: the proposed HMM-NCO (regime-aware), NCO (No Regime), Buy-and-Hold, and Minimum Variance. The y-axis represents portfolio value in logarithmic terms while the x-axis ",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.27751v1"
-    },
-    {
-      "doc_id": "2610.27751v1",
-      "title": "Market Regime-Based Multi-Asset Portfolio Optimization Using Nested Clustered Optimization for Tactical Asset Allocation",
-      "page": 6,
-      "thumb": "/data/figures/2610.27751v1_p6_3.jpg",
-      "caption": "Fig. 4. Rolling 12-month Sharpe ratio comparison between the proposed HMM-NCO (regime-aware) and standard NCO (regime-agnostic) strategies. \u2014 This line chart compares the rolling 12-month Sharpe ratio between two portfolio strategies from January 2021 to August 2025. The orange line represents the proposed HMM-NCO (Markov regime-aware) strategy while the blue line shows the standard NCO (regime-agnostic) benchmark, with values fluctuating between approximately -0.5 and 1.0. The key takeaway is t",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.27751v1"
-    },
-    {
-      "doc_id": "2610.27214v1",
-      "title": "Deep catastrophic-risk-aware reinforcement learning",
-      "page": 16,
-      "thumb": "/data/figures/2610.27214v1_p16_0.jpg",
-      "caption": "Figure 1: Optimization trajectories obtained using the empirical and EVT-based CVaR estima- tors for the controlled experiment. \u2014 This figure displays optimization trajectories comparing two CVaR estimators\u2014empirical and EVT-based\u2014as line plots over iterations of gradient-based optimization. The x-axis represents optimization steps/iterations while the y-axis represents the CVaR objective value, with both estimators' trajectories shown to converge toward optimal policy solutions. The key takeawa",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.27214v1"
-    },
-    {
-      "doc_id": "2610.27214v1",
-      "title": "Deep catastrophic-risk-aware reinforcement learning",
-      "page": 20,
-      "thumb": "/data/figures/2610.27214v1_p20_1.jpg",
-      "caption": "Figure 3 shows the resulting out-of-sample hedging-error distributions. Under the general \u2014 This text describes the methodology for evaluating hedging policies on two independent out-of-sample datasets: a standard sample of 100,000 paths from the market distribution, and a heavy-tail regime sample of 3,000 paths concentrated in the upper 0.1% tail of the unhedged option-payoff distribution. The heavy-tail sample is constructed by independently simulating additional paths and retaining only compl",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.27214v1"
-    },
-    {
-      "doc_id": "2610.27214v1",
-      "title": "Deep catastrophic-risk-aware reinforcement learning",
-      "page": 21,
-      "thumb": "/data/figures/2610.27214v1_p21_2.jpg",
-      "caption": "Figure 3: Distribution of out-of-sample hedging errors under the empirical and EVT-based optimization approaches. \u2014 This figure displays a histogram comparing the distribution of out-of-sample hedging errors between two optimization approaches: empirical optimization and EVT (Extreme Value Theory)-based optimization. The x-axis represents hedging errors while the y-axis shows frequency or density, with the distribution showing both central behavior and tail characteristics. The key takeaway is t",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.27214v1"
-    },
-    {
-      "doc_id": "2610.27100v1",
-      "title": "LOB-Impact Benchmark: Emergent Market Impact in Generative Limit Order Book Models",
+      "doc_id": "2610.29663v1",
+      "title": "Lineage-Aware Search Control for LLM-Based Evolutionary Factor Mining",
       "page": 3,
-      "thumb": "/data/figures/2610.27100v1_p3_0.jpg",
-      "caption": "Figure 1: The benchmark and its counterfactual probe. Left: four inputs, three phases, and the claim ladder they decide, each row reading claim \u00b7 variable \u00b7 pass criterion. Phase 1 generates freely and decides the balance (C1); Phase 2 injects the build-up and decides existence (C2), attribution (C3) and the square-root law (C4); Phase 3 injects, then falls silent, and decides relaxation (C5). Sch \u2014 This figure presents a benchmark framework for evaluating generative limit order book (LOB) model",
+      "thumb": "/data/figures/2610.29663v1_p3_0.jpg",
+      "caption": "Figure 1: Overview of LineageEvo. LSPS first selects a lineage and then selects parent factor(s); lineage-specific and global operator priors are subsequently retrieved and fused to condition LLM-based variation. Valid offspring are evaluated, and the feedback path updates the lineage DAG, prior states, active population, and elite archive. \u2014 This figure presents a workflow diagram for LineageEvo, a system that combines lineage-based search with large language models for factor mining in quantit",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2610.27100v1"
+      "source": "https://arxiv.org/pdf/2610.29663v1"
     },
     {
-      "doc_id": "2610.27100v1",
-      "title": "LOB-Impact Benchmark: Emergent Market Impact in Generative Limit Order Book Models",
-      "page": 4,
-      "thumb": "/data/figures/2610.27100v1_p4_1.jpg",
-      "caption": "Figure 2: The estimator\u2019s input on AMD. Rows: the Historic re- play (negative control, top) and S5-120M (bottom). Columns: raw signed points (ln\ud835\udc5e, \ud835\udc3c) (left) and equal-count bins with signed conditional means (right). Half the replay\u2019s points lie at or below zero; signed means cancel where there is no signal, so the replay\u2019s means straddle zero while S5-120M\u2019s rise. The estimator built on these mea \u2014 This figure displays scatter plots comparing raw signed points and binned conditional means for A",
+      "doc_id": "2610.29663v1",
+      "title": "Lineage-Aware Search Control for LLM-Based Evolutionary Factor Mining",
+      "page": 3,
+      "thumb": "/data/figures/2610.29663v1_p3_1.jpg",
+      "caption": "Figure 1 summarizes one iteration of LineageEvo. Start- ing from an evolutionary state organized by lineage, Lineage- Stratified Parent Selection (LSPS) first allocates a search op- portunity to a lineage and then selects parent factor(s) from the active population. The corresponding lineage-specific and global operator experience is retrieved and fused into soft guidance for LLM-based mutation or \u2014 This flow diagram illustrates the LineageEvo algorithm for evolutionary factor discovery in LLM-b",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2610.27100v1"
+      "source": "https://arxiv.org/pdf/2610.29663v1"
     },
     {
-      "doc_id": "2610.27100v1",
-      "title": "LOB-Impact Benchmark: Emergent Market Impact in Generative Limit Order Book Models",
-      "page": 4,
-      "thumb": "/data/figures/2610.27100v1_p4_2.jpg",
-      "caption": "Figure 3 shows the universe: \u0394\ud835\udc41is strongly right-skewed, so a high-OTR name (order-to-trade ratio 1/\ud835\udf19) costs seven times more generation than a low-OTR one. Table 2 takes one name per cohort. This paper reports AMD band by band: high-OTR cohort (\u0394\ud835\udc41= 401 \u00b1 69, \u224840k messages per metaorder), and inside every training corpus, so the measurement carries no distribution shift. \u2014 Figure 2 displays the estimator's input data for AMD across two message-level generators: Historic replay (negative control,",
+      "doc_id": "2610.29663v1",
+      "title": "Lineage-Aware Search Control for LLM-Based Evolutionary Factor Mining",
+      "page": 6,
+      "thumb": "/data/figures/2610.29663v1_p6_2.jpg",
+      "caption": "Figure 2 shows that while achieving high predictive power, LineageEvo maintains competitive cumulative re- turns throughout the test period and becomes one of the strongest-performing methods in the later stage, ultimately finishing with the highest cumulative return among the com- pared approaches. \u2014 This line chart displays cumulative return curves for eight different factor mining methods (AlphaGen, AlphaProbe, LineageEvo, AlphaSAGE, EoH, RD-Agent, REvelo, and CSI500 Index) tested on the CSI ",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2610.27100v1"
+      "source": "https://arxiv.org/pdf/2610.29663v1"
+    },
+    {
+      "doc_id": "2610.29663v1",
+      "title": "Lineage-Aware Search Control for LLM-Based Evolutionary Factor Mining",
+      "page": 6,
+      "thumb": "/data/figures/2610.29663v1_p6_3.jpg",
+      "caption": "Figure 2: Cumulative return curves of different factor mining methods on CSI 500 during the test period. \u2014 This line chart displays cumulative returns over time from January 2023 to mid-2026 for six different factor mining methods (AlphaGen, AlphaProbe, LineageEvo, AlphaSAGE, RD Agent, EoH, and RevEvo) benchmarked against the CSI500 Index. The y-axis shows cumulative return values ranging from 0.8 to 1.6, while the x-axis represents the date timeline. LineageEvo achieves the highest cumulative r",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.29663v1"
+    },
+    {
+      "doc_id": "2610.29652v1",
+      "title": "Distributions or Quantiles? A Convex Variational Theory of Worst-Case Risk",
+      "page": 14,
+      "thumb": "/data/figures/2610.29652v1_p14_0.jpg",
+      "caption": "Figure 1. Wasserstein ambiguity with ES stress. (a) For \u03f5 = 0.35, the ES constraint activates when c exceeds c\u2020. (b) For c = 4.05, increasing \u03f5 eventually makes the ES constraint slack. \u2014 This figure displays two line graphs showing the relationship between Wasserstein radius and worst-case Expected Shortfall (ES) under different parameter variations. Panel (a) shows worst-case ES on the y-axis versus ES floor parameter c on the x-axis (at fixed Wasserstein radius \u03f5 = 0.35), with a vertical dott",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.29652v1"
+    },
+    {
+      "doc_id": "2610.29652v1",
+      "title": "Distributions or Quantiles? A Convex Variational Theory of Worst-Case Risk",
+      "page": 18,
+      "thumb": "/data/figures/2610.29652v1_p18_1.jpg",
+      "caption": "Figure 2 illustrates the floor and cap regimes for \u03d5(u) = 3u2. With \u00b5 = 3, \u03c3 = 10, and \u03b1 = 0.9, \u2014 This figure displays the optimal quantile levels as functions of the cost parameter for a convex risk model with \u03d5(u) = 3u\u00b2. The plot uses a line chart with the cost parameter on the horizontal axis and quantile levels (u\u2081, u\u2082, \u03bb*\u2099) on the vertical axis, showing distinct floor and cap regimes separated by critical thresholds. The key takeaway is that the interior plateau widens as the cost parameter",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.29652v1"
+    },
+    {
+      "doc_id": "2610.29652v1",
+      "title": "Distributions or Quantiles? A Convex Variational Theory of Worst-Case Risk",
+      "page": 18,
+      "thumb": "/data/figures/2610.29652v1_p18_2.jpg",
+      "caption": "Figure 2. Two-sided ES band with \u00b5 = 3, \u03c3 = 10, \u03b1 = 0.9, and \u03d5(u) = 3u2 (\u00afc \u224822.1). (a) With the other bound slack, the worst-case SRM equals its MV benchmark until the cap or floor excludes \u00afc. (b) The upward jump in the plotted floor-active quantile leaves a gap in the loss support; the cap-active plateau corresponds to an atom. \u2014 Panel (a) is a line plot showing worst-case SRM (Support Risk Measure) on the y-axis versus ES cap/floor coefficients on the x-axis, comparing three scenarios: varyi",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.29652v1"
+    },
+    {
+      "doc_id": "2610.29578v1",
+      "title": "What Prediction-Market Contracts Reveal at Launch: Trading Volume and Dispute Risk",
+      "page": 2,
+      "thumb": "/data/figures/2610.29578v1_p2_0.jpg",
+      "caption": "Figure 1: Each point is one NMF topic, sized by market count. Topic separates high- from low-traction segments. \u2014 This scatter plot displays the relationship between topic prevalence (x-axis, % of markets) and trading volume (y-axis, in $1000 USD) across prediction market contracts at launch. Each bubble represents an NMF topic, with bubble size indicating the number of markets in that topic, and colors denoting topic categories including Crypto/Finance, Exports, Politics/Media, Sports, Weather,",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.29578v1"
+    },
+    {
+      "doc_id": "2610.29578v1",
+      "title": "What Prediction-Market Contracts Reveal at Launch: Trading Volume and Dispute Risk",
+      "page": 4,
+      "thumb": "/data/figures/2610.29578v1_p4_1.jpg",
+      "caption": "Figure 2: Out-of-sample fit as feature blocks are added. Topic contributes the largest increment. \u2014 This horizontal bar chart displays out-of-sample fit (measured by AUC values ranging from 0.75 to 1.0) for successive machine learning models as feature blocks are progressively added to predict log volume. The models are stacked from M1 (structured) at the bottom through M8 (fine-tuned) at the top, with corresponding AUC scores listed on the right ranging from 0.732 to 0.942. The key takeaway is ",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.29578v1"
+    },
+    {
+      "doc_id": "2610.29578v1",
+      "title": "What Prediction-Market Contracts Reveal at Launch: Trading Volume and Dispute Risk",
+      "page": 4,
+      "thumb": "/data/figures/2610.29578v1_p4_2.jpg",
+      "caption": "Figure 3: Out-of-fold predicted vs. observed volume (M5). Dashed line: perfect calibration; dots and bars: decile means and interquartile ranges. \u2014 The bottom panel is a hexbin scatter plot showing the relationship between out-of-fold predicted log(1+volume) on the x-axis and observed log(1+volume) on the y-axis for model M5, with density indicated by color intensity. A dashed diagonal line represents perfect calibration, while white dots and error bars show decile means and interquartile ranges",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.29578v1"
+    },
+    {
+      "doc_id": "2610.29578v1",
+      "title": "What Prediction-Market Contracts Reveal at Launch: Trading Volume and Dispute Risk",
+      "page": 5,
+      "thumb": "/data/figures/2610.29578v1_p5_3.jpg",
+      "caption": "Figure 4: Contract-design factors with topic and launch- quarter fixed effects on a one-standard-deviation scale. \u2014 This figure displays a horizontal dot plot showing the association between various contract-design factors and log(1 + volume) measured in standard deviations. Five variables are plotted\u2014Description length, Specificity (excl. source), Reading grade, Conditional language, Edge-case coverage, and Planned duration\u2014each with point estimates and confidence intervals centered around zero",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.29578v1"
+    },
+    {
+      "doc_id": "2610.28863v1",
+      "title": "A game-theoretic analysis of the market microstructure in decentralized exchanges with concentrated liquidity",
+      "page": 19,
+      "thumb": "/data/figures/2610.28863v1_p19_0.jpg",
+      "caption": "Figure 1 is the strongest form of the result. On the Ethereum 0.3% pool, which pays neither token emissions nor a protocol fee, the 30-day \u03c3c tracks the 30-day realized \u03c3 through a twofold swing, from 41% to 85% annualized, for ten con- secutive quarters, with s inside roughly 0.9\u20131.1 throughout. We compute 95% percentile confidence intervals for s from 2000 replicates of a circular block boot- st \u2014 This figure displays the relationship between realized volatility and margin requirements over ti",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.28863v1"
+    },
+    {
+      "doc_id": "2610.28863v1",
+      "title": "A game-theoretic analysis of the market microstructure in decentralized exchanges with concentrated liquidity",
+      "page": 20,
+      "thumb": "/data/figures/2610.28863v1_p20_1.jpg",
+      "caption": "Fig. 1. Ethereum Uniswap V3 0.3%. The top panel shows the 30-day annualized re- alized \u03c3 and the critical \u03c3c of (34), neither fitted to the other, and the bottom panel the margin s = \u03c3/\u03c3c. Both series begin once the 30-day window is full and the pool\u2019s liquidity history covers it. \u2014 This figure displays two time-series panels tracking Ethereum Uniswap V3 0.3% pool dynamics from July 2024 to July 2025. The top panel shows 30-day annualized realized volatility (\u03c3, red line) and critical volatility",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.28863v1"
+    },
+    {
+      "doc_id": "2610.28863v1",
+      "title": "A game-theoretic analysis of the market microstructure in decentralized exchanges with concentrated liquidity",
+      "page": 21,
+      "thumb": "/data/figures/2610.28863v1_p21_2.jpg",
+      "caption": "Fig. 2. Thirty-day rolling s across five pools, two chains and four protocols, each from the end of its warm-up window. The emissions-subsidized pool floats above, most visibly in early 2026 when emissions rose. For the protocol-fee pool the fee-only estimate understates the margin that providers face. \u2014 This line chart displays the 30-day rolling participation margin (s-metrics) across decentralized exchange pools from October 2024 to July 2026, with the y-axis showing s-values in basis points ",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.28863v1"
+    },
+    {
+      "doc_id": "2610.28847v1",
+      "title": "DSINC beyond Heston: the 3/2 and other non-affine stochastic-volatility models",
+      "page": 24,
+      "thumb": "/data/figures/2610.28847v1_p24_0.jpg",
+      "caption": "Figure 1 illustrates Proposition 5 and Corollary 8. It shows the moment E[(ST /S0)\u03c7], computed by the fixed-frequency solver at e\u03c9 = \u2212i\u03c7 with absorption at a truncation level ymax, as ymax grows. For \u03c7 = 1/2 the truncated moments converge in all three models. In the 3/2 model they also converge for \u03c7 = \u22121/2, which Corollary 8 admits. For \u03c7 = \u22125, below the bound \u22124.35, they explode once ymax exceed \u2014 This figure displays convergence behavior of moment explosions on truncated grids across three st",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.28847v1"
+    },
+    {
+      "doc_id": "2610.28847v1",
+      "title": "DSINC beyond Heston: the 3/2 and other non-affine stochastic-volatility models",
+      "page": 24,
+      "thumb": "/data/figures/2610.28847v1_p24_1.jpg",
+      "caption": "Figure 1: Truncated moments E[(ST /S0)\u03c7] for T = 0.5, computed by the fixed-frequency solver with \u2014 This figure shows three line plots comparing truncated moments E[(S_T/S_0)^\u03c7] across different stochastic volatility models: the 3/2 model, lognormal volatility, and GARCH diffusion. Each plot displays the bias of truncated moment (y-axis, log scale from 10^-3 to 10^3) against truncation level y_max/y_0 (x-axis, log scale from 1 to 10^4) for three different power parameters \u03c7 = -5, -0.5, and 0.5 s",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.28847v1"
+    },
+    {
+      "doc_id": "2610.28753v1",
+      "title": "Understanding the Inner Workings of a State-Space Foundation Model for Limit Order Books",
+      "page": 4,
+      "thumb": "/data/figures/2610.28753v1_p4_0.jpg",
+      "caption": "Figure 1: Probing loci in a message-only Mamba-3 model. At each token, the state carries over the previous state scaled by \ud835\udefc\ud835\udc61 and adds two writes: the current token\u2019s, weighted by \ud835\udefe\ud835\udc61, and the previous token\u2019s, weighted by \ud835\udefd\ud835\udc61. From each layer we extract the per-token residual stream and the recurrent state h(\u2113) \u2014 This figure shows the architectural design of a Mamba-3 state-space model applied to limit order book (LOB) prediction, displayed as a block diagram with accompanying equations. The mode",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.28753v1"
+    },
+    {
+      "doc_id": "2610.28753v1",
+      "title": "Understanding the Inner Workings of a State-Space Foundation Model for Limit Order Books",
+      "page": 5,
+      "thumb": "/data/figures/2610.28753v1_p5_1.jpg",
+      "caption": "Figure 2: Held-out \ud835\udc452 (layer chosen by nested CV) decoded from the recurrent state and the residual stream at \ud835\udc4a=500, same windows and probing procedure for both. Whiskers: 95% day-block bootstrap intervals. OFI, traded volume and realized volatility are decodable almost only from the recur- rent state, while the touch is partly readable from both. \u2014 This bar chart compares R\u00b2 values for decoding five limit order book variables (OFI level-1, OFI top-5, traded volume, realized volatility, and touc",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.28753v1"
     }
   ],
   "docs": [
+    {
+      "id": "2610.29663v1",
+      "title": "Lineage-Aware Search Control for LLM-Based Evolutionary Factor Mining",
+      "source": "https://arxiv.org/pdf/2610.29663v1",
+      "pages": 14,
+      "images": 2,
+      "figures_captioned": 4,
+      "tables": 1,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 39
+    },
+    {
+      "id": "2610.29652v1",
+      "title": "Distributions or Quantiles? A Convex Variational Theory of Worst-Case Risk",
+      "source": "https://arxiv.org/pdf/2610.29652v1",
+      "pages": 75,
+      "images": 0,
+      "figures_captioned": 3,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 59
+    },
+    {
+      "id": "2610.29578v1",
+      "title": "What Prediction-Market Contracts Reveal at Launch: Trading Volume and Dispute Risk",
+      "source": "https://arxiv.org/pdf/2610.29578v1",
+      "pages": 8,
+      "images": 1,
+      "figures_captioned": 4,
+      "tables": 2,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 31
+    },
+    {
+      "id": "2610.28863v1",
+      "title": "A game-theoretic analysis of the market microstructure in decentralized exchanges with concentrated liquidity",
+      "source": "https://arxiv.org/pdf/2610.28863v1",
+      "pages": 30,
+      "images": 2,
+      "figures_captioned": 3,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 58
+    },
+    {
+      "id": "2610.28847v1",
+      "title": "DSINC beyond Heston: the 3/2 and other non-affine stochastic-volatility models",
+      "source": "https://arxiv.org/pdf/2610.28847v1",
+      "pages": 35,
+      "images": 0,
+      "figures_captioned": 2,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 69
+    },
+    {
+      "id": "2610.28753v1",
+      "title": "Understanding the Inner Workings of a State-Space Foundation Model for Limit Order Books",
+      "source": "https://arxiv.org/pdf/2610.28753v1",
+      "pages": 9,
+      "images": 7,
+      "figures_captioned": 2,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 33
+    },
     {
       "id": "2610.28075v1",
       "title": "Speculative Imbalance Positions by Non-Physical Traders: Impacts on Electricity System Balancing in Great Britain",
       "source": "https://arxiv.org/pdf/2610.28075v1",
       "pages": 36,
       "images": 0,
-      "figures_captioned": 4,
+      "figures_captioned": 0,
       "tables": 0,
       "has_math": false,
       "ocr_used": false,
-      "chunks_indexed": 34
+      "chunks_indexed": 30
     },
     {
       "id": "2610.28071v1",
@@ -248,11 +320,11 @@
       "source": "https://arxiv.org/pdf/2610.28071v1",
       "pages": 69,
       "images": 4,
-      "figures_captioned": 4,
+      "figures_captioned": 0,
       "tables": 1,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 57
+      "chunks_indexed": 53
     },
     {
       "id": "2610.27751v1",
@@ -260,11 +332,11 @@
       "source": "https://arxiv.org/pdf/2610.27751v1",
       "pages": 8,
       "images": 6,
-      "figures_captioned": 4,
+      "figures_captioned": 0,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 18
+      "chunks_indexed": 14
     },
     {
       "id": "2610.27214v1",
@@ -272,83 +344,11 @@
       "source": "https://arxiv.org/pdf/2610.27214v1",
       "pages": 29,
       "images": 0,
-      "figures_captioned": 3,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 38
-    },
-    {
-      "id": "2610.27100v1",
-      "title": "LOB-Impact Benchmark: Emergent Market Impact in Generative Limit Order Book Models",
-      "source": "https://arxiv.org/pdf/2610.27100v1",
-      "pages": 9,
-      "images": 4,
-      "figures_captioned": 3,
-      "tables": 5,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 29
-    },
-    {
-      "id": "2610.26797v1",
-      "title": "Teacher Supervision, Fixed Representations and Calibration: Exact Risk Calculations for Candidate-Scoring Decision Models",
-      "source": "https://arxiv.org/pdf/2610.26797v1",
-      "pages": 18,
-      "images": 0,
       "figures_captioned": 0,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 36
-    },
-    {
-      "id": "2610.26789v1",
-      "title": "Cooperative Multi-Agent Reinforcement Learning for Market Making on Prediction-Market Order Books",
-      "source": "https://arxiv.org/pdf/2610.26789v1",
-      "pages": 50,
-      "images": 1,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 38
-    },
-    {
-      "id": "2610.26746v1",
-      "title": "Probability-Weighting Functions for Normal Tempered-Stable Laws: Orthogonal Channels and Information-Theoretic Indices",
-      "source": "https://arxiv.org/pdf/2610.26746v1",
-      "pages": 25,
-      "images": 0,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 45
-    },
-    {
-      "id": "2610.26456v1",
-      "title": "Regime-Aware Interpretable Ranking for Sector Rotation",
-      "source": "https://arxiv.org/pdf/2610.26456v1",
-      "pages": 9,
-      "images": 1,
-      "figures_captioned": 0,
-      "tables": 3,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 27
-    },
-    {
-      "id": "2610.26358v1",
-      "title": "SHADE: Shrinkage via Halted Alpha-stable Denoising for Heavy-Tailed Probabilistic Time Series Forecasting",
-      "source": "https://arxiv.org/pdf/2610.26358v1",
-      "pages": 9,
-      "images": 2,
-      "figures_captioned": 0,
-      "tables": 1,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 28
+      "chunks_indexed": 35
     }
   ]
 }
