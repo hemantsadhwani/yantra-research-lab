@@ -1,7 +1,7 @@
 {
   "_note": "Public run manifest of the Tier-3 agentic ingestion pipeline. Safe aggregates + provenance only; raw PDFs live in S3, not here.",
-  "run_id": "20261022T073702Z",
-  "generated_at": "2026-10-22T07:40:30+00:00",
+  "run_id": "20261023T073425Z",
+  "generated_at": "2026-10-23T07:37:21+00:00",
   "collection": "research_corpus",
   "embed_model": "BAAI/bge-small-en-v1.5",
   "dag": [
@@ -50,192 +50,216 @@
     "discovered": 10,
     "fetched": 10,
     "parsed": 10,
-    "chunks": 434,
-    "accepted": 421,
-    "rejected": 13,
-    "images": 22,
+    "chunks": 427,
+    "accepted": 402,
+    "rejected": 25,
+    "images": 10,
     "figures_captioned": 18,
-    "tables": 4,
-    "with_math": 9,
-    "indexed": 421,
-    "spent_usd": 0.0323,
-    "duration_s": 208.4
+    "tables": 6,
+    "with_math": 10,
+    "indexed": 402,
+    "spent_usd": 0.0307,
+    "duration_s": 176.4
   },
   "rejects_by_reason": {
-    "low-relevance": 13
+    "low-relevance": 25
   },
   "budget_usd": 3.0,
   "figures": [
     {
-      "doc_id": "2610.29663v1",
-      "title": "Lineage-Aware Search Control for LLM-Based Evolutionary Factor Mining",
-      "page": 3,
-      "thumb": "/data/figures/2610.29663v1_p3_0.jpg",
-      "caption": "Figure 1: Overview of LineageEvo. LSPS first selects a lineage and then selects parent factor(s); lineage-specific and global operator priors are subsequently retrieved and fused to condition LLM-based variation. Valid offspring are evaluated, and the feedback path updates the lineage DAG, prior states, active population, and elite archive. \u2014 This figure presents a workflow diagram for LineageEvo, a system that combines lineage-based search with large language models for factor mining in quantit",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.29663v1"
-    },
-    {
-      "doc_id": "2610.29663v1",
-      "title": "Lineage-Aware Search Control for LLM-Based Evolutionary Factor Mining",
-      "page": 3,
-      "thumb": "/data/figures/2610.29663v1_p3_1.jpg",
-      "caption": "Figure 1 summarizes one iteration of LineageEvo. Start- ing from an evolutionary state organized by lineage, Lineage- Stratified Parent Selection (LSPS) first allocates a search op- portunity to a lineage and then selects parent factor(s) from the active population. The corresponding lineage-specific and global operator experience is retrieved and fused into soft guidance for LLM-based mutation or \u2014 This flow diagram illustrates the LineageEvo algorithm for evolutionary factor discovery in LLM-b",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.29663v1"
-    },
-    {
-      "doc_id": "2610.29663v1",
-      "title": "Lineage-Aware Search Control for LLM-Based Evolutionary Factor Mining",
-      "page": 6,
-      "thumb": "/data/figures/2610.29663v1_p6_2.jpg",
-      "caption": "Figure 2 shows that while achieving high predictive power, LineageEvo maintains competitive cumulative re- turns throughout the test period and becomes one of the strongest-performing methods in the later stage, ultimately finishing with the highest cumulative return among the com- pared approaches. \u2014 This line chart displays cumulative return curves for eight different factor mining methods (AlphaGen, AlphaProbe, LineageEvo, AlphaSAGE, EoH, RD-Agent, REvelo, and CSI500 Index) tested on the CSI ",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.29663v1"
-    },
-    {
-      "doc_id": "2610.29663v1",
-      "title": "Lineage-Aware Search Control for LLM-Based Evolutionary Factor Mining",
-      "page": 6,
-      "thumb": "/data/figures/2610.29663v1_p6_3.jpg",
-      "caption": "Figure 2: Cumulative return curves of different factor mining methods on CSI 500 during the test period. \u2014 This line chart displays cumulative returns over time from January 2023 to mid-2026 for six different factor mining methods (AlphaGen, AlphaProbe, LineageEvo, AlphaSAGE, RD Agent, EoH, and RevEvo) benchmarked against the CSI500 Index. The y-axis shows cumulative return values ranging from 0.8 to 1.6, while the x-axis represents the date timeline. LineageEvo achieves the highest cumulative r",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.29663v1"
-    },
-    {
-      "doc_id": "2610.29652v1",
-      "title": "Distributions or Quantiles? A Convex Variational Theory of Worst-Case Risk",
-      "page": 14,
-      "thumb": "/data/figures/2610.29652v1_p14_0.jpg",
-      "caption": "Figure 1. Wasserstein ambiguity with ES stress. (a) For \u03f5 = 0.35, the ES constraint activates when c exceeds c\u2020. (b) For c = 4.05, increasing \u03f5 eventually makes the ES constraint slack. \u2014 This figure displays two line graphs showing the relationship between Wasserstein radius and worst-case Expected Shortfall (ES) under different parameter variations. Panel (a) shows worst-case ES on the y-axis versus ES floor parameter c on the x-axis (at fixed Wasserstein radius \u03f5 = 0.35), with a vertical dott",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.29652v1"
-    },
-    {
-      "doc_id": "2610.29652v1",
-      "title": "Distributions or Quantiles? A Convex Variational Theory of Worst-Case Risk",
-      "page": 18,
-      "thumb": "/data/figures/2610.29652v1_p18_1.jpg",
-      "caption": "Figure 2 illustrates the floor and cap regimes for \u03d5(u) = 3u2. With \u00b5 = 3, \u03c3 = 10, and \u03b1 = 0.9, \u2014 This figure displays the optimal quantile levels as functions of the cost parameter for a convex risk model with \u03d5(u) = 3u\u00b2. The plot uses a line chart with the cost parameter on the horizontal axis and quantile levels (u\u2081, u\u2082, \u03bb*\u2099) on the vertical axis, showing distinct floor and cap regimes separated by critical thresholds. The key takeaway is that the interior plateau widens as the cost parameter",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.29652v1"
-    },
-    {
-      "doc_id": "2610.29652v1",
-      "title": "Distributions or Quantiles? A Convex Variational Theory of Worst-Case Risk",
-      "page": 18,
-      "thumb": "/data/figures/2610.29652v1_p18_2.jpg",
-      "caption": "Figure 2. Two-sided ES band with \u00b5 = 3, \u03c3 = 10, \u03b1 = 0.9, and \u03d5(u) = 3u2 (\u00afc \u224822.1). (a) With the other bound slack, the worst-case SRM equals its MV benchmark until the cap or floor excludes \u00afc. (b) The upward jump in the plotted floor-active quantile leaves a gap in the loss support; the cap-active plateau corresponds to an atom. \u2014 Panel (a) is a line plot showing worst-case SRM (Support Risk Measure) on the y-axis versus ES cap/floor coefficients on the x-axis, comparing three scenarios: varyi",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.29652v1"
-    },
-    {
-      "doc_id": "2610.29578v1",
-      "title": "What Prediction-Market Contracts Reveal at Launch: Trading Volume and Dispute Risk",
-      "page": 2,
-      "thumb": "/data/figures/2610.29578v1_p2_0.jpg",
-      "caption": "Figure 1: Each point is one NMF topic, sized by market count. Topic separates high- from low-traction segments. \u2014 This scatter plot displays the relationship between topic prevalence (x-axis, % of markets) and trading volume (y-axis, in $1000 USD) across prediction market contracts at launch. Each bubble represents an NMF topic, with bubble size indicating the number of markets in that topic, and colors denoting topic categories including Crypto/Finance, Exports, Politics/Media, Sports, Weather,",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.29578v1"
-    },
-    {
-      "doc_id": "2610.29578v1",
-      "title": "What Prediction-Market Contracts Reveal at Launch: Trading Volume and Dispute Risk",
-      "page": 4,
-      "thumb": "/data/figures/2610.29578v1_p4_1.jpg",
-      "caption": "Figure 2: Out-of-sample fit as feature blocks are added. Topic contributes the largest increment. \u2014 This horizontal bar chart displays out-of-sample fit (measured by AUC values ranging from 0.75 to 1.0) for successive machine learning models as feature blocks are progressively added to predict log volume. The models are stacked from M1 (structured) at the bottom through M8 (fine-tuned) at the top, with corresponding AUC scores listed on the right ranging from 0.732 to 0.942. The key takeaway is ",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.29578v1"
-    },
-    {
-      "doc_id": "2610.29578v1",
-      "title": "What Prediction-Market Contracts Reveal at Launch: Trading Volume and Dispute Risk",
-      "page": 4,
-      "thumb": "/data/figures/2610.29578v1_p4_2.jpg",
-      "caption": "Figure 3: Out-of-fold predicted vs. observed volume (M5). Dashed line: perfect calibration; dots and bars: decile means and interquartile ranges. \u2014 The bottom panel is a hexbin scatter plot showing the relationship between out-of-fold predicted log(1+volume) on the x-axis and observed log(1+volume) on the y-axis for model M5, with density indicated by color intensity. A dashed diagonal line represents perfect calibration, while white dots and error bars show decile means and interquartile ranges",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.29578v1"
-    },
-    {
-      "doc_id": "2610.29578v1",
-      "title": "What Prediction-Market Contracts Reveal at Launch: Trading Volume and Dispute Risk",
-      "page": 5,
-      "thumb": "/data/figures/2610.29578v1_p5_3.jpg",
-      "caption": "Figure 4: Contract-design factors with topic and launch- quarter fixed effects on a one-standard-deviation scale. \u2014 This figure displays a horizontal dot plot showing the association between various contract-design factors and log(1 + volume) measured in standard deviations. Five variables are plotted\u2014Description length, Specificity (excl. source), Reading grade, Conditional language, Edge-case coverage, and Planned duration\u2014each with point estimates and confidence intervals centered around zero",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.29578v1"
-    },
-    {
-      "doc_id": "2610.28863v1",
-      "title": "A game-theoretic analysis of the market microstructure in decentralized exchanges with concentrated liquidity",
-      "page": 19,
-      "thumb": "/data/figures/2610.28863v1_p19_0.jpg",
-      "caption": "Figure 1 is the strongest form of the result. On the Ethereum 0.3% pool, which pays neither token emissions nor a protocol fee, the 30-day \u03c3c tracks the 30-day realized \u03c3 through a twofold swing, from 41% to 85% annualized, for ten con- secutive quarters, with s inside roughly 0.9\u20131.1 throughout. We compute 95% percentile confidence intervals for s from 2000 replicates of a circular block boot- st \u2014 This figure displays the relationship between realized volatility and margin requirements over ti",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.28863v1"
-    },
-    {
-      "doc_id": "2610.28863v1",
-      "title": "A game-theoretic analysis of the market microstructure in decentralized exchanges with concentrated liquidity",
+      "doc_id": "2610.31141v1",
+      "title": "Intraday Forecasting Ability and Liquidity Provision of Institutional Traders",
       "page": 20,
-      "thumb": "/data/figures/2610.28863v1_p20_1.jpg",
-      "caption": "Fig. 1. Ethereum Uniswap V3 0.3%. The top panel shows the 30-day annualized re- alized \u03c3 and the critical \u03c3c of (34), neither fitted to the other, and the bottom panel the margin s = \u03c3/\u03c3c. Both series begin once the 30-day window is full and the pool\u2019s liquidity history covers it. \u2014 This figure displays two time-series panels tracking Ethereum Uniswap V3 0.3% pool dynamics from July 2024 to July 2025. The top panel shows 30-day annualized realized volatility (\u03c3, red line) and critical volatility",
+      "thumb": "/data/figures/2610.31141v1_p20_0.jpg",
+      "caption": "Figure 1 shows the group measures of the two groups for Stock-1 and Stock-2 \u2014 This figure displays a bar chart comparing group measures across two stocks (Stock-1 and Stock-2), with separate bars for two institutional trader groups. The vertical axis represents the magnitude of the measures while the horizontal axis differentiates between the two stocks and their respective group comparisons. The key takeaway is that the two institutional trader groups exhibit measurably different characteristic",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2610.28863v1"
+      "source": "https://arxiv.org/pdf/2610.31141v1"
     },
     {
-      "doc_id": "2610.28863v1",
-      "title": "A game-theoretic analysis of the market microstructure in decentralized exchanges with concentrated liquidity",
-      "page": 21,
-      "thumb": "/data/figures/2610.28863v1_p21_2.jpg",
-      "caption": "Fig. 2. Thirty-day rolling s across five pools, two chains and four protocols, each from the end of its warm-up window. The emissions-subsidized pool floats above, most visibly in early 2026 when emissions rose. For the protocol-fee pool the fee-only estimate understates the margin that providers face. \u2014 This line chart displays the 30-day rolling participation margin (s-metrics) across decentralized exchange pools from October 2024 to July 2026, with the y-axis showing s-values in basis points ",
+      "doc_id": "2610.31141v1",
+      "title": "Intraday Forecasting Ability and Liquidity Provision of Institutional Traders",
+      "page": 20,
+      "thumb": "/data/figures/2610.31141v1_p20_1.jpg",
+      "caption": "Figure 1: Group measure and di\ufb00erence group measure for Stock-1 and Stock-2 during the second period. Group 1 consists of the traders who have signi\ufb01cantly positive correlation during the \ufb01rst period and Group 2 is the rest of the traders. \u2014 These scatter plots display group measures and difference group measures across forecast horizons (1-30 minutes) for two stocks during the second observation period. Each chart plots three data series: Group 1 (traders with significantly positive correlation",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2610.28863v1"
+      "source": "https://arxiv.org/pdf/2610.31141v1"
     },
     {
-      "doc_id": "2610.28847v1",
-      "title": "DSINC beyond Heston: the 3/2 and other non-affine stochastic-volatility models",
-      "page": 24,
-      "thumb": "/data/figures/2610.28847v1_p24_0.jpg",
-      "caption": "Figure 1 illustrates Proposition 5 and Corollary 8. It shows the moment E[(ST /S0)\u03c7], computed by the fixed-frequency solver at e\u03c9 = \u2212i\u03c7 with absorption at a truncation level ymax, as ymax grows. For \u03c7 = 1/2 the truncated moments converge in all three models. In the 3/2 model they also converge for \u03c7 = \u22121/2, which Corollary 8 admits. For \u03c7 = \u22125, below the bound \u22124.35, they explode once ymax exceed \u2014 This figure displays convergence behavior of moment explosions on truncated grids across three st",
+      "doc_id": "2610.31074v1",
+      "title": "Directionally Correct Views in Portfolio Optimization",
+      "page": 3,
+      "thumb": "/data/figures/2610.31074v1_p3_0.jpg",
+      "caption": "Figure 1: Concavity of Sharpe as a function of \u03bb \u2014 These line plots show the relationship between the Sharpe ratio and \u03bb (degree of tilt), comparing realized versus inflated Sharpe metrics across two datasets with short-selling allowed. Both panels display concave curves where the Sharpe ratio increases with \u03bb from 0 to 1.0, with the left panel (Dataset 1) showing realized Sharpe ranging from approximately 1.74 to 1.86, and the right panel (Dataset 2) showing realized Sharpe ranging from approxi",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2610.28847v1"
+      "source": "https://arxiv.org/pdf/2610.31074v1"
     },
     {
-      "doc_id": "2610.28847v1",
-      "title": "DSINC beyond Heston: the 3/2 and other non-affine stochastic-volatility models",
-      "page": 24,
-      "thumb": "/data/figures/2610.28847v1_p24_1.jpg",
-      "caption": "Figure 1: Truncated moments E[(ST /S0)\u03c7] for T = 0.5, computed by the fixed-frequency solver with \u2014 This figure shows three line plots comparing truncated moments E[(S_T/S_0)^\u03c7] across different stochastic volatility models: the 3/2 model, lognormal volatility, and GARCH diffusion. Each plot displays the bias of truncated moment (y-axis, log scale from 10^-3 to 10^3) against truncation level y_max/y_0 (x-axis, log scale from 1 to 10^4) for three different power parameters \u03c7 = -5, -0.5, and 0.5 s",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.28847v1"
-    },
-    {
-      "doc_id": "2610.28753v1",
-      "title": "Understanding the Inner Workings of a State-Space Foundation Model for Limit Order Books",
-      "page": 4,
-      "thumb": "/data/figures/2610.28753v1_p4_0.jpg",
-      "caption": "Figure 1: Probing loci in a message-only Mamba-3 model. At each token, the state carries over the previous state scaled by \ud835\udefc\ud835\udc61 and adds two writes: the current token\u2019s, weighted by \ud835\udefe\ud835\udc61, and the previous token\u2019s, weighted by \ud835\udefd\ud835\udc61. From each layer we extract the per-token residual stream and the recurrent state h(\u2113) \u2014 This figure shows the architectural design of a Mamba-3 state-space model applied to limit order book (LOB) prediction, displayed as a block diagram with accompanying equations. The mode",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.28753v1"
-    },
-    {
-      "doc_id": "2610.28753v1",
-      "title": "Understanding the Inner Workings of a State-Space Foundation Model for Limit Order Books",
+      "doc_id": "2610.31074v1",
+      "title": "Directionally Correct Views in Portfolio Optimization",
       "page": 5,
-      "thumb": "/data/figures/2610.28753v1_p5_1.jpg",
-      "caption": "Figure 2: Held-out \ud835\udc452 (layer chosen by nested CV) decoded from the recurrent state and the residual stream at \ud835\udc4a=500, same windows and probing procedure for both. Whiskers: 95% day-block bootstrap intervals. OFI, traded volume and realized volatility are decodable almost only from the recur- rent state, while the touch is partly readable from both. \u2014 This bar chart compares R\u00b2 values for decoding five limit order book variables (OFI level-1, OFI top-5, traded volume, realized volatility, and touc",
+      "thumb": "/data/figures/2610.31074v1_p5_1.jpg",
+      "caption": "Figure 2: Performance of Markowitz vs End-To-End across \u03bb. \u2014 This figure contains two line plots comparing Markowitz and an end-to-end learning approach (with both 1000 and 10000 observed sample sizes) across a regularization parameter \u03bb (x-axis ranging from 0 to 1.0). The left panel shows annualized Sharpe ratio (y-axis 0 to 2.8) and the right panel shows final value of a 1 INR investment (y-axis 41.80 to 41.90), both with error bars indicating variability. Both metrics demonstrate that the end",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2610.28753v1"
+      "source": "https://arxiv.org/pdf/2610.31074v1"
+    },
+    {
+      "doc_id": "2610.31074v1",
+      "title": "Directionally Correct Views in Portfolio Optimization",
+      "page": 11,
+      "thumb": "/data/figures/2610.31074v1_p11_2.jpg",
+      "caption": "Figure 3 compares the Markowitz and mean LSTM allocations over 2024\u20132025 for three representative views, \u03bb = 0, 0.5, and 1. The Markowitz allocation is constant by construction, while the LSTM allocation can vary from day to day. With the historical view (\u03bb = 0), the LSTM makes substantial changes over time. As the view becomes more informative, these changes largely disappear and the LSTM converg \u2014 This section describes the equity universe and data used in the research, covering firms with clo",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.31074v1"
+    },
+    {
+      "doc_id": "2610.31074v1",
+      "title": "Directionally Correct Views in Portfolio Optimization",
+      "page": 12,
+      "thumb": "/data/figures/2610.31074v1_p12_3.jpg",
+      "caption": "Figure 3: Portfolio allocations over 2024\u20132025 for \u03bb = 0, 0.5, and 1. The left column shows the Markowitz target allocations, while the right column shows the mean LSTM allocations across 100 random seeds. \u2014 This figure displays stacked area charts comparing portfolio weight allocations over time from January 2024 to October 2025 across three regularization parameters (\u03bb = 0, 0.5, and 1.0). The left column shows Markowitz mean-variance optimization allocations while the right column presents mea",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.31074v1"
+    },
+    {
+      "doc_id": "2610.31038v1",
+      "title": "Multichoice Modeling: Exploring Decision Configuration Space under Uncertainty",
+      "page": 7,
+      "thumb": "/data/figures/2610.31038v1_p7_0.jpg",
+      "caption": "Figure 1: Implementation workflow for multichoice modeling. \u2014 This flowchart illustrates the implementation workflow for multichoice modeling under uncertainty, consisting of three main phases: logical model, computational model, and exploration process. The logical model begins by eliciting design choices and flexibility options, then defining interdependencies and uncertainties, culminating in a strategy table with dependency rules. The computational model translates this logic into code via M",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.31038v1"
+    },
+    {
+      "doc_id": "2610.31038v1",
+      "title": "Multichoice Modeling: Exploring Decision Configuration Space under Uncertainty",
+      "page": 13,
+      "thumb": "/data/figures/2610.31038v1_p13_1.jpg",
+      "caption": "Figure 2: Ten simulated paths of interest rate evolution under the mean-reverting process (left) and the resulting distribution of cumulative interest-rate expenses (right). \u2014 The figure displays ten simulated interest rate paths over 24 years (left panel) generated from a mean-reverting stochastic process, with rates fluctuating between 0-6% and clustering around 2-4%. The right panel shows a histogram of the resulting cumulative interest-rate expenses distribution across simulations, displayin",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.31038v1"
+    },
+    {
+      "doc_id": "2610.31038v1",
+      "title": "Multichoice Modeling: Exploring Decision Configuration Space under Uncertainty",
+      "page": 14,
+      "thumb": "/data/figures/2610.31038v1_p14_2.jpg",
+      "caption": "Figure 3 depicts the conditional distributions produced by combinations of payment schemes and reference-rate maturities under the normal-times (blue) and crisis (red) scenar- ios. Although the corresponding sensitivity indices are low, the choices remain economically meaningful: even under stable conditions, the difference between the best and worst strate- gies is approximately \u20ac20,000. \u2014 Table 4 displays the input parameters for a multichoice mortgage model, including interest rate cap settin",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.31038v1"
+    },
+    {
+      "doc_id": "2610.31038v1",
+      "title": "Multichoice Modeling: Exploring Decision Configuration Space under Uncertainty",
+      "page": 14,
+      "thumb": "/data/figures/2610.31038v1_p14_3.jpg",
+      "caption": "Figure 3: Conditional distributions produced by the combination of the dominant uncertainty variable and two mortgage choices. \u2014 This figure displays box plots showing conditional distributions of interest expenses in euros across different mortgage configurations. The left panel presents eight box plots (labeled 0-7) representing combinations of crisis conditions (no/yes, shown in blue/pink) and mortgage payment types (fixed term vs. fixed payment), with whiskers extending to show the full rang",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.31038v1"
+    },
+    {
+      "doc_id": "2610.30891v1",
+      "title": "Equilibria and Learning in Competitive Market Making",
+      "page": 8,
+      "thumb": "/data/figures/2610.30891v1_p8_0.jpg",
+      "caption": "Figure 1: Mechanism of a unilateral ask undercut paired with bid withdrawal. Lowering the \u2014 This diagram illustrates the mechanics of market-making equilibrium on a price axis (V). The figure shows sell flow (left, blue) and buy flow (right, blue) regions separated by a volume gain zone at the bid-ask spread. A unilateral deviation involves lowering the ask price from $\\bar{a}(\\tilde{n})$ to $a(\\tilde{n})$ to capture additional buy flow while simultaneously withdrawing the bid, eliminating compe",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.30891v1"
+    },
+    {
+      "doc_id": "2610.30891v1",
+      "title": "Equilibria and Learning in Competitive Market Making",
+      "page": 9,
+      "thumb": "/data/figures/2610.30891v1_p9_1.jpg",
+      "caption": "Figure 2: Visual breakdown of the three case contradictions in the proof of Theorem 10. \u2014 This is a schematic diagram illustrating a proof by contradiction with three cases on a number line. The figure displays positions of variables $m_k$, $x$, $y$, and $m'$ with different orderings, showing that Case 1 ($x < y$) contradicts the maximality of $m_k$, Case 2 ($y < x < m'$) contradicts the inequality $x > y$, and Case 3 ($x > m'$) contradicts that $m' \\in \\mathcal{F}_B$. The key takeaway is that a",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.30891v1"
+    },
+    {
+      "doc_id": "2610.30891v1",
+      "title": "Equilibria and Learning in Competitive Market Making",
+      "page": 11,
+      "thumb": "/data/figures/2610.30891v1_p11_2.jpg",
+      "caption": "Figure 3: Profitable boundary deviation at an out-of-support candidate midpoint bm \u2264v. \u2014 This figure illustrates a timeline diagram showing how a market maker can profitably deviate from an equilibrium strategy by setting a bid price below the candidate midpoint. The horizontal axis represents price levels from 0 to V, with key points marked: an initial position, the candidate midpoint m\u0302, and the upper bound \u0101(m\u0302), while the vertical axis shows order flow direction (buy orders above, sell flow ",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.30891v1"
+    },
+    {
+      "doc_id": "2610.30891v1",
+      "title": "Equilibria and Learning in Competitive Market Making",
+      "page": 17,
+      "thumb": "/data/figures/2610.30891v1_p17_3.jpg",
+      "caption": "Figure 4 (left) fixes \u03c3 = 0.1 and sweeps the tick size \u2206, learning each grid for T = 100,000 rounds and averaging over 100 runs. As \u2206shrinks, the learned market bid and ask move toward the Nash price envelope; the non-monotonicity is not surprising, since even the exact \u2014 This figure displays a line plot showing how market maker bid-ask spreads converge to the Nash equilibrium envelope as tick size (\u0394) decreases, with the x-axis representing tick size and the y-axis representing spread magnitude",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.30891v1"
+    },
+    {
+      "doc_id": "2610.30564v1",
+      "title": "When News Gets Old: Portfolio Allocation with Reinforcement Learning and Large Language Models",
+      "page": 2,
+      "thumb": "/data/figures/2610.30564v1_p2_0.jpg",
+      "caption": "Fig. 1. News Signals and Portfolio Decisions. An LLM extracts news signals, while report dates determine news age. The RL policy and direct LLM baseline choose portfolios independently, with separate holdings under common backtesting rules. Table I specifies each method\u2019s inputs. \u2014 This flow diagram illustrates a portfolio decision pipeline comparing two approaches: an RL policy method and an LLM baseline method. The inputs include news text processed through an LLM extractor (with timestamps de",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.30564v1"
+    },
+    {
+      "doc_id": "2610.30564v1",
+      "title": "When News Gets Old: Portfolio Allocation with Reinforcement Learning and Large Language Models",
+      "page": 4,
+      "thumb": "/data/figures/2610.30564v1_p4_1.jpg",
+      "caption": "Fig. 2. Portfolio decisions as reports age. Market features, holdings, and original LLM signals stay fixed while publication and arrival times move backward together. Filtering reapplies its cutoff. Lines average trained poli- cies; Appendix A reports variation across training runs. \u2014 This figure compares three portfolio decision strategies across news age using a line chart (left panel) and a confidence interval chart (right panel). The left panel plots decisions that change stock allocation (y",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.30564v1"
+    },
+    {
+      "doc_id": "2610.30564v1",
+      "title": "When News Gets Old: Portfolio Allocation with Reinforcement Learning and Large Language Models",
+      "page": 4,
+      "thumb": "/data/figures/2610.30564v1_p4_2.jpg",
+      "caption": "Fig. 3. Changes in RL annualized net return relative to Market Data + News at a four-week delivery delay. Providing news age adds both timing inputs; filtering removes signals older than eight weeks. Dots are paired mean differences; bars are 95% time-block intervals (Appendix A). \u2014 The left panel shows a line chart tracking decisions that use news (%) on the y-axis versus added news age in weeks on the x-axis, comparing three strategies: News + Age (reaching 52% at 12 weeks), Filtered News (pla",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.30564v1"
+    },
+    {
+      "doc_id": "2610.30557v1",
+      "title": "Governed Self-Evolution for Autonomous Investing: A Multi-Agent LLM System with an Invariant Core",
+      "page": 2,
+      "thumb": "/data/figures/2610.30557v1_p2_0.jpg",
+      "caption": "Figure 1: Steward. Header colour gives each component\u2019s governance class; shaded panels group the sessions; green arrows trace the self-evolution loop. \u2014 This figure presents a system architecture diagram for an autonomous trading system called Steward that uses multiple large language models (LLMs) coordinated through a governance framework. The diagram shows four main governance classes (color-coded as News Intelligence, Earnings Analyst, Macro Analyst, and Technical Analyst) that feed into a ",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.30557v1"
     }
   ],
   "docs": [
     {
-      "id": "2610.29663v1",
-      "title": "Lineage-Aware Search Control for LLM-Based Evolutionary Factor Mining",
-      "source": "https://arxiv.org/pdf/2610.29663v1",
-      "pages": 14,
-      "images": 2,
+      "id": "2610.31141v1",
+      "title": "Intraday Forecasting Ability and Liquidity Provision of Institutional Traders",
+      "source": "https://arxiv.org/pdf/2610.31141v1",
+      "pages": 141,
+      "images": 0,
+      "figures_captioned": 2,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 37
+    },
+    {
+      "id": "2610.31074v1",
+      "title": "Directionally Correct Views in Portfolio Optimization",
+      "source": "https://arxiv.org/pdf/2610.31074v1",
+      "pages": 13,
+      "images": 5,
+      "figures_captioned": 4,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 24
+    },
+    {
+      "id": "2610.31038v1",
+      "title": "Multichoice Modeling: Exploring Decision Configuration Space under Uncertainty",
+      "source": "https://arxiv.org/pdf/2610.31038v1",
+      "pages": 35,
+      "images": 3,
       "figures_captioned": 4,
       "tables": 1,
       "has_math": true,
@@ -243,112 +267,88 @@
       "chunks_indexed": 39
     },
     {
+      "id": "2610.30891v1",
+      "title": "Equilibria and Learning in Competitive Market Making",
+      "source": "https://arxiv.org/pdf/2610.30891v1",
+      "pages": 35,
+      "images": 0,
+      "figures_captioned": 4,
+      "tables": 2,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 50
+    },
+    {
+      "id": "2610.30637v1",
+      "title": "Multiple Stopping and Exercise Boundaries for American Put Options",
+      "source": "https://arxiv.org/pdf/2610.30637v1",
+      "pages": 64,
+      "images": 0,
+      "figures_captioned": 0,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 46
+    },
+    {
+      "id": "2610.30564v1",
+      "title": "When News Gets Old: Portfolio Allocation with Reinforcement Learning and Large Language Models",
+      "source": "https://arxiv.org/pdf/2610.30564v1",
+      "pages": 8,
+      "images": 0,
+      "figures_captioned": 3,
+      "tables": 1,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 25
+    },
+    {
+      "id": "2610.30557v1",
+      "title": "Governed Self-Evolution for Autonomous Investing: A Multi-Agent LLM System with an Invariant Core",
+      "source": "https://arxiv.org/pdf/2610.30557v1",
+      "pages": 13,
+      "images": 0,
+      "figures_captioned": 1,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 45
+    },
+    {
+      "id": "2610.30539v1",
+      "title": "Dynamics of the Liquidity Profile in Concentrated Liquidity Provision: An SPIDE Approach",
+      "source": "https://arxiv.org/pdf/2610.30539v1",
+      "pages": 55,
+      "images": 0,
+      "figures_captioned": 0,
+      "tables": 1,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 45
+    },
+    {
+      "id": "2610.29663v1",
+      "title": "Lineage-Aware Search Control for LLM-Based Evolutionary Factor Mining",
+      "source": "https://arxiv.org/pdf/2610.29663v1",
+      "pages": 14,
+      "images": 2,
+      "figures_captioned": 0,
+      "tables": 1,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 35
+    },
+    {
       "id": "2610.29652v1",
       "title": "Distributions or Quantiles? A Convex Variational Theory of Worst-Case Risk",
       "source": "https://arxiv.org/pdf/2610.29652v1",
       "pages": 75,
       "images": 0,
-      "figures_captioned": 3,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 59
-    },
-    {
-      "id": "2610.29578v1",
-      "title": "What Prediction-Market Contracts Reveal at Launch: Trading Volume and Dispute Risk",
-      "source": "https://arxiv.org/pdf/2610.29578v1",
-      "pages": 8,
-      "images": 1,
-      "figures_captioned": 4,
-      "tables": 2,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 31
-    },
-    {
-      "id": "2610.28863v1",
-      "title": "A game-theoretic analysis of the market microstructure in decentralized exchanges with concentrated liquidity",
-      "source": "https://arxiv.org/pdf/2610.28863v1",
-      "pages": 30,
-      "images": 2,
-      "figures_captioned": 3,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 58
-    },
-    {
-      "id": "2610.28847v1",
-      "title": "DSINC beyond Heston: the 3/2 and other non-affine stochastic-volatility models",
-      "source": "https://arxiv.org/pdf/2610.28847v1",
-      "pages": 35,
-      "images": 0,
-      "figures_captioned": 2,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 69
-    },
-    {
-      "id": "2610.28753v1",
-      "title": "Understanding the Inner Workings of a State-Space Foundation Model for Limit Order Books",
-      "source": "https://arxiv.org/pdf/2610.28753v1",
-      "pages": 9,
-      "images": 7,
-      "figures_captioned": 2,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 33
-    },
-    {
-      "id": "2610.28075v1",
-      "title": "Speculative Imbalance Positions by Non-Physical Traders: Impacts on Electricity System Balancing in Great Britain",
-      "source": "https://arxiv.org/pdf/2610.28075v1",
-      "pages": 36,
-      "images": 0,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": false,
-      "ocr_used": false,
-      "chunks_indexed": 30
-    },
-    {
-      "id": "2610.28071v1",
-      "title": "Arithmetic Models for Commodity Futures, Vanilla, and Calendar Spread Options",
-      "source": "https://arxiv.org/pdf/2610.28071v1",
-      "pages": 69,
-      "images": 4,
-      "figures_captioned": 0,
-      "tables": 1,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 53
-    },
-    {
-      "id": "2610.27751v1",
-      "title": "Market Regime-Based Multi-Asset Portfolio Optimization Using Nested Clustered Optimization for Tactical Asset Allocation",
-      "source": "https://arxiv.org/pdf/2610.27751v1",
-      "pages": 8,
-      "images": 6,
       "figures_captioned": 0,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 14
-    },
-    {
-      "id": "2610.27214v1",
-      "title": "Deep catastrophic-risk-aware reinforcement learning",
-      "source": "https://arxiv.org/pdf/2610.27214v1",
-      "pages": 29,
-      "images": 0,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 35
+      "chunks_indexed": 56
     }
   ]
 }
