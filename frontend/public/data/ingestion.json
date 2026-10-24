@@ -1,7 +1,7 @@
 {
   "_note": "Public run manifest of the Tier-3 agentic ingestion pipeline. Safe aggregates + provenance only; raw PDFs live in S3, not here.",
-  "run_id": "20261023T073425Z",
-  "generated_at": "2026-10-23T07:37:21+00:00",
+  "run_id": "20261024T071924Z",
+  "generated_at": "2026-10-24T07:22:24+00:00",
   "collection": "research_corpus",
   "embed_model": "BAAI/bge-small-en-v1.5",
   "dag": [
@@ -58,8 +58,8 @@
     "tables": 6,
     "with_math": 10,
     "indexed": 402,
-    "spent_usd": 0.0307,
-    "duration_s": 176.4
+    "spent_usd": 0.0299,
+    "duration_s": 180.2
   },
   "rejects_by_reason": {
     "low-relevance": 25
@@ -71,7 +71,7 @@
       "title": "Intraday Forecasting Ability and Liquidity Provision of Institutional Traders",
       "page": 20,
       "thumb": "/data/figures/2610.31141v1_p20_0.jpg",
-      "caption": "Figure 1 shows the group measures of the two groups for Stock-1 and Stock-2 \u2014 This figure displays a bar chart comparing group measures across two stocks (Stock-1 and Stock-2), with separate bars for two institutional trader groups. The vertical axis represents the magnitude of the measures while the horizontal axis differentiates between the two stocks and their respective group comparisons. The key takeaway is that the two institutional trader groups exhibit measurably different characteristic",
+      "caption": "Figure 1 shows the group measures of the two groups for Stock-1 and Stock-2 \u2014 This figure displays a line or bar chart comparing group measures (likely liquidity or trading metrics) across two stocks (Stock-1 and Stock-2) for two trader groups over different time horizons. The x-axis represents time horizons (measured in minutes, up to at least 2 minutes as referenced in the text), while the y-axis shows the magnitude of group flow measures or related metrics. The key finding is that two group f",
       "vision": true,
       "source": "https://arxiv.org/pdf/2610.31141v1"
     },
@@ -80,7 +80,7 @@
       "title": "Intraday Forecasting Ability and Liquidity Provision of Institutional Traders",
       "page": 20,
       "thumb": "/data/figures/2610.31141v1_p20_1.jpg",
-      "caption": "Figure 1: Group measure and di\ufb00erence group measure for Stock-1 and Stock-2 during the second period. Group 1 consists of the traders who have signi\ufb01cantly positive correlation during the \ufb01rst period and Group 2 is the rest of the traders. \u2014 These scatter plots display group measures and difference group measures across forecast horizons (1-30 minutes) for two stocks during the second observation period. Each chart plots three data series: Group 1 (traders with significantly positive correlation",
+      "caption": "Figure 1: Group measure and di\ufb00erence group measure for Stock-1 and Stock-2 during the second period. Group 1 consists of the traders who have signi\ufb01cantly positive correlation during the \ufb01rst period and Group 2 is the rest of the traders. \u2014 These scatter plots display group measures on the y-axis (ranging from approximately -0.2 to 0.3) against forecast horizons on the x-axis for two stocks. Each plot shows three series: Group 1 (filled circles), Group 2 (open circles), and their difference (X ",
       "vision": true,
       "source": "https://arxiv.org/pdf/2610.31141v1"
     },
@@ -89,7 +89,7 @@
       "title": "Directionally Correct Views in Portfolio Optimization",
       "page": 3,
       "thumb": "/data/figures/2610.31074v1_p3_0.jpg",
-      "caption": "Figure 1: Concavity of Sharpe as a function of \u03bb \u2014 These line plots show the relationship between the Sharpe ratio and \u03bb (degree of tilt), comparing realized versus inflated Sharpe metrics across two datasets with short-selling allowed. Both panels display concave curves where the Sharpe ratio increases with \u03bb from 0 to 1.0, with the left panel (Dataset 1) showing realized Sharpe ranging from approximately 1.74 to 1.86, and the right panel (Dataset 2) showing realized Sharpe ranging from approxi",
+      "caption": "Figure 1: Concavity of Sharpe as a function of \u03bb \u2014 These line plots show the relationship between the Sharpe ratio and \u03bb (degree of tilt), comparing realized versus reflectional Sharpe metrics across two datasets when short-selling is allowed. Both panels display concave curves where the Sharpe ratio increases with \u03bb from 0 to 1.0, with the realized Sharpe (blue line) showing higher values than the reflectional Sharpe (gray line). The key takeaway is that the Sharpe ratio exhibits concave behavi",
       "vision": true,
       "source": "https://arxiv.org/pdf/2610.31074v1"
     },
@@ -98,7 +98,7 @@
       "title": "Directionally Correct Views in Portfolio Optimization",
       "page": 5,
       "thumb": "/data/figures/2610.31074v1_p5_1.jpg",
-      "caption": "Figure 2: Performance of Markowitz vs End-To-End across \u03bb. \u2014 This figure contains two line plots comparing Markowitz and an end-to-end learning approach (with both 1000 and 10000 observed sample sizes) across a regularization parameter \u03bb (x-axis ranging from 0 to 1.0). The left panel shows annualized Sharpe ratio (y-axis 0 to 2.8) and the right panel shows final value of a 1 INR investment (y-axis 41.80 to 41.90), both with error bars indicating variability. Both metrics demonstrate that the end",
+      "caption": "Figure 2: Performance of Markowitz vs End-To-End across \u03bb. \u2014 These two line charts compare Markowitz portfolio optimization against an end-to-end learning approach across a regularization parameter \u03bb (x-axis ranging from 0 to 1.0). The left panel shows annualized Sharpe ratio (y-axis 0 to 2.6) and the right panel shows final value of a 1 INR investment (y-axis 41.00 to 41.80), both measured with error bars indicating variability across 100 random seeds. Both metrics demonstrate that the end-to-e",
       "vision": true,
       "source": "https://arxiv.org/pdf/2610.31074v1"
     },
@@ -107,7 +107,7 @@
       "title": "Directionally Correct Views in Portfolio Optimization",
       "page": 11,
       "thumb": "/data/figures/2610.31074v1_p11_2.jpg",
-      "caption": "Figure 3 compares the Markowitz and mean LSTM allocations over 2024\u20132025 for three representative views, \u03bb = 0, 0.5, and 1. The Markowitz allocation is constant by construction, while the LSTM allocation can vary from day to day. With the historical view (\u03bb = 0), the LSTM makes substantial changes over time. As the view becomes more informative, these changes largely disappear and the LSTM converg \u2014 This section describes the equity universe and data used in the research, covering firms with clo",
+      "caption": "Figure 3 compares the Markowitz and mean LSTM allocations over 2024\u20132025 for three representative views, \u03bb = 0, 0.5, and 1. The Markowitz allocation is constant by construction, while the LSTM allocation can vary from day to day. With the historical view (\u03bb = 0), the LSTM makes substantial changes over time. As the view becomes more informative, these changes largely disappear and the LSTM converg \u2014 This text section describes the equity universe and datasets used in a quantitative finance study",
       "vision": true,
       "source": "https://arxiv.org/pdf/2610.31074v1"
     },
@@ -116,7 +116,7 @@
       "title": "Directionally Correct Views in Portfolio Optimization",
       "page": 12,
       "thumb": "/data/figures/2610.31074v1_p12_3.jpg",
-      "caption": "Figure 3: Portfolio allocations over 2024\u20132025 for \u03bb = 0, 0.5, and 1. The left column shows the Markowitz target allocations, while the right column shows the mean LSTM allocations across 100 random seeds. \u2014 This figure displays stacked area charts comparing portfolio weight allocations over time from January 2024 to October 2025 across three regularization parameters (\u03bb = 0, 0.5, and 1.0). The left column shows Markowitz mean-variance optimization allocations while the right column presents mea",
+      "caption": "Figure 3: Portfolio allocations over 2024\u20132025 for \u03bb = 0, 0.5, and 1. The left column shows the Markowitz target allocations, while the right column shows the mean LSTM allocations across 100 random seeds. \u2014 This figure displays stacked area charts comparing portfolio allocations across three regularization parameters (\u03bb = 0, 0.5, and 1.0) for the period 2024-2025. The left column shows Markowitz mean-variance optimization allocations while the right column shows mean LSTM model allocations aver",
       "vision": true,
       "source": "https://arxiv.org/pdf/2610.31074v1"
     },
@@ -125,7 +125,7 @@
       "title": "Multichoice Modeling: Exploring Decision Configuration Space under Uncertainty",
       "page": 7,
       "thumb": "/data/figures/2610.31038v1_p7_0.jpg",
-      "caption": "Figure 1: Implementation workflow for multichoice modeling. \u2014 This flowchart illustrates the implementation workflow for multichoice modeling under uncertainty, consisting of three main phases: logical model, computational model, and exploration process. The logical model begins by eliciting design choices and flexibility options, then defining interdependencies and uncertainties, culminating in a strategy table with dependency rules. The computational model translates this logic into code via M",
+      "caption": "Figure 1: Implementation workflow for multichoice modeling. \u2014 This flowchart illustrates the implementation workflow for multichoice modeling, organized into three main phases: Logical model, Computational model, and Exploration process. The logical model phase begins by eliciting available design choices and flexibility options, then defines how choices affect each other and model parameters, resulting in a strategy table with dependency rules. The computational model phase translates this logi",
       "vision": true,
       "source": "https://arxiv.org/pdf/2610.31038v1"
     },
@@ -134,7 +134,7 @@
       "title": "Multichoice Modeling: Exploring Decision Configuration Space under Uncertainty",
       "page": 13,
       "thumb": "/data/figures/2610.31038v1_p13_1.jpg",
-      "caption": "Figure 2: Ten simulated paths of interest rate evolution under the mean-reverting process (left) and the resulting distribution of cumulative interest-rate expenses (right). \u2014 The figure displays ten simulated interest rate paths over 24 years (left panel) generated from a mean-reverting stochastic process, with rates fluctuating between 0-6% and clustering around 2-4%. The right panel shows a histogram of the resulting cumulative interest-rate expenses distribution across simulations, displayin",
+      "caption": "Figure 2: Ten simulated paths of interest rate evolution under the mean-reverting process (left) and the resulting distribution of cumulative interest-rate expenses (right). \u2014 This figure displays Monte Carlo simulations of interest rate dynamics and their financial impact. The left panel shows ten simulated interest rate paths over 24 years generated from a mean-reverting stochastic process, with rates fluctuating between approximately 0% and 6%. The right panel presents a histogram of cumulati",
       "vision": true,
       "source": "https://arxiv.org/pdf/2610.31038v1"
     },
@@ -143,7 +143,7 @@
       "title": "Multichoice Modeling: Exploring Decision Configuration Space under Uncertainty",
       "page": 14,
       "thumb": "/data/figures/2610.31038v1_p14_2.jpg",
-      "caption": "Figure 3 depicts the conditional distributions produced by combinations of payment schemes and reference-rate maturities under the normal-times (blue) and crisis (red) scenar- ios. Although the corresponding sensitivity indices are low, the choices remain economically meaningful: even under stable conditions, the difference between the best and worst strate- gies is approximately \u20ac20,000. \u2014 Table 4 displays the input parameters for a multichoice mortgage model, including interest rate cap settin",
+      "caption": "Figure 3 depicts the conditional distributions produced by combinations of payment schemes and reference-rate maturities under the normal-times (blue) and crisis (red) scenar- ios. Although the corresponding sensitivity indices are low, the choices remain economically meaningful: even under stable conditions, the difference between the best and worst strate- gies is approximately \u20ac20,000. \u2014 Table 5 presents a variance-based sensitivity analysis for a multichoice mortgage model, showing how diffe",
       "vision": true,
       "source": "https://arxiv.org/pdf/2610.31038v1"
     },
@@ -152,7 +152,7 @@
       "title": "Multichoice Modeling: Exploring Decision Configuration Space under Uncertainty",
       "page": 14,
       "thumb": "/data/figures/2610.31038v1_p14_3.jpg",
-      "caption": "Figure 3: Conditional distributions produced by the combination of the dominant uncertainty variable and two mortgage choices. \u2014 This figure displays box plots showing conditional distributions of interest expenses in euros across different mortgage configurations. The left panel presents eight box plots (labeled 0-7) representing combinations of crisis conditions (no/yes, shown in blue/pink) and mortgage payment types (fixed term vs. fixed payment), with whiskers extending to show the full rang",
+      "caption": "Figure 3: Conditional distributions produced by the combination of the dominant uncertainty variable and two mortgage choices. \u2014 This figure displays box plots showing conditional distributions of interest expenses in euros across different mortgage configurations, stratified by crisis occurrence (no/yes) and payment type (fixed term vs. fixed payment). The left panel presents box-and-whisker plots with overlaid individual observations for eight mortgage scenarios, while the right panel provides",
       "vision": true,
       "source": "https://arxiv.org/pdf/2610.31038v1"
     },
@@ -161,7 +161,7 @@
       "title": "Equilibria and Learning in Competitive Market Making",
       "page": 8,
       "thumb": "/data/figures/2610.30891v1_p8_0.jpg",
-      "caption": "Figure 1: Mechanism of a unilateral ask undercut paired with bid withdrawal. Lowering the \u2014 This diagram illustrates the mechanics of market-making equilibrium on a price axis (V). The figure shows sell flow (left, blue) and buy flow (right, blue) regions separated by a volume gain zone at the bid-ask spread. A unilateral deviation involves lowering the ask price from $\\bar{a}(\\tilde{n})$ to $a(\\tilde{n})$ to capture additional buy flow while simultaneously withdrawing the bid, eliminating compe",
+      "caption": "Figure 1: Mechanism of a unilateral ask undercut paired with bid withdrawal. Lowering the \u2014 This diagram illustrates the mechanics of unilateral ask undercuts in market making, showing a one-dimensional price space from v\u0332 to v\u0304 on the horizontal axis. The figure depicts three flow regions: sell flow from competitors (left), a volume gain zone around the midpoint m\u0303, and buy flow (right), with a captured buy flow region shown below in red. The key takeaway is that a market maker can profitably l",
       "vision": true,
       "source": "https://arxiv.org/pdf/2610.30891v1"
     },
@@ -170,7 +170,7 @@
       "title": "Equilibria and Learning in Competitive Market Making",
       "page": 9,
       "thumb": "/data/figures/2610.30891v1_p9_1.jpg",
-      "caption": "Figure 2: Visual breakdown of the three case contradictions in the proof of Theorem 10. \u2014 This is a schematic diagram illustrating a proof by contradiction with three cases on a number line. The figure displays positions of variables $m_k$, $x$, $y$, and $m'$ with different orderings, showing that Case 1 ($x < y$) contradicts the maximality of $m_k$, Case 2 ($y < x < m'$) contradicts the inequality $x > y$, and Case 3 ($x > m'$) contradicts that $m' \\in \\mathcal{F}_B$. The key takeaway is that a",
+      "caption": "Figure 2: Visual breakdown of the three case contradictions in the proof of Theorem 10. \u2014 This diagram illustrates a proof by contradiction for Theorem 10, showing three cases of orderings along a number line with points labeled $m_k$, $x$, $H(x)$, $m'$, $y$, and $m$. Case 1 ($x < y$) contradicts the maximality of $m_k$; Case 2 ($y < x < m'$) contradicts the inequality $x > y$; and Case 3 ($x > m'$) contradicts the membership condition $m' \\in \\mathcal{F}_B$. The visual demonstrates how each pos",
       "vision": true,
       "source": "https://arxiv.org/pdf/2610.30891v1"
     },
@@ -179,7 +179,7 @@
       "title": "Equilibria and Learning in Competitive Market Making",
       "page": 11,
       "thumb": "/data/figures/2610.30891v1_p11_2.jpg",
-      "caption": "Figure 3: Profitable boundary deviation at an out-of-support candidate midpoint bm \u2264v. \u2014 This figure illustrates a timeline diagram showing how a market maker can profitably deviate from an equilibrium strategy by setting a bid price below the candidate midpoint. The horizontal axis represents price levels from 0 to V, with key points marked: an initial position, the candidate midpoint m\u0302, and the upper bound \u0101(m\u0302), while the vertical axis shows order flow direction (buy orders above, sell flow ",
+      "caption": "Figure 3: Profitable boundary deviation at an out-of-support candidate midpoint bm \u2264v. \u2014 This figure illustrates a timeline diagram showing how a market maker can profitably deviate from an equilibrium strategy by shifting the midpoint in a limit order book. The horizontal axis represents price levels from time 0 to V, with the midpoint initially at b_m and a profitable deviation midpoint at \u00e3(m). The diagram shows that moving the midpoint downward creates a \"Midpoint Shift\" that restores sell f",
       "vision": true,
       "source": "https://arxiv.org/pdf/2610.30891v1"
     },
@@ -188,7 +188,7 @@
       "title": "Equilibria and Learning in Competitive Market Making",
       "page": 17,
       "thumb": "/data/figures/2610.30891v1_p17_3.jpg",
-      "caption": "Figure 4 (left) fixes \u03c3 = 0.1 and sweeps the tick size \u2206, learning each grid for T = 100,000 rounds and averaging over 100 runs. As \u2206shrinks, the learned market bid and ask move toward the Nash price envelope; the non-monotonicity is not surprising, since even the exact \u2014 This figure displays a line plot showing how market maker bid-ask spreads converge to the Nash equilibrium envelope as tick size (\u0394) decreases, with the x-axis representing tick size and the y-axis representing spread magnitude",
+      "caption": "Figure 4 (left) fixes \u03c3 = 0.1 and sweeps the tick size \u2206, learning each grid for T = 100,000 rounds and averaging over 100 runs. As \u2206shrinks, the learned market bid and ask move toward the Nash price envelope; the non-monotonicity is not surprising, since even the exact \u2014 This figure shows how learned market maker bid-ask spreads converge to the Nash equilibrium price envelope as tick size decreases, displayed as a line plot with tick size (\u0394) on the horizontal axis and price deviation on the ve",
       "vision": true,
       "source": "https://arxiv.org/pdf/2610.30891v1"
     },
@@ -197,7 +197,7 @@
       "title": "When News Gets Old: Portfolio Allocation with Reinforcement Learning and Large Language Models",
       "page": 2,
       "thumb": "/data/figures/2610.30564v1_p2_0.jpg",
-      "caption": "Fig. 1. News Signals and Portfolio Decisions. An LLM extracts news signals, while report dates determine news age. The RL policy and direct LLM baseline choose portfolios independently, with separate holdings under common backtesting rules. Table I specifies each method\u2019s inputs. \u2014 This flow diagram illustrates a portfolio decision pipeline comparing two approaches: an RL policy method and an LLM baseline method. The inputs include news text processed through an LLM extractor (with timestamps de",
+      "caption": "Fig. 1. News Signals and Portfolio Decisions. An LLM extracts news signals, while report dates determine news age. The RL policy and direct LLM baseline choose portfolios independently, with separate holdings under common backtesting rules. Table I specifies each method\u2019s inputs. \u2014 This is a flow diagram showing a financial decision-making pipeline that processes news for portfolio allocation. The system ingests news text, timestamps, and market data into an LLM extractor that generates news sig",
       "vision": true,
       "source": "https://arxiv.org/pdf/2610.30564v1"
     },
@@ -206,7 +206,7 @@
       "title": "When News Gets Old: Portfolio Allocation with Reinforcement Learning and Large Language Models",
       "page": 4,
       "thumb": "/data/figures/2610.30564v1_p4_1.jpg",
-      "caption": "Fig. 2. Portfolio decisions as reports age. Market features, holdings, and original LLM signals stay fixed while publication and arrival times move backward together. Filtering reapplies its cutoff. Lines average trained poli- cies; Appendix A reports variation across training runs. \u2014 This figure compares three portfolio decision strategies across news age using a line chart (left panel) and a confidence interval chart (right panel). The left panel plots decisions that change stock allocation (y",
+      "caption": "Fig. 2. Portfolio decisions as reports age. Market features, holdings, and original LLM signals stay fixed while publication and arrival times move backward together. Filtering reapplies its cutoff. Lines average trained poli- cies; Appendix A reports variation across training runs. \u2014 This figure displays a line chart on the left showing how portfolio decision-making changes with news age, with the x-axis representing added news age in weeks (0-12) and the y-axis showing decisions that change (%",
       "vision": true,
       "source": "https://arxiv.org/pdf/2610.30564v1"
     },
@@ -215,7 +215,7 @@
       "title": "When News Gets Old: Portfolio Allocation with Reinforcement Learning and Large Language Models",
       "page": 4,
       "thumb": "/data/figures/2610.30564v1_p4_2.jpg",
-      "caption": "Fig. 3. Changes in RL annualized net return relative to Market Data + News at a four-week delivery delay. Providing news age adds both timing inputs; filtering removes signals older than eight weeks. Dots are paired mean differences; bars are 95% time-block intervals (Appendix A). \u2014 The left panel shows a line chart tracking decisions that use news (%) on the y-axis versus added news age in weeks on the x-axis, comparing three strategies: News + Age (reaching 52% at 12 weeks), Filtered News (pla",
+      "caption": "Fig. 3. Changes in RL annualized net return relative to Market Data + News at a four-week delivery delay. Providing news age adds both timing inputs; filtering removes signals older than eight weeks. Dots are paired mean differences; bars are 95% time-block intervals (Appendix A). \u2014 This figure shows two panels comparing trading strategy performance improvements using news data in different configurations. The left panel is a line chart showing how decisions that outperform baseline (%) increase",
       "vision": true,
       "source": "https://arxiv.org/pdf/2610.30564v1"
     },
@@ -224,7 +224,7 @@
       "title": "Governed Self-Evolution for Autonomous Investing: A Multi-Agent LLM System with an Invariant Core",
       "page": 2,
       "thumb": "/data/figures/2610.30557v1_p2_0.jpg",
-      "caption": "Figure 1: Steward. Header colour gives each component\u2019s governance class; shaded panels group the sessions; green arrows trace the self-evolution loop. \u2014 This figure presents a system architecture diagram for an autonomous trading system called Steward that uses multiple large language models (LLMs) coordinated through a governance framework. The diagram shows four main governance classes (color-coded as News Intelligence, Earnings Analyst, Macro Analyst, and Technical Analyst) that feed into a ",
+      "caption": "Figure 1: Steward. Header colour gives each component\u2019s governance class; shaded panels group the sessions; green arrows trace the self-evolution loop. \u2014 This figure presents an architectural diagram of an autonomous multi-agent investment system called \"Steward\" that uses large language models (LLMs) organized into five main components: News Intelligence, Earnings Analyst, Macro Analyst, Technical Analyst, and Market Reflector. The diagram uses color-coded header boxes (dark blue, orange) to de",
       "vision": true,
       "source": "https://arxiv.org/pdf/2610.30557v1"
     }
