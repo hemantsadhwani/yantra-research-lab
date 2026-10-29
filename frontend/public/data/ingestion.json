@@ -1,7 +1,7 @@
 {
   "_note": "Public run manifest of the Tier-3 agentic ingestion pipeline. Safe aggregates + provenance only; raw PDFs live in S3, not here.",
-  "run_id": "20261027T075429Z",
-  "generated_at": "2026-10-27T07:58:03+00:00",
+  "run_id": "20261029T083106Z",
+  "generated_at": "2026-10-29T08:33:56+00:00",
   "collection": "research_corpus",
   "embed_model": "BAAI/bge-small-en-v1.5",
   "dag": [
@@ -50,305 +50,305 @@
     "discovered": 10,
     "fetched": 10,
     "parsed": 10,
-    "chunks": 460,
-    "accepted": 440,
-    "rejected": 20,
-    "images": 17,
+    "chunks": 466,
+    "accepted": 419,
+    "rejected": 47,
+    "images": 7,
     "figures_captioned": 18,
-    "tables": 3,
+    "tables": 1,
     "with_math": 10,
-    "indexed": 440,
-    "spent_usd": 0.0313,
-    "duration_s": 213.6
+    "indexed": 419,
+    "spent_usd": 0.0319,
+    "duration_s": 169.5
   },
   "rejects_by_reason": {
-    "low-relevance": 20
+    "low-relevance": 47
   },
   "budget_usd": 3.0,
   "figures": [
     {
-      "doc_id": "2610.35738v1",
-      "title": "Fuji: The Shape, Composition, and Spread of Demand Bursts on Robinhood Chain",
+      "doc_id": "2610.37487v1",
+      "title": "Contemporaneous Transmission Networks and Systemic Risk in European Banking",
+      "page": 24,
+      "thumb": "/data/figures/2610.37487v1_p24_0.jpg",
+      "caption": "Figure 1: Magnitude-screened contemporaneous network. The graph displays the 312 coefficients with absolute value at least 0.05 in the unpruned, volatility-standardized fit. Regional node colors are descriptive. Arrow orientation is conditional on the recursive model, and this dense graph is an overview rather than a collection of independently validated causal links. \u2014 This is a network graph showing the contemporaneous transmission network of 312 significant Granger causality relationships amo",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.37487v1"
+    },
+    {
+      "doc_id": "2610.37324v1",
+      "title": "Optimal Order Placement under a State-Dependent Hawkes Process Limit Order Book model",
+      "page": 23,
+      "thumb": "/data/figures/2610.37324v1_p23_0.jpg",
+      "caption": "Figure 1 displays the empirical frequency distribution of per-interval market order counts N for \u2014 This table presents descriptive statistics of market order arrival data across buy and sell sides, comparing aggregate event counts with per-interval statistics (\u0394t = 1 second). Key variables include total events, market order counts, limit order counts, average order sizes, and the distribution of market orders across time intervals. The data reveals high zero-inflation in order flow, with approxi",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.37324v1"
+    },
+    {
+      "doc_id": "2610.37324v1",
+      "title": "Optimal Order Placement under a State-Dependent Hawkes Process Limit Order Book model",
+      "page": 24,
+      "thumb": "/data/figures/2610.37324v1_p24_1.jpg",
+      "caption": "Figure 1: Empirical frequency distribution of per-interval market order arrivals for \u2206t = 1 s, restricted to intervals containing at least one market order (N \u22651, shown up to N = 15). Buy and sell sides are displayed separately. Intervals with N = 0 account for 90.4% (buy) and 90.8% (sell) of all 117,000 one-second intervals. \u2014 This figure is a grouped bar chart showing the empirical frequency distribution of market order arrivals per 1-second interval for buy and sell sides separately. The x-ax",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.37324v1"
+    },
+    {
+      "doc_id": "2610.37324v1",
+      "title": "Optimal Order Placement under a State-Dependent Hawkes Process Limit Order Book model",
+      "page": 24,
+      "thumb": "/data/figures/2610.37324v1_p24_2.jpg",
+      "caption": "Figure 2: Fraction of intervals containing zero market orders as a function of the physical time step \u2206t \u2208{1, 2, 3} s, for the buy side (left) and sell side (right). The zero fraction decreases monotonically with \u2206t, from approximately 90% at \u2206t = 1 s to 77% at \u2206t = 3 s. \u2014 This figure contains two bar charts showing the fraction of intervals with zero market order arrivals for buy-side (left) and sell-side (right) market orders across three physical time steps (\u0394t = 1, 2, 3 seconds). The y-axis ",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.37324v1"
+    },
+    {
+      "doc_id": "2610.37171v1",
+      "title": "An Application of Geometric Riemannian Pricing Algorithm for Valuing Catastrophe Bonds in Incomplete Markets: Market-Consistent Financial Entropy and the Split of Frequency and Severity Risk Premia",
+      "page": 6,
+      "thumb": "/data/figures/2610.37171v1_p6_0.jpg",
+      "caption": "Figure 1: Overview of the valuation framework. Solid boxes contain the models and methods; dashed boxes contain estimation, data and outputs. Alternatives that can be used within the same framework are shown in italics. \u2014 This is a hierarchical flowchart diagram illustrating a market-consistent financial-entropy framework for catastrophe bond valuation that decomposes into three parallel risk components: catastrophe risk (left), dependence structure (center), and interest-rate risk (right). Each",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.37171v1"
+    },
+    {
+      "doc_id": "2610.37171v1",
+      "title": "An Application of Geometric Riemannian Pricing Algorithm for Valuing Catastrophe Bonds in Incomplete Markets: Market-Consistent Financial Entropy and the Split of Frequency and Severity Risk Premia",
+      "page": 20,
+      "thumb": "/data/figures/2610.37171v1_p20_1.jpg",
+      "caption": "Figure 2: Geometry of the date-wise problem at the issue date (illustration based on the per- occurrence approximation with flat discounting). (a) CAT bond price V model \u2014 Figure 2 displays the geometric structure of CAT bond pricing across frequency and severity risk dimensions at issuance. Panel (a) is a 3D surface plot showing CAT bond price (z-axis, ranging from 75-110) as a function of frequency loading \u03b7f (x-axis, -0.5 to 2.0) and severity loading \u03b7s (y-axis, 0 to 2.0), with a marked model",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.37171v1"
+    },
+    {
+      "doc_id": "2610.37171v1",
+      "title": "An Application of Geometric Riemannian Pricing Algorithm for Valuing Catastrophe Bonds in Incomplete Markets: Market-Consistent Financial Entropy and the Split of Frequency and Severity Risk Premia",
+      "page": 24,
+      "thumb": "/data/figures/2610.37171v1_p24_2.jpg",
+      "caption": "Figure 3: Stylised CAT bond timeline used in the computations. \u2014 This figure presents a horizontal timeline diagram illustrating the key dates and events in a catastrophe bond's lifecycle. The timeline shows the progression from issuance through maturity, marking critical points such as the attachment trigger period, coupon payment dates, and potential early redemption or loss events. The stylized representation is used to structure the computational framework for pricing CAT bonds in incomplete",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.37171v1"
+    },
+    {
+      "doc_id": "2610.36921v1",
+      "title": "A Deep Learning-Driven Operator Splitting Scheme for Free Boundary Problems: An Application to American Option Pricing in Incomplete Markets",
+      "page": 22,
+      "thumb": "/data/figures/2610.36921v1_p22_0.jpg",
+      "caption": "Figure 1: Holder\u2019s continuation premium E at selected decision time points. The red solid line and the blue dashed line represent the PINN-splitting and FDM results, respectively. The yellow open circle marks the FDM estimate of the exercise boundary Sf(t). \u2014 This figure displays six line plots comparing the holder's continuation premium across different decision time points (0/15, 3/15, 6/15, 9/15, 12/15, and 14/15) in American option pricing. Each subplot shows continuation premium (y-axis, ra",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.36921v1"
+    },
+    {
+      "doc_id": "2610.36921v1",
+      "title": "A Deep Learning-Driven Operator Splitting Scheme for Free Boundary Problems: An Application to American Option Pricing in Incomplete Markets",
+      "page": 22,
+      "thumb": "/data/figures/2610.36921v1_p22_1.jpg",
+      "caption": "Figure 1 shows that the PINN-splitting continuation premium closely matches the FDM benchmark at the selected decision times, confirming that the proposed scheme captures not only the option price at the initial state but also the free-boundary structure. The FDM boundary markers are located at the transition from the near-zero premium region to the positive premium region, providing pointwise est \u2014 This figure displays six panels showing H\u00f6lder's continuation premium as a function of asset pric",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.36921v1"
+    },
+    {
+      "doc_id": "2610.36921v1",
+      "title": "A Deep Learning-Driven Operator Splitting Scheme for Free Boundary Problems: An Application to American Option Pricing in Incomplete Markets",
+      "page": 23,
+      "thumb": "/data/figures/2610.36921v1_p23_2.jpg",
+      "caption": "Figure 2: Adam loss convergence for the first continuation-solving step in the PINN-splitting method under transaction costs. The horizontal axis is the epoch number, and the vertical axis is the total loss defined in Section 3.1. \u2014 This figure displays a log-scale plot of PINN (Physics-Informed Neural Network) loss convergence during training of the first splitting layer using Adam optimizer with mini-batch updates. The horizontal axis represents epoch number (0 to 6000) and the vertical axis r",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.36921v1"
+    },
+    {
+      "doc_id": "2610.36921v1",
+      "title": "A Deep Learning-Driven Operator Splitting Scheme for Free Boundary Problems: An Application to American Option Pricing in Incomplete Markets",
+      "page": 24,
+      "thumb": "/data/figures/2610.36921v1_p24_3.jpg",
+      "caption": "Figure 3: American put values for different transaction-cost parameters \u03baTC. The inset magnifies the neighborhood of the strike, S0 \u2208[99, 101], and displays the option-price curves on an expanded vertical scale. \u2014 This line graph displays American put option prices as a function of asset price S\u2080 (x-axis, ranging from 80 to 120) and option price (y-axis, ranging from 7.5 to 25.0). Three curves represent different transaction-cost parameters (\u03ba_TC = 0.0, 0.004, and 0.008), showing how transaction",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.36921v1"
+    },
+    {
+      "doc_id": "2610.36899v1",
+      "title": "Depositing More Should Not Earn Less: Supplier Income Monotonicity and Rate Curve Design in Pooled Lending Markets",
       "page": 2,
-      "thumb": "/data/figures/2610.35738v1_p2_0.jpg",
-      "caption": "Fig. 1. How a trade reaches the chain. On the launchpad, new tokens are sold at a price that depends on their supply. They move to Uniswap pools once purchases reach a fixed target. Traders then trade them through a social-feed app or through bots. The bottom bar shows the share of gas by transaction type inside burst intervals (Section 4). \u2014 This flowchart shows the lifecycle of token trading on Robinhood Chain, from initial launchpad pricing through Uniswap pool listing to end-user trading. Th",
+      "thumb": "/data/figures/2610.36899v1_p2_0.jpg",
+      "caption": "Figure 1: (a) The illustrative kinked borrow rate. (b) Annualized income of a supplier initially holding 10% of a $10 million pool, with $8.3 million of fixed borrowing, against the change in its balance. Withdrawals are shaded. The dotted line is the starting income, and the dashed line marks the deposit that returns utilization to 80%. The labels give income at the start, after that deposit, and \u2014 This figure illustrates the incentive structure in a pooled lending market with two panels. Panel",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2610.35738v1"
+      "source": "https://arxiv.org/pdf/2610.36899v1"
     },
     {
-      "doc_id": "2610.35738v1",
-      "title": "Fuji: The Shape, Composition, and Spread of Demand Bursts on Robinhood Chain",
-      "page": 6,
-      "thumb": "/data/figures/2610.35738v1_p6_1.jpg",
-      "caption": "Fig. 2. A burst window of 82 minutes, with gas in multiples of the usual level, annotated with the subsequences defined in Section 2. Shaded bands are burst intervals. The alignment window extends beyond the plot. \u2014 This line chart displays gas usage over time during a 82-minute burst window on Robinhood Chain, with the y-axis showing gas in multiples of baseline level (ranging from 1x to 3x) and the x-axis showing time in minutes from 13:17. The figure annotates key subsequences including a pea",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.35738v1"
-    },
-    {
-      "doc_id": "2610.35738v1",
-      "title": "Fuji: The Shape, Composition, and Spread of Demand Bursts on Robinhood Chain",
-      "page": 6,
-      "thumb": "/data/figures/2610.35738v1_p6_2.jpg",
-      "caption": "Fig. 3. Data fields and an example for each of the three record types used in the paper (Section 2). Token amounts are in each token\u2019s smallest unit, before conversion to dollars. Addresses are abbreviated. \u2014 This figure displays a time-series line chart showing gas price volatility over an 82-minute burst window on a blockchain network, with the y-axis representing gas price multiples (1x to 3x) and the x-axis showing time elapsed from 13:17. Shaded vertical bands highlight burst intervals with",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.35738v1"
-    },
-    {
-      "doc_id": "2610.35738v1",
-      "title": "Fuji: The Shape, Composition, and Spread of Demand Bursts on Robinhood Chain",
+      "doc_id": "2610.36899v1",
+      "title": "Depositing More Should Not Earn Less: Supplier Income Monotonicity and Rate Curve Design in Pooled Lending Markets",
       "page": 7,
-      "thumb": "/data/figures/2610.35738v1_p7_3.jpg",
-      "caption": "Fig. 4. The median alignment window Z(t) derived from 654 bursts, in multiples of the usual level. The left panel shows the full window and the right panel thirty minutes either side of the peak. The shoulder and the neck are marked. \u2014 This figure presents two line charts showing the median alignment window Z(t) derived from 654 demand bursts on Robinhood Chain, measured in multiples of baseline trading volume. The left panel displays a six-hour window centered on the peak (x-axis: minutes from ",
+      "thumb": "/data/figures/2610.36899v1_p7_1.jpg",
+      "caption": "Figure 2: Hourly utilization, protected share \u03b1safe and the largest lender\u2019s share of supply on Drift from 1 December 2025, for (a) SOL and (b) USDC. A lender is exposed wherever its share lies above the protected share, and those hours are shaded. \u2014 These two time-series line charts display hourly market dynamics on the Drift protocol from December 1, 2025, tracking SOL (panel a) and USDC (panel b) separately. Each chart plots three variables: largest lender share (solid line), protected share ",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2610.35738v1"
+      "source": "https://arxiv.org/pdf/2610.36899v1"
     },
     {
-      "doc_id": "2610.35702v1",
-      "title": "Weekend Crypto Volatility and Monday Market Risk",
-      "page": 9,
-      "thumb": "/data/figures/2610.35702v1_p9_0.jpg",
-      "caption": "Figure 1: Timing of the weekend predictive test. The factor Wt uses Saturday and Sunday cryptocurrency variance observed during the regular US equity-market closure to predict Monday variance. Related instruments may trade before Monday\u2019s cash-market opening. \u2014 This timeline chart illustrates the temporal relationship between cryptocurrency and traditional market trading hours across a weekend. Cryptocurrency markets trade continuously 24/7 (shown in blue across Friday through Monday), while tra",
+      "doc_id": "2610.36899v1",
+      "title": "Depositing More Should Not Earn Less: Supplier Income Monotonicity and Rate Curve Design in Pooled Lending Markets",
+      "page": 10,
+      "thumb": "/data/figures/2610.36899v1_p10_2.jpg",
+      "caption": "Figure 3: Elasticity envelopes of the fresh depositor guarantee and a 5% flat target. Imposing both guarantees takes the smaller envelope. \u2014 This line chart displays elasticity envelopes across utilization rates (0-100%) for three different deposit guarantee schemes in pooled lending markets. The y-axis shows elasticity percentage (0-40%), while the x-axis represents utilization levels. The fresh depositor guarantee (solid line) remains near zero until approximately 80% utilization, then rises s",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2610.35702v1"
+      "source": "https://arxiv.org/pdf/2610.36899v1"
     },
     {
-      "doc_id": "2610.35702v1",
-      "title": "Weekend Crypto Volatility and Monday Market Risk",
-      "page": 14,
-      "thumb": "/data/figures/2610.35702v1_p14_1.jpg",
-      "caption": "Figure 2 shows daily log variance across the six assets. Cryptocurrency variance generally exceeds that of the traditional assets, while Bitcoin and Ether display broadly similar temporal patterns. Treasury (IEF) variance is visibly elevated around 2022\u20132023 relative to much of the earlier sample. Gold exhibits pronounced downward spikes associated with very low estimated within-session variance;  \u2014 This table presents summary statistics of daily logarithmic returns for six assets from November ",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.35702v1"
-    },
-    {
-      "doc_id": "2610.35702v1",
-      "title": "Weekend Crypto Volatility and Monday Market Risk",
-      "page": 14,
-      "thumb": "/data/figures/2610.35702v1_p14_2.jpg",
-      "caption": "Figure 2: Daily log variance for the six assets. Each panel plots vi,t = ln(RVi,t +\u03f5), using the Garman-Klass variance proxy defined in Section 3.1. \u2014 This figure displays six time series plots of daily log variance from 2018 to 2026 for three cryptocurrencies (Bitcoin, Ether, XRP) and three traditional assets (S&P 500, Gold, Treasury IEF), with the y-axis showing ln(RV + \u03b5) measured in basis points squared. The line charts show realized variance computed using the Garman-Klass proxy, which inco",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.35702v1"
-    },
-    {
-      "doc_id": "2610.35702v1",
-      "title": "Weekend Crypto Volatility and Monday Market Risk",
-      "page": 15,
-      "thumb": "/data/figures/2610.35702v1_p15_3.jpg",
-      "caption": "Figure 3: Rolling two-year panel estimate of the weekend coefficient \u02c6\u03b3. The dashed line marks the January 2024 US spot-Bitcoin ETF approvals. \u2014 This line chart displays a rolling 2-year panel estimate of the weekend coefficient (\u03b3-hat) measuring weekend effects on cryptocurrency volatility from 2020 through 2026. The y-axis shows the weekend factor coefficient ranging from -0.05 to 0.35, while the x-axis represents time, with a vertical dashed line marking the January 2024 Bitcoin spot ETF appr",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.35702v1"
-    },
-    {
-      "doc_id": "2610.35118v1",
-      "title": "Scenario Matching for Credit Dependence Stress Tests: Temporal correlation constraints and empirical risk bounds",
-      "page": 2,
-      "thumb": "/data/figures/2610.35118v1_p2_0.jpg",
-      "caption": "Figure 1 separates target fitting from risk optimization. Every source receives one destination, and every destination is used once. Choosing each source\u2019s closest destination independently can reuse the same destination path and therefore fail to produce a valid assignment. \u2014 This figure presents mathematical formulas for computing correlation-based distance metrics and solving an optimal assignment problem. The top equation (1) defines Rij as a Pearson correlation coefficient between paired ti",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.35118v1"
-    },
-    {
-      "doc_id": "2610.35118v1",
-      "title": "Scenario Matching for Credit Dependence Stress Tests: Temporal correlation constraints and empirical risk bounds",
-      "page": 2,
-      "thumb": "/data/figures/2610.35118v1_p2_1.jpg",
-      "caption": "Figure 1: Complete-path assignment. Target \u03c1\u22c6concerns temporal correlation within each pair; tolerance \u03b5 defines eligible pairs. Correlation fitting and loss or exceedance optimization share this graph but use different costs. Reassignment leaves simulated path values unchanged. \u2014 This figure illustrates a three-stage workflow for scenario matching in credit dependence stress testing. Stage 1 shows complete paths construction from market block curves and credit block hazard rates using aligned d",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.35118v1"
-    },
-    {
-      "doc_id": "2610.35118v1",
-      "title": "Scenario Matching for Credit Dependence Stress Tests: Temporal correlation constraints and empirical risk bounds",
-      "page": 6,
-      "thumb": "/data/figures/2610.35118v1_p6_2.jpg",
-      "caption": "Figure 2: Targeted dependence and monetary sensitivity. Left: separately standardized signed market value and hazard for the first market path in seed 20261014 and its partner selected for target 0.5 (credit path 92). Zero is each path\u2019s own mean. Right: dots give average minimum-error scores; horizontal segments join average batch-specific monetary extrema at tolerance 0.2. The dashed line is ran \u2014 Panel A shows a line chart tracking two standardized time series (signed market value and hazard ",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.35118v1"
-    },
-    {
-      "doc_id": "2610.34936v1",
-      "title": "Det-MASO: Diversity-Regularized Multi-Agent Sequential Optimization for Factor Generation",
-      "page": 6,
-      "thumb": "/data/figures/2610.34936v1_p6_0.jpg",
-      "caption": "Figure 1: Each agent independently maps stock features \ud835\udc4b\ud835\udc61to a standardized factor vector; the outputs form the factor matrix \ud835\udc39\ud835\udc61(\ud835\udf03), from which the diversity module computes the correlation matrix \u03a3 and applies the penalty \u2212log det \u03a3. A context-conditioned scheduler \ud835\udc53\ud835\udf19encodes the multi-scale market state \ud835\udc46\ud835\udc61via attention-fused MLPs and outputs mixing weights \ud835\udc64\ud835\udc61that both combine agent factors into\u0302 \ud835\udefc \u2014 This figure illustrates the architecture of a multi-agent factor generation system for quantitati",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.34936v1"
-    },
-    {
-      "doc_id": "2610.34936v1",
-      "title": "Det-MASO: Diversity-Regularized Multi-Agent Sequential Optimization for Factor Generation",
+      "doc_id": "2610.36899v1",
+      "title": "Depositing More Should Not Earn Less: Supplier Income Monotonicity and Rate Curve Design in Pooled Lending Markets",
       "page": 12,
-      "thumb": "/data/figures/2610.34936v1_p12_1.jpg",
-      "caption": "Figure 2: Backtest results on CSI300. The lines track the cumulative return of long portfolios formed from the competing factor-mining approaches. Det-MASO remains above the baseline methods for most of the test period and finishes with the largest terminal gain. \u2014 This line chart displays cumulative returns (%) of various factor-mining methods backtested on the CSI300 index from March 2024 to January 2026. The plot compares Det-MASO (red line, labeled \"ours\") against multiple baseline approache",
+      "thumb": "/data/figures/2610.36899v1_p12_3.jpg",
+      "caption": "Figure 4 compares the borrow rates for O = 80%, Ro = 5%, Rmax = 100% and K = 19. The branch changes the path between the fixed endpoints while keeping both the kink rate and the maximum rate. \u2014 This figure compares borrow rate curves for a pooled lending market with parameters O=80%, Ro=5%, Rmax=100%, and K=19, displaying how the rate path can be modified between fixed endpoints while preserving the kink rate and maximum rate constraints. The chart plots interest rates (y-axis) against loan amou",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2610.34936v1"
+      "source": "https://arxiv.org/pdf/2610.36899v1"
     },
     {
-      "doc_id": "2610.34936v1",
-      "title": "Det-MASO: Diversity-Regularized Multi-Agent Sequential Optimization for Factor Generation",
-      "page": 13,
-      "thumb": "/data/figures/2610.34936v1_p13_2.jpg",
-      "caption": "Figure 3: Comparison of cross-agent diversity under four train- ing settings. The panel summarizes mean absolute pairwise correlation and log det(\u03a3\ud835\udc61(\ud835\udf03)). Values are averaged over the last 40 training epochs across 5 independent runs with dif- ferent random seeds. The determinant-regularized Det-MASO setting displays the weakest cross-agent similarity among the compared variants. \u2014 This figure compares cross-agent diversity across four training configurations using a combination bar and line char",
+      "doc_id": "2610.36491v1",
+      "title": "Simple Portfolios that Deliver Consistent Decent Returns",
+      "page": 3,
+      "thumb": "/data/figures/2610.36491v1_p3_0.jpg",
+      "caption": "Figure 1: An investment in SPY grows roughly sevenfold over two decades. \u2014 This line chart displays the cumulative growth of SPY (S&P 500 ETF) from 2005 to 2025, with the y-axis showing growth of $1 in logarithmic scale and the x-axis showing time in years. The chart illustrates that an initial $1 investment grew to approximately $7 over the 20-year period, with notable disruptions marked by the 2008 Financial Crisis, the 2020 COVID-19 pandemic, and the 2022-2023 Russia-Ukraine conflict shown as",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2610.34936v1"
+      "source": "https://arxiv.org/pdf/2610.36491v1"
     },
     {
-      "doc_id": "2610.34936v1",
-      "title": "Det-MASO: Diversity-Regularized Multi-Agent Sequential Optimization for Factor Generation",
-      "page": 14,
-      "thumb": "/data/figures/2610.34936v1_p14_3.jpg",
-      "caption": "Figure 4: Scheduler weight dynamics on CSI300 (test period). Top: CSI300 index. Bottom: stacked weights \ud835\udc641,\ud835\udc61to \ud835\udc645,\ud835\udc61for the five regime-specialized agents. The stacked area profile shows how total generative capacity is redistributed across Low-Vol Bull, High-Vol Bull, Sideways, Low-Vol Bear, and Tail-Risk agents over time. Tail-Risk weight spikes during drawdown episodes, while Sideways and Low-Vo \u2014 This figure shows CSI300 index performance and corresponding scheduler weight allocation across f",
+      "doc_id": "2610.36491v1",
+      "title": "Simple Portfolios that Deliver Consistent Decent Returns",
+      "page": 4,
+      "thumb": "/data/figures/2610.36491v1_p4_1.jpg",
+      "caption": "Figure 2: A small minority of days accounts for most of SPY\u2019s gains and losses. \u2014 This histogram displays the distribution of daily returns for the SPY (S&P 500 ETF) with return bins on the x-axis ranging from -3.0% to +3.0% and percentage of days on the y-axis. The chart reveals a roughly symmetric, bell-shaped distribution centered near zero, with annotations highlighting that the bottom 5% of days (largest losses) account for 41% of total losses, while the top 5% of days (largest gains) accou",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2610.34936v1"
+      "source": "https://arxiv.org/pdf/2610.36491v1"
     },
     {
-      "doc_id": "2610.34787v1",
-      "title": "Do Round Numbers Hold Prices? Occupation Densities and Depth-Conditioned Hazards in the Limit Order Book",
-      "page": 16,
-      "thumb": "/data/figures/2610.34787v1_p16_0.jpg",
-      "caption": "Figure 1: The departure-hazard model is refitted using queue depth measured h seconds before the current instant. Panel (a) divides each estimate by its true value, so that 1 means the target is recovered; panel (b) shows the estimates themselves, with the true values marked by short horizontal bars to the right of \u201centry\u201d. At h = 0, depth is a contemporaneous internal covariate; \u201centry\u201d denotes d \u2014 This figure presents a sensitivity analysis of a departure-hazard model where queue depth is lagg",
+      "doc_id": "2610.36491v1",
+      "title": "Simple Portfolios that Deliver Consistent Decent Returns",
+      "page": 4,
+      "thumb": "/data/figures/2610.36491v1_p4_2.jpg",
+      "caption": "Figure 3: The 60/40 keeps most of SPY\u2019s growth at nearly half its volatility. \u2014 This figure displays a line chart tracking cumulative growth of $1 invested from 2005 to 2025 across three investment strategies: SPY (stocks), AGG (bonds), and a 60/40 portfolio combining them. The y-axis shows growth in dollars (logarithmic scale from $1 to $7), and the x-axis shows years. The key takeaway is that the 60/40 portfolio (black line) captures most of SPY's upside gains while achieving substantially low",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2610.34787v1"
-    },
-    {
-      "doc_id": "2610.34787v1",
-      "title": "Do Round Numbers Hold Prices? Occupation Densities and Depth-Conditioned Hazards in the Limit Order Book",
-      "page": 16,
-      "thumb": "/data/figures/2610.34787v1_p16_1.jpg",
-      "caption": "Figure 1 illustrates the covariate-timing issue discussed in Section 4.3.4. We refit the same interval- level model with the depth covariate measured h seconds before the current instant, for each of the four simulated mechanisms: \u2014 This figure shows how departure-hazard model estimates vary with the lag h of a depth covariate measured before the current instant, across four simulated mechanisms (A-D). Panel (a) displays estimates relative to true values (y-axis: ratio of 0.4-1.1), while panel (",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.34787v1"
-    },
-    {
-      "doc_id": "2610.34787v1",
-      "title": "Do Round Numbers Hold Prices? Occupation Densities and Depth-Conditioned Hazards in the Limit Order Book",
-      "page": 19,
-      "thumb": "/data/figures/2610.34787v1_p19_2.jpg",
-      "caption": "Figure 2 shows that this directional asymmetry is localised around round-dollar levels. We replace the round-dollar indicators with indicators for each position of the best bid from six ticks below to five ticks above the nearest round dollar. In Intel and SoFi, the largest adjusted log- odds differences occur at the two positions corresponding to a round-dollar bid or ask, where they have opposit \u2014 This figure displays adjusted log-odds differences for departure directions in Intel and SoFi sto",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.34787v1"
+      "source": "https://arxiv.org/pdf/2610.36491v1"
     }
   ],
   "docs": [
     {
-      "id": "2610.35738v1",
-      "title": "Fuji: The Shape, Composition, and Spread of Demand Bursts on Robinhood Chain",
-      "source": "https://arxiv.org/pdf/2610.35738v1",
-      "pages": 25,
+      "id": "2610.37487v1",
+      "title": "Contemporaneous Transmission Networks and Systemic Risk in European Banking",
+      "source": "https://arxiv.org/pdf/2610.37487v1",
+      "pages": 54,
       "images": 0,
-      "figures_captioned": 4,
-      "tables": 2,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 51
-    },
-    {
-      "id": "2610.35702v1",
-      "title": "Weekend Crypto Volatility and Monday Market Risk",
-      "source": "https://arxiv.org/pdf/2610.35702v1",
-      "pages": 35,
-      "images": 3,
-      "figures_captioned": 4,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 49
-    },
-    {
-      "id": "2610.35476v1",
-      "title": "Differentiability and Convexity of the Solution Maps for Fully Non-linear Parabolic HJB Equations",
-      "source": "https://arxiv.org/pdf/2610.35476v1",
-      "pages": 36,
-      "images": 0,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 54
-    },
-    {
-      "id": "2610.35118v1",
-      "title": "Scenario Matching for Credit Dependence Stress Tests: Temporal correlation constraints and empirical risk bounds",
-      "source": "https://arxiv.org/pdf/2610.35118v1",
-      "pages": 9,
-      "images": 0,
-      "figures_captioned": 3,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 24
-    },
-    {
-      "id": "2610.35022v1",
-      "title": "Martingality in EFM Signature Volatility Models",
-      "source": "https://arxiv.org/pdf/2610.35022v1",
-      "pages": 14,
-      "images": 0,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 29
-    },
-    {
-      "id": "2610.34936v1",
-      "title": "Det-MASO: Diversity-Regularized Multi-Agent Sequential Optimization for Factor Generation",
-      "source": "https://arxiv.org/pdf/2610.34936v1",
-      "pages": 15,
-      "images": 3,
-      "figures_captioned": 4,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 47
-    },
-    {
-      "id": "2610.34787v1",
-      "title": "Do Round Numbers Hold Prices? Occupation Densities and Depth-Conditioned Hazards in the Limit Order Book",
-      "source": "https://arxiv.org/pdf/2610.34787v1",
-      "pages": 28,
-      "images": 0,
-      "figures_captioned": 3,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 57
-    },
-    {
-      "id": "2610.34348v1",
-      "title": "Optimal ratcheting dividend policies with resets",
-      "source": "https://arxiv.org/pdf/2610.34348v1",
-      "pages": 43,
-      "images": 11,
-      "figures_captioned": 0,
+      "figures_captioned": 1,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
       "chunks_indexed": 50
     },
     {
-      "id": "2610.34153v1",
-      "title": "Certifying Reward Alignment in Portfolio Reinforcement Learning",
-      "source": "https://arxiv.org/pdf/2610.34153v1",
-      "pages": 8,
+      "id": "2610.37324v1",
+      "title": "Optimal Order Placement under a State-Dependent Hawkes Process Limit Order Book model",
+      "source": "https://arxiv.org/pdf/2610.37324v1",
+      "pages": 47,
+      "images": 2,
+      "figures_captioned": 3,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 36
+    },
+    {
+      "id": "2610.37171v1",
+      "title": "An Application of Geometric Riemannian Pricing Algorithm for Valuing Catastrophe Bonds in Incomplete Markets: Market-Consistent Financial Entropy and the Split of Frequency and Severity Risk Premia",
+      "source": "https://arxiv.org/pdf/2610.37171v1",
+      "pages": 43,
       "images": 0,
-      "figures_captioned": 0,
+      "figures_captioned": 3,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 47
+    },
+    {
+      "id": "2610.36921v1",
+      "title": "A Deep Learning-Driven Operator Splitting Scheme for Free Boundary Problems: An Application to American Option Pricing in Incomplete Markets",
+      "source": "https://arxiv.org/pdf/2610.36921v1",
+      "pages": 29,
+      "images": 5,
+      "figures_captioned": 4,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 40
+    },
+    {
+      "id": "2610.36899v1",
+      "title": "Depositing More Should Not Earn Less: Supplier Income Monotonicity and Rate Curve Design in Pooled Lending Markets",
+      "source": "https://arxiv.org/pdf/2610.36899v1",
+      "pages": 28,
+      "images": 0,
+      "figures_captioned": 4,
       "tables": 1,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 26
+      "chunks_indexed": 49
     },
     {
-      "id": "2610.33786v1",
-      "title": "Jensen gaps and the decomposition principle",
-      "source": "https://arxiv.org/pdf/2610.33786v1",
-      "pages": 41,
+      "id": "2610.36491v1",
+      "title": "Simple Portfolios that Deliver Consistent Decent Returns",
+      "source": "https://arxiv.org/pdf/2610.36491v1",
+      "pages": 71,
+      "images": 0,
+      "figures_captioned": 3,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 52
+    },
+    {
+      "id": "2610.36473v1",
+      "title": "Risk measures for infinite-server queues driven by a Cox-BESQ process",
+      "source": "https://arxiv.org/pdf/2610.36473v1",
+      "pages": 27,
       "images": 0,
       "figures_captioned": 0,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 53
+      "chunks_indexed": 41
+    },
+    {
+      "id": "2610.36392v1",
+      "title": "The Term Structure of Implied Fee Rates in Liquidity Pools",
+      "source": "https://arxiv.org/pdf/2610.36392v1",
+      "pages": 26,
+      "images": 0,
+      "figures_captioned": 0,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 33
+    },
+    {
+      "id": "2610.36317v1",
+      "title": "Event definition and the branching ratio: Hawkes estimates of price-change clustering in the consolidated quote feed",
+      "source": "https://arxiv.org/pdf/2610.36317v1",
+      "pages": 42,
+      "images": 0,
+      "figures_captioned": 0,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 59
+    },
+    {
+      "id": "2610.36274v1",
+      "title": "Does Ecosystem Activity Validate TVL?",
+      "source": "https://arxiv.org/pdf/2610.36274v1",
+      "pages": 12,
+      "images": 0,
+      "figures_captioned": 0,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 12
     }
   ]
 }
