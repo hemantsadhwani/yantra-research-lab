@@ -1,7 +1,7 @@
 {
   "_note": "Public run manifest of the Tier-3 agentic ingestion pipeline. Safe aggregates + provenance only; raw PDFs live in S3, not here.",
-  "run_id": "20261029T083106Z",
-  "generated_at": "2026-10-29T08:33:56+00:00",
+  "run_id": "20261030T084050Z",
+  "generated_at": "2026-10-30T08:44:20+00:00",
   "collection": "research_corpus",
   "embed_model": "BAAI/bge-small-en-v1.5",
   "dag": [
@@ -50,305 +50,305 @@
     "discovered": 10,
     "fetched": 10,
     "parsed": 10,
-    "chunks": 466,
-    "accepted": 419,
-    "rejected": 47,
-    "images": 7,
+    "chunks": 510,
+    "accepted": 471,
+    "rejected": 39,
+    "images": 14,
     "figures_captioned": 18,
-    "tables": 1,
-    "with_math": 10,
-    "indexed": 419,
-    "spent_usd": 0.0319,
-    "duration_s": 169.5
+    "tables": 6,
+    "with_math": 8,
+    "indexed": 471,
+    "spent_usd": 0.0322,
+    "duration_s": 209.7
   },
   "rejects_by_reason": {
-    "low-relevance": 47
+    "low-relevance": 39
   },
   "budget_usd": 3.0,
   "figures": [
     {
-      "doc_id": "2610.37487v1",
-      "title": "Contemporaneous Transmission Networks and Systemic Risk in European Banking",
-      "page": 24,
-      "thumb": "/data/figures/2610.37487v1_p24_0.jpg",
-      "caption": "Figure 1: Magnitude-screened contemporaneous network. The graph displays the 312 coefficients with absolute value at least 0.05 in the unpruned, volatility-standardized fit. Regional node colors are descriptive. Arrow orientation is conditional on the recursive model, and this dense graph is an overview rather than a collection of independently validated causal links. \u2014 This is a network graph showing the contemporaneous transmission network of 312 significant Granger causality relationships amo",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.37487v1"
-    },
-    {
-      "doc_id": "2610.37324v1",
-      "title": "Optimal Order Placement under a State-Dependent Hawkes Process Limit Order Book model",
-      "page": 23,
-      "thumb": "/data/figures/2610.37324v1_p23_0.jpg",
-      "caption": "Figure 1 displays the empirical frequency distribution of per-interval market order counts N for \u2014 This table presents descriptive statistics of market order arrival data across buy and sell sides, comparing aggregate event counts with per-interval statistics (\u0394t = 1 second). Key variables include total events, market order counts, limit order counts, average order sizes, and the distribution of market orders across time intervals. The data reveals high zero-inflation in order flow, with approxi",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.37324v1"
-    },
-    {
-      "doc_id": "2610.37324v1",
-      "title": "Optimal Order Placement under a State-Dependent Hawkes Process Limit Order Book model",
-      "page": 24,
-      "thumb": "/data/figures/2610.37324v1_p24_1.jpg",
-      "caption": "Figure 1: Empirical frequency distribution of per-interval market order arrivals for \u2206t = 1 s, restricted to intervals containing at least one market order (N \u22651, shown up to N = 15). Buy and sell sides are displayed separately. Intervals with N = 0 account for 90.4% (buy) and 90.8% (sell) of all 117,000 one-second intervals. \u2014 This figure is a grouped bar chart showing the empirical frequency distribution of market order arrivals per 1-second interval for buy and sell sides separately. The x-ax",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.37324v1"
-    },
-    {
-      "doc_id": "2610.37324v1",
-      "title": "Optimal Order Placement under a State-Dependent Hawkes Process Limit Order Book model",
-      "page": 24,
-      "thumb": "/data/figures/2610.37324v1_p24_2.jpg",
-      "caption": "Figure 2: Fraction of intervals containing zero market orders as a function of the physical time step \u2206t \u2208{1, 2, 3} s, for the buy side (left) and sell side (right). The zero fraction decreases monotonically with \u2206t, from approximately 90% at \u2206t = 1 s to 77% at \u2206t = 3 s. \u2014 This figure contains two bar charts showing the fraction of intervals with zero market order arrivals for buy-side (left) and sell-side (right) market orders across three physical time steps (\u0394t = 1, 2, 3 seconds). The y-axis ",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.37324v1"
-    },
-    {
-      "doc_id": "2610.37171v1",
-      "title": "An Application of Geometric Riemannian Pricing Algorithm for Valuing Catastrophe Bonds in Incomplete Markets: Market-Consistent Financial Entropy and the Split of Frequency and Severity Risk Premia",
-      "page": 6,
-      "thumb": "/data/figures/2610.37171v1_p6_0.jpg",
-      "caption": "Figure 1: Overview of the valuation framework. Solid boxes contain the models and methods; dashed boxes contain estimation, data and outputs. Alternatives that can be used within the same framework are shown in italics. \u2014 This is a hierarchical flowchart diagram illustrating a market-consistent financial-entropy framework for catastrophe bond valuation that decomposes into three parallel risk components: catastrophe risk (left), dependence structure (center), and interest-rate risk (right). Each",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.37171v1"
-    },
-    {
-      "doc_id": "2610.37171v1",
-      "title": "An Application of Geometric Riemannian Pricing Algorithm for Valuing Catastrophe Bonds in Incomplete Markets: Market-Consistent Financial Entropy and the Split of Frequency and Severity Risk Premia",
-      "page": 20,
-      "thumb": "/data/figures/2610.37171v1_p20_1.jpg",
-      "caption": "Figure 2: Geometry of the date-wise problem at the issue date (illustration based on the per- occurrence approximation with flat discounting). (a) CAT bond price V model \u2014 Figure 2 displays the geometric structure of CAT bond pricing across frequency and severity risk dimensions at issuance. Panel (a) is a 3D surface plot showing CAT bond price (z-axis, ranging from 75-110) as a function of frequency loading \u03b7f (x-axis, -0.5 to 2.0) and severity loading \u03b7s (y-axis, 0 to 2.0), with a marked model",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.37171v1"
-    },
-    {
-      "doc_id": "2610.37171v1",
-      "title": "An Application of Geometric Riemannian Pricing Algorithm for Valuing Catastrophe Bonds in Incomplete Markets: Market-Consistent Financial Entropy and the Split of Frequency and Severity Risk Premia",
-      "page": 24,
-      "thumb": "/data/figures/2610.37171v1_p24_2.jpg",
-      "caption": "Figure 3: Stylised CAT bond timeline used in the computations. \u2014 This figure presents a horizontal timeline diagram illustrating the key dates and events in a catastrophe bond's lifecycle. The timeline shows the progression from issuance through maturity, marking critical points such as the attachment trigger period, coupon payment dates, and potential early redemption or loss events. The stylized representation is used to structure the computational framework for pricing CAT bonds in incomplete",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.37171v1"
-    },
-    {
-      "doc_id": "2610.36921v1",
-      "title": "A Deep Learning-Driven Operator Splitting Scheme for Free Boundary Problems: An Application to American Option Pricing in Incomplete Markets",
-      "page": 22,
-      "thumb": "/data/figures/2610.36921v1_p22_0.jpg",
-      "caption": "Figure 1: Holder\u2019s continuation premium E at selected decision time points. The red solid line and the blue dashed line represent the PINN-splitting and FDM results, respectively. The yellow open circle marks the FDM estimate of the exercise boundary Sf(t). \u2014 This figure displays six line plots comparing the holder's continuation premium across different decision time points (0/15, 3/15, 6/15, 9/15, 12/15, and 14/15) in American option pricing. Each subplot shows continuation premium (y-axis, ra",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.36921v1"
-    },
-    {
-      "doc_id": "2610.36921v1",
-      "title": "A Deep Learning-Driven Operator Splitting Scheme for Free Boundary Problems: An Application to American Option Pricing in Incomplete Markets",
-      "page": 22,
-      "thumb": "/data/figures/2610.36921v1_p22_1.jpg",
-      "caption": "Figure 1 shows that the PINN-splitting continuation premium closely matches the FDM benchmark at the selected decision times, confirming that the proposed scheme captures not only the option price at the initial state but also the free-boundary structure. The FDM boundary markers are located at the transition from the near-zero premium region to the positive premium region, providing pointwise est \u2014 This figure displays six panels showing H\u00f6lder's continuation premium as a function of asset pric",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.36921v1"
-    },
-    {
-      "doc_id": "2610.36921v1",
-      "title": "A Deep Learning-Driven Operator Splitting Scheme for Free Boundary Problems: An Application to American Option Pricing in Incomplete Markets",
-      "page": 23,
-      "thumb": "/data/figures/2610.36921v1_p23_2.jpg",
-      "caption": "Figure 2: Adam loss convergence for the first continuation-solving step in the PINN-splitting method under transaction costs. The horizontal axis is the epoch number, and the vertical axis is the total loss defined in Section 3.1. \u2014 This figure displays a log-scale plot of PINN (Physics-Informed Neural Network) loss convergence during training of the first splitting layer using Adam optimizer with mini-batch updates. The horizontal axis represents epoch number (0 to 6000) and the vertical axis r",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.36921v1"
-    },
-    {
-      "doc_id": "2610.36921v1",
-      "title": "A Deep Learning-Driven Operator Splitting Scheme for Free Boundary Problems: An Application to American Option Pricing in Incomplete Markets",
-      "page": 24,
-      "thumb": "/data/figures/2610.36921v1_p24_3.jpg",
-      "caption": "Figure 3: American put values for different transaction-cost parameters \u03baTC. The inset magnifies the neighborhood of the strike, S0 \u2208[99, 101], and displays the option-price curves on an expanded vertical scale. \u2014 This line graph displays American put option prices as a function of asset price S\u2080 (x-axis, ranging from 80 to 120) and option price (y-axis, ranging from 7.5 to 25.0). Three curves represent different transaction-cost parameters (\u03ba_TC = 0.0, 0.004, and 0.008), showing how transaction",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.36921v1"
-    },
-    {
-      "doc_id": "2610.36899v1",
-      "title": "Depositing More Should Not Earn Less: Supplier Income Monotonicity and Rate Curve Design in Pooled Lending Markets",
-      "page": 2,
-      "thumb": "/data/figures/2610.36899v1_p2_0.jpg",
-      "caption": "Figure 1: (a) The illustrative kinked borrow rate. (b) Annualized income of a supplier initially holding 10% of a $10 million pool, with $8.3 million of fixed borrowing, against the change in its balance. Withdrawals are shaded. The dotted line is the starting income, and the dashed line marks the deposit that returns utilization to 80%. The labels give income at the start, after that deposit, and \u2014 This figure illustrates the incentive structure in a pooled lending market with two panels. Panel",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.36899v1"
-    },
-    {
-      "doc_id": "2610.36899v1",
-      "title": "Depositing More Should Not Earn Less: Supplier Income Monotonicity and Rate Curve Design in Pooled Lending Markets",
-      "page": 7,
-      "thumb": "/data/figures/2610.36899v1_p7_1.jpg",
-      "caption": "Figure 2: Hourly utilization, protected share \u03b1safe and the largest lender\u2019s share of supply on Drift from 1 December 2025, for (a) SOL and (b) USDC. A lender is exposed wherever its share lies above the protected share, and those hours are shaded. \u2014 These two time-series line charts display hourly market dynamics on the Drift protocol from December 1, 2025, tracking SOL (panel a) and USDC (panel b) separately. Each chart plots three variables: largest lender share (solid line), protected share ",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.36899v1"
-    },
-    {
-      "doc_id": "2610.36899v1",
-      "title": "Depositing More Should Not Earn Less: Supplier Income Monotonicity and Rate Curve Design in Pooled Lending Markets",
-      "page": 10,
-      "thumb": "/data/figures/2610.36899v1_p10_2.jpg",
-      "caption": "Figure 3: Elasticity envelopes of the fresh depositor guarantee and a 5% flat target. Imposing both guarantees takes the smaller envelope. \u2014 This line chart displays elasticity envelopes across utilization rates (0-100%) for three different deposit guarantee schemes in pooled lending markets. The y-axis shows elasticity percentage (0-40%), while the x-axis represents utilization levels. The fresh depositor guarantee (solid line) remains near zero until approximately 80% utilization, then rises s",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.36899v1"
-    },
-    {
-      "doc_id": "2610.36899v1",
-      "title": "Depositing More Should Not Earn Less: Supplier Income Monotonicity and Rate Curve Design in Pooled Lending Markets",
-      "page": 12,
-      "thumb": "/data/figures/2610.36899v1_p12_3.jpg",
-      "caption": "Figure 4 compares the borrow rates for O = 80%, Ro = 5%, Rmax = 100% and K = 19. The branch changes the path between the fixed endpoints while keeping both the kink rate and the maximum rate. \u2014 This figure compares borrow rate curves for a pooled lending market with parameters O=80%, Ro=5%, Rmax=100%, and K=19, displaying how the rate path can be modified between fixed endpoints while preserving the kink rate and maximum rate constraints. The chart plots interest rates (y-axis) against loan amou",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.36899v1"
-    },
-    {
-      "doc_id": "2610.36491v1",
-      "title": "Simple Portfolios that Deliver Consistent Decent Returns",
+      "doc_id": "2610.40404v1",
+      "title": "Exponential Convergence of the Lifted Gradient Flow of the Bass Functional",
       "page": 3,
-      "thumb": "/data/figures/2610.36491v1_p3_0.jpg",
-      "caption": "Figure 1: An investment in SPY grows roughly sevenfold over two decades. \u2014 This line chart displays the cumulative growth of SPY (S&P 500 ETF) from 2005 to 2025, with the y-axis showing growth of $1 in logarithmic scale and the x-axis showing time in years. The chart illustrates that an initial $1 investment grew to approximately $7 over the 20-year period, with notable disruptions marked by the 2008 Financial Crisis, the 2020 COVID-19 pandemic, and the 2022-2023 Russia-Ukraine conflict shown as",
+      "thumb": "/data/figures/2610.40404v1_p3_0.jpg",
+      "caption": "Figure 1: Structure of the rate proof. The quantitative argument of this paper is on the left; the known qualitative result used in the proof is on the right. The arrows indicate dependencies: the curvature estimate is applied with a radius that bounds the entire orbit. \u2014 This is a flowchart diagram showing the logical structure of a proof for exponential convergence of the lifted gradient flow. The diagram has two main branches: the left side (in boxes) traces the authors' quantitative argument",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2610.36491v1"
+      "source": "https://arxiv.org/pdf/2610.40404v1"
     },
     {
-      "doc_id": "2610.36491v1",
-      "title": "Simple Portfolios that Deliver Consistent Decent Returns",
-      "page": 4,
-      "thumb": "/data/figures/2610.36491v1_p4_1.jpg",
-      "caption": "Figure 2: A small minority of days accounts for most of SPY\u2019s gains and losses. \u2014 This histogram displays the distribution of daily returns for the SPY (S&P 500 ETF) with return bins on the x-axis ranging from -3.0% to +3.0% and percentage of days on the y-axis. The chart reveals a roughly symmetric, bell-shaped distribution centered near zero, with annotations highlighting that the bottom 5% of days (largest losses) account for 41% of total losses, while the top 5% of days (largest gains) accou",
+      "doc_id": "2610.40404v1",
+      "title": "Exponential Convergence of the Lifted Gradient Flow of the Bass Functional",
+      "page": 8,
+      "thumb": "/data/figures/2610.40404v1_p8_1.jpg",
+      "caption": "Figure 2: Schematic comparison for a fixed \u03b5 > 0. Here F\u03b5(s) = E\u03b5(L (Zs + \u0393), \u03bd), and J(s) is the upper comparison function built from the interpolated target potentials. The common chord has been subtracted: \u2113\u03b5(s) = (1\u2212s)F\u03b5(0)+sF\u03b5(1). If J\u2032\u2032 \u2265K for some K > 0, then F\u03b5(s)\u2212\u2113\u03b5(s) \u2264J(s)\u2212\u2113\u03b5(s) \u2264\u2212(K/2)s(1\u2212s). All three expressions vanish at the endpoints. The curves illustrate the directions of the ine \u2014 This line plot compares three convexity-related functions over the interval [0,1] on the s-axis, ",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2610.36491v1"
+      "source": "https://arxiv.org/pdf/2610.40404v1"
     },
     {
-      "doc_id": "2610.36491v1",
-      "title": "Simple Portfolios that Deliver Consistent Decent Returns",
-      "page": 4,
-      "thumb": "/data/figures/2610.36491v1_p4_2.jpg",
-      "caption": "Figure 3: The 60/40 keeps most of SPY\u2019s growth at nearly half its volatility. \u2014 This figure displays a line chart tracking cumulative growth of $1 invested from 2005 to 2025 across three investment strategies: SPY (stocks), AGG (bonds), and a 60/40 portfolio combining them. The y-axis shows growth in dollars (logarithmic scale from $1 to $7), and the x-axis shows years. The key takeaway is that the 60/40 portfolio (black line) captures most of SPY's upside gains while achieving substantially low",
+      "doc_id": "2610.40404v1",
+      "title": "Exponential Convergence of the Lifted Gradient Flow of the Bass Functional",
+      "page": 10,
+      "thumb": "/data/figures/2610.40404v1_p10_2.jpg",
+      "caption": "Figure 3: Geometry of the row-growth bound. The shaded region is the part of Br(yc) on the \u27e8e, y \u2212yc\u27e9\u2265 r/4 side of the dashed line. The whole small ball lies on that side, and \u2225cw \u2212yc\u2225+r/4 = 3r/4 < r ensures Dw \u2282Br(yc). The picture is two-dimensional; the argument holds in Rd. The ambient choice B2r(yc) \u2282I is not drawn. \u2014 This figure illustrates a geometric construction used in analyzing the Bass functional, showing concentric balls in R^d with a hyperplane constraint. The diagram displays a bal",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2610.36491v1"
+      "source": "https://arxiv.org/pdf/2610.40404v1"
+    },
+    {
+      "doc_id": "2610.40404v1",
+      "title": "Exponential Convergence of the Lifted Gradient Flow of the Bass Functional",
+      "page": 12,
+      "thumb": "/data/figures/2610.40404v1_p12_3.jpg",
+      "caption": "Figure 4: What the two-copy argument removes. For a fixed observation w, take two independent copies of the Euclidean pair from the same conditional law \u03bbs,w. The difference of target potentials is the same in both expressions and cancels. The variance of the remaining linear expression is given by the Hessian of the log-integral. \u2014 This figure is a flowchart illustrating a two-copy argument used in variance analysis. It shows how two independent conditional copies with the same target law \u03c1a,w ",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.40404v1"
+    },
+    {
+      "doc_id": "2610.40366v1",
+      "title": "Comparing tail forecasts: the number of exceedances is the sample size",
+      "page": 10,
+      "thumb": "/data/figures/2610.40366v1_p10_0.jpg",
+      "caption": "Figure 1: Rejection rates of the two-sided 5% Diebold\u2013Mariano test under equal expected scores, against the expected number of misses of the narrower interval. Blue: the test declares the narrower forecaster better; orange: the wider. Marker shapes give \u03b1; the three points per shape are T = 250, 1000 and 4000. \u2014 This figure displays rejection rates of the Diebold-Mariano test comparing interval forecasts across two panels: Gaussian with constant scale (left) and Student-t with random scale (righ",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.40366v1"
+    },
+    {
+      "doc_id": "2610.40366v1",
+      "title": "Comparing tail forecasts: the number of exceedances is the sample size",
+      "page": 11,
+      "thumb": "/data/figures/2610.40366v1_p11_1.jpg",
+      "caption": "Figure 2: Rounds needed to separate a narrowed or widened Gaussian interval from the exact one. EB: median first round at which the 95% lower bound exceeds zero, with the 10%\u201390% band over 200 replications. Hoeffding: round at which its deterministic radius falls below \u2206. Known-variance test: sample size for 80% power with known variance. Grey: the scale of the lower bound, without constants. \u2014 This figure compares the sample size (in rounds) required to distinguish between a narrowed or widened",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.40366v1"
+    },
+    {
+      "doc_id": "2610.40129v1",
+      "title": "The Generalised Kessler Syndrome and the Persian Gulf",
+      "page": 7,
+      "thumb": "/data/figures/2610.40129v1_p7_0.jpg",
+      "caption": "Figure 1. Jebel Ali monthly container throughput, January\u2013September 2026. Pre-closure baseline \u223c1.1\u20131.35 M TEU/month; February 2026 disruption onset; contraction to \u223c125k TEU/month from April onward (\u223c90% YoY decline). Q1 2026: 2.77 M TEU (\u221230.5%); Q2 2026 reported total: 374k TEU (\u221290.1%). Source: monthly reconstruction from the quarterly figures in DP World\u2019s 13 August 2026 release [26] (Q1\u2013Q2 r \u2014 This line chart displays Jebel Ali container port's monthly throughput from January to September ",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.40129v1"
+    },
+    {
+      "doc_id": "2610.40129v1",
+      "title": "The Generalised Kessler Syndrome and the Persian Gulf",
+      "page": 9,
+      "thumb": "/data/figures/2610.40129v1_p9_1.jpg",
+      "caption": "Figure 2. Az-Zour North One Thermal Plume Time Se- ries (2022\u2013Oct 2026). Grey points are labelled per-scene ob- servations; the red line is labelled a four-week rolling mean and the band \u00b11 standard deviation. The vertical axis is a plume-minus-background index difference. Source data: LAND- SAT/LC08/C02/T1 L2 [31]. \u2014 This figure presents two time series plots of thermal plume measurements from Az-Zour North One spanning 2022 to October 2026, with the left panel showing data in red and the right",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.40129v1"
+    },
+    {
+      "doc_id": "2610.40129v1",
+      "title": "The Generalised Kessler Syndrome and the Persian Gulf",
+      "page": 9,
+      "thumb": "/data/figures/2610.40129v1_p9_2.jpg",
+      "caption": "Figure 3. Az-Zour North One Turbidity Plume Time Series (2022\u2013Oct 2026). Grey points are labelled per-scene observa- \u2014 These two time series charts display turbidity plume measurements from the Az-Zour North region from 2022 to October 2026, with the left panel showing thermal plume data in red and the right panel showing turbidity/backscatter plume data in blue. Each chart plots daily or weekly observations over time on the x-axis against turbidity/thermal intensity measures on the y-axis, with",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.40129v1"
+    },
+    {
+      "doc_id": "2610.40129v1",
+      "title": "The Generalised Kessler Syndrome and the Persian Gulf",
+      "page": 10,
+      "thumb": "/data/figures/2610.40129v1_p10_3.jpg",
+      "caption": "Figure 4. Az-Zour North One seasonal climatology (2022\u2013Oct 2026). Monthly means and ranges of the thermal contrast (left), the turbidity contrast (centre), and their ratio (right), aggregated over the plotted period. Source: See Figures 2 and 3. \u2014 This figure displays three bar charts showing seasonal climatology for Az-Zour North from 2022-2026. The left chart (red bars) shows thermal contrast across months with values roughly 2-4\u00b0C and error bars indicating monthly variability. The center char",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.40129v1"
+    },
+    {
+      "doc_id": "2610.39896v1",
+      "title": "Strong rate for one-dimensional driftless continuous strict local martingales",
+      "page": 8,
+      "thumb": "/data/figures/2610.39896v1_p8_0.jpg",
+      "caption": "Figure 3.1. Strong error E[|Xh \u2014 This figure comprises five scatter plots with fitted lines comparing theoretical predictions to observed slopes for strong numerical errors in discretization schemes. Each panel shows L-error (y-axis) versus log-step size parameters (x-axis), with different combinations of parameters \u03b3, \u03b4, and \u03c1 values labeled in the titles. The observed slopes (ranging from 0.46 to 0.50) are displayed in parentheses, demonstrating convergence rates close to the theoretical predi",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.39896v1"
+    },
+    {
+      "doc_id": "2610.39636v1",
+      "title": "Information Flow and Market Risk: Transformer-Based Evidence on Sentiment and Volatility Dynamics",
+      "page": 8,
+      "thumb": "/data/figures/2610.39636v1_p8_0.jpg",
+      "caption": "Figure 4.1: Document length distribution clipped at the 99th percentile and boxplot excluding values above the 99th percentile. \u2014 This figure displays a strip plot showing the distribution of document lengths measured in tokens, with a boxplot overlay for the central tendency statistics. The x-axis represents token count (ranging from 0 to approximately 250 tokens), and the y-axis shows density of observations. The data exhibits a right-skewed distribution with median of 27.0 tokens, mean of 36.",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.39636v1"
+    },
+    {
+      "doc_id": "2610.39636v1",
+      "title": "Information Flow and Market Risk: Transformer-Based Evidence on Sentiment and Volatility Dynamics",
+      "page": 9,
+      "thumb": "/data/figures/2610.39636v1_p9_1.jpg",
+      "caption": "Figure 4.2: Outlier tail above the 99th percentile and full document length distribution on a logarithmic scale. \u2014 This is a histogram showing the distribution of document lengths measured in tokens on a logarithmic scale. The x-axis represents tokens (ranging from 0 to approximately 90,000) and the y-axis shows document count on a log scale (from 1 to 10^5). The distribution exhibits a heavy right skew with the majority of documents concentrated below 5,000 tokens and a sharp peak near zero, wh",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.39636v1"
+    },
+    {
+      "doc_id": "2610.39636v1",
+      "title": "Information Flow and Market Risk: Transformer-Based Evidence on Sentiment and Volatility Dynamics",
+      "page": 10,
+      "thumb": "/data/figures/2610.39636v1_p10_2.jpg",
+      "caption": "Figure 4.3: Distribution of sentiment labels in the analyzed textual corpus. \u2014 This bar chart displays the class distribution of sentiment labels across a textual corpus analyzed in the study. The x-axis shows three sentiment classes (neutral, bearish, bullish) while the y-axis measures the number of documents on a scale from 0 to 200,000. The neutral class dominates with approximately 230,000 documents, followed by bearish sentiment with roughly 90,000 documents, and bullish sentiment with appr",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.39636v1"
+    },
+    {
+      "doc_id": "2610.39636v1",
+      "title": "Information Flow and Market Risk: Transformer-Based Evidence on Sentiment and Volatility Dynamics",
+      "page": 10,
+      "thumb": "/data/figures/2610.39636v1_p10_3.jpg",
+      "caption": "Figure 4.4: Document length by sentiment class, with values clipped at the 99th percentile. \u2014 This figure displays a box plot showing the distribution of document lengths across three sentiment classes (bearish, bullish, and neutral) with values clipped at the 99th percentile. The y-axis represents word count (ranging from 0 to 250) and the x-axis shows the three sentiment classes, with overlaid scatter points indicating individual observations. The key takeaway is that document lengths are rela",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.39636v1"
+    },
+    {
+      "doc_id": "2610.39458v1",
+      "title": "Early-Buyer Groups and Fast-Wallet Teams on a Bonding-Curve Launchpad: A Prospective Measurement Study of pump.fun on Solana",
+      "page": 7,
+      "thumb": "/data/figures/2610.39458v1_p7_0.jpg",
+      "caption": "Figure 1: The data. (a) Complete tokens created per hour; the dashed line marks the boundary of the two halves of the window. (b) How far tokens get: share of complete tokens whose curve held at least the given SOL at some time, and share that graduated. (c) Distribution of the maximum SOL held by the curve of the complete tokens that did not graduate (log axis; a graduated token\u2019s maximum is fixe \u2014 This figure presents three complementary views of token launches on pump.fun's bonding curve mech",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.39458v1"
+    },
+    {
+      "doc_id": "2610.39458v1",
+      "title": "Early-Buyer Groups and Fast-Wallet Teams on a Bonding-Curve Launchpad: A Prospective Measurement Study of pump.fun on Solana",
+      "page": 11,
+      "thumb": "/data/figures/2610.39458v1_p11_1.jpg",
+      "caption": "Figure 2: Precision of the K highest-scored tokens against the number of flagged tokens K (log scale), second half of the window. Left: the token reaches 20 SOL at any time. Right: prospective outcome, among tokens still below 20 SOL at 60 s. Dotted horizontal line: base rate. The creator\u2019s initial buy is nearly perfect on the left because a large initial buy puts the curve at 20 SOL at once; on t \u2014 This figure presents two precision plots measuring the predictive accuracy of different token-sco",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.39458v1"
+    },
+    {
+      "doc_id": "2610.39458v1",
+      "title": "Early-Buyer Groups and Fast-Wallet Teams on a Bonding-Curve Launchpad: A Prospective Measurement Study of pump.fun on Solana",
+      "page": 12,
+      "thumb": "/data/figures/2610.39458v1_p12_2.jpg",
+      "caption": "Figure 3: Persistence of co-buying pairs on the second half of the window, by the number of co-buys in the first half. Left: pairs accepted with first-half evidence versus other co-buying pairs. Right: pairs with an independent non-trading link versus pairs without. Values in Table A5. \u2014 This figure presents two line charts showing the persistence of co-buying pairs across trading windows on a bonding-curve launchpad. Panel A compares accepted pairs (red) versus other co-buying pairs (blue) by t",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.39458v1"
     }
   ],
   "docs": [
     {
-      "id": "2610.37487v1",
-      "title": "Contemporaneous Transmission Networks and Systemic Risk in European Banking",
-      "source": "https://arxiv.org/pdf/2610.37487v1",
-      "pages": 54,
+      "id": "2610.40404v1",
+      "title": "Exponential Convergence of the Lifted Gradient Flow of the Bass Functional",
+      "source": "https://arxiv.org/pdf/2610.40404v1",
+      "pages": 38,
       "images": 0,
-      "figures_captioned": 1,
+      "figures_captioned": 4,
+      "tables": 1,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 59
+    },
+    {
+      "id": "2610.40366v1",
+      "title": "Comparing tail forecasts: the number of exceedances is the sample size",
+      "source": "https://arxiv.org/pdf/2610.40366v1",
+      "pages": 23,
+      "images": 0,
+      "figures_captioned": 2,
+      "tables": 1,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 52
+    },
+    {
+      "id": "2610.40129v1",
+      "title": "The Generalised Kessler Syndrome and the Persian Gulf",
+      "source": "https://arxiv.org/pdf/2610.40129v1",
+      "pages": 10,
+      "images": 4,
+      "figures_captioned": 4,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 50
+      "chunks_indexed": 37
     },
     {
-      "id": "2610.37324v1",
-      "title": "Optimal Order Placement under a State-Dependent Hawkes Process Limit Order Book model",
-      "source": "https://arxiv.org/pdf/2610.37324v1",
-      "pages": 47,
-      "images": 2,
-      "figures_captioned": 3,
+      "id": "2610.39896v1",
+      "title": "Strong rate for one-dimensional driftless continuous strict local martingales",
+      "source": "https://arxiv.org/pdf/2610.39896v1",
+      "pages": 17,
+      "images": 5,
+      "figures_captioned": 1,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
       "chunks_indexed": 36
     },
     {
-      "id": "2610.37171v1",
-      "title": "An Application of Geometric Riemannian Pricing Algorithm for Valuing Catastrophe Bonds in Incomplete Markets: Market-Consistent Financial Entropy and the Split of Frequency and Severity Risk Premia",
-      "source": "https://arxiv.org/pdf/2610.37171v1",
-      "pages": 43,
-      "images": 0,
-      "figures_captioned": 3,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 47
-    },
-    {
-      "id": "2610.36921v1",
-      "title": "A Deep Learning-Driven Operator Splitting Scheme for Free Boundary Problems: An Application to American Option Pricing in Incomplete Markets",
-      "source": "https://arxiv.org/pdf/2610.36921v1",
-      "pages": 29,
+      "id": "2610.39636v1",
+      "title": "Information Flow and Market Risk: Transformer-Based Evidence on Sentiment and Volatility Dynamics",
+      "source": "https://arxiv.org/pdf/2610.39636v1",
+      "pages": 73,
       "images": 5,
       "figures_captioned": 4,
       "tables": 0,
-      "has_math": true,
+      "has_math": false,
       "ocr_used": false,
-      "chunks_indexed": 40
+      "chunks_indexed": 37
     },
     {
-      "id": "2610.36899v1",
-      "title": "Depositing More Should Not Earn Less: Supplier Income Monotonicity and Rate Curve Design in Pooled Lending Markets",
-      "source": "https://arxiv.org/pdf/2610.36899v1",
-      "pages": 28,
-      "images": 0,
-      "figures_captioned": 4,
-      "tables": 1,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 49
-    },
-    {
-      "id": "2610.36491v1",
-      "title": "Simple Portfolios that Deliver Consistent Decent Returns",
-      "source": "https://arxiv.org/pdf/2610.36491v1",
-      "pages": 71,
+      "id": "2610.39458v1",
+      "title": "Early-Buyer Groups and Fast-Wallet Teams on a Bonding-Curve Launchpad: A Prospective Measurement Study of pump.fun on Solana",
+      "source": "https://arxiv.org/pdf/2610.39458v1",
+      "pages": 66,
       "images": 0,
       "figures_captioned": 3,
       "tables": 0,
-      "has_math": true,
+      "has_math": false,
       "ocr_used": false,
-      "chunks_indexed": 52
+      "chunks_indexed": 51
     },
     {
-      "id": "2610.36473v1",
-      "title": "Risk measures for infinite-server queues driven by a Cox-BESQ process",
-      "source": "https://arxiv.org/pdf/2610.36473v1",
-      "pages": 27,
+      "id": "2610.39205v1",
+      "title": "Sparse Autoencoders as Implicit Diversification Regularisers for Cross-Sectional Cryptocurrency Returns",
+      "source": "https://arxiv.org/pdf/2610.39205v1",
+      "pages": 8,
+      "images": 0,
+      "figures_captioned": 0,
+      "tables": 4,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 26
+    },
+    {
+      "id": "2610.38988v1",
+      "title": "Mean Field Games of Optimal Trading with an SPDE Model of the Limit Order Book",
+      "source": "https://arxiv.org/pdf/2610.38988v1",
+      "pages": 32,
       "images": 0,
       "figures_captioned": 0,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 41
+      "chunks_indexed": 51
     },
     {
-      "id": "2610.36392v1",
-      "title": "The Term Structure of Implied Fee Rates in Liquidity Pools",
-      "source": "https://arxiv.org/pdf/2610.36392v1",
-      "pages": 26,
+      "id": "2610.38442v1",
+      "title": "Calibration of Passive Market Impact with a Queue-Sensitive Propagator Model",
+      "source": "https://arxiv.org/pdf/2610.38442v1",
+      "pages": 41,
       "images": 0,
       "figures_captioned": 0,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 33
+      "chunks_indexed": 65
     },
     {
-      "id": "2610.36317v1",
-      "title": "Event definition and the branching ratio: Hawkes estimates of price-change clustering in the consolidated quote feed",
-      "source": "https://arxiv.org/pdf/2610.36317v1",
-      "pages": 42,
+      "id": "2610.38275v1",
+      "title": "Negative Convexity in Pass-Through MBS: Mechanisms and Conditions",
+      "source": "https://arxiv.org/pdf/2610.38275v1",
+      "pages": 64,
       "images": 0,
       "figures_captioned": 0,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 59
-    },
-    {
-      "id": "2610.36274v1",
-      "title": "Does Ecosystem Activity Validate TVL?",
-      "source": "https://arxiv.org/pdf/2610.36274v1",
-      "pages": 12,
-      "images": 0,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 12
+      "chunks_indexed": 57
     }
   ]
 }
