@@ -1,7 +1,7 @@
 {
   "_note": "Public run manifest of the Tier-3 agentic ingestion pipeline. Safe aggregates + provenance only; raw PDFs live in S3, not here.",
-  "run_id": "20261030T084050Z",
-  "generated_at": "2026-10-30T08:44:20+00:00",
+  "run_id": "20261031T082750Z",
+  "generated_at": "2026-10-31T08:31:06+00:00",
   "collection": "research_corpus",
   "embed_model": "BAAI/bge-small-en-v1.5",
   "dag": [
@@ -58,8 +58,8 @@
     "tables": 6,
     "with_math": 8,
     "indexed": 471,
-    "spent_usd": 0.0322,
-    "duration_s": 209.7
+    "spent_usd": 0.0316,
+    "duration_s": 196.1
   },
   "rejects_by_reason": {
     "low-relevance": 39
@@ -71,7 +71,7 @@
       "title": "Exponential Convergence of the Lifted Gradient Flow of the Bass Functional",
       "page": 3,
       "thumb": "/data/figures/2610.40404v1_p3_0.jpg",
-      "caption": "Figure 1: Structure of the rate proof. The quantitative argument of this paper is on the left; the known qualitative result used in the proof is on the right. The arrows indicate dependencies: the curvature estimate is applied with a radius that bounds the entire orbit. \u2014 This is a flowchart diagram showing the logical structure of a proof for exponential convergence of the lifted gradient flow. The diagram has two main branches: the left side (in boxes) traces the authors' quantitative argument",
+      "caption": "Figure 1: Structure of the rate proof. The quantitative argument of this paper is on the left; the known qualitative result used in the proof is on the right. The arrows indicate dependencies: the curvature estimate is applied with a radius that bounds the entire orbit. \u2014 This is a flowchart diagram showing the proof structure for exponential convergence of the lifted gradient flow of the Bass functional. The chart has two parallel branches (left and right) that converge: the left branch applies",
       "vision": true,
       "source": "https://arxiv.org/pdf/2610.40404v1"
     },
@@ -80,7 +80,7 @@
       "title": "Exponential Convergence of the Lifted Gradient Flow of the Bass Functional",
       "page": 8,
       "thumb": "/data/figures/2610.40404v1_p8_1.jpg",
-      "caption": "Figure 2: Schematic comparison for a fixed \u03b5 > 0. Here F\u03b5(s) = E\u03b5(L (Zs + \u0393), \u03bd), and J(s) is the upper comparison function built from the interpolated target potentials. The common chord has been subtracted: \u2113\u03b5(s) = (1\u2212s)F\u03b5(0)+sF\u03b5(1). If J\u2032\u2032 \u2265K for some K > 0, then F\u03b5(s)\u2212\u2113\u03b5(s) \u2264J(s)\u2212\u2113\u03b5(s) \u2264\u2212(K/2)s(1\u2212s). All three expressions vanish at the endpoints. The curves illustrate the directions of the ine \u2014 This line plot compares three convexity-related functions over the interval [0,1] on the s-axis, ",
+      "caption": "Figure 2: Schematic comparison for a fixed \u03b5 > 0. Here F\u03b5(s) = E\u03b5(L (Zs + \u0393), \u03bd), and J(s) is the upper comparison function built from the interpolated target potentials. The common chord has been subtracted: \u2113\u03b5(s) = (1\u2212s)F\u03b5(0)+sF\u03b5(1). If J\u2032\u2032 \u2265K for some K > 0, then F\u03b5(s)\u2212\u2113\u03b5(s) \u2264J(s)\u2212\u2113\u03b5(s) \u2264\u2212(K/2)s(1\u2212s). All three expressions vanish at the endpoints. The curves illustrate the directions of the ine \u2014 This figure shows a schematic comparison of three curves plotted against parameter s on the inter",
       "vision": true,
       "source": "https://arxiv.org/pdf/2610.40404v1"
     },
@@ -89,7 +89,7 @@
       "title": "Exponential Convergence of the Lifted Gradient Flow of the Bass Functional",
       "page": 10,
       "thumb": "/data/figures/2610.40404v1_p10_2.jpg",
-      "caption": "Figure 3: Geometry of the row-growth bound. The shaded region is the part of Br(yc) on the \u27e8e, y \u2212yc\u27e9\u2265 r/4 side of the dashed line. The whole small ball lies on that side, and \u2225cw \u2212yc\u2225+r/4 = 3r/4 < r ensures Dw \u2282Br(yc). The picture is two-dimensional; the argument holds in Rd. The ambient choice B2r(yc) \u2282I is not drawn. \u2014 This figure illustrates a geometric construction used in analyzing the Bass functional, showing concentric balls in R^d with a hyperplane constraint. The diagram displays a bal",
+      "caption": "Figure 3: Geometry of the row-growth bound. The shaded region is the part of Br(yc) on the \u27e8e, y \u2212yc\u27e9\u2265 r/4 side of the dashed line. The whole small ball lies on that side, and \u2225cw \u2212yc\u2225+r/4 = 3r/4 < r ensures Dw \u2282Br(yc). The picture is two-dimensional; the argument holds in Rd. The ambient choice B2r(yc) \u2282I is not drawn. \u2014 This figure illustrates the geometric construction of a row-growth bound analysis in d-dimensional space using nested balls centered at y_c. The left panel shows a 2D schematic",
       "vision": true,
       "source": "https://arxiv.org/pdf/2610.40404v1"
     },
@@ -98,7 +98,7 @@
       "title": "Exponential Convergence of the Lifted Gradient Flow of the Bass Functional",
       "page": 12,
       "thumb": "/data/figures/2610.40404v1_p12_3.jpg",
-      "caption": "Figure 4: What the two-copy argument removes. For a fixed observation w, take two independent copies of the Euclidean pair from the same conditional law \u03bbs,w. The difference of target potentials is the same in both expressions and cancels. The variance of the remaining linear expression is given by the Hessian of the log-integral. \u2014 This figure is a flowchart illustrating a two-copy argument used in variance analysis. It shows how two independent conditional copies with the same target law \u03c1a,w ",
+      "caption": "Figure 4: What the two-copy argument removes. For a fixed observation w, take two independent copies of the Euclidean pair from the same conditional law \u03bbs,w. The difference of target potentials is the same in both expressions and cancels. The variance of the remaining linear expression is given by the Hessian of the log-integral. \u2014 This flowchart illustrates the two-copy argument used in the Bass functional analysis to eliminate target law dependence. Starting with two independent draws from th",
       "vision": true,
       "source": "https://arxiv.org/pdf/2610.40404v1"
     },
@@ -107,7 +107,7 @@
       "title": "Comparing tail forecasts: the number of exceedances is the sample size",
       "page": 10,
       "thumb": "/data/figures/2610.40366v1_p10_0.jpg",
-      "caption": "Figure 1: Rejection rates of the two-sided 5% Diebold\u2013Mariano test under equal expected scores, against the expected number of misses of the narrower interval. Blue: the test declares the narrower forecaster better; orange: the wider. Marker shapes give \u03b1; the three points per shape are T = 250, 1000 and 4000. \u2014 This figure displays rejection rates of the Diebold-Mariano test comparing interval forecasts across two panels: Gaussian with constant scale (left) and Student-t with random scale (righ",
+      "caption": "Figure 1: Rejection rates of the two-sided 5% Diebold\u2013Mariano test under equal expected scores, against the expected number of misses of the narrower interval. Blue: the test declares the narrower forecaster better; orange: the wider. Marker shapes give \u03b1; the three points per shape are T = 250, 1000 and 4000. \u2014 This figure displays rejection rates of a Diebold-Mariano test comparing forecast performance across two panels: Gaussian with constant scale (left) and Student-t_4 with random scale (ri",
       "vision": true,
       "source": "https://arxiv.org/pdf/2610.40366v1"
     },
@@ -116,7 +116,7 @@
       "title": "Comparing tail forecasts: the number of exceedances is the sample size",
       "page": 11,
       "thumb": "/data/figures/2610.40366v1_p11_1.jpg",
-      "caption": "Figure 2: Rounds needed to separate a narrowed or widened Gaussian interval from the exact one. EB: median first round at which the 95% lower bound exceeds zero, with the 10%\u201390% band over 200 replications. Hoeffding: round at which its deterministic radius falls below \u2206. Known-variance test: sample size for 80% power with known variance. Grey: the scale of the lower bound, without constants. \u2014 This figure compares the sample size (in rounds) required to distinguish between a narrowed or widened",
+      "caption": "Figure 2: Rounds needed to separate a narrowed or widened Gaussian interval from the exact one. EB: median first round at which the 95% lower bound exceeds zero, with the 10%\u201390% band over 200 replications. Hoeffding: round at which its deterministic radius falls below \u2206. Known-variance test: sample size for 80% power with known variance. Grey: the scale of the lower bound, without constants. \u2014 This figure compares three statistical methods for detecting distribution changes using log-log plots ",
       "vision": true,
       "source": "https://arxiv.org/pdf/2610.40366v1"
     },
@@ -125,7 +125,7 @@
       "title": "The Generalised Kessler Syndrome and the Persian Gulf",
       "page": 7,
       "thumb": "/data/figures/2610.40129v1_p7_0.jpg",
-      "caption": "Figure 1. Jebel Ali monthly container throughput, January\u2013September 2026. Pre-closure baseline \u223c1.1\u20131.35 M TEU/month; February 2026 disruption onset; contraction to \u223c125k TEU/month from April onward (\u223c90% YoY decline). Q1 2026: 2.77 M TEU (\u221230.5%); Q2 2026 reported total: 374k TEU (\u221290.1%). Source: monthly reconstruction from the quarterly figures in DP World\u2019s 13 August 2026 release [26] (Q1\u2013Q2 r \u2014 This line chart displays Jebel Ali container port's monthly throughput from January to September ",
+      "caption": "Figure 1. Jebel Ali monthly container throughput, January\u2013September 2026. Pre-closure baseline \u223c1.1\u20131.35 M TEU/month; February 2026 disruption onset; contraction to \u223c125k TEU/month from April onward (\u223c90% YoY decline). Q1 2026: 2.77 M TEU (\u221230.5%); Q2 2026 reported total: 374k TEU (\u221290.1%). Source: monthly reconstruction from the quarterly figures in DP World\u2019s 13 August 2026 release [26] (Q1\u2013Q2 r \u2014 This line chart shows Jebel Ali container port monthly throughput from January to September 2026,",
       "vision": true,
       "source": "https://arxiv.org/pdf/2610.40129v1"
     },
@@ -134,7 +134,7 @@
       "title": "The Generalised Kessler Syndrome and the Persian Gulf",
       "page": 9,
       "thumb": "/data/figures/2610.40129v1_p9_1.jpg",
-      "caption": "Figure 2. Az-Zour North One Thermal Plume Time Se- ries (2022\u2013Oct 2026). Grey points are labelled per-scene ob- servations; the red line is labelled a four-week rolling mean and the band \u00b11 standard deviation. The vertical axis is a plume-minus-background index difference. Source data: LAND- SAT/LC08/C02/T1 L2 [31]. \u2014 This figure presents two time series plots of thermal plume measurements from Az-Zour North One spanning 2022 to October 2026, with the left panel showing data in red and the right",
+      "caption": "Figure 2. Az-Zour North One Thermal Plume Time Se- ries (2022\u2013Oct 2026). Grey points are labelled per-scene ob- servations; the red line is labelled a four-week rolling mean and the band \u00b11 standard deviation. The vertical axis is a plume-minus-background index difference. Source data: LAND- SAT/LC08/C02/T1 L2 [31]. \u2014 This figure displays two time series of thermal plume measurements from Az-Zour North One (2022-October 2026) using line charts with shaded confidence bands. The left panel shows t",
       "vision": true,
       "source": "https://arxiv.org/pdf/2610.40129v1"
     },
@@ -143,7 +143,7 @@
       "title": "The Generalised Kessler Syndrome and the Persian Gulf",
       "page": 9,
       "thumb": "/data/figures/2610.40129v1_p9_2.jpg",
-      "caption": "Figure 3. Az-Zour North One Turbidity Plume Time Series (2022\u2013Oct 2026). Grey points are labelled per-scene observa- \u2014 These two time series charts display turbidity plume measurements from the Az-Zour North region from 2022 to October 2026, with the left panel showing thermal plume data in red and the right panel showing turbidity/backscatter plume data in blue. Each chart plots daily or weekly observations over time on the x-axis against turbidity/thermal intensity measures on the y-axis, with",
+      "caption": "Figure 3. Az-Zour North One Turbidity Plume Time Series (2022\u2013Oct 2026). Grey points are labelled per-scene observa- \u2014 These two line charts display turbidity plume time series data for Az-Zour North, spanning from 2023 to 2026, with the left panel showing thermal plume data (red) and the right panel showing turbidity/backscatter plume data (blue). Each panel plots observed values as solid lines with shaded confidence intervals around them, measured on the y-axis in unspecified turbidity or ther",
       "vision": true,
       "source": "https://arxiv.org/pdf/2610.40129v1"
     },
@@ -152,7 +152,7 @@
       "title": "The Generalised Kessler Syndrome and the Persian Gulf",
       "page": 10,
       "thumb": "/data/figures/2610.40129v1_p10_3.jpg",
-      "caption": "Figure 4. Az-Zour North One seasonal climatology (2022\u2013Oct 2026). Monthly means and ranges of the thermal contrast (left), the turbidity contrast (centre), and their ratio (right), aggregated over the plotted period. Source: See Figures 2 and 3. \u2014 This figure displays three bar charts showing seasonal climatology for Az-Zour North from 2022-2026. The left chart (red bars) shows thermal contrast across months with values roughly 2-4\u00b0C and error bars indicating monthly variability. The center char",
+      "caption": "Figure 4. Az-Zour North One seasonal climatology (2022\u2013Oct 2026). Monthly means and ranges of the thermal contrast (left), the turbidity contrast (centre), and their ratio (right), aggregated over the plotted period. Source: See Figures 2 and 3. \u2014 This figure displays three bar charts showing monthly seasonal climatology data for Az-Zour North from 2022-2026. The left panel shows thermal average seasonal cycle with red bars representing temperature contrast values (\u00b0C) ranging roughly 0-4\u00b0C acro",
       "vision": true,
       "source": "https://arxiv.org/pdf/2610.40129v1"
     },
@@ -161,7 +161,7 @@
       "title": "Strong rate for one-dimensional driftless continuous strict local martingales",
       "page": 8,
       "thumb": "/data/figures/2610.39896v1_p8_0.jpg",
-      "caption": "Figure 3.1. Strong error E[|Xh \u2014 This figure comprises five scatter plots with fitted lines comparing theoretical predictions to observed slopes for strong numerical errors in discretization schemes. Each panel shows L-error (y-axis) versus log-step size parameters (x-axis), with different combinations of parameters \u03b3, \u03b4, and \u03c1 values labeled in the titles. The observed slopes (ranging from 0.46 to 0.50) are displayed in parentheses, demonstrating convergence rates close to the theoretical predi",
+      "caption": "Figure 3.1. Strong error E[|Xh \u2014 This figure displays five scatter plots with fitted lines showing strong error E[|X_h \u2212 X|] versus log-step size across different parameter combinations (\u03b3, \u03c1, \u03b8 values). Each panel plots observed numerical errors as points against theoretical predictions (dashed lines), with x-axes showing log\u2081\u2080(h) ranging from -7 to -2 and y-axes showing L-error in logarithmic scale. The panels demonstrate convergence rates for discretization schemes of continuous strict local ",
       "vision": true,
       "source": "https://arxiv.org/pdf/2610.39896v1"
     },
@@ -170,7 +170,7 @@
       "title": "Information Flow and Market Risk: Transformer-Based Evidence on Sentiment and Volatility Dynamics",
       "page": 8,
       "thumb": "/data/figures/2610.39636v1_p8_0.jpg",
-      "caption": "Figure 4.1: Document length distribution clipped at the 99th percentile and boxplot excluding values above the 99th percentile. \u2014 This figure displays a strip plot showing the distribution of document lengths measured in tokens, with a boxplot overlay for the central tendency statistics. The x-axis represents token count (ranging from 0 to approximately 250 tokens), and the y-axis shows density of observations. The data exhibits a right-skewed distribution with median of 27.0 tokens, mean of 36.",
+      "caption": "Figure 4.1: Document length distribution clipped at the 99th percentile and boxplot excluding values above the 99th percentile. \u2014 This figure shows a strip plot with overlaid boxplot displaying the distribution of document lengths in tokens across a corpus of financial documents. The x-axis represents token count (0-250+) and the y-axis shows individual documents as a dense scatter of points, with the distribution clipped at the 99th percentile to improve visualization. Key statistics are labele",
       "vision": true,
       "source": "https://arxiv.org/pdf/2610.39636v1"
     },
@@ -179,7 +179,7 @@
       "title": "Information Flow and Market Risk: Transformer-Based Evidence on Sentiment and Volatility Dynamics",
       "page": 9,
       "thumb": "/data/figures/2610.39636v1_p9_1.jpg",
-      "caption": "Figure 4.2: Outlier tail above the 99th percentile and full document length distribution on a logarithmic scale. \u2014 This is a histogram showing the distribution of document lengths measured in tokens on a logarithmic scale. The x-axis represents tokens (ranging from 0 to approximately 90,000) and the y-axis shows document count on a log scale (from 1 to 10^5). The distribution exhibits a heavy right skew with the majority of documents concentrated below 5,000 tokens and a sharp peak near zero, wh",
+      "caption": "Figure 4.2: Outlier tail above the 99th percentile and full document length distribution on a logarithmic scale. \u2014 This histogram displays the distribution of document lengths measured in tokens on a logarithmic scale for the y-axis. The x-axis shows token counts ranging from 0 to approximately 90,000, while the y-axis represents document frequency on a log scale from 1 to 10^5. The distribution is heavily right-skewed with a dominant peak near zero tokens (approximately 200,000 documents) and a",
       "vision": true,
       "source": "https://arxiv.org/pdf/2610.39636v1"
     },
@@ -188,7 +188,7 @@
       "title": "Information Flow and Market Risk: Transformer-Based Evidence on Sentiment and Volatility Dynamics",
       "page": 10,
       "thumb": "/data/figures/2610.39636v1_p10_2.jpg",
-      "caption": "Figure 4.3: Distribution of sentiment labels in the analyzed textual corpus. \u2014 This bar chart displays the class distribution of sentiment labels across a textual corpus analyzed in the study. The x-axis shows three sentiment classes (neutral, bearish, bullish) while the y-axis measures the number of documents on a scale from 0 to 200,000. The neutral class dominates with approximately 230,000 documents, followed by bearish sentiment with roughly 90,000 documents, and bullish sentiment with appr",
+      "caption": "Figure 4.3: Distribution of sentiment labels in the analyzed textual corpus. \u2014 This bar chart displays the class distribution of sentiment labels across a textual corpus used in the analysis. The x-axis shows three sentiment classes (neutral, bearish, and bullish), while the y-axis measures the number of documents on a scale from 0 to 200,000. The neutral class dominates with approximately 230,000 documents, followed by bearish sentiment with roughly 85,000 documents and bullish sentiment with a",
       "vision": true,
       "source": "https://arxiv.org/pdf/2610.39636v1"
     },
@@ -197,7 +197,7 @@
       "title": "Information Flow and Market Risk: Transformer-Based Evidence on Sentiment and Volatility Dynamics",
       "page": 10,
       "thumb": "/data/figures/2610.39636v1_p10_3.jpg",
-      "caption": "Figure 4.4: Document length by sentiment class, with values clipped at the 99th percentile. \u2014 This figure displays a box plot showing the distribution of document lengths across three sentiment classes (bearish, bullish, and neutral) with values clipped at the 99th percentile. The y-axis represents word count (ranging from 0 to 250) and the x-axis shows the three sentiment classes, with overlaid scatter points indicating individual observations. The key takeaway is that document lengths are rela",
+      "caption": "Figure 4.4: Document length by sentiment class, with values clipped at the 99th percentile. \u2014 This figure displays a box plot showing document length distributions across three sentiment classes (bearish, bullish, neutral) with values clipped at the 99th percentile. The y-axis represents word count (ranging from 0 to 250), and the x-axis shows the three sentiment classes, with overlaid scatter points indicating individual document observations. The key takeaway is that all three sentiment classe",
       "vision": true,
       "source": "https://arxiv.org/pdf/2610.39636v1"
     },
@@ -206,7 +206,7 @@
       "title": "Early-Buyer Groups and Fast-Wallet Teams on a Bonding-Curve Launchpad: A Prospective Measurement Study of pump.fun on Solana",
       "page": 7,
       "thumb": "/data/figures/2610.39458v1_p7_0.jpg",
-      "caption": "Figure 1: The data. (a) Complete tokens created per hour; the dashed line marks the boundary of the two halves of the window. (b) How far tokens get: share of complete tokens whose curve held at least the given SOL at some time, and share that graduated. (c) Distribution of the maximum SOL held by the curve of the complete tokens that did not graduate (log axis; a graduated token\u2019s maximum is fixe \u2014 This figure presents three complementary views of token launches on pump.fun's bonding curve mech",
+      "caption": "Figure 1: The data. (a) Complete tokens created per hour; the dashed line marks the boundary of the two halves of the window. (b) How far tokens get: share of complete tokens whose curve held at least the given SOL at some time, and share that graduated. (c) Distribution of the maximum SOL held by the curve of the complete tokens that did not graduate (log axis; a graduated token\u2019s maximum is fixe \u2014 This figure presents three histograms analyzing token launches on the pump.fun Solana bonding cur",
       "vision": true,
       "source": "https://arxiv.org/pdf/2610.39458v1"
     },
@@ -215,7 +215,7 @@
       "title": "Early-Buyer Groups and Fast-Wallet Teams on a Bonding-Curve Launchpad: A Prospective Measurement Study of pump.fun on Solana",
       "page": 11,
       "thumb": "/data/figures/2610.39458v1_p11_1.jpg",
-      "caption": "Figure 2: Precision of the K highest-scored tokens against the number of flagged tokens K (log scale), second half of the window. Left: the token reaches 20 SOL at any time. Right: prospective outcome, among tokens still below 20 SOL at 60 s. Dotted horizontal line: base rate. The creator\u2019s initial buy is nearly perfect on the left because a large initial buy puts the curve at 20 SOL at once; on t \u2014 This figure presents two precision plots measuring the predictive accuracy of different token-sco",
+      "caption": "Figure 2: Precision of the K highest-scored tokens against the number of flagged tokens K (log scale), second half of the window. Left: the token reaches 20 SOL at any time. Right: prospective outcome, among tokens still below 20 SOL at 60 s. Dotted horizontal line: base rate. The creator\u2019s initial buy is nearly perfect on the left because a large initial buy puts the curve at 20 SOL at once; on t \u2014 This figure presents two line charts measuring precision of token scoring mechanisms on the pump.",
       "vision": true,
       "source": "https://arxiv.org/pdf/2610.39458v1"
     },
@@ -224,7 +224,7 @@
       "title": "Early-Buyer Groups and Fast-Wallet Teams on a Bonding-Curve Launchpad: A Prospective Measurement Study of pump.fun on Solana",
       "page": 12,
       "thumb": "/data/figures/2610.39458v1_p12_2.jpg",
-      "caption": "Figure 3: Persistence of co-buying pairs on the second half of the window, by the number of co-buys in the first half. Left: pairs accepted with first-half evidence versus other co-buying pairs. Right: pairs with an independent non-trading link versus pairs without. Values in Table A5. \u2014 This figure presents two line charts showing the persistence of co-buying pairs across trading windows on a bonding-curve launchpad. Panel A compares accepted pairs (red) versus other co-buying pairs (blue) by t",
+      "caption": "Figure 3: Persistence of co-buying pairs on the second half of the window, by the number of co-buys in the first half. Left: pairs accepted with first-half evidence versus other co-buying pairs. Right: pairs with an independent non-trading link versus pairs without. Values in Table A5. \u2014 This figure presents two line charts comparing persistence of co-buying pairs across different groupings, with x-axis showing co-buys in the first half (binned as 0, 1, 2, 3, 4-5, 6-10, 11+) and y-axis showing s",
       "vision": true,
       "source": "https://arxiv.org/pdf/2610.39458v1"
     }
