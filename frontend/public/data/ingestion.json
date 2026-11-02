@@ -1,7 +1,7 @@
 {
   "_note": "Public run manifest of the Tier-3 agentic ingestion pipeline. Safe aggregates + provenance only; raw PDFs live in S3, not here.",
-  "run_id": "20261101T091751Z",
-  "generated_at": "2026-11-01T09:21:12+00:00",
+  "run_id": "20261102T093235Z",
+  "generated_at": "2026-11-02T09:36:12+00:00",
   "collection": "research_corpus",
   "embed_model": "BAAI/bge-small-en-v1.5",
   "dag": [
@@ -50,197 +50,269 @@
     "discovered": 10,
     "fetched": 10,
     "parsed": 10,
-    "chunks": 510,
-    "accepted": 471,
-    "rejected": 39,
-    "images": 14,
+    "chunks": 477,
+    "accepted": 444,
+    "rejected": 33,
+    "images": 45,
     "figures_captioned": 18,
-    "tables": 6,
-    "with_math": 8,
-    "indexed": 471,
-    "spent_usd": 0.0313,
-    "duration_s": 200.8
+    "tables": 2,
+    "with_math": 9,
+    "indexed": 444,
+    "spent_usd": 0.0322,
+    "duration_s": 217.2
   },
   "rejects_by_reason": {
-    "low-relevance": 39
+    "low-relevance": 33
   },
   "budget_usd": 3.0,
   "figures": [
     {
-      "doc_id": "2610.40404v1",
-      "title": "Exponential Convergence of the Lifted Gradient Flow of the Bass Functional",
+      "doc_id": "2610.42119v1",
+      "title": "Functional Tensor Trains for High-Order Greeks and Exposure Tails of Multi-Asset Structured Products",
+      "page": 2,
+      "thumb": "/data/figures/2610.42119v1_p2_0.jpg",
+      "caption": "FIG. 1: Two hard risk computations for a worst-of autocallable. (a) Simulated path of three assets (grey) and of their worst performer (black), on which the note misses two coupons and is called in month 18. Dotted lines mark the autocall, coupon and protection levels. Our focus here is on Greeks to third order and the tail of its future value. (b) Monte Carlo (top) samples paths forward, and each \u2014 Figure 1 presents two computational approaches for analyzing a worst-of autocallable structured p",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.42119v1"
+    },
+    {
+      "doc_id": "2610.42119v1",
+      "title": "Functional Tensor Trains for High-Order Greeks and Exposure Tails of Multi-Asset Structured Products",
+      "page": 6,
+      "thumb": "/data/figures/2610.42119v1_p6_1.jpg",
+      "caption": "FIG. 2: The backward solve as a tensor network. Three assets are shown: boxes are cores holding one asset\u2019s functions and encoded as matrix functions, horizontal lines are bonds whose size is the rank, and vertical lines are log-spots. From a closed-form sum of rank-one terms at maturity, each earlier date applies three operations: the event map multiplies every core by its own step, the transitio \u2014 This figure depicts a tensor network diagram representing the backward solve algorithm for pricin",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.42119v1"
+    },
+    {
+      "doc_id": "2610.42119v1",
+      "title": "Functional Tensor Trains for High-Order Greeks and Exposure Tails of Multi-Asset Structured Products",
+      "page": 11,
+      "thumb": "/data/figures/2610.42119v1_p11_2.jpg",
+      "caption": "Figure 3 gives the main result, Greek by Greek, for monthly observation on three to five assets under both models. The order of the Greek and the target decide which method is cheaper. At 1%, Monte Carlo is cheaper on delta, by more than an order of magnitude. Second-order Greeks go either way: on gamma the two are about level under geometric Brownian motion, and on cross-gamma the tensor leads at \u2014 This figure shows equation (20) defining the computational cost measure W(\u03b5), which calculates th",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.42119v1"
+    },
+    {
+      "doc_id": "2610.42119v1",
+      "title": "Functional Tensor Trains for High-Order Greeks and Exposure Tails of Multi-Asset Structured Products",
+      "page": 11,
+      "thumb": "/data/figures/2610.42119v1_p11_3.jpg",
+      "caption": "Figure 4(b) follows the error of each method as its compute grows, at the scored spot. The tensor\u2019s error falls quickly as the tolerance tightens, though not at every step, since rounding discards parts of both signs (see Sec. III C): gamma\u2019s error grows by almost half between the tolerances 3 \u00d7 10\u22125 and 10\u22125. From about ten core-seconds on, the tensor stays within two standard errors of the refer \u2014 This figure compares the computational cost-accuracy tradeoff between Monte Carlo and tensor trai",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.42119v1"
+    },
+    {
+      "doc_id": "2610.41740v1",
+      "title": "A New GAUSS Software Component for Implementing Dynamic Tests of Contagion with an Application",
+      "page": 5,
+      "thumb": "/data/figures/2610.41740v1_p5_0.jpg",
+      "caption": "Figure 1: The Schematic diagram of dynamic pairwise bootstrap contagion tests. The code is published under the label GMDLBCT1.PRG. \u2014 This flowchart depicts the algorithmic workflow for implementing dynamic pairwise bootstrap contagion tests in GAUSS software. The process begins by loading the dataset and partitioning it into two subsets based on crisis periods (bottom 45% pre-crisis vs. remaining observations), then executes a bootstrapping loop (1000 iterations) that performs OLS regression, ca",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.41740v1"
+    },
+    {
+      "doc_id": "2610.41740v1",
+      "title": "A New GAUSS Software Component for Implementing Dynamic Tests of Contagion with an Application",
+      "page": 6,
+      "thumb": "/data/figures/2610.41740v1_p6_1.jpg",
+      "caption": "Figure 2: printed results while calculating necessary information such as means and medians. \u2014 This figure displays a GAUSS software output showing OLS regression results and bootstrap coefficient estimates. The output presents four OLS estimates and their corresponding mean and median bootstrap coefficients, along with associated p-values based on empirical distribution. The key takeaway is that the bootstrap analysis provides statistical inference on the regression parameters, with p-values in",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.41740v1"
+    },
+    {
+      "doc_id": "2610.41740v1",
+      "title": "A New GAUSS Software Component for Implementing Dynamic Tests of Contagion with an Application",
+      "page": 7,
+      "thumb": "/data/figures/2610.41740v1_p7_2.jpg",
+      "caption": "Figure 3: A sample of printout for the contagion pairwise bootstrap test. \u2014 This table presents output from a pairwise bootstrap test for contagion, organized by sub-sample size with corresponding statistical measures. The columns show Bootstrap P-values and Mean/Median Bootstrap Coefficients for both the slope and the change in slope across different sample sizes ranging from 1,000 to 379,000 observations. The key takeaway is that bootstrap p-values are predominantly zero or near-zero for small",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.41740v1"
+    },
+    {
+      "doc_id": "2610.41689v1",
+      "title": "QBX: A Compiler for Well-Formed, Auditable Alpha Programs",
       "page": 3,
-      "thumb": "/data/figures/2610.40404v1_p3_0.jpg",
-      "caption": "Figure 1: Structure of the rate proof. The quantitative argument of this paper is on the left; the known qualitative result used in the proof is on the right. The arrows indicate dependencies: the curvature estimate is applied with a radius that bounds the entire orbit. \u2014 This figure is a flowchart diagram illustrating the proof structure for exponential convergence of the lifted gradient flow. The chart shows two parallel paths (left side: new quantitative argument, right side: known qualitativ",
+      "thumb": "/data/figures/2610.41689v1_p3_0.jpg",
+      "caption": "Figure 1: QBX is the central contract boundary. Registry declarations and proposals enter the compiler; rejection emits structured diagnostics, while admission emits an evidence-carrying program in \ud835\udc46\ud835\udc45,\ud835\udc50. The same evidence supplies search closure, node-level evaluation identity, and root-level audit identity. \u2014 This flow diagram illustrates the QBX compiler architecture as a central contract boundary in a quantitative finance system. Input sources (Registry R containing blocks, docks, types, effe",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2610.40404v1"
+      "source": "https://arxiv.org/pdf/2610.41689v1"
     },
     {
-      "doc_id": "2610.40404v1",
-      "title": "Exponential Convergence of the Lifted Gradient Flow of the Bass Functional",
-      "page": 8,
-      "thumb": "/data/figures/2610.40404v1_p8_1.jpg",
-      "caption": "Figure 2: Schematic comparison for a fixed \u03b5 > 0. Here F\u03b5(s) = E\u03b5(L (Zs + \u0393), \u03bd), and J(s) is the upper comparison function built from the interpolated target potentials. The common chord has been subtracted: \u2113\u03b5(s) = (1\u2212s)F\u03b5(0)+sF\u03b5(1). If J\u2032\u2032 \u2265K for some K > 0, then F\u03b5(s)\u2212\u2113\u03b5(s) \u2264J(s)\u2212\u2113\u03b5(s) \u2264\u2212(K/2)s(1\u2212s). All three expressions vanish at the endpoints. The curves illustrate the directions of the ine \u2014 This line plot compares three functions over the interval s \u2208 [0,1], all normalized to zero at th",
+      "doc_id": "2610.41689v1",
+      "title": "QBX: A Compiler for Well-Formed, Auditable Alpha Programs",
+      "page": 5,
+      "thumb": "/data/figures/2610.41689v1_p5_1.jpg",
+      "caption": "Figure 2: End-to-end trace across the three stages. A YAML proposal materializes as a DAG with one return producer shared by two consumers; compilation retains schedule, types, availability, linkage, and addresses. Under an unchanged evaluation context, changing only the volatility window invalidates its downstream cone, so the backtest reuses \ud835\udc5d,\ud835\udc5f,\ud835\udc5aand computes only \ud835\udc63\u2032,\ud835\udc60\u2032. Addresses are abbreviate \u2014 This figure illustrates a three-stage compiler pipeline for an alpha trading program, showing how",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2610.40404v1"
+      "source": "https://arxiv.org/pdf/2610.41689v1"
     },
     {
-      "doc_id": "2610.40404v1",
-      "title": "Exponential Convergence of the Lifted Gradient Flow of the Bass Functional",
-      "page": 10,
-      "thumb": "/data/figures/2610.40404v1_p10_2.jpg",
-      "caption": "Figure 3: Geometry of the row-growth bound. The shaded region is the part of Br(yc) on the \u27e8e, y \u2212yc\u27e9\u2265 r/4 side of the dashed line. The whole small ball lies on that side, and \u2225cw \u2212yc\u2225+r/4 = 3r/4 < r ensures Dw \u2282Br(yc). The picture is two-dimensional; the argument holds in Rd. The ambient choice B2r(yc) \u2282I is not drawn. \u2014 This diagram illustrates the geometric configuration of nested balls and a half-space used in proving a row-growth bound in the Bass functional analysis. The figure shows a lar",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.40404v1"
-    },
-    {
-      "doc_id": "2610.40404v1",
-      "title": "Exponential Convergence of the Lifted Gradient Flow of the Bass Functional",
-      "page": 12,
-      "thumb": "/data/figures/2610.40404v1_p12_3.jpg",
-      "caption": "Figure 4: What the two-copy argument removes. For a fixed observation w, take two independent copies of the Euclidean pair from the same conditional law \u03bbs,w. The difference of target potentials is the same in both expressions and cancels. The variance of the remaining linear expression is given by the Hessian of the log-integral. \u2014 This figure is a flowchart illustrating a two-copy argument used in variance analysis of a gradient flow method. It shows how two independent draws from the same con",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.40404v1"
-    },
-    {
-      "doc_id": "2610.40366v1",
-      "title": "Comparing tail forecasts: the number of exceedances is the sample size",
-      "page": 10,
-      "thumb": "/data/figures/2610.40366v1_p10_0.jpg",
-      "caption": "Figure 1: Rejection rates of the two-sided 5% Diebold\u2013Mariano test under equal expected scores, against the expected number of misses of the narrower interval. Blue: the test declares the narrower forecaster better; orange: the wider. Marker shapes give \u03b1; the three points per shape are T = 250, 1000 and 4000. \u2014 This figure displays rejection rates from Diebold-Mariano tests comparing interval forecast performance across two panels: Gaussian with constant scale (left) and Student-t with random s",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.40366v1"
-    },
-    {
-      "doc_id": "2610.40366v1",
-      "title": "Comparing tail forecasts: the number of exceedances is the sample size",
-      "page": 11,
-      "thumb": "/data/figures/2610.40366v1_p11_1.jpg",
-      "caption": "Figure 2: Rounds needed to separate a narrowed or widened Gaussian interval from the exact one. EB: median first round at which the 95% lower bound exceeds zero, with the 10%\u201390% band over 200 replications. Hoeffding: round at which its deterministic radius falls below \u2206. Known-variance test: sample size for 80% power with known variance. Grey: the scale of the lower bound, without constants. \u2014 This figure displays log-log plots comparing sample sizes needed to distinguish narrowed versus widene",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.40366v1"
-    },
-    {
-      "doc_id": "2610.40129v1",
-      "title": "The Generalised Kessler Syndrome and the Persian Gulf",
+      "doc_id": "2610.41689v1",
+      "title": "QBX: A Compiler for Well-Formed, Auditable Alpha Programs",
       "page": 7,
-      "thumb": "/data/figures/2610.40129v1_p7_0.jpg",
-      "caption": "Figure 1. Jebel Ali monthly container throughput, January\u2013September 2026. Pre-closure baseline \u223c1.1\u20131.35 M TEU/month; February 2026 disruption onset; contraction to \u223c125k TEU/month from April onward (\u223c90% YoY decline). Q1 2026: 2.77 M TEU (\u221230.5%); Q2 2026 reported total: 374k TEU (\u221290.1%). Source: monthly reconstruction from the quarterly figures in DP World\u2019s 13 August 2026 release [26] (Q1\u2013Q2 r \u2014 This line chart displays Jebel Ali container throughput from January to September 2026, showing a",
+      "thumb": "/data/figures/2610.41689v1_p7_2.jpg",
+      "caption": "Figure 3: QBX at matched budget. (a) Best-reachable test RankICIR vs. LLM calls on extended CSI500 (E9; oracle is a test-window- selected diagnostic upper bound). (b) Distinct valid factors and validity rates (E6). (c) Across three exploratory seeds, typed depth trails LLM breadth, while the hybrid recovers both (E13). (d) Exact-string identity catches 40.1% of raw LLM output but 0% after admissio \u2014 This figure contains four panels comparing QBX compiler performance against baseline methods. Pan",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2610.40129v1"
+      "source": "https://arxiv.org/pdf/2610.41689v1"
     },
     {
-      "doc_id": "2610.40129v1",
-      "title": "The Generalised Kessler Syndrome and the Persian Gulf",
-      "page": 9,
-      "thumb": "/data/figures/2610.40129v1_p9_1.jpg",
-      "caption": "Figure 2. Az-Zour North One Thermal Plume Time Se- ries (2022\u2013Oct 2026). Grey points are labelled per-scene ob- servations; the red line is labelled a four-week rolling mean and the band \u00b11 standard deviation. The vertical axis is a plume-minus-background index difference. Source data: LAND- SAT/LC08/C02/T1 L2 [31]. \u2014 This figure displays two time series plots of thermal plume data from Az-Zour North facility spanning 2022 to October 2026. Each plot shows individual per-scene observations (color",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.40129v1"
-    },
-    {
-      "doc_id": "2610.40129v1",
-      "title": "The Generalised Kessler Syndrome and the Persian Gulf",
-      "page": 9,
-      "thumb": "/data/figures/2610.40129v1_p9_2.jpg",
-      "caption": "Figure 3. Az-Zour North One Turbidity Plume Time Series (2022\u2013Oct 2026). Grey points are labelled per-scene observa- \u2014 This figure displays time series data from January 2022 to October 2026 for the Az-Zour North turbidity plume in two panels: the left panel shows thermal plume measurements in red with confidence intervals, while the right panel shows turbidity plume measurements in blue with uncertainty bands. Both panels use line charts with shaded confidence regions to illustrate temporal var",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.40129v1"
-    },
-    {
-      "doc_id": "2610.40129v1",
-      "title": "The Generalised Kessler Syndrome and the Persian Gulf",
-      "page": 10,
-      "thumb": "/data/figures/2610.40129v1_p10_3.jpg",
-      "caption": "Figure 4. Az-Zour North One seasonal climatology (2022\u2013Oct 2026). Monthly means and ranges of the thermal contrast (left), the turbidity contrast (centre), and their ratio (right), aggregated over the plotted period. Source: See Figures 2 and 3. \u2014 This figure displays three bar charts showing seasonal climatology data for Az-Zour North from 2022-2026, with monthly measurements and error bars indicating ranges. The left panel shows thermal contrast (\u00b0C) with values peaking around 4-5\u00b0C in summer ",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.40129v1"
-    },
-    {
-      "doc_id": "2610.39896v1",
-      "title": "Strong rate for one-dimensional driftless continuous strict local martingales",
-      "page": 8,
-      "thumb": "/data/figures/2610.39896v1_p8_0.jpg",
-      "caption": "Figure 3.1. Strong error E[|Xh \u2014 This figure displays five scatter plots with fitted linear regression lines comparing theoretical and observed convergence slopes for strong error analysis in numerical schemes for continuous strict local martingales. Each subplot shows log-log plots with x-axis representing log step-size (ranging from -7 to -2) and y-axis representing log error, with different parameter combinations (\u03b3 and \u03b4 values) tested. The key takeaway is that the observed slopes (ranging f",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.39896v1"
-    },
-    {
-      "doc_id": "2610.39636v1",
-      "title": "Information Flow and Market Risk: Transformer-Based Evidence on Sentiment and Volatility Dynamics",
-      "page": 8,
-      "thumb": "/data/figures/2610.39636v1_p8_0.jpg",
-      "caption": "Figure 4.1: Document length distribution clipped at the 99th percentile and boxplot excluding values above the 99th percentile. \u2014 This figure displays a scatter plot with overlaid boxplot showing the distribution of document lengths across tokens, clipped at the 99th percentile. The x-axis represents token count (0-250+), and the y-axis shows document frequency, with statistics indicating IQR=18.0, mean=36.6, and median=27.0. The key takeaway is that documents are heavily concentrated in the low",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.39636v1"
-    },
-    {
-      "doc_id": "2610.39636v1",
-      "title": "Information Flow and Market Risk: Transformer-Based Evidence on Sentiment and Volatility Dynamics",
-      "page": 9,
-      "thumb": "/data/figures/2610.39636v1_p9_1.jpg",
-      "caption": "Figure 4.2: Outlier tail above the 99th percentile and full document length distribution on a logarithmic scale. \u2014 This histogram displays the distribution of full document lengths measured in tokens on a logarithmic y-axis scale. The x-axis ranges from 0 to approximately 90,000 tokens, showing a heavily right-skewed distribution with the vast majority of documents concentrated below 20,000 tokens and a sharp peak near zero. The key takeaway is that most documents in the dataset are relatively s",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.39636v1"
-    },
-    {
-      "doc_id": "2610.39636v1",
-      "title": "Information Flow and Market Risk: Transformer-Based Evidence on Sentiment and Volatility Dynamics",
-      "page": 10,
-      "thumb": "/data/figures/2610.39636v1_p10_2.jpg",
-      "caption": "Figure 4.3: Distribution of sentiment labels in the analyzed textual corpus. \u2014 This bar chart displays the class distribution of sentiment labels across a textual corpus used in an analysis of information flow and market risk. The x-axis shows three sentiment classes (neutral, bearish, and bullish), while the y-axis measures the number of documents on a logarithmic scale. The distribution is heavily skewed toward the neutral class with approximately 230,000 documents, while bearish sentiment con",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.39636v1"
-    },
-    {
-      "doc_id": "2610.39636v1",
-      "title": "Information Flow and Market Risk: Transformer-Based Evidence on Sentiment and Volatility Dynamics",
-      "page": 10,
-      "thumb": "/data/figures/2610.39636v1_p10_3.jpg",
-      "caption": "Figure 4.4: Document length by sentiment class, with values clipped at the 99th percentile. \u2014 This figure displays the distribution of document lengths across three sentiment classes (bearish, bullish, neutral) using box plots with overlaid scatter points, clipped at the 99th percentile. The x-axis shows the three sentiment classes while the y-axis represents document length in words, ranging from 0 to 250. The key takeaway is that all three sentiment classes exhibit similar median document leng",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.39636v1"
-    },
-    {
-      "doc_id": "2610.39458v1",
-      "title": "Early-Buyer Groups and Fast-Wallet Teams on a Bonding-Curve Launchpad: A Prospective Measurement Study of pump.fun on Solana",
-      "page": 7,
-      "thumb": "/data/figures/2610.39458v1_p7_0.jpg",
-      "caption": "Figure 1: The data. (a) Complete tokens created per hour; the dashed line marks the boundary of the two halves of the window. (b) How far tokens get: share of complete tokens whose curve held at least the given SOL at some time, and share that graduated. (c) Distribution of the maximum SOL held by the curve of the complete tokens that did not graduate (log axis; a graduated token\u2019s maximum is fixe \u2014 This figure presents three histograms analyzing token launches on the Solana bonding curve platfo",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.39458v1"
-    },
-    {
-      "doc_id": "2610.39458v1",
-      "title": "Early-Buyer Groups and Fast-Wallet Teams on a Bonding-Curve Launchpad: A Prospective Measurement Study of pump.fun on Solana",
-      "page": 11,
-      "thumb": "/data/figures/2610.39458v1_p11_1.jpg",
-      "caption": "Figure 2: Precision of the K highest-scored tokens against the number of flagged tokens K (log scale), second half of the window. Left: the token reaches 20 SOL at any time. Right: prospective outcome, among tokens still below 20 SOL at 60 s. Dotted horizontal line: base rate. The creator\u2019s initial buy is nearly perfect on the left because a large initial buy puts the curve at 20 SOL at once; on t \u2014 This figure shows two line charts measuring the precision of identifying tokens with high-score r",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.39458v1"
-    },
-    {
-      "doc_id": "2610.39458v1",
-      "title": "Early-Buyer Groups and Fast-Wallet Teams on a Bonding-Curve Launchpad: A Prospective Measurement Study of pump.fun on Solana",
+      "doc_id": "2610.41624v1",
+      "title": "Expected shortfall estimation and capital coverage under overlapping scenarios",
       "page": 12,
-      "thumb": "/data/figures/2610.39458v1_p12_2.jpg",
-      "caption": "Figure 3: Persistence of co-buying pairs on the second half of the window, by the number of co-buys in the first half. Left: pairs accepted with first-half evidence versus other co-buying pairs. Right: pairs with an independent non-trading link versus pairs without. Values in Table A5. \u2014 Panel A shows that accepted co-buying pairs (red line) demonstrate higher persistence in the second half of a trading window compared to other co-buying pairs (blue line), with share of pairs co-buying again inc",
+      "thumb": "/data/figures/2610.41624v1_p12_0.jpg",
+      "caption": "Figure 1: Metric values (range and median) across ES estimators #1#6 for non-overlapping (blue) and overlapping (orange) schemes, by distribution (x-axis). ME (top), SB (middle), and CT (bottom) correspond to the \ufb01t, bias, and safety groups, respectively; see Table 2 for metrics\u2019 guide. For CT, the target value of 2.5% is shown as a dashed line, with the amber zone (510%) shaded in yellow. Vertica \u2014 This figure displays three panels comparing six expected shortfall (ES) estimators under non-over",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2610.39458v1"
+      "source": "https://arxiv.org/pdf/2610.41624v1"
+    },
+    {
+      "doc_id": "2610.41624v1",
+      "title": "Expected shortfall estimation and capital coverage under overlapping scenarios",
+      "page": 13,
+      "thumb": "/data/figures/2610.41624v1_p13_1.jpg",
+      "caption": "Figure 2: SE (x-axis), SB (y-axis), CT (size) metrics for static (left) and dynamic (right) series, and for non-overlapping (open circle) and overlap- ping (\ufb01lled circles). Size of the markers corresponds to the CT value. There is no best CRE that would optimize across (symmetric) \ufb01t, bias and safety. \u2014 This figure displays a scatter plot comparing Standard Error (SE) on the x-axis versus Safety Bias (SB) on the y-axis across static models (left panel) and dynamic models (right panel), with mark",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.41624v1"
+    },
+    {
+      "doc_id": "2610.41624v1",
+      "title": "Expected shortfall estimation and capital coverage under overlapping scenarios",
+      "page": 14,
+      "thumb": "/data/figures/2610.41624v1_p14_2.jpg",
+      "caption": "Figure 3: Safety metrics UP5 vs CT for static (blue) and dynamic GARCH (orange), and for non-overlapping (left) and overlapping (right) sampling schemes. Horizontal dotted line corresponds to CT target value 2.5%. Shaded green region re\ufb02ects the capital adequacy safe zone CT \u22645%. The gradient arrow points from estimator #1 to #6. The apparent conservatism of the ES estimators is insu\ufb03cient to ensu \u2014 This scatter plot compares capital adequacy metrics across static and GARCH models under non-over",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.41624v1"
+    },
+    {
+      "doc_id": "2610.41624v1",
+      "title": "Expected shortfall estimation and capital coverage under overlapping scenarios",
+      "page": 16,
+      "thumb": "/data/figures/2610.41624v1_p16_3.jpg",
+      "caption": "Figure 4: SE (top), SB (middle), and UP5 (bottom) values for the ES estimators #1\u2013#6 (dot markers, colored by estimator\u2019s conservatism) and #VaR (square markers), for selected models \u2013 static models on the left, dynamic GARCH models on the right (shaded area). Blue corresponds to the non-overlapping scheme and orange to the overlapping scheme. The color intensity of the dot markers re\ufb02ects the wei \u2014 This figure compares six Expected Shortfall (ES) estimators against Value-at-Risk (VaR) across th",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.41624v1"
+    },
+    {
+      "doc_id": "2610.41019v1",
+      "title": "Neural Network Methods in the 2BSDE Formalism for Solving the High-Dimensional Black--Scholes Equation with Transaction Costs",
+      "page": 5,
+      "thumb": "/data/figures/2610.41019v1_p5_0.jpg",
+      "caption": "Figure 1. Cash gamma XiXj\u0393ij on one test path at t = 0, 0.5, 0.9 for the D = 10 geometric basket call and the D = 10, 100 geometric \u2014 This figure displays heatmaps of cash gamma (XiXj\u0393ij) computed via neural networks across three time points (t=0, 0.5, 0.9) for three different option configurations: D=10 call (panel a), D=10 butterfly (panel b), and D=100 butterfly (panel c). Each panel contains three rows showing results for Euclid, Sobol, and Blahut sampling methods, with color intensity repre",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.41019v1"
+    },
+    {
+      "doc_id": "2610.41019v1",
+      "title": "Neural Network Methods in the 2BSDE Formalism for Solving the High-Dimensional Black--Scholes Equation with Transaction Costs",
+      "page": 6,
+      "thumb": "/data/figures/2610.41019v1_p6_1.jpg",
+      "caption": "Figure 2. D = 10 geometric basket call. (a) Leland PDE solution (dashed) and network (solid) on sample paths. (b) RMSE of Yt over the \u2014 This figure compares neural network solutions to the Leland PDE for a 10-dimensional geometric basket call option with transaction costs. Panel (a) shows sample paths with the Leland PDE solution (dashed line) and network solution (solid lines) over time [0,1], panel (b) displays root mean square error of the value function Yt increasing over time, and panel (c)",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.41019v1"
+    },
+    {
+      "doc_id": "2610.41019v1",
+      "title": "Neural Network Methods in the 2BSDE Formalism for Solving the High-Dimensional Black--Scholes Equation with Transaction Costs",
+      "page": 6,
+      "thumb": "/data/figures/2610.41019v1_p6_2.jpg",
+      "caption": "Figure 3. D = 10 geometric basket butterfly spread (strikes 90/100/110). (a) Leland PDE solution (dashed) and network (solid) on sample \u2014 Figure 2 and 3 compare neural network solutions against classical PDE methods for pricing high-dimensional options. Panel (a) shows sample paths from geometric basket options, panel (b) displays root mean square error (RMSE) over time comparing the network approximation to reference solutions, and panel (c) plots relative pricing error across diagonal and off-",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.41019v1"
+    },
+    {
+      "doc_id": "2610.41019v1",
+      "title": "Neural Network Methods in the 2BSDE Formalism for Solving the High-Dimensional Black--Scholes Equation with Transaction Costs",
+      "page": 7,
+      "thumb": "/data/figures/2610.41019v1_p7_3.jpg",
+      "caption": "Figure 4. Relative error of the cash gamma over the test paths at \u2014 This figure displays two line graphs showing relative errors over time for cash gamma calculations in the Black-Scholes equation with transaction costs. Both panels plot relative error (y-axis) against time t from 0 to 1 (x-axis), comparing three methods: with head F head (solid blue), with head \u2207\u00b7u (dashed blue), and no head \u2207\u00b7u (orange dashed). The upper panel shows larger errors (0 to 0.4 range) that decrease until mid-period",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2610.41019v1"
     }
   ],
   "docs": [
+    {
+      "id": "2610.42119v1",
+      "title": "Functional Tensor Trains for High-Order Greeks and Exposure Tails of Multi-Asset Structured Products",
+      "source": "https://arxiv.org/pdf/2610.42119v1",
+      "pages": 44,
+      "images": 0,
+      "figures_captioned": 4,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 84
+    },
+    {
+      "id": "2610.41990v1",
+      "title": "When is the deepest drawdown also the longest?",
+      "source": "https://arxiv.org/pdf/2610.41990v1",
+      "pages": 18,
+      "images": 0,
+      "figures_captioned": 0,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 36
+    },
+    {
+      "id": "2610.41740v1",
+      "title": "A New GAUSS Software Component for Implementing Dynamic Tests of Contagion with an Application",
+      "source": "https://arxiv.org/pdf/2610.41740v1",
+      "pages": 10,
+      "images": 8,
+      "figures_captioned": 3,
+      "tables": 0,
+      "has_math": false,
+      "ocr_used": false,
+      "chunks_indexed": 14
+    },
+    {
+      "id": "2610.41689v1",
+      "title": "QBX: A Compiler for Well-Formed, Auditable Alpha Programs",
+      "source": "https://arxiv.org/pdf/2610.41689v1",
+      "pages": 8,
+      "images": 1,
+      "figures_captioned": 3,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 33
+    },
+    {
+      "id": "2610.41624v1",
+      "title": "Expected shortfall estimation and capital coverage under overlapping scenarios",
+      "source": "https://arxiv.org/pdf/2610.41624v1",
+      "pages": 34,
+      "images": 0,
+      "figures_captioned": 4,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 67
+    },
+    {
+      "id": "2610.41019v1",
+      "title": "Neural Network Methods in the 2BSDE Formalism for Solving the High-Dimensional Black--Scholes Equation with Transaction Costs",
+      "source": "https://arxiv.org/pdf/2610.41019v1",
+      "pages": 13,
+      "images": 27,
+      "figures_captioned": 4,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 37
+    },
     {
       "id": "2610.40404v1",
       "title": "Exponential Convergence of the Lifted Gradient Flow of the Bass Functional",
       "source": "https://arxiv.org/pdf/2610.40404v1",
       "pages": 38,
       "images": 0,
-      "figures_captioned": 4,
+      "figures_captioned": 0,
       "tables": 1,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 59
+      "chunks_indexed": 55
     },
     {
       "id": "2610.40366v1",
@@ -248,11 +320,11 @@
       "source": "https://arxiv.org/pdf/2610.40366v1",
       "pages": 23,
       "images": 0,
-      "figures_captioned": 2,
+      "figures_captioned": 0,
       "tables": 1,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 52
+      "chunks_indexed": 50
     },
     {
       "id": "2610.40129v1",
@@ -260,11 +332,11 @@
       "source": "https://arxiv.org/pdf/2610.40129v1",
       "pages": 10,
       "images": 4,
-      "figures_captioned": 4,
+      "figures_captioned": 0,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 37
+      "chunks_indexed": 33
     },
     {
       "id": "2610.39896v1",
@@ -272,83 +344,11 @@
       "source": "https://arxiv.org/pdf/2610.39896v1",
       "pages": 17,
       "images": 5,
-      "figures_captioned": 1,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 36
-    },
-    {
-      "id": "2610.39636v1",
-      "title": "Information Flow and Market Risk: Transformer-Based Evidence on Sentiment and Volatility Dynamics",
-      "source": "https://arxiv.org/pdf/2610.39636v1",
-      "pages": 73,
-      "images": 5,
-      "figures_captioned": 4,
-      "tables": 0,
-      "has_math": false,
-      "ocr_used": false,
-      "chunks_indexed": 37
-    },
-    {
-      "id": "2610.39458v1",
-      "title": "Early-Buyer Groups and Fast-Wallet Teams on a Bonding-Curve Launchpad: A Prospective Measurement Study of pump.fun on Solana",
-      "source": "https://arxiv.org/pdf/2610.39458v1",
-      "pages": 66,
-      "images": 0,
-      "figures_captioned": 3,
-      "tables": 0,
-      "has_math": false,
-      "ocr_used": false,
-      "chunks_indexed": 51
-    },
-    {
-      "id": "2610.39205v1",
-      "title": "Sparse Autoencoders as Implicit Diversification Regularisers for Cross-Sectional Cryptocurrency Returns",
-      "source": "https://arxiv.org/pdf/2610.39205v1",
-      "pages": 8,
-      "images": 0,
-      "figures_captioned": 0,
-      "tables": 4,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 26
-    },
-    {
-      "id": "2610.38988v1",
-      "title": "Mean Field Games of Optimal Trading with an SPDE Model of the Limit Order Book",
-      "source": "https://arxiv.org/pdf/2610.38988v1",
-      "pages": 32,
-      "images": 0,
       "figures_captioned": 0,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 51
-    },
-    {
-      "id": "2610.38442v1",
-      "title": "Calibration of Passive Market Impact with a Queue-Sensitive Propagator Model",
-      "source": "https://arxiv.org/pdf/2610.38442v1",
-      "pages": 41,
-      "images": 0,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 65
-    },
-    {
-      "id": "2610.38275v1",
-      "title": "Negative Convexity in Pass-Through MBS: Mechanisms and Conditions",
-      "source": "https://arxiv.org/pdf/2610.38275v1",
-      "pages": 64,
-      "images": 0,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 57
+      "chunks_indexed": 35
     }
   ]
 }
