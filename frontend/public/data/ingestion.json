@@ -1,7 +1,7 @@
 {
   "_note": "Public run manifest of the Tier-3 agentic ingestion pipeline. Safe aggregates + provenance only; raw PDFs live in S3, not here.",
-  "run_id": "20261102T093235Z",
-  "generated_at": "2026-11-02T09:36:12+00:00",
+  "run_id": "20261103T093503Z",
+  "generated_at": "2026-11-03T09:38:09+00:00",
   "collection": "research_corpus",
   "embed_model": "BAAI/bge-small-en-v1.5",
   "dag": [
@@ -50,305 +50,305 @@
     "discovered": 10,
     "fetched": 10,
     "parsed": 10,
-    "chunks": 477,
-    "accepted": 444,
-    "rejected": 33,
-    "images": 45,
+    "chunks": 431,
+    "accepted": 408,
+    "rejected": 23,
+    "images": 3,
     "figures_captioned": 18,
-    "tables": 2,
+    "tables": 6,
     "with_math": 9,
-    "indexed": 444,
-    "spent_usd": 0.0322,
-    "duration_s": 217.2
+    "indexed": 408,
+    "spent_usd": 0.0332,
+    "duration_s": 185.3
   },
   "rejects_by_reason": {
-    "low-relevance": 33
+    "low-relevance": 23
   },
   "budget_usd": 3.0,
   "figures": [
     {
-      "doc_id": "2610.42119v1",
-      "title": "Functional Tensor Trains for High-Order Greeks and Exposure Tails of Multi-Asset Structured Products",
-      "page": 2,
-      "thumb": "/data/figures/2610.42119v1_p2_0.jpg",
-      "caption": "FIG. 1: Two hard risk computations for a worst-of autocallable. (a) Simulated path of three assets (grey) and of their worst performer (black), on which the note misses two coupons and is called in month 18. Dotted lines mark the autocall, coupon and protection levels. Our focus here is on Greeks to third order and the tail of its future value. (b) Monte Carlo (top) samples paths forward, and each \u2014 Figure 1 presents two computational approaches for analyzing a worst-of autocallable structured p",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.42119v1"
-    },
-    {
-      "doc_id": "2610.42119v1",
-      "title": "Functional Tensor Trains for High-Order Greeks and Exposure Tails of Multi-Asset Structured Products",
-      "page": 6,
-      "thumb": "/data/figures/2610.42119v1_p6_1.jpg",
-      "caption": "FIG. 2: The backward solve as a tensor network. Three assets are shown: boxes are cores holding one asset\u2019s functions and encoded as matrix functions, horizontal lines are bonds whose size is the rank, and vertical lines are log-spots. From a closed-form sum of rank-one terms at maturity, each earlier date applies three operations: the event map multiplies every core by its own step, the transitio \u2014 This figure depicts a tensor network diagram representing the backward solve algorithm for pricin",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.42119v1"
-    },
-    {
-      "doc_id": "2610.42119v1",
-      "title": "Functional Tensor Trains for High-Order Greeks and Exposure Tails of Multi-Asset Structured Products",
-      "page": 11,
-      "thumb": "/data/figures/2610.42119v1_p11_2.jpg",
-      "caption": "Figure 3 gives the main result, Greek by Greek, for monthly observation on three to five assets under both models. The order of the Greek and the target decide which method is cheaper. At 1%, Monte Carlo is cheaper on delta, by more than an order of magnitude. Second-order Greeks go either way: on gamma the two are about level under geometric Brownian motion, and on cross-gamma the tensor leads at \u2014 This figure shows equation (20) defining the computational cost measure W(\u03b5), which calculates th",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.42119v1"
-    },
-    {
-      "doc_id": "2610.42119v1",
-      "title": "Functional Tensor Trains for High-Order Greeks and Exposure Tails of Multi-Asset Structured Products",
-      "page": 11,
-      "thumb": "/data/figures/2610.42119v1_p11_3.jpg",
-      "caption": "Figure 4(b) follows the error of each method as its compute grows, at the scored spot. The tensor\u2019s error falls quickly as the tolerance tightens, though not at every step, since rounding discards parts of both signs (see Sec. III C): gamma\u2019s error grows by almost half between the tolerances 3 \u00d7 10\u22125 and 10\u22125. From about ten core-seconds on, the tensor stays within two standard errors of the refer \u2014 This figure compares the computational cost-accuracy tradeoff between Monte Carlo and tensor trai",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.42119v1"
-    },
-    {
-      "doc_id": "2610.41740v1",
-      "title": "A New GAUSS Software Component for Implementing Dynamic Tests of Contagion with an Application",
-      "page": 5,
-      "thumb": "/data/figures/2610.41740v1_p5_0.jpg",
-      "caption": "Figure 1: The Schematic diagram of dynamic pairwise bootstrap contagion tests. The code is published under the label GMDLBCT1.PRG. \u2014 This flowchart depicts the algorithmic workflow for implementing dynamic pairwise bootstrap contagion tests in GAUSS software. The process begins by loading the dataset and partitioning it into two subsets based on crisis periods (bottom 45% pre-crisis vs. remaining observations), then executes a bootstrapping loop (1000 iterations) that performs OLS regression, ca",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.41740v1"
-    },
-    {
-      "doc_id": "2610.41740v1",
-      "title": "A New GAUSS Software Component for Implementing Dynamic Tests of Contagion with an Application",
-      "page": 6,
-      "thumb": "/data/figures/2610.41740v1_p6_1.jpg",
-      "caption": "Figure 2: printed results while calculating necessary information such as means and medians. \u2014 This figure displays a GAUSS software output showing OLS regression results and bootstrap coefficient estimates. The output presents four OLS estimates and their corresponding mean and median bootstrap coefficients, along with associated p-values based on empirical distribution. The key takeaway is that the bootstrap analysis provides statistical inference on the regression parameters, with p-values in",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.41740v1"
-    },
-    {
-      "doc_id": "2610.41740v1",
-      "title": "A New GAUSS Software Component for Implementing Dynamic Tests of Contagion with an Application",
-      "page": 7,
-      "thumb": "/data/figures/2610.41740v1_p7_2.jpg",
-      "caption": "Figure 3: A sample of printout for the contagion pairwise bootstrap test. \u2014 This table presents output from a pairwise bootstrap test for contagion, organized by sub-sample size with corresponding statistical measures. The columns show Bootstrap P-values and Mean/Median Bootstrap Coefficients for both the slope and the change in slope across different sample sizes ranging from 1,000 to 379,000 observations. The key takeaway is that bootstrap p-values are predominantly zero or near-zero for small",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.41740v1"
-    },
-    {
-      "doc_id": "2610.41689v1",
-      "title": "QBX: A Compiler for Well-Formed, Auditable Alpha Programs",
-      "page": 3,
-      "thumb": "/data/figures/2610.41689v1_p3_0.jpg",
-      "caption": "Figure 1: QBX is the central contract boundary. Registry declarations and proposals enter the compiler; rejection emits structured diagnostics, while admission emits an evidence-carrying program in \ud835\udc46\ud835\udc45,\ud835\udc50. The same evidence supplies search closure, node-level evaluation identity, and root-level audit identity. \u2014 This flow diagram illustrates the QBX compiler architecture as a central contract boundary in a quantitative finance system. Input sources (Registry R containing blocks, docks, types, effe",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.41689v1"
-    },
-    {
-      "doc_id": "2610.41689v1",
-      "title": "QBX: A Compiler for Well-Formed, Auditable Alpha Programs",
-      "page": 5,
-      "thumb": "/data/figures/2610.41689v1_p5_1.jpg",
-      "caption": "Figure 2: End-to-end trace across the three stages. A YAML proposal materializes as a DAG with one return producer shared by two consumers; compilation retains schedule, types, availability, linkage, and addresses. Under an unchanged evaluation context, changing only the volatility window invalidates its downstream cone, so the backtest reuses \ud835\udc5d,\ud835\udc5f,\ud835\udc5aand computes only \ud835\udc63\u2032,\ud835\udc60\u2032. Addresses are abbreviate \u2014 This figure illustrates a three-stage compiler pipeline for an alpha trading program, showing how",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.41689v1"
-    },
-    {
-      "doc_id": "2610.41689v1",
-      "title": "QBX: A Compiler for Well-Formed, Auditable Alpha Programs",
-      "page": 7,
-      "thumb": "/data/figures/2610.41689v1_p7_2.jpg",
-      "caption": "Figure 3: QBX at matched budget. (a) Best-reachable test RankICIR vs. LLM calls on extended CSI500 (E9; oracle is a test-window- selected diagnostic upper bound). (b) Distinct valid factors and validity rates (E6). (c) Across three exploratory seeds, typed depth trails LLM breadth, while the hybrid recovers both (E13). (d) Exact-string identity catches 40.1% of raw LLM output but 0% after admissio \u2014 This figure contains four panels comparing QBX compiler performance against baseline methods. Pan",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.41689v1"
-    },
-    {
-      "doc_id": "2610.41624v1",
-      "title": "Expected shortfall estimation and capital coverage under overlapping scenarios",
-      "page": 12,
-      "thumb": "/data/figures/2610.41624v1_p12_0.jpg",
-      "caption": "Figure 1: Metric values (range and median) across ES estimators #1#6 for non-overlapping (blue) and overlapping (orange) schemes, by distribution (x-axis). ME (top), SB (middle), and CT (bottom) correspond to the \ufb01t, bias, and safety groups, respectively; see Table 2 for metrics\u2019 guide. For CT, the target value of 2.5% is shown as a dashed line, with the amber zone (510%) shaded in yellow. Vertica \u2014 This figure displays three panels comparing six expected shortfall (ES) estimators under non-over",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2610.41624v1"
-    },
-    {
-      "doc_id": "2610.41624v1",
-      "title": "Expected shortfall estimation and capital coverage under overlapping scenarios",
+      "doc_id": "2611.03463v1",
+      "title": "Symbol-based residual certification of reduced and neural surrogates for tempered-fractional CGMY pricing",
       "page": 13,
-      "thumb": "/data/figures/2610.41624v1_p13_1.jpg",
-      "caption": "Figure 2: SE (x-axis), SB (y-axis), CT (size) metrics for static (left) and dynamic (right) series, and for non-overlapping (open circle) and overlap- ping (\ufb01lled circles). Size of the markers corresponds to the CT value. There is no best CRE that would optimize across (symmetric) \ufb01t, bias and safety. \u2014 This figure displays a scatter plot comparing Standard Error (SE) on the x-axis versus Safety Bias (SB) on the y-axis across static models (left panel) and dynamic models (right panel), with mark",
+      "thumb": "/data/figures/2611.03463v1_p13_0.jpg",
+      "caption": "Fig. 3.1. Tolerance-checked online rule (the three-stage rule of Proposition 3.8 followed by correction). The status names are those used in the tables of Section 5. \u2014 This figure presents a flowchart describing a tolerance-checked predict-certify-correct rule for CGMY option pricing. The algorithm consists of four sequential stages: (1) constrain trajectories using reduced model coefficients and compute residuals; (2) evaluate reduced model estimator with accept/reject decision based on toleran",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2610.41624v1"
+      "source": "https://arxiv.org/pdf/2611.03463v1"
     },
     {
-      "doc_id": "2610.41624v1",
-      "title": "Expected shortfall estimation and capital coverage under overlapping scenarios",
-      "page": 14,
-      "thumb": "/data/figures/2610.41624v1_p14_2.jpg",
-      "caption": "Figure 3: Safety metrics UP5 vs CT for static (blue) and dynamic GARCH (orange), and for non-overlapping (left) and overlapping (right) sampling schemes. Horizontal dotted line corresponds to CT target value 2.5%. Shaded green region re\ufb02ects the capital adequacy safe zone CT \u22645%. The gradient arrow points from estimator #1 to #6. The apparent conservatism of the ES estimators is insu\ufb03cient to ensu \u2014 This scatter plot compares capital adequacy metrics across static and GARCH models under non-over",
+      "doc_id": "2611.03463v1",
+      "title": "Symbol-based residual certification of reduced and neural surrogates for tempered-fractional CGMY pricing",
+      "page": 15,
+      "thumb": "/data/figures/2611.03463v1_p15_1.jpg",
+      "caption": "Fig. 4.1. Empirical interpolation of the fractional symbol family. (a) Relative sup-norm error on 1000 Sobol test parameters (solid) and normalised singular values of the 163 training snapshots (dotted), N = 64\u20131024. (b) Rank Q needed for a given test tolerance; the curves for N = 512 and \u2014 Figure 4.1 shows empirical interpolation results for a fractional symbol family with two panels. Panel (a) is a log-log plot displaying relative sup-norm error (y-axis) versus the number of EIM terms Q (x-axi",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2610.41624v1"
+      "source": "https://arxiv.org/pdf/2611.03463v1"
     },
     {
-      "doc_id": "2610.41624v1",
-      "title": "Expected shortfall estimation and capital coverage under overlapping scenarios",
-      "page": 16,
-      "thumb": "/data/figures/2610.41624v1_p16_3.jpg",
-      "caption": "Figure 4: SE (top), SB (middle), and UP5 (bottom) values for the ES estimators #1\u2013#6 (dot markers, colored by estimator\u2019s conservatism) and #VaR (square markers), for selected models \u2013 static models on the left, dynamic GARCH models on the right (shaded area). Blue corresponds to the non-overlapping scheme and orange to the overlapping scheme. The color intensity of the dot markers re\ufb02ects the wei \u2014 This figure compares six Expected Shortfall (ES) estimators against Value-at-Risk (VaR) across th",
+      "doc_id": "2611.03463v1",
+      "title": "Symbol-based residual certification of reduced and neural surrogates for tempered-fractional CGMY pricing",
+      "page": 20,
+      "thumb": "/data/figures/2611.03463v1_p20_2.jpg",
+      "caption": "Fig. 5.1. Top: accepted fraction of the 30 validation queries as a function of the tolerance \u03b5 (dashed line: \u03b5N) for POD\u2013Galerkin candidates of rank 48\u201380 and the two best POD-NN checkpoints, under the reduced online, banded full-order and exact full-order certificates. Bottom: the stage at which the three-stage rule of Proposition 3.8 settles each query at \u03b5N, per rank. \u2014 The figure displays validation results for reduced and neural surrogate models in option pricing using tempered-fractional C",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2610.41624v1"
+      "source": "https://arxiv.org/pdf/2611.03463v1"
     },
     {
-      "doc_id": "2610.41019v1",
-      "title": "Neural Network Methods in the 2BSDE Formalism for Solving the High-Dimensional Black--Scholes Equation with Transaction Costs",
-      "page": 5,
-      "thumb": "/data/figures/2610.41019v1_p5_0.jpg",
-      "caption": "Figure 1. Cash gamma XiXj\u0393ij on one test path at t = 0, 0.5, 0.9 for the D = 10 geometric basket call and the D = 10, 100 geometric \u2014 This figure displays heatmaps of cash gamma (XiXj\u0393ij) computed via neural networks across three time points (t=0, 0.5, 0.9) for three different option configurations: D=10 call (panel a), D=10 butterfly (panel b), and D=100 butterfly (panel c). Each panel contains three rows showing results for Euclid, Sobol, and Blahut sampling methods, with color intensity repre",
+      "doc_id": "2611.03463v1",
+      "title": "Symbol-based residual certification of reduced and neural surrogates for tempered-fractional CGMY pricing",
+      "page": 22,
+      "thumb": "/data/figures/2611.03463v1_p22_3.jpg",
+      "caption": "Fig. 5.2. Top: time ratio to the uncertified direct solve on the 120 benchmark queries at \u03b5 = 0.3\u03b5N, \u03b5N, 3\u03b5N (geometric means, 95% query-bootstrap intervals, reusable setup). Bottom left: direct solve and banded full-order certificate per query as functions of N (20 benchmark queries, \u2014 This figure compares computational efficiency and certification performance for a surrogate modeling approach to fractional CGMY pricing. The top panels show bar charts with geometric means and confidence interva",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2610.41019v1"
+      "source": "https://arxiv.org/pdf/2611.03463v1"
     },
     {
-      "doc_id": "2610.41019v1",
-      "title": "Neural Network Methods in the 2BSDE Formalism for Solving the High-Dimensional Black--Scholes Equation with Transaction Costs",
+      "doc_id": "2611.03453v1",
+      "title": "Penalize the Common Trade: A Collision-Aware Layer for Learned Portfolios",
       "page": 6,
-      "thumb": "/data/figures/2610.41019v1_p6_1.jpg",
-      "caption": "Figure 2. D = 10 geometric basket call. (a) Leland PDE solution (dashed) and network (solid) on sample paths. (b) RMSE of Yt over the \u2014 This figure compares neural network solutions to the Leland PDE for a 10-dimensional geometric basket call option with transaction costs. Panel (a) shows sample paths with the Leland PDE solution (dashed line) and network solution (solid lines) over time [0,1], panel (b) displays root mean square error of the value function Yt increasing over time, and panel (c)",
+      "thumb": "/data/figures/2611.03453v1_p6_0.jpg",
+      "caption": "Figure 1: The wrapper reduces the deepest realized loss and traded notional, while the asset-omission diagnostic retains the drawdown-gain sign in nine of ten universes. The \ud835\udc47= 760 wealth and drawdown paths include 10 bp proportional costs; momentum is dashed gray and collision-aware is solid blue. Panel (c) uses a 26-week mean only for display. Panel (d) reports leave-one-asset-out drawdown gains \u2014 This figure compares momentum-based and collision-aware portfolio strategies across four panels. ",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2610.41019v1"
+      "source": "https://arxiv.org/pdf/2611.03453v1"
     },
     {
-      "doc_id": "2610.41019v1",
-      "title": "Neural Network Methods in the 2BSDE Formalism for Solving the High-Dimensional Black--Scholes Equation with Transaction Costs",
+      "doc_id": "2611.03391v1",
+      "title": "Specification LASSO and a Flexible Characteristics-Based Asset Pricing Model",
+      "page": 17,
+      "thumb": "/data/figures/2611.03391v1_p17_0.jpg",
+      "caption": "Figure 1 reports the estimated functions under DGP 1 with n = 200 and P = 300. Both \u2014 I cannot describe Figure 1 as it is not included in the provided image. The image shows only text from a research paper discussing Table 1, which compares model selection performance across S-LASSO and FNW methods under different data generating processes (DGPs). The table results indicate S-LASSO's superior recovery of linear effects, nonlinear effects, and interactions compared to FNW, particularly under DGP ",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2611.03391v1"
+    },
+    {
+      "doc_id": "2611.03391v1",
+      "title": "Specification LASSO and a Flexible Characteristics-Based Asset Pricing Model",
+      "page": 19,
+      "thumb": "/data/figures/2611.03391v1_p19_1.jpg",
+      "caption": "Figure 1: Estimated and True Functions. \u2014 This figure compares estimated versus true functions in a characteristics-based asset pricing model. The top row displays two 3D surface plots of the interaction function m(x,y) - the left showing the true function and the right showing the estimated function - both exhibiting a peaked distribution across two-dimensional inputs. Panel (b) below presents a 2D line plot comparing the true nonlinear function against multiple estimated versions (True, Sp-100",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2611.03391v1"
+    },
+    {
+      "doc_id": "2611.03391v1",
+      "title": "Specification LASSO and a Flexible Characteristics-Based Asset Pricing Model",
+      "page": 23,
+      "thumb": "/data/figures/2611.03391v1_p23_2.jpg",
+      "caption": "Figure 2: Estimated nonlinear effects of \u2018cash\u2019 and \u2018egr\u2019. Each curve shows the estimated total effect after centering. The horizontal axes are standardized. \u2014 This figure displays two panels showing estimated nonlinear effects from a characteristics-based asset pricing model using specification LASSO. The left panel shows a smoothed spline curve for the cash variable (blue line) plotted against standardized cash on the x-axis and estimated effect on y-axis, revealing a non-monotonic relationshi",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2611.03391v1"
+    },
+    {
+      "doc_id": "2611.03391v1",
+      "title": "Specification LASSO and a Flexible Characteristics-Based Asset Pricing Model",
+      "page": 23,
+      "thumb": "/data/figures/2611.03391v1_p23_3.jpg",
+      "caption": "Figure 3: Estimated total effects of momentum variables at different horizons. Each curve combines the selected linear and nonlinear components. The horizontal axis is standardized. \u2014 Figure 3 displays four line charts showing the estimated total effects of momentum variables at different time horizons (mom1m, mom6m, mom12m, and mom36m) on standardized axes. Each subplot combines linear and nonlinear components of the momentum effect, with the horizontal axis representing standardized momentum v",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2611.03391v1"
+    },
+    {
+      "doc_id": "2611.03384v1",
+      "title": "Can We Stop the Backtest Yet? Anytime-Valid Promotion Tests for Adaptive Financial Research Agents",
+      "page": 3,
+      "thumb": "/data/figures/2611.03384v1_p3_0.jpg",
+      "caption": "Figure 1: The protocol is implementable as an append-only ledger. A changed rule, restart, or current-regime certificate is a newly funded candidate. \u2014 This figure shows a text-based protocol specification table titled \"Safe Promotion Tests for Financial Research Agents\" that outlines procedural steps for an auditable promotion ledger system. The table uses a structured format with numbered steps (1-5) describing how to process outcomes, manage thresholds, handle birth debits, record decisions, ",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2611.03384v1"
+    },
+    {
+      "doc_id": "2611.03384v1",
+      "title": "Can We Stop the Backtest Yet? Anytime-Valid Promotion Tests for Adaptive Financial Research Agents",
       "page": 6,
-      "thumb": "/data/figures/2610.41019v1_p6_2.jpg",
-      "caption": "Figure 3. D = 10 geometric basket butterfly spread (strikes 90/100/110). (a) Leland PDE solution (dashed) and network (solid) on sample \u2014 Figure 2 and 3 compare neural network solutions against classical PDE methods for pricing high-dimensional options. Panel (a) shows sample paths from geometric basket options, panel (b) displays root mean square error (RMSE) over time comparing the network approximation to reference solutions, and panel (c) plots relative pricing error across diagonal and off-",
+      "thumb": "/data/figures/2611.03384v1_p6_1.jpg",
+      "caption": "Figure 2: Fixed-family diagnostics. Left: familywise crossings over candidates and inspection times; the inset makes the 0.7% per-stream result and zero-count Wilson intervals visible. Right: target promotion probability under an aligned shift to each ETF component return; shaded regions are 95% Wilson intervals. The repeated-test curve is diagnostic, not a matched-error comparator. \u2014 The left panel shows a bar chart of familywise error rates across 3,000 paths for four testing procedures (Naive",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2610.41019v1"
+      "source": "https://arxiv.org/pdf/2611.03384v1"
     },
     {
-      "doc_id": "2610.41019v1",
-      "title": "Neural Network Methods in the 2BSDE Formalism for Solving the High-Dimensional Black--Scholes Equation with Transaction Costs",
+      "doc_id": "2611.03384v1",
+      "title": "Can We Stop the Backtest Yet? Anytime-Valid Promotion Tests for Adaptive Financial Research Agents",
       "page": 7,
-      "thumb": "/data/figures/2610.41019v1_p7_3.jpg",
-      "caption": "Figure 4. Relative error of the cash gamma over the test paths at \u2014 This figure displays two line graphs showing relative errors over time for cash gamma calculations in the Black-Scholes equation with transaction costs. Both panels plot relative error (y-axis) against time t from 0 to 1 (x-axis), comparing three methods: with head F head (solid blue), with head \u2207\u00b7u (dashed blue), and no head \u2207\u00b7u (orange dashed). The upper panel shows larger errors (0 to 0.4 range) that decrease until mid-period",
+      "thumb": "/data/figures/2611.03384v1_p7_2.jpg",
+      "caption": "Figure 3: Pseudo-out-of-sample evidence and economic ledgers, January 2015\u2013May 2026. Left: the six largest mixture e-processes; the artifact retains all 24 paths. Right: portfolio wealth after exact five-basis-point one-way turnover costs. The funded gate stays at one because no rule crosses; cash is assigned zero yield in this diagnostic ledger. \u2014 The left panel is a line chart showing six largest pseudo-out-of-sample evidence paths from January 2015 to May 2026, with mixture e-values on the y-",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2610.41019v1"
+      "source": "https://arxiv.org/pdf/2611.03384v1"
+    },
+    {
+      "doc_id": "2611.03302v1",
+      "title": "EventGPT: Next-Event Pretraining on Banking Customer Histories",
+      "page": 4,
+      "thumb": "/data/figures/2611.03302v1_p4_0.jpg",
+      "caption": "Figure 1: Event-sequence models for banking by year of publication. Color marks the pretraining objective; TabBERT and TabGPT are a masked and a causal model from one paper, and MBD is the dataset used here. \u2014 This timeline chart displays event-sequence models for banking applications from 2021 to 2026, with each model positioned by publication year and color-coded by pretraining objective (contrastive, masked, generative, dataset, or this paper). Key models include TabBERT and TabGPT (2021, mas",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2611.03302v1"
+    },
+    {
+      "doc_id": "2611.03302v1",
+      "title": "EventGPT: Next-Event Pretraining on Banking Customer Histories",
+      "page": 6,
+      "thumb": "/data/figures/2611.03302v1_p6_1.jpg",
+      "caption": "Figure 2: The three stages of EventGPT on three MBD events. Token layers read each event on its own and mean-pool it into one vector; causal event layers with temporal RoPE model the event vectors; token layers decode the next event given the hidden state of the previous one. \u2014 This figure illustrates the EventGPT architecture with three processing stages applied to banking customer event sequences. The diagram shows: (1) Event Encoder\u2014processing three example events (profile, transaction, geolo",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2611.03302v1"
+    },
+    {
+      "doc_id": "2611.03302v1",
+      "title": "EventGPT: Next-Event Pretraining on Banking Customer Histories",
+      "page": 7,
+      "thumb": "/data/figures/2611.03302v1_p7_2.jpg",
+      "caption": "Figure 3: The layers inside each stage. The event encoder attends within one event, without positions, and mean-pools the event\u2019s tokens into \ud835\udc52\ud835\udc56. The history decoder attends causally over the event vectors, with temporal RoPE on queries and keys, and gives the hidden state \u210e\ud835\udc56. The token decoder adds \u210e\ud835\udc56to every token embedding of event \ud835\udc56+ 1 and attends causally within that event; the output layer s \u2014 This architecture diagram illustrates a three-stage transformer-based model for next-event predic",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2611.03302v1"
+    },
+    {
+      "doc_id": "2611.03302v1",
+      "title": "EventGPT: Next-Event Pretraining on Banking Customer Histories",
+      "page": 7,
+      "thumb": "/data/figures/2611.03302v1_p7_3.jpg",
+      "caption": "Figure 4: Attention at the two levels. Within an event every token attends to every other; across events attention is causal and confined to one customer. The tokens of an event reach earlier events only through the hidden state of the previous event. \u2014 This figure illustrates the attention patterns in a two-level transformer architecture for sequential event modeling. The top section shows block diagrams of three stages: an event encoder with bidirectional self-attention within events (\u00d72), a h",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2611.03302v1"
+    },
+    {
+      "doc_id": "2611.02866v1",
+      "title": "TensorLOB: Structure-Preserving Tensor Learning for Limit Order Book Forecasting",
+      "page": 1,
+      "thumb": "/data/figures/2611.02866v1_p1_0.jpg",
+      "caption": "Fig. 1. A snapshot of a limit order book snapshot at a single event. \u2014 This diagram illustrates the structure of a limit order book (LOB) at a single point in time, displaying the bid-ask spread. The vertical axis represents price levels while the horizontal axis shows trading volume, with the midpoint price positioned centrally between the best bid and best ask prices. The figure shows how buy orders (bid side, left) and sell orders (ask side, right) are organized in a market microstructure, wh",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2611.02866v1"
+    },
+    {
+      "doc_id": "2611.02866v1",
+      "title": "TensorLOB: Structure-Preserving Tensor Learning for Limit Order Book Forecasting",
+      "page": 2,
+      "thumb": "/data/figures/2611.02866v1_p2_1.jpg",
+      "caption": "Fig. 2. An overview of the TensorLOB architecture with multi-head tensor projection layers and a tensor classifier. \u2014 This figure illustrates the TensorLOB architecture for limit order book forecasting, consisting of three main components shown left to right. The input tensor (left) is a 4-dimensional representation of LOB data with dimensions for time T^(0), level L^(0), bid/ask S^(0), and price/volume A^(0). The multi-head tensor projection layers (center) apply m=1,2 projection heads that tra",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2611.02866v1"
     }
   ],
   "docs": [
     {
-      "id": "2610.42119v1",
-      "title": "Functional Tensor Trains for High-Order Greeks and Exposure Tails of Multi-Asset Structured Products",
-      "source": "https://arxiv.org/pdf/2610.42119v1",
-      "pages": 44,
+      "id": "2611.03463v1",
+      "title": "Symbol-based residual certification of reduced and neural surrogates for tempered-fractional CGMY pricing",
+      "source": "https://arxiv.org/pdf/2611.03463v1",
+      "pages": 37,
       "images": 0,
       "figures_captioned": 4,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 84
+      "chunks_indexed": 64
     },
     {
-      "id": "2610.41990v1",
-      "title": "When is the deepest drawdown also the longest?",
-      "source": "https://arxiv.org/pdf/2610.41990v1",
-      "pages": 18,
+      "id": "2611.03453v1",
+      "title": "Penalize the Common Trade: A Collision-Aware Layer for Learned Portfolios",
+      "source": "https://arxiv.org/pdf/2611.03453v1",
+      "pages": 9,
       "images": 0,
-      "figures_captioned": 0,
+      "figures_captioned": 1,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 36
+      "chunks_indexed": 25
     },
     {
-      "id": "2610.41740v1",
-      "title": "A New GAUSS Software Component for Implementing Dynamic Tests of Contagion with an Application",
-      "source": "https://arxiv.org/pdf/2610.41740v1",
-      "pages": 10,
-      "images": 8,
+      "id": "2611.03391v1",
+      "title": "Specification LASSO and a Flexible Characteristics-Based Asset Pricing Model",
+      "source": "https://arxiv.org/pdf/2611.03391v1",
+      "pages": 53,
+      "images": 0,
+      "figures_captioned": 4,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 38
+    },
+    {
+      "id": "2611.03384v1",
+      "title": "Can We Stop the Backtest Yet? Anytime-Valid Promotion Tests for Adaptive Financial Research Agents",
+      "source": "https://arxiv.org/pdf/2611.03384v1",
+      "pages": 9,
+      "images": 0,
       "figures_captioned": 3,
+      "tables": 4,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 31
+    },
+    {
+      "id": "2611.03302v1",
+      "title": "EventGPT: Next-Event Pretraining on Banking Customer Histories",
+      "source": "https://arxiv.org/pdf/2611.03302v1",
+      "pages": 43,
+      "images": 0,
+      "figures_captioned": 4,
       "tables": 0,
       "has_math": false,
       "ocr_used": false,
-      "chunks_indexed": 14
+      "chunks_indexed": 35
     },
     {
-      "id": "2610.41689v1",
-      "title": "QBX: A Compiler for Well-Formed, Auditable Alpha Programs",
-      "source": "https://arxiv.org/pdf/2610.41689v1",
-      "pages": 8,
-      "images": 1,
-      "figures_captioned": 3,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 33
-    },
-    {
-      "id": "2610.41624v1",
-      "title": "Expected shortfall estimation and capital coverage under overlapping scenarios",
-      "source": "https://arxiv.org/pdf/2610.41624v1",
-      "pages": 34,
+      "id": "2611.03076v1",
+      "title": "Finite-horizon Optimal Consumption and Investment with Costly Income Adjustment",
+      "source": "https://arxiv.org/pdf/2611.03076v1",
+      "pages": 52,
       "images": 0,
-      "figures_captioned": 4,
+      "figures_captioned": 0,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 67
+      "chunks_indexed": 53
     },
     {
-      "id": "2610.41019v1",
-      "title": "Neural Network Methods in the 2BSDE Formalism for Solving the High-Dimensional Black--Scholes Equation with Transaction Costs",
-      "source": "https://arxiv.org/pdf/2610.41019v1",
-      "pages": 13,
-      "images": 27,
-      "figures_captioned": 4,
+      "id": "2611.03022v1",
+      "title": "Interpretable Allocation and Model-Predictive Rebalancing of Equity Portfolios, Tested on Real and Synthetic Markets",
+      "source": "https://arxiv.org/pdf/2611.03022v1",
+      "pages": 55,
+      "images": 0,
+      "figures_captioned": 0,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 37
+      "chunks_indexed": 80
     },
     {
-      "id": "2610.40404v1",
-      "title": "Exponential Convergence of the Lifted Gradient Flow of the Bass Functional",
-      "source": "https://arxiv.org/pdf/2610.40404v1",
+      "id": "2611.02866v1",
+      "title": "TensorLOB: Structure-Preserving Tensor Learning for Limit Order Book Forecasting",
+      "source": "https://arxiv.org/pdf/2611.02866v1",
+      "pages": 5,
+      "images": 3,
+      "figures_captioned": 2,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 17
+    },
+    {
+      "id": "2611.02616v1",
+      "title": "Herding or Racing? Decomposing Cross-Account Order-Flow Persistence in On-Chain Markets",
+      "source": "https://arxiv.org/pdf/2611.02616v1",
+      "pages": 6,
+      "images": 0,
+      "figures_captioned": 0,
+      "tables": 2,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 18
+    },
+    {
+      "id": "2611.02558v1",
+      "title": "Optimal Annuitization, Consumption, and Investment with Costly Capital Injections",
+      "source": "https://arxiv.org/pdf/2611.02558v1",
       "pages": 38,
       "images": 0,
       "figures_captioned": 0,
-      "tables": 1,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 55
-    },
-    {
-      "id": "2610.40366v1",
-      "title": "Comparing tail forecasts: the number of exceedances is the sample size",
-      "source": "https://arxiv.org/pdf/2610.40366v1",
-      "pages": 23,
-      "images": 0,
-      "figures_captioned": 0,
-      "tables": 1,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 50
-    },
-    {
-      "id": "2610.40129v1",
-      "title": "The Generalised Kessler Syndrome and the Persian Gulf",
-      "source": "https://arxiv.org/pdf/2610.40129v1",
-      "pages": 10,
-      "images": 4,
-      "figures_captioned": 0,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 33
-    },
-    {
-      "id": "2610.39896v1",
-      "title": "Strong rate for one-dimensional driftless continuous strict local martingales",
-      "source": "https://arxiv.org/pdf/2610.39896v1",
-      "pages": 17,
-      "images": 5,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 35
+      "chunks_indexed": 47
     }
   ]
 }
