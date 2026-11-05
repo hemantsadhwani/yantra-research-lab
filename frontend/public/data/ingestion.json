@@ -1,7 +1,7 @@
 {
   "_note": "Public run manifest of the Tier-3 agentic ingestion pipeline. Safe aggregates + provenance only; raw PDFs live in S3, not here.",
-  "run_id": "20261104T091623Z",
-  "generated_at": "2026-11-04T09:19:43+00:00",
+  "run_id": "20261105T093131Z",
+  "generated_at": "2026-11-05T09:34:07+00:00",
   "collection": "research_corpus",
   "embed_model": "BAAI/bge-small-en-v1.5",
   "dag": [
@@ -50,28 +50,73 @@
     "discovered": 10,
     "fetched": 10,
     "parsed": 10,
-    "chunks": 448,
-    "accepted": 424,
-    "rejected": 24,
-    "images": 13,
+    "chunks": 425,
+    "accepted": 396,
+    "rejected": 29,
+    "images": 12,
     "figures_captioned": 18,
-    "tables": 8,
+    "tables": 3,
     "with_math": 8,
-    "indexed": 424,
-    "spent_usd": 0.0332,
-    "duration_s": 200.8
+    "indexed": 396,
+    "spent_usd": 0.0311,
+    "duration_s": 155.3
   },
   "rejects_by_reason": {
-    "low-relevance": 24
+    "low-relevance": 29
   },
   "budget_usd": 3.0,
   "figures": [
+    {
+      "doc_id": "2611.06495v1",
+      "title": "Constrained defined-contribution pension management: A reparameterized neural network approach",
+      "page": 24,
+      "thumb": "/data/figures/2611.06495v1_p24_0.jpg",
+      "caption": "Figure 1: Loss curves for di\ufb00erent methods \u2014 These line charts compare convergence behavior of four methods (B1, B2, B3, M) across 2000 iterations for two risk aversion parameters: \u03b3=1.5 (left) and \u03b3=0.8 (right). Each panel uses dual y-axes to track dual upper loss (left axis) and direct method loss (right axis), with different line styles representing each method. The key takeaway is that method M (dash-dot orange line) converges faster with larger losses initially but stabilizes quickly, while",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2611.06495v1"
+    },
+    {
+      "doc_id": "2611.06126v1",
+      "title": "Exponential Seniority Weighting Chain-Ladder Reserving",
+      "page": 2,
+      "thumb": "/data/figures/2611.06126v1_p2_0.jpg",
+      "caption": "Figure 1: (lhs) Available information at time I, (rhs) observations selected for model fitting. \u2014 These two stacked area charts show the structure of claims data in a run-off triangle format, with development period (0-J) on the x-axis and accident year (0-I) on the y-axis. The left panel displays the complete triangular data available at valuation time I, while the right panel highlights the subset of observations selected for model fitting in the reserving analysis. The contrast illustrates ho",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2611.06126v1"
+    },
+    {
+      "doc_id": "2611.06126v1",
+      "title": "Exponential Seniority Weighting Chain-Ladder Reserving",
+      "page": 5,
+      "thumb": "/data/figures/2611.06126v1_p5_1.jpg",
+      "caption": "Figure 2: Information set Hi,j with Bj in blue color and \u03c3(C1:i,j+1) in yellow color. \u2014 This figure shows a step function graph illustrating the information set structure in claims reserving, with the horizontal axis representing development period j and the vertical axis representing accident year i. The blue shaded region (labeled Bj) represents the historical claims data available up to a given development period, while the yellow region (labeled \u03c3(C1:i,j+1)) represents the sigma-algebra gene",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2611.06126v1"
+    },
+    {
+      "doc_id": "2611.06126v1",
+      "title": "Exponential Seniority Weighting Chain-Ladder Reserving",
+      "page": 10,
+      "thumb": "/data/figures/2611.06126v1_p10_2.jpg",
+      "caption": "Figure 3: Latest observations Ci,di and Crj,j at time I for i \u2208{1, . . . , I} and j \u2208{0, . . . , J}. \u2014 This figure displays a stacked bar chart showing cumulative loss development over time on a log scale. The x-axis represents development lags from 0 to J, while the y-axis shows cumulative values on a logarithmic scale from 1 to 1. The orange stacked bars illustrate the incremental losses or cumulative observations across different accident years, demonstrating the characteristic increasing and",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2611.06126v1"
+    },
+    {
+      "doc_id": "2611.06126v1",
+      "title": "Exponential Seniority Weighting Chain-Ladder Reserving",
+      "page": 10,
+      "thumb": "/data/figures/2611.06126v1_p10_3.jpg",
+      "caption": "Figure 4: (lhs) Information set DI and (rhs) information set Hrj\u22121,j = Hrj+1,j. \u2014 Figure 4 displays two heatmaps showing the alignment of information sets in claims reserving. The left panel (orange) shows the data set $D_I$ containing historical claim observations, with a lower-triangular structure representing claims observed up to time $I$. The right panel (blue) shows the information set $H_{r_{j-1},j}$ with a yellow highlighted region, illustrating the misalignment between the observed data",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2611.06126v1"
+    },
     {
       "doc_id": "2611.05310v1",
       "title": "Mitigating Return Drag and Regime Whipsaws in Sector Rotation: An Asymmetric Downside-Aware Nested Clustered Optimization Framework",
       "page": 3,
       "thumb": "/data/figures/2611.05310v1_p3_0.jpg",
-      "caption": "Fig. 1. Cumulative wealth growth across the 65-month out-of-sample evaluation period (August 2020 \u2013 December 2025). The proposed Asymmetric Sticky- NCO significantly outpaces Plain NCO and Baseline Regime-NCO. \u2014 This line chart displays cumulative wealth growth from August 2020 to December 2025 for five different portfolio strategies, with the y-axis showing wealth index (1.0 to 3.2) and x-axis showing time in years. The five strategies tracked are S&P 500 (SPY), Equal-Weight (EW), Plain NCO, Ba",
+      "caption": "Fig. 1. Cumulative wealth growth across the 65-month out-of-sample evaluation period (August 2020 \u2013 December 2025). The proposed Asymmetric Sticky- NCO significantly outpaces Plain NCO and Baseline Regime-NCO. \u2014 This line chart displays cumulative wealth growth from August 2020 to December 2025, comparing five investment strategies: S&P 500 (SPY), Equal Weight (EW), Plain NCO, Baseline Regime-NCO, and Asymmetric Sticky-NCO. The y-axis shows cumulative wealth on a logarithmic scale ranging from 1",
       "vision": true,
       "source": "https://arxiv.org/pdf/2611.05310v1"
     },
@@ -80,7 +125,7 @@
       "title": "Mitigating Return Drag and Regime Whipsaws in Sector Rotation: An Asymmetric Downside-Aware Nested Clustered Optimization Framework",
       "page": 4,
       "thumb": "/data/figures/2611.05310v1_p4_1.jpg",
-      "caption": "Fig. 2. Drawdown curves over time. During the severe 2022 Fed tightening bear market, the proposed model limited maximum drawdown to 14.22%, while the S&P 500 suffered a 23.93% collapse. \u2014 The left panel shows drawdown curves from 2021-2026 comparing the S&P 500 (SPY), Proxy NCI, baseline approaches, and a proposed asymmetric downside-aware model, with the y-axis displaying drawdown percentage and demonstrating that the proposed method substantially reduced peak drawdown during the 2022 market d",
+      "caption": "Fig. 2. Drawdown curves over time. During the severe 2022 Fed tightening bear market, the proposed model limited maximum drawdown to 14.22%, while the S&P 500 suffered a 23.93% collapse. \u2014 This figure presents drawdown analysis and regime switching behavior for sector rotation strategies from 2021 to 2026. The left panel shows drawdown curves comparing the S&P 500 (SPY), Naive SCD, Baseline Adaptive, Baseline with Sticky SCD, and the Proposed Downside-Aware approach, with the proposed method ach",
       "vision": true,
       "source": "https://arxiv.org/pdf/2611.05310v1"
     },
@@ -89,7 +134,7 @@
       "title": "Mitigating Return Drag and Regime Whipsaws in Sector Rotation: An Asymmetric Downside-Aware Nested Clustered Optimization Framework",
       "page": 4,
       "thumb": "/data/figures/2611.05310v1_p4_2.jpg",
-      "caption": "Fig. 3. Regime state timeline audit: (a) Baseline 1D-HMM exhibits 16 erratic whipsaw switches; (b) Sticky 2D-HMM with confidence threshold (\u03b4 = 0.65) executes only 4 sustained, economically consistent regime shifts. \u2014 Figure 3 compares regime detection outputs from two Hidden Markov Model approaches using time-series plots from 2021-2026. Panel (a) shows a baseline 1D-HMM generating 16 frequent regime switches (indicated by pink vertical bars), while panel (b) displays a Sticky 2D-HMM with confi",
+      "caption": "Fig. 3. Regime state timeline audit: (a) Baseline 1D-HMM exhibits 16 erratic whipsaw switches; (b) Sticky 2D-HMM with confidence threshold (\u03b4 = 0.65) executes only 4 sustained, economically consistent regime shifts. \u2014 This figure displays regime-switching behavior in hidden Markov models through two timeline visualizations. Panel (a) shows a baseline 1D-HMM with numerous rapid regime transitions (whipsaws) occurring throughout 2021-2026, represented by frequent pink and blue switches. Panel (b) ",
       "vision": true,
       "source": "https://arxiv.org/pdf/2611.05310v1"
     },
@@ -98,7 +143,7 @@
       "title": "Mitigating Return Drag and Regime Whipsaws in Sector Rotation: An Asymmetric Downside-Aware Nested Clustered Optimization Framework",
       "page": 4,
       "thumb": "/data/figures/2611.05310v1_p4_3.jpg",
-      "caption": "Fig. 4. Hierarchical dendrogram comparison: (a) Symmetric Covariance tree clusters assets based on two-way variance; (b) Downside Semi-Covariance tree clusters assets strictly by co-downside tail risk. \u2014 Figure 4 presents two hierarchical dendrograms comparing asset clustering approaches using line charts with height on the y-axis and assets on the x-axis. Panel (a) shows clustering based on symmetric covariance, which uses two-way variance to group assets, while panel (b) shows clustering based",
+      "caption": "Fig. 4. Hierarchical dendrogram comparison: (a) Symmetric Covariance tree clusters assets based on two-way variance; (b) Downside Semi-Covariance tree clusters assets strictly by co-downside tail risk. \u2014 Figure 4 presents two hierarchical dendrograms comparing asset clustering methods as tree diagrams with distance metrics on the y-axis and asset labels on the x-axis. Panel (a) shows symmetric covariance-based clustering that groups assets using two-way variance measures, while panel (b) shows d",
       "vision": true,
       "source": "https://arxiv.org/pdf/2611.05310v1"
     },
@@ -107,7 +152,7 @@
       "title": "Beyond Anonymous Order Flow: Wallet Identity as a Feature for Short-Horizon Return Prediction",
       "page": 3,
       "thumb": "/data/figures/2611.05218v1_p3_0.jpg",
-      "caption": "Figure 1: Committed blocks and inter-block timing. (a) Four consecutive btc blocks on July 15, 2026, at their consensus timestamps in New York time, with the events each carries. (b) ECDF of all 22,734,866 inter-block gaps in the sample. Block timestamps are truncated to the millisecond; gaps are computed at full precision. \u2014 Figure 1 displays Bitcoin block timing characteristics and inter-block gaps. Panel (a) shows a timeline of four consecutive BTC blocks with their timestamps, transaction co",
+      "caption": "Figure 1: Committed blocks and inter-block timing. (a) Four consecutive btc blocks on July 15, 2026, at their consensus timestamps in New York time, with the events each carries. (b) ECDF of all 22,734,866 inter-block gaps in the sample. Block timestamps are truncated to the millisecond; gaps are computed at full precision. \u2014 This figure examines Bitcoin block timing and inter-block gaps. Panel (a) shows four consecutive BTC blocks with their timestamps and event counts (new orders, cancels, fil",
       "vision": true,
       "source": "https://arxiv.org/pdf/2611.05218v1"
     },
@@ -116,7 +161,7 @@
       "title": "Beyond Anonymous Order Flow: Wallet Identity as a Feature for Short-Horizon Return Prediction",
       "page": 4,
       "thumb": "/data/figures/2611.05218v1_p4_1.jpg",
-      "caption": "Figure 2: Persistence and horizon profile of wallet toxicity. (a) Scoring- against validation-window score. (b) Adjusted validation markout by scoring-window ventile. (c) Markout by horizon for D10, D9, D1\u2013D8, and native TWAP child orders. Bars and bands show approximate 95% intervals computed as \u00b11.96 standard errors for wallet-level means in (a) and means of daily estimates in (b)\u2013(c). \u2014 This figure examines the persistence and horizon profile of wallet toxicity metrics in order flow predictio",
+      "caption": "Figure 2: Persistence and horizon profile of wallet toxicity. (a) Scoring- against validation-window score. (b) Adjusted validation markout by scoring-window ventile. (c) Markout by horizon for D10, D9, D1\u2013D8, and native TWAP child orders. Bars and bands show approximate 95% intervals computed as \u00b11.96 standard errors for wallet-level means in (a) and means of daily estimates in (b)\u2013(c). \u2014 This figure analyzes wallet toxicity persistence and predictive power across time horizons using three pane",
       "vision": true,
       "source": "https://arxiv.org/pdf/2611.05218v1"
     },
@@ -125,7 +170,7 @@
       "title": "Beyond Anonymous Order Flow: Wallet Identity as a Feature for Short-Horizon Return Prediction",
       "page": 6,
       "thumb": "/data/figures/2611.05218v1_p6_2.jpg",
-      "caption": "Figure 3: Out-of-sample \ud835\udc452 by horizon, ridge and gradient- boosted trees. Shading is the top-decile identity increment over the anonymous benchmark. \u2014 This figure compares predictive model performance for short-horizon return prediction across two algorithms (Ridge regression and gradient boosted trees/CBT) evaluated at different time horizons (0.2 to 30 seconds). The left panels show out-of-sample R\u00b2 values with three curves each: anonymous baseline (dashed), identity features added (solid blue",
+      "caption": "Figure 3: Out-of-sample \ud835\udc452 by horizon, ridge and gradient- boosted trees. Shading is the top-decile identity increment over the anonymous benchmark. \u2014 This figure presents out-of-sample R\u00b2 performance across trading horizons (0.2 to 30 seconds) comparing anonymous-only models versus models enhanced with identity information. Panel (a) shows Ridge regression results and panel (b) shows Gradient Boosted Trees (GBT), with blue lines representing identity-augmented models, gray lines showing anonymo",
       "vision": true,
       "source": "https://arxiv.org/pdf/2611.05218v1"
     },
@@ -134,7 +179,7 @@
       "title": "Beyond Anonymous Order Flow: Wallet Identity as a Feature for Short-Horizon Return Prediction",
       "page": 6,
       "thumb": "/data/figures/2611.05218v1_p6_3.jpg",
-      "caption": "Figure 4: Drop-one contributions at the one-second ridge benchmark. (a) Anonymous predictors before and after adding identity; (b) identity predictors. Contributions are descriptive and non-additive; pairs in which neither member reaches 0.05 pp are omitted. \u2014 This figure displays drop-one contribution analysis showing the marginal R\u00b2 improvement from individual feature groups in predicting short-horizon returns using ridge regression at a one-second horizon. Panel (a) compares anonymous variabl",
+      "caption": "Figure 4: Drop-one contributions at the one-second ridge benchmark. (a) Anonymous predictors before and after adding identity; (b) identity predictors. Contributions are descriptive and non-additive; pairs in which neither member reaches 0.05 pp are omitted. \u2014 This figure shows drop-one contribution analysis measuring the marginal predictive value of individual features in a ridge regression model predicting short-horizon returns at a one-second horizon. Panel (a) displays horizontal bar charts ",
       "vision": true,
       "source": "https://arxiv.org/pdf/2611.05218v1"
     },
@@ -143,7 +188,7 @@
       "title": "Safe Portfolio Learning from Untrusted Predictions: Signed Trust, Abstention, and Cross-Universe Polarity Failure",
       "page": 4,
       "thumb": "/data/figures/2611.04826v1_p4_0.jpg",
-      "caption": "Figure 1 compresses the composition into its governing invariant. Every mechanism runs on one of two clocks. Decisions occur at opening, on information available before the current return is realized, and produce the executed mixture at the right of the pipeline. Learning states, evidence statistics, and collateral commitments change only at maturity, when a cohort\u2019s Safe-relative reward becomes o \u2014 This is a text-based methodology section describing a multi-mechanism framework for portfolio dec",
+      "caption": "Figure 1 compresses the composition into its governing invariant. Every mechanism runs on one of two clocks. Decisions occur at opening, on information available before the current return is realized, and produce the executed mixture at the right of the pipeline. Learning states, evidence statistics, and collateral commitments change only at maturity, when a cohort\u2019s Safe-relative reward becomes o \u2014 This is a text-based methodology section describing a multi-mechanism control framework rather th",
       "vision": true,
       "source": "https://arxiv.org/pdf/2611.04826v1"
     },
@@ -152,7 +197,7 @@
       "title": "Safe Portfolio Learning from Untrusted Predictions: Signed Trust, Abstention, and Cross-Universe Polarity Failure",
       "page": 5,
       "thumb": "/data/figures/2611.04826v1_p5_1.jpg",
-      "caption": "Figure 1. The controller on its two clocks. Opening (top): the prediction becomes a centered direction, three can- didate portfolios feed the share-adaptive signed master, and the raw probability passes the evidence gate and the collateral budget, both one-sided (falling active-mass bars), before the executed mixture trades in the satellite of the split account whose protected core follows the Saf \u2014 This figure illustrates a two-stage portfolio management system with an opening phase (top) and s",
+      "caption": "Figure 1. The controller on its two clocks. Opening (top): the prediction becomes a centered direction, three can- didate portfolios feed the share-adaptive signed master, and the raw probability passes the evidence gate and the collateral budget, both one-sided (falling active-mass bars), before the executed mixture trades in the satellite of the split account whose protected core follows the Saf \u2014 This flowchart illustrates a two-stage portfolio construction and management system with decision",
       "vision": true,
       "source": "https://arxiv.org/pdf/2611.04826v1"
     },
@@ -161,7 +206,7 @@
       "title": "Safe Portfolio Learning from Untrusted Predictions: Signed Trust, Abstention, and Cross-Universe Polarity Failure",
       "page": 19,
       "thumb": "/data/figures/2611.04826v1_p19_2.jpg",
-      "caption": "Figure 2. A \ufb01xed signal orientation fails to deliver persistent economic value. Cumulative realized net log reward relative to Safe at cohort maturities for Always Follow, Always Reverse, and the executed adaptive controller. The executed-controller path is a post-holdout mechanism diagnostic, not a con\ufb01rmatory alpha result, and cohort-level cumulative reward is distinct from the daily protected-w \u2014 This line chart displays cumulative realized net log reward over time from 2017 to 2026 across th",
+      "caption": "Figure 2. A \ufb01xed signal orientation fails to deliver persistent economic value. Cumulative realized net log reward relative to Safe at cohort maturities for Always Follow, Always Reverse, and the executed adaptive controller. The executed-controller path is a post-holdout mechanism diagnostic, not a con\ufb01rmatory alpha result, and cohort-level cumulative reward is distinct from the daily protected-w \u2014 This line chart displays cumulative realized net log reward over time from 2017 to 2026, comparin",
       "vision": true,
       "source": "https://arxiv.org/pdf/2611.04826v1"
     },
@@ -170,7 +215,7 @@
       "title": "Safe Portfolio Learning from Untrusted Predictions: Signed Trust, Abstention, and Cross-Universe Polarity Failure",
       "page": 19,
       "thumb": "/data/figures/2611.04826v1_p19_3.jpg",
-      "caption": "Figure 2 adds what the full-sample table cannot show, and it teaches two lessons. Orientation value is time-varying, since Always Follow accumulates useful reward over parts of the sample and then surrenders it, so a sign correct over one interval need not stay correct over the next. And Reverse is not hidden symmetric alpha, being substantially more damaging than Follow on this path. There is als \u2014 This line chart displays cumulative realized net log reward over time from 2017 to 2026, comparin",
+      "caption": "Figure 2 adds what the full-sample table cannot show, and it teaches two lessons. Orientation value is time-varying, since Always Follow accumulates useful reward over parts of the sample and then surrenders it, so a sign correct over one interval need not stay correct over the next. And Reverse is not hidden symmetric alpha, being substantially more damaging than Follow on this path. There is als \u2014 This line chart displays cumulative realized net log reward over time from 2017 to 2026 for three",
       "vision": true,
       "source": "https://arxiv.org/pdf/2611.04826v1"
     },
@@ -179,57 +224,60 @@
       "title": "CosmosAlpha: Multi-Relational Graph Search with Pareto-Guided Exploration for LLM-Driven Alpha Mining",
       "page": 2,
       "thumb": "/data/figures/2611.04555v1_p2_0.jpg",
-      "caption": "Figure 1: Overview of CosmosAlpha. (1) Evaluated factors form a pool-level multi-relational graph with generation, structure, and exposure-correlation edges. (2) Graph Flow propagates Quality, Fertility, and Di- versity, after which Pareto-guided selection chooses parents for LLM-driven mutation and evaluated children return to the graph. (3) The fixed factor pool is preprocessed and integrated wi \u2014 This figure presents a three-stage framework for automated alpha factor discovery in quantitative",
+      "caption": "Figure 1: Overview of CosmosAlpha. (1) Evaluated factors form a pool-level multi-relational graph with generation, structure, and exposure-correlation edges. (2) Graph Flow propagates Quality, Fertility, and Di- versity, after which Pareto-guided selection chooses parents for LLM-driven mutation and evaluated children return to the graph. (3) The fixed factor pool is preprocessed and integrated wi \u2014 This figure presents the three-stage architecture of CosmosAlpha for automated alpha factor disco",
       "vision": true,
       "source": "https://arxiv.org/pdf/2611.04555v1"
-    },
-    {
-      "doc_id": "2611.04555v1",
-      "title": "CosmosAlpha: Multi-Relational Graph Search with Pareto-Guided Exploration for LLM-Driven Alpha Mining",
-      "page": 12,
-      "thumb": "/data/figures/2611.04555v1_p12_1.jpg",
-      "caption": "Figure 2: Search-state trajectories of CosmosAlpha-Graph and CosmosAlpha-MCTS over cumulative factor-generation steps. From left to right, the panels show node-level Quality, Fertility, and AverageDis- tance. Each point reports these quantities for the newly generated factor at the aligned diagnostic factor- generation index. Panels use native vertical scales. \u2014 This figure displays three line charts tracking metrics across cumulative factor-generation steps for two search algorithms: CosmosAlph",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2611.04555v1"
-    },
-    {
-      "doc_id": "2611.04533v1",
-      "title": "How market volatility responds to a preceding price trend: a lag-resolved measurement in cryptocurrencies and equities",
-      "page": 7,
-      "thumb": "/data/figures/2611.04533v1_p7_0.jpg",
-      "caption": "Figure 1: The measurement. Top: a log-price trajectory with a trend window of length W = 20 min and a volatility window of the same length, displayed for a positive lag \u2113(trend preceding volatility; at \u2113= W the windows are contiguous) and for a negative lag (trend following volatility: the anti-causal side). Lag is defined as the distance between the ends of the two windows. Bottom: one epoch of B \u2014 This figure demonstrates a method for measuring the relationship between price trends and subsequ",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2611.04533v1"
-    },
-    {
-      "doc_id": "2611.04533v1",
-      "title": "How market volatility responds to a preceding price trend: a lag-resolved measurement in cryptocurrencies and equities",
-      "page": 10,
-      "thumb": "/data/figures/2611.04533v1_p10_1.jpg",
-      "caption": "Figure 2 plots the response of the three cryptocurrencies as a function of lag. Table 2 lists the values at 20 minutes. In Bitcoin and Ether the asymmetry is small at negative lags, consistent with zero \u2014 Figure 2 is a line plot showing the response of volatility in three cryptocurrencies (Bitcoin, Ether, and a third unnamed asset) as a function of lag, measured in minutes. The x-axis represents lag time and the y-axis represents the volatility response magnitude, with the plot displaying asymme",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2611.04533v1"
-    },
-    {
-      "doc_id": "2611.04533v1",
-      "title": "How market volatility responds to a preceding price trend: a lag-resolved measurement in cryptocurrencies and equities",
-      "page": 11,
-      "thumb": "/data/figures/2611.04533v1_p11_2.jpg",
-      "caption": "Figure 2: The response as a function of lag. The asymmetry \u2206(\u2113) from the log channel, pooled across epochs with the epoch as the unit (mean across epochs and its standard error at each lag), for (a) Bitcoin, (b) Ether, (c) Solana and (d) the index fund; the three stocks are displayed in Appendix D (Fig. D.1). The gray region indicates anti-causal lags. For the cryptocurrencies the fits from Sectio \u2014 This figure shows four time-series plots displaying the asymmetry metric \u0394(\u2113) as a function of la",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2611.04533v1"
-    },
-    {
-      "doc_id": "2611.04533v1",
-      "title": "How market volatility responds to a preceding price trend: a lag-resolved measurement in cryptocurrencies and equities",
-      "page": 12,
-      "thumb": "/data/figures/2611.04533v1_p12_3.jpg",
-      "caption": "Figure 3 plots the T-even part \u2206even and the T-odd part \u2206odd from Eq. (4) at six lags from 20 to 120 minutes, computed per epoch from the scale-free asymmetry \u2206s (Section 3.4). Table 3 tabulates the values. In Bitcoin and Ether the T-odd part is of comparable magnitude to the T-even part. At 20 minutes, \u2206even = +0.038 \u00b1 0.005 and \u2206odd = +0.032 \u00b1 0.006 for Bitcoin, and \u2206even = +0.037 \u00b1 0.004 and \u2206o \u2014 This table reports statistical results for the scale-free asymmetry measure (\u0394_s) decomposed into",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2611.04533v1"
     }
   ],
   "docs": [
+    {
+      "id": "2611.06607v1",
+      "title": "Hard to Fool: A Bounded LLM Research Loop for Quantitative Finance, and What Two Dozen Campaigns Found",
+      "source": "https://arxiv.org/pdf/2611.06607v1",
+      "pages": 10,
+      "images": 0,
+      "figures_captioned": 0,
+      "tables": 0,
+      "has_math": false,
+      "ocr_used": false,
+      "chunks_indexed": 17
+    },
+    {
+      "id": "2611.06495v1",
+      "title": "Constrained defined-contribution pension management: A reparameterized neural network approach",
+      "source": "https://arxiv.org/pdf/2611.06495v1",
+      "pages": 43,
+      "images": 0,
+      "figures_captioned": 1,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 43
+    },
+    {
+      "id": "2611.06459v1",
+      "title": "A general technique for explicit quantile representations",
+      "source": "https://arxiv.org/pdf/2611.06459v1",
+      "pages": 34,
+      "images": 0,
+      "figures_captioned": 0,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 39
+    },
+    {
+      "id": "2611.06126v1",
+      "title": "Exponential Seniority Weighting Chain-Ladder Reserving",
+      "source": "https://arxiv.org/pdf/2611.06126v1",
+      "pages": 26,
+      "images": 5,
+      "figures_captioned": 4,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 47
+    },
     {
       "id": "2611.05310v1",
       "title": "Mitigating Return Drag and Regime Whipsaws in Sector Rotation: An Asymmetric Downside-Aware Nested Clustered Optimization Framework",
@@ -272,11 +320,11 @@
       "source": "https://arxiv.org/pdf/2611.04555v1",
       "pages": 41,
       "images": 1,
-      "figures_captioned": 2,
+      "figures_captioned": 1,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 45
+      "chunks_indexed": 44
     },
     {
       "id": "2611.04533v1",
@@ -284,11 +332,11 @@
       "source": "https://arxiv.org/pdf/2611.04533v1",
       "pages": 37,
       "images": 0,
-      "figures_captioned": 4,
+      "figures_captioned": 0,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 67
+      "chunks_indexed": 63
     },
     {
       "id": "2611.04223v1",
@@ -301,54 +349,6 @@
       "has_math": true,
       "ocr_used": false,
       "chunks_indexed": 29
-    },
-    {
-      "id": "2611.04119v1",
-      "title": "Multidimensional Views Behind Target-Price Revisions: An LLM-Based Representation of Analyst Outlooks",
-      "source": "https://arxiv.org/pdf/2611.04119v1",
-      "pages": 10,
-      "images": 6,
-      "figures_captioned": 0,
-      "tables": 1,
-      "has_math": false,
-      "ocr_used": false,
-      "chunks_indexed": 22
-    },
-    {
-      "id": "2611.04116v1",
-      "title": "Decomposing Rank Reversals under Temporal Nonstationarity: Alignment, Aggressiveness, and Instability",
-      "source": "https://arxiv.org/pdf/2611.04116v1",
-      "pages": 56,
-      "images": 0,
-      "figures_captioned": 0,
-      "tables": 4,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 67
-    },
-    {
-      "id": "2611.04070v1",
-      "title": "Are LLM Research Agents Reliable Judges of Predictability? Evidence from Planted-Signal Worlds",
-      "source": "https://arxiv.org/pdf/2611.04070v1",
-      "pages": 41,
-      "images": 0,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 43
-    },
-    {
-      "id": "2611.04040v1",
-      "title": "PanelGP: A Probabilistic Factor Model for Asset-Return Panels",
-      "source": "https://arxiv.org/pdf/2611.04040v1",
-      "pages": 43,
-      "images": 0,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 37
     }
   ]
 }
