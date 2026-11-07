@@ -1,7 +1,7 @@
 {
   "_note": "Public run manifest of the Tier-3 agentic ingestion pipeline. Safe aggregates + provenance only; raw PDFs live in S3, not here.",
-  "run_id": "20261106T092633Z",
-  "generated_at": "2026-11-06T09:29:04+00:00",
+  "run_id": "20261107T084904Z",
+  "generated_at": "2026-11-07T08:52:05+00:00",
   "collection": "research_corpus",
   "embed_model": "BAAI/bge-small-en-v1.5",
   "dag": [
@@ -58,8 +58,8 @@
     "tables": 1,
     "with_math": 9,
     "indexed": 415,
-    "spent_usd": 0.0312,
-    "duration_s": 151.0
+    "spent_usd": 0.0309,
+    "duration_s": 180.9
   },
   "rejects_by_reason": {
     "low-relevance": 32
@@ -71,7 +71,7 @@
       "title": "FINCOSMOS: An Open-World Evaluation Paradigm for Agents in Finance",
       "page": 2,
       "thumb": "/data/figures/2611.07464v1_p2_0.jpg",
-      "caption": "Figure 1: A silent failure. The user is satisfied, yet the delivery gets the intent and the data wrong; only time is right. \u2014 This figure illustrates a dialogue-based evaluation scenario from a financial agent system showing a disconnect between investor satisfaction and actual delivery accuracy. The diagram presents a conversation flow where an investor requests a stock selection strategy combining short-term price reversal, insider buying, and FDA catalyst proximity, with a 20% drawdown stop-l",
+      "caption": "Figure 1: A silent failure. The user is satisfied, yet the delivery gets the intent and the data wrong; only time is right. \u2014 This diagram illustrates a silent failure scenario in financial agent evaluation where an investor receives an apparently satisfactory stock selection strategy despite misalignment between stated intent and actual delivery. The investor's specification includes three selection criteria (short-term price reversal, insider buying, and catalyst proximity) with a 20% drawdown",
       "vision": true,
       "source": "https://arxiv.org/pdf/2611.07464v1"
     },
@@ -80,7 +80,7 @@
       "title": "FINCOSMOS: An Open-World Evaluation Paradigm for Agents in Finance",
       "page": 5,
       "thumb": "/data/figures/2611.07464v1_p5_1.jpg",
-      "caption": "Figure 2: Overview of FinCosmos. Left: its three components hide a strategy \ud835\udc4ffrom the agent and grade what it delivers. Right: the agent works in the open real world, finds its own data, and must stay before the cutoff. Red badges mark where each silent failure arises and the check that catches it. \u2014 This figure illustrates the FinCosmos framework architecture for evaluating financial agents, displayed as a block diagram with two main sections. The left side shows three evaluation components: St",
+      "caption": "Figure 2: Overview of FinCosmos. Left: its three components hide a strategy \ud835\udc4ffrom the agent and grade what it delivers. Right: the agent works in the open real world, finds its own data, and must stay before the cutoff. Red badges mark where each silent failure arises and the check that catches it. \u2014 This figure presents the FinCosmos evaluation framework architecture with two main sections: the left side shows the internal evaluation pipeline with a Strategy Generator, User Simulator, and Evalu",
       "vision": true,
       "source": "https://arxiv.org/pdf/2611.07464v1"
     },
@@ -89,7 +89,7 @@
       "title": "FINCOSMOS: An Open-World Evaluation Paradigm for Agents in Finance",
       "page": 13,
       "thumb": "/data/figures/2611.07464v1_p13_2.jpg",
-      "caption": "Figure 3: Failed vetoes per session along practice for each of the ten tasks (gray) and their median (blue): in the first session, averaged over the first and the last five sessions before acceptance, and in the accepted session. \u2014 This line graph displays failed vetoes per session across the practice trajectory for ten financial tasks, with individual task trajectories shown in gray and the median trend highlighted in blue. The x-axis represents four stages: 1st session, First 5 sessions, Last ",
+      "caption": "Figure 3: Failed vetoes per session along practice for each of the ten tasks (gray) and their median (blue): in the first session, averaged over the first and the last five sessions before acceptance, and in the accepted session. \u2014 This line chart displays the median number of failed vetoes per session across four evaluation stages: 1st session, First 5, Last 5, and Accepted, with individual task trajectories shown in gray. The y-axis measures failed vetoes per session (0-13), and the blue line ",
       "vision": true,
       "source": "https://arxiv.org/pdf/2611.07464v1"
     },
@@ -98,7 +98,7 @@
       "title": "FINCOSMOS: An Open-World Evaluation Paradigm for Agents in Finance",
       "page": 21,
       "thumb": "/data/figures/2611.07464v1_p21_3.jpg",
-      "caption": "Figure 4: Dimension scores of all 150 sessions in the main experiment. Each column is one session, grouped by agent; within each agent, the sessions that the simulated user signed off (top strip) come first, left of the dark line, and each group is ordered by task. Each row is one of the 37 scored dimensions; veto dimensions are in bold, and the shading behind each label marks its judge: programs, \u2014 This figure is a heatmap displaying evaluation scores across 37 dimensions for 150 sessions compa",
+      "caption": "Figure 4: Dimension scores of all 150 sessions in the main experiment. Each column is one session, grouped by agent; within each agent, the sessions that the simulated user signed off (top strip) come first, left of the dark line, and each group is ordered by task. Each row is one of the 37 scored dimensions; veto dimensions are in bold, and the shading behind each label marks its judge: programs, \u2014 This heatmap displays evaluation scores across 37 dimensions for 150 sessions grouped by five AI ",
       "vision": true,
       "source": "https://arxiv.org/pdf/2611.07464v1"
     },
@@ -107,7 +107,7 @@
       "title": "Information-Theoretic Model for the Growth Optimal Portfolio of Stocks",
       "page": 7,
       "thumb": "/data/figures/2611.07457v1_p7_0.jpg",
-      "caption": "Figure 2.1: Logarithms of MSCI (in blue) and EWI163 (in red) in US savings account denomination. \u2014 This line chart displays the logarithmic growth of two equity indices from 1972 to 2023, with the MSCI index shown in blue and the EWI163 index shown in red, both denominated in US dollars. The y-axis represents the natural logarithm of index values ranging from approximately -2 to 7, while the x-axis shows the time period in decades. The key takeaway is that the EWI163 (red line) substantially out",
+      "caption": "Figure 2.1: Logarithms of MSCI (in blue) and EWI163 (in red) in US savings account denomination. \u2014 This line chart displays the cumulative log returns of two equity indices from 1972 to 2022, with the blue line representing MSCI and the red line representing EWI163, both denominated in US dollars. The x-axis shows time in years and the y-axis shows logarithmic values ranging from approximately -2 to 7. The key takeaway is that EWI163 (red) substantially outperformed the MSCI benchmark (blue) ove",
       "vision": true,
       "source": "https://arxiv.org/pdf/2611.07457v1"
     },
@@ -116,7 +116,7 @@
       "title": "Information-Theoretic Model for the Growth Optimal Portfolio of Stocks",
       "page": 8,
       "thumb": "/data/figures/2611.07457v1_p8_1.jpg",
-      "caption": "Figure 2.2: Activity times of MSCI (in blue) and EWI163 (in red) with trendlines. \u2014 This line chart displays activity times (likely log-returns or cumulative performance measures) for two equity indices from 1972 to 2022: the MSCI index shown in blue and the EWI163 index shown in red, each with corresponding dotted trendlines. The y-axis ranges from -8 to 4, representing activity time values, while the x-axis shows years across a 50-year period. The key takeaway is that both indices show divergi",
+      "caption": "Figure 2.2: Activity times of MSCI (in blue) and EWI163 (in red) with trendlines. \u2014 This line chart displays activity times (a measure derived from information theory) for two equity indices from 1972 to 2022, with the MSCI index shown in blue and the EWI163 index in red, each accompanied by dotted trendlines. The y-axis represents activity time values ranging from approximately -8 to 4, while the x-axis spans five decades of historical data. The key takeaway is that both indices show upward tre",
       "vision": true,
       "source": "https://arxiv.org/pdf/2611.07457v1"
     },
@@ -125,7 +125,7 @@
       "title": "Information-Theoretic Model for the Growth Optimal Portfolio of Stocks",
       "page": 9,
       "thumb": "/data/figures/2611.07457v1_p9_2.jpg",
-      "caption": "Figure 2.3: Activity of MSCI in calendar time. \u2014 This bar chart displays the activity of MSCI (Morgan Stanley Capital International) measured over calendar time from 1970 to 2030, with the y-axis showing frequency or count (ranging from 0 to 16) and the x-axis showing years. The chart reveals several notable spikes in activity, with the most prominent peak occurring around 1987-1988 (reaching approximately 15), and secondary spikes around 1995, 2010, and 2020. The key takeaway is that MSCI activ",
+      "caption": "Figure 2.3: Activity of MSCI in calendar time. \u2014 This figure is a bar chart showing the temporal activity of MSCI (Morgan Stanley Capital International) from 1970 to 2030, with time in years on the x-axis and frequency or count on the y-axis (ranging from 0 to 16). The chart displays discrete spikes in activity, with the most prominent peak occurring around 1987 (reaching approximately 15), followed by smaller peaks in the mid-1990s, around 2005-2010, and 2020. The key takeaway is that MSCI acti",
       "vision": true,
       "source": "https://arxiv.org/pdf/2611.07457v1"
     },
@@ -134,7 +134,7 @@
       "title": "Information-Theoretic Model for the Growth Optimal Portfolio of Stocks",
       "page": 9,
       "thumb": "/data/figures/2611.07457v1_p9_3.jpg",
-      "caption": "Figure 2.4: Activity of MSCI in activity time. \u2014 The bottom panel is a histogram showing the distribution of MSCI activity transformed into activity time (logarithmic or normalized scale), with the x-axis ranging from approximately -4 to 0 and the y-axis showing frequency up to 16. The histogram exhibits a highly non-normal, heavily right-skewed distribution with a prominent sharp peak near -2.5, indicating that most activity time intervals cluster around a specific value. This visualization ill",
+      "caption": "Figure 2.4: Activity of MSCI in activity time. \u2014 The upper chart is a time series plot showing MSCI activity measured in calendar time from 1970 to 2030, with the y-axis ranging from 0 to 10. The lower chart displays the same MSCI activity data converted to activity time (a non-linear time transformation), with the x-axis showing activity time values from -4 to 0 and y-axis from 0 to 16. The key takeaway is that rescaling from calendar time to activity time concentrates and highlights periods of",
       "vision": true,
       "source": "https://arxiv.org/pdf/2611.07457v1"
     },
@@ -143,7 +143,7 @@
       "title": "Neural Realized Measures: Forecast-Supervised Intraday Aggregation for Volatility Forecasting",
       "page": 3,
       "thumb": "/data/figures/2611.07287v1_p3_0.jpg",
-      "caption": "Figure 1 contrasts the classical and NRM pipelines. NRM specif- ically modifies the within-day aggregation stage; both pipelines subsequently feed a daily measure into the same class of forecast models. \u2014 This section describes the Shape-Time-Local-Global (STLG) state representation used in neural realized measures for volatility forecasting. The text defines mathematical decompositions of OHLC (open-high-low-close) bar data into normalized shape components: body (BR_k), upper wick (UR_k), and l",
+      "caption": "Figure 1 contrasts the classical and NRM pipelines. NRM specif- ically modifies the within-day aggregation stage; both pipelines subsequently feed a daily measure into the same class of forecast models. \u2014 This section describes the Shape-Time-Local-Global (STLG) state representation used in the neural realized measures framework for volatility forecasting. The text defines candlestick-based features including body (Br,k), upper wick (Ur,k), and lower wick (Dr,k) components, with normalized versi",
       "vision": true,
       "source": "https://arxiv.org/pdf/2611.07287v1"
     },
@@ -152,7 +152,7 @@
       "title": "Neural Realized Measures: Forecast-Supervised Intraday Aggregation for Volatility Forecasting",
       "page": 4,
       "thumb": "/data/figures/2611.07287v1_p4_1.jpg",
-      "caption": "Figure 1: Classical realized-measure and NRM pipelines. The classical construction sums fixed primitive contributions. NRM retains the same primitive sequence but forms normalized aggregation weights from the fixed STLG representation and a same-day local benchmark. Its output remains a daily realized measure before entering a downstream forecast model. \u2014 This figure compares two pipelines for constructing realized volatility measures: Classical RM (left panel) and STLG Neural RM (right panel). ",
+      "caption": "Figure 1: Classical realized-measure and NRM pipelines. The classical construction sums fixed primitive contributions. NRM retains the same primitive sequence but forms normalized aggregation weights from the fixed STLG representation and a same-day local benchmark. Its output remains a daily realized measure before entering a downstream forecast model. \u2014 This figure compares two pipelines for constructing realized measures for volatility forecasting: Classical RM (left) and STLG neural RM (righ",
       "vision": true,
       "source": "https://arxiv.org/pdf/2611.07287v1"
     },
@@ -161,7 +161,7 @@
       "title": "Neural Realized Measures: Forecast-Supervised Intraday Aggregation for Volatility Forecasting",
       "page": 8,
       "thumb": "/data/figures/2611.07287v1_p8_2.jpg",
-      "caption": "Figure 2: Intraday SF\u2013NRM weights for BTC\u2013, ETH\u2013, and SOL\u2013RV. Lines show medians, bands show 10th\u201390th per- centiles, and one denotes uniform aggregation. \u2014 This line chart displays intraday aggregation weights (SF-NRM) across 24 UTC hours for three cryptocurrencies: Bitcoin (BTC-RV), Ethereum (ETH-RV), and Solana (SOL-RV). The y-axis shows realized variance weights ranging from 0.5 to 2.5, while the x-axis represents intraday time in UTC from 0 to 24 hours, with shaded bands indicating the 10th",
+      "caption": "Figure 2: Intraday SF\u2013NRM weights for BTC\u2013, ETH\u2013, and SOL\u2013RV. Lines show medians, bands show 10th\u201390th per- centiles, and one denotes uniform aggregation. \u2014 This line chart displays intraday aggregation weights over a 24-hour period (0-24 UTC) for three cryptocurrencies: Bitcoin (BTC-RV), Ethereum (ETH-RV), and Solana (SOL-RV) realized volatility measures. The y-axis shows the weighting factor (ranging from approximately 0.5 to 2.5), with solid lines representing median weights and shaded bands ",
       "vision": true,
       "source": "https://arxiv.org/pdf/2611.07287v1"
     },
@@ -170,7 +170,7 @@
       "title": "Neural Realized Measures: Forecast-Supervised Intraday Aggregation for Volatility Forecasting",
       "page": 8,
       "thumb": "/data/figures/2611.07287v1_p8_3.jpg",
-      "caption": "Figure 3 examines how the Local and Time inputs affect the fitted pre-normalization scores. It reports mean SHAP contributions within common bins for representative liquid-asset cases. Panel (a) displays the local volatility ratio on its RRM scale, although the network receives its logarithm. Positive (negative) values indicate inputs that raise (lower) the score relative to its baseline. \u2014 This table presents a controlled ablation study of a HAR-NRML (Heterogeneous Autoregressive Neural Realize",
+      "caption": "Figure 3 examines how the Local and Time inputs affect the fitted pre-normalization scores. It reports mean SHAP contributions within common bins for representative liquid-asset cases. Panel (a) displays the local volatility ratio on its RRM scale, although the network receives its logarithm. Positive (negative) values indicate inputs that raise (lower) the score relative to its baseline. \u2014 This table presents controlled ablation results for a HAR-NRML (Heterogeneous AutoRegressive Neural Realiz",
       "vision": true,
       "source": "https://arxiv.org/pdf/2611.07287v1"
     },
@@ -179,7 +179,7 @@
       "title": "A Rough Instantaneous Squared VIX Model for Term Structure and Option Pricing",
       "page": 11,
       "thumb": "/data/figures/2611.07120v1_p11_0.jpg",
-      "caption": "Figure 1 illustrates the historical evolution and term-structure variation of the VIX indices. \u2014 The figure displays a time-series plot showing the historical evolution of VIX indices across different maturities, with time on the x-axis and VIX level on the y-axis. Multiple lines represent VIX term structure at various time points, illustrating how implied volatility varies across different option expiration dates. The visualization demonstrates the dynamic behavior of the VIX term structure ove",
+      "caption": "Figure 1 illustrates the historical evolution and term-structure variation of the VIX indices. \u2014 This figure displays time series data of VIX indices across different maturities, showing how the VIX term structure evolves over the historical sample period. The line chart plots VIX levels (y-axis) against time (x-axis), with multiple lines representing VIX indices at various tenors to illustrate the dynamics and relative positioning of short-dated versus longer-dated volatility measures. The key ",
       "vision": true,
       "source": "https://arxiv.org/pdf/2611.07120v1"
     },
@@ -188,7 +188,7 @@
       "title": "A Rough Instantaneous Squared VIX Model for Term Structure and Option Pricing",
       "page": 11,
       "thumb": "/data/figures/2611.07120v1_p11_1.jpg",
-      "caption": "Figure 1. Historical dynamics and term structure of VIX indices. Panel (a) plots the available daily closing values of VIX9D, VIX, VIX3M, VIX6M and VIX1Y on a common scale. Panel (b) displays the balanced term-structure panel used in the empirical analysis. \u2014 Panel (a) is a line chart showing historical daily closing values of five VIX indices (VIX9D, VIX, VIX3M, VIX6M, and VIX1Y) from 2004 to 2020, with the y-axis representing index levels and demonstrating that volatility indices tend to move ",
+      "caption": "Figure 1. Historical dynamics and term structure of VIX indices. Panel (a) plots the available daily closing values of VIX9D, VIX, VIX3M, VIX6M and VIX1Y on a common scale. Panel (b) displays the balanced term-structure panel used in the empirical analysis. \u2014 Panel (a) is a line chart showing daily closing values of five VIX indices (VIX9D, VIX, VIX3M, VIX6M, VIX1Y) from 2003 to 2020, with the y-axis displaying index levels (0-80) and demonstrating that shorter-maturity VIX indices exhibit highe",
       "vision": true,
       "source": "https://arxiv.org/pdf/2611.07120v1"
     },
@@ -197,7 +197,7 @@
       "title": "A Rough Instantaneous Squared VIX Model for Term Structure and Option Pricing",
       "page": 13,
       "thumb": "/data/figures/2611.07120v1_p13_2.jpg",
-      "caption": "Figure 2. Term-structure fit by VIX shocks. Bars report percentage MSE reductions for RISVIX relative to LZZ for each diagnostic and group. The sample runs from January 2, 2018 to June 30, 2025. \u2014 This bar chart displays MSE reductions (in percentage terms) for the RISVIX model relative to a benchmark across three diagnostic categories: Level, Slope, and Curvature. The data is stratified into three groups: All dates (T=1,883), Extreme VIX shocks (T=189), and No-shock dates (T=1,694). The key tak",
+      "caption": "Figure 2. Term-structure fit by VIX shocks. Bars report percentage MSE reductions for RISVIX relative to LZZ for each diagnostic and group. The sample runs from January 2, 2018 to June 30, 2025. \u2014 This bar chart compares MSE reductions (in percentage terms) across three VIX shock categories: All dates, Extreme VIX shocks, and No-shock dates. For each category, three metrics are shown\u2014Level (blue), Slope (teal), and Curvature (purple)\u2014representing the model's fit to different components of the VI",
       "vision": true,
       "source": "https://arxiv.org/pdf/2611.07120v1"
     },
@@ -206,7 +206,7 @@
       "title": "A Rough Instantaneous Squared VIX Model for Term Structure and Option Pricing",
       "page": 14,
       "thumb": "/data/figures/2611.07120v1_p14_3.jpg",
-      "caption": "Figure 3 decomposes the percentage reduction in level MSE across VIX horizons. Panel (a) uses \u2014 This section heading indicates Figure 3 presents a bar or decomposition chart showing percentage reduction in level Mean Squared Error (MSE) across different VIX term structure horizons. The figure decomposes performance improvements by horizon to evaluate how well the rough instantaneous squared VIX model fits VIX term structure data at various maturities. The key takeaway is the model's explanatory ",
+      "caption": "Figure 3 decomposes the percentage reduction in level MSE across VIX horizons. Panel (a) uses \u2014 This section header indicates Figure 3 presents a decomposition of percentage reduction in mean squared error (MSE) across different VIX term structure horizons, with Panel (a) showing results for level MSE. The figure compares model fit performance across multiple time horizons in the VIX volatility surface, demonstrating how the rough instantaneous squared VIX model reduces prediction error at diffe",
       "vision": true,
       "source": "https://arxiv.org/pdf/2611.07120v1"
     },
@@ -215,7 +215,7 @@
       "title": "Credibility Clustering for Experience Rating: An Automated Approach to Risk Group Allocation in Group Life Insurance",
       "page": 8,
       "thumb": "/data/figures/2611.07110v1_p8_0.jpg",
-      "caption": "Figure 1: Schematic overview of the credibility clustering framework. Squares denote input and output stages; rectangles represent the methodological com- ponents (credibility and clustering). In our application, we use the multidi- mensional B\u00a8uhlmann\u2013Straub model and k-means. Gray and blue cells specify relevant variables and granularity levels. \u2014 This flowchart illustrates a credibility clustering framework for risk group allocation in group life insurance. The diagram shows a data pipeline w",
+      "caption": "Figure 1: Schematic overview of the credibility clustering framework. Squares denote input and output stages; rectangles represent the methodological com- ponents (credibility and clustering). In our application, we use the multidi- mensional B\u00a8uhlmann\u2013Straub model and k-means. Gray and blue cells specify relevant variables and granularity levels. \u2014 This flowchart illustrates a credibility clustering framework for risk group allocation in group life insurance. The diagram shows a two-stage proce",
       "vision": true,
       "source": "https://arxiv.org/pdf/2611.07110v1"
     },
@@ -224,7 +224,7 @@
       "title": "Credibility Clustering for Experience Rating: An Automated Approach to Risk Group Allocation in Group Life Insurance",
       "page": 10,
       "thumb": "/data/figures/2611.07110v1_p10_1.jpg",
-      "caption": "Figure 2: Overview of the k-means method, with and without outlier removal, used as a benchmark for the CCF. In contrast to credibility clustering, the in- put data is directly aggregated using Equation (5). Depending on the variant, outliers are either retained or removed from the data. Clustering is then applied to this aggregated data. If outliers were removed beforehand, they are subse- quentl \u2014 This flow diagram illustrates a k-means clustering methodology for risk group allocation in group",
+      "caption": "Figure 2: Overview of the k-means method, with and without outlier removal, used as a benchmark for the CCF. In contrast to credibility clustering, the in- put data is directly aggregated using Equation (5). Depending on the variant, outliers are either retained or removed from the data. Clustering is then applied to this aggregated data. If outliers were removed beforehand, they are subse- quentl \u2014 This flowchart illustrates a k-means clustering benchmark method for risk group allocation in gro",
       "vision": true,
       "source": "https://arxiv.org/pdf/2611.07110v1"
     }
