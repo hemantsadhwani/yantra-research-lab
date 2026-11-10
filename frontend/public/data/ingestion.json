@@ -1,7 +1,7 @@
 {
   "_note": "Public run manifest of the Tier-3 agentic ingestion pipeline. Safe aggregates + provenance only; raw PDFs live in S3, not here.",
-  "run_id": "20261109T095012Z",
-  "generated_at": "2026-11-09T09:53:17+00:00",
+  "run_id": "20261110T095336Z",
+  "generated_at": "2026-11-10T09:56:50+00:00",
   "collection": "research_corpus",
   "embed_model": "BAAI/bge-small-en-v1.5",
   "dag": [
@@ -50,305 +50,305 @@
     "discovered": 10,
     "fetched": 10,
     "parsed": 10,
-    "chunks": 461,
-    "accepted": 425,
-    "rejected": 36,
-    "images": 3,
+    "chunks": 475,
+    "accepted": 449,
+    "rejected": 26,
+    "images": 22,
     "figures_captioned": 18,
     "tables": 3,
-    "with_math": 10,
-    "indexed": 425,
-    "spent_usd": 0.0336,
-    "duration_s": 184.2
+    "with_math": 9,
+    "indexed": 449,
+    "spent_usd": 0.0343,
+    "duration_s": 193.6
   },
   "rejects_by_reason": {
-    "low-relevance": 36
+    "low-relevance": 26
   },
   "budget_usd": 3.0,
   "figures": [
     {
-      "doc_id": "2611.09834v1",
-      "title": "The Logic of Factor Portfolios: Boolean Rules, Interactions, and Trading Costs",
+      "doc_id": "2611.12389v1",
+      "title": "Diversification Across Predictors: Heterogeneous Ensemble Learning for Cross-Sectional Return Prediction",
+      "page": 2,
+      "thumb": "/data/figures/2611.12389v1_p2_0.jpg",
+      "caption": "Figure 1: Pipeline of the Diversified Expert Ensemble. (A) Each predictor receives an independently bootstrap-sampled subset of the raw factor space, combined with a randomly selected feature subset, ensuring diverse training views across the ensemble. (B) All \ud835\udc41heterogeneous predictors (linear and nonlinear families) produce individual cross-sectional forecasts in parallel. (C) An IC protection fi \u2014 This figure illustrates a four-stage ensemble learning pipeline for cross-sectional return predic",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2611.12389v1"
+    },
+    {
+      "doc_id": "2611.12389v1",
+      "title": "Diversification Across Predictors: Heterogeneous Ensemble Learning for Cross-Sectional Return Prediction",
+      "page": 4,
+      "thumb": "/data/figures/2611.12389v1_p4_1.jpg",
+      "caption": "Figure 2 shows that the heterogeneous ensemble achieves both a larger diversity gain and a lower average error correlation than the homogeneous ensembles, consistent with Proposition 3.1. \u2014 Figure 2 presents two bar charts comparing synthetic validation results across different ensemble methods: diversity gain (left) and average error correlation (right). The left chart shows diversity gain (MSE - MSE_ens) with values ranging from approximately 0.01 to 0.12, while the right chart displays averag",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2611.12389v1"
+    },
+    {
+      "doc_id": "2611.12389v1",
+      "title": "Diversification Across Predictors: Heterogeneous Ensemble Learning for Cross-Sectional Return Prediction",
+      "page": 4,
+      "thumb": "/data/figures/2611.12389v1_p4_2.jpg",
+      "caption": "Figure 2: Synthetic validation of error complementarity. Ho- mogeneous ensembles use a single expert family, while the heterogeneous ensemble mixes linear, ReLU MLP, and Tanh MLP experts. Errors are computed against the noiseless tar- get. The heterogeneous ensemble exhibits a larger diversity gain and a lower average pairwise error correlation, support- ing Proposition 3.1. \u2014 This figure displays two bar charts comparing homogeneous versus heterogeneous ensemble methods on synthetic data. The l",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2611.12389v1"
+    },
+    {
+      "doc_id": "2611.12389v1",
+      "title": "Diversification Across Predictors: Heterogeneous Ensemble Learning for Cross-Sectional Return Prediction",
       "page": 5,
-      "thumb": "/data/figures/2611.09834v1_p5_0.jpg",
-      "caption": "Figure 1: A decision rule as a logic circuit. Each signal is ranked in the cross-section and compared with a threshold, producing a literal \ud835\udc65\ud835\udc57,\ud835\udc5e,\ud835\udc56,\ud835\udc61= 1{\ud835\udc62\ud835\udc57,\ud835\udc56,\ud835\udc61> \ud835\udc5e}; signals are oriented so that the favorable side has high rank (for volatility, low volatility). The long leg \ud835\udc3f+ holds stocks with high momentum and low volatility, or with high book-to-market and small size, provided that the stock is n \u2014 This figure shows a logic circuit diagram depicting a stock selection rule combining multiple qua",
+      "thumb": "/data/figures/2611.12389v1_p5_3.jpg",
+      "caption": "Figure 3: Synthetic validation of diversification gain under low signal. Predictors are generated with prescribed individ- ual IC \ud835\udf0cand pairwise error correlation \ud835\udc5f. Left: ensemble IC versus individual IC for different ensemble sizes. Right: rela- tive IC gain as a function of \ud835\udf0cand \ud835\udc5f. The gain is largest when individual signal is weak and errors are weakly correlated, consistent with Proposition 4. \u2014 The left panel shows ensemble IC (information coefficient) versus individual IC for ensemble size",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2611.09834v1"
+      "source": "https://arxiv.org/pdf/2611.12389v1"
     },
     {
-      "doc_id": "2611.09834v1",
-      "title": "The Logic of Factor Portfolios: Boolean Rules, Interactions, and Trading Costs",
-      "page": 16,
-      "thumb": "/data/figures/2611.09834v1_p16_1.jpg",
-      "caption": "Figure 2: Timing and estimation windows. Panel (a) shows when information becomes available and when positions are formed and held. Panel (b) shows the split used for the out-of-sample tangency portfolios of Section 7.1 and for the rule search of Online Appendix OA.4: weights and selected rules are estimated on 1973\u20132004 and evaluated on 2005\u20132024, and inside the training window the ridge penalty  \u2014 This figure illustrates the timing and data flow for a portfolio construction study. Panel (a) sh",
+      "doc_id": "2611.11803v1",
+      "title": "Diversified-Risk-Perception Risk Measures and Portfolio Selection",
+      "page": 21,
+      "thumb": "/data/figures/2611.11803v1_p21_0.jpg",
+      "caption": "Figure 1: DRP strategy in the Chinese stock market from April 1, 2020 to August 12, 2026 (\u03b1 = 0.95). \u2014 Figure 1 presents two line charts comparing cumulative returns of a Diversified-Risk-Perception (DRP) portfolio strategy against benchmark indices in the Chinese stock market from April 2020 to August 2026. Panel (a) compares the DRP strategy (blue line) against the CSI 300 Index (red line), showing the DRP strategy substantially underperforming with approximately 30% cumulative return versus t",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2611.09834v1"
+      "source": "https://arxiv.org/pdf/2611.11803v1"
     },
     {
-      "doc_id": "2611.09834v1",
-      "title": "The Logic of Factor Portfolios: Boolean Rules, Interactions, and Trading Costs",
-      "page": 16,
-      "thumb": "/data/figures/2611.09834v1_p16_2.jpg",
-      "caption": "Figure 2(a) shows when each piece of information becomes available. Accounting variables are used \u2014 This figure displays a timeline showing the sequential availability of information and portfolio construction steps from fiscal year-end through the holding period. Panel (a) illustrates that accounting data becomes usable 6+ months after fiscal year-end (548 days), followed by month t when CRSP prices, returns, and 60-month beta are computed, then month t when rankings are determined and trades e",
+      "doc_id": "2611.11803v1",
+      "title": "Diversified-Risk-Perception Risk Measures and Portfolio Selection",
+      "page": 22,
+      "thumb": "/data/figures/2611.11803v1_p22_1.jpg",
+      "caption": "Figure 2: DRP strategy in the South Korean stock market from April 1, 2020 to August 12, 2026 (\u03b1 = 0.95). \u2014 Figure 2 contains two line charts comparing cumulative returns of portfolio strategies in the South Korean stock market from April 2020 to August 2026. Panel (a) compares the DRP Strategy (red line) against the KOSPI Index benchmark (blue line), with the DRP strategy outperforming significantly, reaching approximately 270% cumulative return versus 400% for KOSPI by August 2026. Panel (b) c",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2611.09834v1"
+      "source": "https://arxiv.org/pdf/2611.11803v1"
     },
     {
-      "doc_id": "2611.09834v1",
-      "title": "The Logic of Factor Portfolios: Boolean Rules, Interactions, and Trading Costs",
-      "page": 19,
-      "thumb": "/data/figures/2611.09834v1_p19_3.jpg",
-      "caption": "Figure 3: Persistence and turnover. Panel (a) plots the realized month-to-month persistence of each median character of order one to four against the product of the persistences of its literals. Panel (b) plots the realized one-way turnover of equal-weighted legs defined by AND, OR, and majority rules on one to five literals against the exact value under Assumption 1. The dashed line in each panel \u2014 Panel (a) is a scatter plot comparing realized persistence (y-axis) versus predicted persistence ",
+      "doc_id": "2611.11803v1",
+      "title": "Diversified-Risk-Perception Risk Measures and Portfolio Selection",
+      "page": 23,
+      "thumb": "/data/figures/2611.11803v1_p23_2.jpg",
+      "caption": "Figure 3: DRP strategy in the U.S. stock market from April 1, 2020 to August 12, 2026 (\u03b1 = 0.95). \u2014 This figure contains two line charts showing cumulative returns in the U.S. stock market from April 2020 to August 2026. Panel (a) compares the DRP strategy (red line) against the S&P 500 Index (blue line), both starting near 0% and reaching approximately 150-200% cumulative returns by end of period, with the S&P 500 outperforming. Panel (b) compares the DRP strategy against five single-model alte",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2611.09834v1"
+      "source": "https://arxiv.org/pdf/2611.11803v1"
     },
     {
-      "doc_id": "2611.09286v1",
-      "title": "The End-of-Day Reversal After 2019: A Pre-Registered Test on S&P 500 Stocks Excluding Heavily Traded Names",
-      "page": 7,
-      "thumb": "/data/figures/2611.09286v1_p7_0.jpg",
-      "caption": "Figure 1. End-of-day reversal by year, in basis points per day, with 95% Newey\u2013West intervals. Bars show the primary sample: 2016\u20132019 (the reproduction test), 2020\u20132022 (descriptive) and 2023\u20132026 (the registered test period). Dots show the proxy sample that drops the 80 largest stocks by prior-month dollar volume. 2026 runs to October 30. \u2014 This bar chart displays annual end-of-day reversal returns in basis points per day from 2016 to 2026 for S&P 500 stocks, with 95% Newey-West confidence int",
+      "doc_id": "2611.11436v1",
+      "title": "Retrospective Analysis of Team-Following Trading Profitability in Pumpfun Meme Coins Using Funding Networks",
+      "page": 12,
+      "thumb": "/data/figures/2611.11436v1_p12_0.jpg",
+      "caption": "Figure 1: Cash and marks of the main account in each window. Bars split final equity into free cash and the marks of unresolved positions; the dotted line is the initial capital. Windows without a qualifying team are blank. \u2014 This stacked bar chart displays the account equity composition across monthly windows from April 2024 to September 2026, with bars segmented into free cash (dark blue) and marks of unresolved positions (light blue). The y-axis shows SOL (Solana) amounts ranging from 0 to 10",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2611.09286v1"
+      "source": "https://arxiv.org/pdf/2611.11436v1"
     },
     {
-      "doc_id": "2611.09012v1",
-      "title": "Towards Robust Reinforcement Learning Market Making: Lessons from Loss Function Experimentation",
-      "page": 3,
-      "thumb": "/data/figures/2611.09012v1_p3_0.jpg",
-      "caption": "Figure 1a shows the cumulative reward over the number of episodes. We can see that the agent using the penalty loss function achieves a significantly higher cumulative reward than the agent using the non-penalty loss function. This suggests that penalizing the agent for high inventory and low cash leads to better overall performance. Figure 1a for the non-penalty loss function highlights a curious \u2014 This figure defines two loss functions used in a reinforcement learning market-making model. The ",
+      "doc_id": "2611.11436v1",
+      "title": "Retrospective Analysis of Team-Following Trading Profitability in Pumpfun Meme Coins Using Funding Networks",
+      "page": 13,
+      "thumb": "/data/figures/2611.11436v1_p13_1.jpg",
+      "caption": "Figure 2: Timeline of the three teams of the 2025-02 window. Ticks are the team\u2019s launches (red: seed criterion met). The dotted line marks the first observable seed event, the solid line the moment when the online ranking index first exceeds ten; the shaded region contains the launches that could have been followed. \u2014 This timeline chart displays the launch activities of three teams across a 30-hour window starting February 2, 2025, with individual launches represented as vertical ticks colored",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2611.09012v1"
+      "source": "https://arxiv.org/pdf/2611.11436v1"
     },
     {
-      "doc_id": "2611.09012v1",
-      "title": "Towards Robust Reinforcement Learning Market Making: Lessons from Loss Function Experimentation",
-      "page": 4,
-      "thumb": "/data/figures/2611.09012v1_p4_1.jpg",
-      "caption": "Figure 1: Cumulative Reward and Steps \u2014 Figure 1 presents two line charts comparing cumulative performance metrics across 400 episodes for reinforcement learning training with and without penalty. Panel (a) shows cumulative reward on the y-axis (0-165) versus episode number (0-400), where the penalty condition (blue) substantially outperforms the no-penalty condition (orange), demonstrating faster reward accumulation. Panel (b) shows cumulative steps on the y-axis (0-144) versus episode number, ",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2611.09012v1"
-    },
-    {
-      "doc_id": "2611.09012v1",
-      "title": "Towards Robust Reinforcement Learning Market Making: Lessons from Loss Function Experimentation",
-      "page": 4,
-      "thumb": "/data/figures/2611.09012v1_p4_2.jpg",
-      "caption": "Figure 2: Reward per Episode \u2014 This figure shows a line plot comparing rewards per episode between two reinforcement learning models: one with a penalty loss function (blue) and one without penalty (red), across 400 episodes. The x-axis represents episode number and the y-axis represents reward amount (scaled to 10^4). The key takeaway is that the penalty-based model achieves consistently higher and more stable rewards over the long term, while the non-penalty model exhibits greater volatility w",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2611.09012v1"
-    },
-    {
-      "doc_id": "2611.09012v1",
-      "title": "Towards Robust Reinforcement Learning Market Making: Lessons from Loss Function Experimentation",
-      "page": 4,
-      "thumb": "/data/figures/2611.09012v1_p4_3.jpg",
-      "caption": "Figure 3 reveals valuable insights into the distribution of ask-bid spreads for the two models across intervals of 20 episodes. The median spreads, represented by the lines within each box, indicate a trend where the penalty-based model generally maintains a tighter ask-bid spread compared to the non-penalty model. This suggests that the penalty-based model might be operating within a narrower pro \u2014 Figure 2 is a bar chart showing reward per episode (y-axis) across 400 episodes (x-axis) for two ",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2611.09012v1"
-    },
-    {
-      "doc_id": "2611.08968v1",
-      "title": "Portfolio-aware scenario transfer of reserve movements: evidence from Lloyd's syndicates",
-      "page": 2,
-      "thumb": "/data/figures/2611.08968v1_p2_0.jpg",
-      "caption": "Figure 1. The scenario-transfer workflow. The size law is fitted once, on the whole market sample. Each named donor movement is then transferred to a target in the default clean regime. A clean donor\u2019s movement is multiplied by the ratio of fitted base scales. A donor in the reinsurance-to-close (RITC) regime is first divided by its base scale and mapped to the clean regime\u2019s quantile at the same  \u2014 This flowchart illustrates a scenario-transfer methodology for reserve movements in insurance por",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2611.08968v1"
-    },
-    {
-      "doc_id": "2611.08968v1",
-      "title": "Portfolio-aware scenario transfer of reserve movements: evidence from Lloyd's syndicates",
-      "page": 2,
-      "thumb": "/data/figures/2611.08968v1_p2_1.jpg",
-      "caption": "Figure 1 shows the workflow. Section 2 defines the measured movement and the sample. Section 3 builds the size law and the transfer. Section 4 gives the evidence, including where the transfer fails. Section 5 works one target through, and Section 6 says what a practitioner can and cannot conclude. \u2014 This figure presents a flowchart of the scenario-transfer workflow for reserve movements in insurance portfolios. The process begins with fitting a base scale relationship s(R) on the whole market sa",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2611.08968v1"
-    },
-    {
-      "doc_id": "2611.08968v1",
-      "title": "Portfolio-aware scenario transfer of reserve movements: evidence from Lloyd's syndicates",
-      "page": 9,
-      "thumb": "/data/figures/2611.08968v1_p9_2.jpg",
-      "caption": "Figure 2. The measured movement |S| against the reserve base R (log\u2013log). Points are vigintile medians of the observed |S|. The solid curve and its band are the headline fit\u2019s posterior-predictive median of |S| for the same observations, with a 90% band. Each posterior draw simulates a new reporting year\u2019s shock with its standard deviation \u03c4 fixed at the posterior mean, 0.137, because the fit\u2019s \u03c4  \u2014 This log-log scatter plot displays the relationship between reserve base R (\u00a3m) on the x-axis and",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2611.08968v1"
-    },
-    {
-      "doc_id": "2611.08968v1",
-      "title": "Portfolio-aware scenario transfer of reserve movements: evidence from Lloyd's syndicates",
+      "doc_id": "2611.11436v1",
+      "title": "Retrospective Analysis of Team-Following Trading Profitability in Pumpfun Meme Coins Using Funding Networks",
       "page": 14,
-      "thumb": "/data/figures/2611.08968v1_p14_3.jpg",
-      "caption": "Figure 3. The \u00a3500m target\u2019s adverse tail: empirical survivor function P(S > x) (log vertical axis) of the transferred pool, with the 99% and 99.5% quantiles marked, for the raw pool (99.5% quantile 0.672), square-root scaling (0.304) and the size-only transfer (0.342). The size-only curve applies the RITC rank map. Carrying the 27 RITC-regime donors without the rank map gives the same 0.342: in b \u2014 This figure displays a log-scale survivor function plot comparing tail risk measures for a \u00a3500m ",
+      "thumb": "/data/figures/2611.11436v1_p14_2.jpg",
+      "caption": "Figure 3: Funding structure of two real groups (addresses anonymised). Left: the seed creator, its funded wallets and the creators of the group\u2019s tokens. Right: wallets reached and token creators by number of funding steps in the large group. \u2014 This figure compares funding network structures between two groups in meme coin trading on Pumpfun. The left panel is a network diagram showing the small group (2024-04, 27 wallets, 6 creators, 13 tokens) with connections from a seed creator (red node) th",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2611.08968v1"
+      "source": "https://arxiv.org/pdf/2611.11436v1"
     },
     {
-      "doc_id": "2611.08701v1",
-      "title": "Does a Trading Policy Need to Know What It Trades? Microstructure Invariance and Zero-Shot Transfer of Execution Policies",
-      "page": 2,
-      "thumb": "/data/figures/2611.08701v1_p2_0.jpg",
-      "caption": "Figure 1: One policy for every asset? (a) The decision we study: a buy order resting at the best bid can wait or cross the spread. (b, c) Why units might suffice: the probability that a 100-share order joining the best bid fills within a horizon varies widely across 1,189 training stock-days when time is in seconds, and far less in each stock\u2019s own mean time between trades (thick lines: medians wi \u2014 This figure presents evidence that trading execution policies can generalize across assets when n",
+      "doc_id": "2611.11436v1",
+      "title": "Retrospective Analysis of Team-Following Trading Profitability in Pumpfun Meme Coins Using Funding Networks",
+      "page": 14,
+      "thumb": "/data/figures/2611.11436v1_p14_3.jpg",
+      "caption": "Figure 4 shows the launches of the top-ranked team in six of the windows with the maximum reserve of every token on the time axis. Three features stand out. First, the pattern differs strongly between teams: the two earliest windows shown (2024-04, 2024-10) are short sequences in which many launches are seed tokens, while the top team of 2025-02 launches 131 tokens of which only one reaches the se \u2014 This figure displays the funding network structure of two cryptocurrency groups: a small group (2",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2611.08701v1"
+      "source": "https://arxiv.org/pdf/2611.11436v1"
     },
     {
-      "doc_id": "2611.08701v1",
-      "title": "Does a Trading Policy Need to Know What It Trades? Microstructure Invariance and Zero-Shot Transfer of Execution Policies",
-      "page": 2,
-      "thumb": "/data/figures/2611.08701v1_p2_1.jpg",
-      "caption": "Figure 1b\u2013c shows the idea on our data: the probability that an order at the best price fills within a horizon varies widely across stocks in seconds, and far less in each stock\u2019s own mean time between trades. Both theories have been tested on statistics of trades and costs. We test them on decisions. For reinforcement learning, this is zero-shot generalisation across contexts (Kirk et al., 2023): \u2014 Panel (b) shows fill probability versus time horizon in seconds across 1,189 Nasdaq stocks, with ",
+      "doc_id": "2611.11373v1",
+      "title": "Optimal execution in a fractional setting with reinforcement learning",
+      "page": 7,
+      "thumb": "/data/figures/2611.11373v1_p7_0.jpg",
+      "caption": "Figure 1: Analytical performance of the AC strategy under fBm as a function of the Hurst exponent H: expected CARA utility (left), expected payoff (center), and payoff variance (right). \u2014 This figure presents three line plots showing how an Actor-Critic (AC) trading strategy performs under fractional Brownian motion as the Hurst exponent H varies from 0 to 1. The left panel displays CARA (Constant Absolute Risk Aversion) utility expectancy, which peaks around H=0.2 and declines monotonically the",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2611.08701v1"
+      "source": "https://arxiv.org/pdf/2611.11373v1"
     },
     {
-      "doc_id": "2611.08701v1",
-      "title": "Does a Trading Policy Need to Know What It Trades? Microstructure Invariance and Zero-Shot Transfer of Execution Policies",
+      "doc_id": "2611.11373v1",
+      "title": "Optimal execution in a fractional setting with reinforcement learning",
       "page": 8,
-      "thumb": "/data/figures/2611.08701v1_p8_2.jpg",
-      "caption": "Figure 2: Invariant units lead, but every transfer gap is near zero. (a) Each representation\u2019s zero- shot cost minus that of MS units, on held-out stocks in 2020\u201321 (1,964 stocks) and 2025\u201326 (2,629 stocks). (b) Its transfer gap: zero-shot cost minus that of the same representation trained on as many episodes including the stock\u2019s own 2019 days. Three seeds; 95% stock-bootstrap intervals; band: th \u2014 This figure displays results from zero-shot transfer learning experiments for execution policy tr",
+      "thumb": "/data/figures/2611.11373v1_p8_1.jpg",
+      "caption": "Figure 2 illustrates that p = 5 is a good balance between computational efficiency and performance, as increasing p beyond 5 only allows for relatively small improvements, both numerically and theoretically [3]. We also note that, as usual, the more H diverges from 1/2, the more information we can extract from the returns of the fBm. \u2014 This image contains equation (7) showing the mathematical formula for the probability r that a predictor recovers the correct sign of future returns, expressed as",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2611.08701v1"
+      "source": "https://arxiv.org/pdf/2611.11373v1"
     },
     {
-      "doc_id": "2611.08701v1",
-      "title": "Does a Trading Policy Need to Know What It Trades? Microstructure Invariance and Zero-Shot Transfer of Execution Policies",
-      "page": 9,
-      "thumb": "/data/figures/2611.08701v1_p9_3.jpg",
-      "caption": "Figure 3: The units supply mostly a cost scale and information, and they save data (exploratory). (a) Raw features\u2019 cost relative to MS+tick on the held-out stocks, as the representation gains a cost in the stock\u2019s spread (raws) and then the window statistics the units are built from (raw+info), for fitted Q-iteration with trees and with a neural network; 95% stock-bootstrap intervals; the band is \u2014 Figure 3 presents two panels analyzing model performance and data efficiency in execution policy ",
+      "doc_id": "2611.11373v1",
+      "title": "Optimal execution in a fractional setting with reinforcement learning",
+      "page": 8,
+      "thumb": "/data/figures/2611.11373v1_p8_2.jpg",
+      "caption": "Figure 2: Optimal hit ratio for p \u2208{1, 5, 15} lags \u2014 This line plot displays the optimal lag \u03c1* (hit ratio) as a function of the Hurst parameter H for three different lag values: n=1, n=5, and n=15, shown with blue circles, orange squares, and green diamonds respectively. The x-axis ranges from H=0 to approximately 0.95, while the y-axis shows optimal \u03c1* values between 0.50 and 0.85. All three curves exhibit a U-shaped pattern with a minimum around H=0.4-0.5, indicating that the optimal lag decr",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2611.08701v1"
+      "source": "https://arxiv.org/pdf/2611.11373v1"
     },
     {
-      "doc_id": "2611.07464v1",
-      "title": "FINCOSMOS: An Open-World Evaluation Paradigm for Agents in Finance",
-      "page": 2,
-      "thumb": "/data/figures/2611.07464v1_p2_0.jpg",
-      "caption": "Figure 1: A silent failure. The user is satisfied, yet the delivery gets the intent and the data wrong; only time is right. \u2014 This figure is a dialogue diagram illustrating a silent failure case in an AI agent system for quantitative finance. It shows an investor's request for stock selection based on three criteria (short-term price reversal, insider buying, and catalyst proximity), which the agent claims to deliver with performance metrics (50.76% cumulative return, 0.79 Sharpe ratio, -18.96% ",
+      "doc_id": "2611.11373v1",
+      "title": "Optimal execution in a fractional setting with reinforcement learning",
+      "page": 14,
+      "thumb": "/data/figures/2611.11373v1_p14_3.jpg",
+      "caption": "Figure 3: Median trajectory at H = 0.7 (\u03a0nn \u2014 The figure shows two panels comparing price dynamics and trading costs in a fractional Brownian motion setting with Hurst parameter H=0.7. The left panel is a line chart displaying the median price trajectory (P_nn) over time, showing a generally upward trend with notable volatility and fluctuations between approximately 100.5 and 102.5. The right panel is a decay curve showing the impact or cost measure (impact_i) on the y-axis (ranging from 0 to 10",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2611.07464v1"
+      "source": "https://arxiv.org/pdf/2611.11373v1"
+    },
+    {
+      "doc_id": "2611.10972v1",
+      "title": "JUBILEE: A Benchmark Environment for Off-Policy Evaluation in Debt Collections",
+      "page": 3,
+      "thumb": "/data/figures/2611.10972v1_p3_0.jpg",
+      "caption": "Figure 1: The JUBILEE evaluation protocol. \u2014 This figure illustrates the JUBILEE evaluation protocol workflow for off-policy evaluation in debt collections, consisting of eight connected components. Starting from parameters including hidden coupling, noise, and outcome mechanism (a), the protocol feeds into a World Simulator generating one million loans per population (b), producing logged population data with actions and outcomes (c). The workflow splits into two parallel tracks: one measuring ",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2611.10972v1"
+    },
+    {
+      "doc_id": "2611.10972v1",
+      "title": "JUBILEE: A Benchmark Environment for Off-Policy Evaluation in Debt Collections",
+      "page": 11,
+      "thumb": "/data/figures/2611.10972v1_p11_1.jpg",
+      "caption": "Figure 2: Estimator error across confounding strengths. \u2014 This figure presents two line plots comparing estimator performance across varying levels of hidden confounding strength in an off-policy evaluation task. The left panel shows mean error (US $ = 10\u00b9) for the target metric \u03c0_rule, while the right panel shows the same for \u03c0_rms, with the x-axis representing hidden confounding strength (0 to 1.8) and y-axis showing error magnitude. Four estimation methods are compared: log-based family (DM +",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2611.10972v1"
+    },
+    {
+      "doc_id": "2611.10972v1",
+      "title": "JUBILEE: A Benchmark Environment for Off-Policy Evaluation in Debt Collections",
+      "page": 12,
+      "thumb": "/data/figures/2611.10972v1_p12_2.jpg",
+      "caption": "Figure 3: Estimator errors by policy and assignment condition. \u2014 This figure displays mean squared errors (MSE) for three different policy evaluation estimators\u2014Tabular DR, Boosted DR, and Pilot-IS\u2014across three policy conditions (\u03c0_visit, \u03c0_fens, \u03c0_stage) and four assignment conditions (A_ref, A_int, B_ref, B_int). Each panel shows a clustered bar chart with error bars representing confidence intervals around the MSE values, which are centered at zero on the y-axis. The key takeaway is that Boos",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2611.10972v1"
     }
   ],
   "docs": [
     {
-      "id": "2611.09834v1",
-      "title": "The Logic of Factor Portfolios: Boolean Rules, Interactions, and Trading Costs",
-      "source": "https://arxiv.org/pdf/2611.09834v1",
-      "pages": 44,
-      "images": 0,
+      "id": "2611.12389v1",
+      "title": "Diversification Across Predictors: Heterogeneous Ensemble Learning for Cross-Sectional Return Prediction",
+      "source": "https://arxiv.org/pdf/2611.12389v1",
+      "pages": 8,
+      "images": 8,
       "figures_captioned": 4,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 54
-    },
-    {
-      "id": "2611.09751v1",
-      "title": "Drift-invariant kernels for discount curve models",
-      "source": "https://arxiv.org/pdf/2611.09751v1",
-      "pages": 16,
-      "images": 0,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 34
-    },
-    {
-      "id": "2611.09286v1",
-      "title": "The End-of-Day Reversal After 2019: A Pre-Registered Test on S&P 500 Stocks Excluding Heavily Traded Names",
-      "source": "https://arxiv.org/pdf/2611.09286v1",
-      "pages": 15,
-      "images": 2,
-      "figures_captioned": 1,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 38
-    },
-    {
-      "id": "2611.09213v1",
-      "title": "Joint modelling of financial cost and carbon footprint in motor insurance claims: a BINAR(1) decision framework for circular auto parts adoption",
-      "source": "https://arxiv.org/pdf/2611.09213v1",
-      "pages": 42,
-      "images": 0,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 45
-    },
-    {
-      "id": "2611.09012v1",
-      "title": "Towards Robust Reinforcement Learning Market Making: Lessons from Loss Function Experimentation",
-      "source": "https://arxiv.org/pdf/2611.09012v1",
-      "pages": 7,
-      "images": 0,
-      "figures_captioned": 4,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 16
-    },
-    {
-      "id": "2611.08968v1",
-      "title": "Portfolio-aware scenario transfer of reserve movements: evidence from Lloyd's syndicates",
-      "source": "https://arxiv.org/pdf/2611.08968v1",
-      "pages": 29,
-      "images": 0,
-      "figures_captioned": 4,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 64
-    },
-    {
-      "id": "2611.08701v1",
-      "title": "Does a Trading Policy Need to Know What It Trades? Microstructure Invariance and Zero-Shot Transfer of Execution Policies",
-      "source": "https://arxiv.org/pdf/2611.08701v1",
-      "pages": 33,
-      "images": 0,
-      "figures_captioned": 4,
-      "tables": 2,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 58
-    },
-    {
-      "id": "2611.07464v1",
-      "title": "FINCOSMOS: An Open-World Evaluation Paradigm for Agents in Finance",
-      "source": "https://arxiv.org/pdf/2611.07464v1",
-      "pages": 23,
-      "images": 0,
-      "figures_captioned": 1,
-      "tables": 1,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 48
-    },
-    {
-      "id": "2611.07457v1",
-      "title": "Information-Theoretic Model for the Growth Optimal Portfolio of Stocks",
-      "source": "https://arxiv.org/pdf/2611.07457v1",
-      "pages": 33,
-      "images": 0,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 41
-    },
-    {
-      "id": "2611.07287v1",
-      "title": "Neural Realized Measures: Forecast-Supervised Intraday Aggregation for Volatility Forecasting",
-      "source": "https://arxiv.org/pdf/2611.07287v1",
-      "pages": 9,
-      "images": 1,
-      "figures_captioned": 0,
-      "tables": 0,
+      "tables": 3,
       "has_math": true,
       "ocr_used": false,
       "chunks_indexed": 27
+    },
+    {
+      "id": "2611.11803v1",
+      "title": "Diversified-Risk-Perception Risk Measures and Portfolio Selection",
+      "source": "https://arxiv.org/pdf/2611.11803v1",
+      "pages": 35,
+      "images": 0,
+      "figures_captioned": 3,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 44
+    },
+    {
+      "id": "2611.11652v1",
+      "title": "Adjoint Kernel Sensitivity of the Rough Heston Characteristic Exponent",
+      "source": "https://arxiv.org/pdf/2611.11652v1",
+      "pages": 36,
+      "images": 0,
+      "figures_captioned": 0,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 49
+    },
+    {
+      "id": "2611.11436v1",
+      "title": "Retrospective Analysis of Team-Following Trading Profitability in Pumpfun Meme Coins Using Funding Networks",
+      "source": "https://arxiv.org/pdf/2611.11436v1",
+      "pages": 43,
+      "images": 0,
+      "figures_captioned": 4,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 46
+    },
+    {
+      "id": "2611.11373v1",
+      "title": "Optimal execution in a fractional setting with reinforcement learning",
+      "source": "https://arxiv.org/pdf/2611.11373v1",
+      "pages": 22,
+      "images": 11,
+      "figures_captioned": 4,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 44
+    },
+    {
+      "id": "2611.10972v1",
+      "title": "JUBILEE: A Benchmark Environment for Off-Policy Evaluation in Debt Collections",
+      "source": "https://arxiv.org/pdf/2611.10972v1",
+      "pages": 28,
+      "images": 1,
+      "figures_captioned": 3,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 50
+    },
+    {
+      "id": "2611.10956v1",
+      "title": "Risk-Sensitive Reinforcement Learning for an Options Market Maker: An Empirical Study with Real S&P 500 Options",
+      "source": "https://arxiv.org/pdf/2611.10956v1",
+      "pages": 9,
+      "images": 2,
+      "figures_captioned": 0,
+      "tables": 0,
+      "has_math": false,
+      "ocr_used": false,
+      "chunks_indexed": 27
+    },
+    {
+      "id": "2611.10928v1",
+      "title": "Polynomial-Preserving Processes and Volatility Modelling in Discrete Time",
+      "source": "https://arxiv.org/pdf/2611.10928v1",
+      "pages": 91,
+      "images": 0,
+      "figures_captioned": 0,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 53
+    },
+    {
+      "id": "2611.10801v1",
+      "title": "Trained, Frozen, or Absent: Identifying What a Quantum Layer Contributes to Cross-Sectional Equity Ranking",
+      "source": "https://arxiv.org/pdf/2611.10801v1",
+      "pages": 32,
+      "images": 0,
+      "figures_captioned": 0,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 53
+    },
+    {
+      "id": "2611.10607v1",
+      "title": "Worst-Case Contagion in Financial Networks: MILP Clearing and Robust Loss Analysis",
+      "source": "https://arxiv.org/pdf/2611.10607v1",
+      "pages": 46,
+      "images": 0,
+      "figures_captioned": 0,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 56
     }
   ]
 }
