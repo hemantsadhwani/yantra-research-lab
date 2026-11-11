@@ -1,7 +1,7 @@
 {
   "_note": "Public run manifest of the Tier-3 agentic ingestion pipeline. Safe aggregates + provenance only; raw PDFs live in S3, not here.",
-  "run_id": "20261110T095336Z",
-  "generated_at": "2026-11-10T09:56:50+00:00",
+  "run_id": "20261111T092817Z",
+  "generated_at": "2026-11-11T09:31:34+00:00",
   "collection": "research_corpus",
   "embed_model": "BAAI/bge-small-en-v1.5",
   "dag": [
@@ -50,228 +50,216 @@
     "discovered": 10,
     "fetched": 10,
     "parsed": 10,
-    "chunks": 475,
-    "accepted": 449,
-    "rejected": 26,
-    "images": 22,
+    "chunks": 417,
+    "accepted": 374,
+    "rejected": 43,
+    "images": 17,
     "figures_captioned": 18,
-    "tables": 3,
-    "with_math": 9,
-    "indexed": 449,
-    "spent_usd": 0.0343,
-    "duration_s": 193.6
+    "tables": 6,
+    "with_math": 7,
+    "indexed": 374,
+    "spent_usd": 0.0324,
+    "duration_s": 197.5
   },
   "rejects_by_reason": {
-    "low-relevance": 26
+    "low-relevance": 43
   },
   "budget_usd": 3.0,
   "figures": [
     {
-      "doc_id": "2611.12389v1",
-      "title": "Diversification Across Predictors: Heterogeneous Ensemble Learning for Cross-Sectional Return Prediction",
-      "page": 2,
-      "thumb": "/data/figures/2611.12389v1_p2_0.jpg",
-      "caption": "Figure 1: Pipeline of the Diversified Expert Ensemble. (A) Each predictor receives an independently bootstrap-sampled subset of the raw factor space, combined with a randomly selected feature subset, ensuring diverse training views across the ensemble. (B) All \ud835\udc41heterogeneous predictors (linear and nonlinear families) produce individual cross-sectional forecasts in parallel. (C) An IC protection fi \u2014 This figure illustrates a four-stage ensemble learning pipeline for cross-sectional return predic",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2611.12389v1"
-    },
-    {
-      "doc_id": "2611.12389v1",
-      "title": "Diversification Across Predictors: Heterogeneous Ensemble Learning for Cross-Sectional Return Prediction",
-      "page": 4,
-      "thumb": "/data/figures/2611.12389v1_p4_1.jpg",
-      "caption": "Figure 2 shows that the heterogeneous ensemble achieves both a larger diversity gain and a lower average error correlation than the homogeneous ensembles, consistent with Proposition 3.1. \u2014 Figure 2 presents two bar charts comparing synthetic validation results across different ensemble methods: diversity gain (left) and average error correlation (right). The left chart shows diversity gain (MSE - MSE_ens) with values ranging from approximately 0.01 to 0.12, while the right chart displays averag",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2611.12389v1"
-    },
-    {
-      "doc_id": "2611.12389v1",
-      "title": "Diversification Across Predictors: Heterogeneous Ensemble Learning for Cross-Sectional Return Prediction",
-      "page": 4,
-      "thumb": "/data/figures/2611.12389v1_p4_2.jpg",
-      "caption": "Figure 2: Synthetic validation of error complementarity. Ho- mogeneous ensembles use a single expert family, while the heterogeneous ensemble mixes linear, ReLU MLP, and Tanh MLP experts. Errors are computed against the noiseless tar- get. The heterogeneous ensemble exhibits a larger diversity gain and a lower average pairwise error correlation, support- ing Proposition 3.1. \u2014 This figure displays two bar charts comparing homogeneous versus heterogeneous ensemble methods on synthetic data. The l",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2611.12389v1"
-    },
-    {
-      "doc_id": "2611.12389v1",
-      "title": "Diversification Across Predictors: Heterogeneous Ensemble Learning for Cross-Sectional Return Prediction",
-      "page": 5,
-      "thumb": "/data/figures/2611.12389v1_p5_3.jpg",
-      "caption": "Figure 3: Synthetic validation of diversification gain under low signal. Predictors are generated with prescribed individ- ual IC \ud835\udf0cand pairwise error correlation \ud835\udc5f. Left: ensemble IC versus individual IC for different ensemble sizes. Right: rela- tive IC gain as a function of \ud835\udf0cand \ud835\udc5f. The gain is largest when individual signal is weak and errors are weakly correlated, consistent with Proposition 4. \u2014 The left panel shows ensemble IC (information coefficient) versus individual IC for ensemble size",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2611.12389v1"
-    },
-    {
-      "doc_id": "2611.11803v1",
-      "title": "Diversified-Risk-Perception Risk Measures and Portfolio Selection",
-      "page": 21,
-      "thumb": "/data/figures/2611.11803v1_p21_0.jpg",
-      "caption": "Figure 1: DRP strategy in the Chinese stock market from April 1, 2020 to August 12, 2026 (\u03b1 = 0.95). \u2014 Figure 1 presents two line charts comparing cumulative returns of a Diversified-Risk-Perception (DRP) portfolio strategy against benchmark indices in the Chinese stock market from April 2020 to August 2026. Panel (a) compares the DRP strategy (blue line) against the CSI 300 Index (red line), showing the DRP strategy substantially underperforming with approximately 30% cumulative return versus t",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2611.11803v1"
-    },
-    {
-      "doc_id": "2611.11803v1",
-      "title": "Diversified-Risk-Perception Risk Measures and Portfolio Selection",
-      "page": 22,
-      "thumb": "/data/figures/2611.11803v1_p22_1.jpg",
-      "caption": "Figure 2: DRP strategy in the South Korean stock market from April 1, 2020 to August 12, 2026 (\u03b1 = 0.95). \u2014 Figure 2 contains two line charts comparing cumulative returns of portfolio strategies in the South Korean stock market from April 2020 to August 2026. Panel (a) compares the DRP Strategy (red line) against the KOSPI Index benchmark (blue line), with the DRP strategy outperforming significantly, reaching approximately 270% cumulative return versus 400% for KOSPI by August 2026. Panel (b) c",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2611.11803v1"
-    },
-    {
-      "doc_id": "2611.11803v1",
-      "title": "Diversified-Risk-Perception Risk Measures and Portfolio Selection",
-      "page": 23,
-      "thumb": "/data/figures/2611.11803v1_p23_2.jpg",
-      "caption": "Figure 3: DRP strategy in the U.S. stock market from April 1, 2020 to August 12, 2026 (\u03b1 = 0.95). \u2014 This figure contains two line charts showing cumulative returns in the U.S. stock market from April 2020 to August 2026. Panel (a) compares the DRP strategy (red line) against the S&P 500 Index (blue line), both starting near 0% and reaching approximately 150-200% cumulative returns by end of period, with the S&P 500 outperforming. Panel (b) compares the DRP strategy against five single-model alte",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2611.11803v1"
-    },
-    {
-      "doc_id": "2611.11436v1",
-      "title": "Retrospective Analysis of Team-Following Trading Profitability in Pumpfun Meme Coins Using Funding Networks",
-      "page": 12,
-      "thumb": "/data/figures/2611.11436v1_p12_0.jpg",
-      "caption": "Figure 1: Cash and marks of the main account in each window. Bars split final equity into free cash and the marks of unresolved positions; the dotted line is the initial capital. Windows without a qualifying team are blank. \u2014 This stacked bar chart displays the account equity composition across monthly windows from April 2024 to September 2026, with bars segmented into free cash (dark blue) and marks of unresolved positions (light blue). The y-axis shows SOL (Solana) amounts ranging from 0 to 10",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2611.11436v1"
-    },
-    {
-      "doc_id": "2611.11436v1",
-      "title": "Retrospective Analysis of Team-Following Trading Profitability in Pumpfun Meme Coins Using Funding Networks",
-      "page": 13,
-      "thumb": "/data/figures/2611.11436v1_p13_1.jpg",
-      "caption": "Figure 2: Timeline of the three teams of the 2025-02 window. Ticks are the team\u2019s launches (red: seed criterion met). The dotted line marks the first observable seed event, the solid line the moment when the online ranking index first exceeds ten; the shaded region contains the launches that could have been followed. \u2014 This timeline chart displays the launch activities of three teams across a 30-hour window starting February 2, 2025, with individual launches represented as vertical ticks colored",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2611.11436v1"
-    },
-    {
-      "doc_id": "2611.11436v1",
-      "title": "Retrospective Analysis of Team-Following Trading Profitability in Pumpfun Meme Coins Using Funding Networks",
-      "page": 14,
-      "thumb": "/data/figures/2611.11436v1_p14_2.jpg",
-      "caption": "Figure 3: Funding structure of two real groups (addresses anonymised). Left: the seed creator, its funded wallets and the creators of the group\u2019s tokens. Right: wallets reached and token creators by number of funding steps in the large group. \u2014 This figure compares funding network structures between two groups in meme coin trading on Pumpfun. The left panel is a network diagram showing the small group (2024-04, 27 wallets, 6 creators, 13 tokens) with connections from a seed creator (red node) th",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2611.11436v1"
-    },
-    {
-      "doc_id": "2611.11436v1",
-      "title": "Retrospective Analysis of Team-Following Trading Profitability in Pumpfun Meme Coins Using Funding Networks",
-      "page": 14,
-      "thumb": "/data/figures/2611.11436v1_p14_3.jpg",
-      "caption": "Figure 4 shows the launches of the top-ranked team in six of the windows with the maximum reserve of every token on the time axis. Three features stand out. First, the pattern differs strongly between teams: the two earliest windows shown (2024-04, 2024-10) are short sequences in which many launches are seed tokens, while the top team of 2025-02 launches 131 tokens of which only one reaches the se \u2014 This figure displays the funding network structure of two cryptocurrency groups: a small group (2",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2611.11436v1"
-    },
-    {
-      "doc_id": "2611.11373v1",
-      "title": "Optimal execution in a fractional setting with reinforcement learning",
-      "page": 7,
-      "thumb": "/data/figures/2611.11373v1_p7_0.jpg",
-      "caption": "Figure 1: Analytical performance of the AC strategy under fBm as a function of the Hurst exponent H: expected CARA utility (left), expected payoff (center), and payoff variance (right). \u2014 This figure presents three line plots showing how an Actor-Critic (AC) trading strategy performs under fractional Brownian motion as the Hurst exponent H varies from 0 to 1. The left panel displays CARA (Constant Absolute Risk Aversion) utility expectancy, which peaks around H=0.2 and declines monotonically the",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2611.11373v1"
-    },
-    {
-      "doc_id": "2611.11373v1",
-      "title": "Optimal execution in a fractional setting with reinforcement learning",
-      "page": 8,
-      "thumb": "/data/figures/2611.11373v1_p8_1.jpg",
-      "caption": "Figure 2 illustrates that p = 5 is a good balance between computational efficiency and performance, as increasing p beyond 5 only allows for relatively small improvements, both numerically and theoretically [3]. We also note that, as usual, the more H diverges from 1/2, the more information we can extract from the returns of the fBm. \u2014 This image contains equation (7) showing the mathematical formula for the probability r that a predictor recovers the correct sign of future returns, expressed as",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2611.11373v1"
-    },
-    {
-      "doc_id": "2611.11373v1",
-      "title": "Optimal execution in a fractional setting with reinforcement learning",
-      "page": 8,
-      "thumb": "/data/figures/2611.11373v1_p8_2.jpg",
-      "caption": "Figure 2: Optimal hit ratio for p \u2208{1, 5, 15} lags \u2014 This line plot displays the optimal lag \u03c1* (hit ratio) as a function of the Hurst parameter H for three different lag values: n=1, n=5, and n=15, shown with blue circles, orange squares, and green diamonds respectively. The x-axis ranges from H=0 to approximately 0.95, while the y-axis shows optimal \u03c1* values between 0.50 and 0.85. All three curves exhibit a U-shaped pattern with a minimum around H=0.4-0.5, indicating that the optimal lag decr",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2611.11373v1"
-    },
-    {
-      "doc_id": "2611.11373v1",
-      "title": "Optimal execution in a fractional setting with reinforcement learning",
-      "page": 14,
-      "thumb": "/data/figures/2611.11373v1_p14_3.jpg",
-      "caption": "Figure 3: Median trajectory at H = 0.7 (\u03a0nn \u2014 The figure shows two panels comparing price dynamics and trading costs in a fractional Brownian motion setting with Hurst parameter H=0.7. The left panel is a line chart displaying the median price trajectory (P_nn) over time, showing a generally upward trend with notable volatility and fluctuations between approximately 100.5 and 102.5. The right panel is a decay curve showing the impact or cost measure (impact_i) on the y-axis (ranging from 0 to 10",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2611.11373v1"
-    },
-    {
-      "doc_id": "2611.10972v1",
-      "title": "JUBILEE: A Benchmark Environment for Off-Policy Evaluation in Debt Collections",
+      "doc_id": "2611.14325v1",
+      "title": "Point-in-Time Encoders for Earnings Calls",
       "page": 3,
-      "thumb": "/data/figures/2611.10972v1_p3_0.jpg",
-      "caption": "Figure 1: The JUBILEE evaluation protocol. \u2014 This figure illustrates the JUBILEE evaluation protocol workflow for off-policy evaluation in debt collections, consisting of eight connected components. Starting from parameters including hidden coupling, noise, and outcome mechanism (a), the protocol feeds into a World Simulator generating one million loans per population (b), producing logged population data with actions and outcomes (c). The workflow splits into two parallel tracks: one measuring ",
+      "thumb": "/data/figures/2611.14325v1_p3_0.jpg",
+      "caption": "Fig. 1. From the corpus to the uses of the vintages. For each cutoff year Y from 2010 to 2024, every pretraining recipe reads only text dated on or before 31 December of Y . Our two families read trainable calls, ChronoBERT reads general text, and ChronoBERT + DAPT reads both, at 2010, 2017 and 2024 only. Contrastive fine-tuning trains on question-answer pairs from the trainable calls, and the reg \u2014 This figure illustrates a data processing pipeline for creating point-in-time encoders from earni",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2611.10972v1"
+      "source": "https://arxiv.org/pdf/2611.14325v1"
     },
     {
-      "doc_id": "2611.10972v1",
-      "title": "JUBILEE: A Benchmark Environment for Off-Policy Evaluation in Debt Collections",
-      "page": 11,
-      "thumb": "/data/figures/2611.10972v1_p11_1.jpg",
-      "caption": "Figure 2: Estimator error across confounding strengths. \u2014 This figure presents two line plots comparing estimator performance across varying levels of hidden confounding strength in an off-policy evaluation task. The left panel shows mean error (US $ = 10\u00b9) for the target metric \u03c0_rule, while the right panel shows the same for \u03c0_rms, with the x-axis representing hidden confounding strength (0 to 1.8) and y-axis showing error magnitude. Four estimation methods are compared: log-based family (DM +",
+      "doc_id": "2611.14325v1",
+      "title": "Point-in-Time Encoders for Earnings Calls",
+      "page": 6,
+      "thumb": "/data/figures/2611.14325v1_p6_1.jpg",
+      "caption": "Fig. 2. Recall@1 on held-out calls by test quarter, for the vintage available at the time, so vintage Y is scored on the second quarter of year Y + 1. Each quarter has 3,000 analyst questions from 400 sampled calls. Panel (a): each question ranked against the executive answers in its own call. Panel (b): each question ranked against every answer of the sampled calls. Colored lines are retrievers w \u2014 This figure displays recall@1 metrics over time for multiple retrieval methods on earnings call d",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2611.10972v1"
+      "source": "https://arxiv.org/pdf/2611.14325v1"
     },
     {
-      "doc_id": "2611.10972v1",
-      "title": "JUBILEE: A Benchmark Environment for Off-Policy Evaluation in Debt Collections",
+      "doc_id": "2611.14325v1",
+      "title": "Point-in-Time Encoders for Earnings Calls",
+      "page": 8,
+      "thumb": "/data/figures/2611.14325v1_p8_2.jpg",
+      "caption": "Fig. 3. Look-ahead through the encoder. Panel (a): the premium of a later vintage over the vintage available at the time, in within-call recall@1 on the same held-out questions, averaged over the 14 test quarters 2011Q2 to 2024Q2, with 95% intervals from resampling calls. The same year is vintage Y + 1 on the test quarter of vintage Y , and 2024 is the 2024 vintage on every quarter. Hollow markers \u2014 Panel (a) shows a horizontal scatter plot comparing recall@1 performance differences between late",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2611.14325v1"
+    },
+    {
+      "doc_id": "2611.14117v1",
+      "title": "Fine-Tuning an Order-Flow Foundation Model for Sub-Second Forecasting",
+      "page": 4,
+      "thumb": "/data/figures/2611.14117v1_p4_0.jpg",
+      "caption": "Figure 1: Per-symbol event-rate density, crypto L3 vs NASDAQ ITCH equities (both measured with our tokenizer\u2019s event definitions). Crypto (solid) sustains a markedly higher per-second rate than even the busiest equities (dashed). \u2014 This density plot compares per-symbol Level 3 event rates between cryptocurrency and NASDAQ ITCH equity markets, with the x-axis showing events per active second (0-800) and y-axis showing density (0-0.020). The figure displays four time series: BTC/USD and ETH/USD fo",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2611.14117v1"
+    },
+    {
+      "doc_id": "2611.14117v1",
+      "title": "Fine-Tuning an Order-Flow Foundation Model for Sub-Second Forecasting",
+      "page": 6,
+      "thumb": "/data/figures/2611.14117v1_p6_1.jpg",
+      "caption": "Figure 2: Controlling for corpus recency. Three pretraining corpora on a date axis. xl4ep and xlfresh have the same data budget and end 15 days apart; xlfresh and v6 end at the same instant and differ 3.9\u00d7 in size. Each pair therefore varies one factor. All three are scored in the same later period (shaded): next-token loss on a 12\u201313 October chunk after the cutoff, and 0.2 s direction after LoRA  \u2014 This figure displays a horizontal bar chart showing three pretraining corpora (xl4ep, xlfresh, an",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2611.14117v1"
+    },
+    {
+      "doc_id": "2611.14117v1",
+      "title": "Fine-Tuning an Order-Flow Foundation Model for Sub-Second Forecasting",
+      "page": 7,
+      "thumb": "/data/figures/2611.14117v1_p7_2.jpg",
+      "caption": "Figure 3: Sub-second L1: return density on a common scale (all variants divided by the real std), QQ vs real, and |r|-autocorrelation. Model (blue) tracks real (black) in shape and reproduces volatility clustering; ZI (red) is visibly fatter. The common scale prevents a single rollout\u2019s deep- sweep outlier from rescaling an entire distribution. \u2014 This figure compares the statistical properties of real market returns versus model-generated returns at sub-second frequencies across three panels. Th",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2611.14117v1"
+    },
+    {
+      "doc_id": "2611.14117v1",
+      "title": "Fine-Tuning an Order-Flow Foundation Model for Sub-Second Forecasting",
+      "page": 13,
+      "thumb": "/data/figures/2611.14117v1_p13_3.jpg",
+      "caption": "Figure 4: Sub-second results. Direction (left): the fine-tuned model beats the strongest order-book- imbalance baseline at every horizon, and the gap over this linear baseline widens toward the short end (over the gradient-boosted baseline of Table 4 the gap is a steady +0.05\u20130.08; not shown). Volatility (right): the model beats GARCH and persistence at 0.2\u20130.5 s (shaded) but is overtaken by \u22655 s, \u2014 This figure presents sub-second forecasting performance comparing a fine-tuned foundation model (",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2611.14117v1"
+    },
+    {
+      "doc_id": "2611.13962v1",
+      "title": "Deceleration without identification: testing a power-law trend in Bitcoin prices under persistent noise",
+      "page": 3,
+      "thumb": "/data/figures/2611.13962v1_p3_0.jpg",
+      "caption": "Figure 1: The apparent power law and the same picture from histories without one. (a) Weekly closing price of Bitcoin, 2011\u20132026 (820 Saturdays), against years since the genesis block, both on logarithmic scales, with the least-squares power law (R2 = 0.956, exponent 5.51). (b) Four simulated histories with constant drift equal to Bitcoin\u2019s average weekly log growth, \u2014 Panel (a) displays Bitcoin's weekly closing price from 2011-2026 on a log-log plot against years since genesis, fitted with a po",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2611.13962v1"
+    },
+    {
+      "doc_id": "2611.13962v1",
+      "title": "Deceleration without identification: testing a power-law trend in Bitcoin prices under persistent noise",
+      "page": 4,
+      "thumb": "/data/figures/2611.13962v1_p4_1.jpg",
+      "caption": "Figure 2: What each trend implies (illustrative curves, no price data). (a) A power law through 1 US dollar at 2 years and 100,000 US dollars at 17.7 years of age (exponent 5.28), with constant-drift, Gompertz and logistic curves fitted to it by least squares over the record window (shaded). Within the window they stay within 0.6 (Gompertz), 1.7 (logistic) and 2.7 (constant \u2014 Panel (a) shows a log-log plot of price versus years since genesis, comparing four fitted trend models (constant drift, p",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2611.13962v1"
+    },
+    {
+      "doc_id": "2611.13962v1",
+      "title": "Deceleration without identification: testing a power-law trend in Bitcoin prices under persistent noise",
+      "page": 7,
+      "thumb": "/data/figures/2611.13962v1_p7_2.jpg",
+      "caption": "Figure 3: What the declared deviation models look like (simulation, no price data). (a)\u2013(e) Three simulated deviation paths for five members of the family, at the 820 weekly dates of the record, each shown after removing its own least-squares line in time. All panels use the same random numbers, so the differences come from the model alone. (b) Autoregressive with half-life 1.1 years. (c) Fraction \u2014 This figure displays six subpanels comparing simulated deviations from trend across different tim",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2611.13962v1"
+    },
+    {
+      "doc_id": "2611.13962v1",
+      "title": "Deceleration without identification: testing a power-law trend in Bitcoin prices under persistent noise",
+      "page": 8,
+      "thumb": "/data/figures/2611.13962v1_p8_3.jpg",
+      "caption": "Figure 4: What more years buy (simulation, no price data). (a) Trend question: oracle upper bound (dashed, open circles) and the achieved power of our test S1 (solid, squares) at the published exponent, for three deviation models, against the year the record ends. Lines assume future volatility stays at its 2026 level; shaded bands extend to the case where it keeps falling at its past rate. For 20 \u2014 This figure displays simulation results comparing the statistical power of trend detection in tim",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2611.13962v1"
+    },
+    {
+      "doc_id": "2611.13841v1",
+      "title": "Nonzero-Sum Stochastic Exit Games with Singular Belief Dynamics",
+      "page": 20,
+      "thumb": "/data/figures/2611.13841v1_p20_0.jpg",
+      "caption": "Figure 1. A plot of (Xt, Zt) (solid thick line). \u2014 This figure displays a phase plane plot with x on the horizontal axis (0 to 8) and \u03c9 on the vertical axis (0 to 1.0), showing a simulated path of the joint process (X_t, Z_t) as a thick solid line. The plot illustrates boundary curves labeled \u03b2(Y(z)) and \u03b1(Y(z)) (shown as dashed and dash-dot lines respectively) that define a shaded region representing the game's strategic domain in a stochastic exit game model. The key takeaway is that the sampl",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2611.13841v1"
+    },
+    {
+      "doc_id": "2611.13616v1",
+      "title": "Optimal Trading Speed on Blockchain",
+      "page": 4,
+      "thumb": "/data/figures/2611.13616v1_p4_0.jpg",
+      "caption": "Figure 1. Arbitrage profits and effective spreads on Base around Flashblocks. This figure plots, for Base, arbi- trageurs\u2019 net profit per dollar traded and the effective spread, before and after the public launch on July 16, 2025; the post-launch sample begins on July 17. Panel (a) plots the net markout on arbitrage swaps in basis points (bps): the 10- second price move against the Binance mid-quo \u2014 This figure presents two bar charts comparing market microstructure metrics on the Base blockchai",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2611.13616v1"
+    },
+    {
+      "doc_id": "2611.13616v1",
+      "title": "Optimal Trading Speed on Blockchain",
+      "page": 6,
+      "thumb": "/data/figures/2611.13616v1_p6_1.jpg",
+      "caption": "Figure 2. Block timing and the form of competition. Arbitrage transactions A and B arrive at the same times in both panels; each arbitrageur chooses the fee it pays the sequencer, as a percentage of the arbitrage prize, when it sends its transaction, without seeing whether its rival has arrived. In Panel A, both arrive within one long block and the higher fee executes. In Panel B, the same arrival \u2014 This figure illustrates two blockchain block timing scenarios affecting transaction execution ord",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2611.13616v1"
+    },
+    {
+      "doc_id": "2611.13616v1",
+      "title": "Optimal Trading Speed on Blockchain",
       "page": 12,
-      "thumb": "/data/figures/2611.10972v1_p12_2.jpg",
-      "caption": "Figure 3: Estimator errors by policy and assignment condition. \u2014 This figure displays mean squared errors (MSE) for three different policy evaluation estimators\u2014Tabular DR, Boosted DR, and Pilot-IS\u2014across three policy conditions (\u03c0_visit, \u03c0_fens, \u03c0_stage) and four assignment conditions (A_ref, A_int, B_ref, B_int). Each panel shows a clustered bar chart with error bars representing confidence intervals around the MSE values, which are centered at zero on the y-axis. The key takeaway is that Boos",
+      "thumb": "/data/figures/2611.13616v1_p12_2.jpg",
+      "caption": "Figure 3. Transaction execution on a blockchain. This figure illustrates how transactions wait for blocks and how they are ordered within a block. Panel A places six transactions on a timeline: each can be included no earlier than the first block after it arrives, and Transactions 3 and 6 are left out of that block and included in a later one. The protocol sets a target block interval, and the rea \u2014 Panel A shows a timeline of six transactions (Tx 1-6) distributed across four blockchain blocks, ",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2611.10972v1"
+      "source": "https://arxiv.org/pdf/2611.13616v1"
+    },
+    {
+      "doc_id": "2611.13616v1",
+      "title": "Optimal Trading Speed on Blockchain",
+      "page": 18,
+      "thumb": "/data/figures/2611.13616v1_p18_3.jpg",
+      "caption": "Figure 4. Stale quotes and the timing of a withdrawal. This figure illustrates, with a stylized price path, how a pool\u2019s quote becomes stale and why a withdrawal must execute in time. In each price panel, the dashed line is the external price, the solid step line is the pool\u2019s quote, the shaded band around it is the no-arbitrage band set by the pool\u2019s trading fee, and the vertical lines mark block \u2014 This figure consists of four panels illustrating stale quotes and withdrawal timing in blockchain",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2611.13616v1"
+    },
+    {
+      "doc_id": "2611.13550v1",
+      "title": "Tabular Foundation Models in Financial Predictions",
+      "page": 20,
+      "thumb": "/data/figures/2611.13550v1_p20_0.jpg",
+      "caption": "Figure 1A plots the ROC curves underlying these AUCs. Each curve shows the trade-off \u2014 The text describes Table 2B, which reports pairwise AUC comparisons between machine learning models evaluated on the same observations using a paired bootstrap with 10,000 replicates. TabFM shows statistically significant performance advantages over all other models, while Llama significantly outperforms tree-based models; differences between tree-based models are generally statistically insignificant. The key",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2611.13550v1"
+    },
+    {
+      "doc_id": "2611.13550v1",
+      "title": "Tabular Foundation Models in Financial Predictions",
+      "page": 23,
+      "thumb": "/data/figures/2611.13550v1_p23_1.jpg",
+      "caption": "Figure 2 plots each model\u2019s AUC under each level of perturbation, together with the \u2014 This figure displays a line plot comparing the Area Under the Curve (AUC) performance of multiple forecasting models (TabFM, RF, SGB, GBDT-X, GPT-4, and Llama) across increasing levels of digit perturbation (0, 1, 3, and 5 digits replaced) on financial prediction tasks. The x-axis represents the perturbation level and the y-axis shows AUC values ranging from approximately 48% to 65%. The key takeaway is that Ta",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2611.13550v1"
     }
   ],
   "docs": [
     {
-      "id": "2611.12389v1",
-      "title": "Diversification Across Predictors: Heterogeneous Ensemble Learning for Cross-Sectional Return Prediction",
-      "source": "https://arxiv.org/pdf/2611.12389v1",
-      "pages": 8,
-      "images": 8,
-      "figures_captioned": 4,
-      "tables": 3,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 27
-    },
-    {
-      "id": "2611.11803v1",
-      "title": "Diversified-Risk-Perception Risk Measures and Portfolio Selection",
-      "source": "https://arxiv.org/pdf/2611.11803v1",
-      "pages": 35,
+      "id": "2611.14325v1",
+      "title": "Point-in-Time Encoders for Earnings Calls",
+      "source": "https://arxiv.org/pdf/2611.14325v1",
+      "pages": 10,
       "images": 0,
       "figures_captioned": 3,
       "tables": 0,
-      "has_math": true,
+      "has_math": false,
       "ocr_used": false,
-      "chunks_indexed": 44
+      "chunks_indexed": 38
     },
     {
-      "id": "2611.11652v1",
-      "title": "Adjoint Kernel Sensitivity of the Rough Heston Characteristic Exponent",
-      "source": "https://arxiv.org/pdf/2611.11652v1",
-      "pages": 36,
+      "id": "2611.14245v1",
+      "title": "Deep Learning for Operator Maps in Optimal Liquidation",
+      "source": "https://arxiv.org/pdf/2611.14245v1",
+      "pages": 48,
       "images": 0,
       "figures_captioned": 0,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 49
+      "chunks_indexed": 33
     },
     {
-      "id": "2611.11436v1",
-      "title": "Retrospective Analysis of Team-Following Trading Profitability in Pumpfun Meme Coins Using Funding Networks",
-      "source": "https://arxiv.org/pdf/2611.11436v1",
-      "pages": 43,
-      "images": 0,
+      "id": "2611.14117v1",
+      "title": "Fine-Tuning an Order-Flow Foundation Model for Sub-Second Forecasting",
+      "source": "https://arxiv.org/pdf/2611.14117v1",
+      "pages": 20,
+      "images": 6,
       "figures_captioned": 4,
       "tables": 0,
       "has_math": true,
@@ -279,76 +267,88 @@
       "chunks_indexed": 46
     },
     {
-      "id": "2611.11373v1",
-      "title": "Optimal execution in a fractional setting with reinforcement learning",
-      "source": "https://arxiv.org/pdf/2611.11373v1",
-      "pages": 22,
-      "images": 11,
+      "id": "2611.13962v1",
+      "title": "Deceleration without identification: testing a power-law trend in Bitcoin prices under persistent noise",
+      "source": "https://arxiv.org/pdf/2611.13962v1",
+      "pages": 25,
+      "images": 0,
       "figures_captioned": 4,
-      "tables": 0,
+      "tables": 3,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 44
+      "chunks_indexed": 53
     },
     {
-      "id": "2611.10972v1",
-      "title": "JUBILEE: A Benchmark Environment for Off-Policy Evaluation in Debt Collections",
-      "source": "https://arxiv.org/pdf/2611.10972v1",
-      "pages": 28,
+      "id": "2611.13841v1",
+      "title": "Nonzero-Sum Stochastic Exit Games with Singular Belief Dynamics",
+      "source": "https://arxiv.org/pdf/2611.13841v1",
+      "pages": 48,
       "images": 1,
-      "figures_captioned": 3,
+      "figures_captioned": 1,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 50
+      "chunks_indexed": 53
     },
     {
-      "id": "2611.10956v1",
-      "title": "Risk-Sensitive Reinforcement Learning for an Options Market Maker: An Empirical Study with Real S&P 500 Options",
-      "source": "https://arxiv.org/pdf/2611.10956v1",
-      "pages": 9,
-      "images": 2,
-      "figures_captioned": 0,
+      "id": "2611.13616v1",
+      "title": "Optimal Trading Speed on Blockchain",
+      "source": "https://arxiv.org/pdf/2611.13616v1",
+      "pages": 114,
+      "images": 0,
+      "figures_captioned": 4,
       "tables": 0,
       "has_math": false,
       "ocr_used": false,
-      "chunks_indexed": 27
+      "chunks_indexed": 39
     },
     {
-      "id": "2611.10928v1",
-      "title": "Polynomial-Preserving Processes and Volatility Modelling in Discrete Time",
-      "source": "https://arxiv.org/pdf/2611.10928v1",
-      "pages": 91,
+      "id": "2611.13550v1",
+      "title": "Tabular Foundation Models in Financial Predictions",
+      "source": "https://arxiv.org/pdf/2611.13550v1",
+      "pages": 54,
+      "images": 0,
+      "figures_captioned": 2,
+      "tables": 0,
+      "has_math": false,
+      "ocr_used": false,
+      "chunks_indexed": 28
+    },
+    {
+      "id": "2611.13365v1",
+      "title": "Making sense of rule 605",
+      "source": "https://arxiv.org/pdf/2611.13365v1",
+      "pages": 34,
+      "images": 2,
+      "figures_captioned": 0,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 20
+    },
+    {
+      "id": "2611.12389v1",
+      "title": "Diversification Across Predictors: Heterogeneous Ensemble Learning for Cross-Sectional Return Prediction",
+      "source": "https://arxiv.org/pdf/2611.12389v1",
+      "pages": 8,
+      "images": 8,
+      "figures_captioned": 0,
+      "tables": 3,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 23
+    },
+    {
+      "id": "2611.11803v1",
+      "title": "Diversified-Risk-Perception Risk Measures and Portfolio Selection",
+      "source": "https://arxiv.org/pdf/2611.11803v1",
+      "pages": 35,
       "images": 0,
       "figures_captioned": 0,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 53
-    },
-    {
-      "id": "2611.10801v1",
-      "title": "Trained, Frozen, or Absent: Identifying What a Quantum Layer Contributes to Cross-Sectional Equity Ranking",
-      "source": "https://arxiv.org/pdf/2611.10801v1",
-      "pages": 32,
-      "images": 0,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 53
-    },
-    {
-      "id": "2611.10607v1",
-      "title": "Worst-Case Contagion in Financial Networks: MILP Clearing and Robust Loss Analysis",
-      "source": "https://arxiv.org/pdf/2611.10607v1",
-      "pages": 46,
-      "images": 0,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 56
+      "chunks_indexed": 41
     }
   ]
 }
