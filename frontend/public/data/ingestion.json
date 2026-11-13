@@ -1,7 +1,7 @@
 {
   "_note": "Public run manifest of the Tier-3 agentic ingestion pipeline. Safe aggregates + provenance only; raw PDFs live in S3, not here.",
-  "run_id": "20261112T095204Z",
-  "generated_at": "2026-11-12T09:54:43+00:00",
+  "run_id": "20261113T093326Z",
+  "generated_at": "2026-11-13T09:36:32+00:00",
   "collection": "research_corpus",
   "embed_model": "BAAI/bge-small-en-v1.5",
   "dag": [
@@ -50,305 +50,305 @@
     "discovered": 10,
     "fetched": 10,
     "parsed": 10,
-    "chunks": 417,
-    "accepted": 374,
-    "rejected": 43,
-    "images": 17,
+    "chunks": 511,
+    "accepted": 480,
+    "rejected": 31,
+    "images": 37,
     "figures_captioned": 18,
-    "tables": 6,
-    "with_math": 7,
-    "indexed": 374,
-    "spent_usd": 0.0327,
-    "duration_s": 159.2
+    "tables": 3,
+    "with_math": 10,
+    "indexed": 480,
+    "spent_usd": 0.0319,
+    "duration_s": 186.5
   },
   "rejects_by_reason": {
-    "low-relevance": 43
+    "low-relevance": 31
   },
   "budget_usd": 3.0,
   "figures": [
     {
-      "doc_id": "2611.14325v1",
-      "title": "Point-in-Time Encoders for Earnings Calls",
-      "page": 3,
-      "thumb": "/data/figures/2611.14325v1_p3_0.jpg",
-      "caption": "Fig. 1. From the corpus to the uses of the vintages. For each cutoff year Y from 2010 to 2024, every pretraining recipe reads only text dated on or before 31 December of Y . Our two families read trainable calls, ChronoBERT reads general text, and ChronoBERT + DAPT reads both, at 2010, 2017 and 2024 only. Contrastive fine-tuning trains on question-answer pairs from the trainable calls, and the reg \u2014 This flowchart illustrates the data processing pipeline for creating point-in-time encoded repres",
+      "doc_id": "2611.17247v1",
+      "title": "Price-impact Martingale optimal transport",
+      "page": 17,
+      "thumb": "/data/figures/2611.17247v1_p17_0.jpg",
+      "caption": "Figure 1: At-the-money forward-start call with lognormal marginals. As the impact coefficient \u03b7 varies, the left panel shows the seller\u2019s upper bound in basis points of the initial spot, and the middle panel shows the expected number of shares traded per claim, including liquidation. Both panels use the full discrete marginals. The horizontal lines in the left panel mark the MOT and OT upper value \u2014 This figure presents three line plots analyzing an at-the-money forward-start call option under v",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2611.14325v1"
+      "source": "https://arxiv.org/pdf/2611.17247v1"
     },
     {
-      "doc_id": "2611.14325v1",
-      "title": "Point-in-Time Encoders for Earnings Calls",
-      "page": 6,
-      "thumb": "/data/figures/2611.14325v1_p6_1.jpg",
-      "caption": "Fig. 2. Recall@1 on held-out calls by test quarter, for the vintage available at the time, so vintage Y is scored on the second quarter of year Y + 1. Each quarter has 3,000 analyst questions from 400 sampled calls. Panel (a): each question ranked against the executive answers in its own call. Panel (b): each question ranked against every answer of the sampled calls. Colored lines are retrievers w \u2014 This figure displays Recall@1 metrics over time (Q2 2011-Q2 2025) for multiple retrieval methods ",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2611.14325v1"
-    },
-    {
-      "doc_id": "2611.14325v1",
-      "title": "Point-in-Time Encoders for Earnings Calls",
-      "page": 8,
-      "thumb": "/data/figures/2611.14325v1_p8_2.jpg",
-      "caption": "Fig. 3. Look-ahead through the encoder. Panel (a): the premium of a later vintage over the vintage available at the time, in within-call recall@1 on the same held-out questions, averaged over the 14 test quarters 2011Q2 to 2024Q2, with 95% intervals from resampling calls. The same year is vintage Y + 1 on the test quarter of vintage Y , and 2024 is the 2024 vintage on every quarter. Hollow markers \u2014 Panel (a) is a horizontal dot-plot with error bars showing the recall@1 improvement (look-ahead b",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2611.14325v1"
-    },
-    {
-      "doc_id": "2611.14117v1",
-      "title": "Fine-Tuning an Order-Flow Foundation Model for Sub-Second Forecasting",
-      "page": 4,
-      "thumb": "/data/figures/2611.14117v1_p4_0.jpg",
-      "caption": "Figure 1: Per-symbol event-rate density, crypto L3 vs NASDAQ ITCH equities (both measured with our tokenizer\u2019s event definitions). Crypto (solid) sustains a markedly higher per-second rate than even the busiest equities (dashed). \u2014 This density plot compares per-symbol L3 event rates between cryptocurrency and NASDAQ ITCH equity markets, with the x-axis showing events per active second (0-800) and y-axis showing density (0-0.020). Four instruments are plotted: BTC/USD and ETH/USD (crypto, solid ",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2611.14117v1"
-    },
-    {
-      "doc_id": "2611.14117v1",
-      "title": "Fine-Tuning an Order-Flow Foundation Model for Sub-Second Forecasting",
-      "page": 6,
-      "thumb": "/data/figures/2611.14117v1_p6_1.jpg",
-      "caption": "Figure 2: Controlling for corpus recency. Three pretraining corpora on a date axis. xl4ep and xlfresh have the same data budget and end 15 days apart; xlfresh and v6 end at the same instant and differ 3.9\u00d7 in size. Each pair therefore varies one factor. All three are scored in the same later period (shaded): next-token loss on a 12\u201313 October chunk after the cutoff, and 0.2 s direction after LoRA  \u2014 This horizontal bar chart displays three pretraining corpora (xl4ep, xlfresh, and v6) plotted on ",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2611.14117v1"
-    },
-    {
-      "doc_id": "2611.14117v1",
-      "title": "Fine-Tuning an Order-Flow Foundation Model for Sub-Second Forecasting",
-      "page": 7,
-      "thumb": "/data/figures/2611.14117v1_p7_2.jpg",
-      "caption": "Figure 3: Sub-second L1: return density on a common scale (all variants divided by the real std), QQ vs real, and |r|-autocorrelation. Model (blue) tracks real (black) in shape and reproduces volatility clustering; ZI (red) is visibly fatter. The common scale prevents a single rollout\u2019s deep- sweep outlier from rescaling an entire distribution. \u2014 This figure compares distributional properties of real market returns versus model-generated returns at sub-second frequency. The left panel shows log-",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2611.14117v1"
-    },
-    {
-      "doc_id": "2611.14117v1",
-      "title": "Fine-Tuning an Order-Flow Foundation Model for Sub-Second Forecasting",
-      "page": 13,
-      "thumb": "/data/figures/2611.14117v1_p13_3.jpg",
-      "caption": "Figure 4: Sub-second results. Direction (left): the fine-tuned model beats the strongest order-book- imbalance baseline at every horizon, and the gap over this linear baseline widens toward the short end (over the gradient-boosted baseline of Table 4 the gap is a steady +0.05\u20130.08; not shown). Volatility (right): the model beats GARCH and persistence at 0.2\u20130.5 s (shaded) but is overtaken by \u22655 s, \u2014 This figure presents two line charts comparing forecasting performance at sub-second horizons (0.",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2611.14117v1"
-    },
-    {
-      "doc_id": "2611.13962v1",
-      "title": "Deceleration without identification: testing a power-law trend in Bitcoin prices under persistent noise",
-      "page": 3,
-      "thumb": "/data/figures/2611.13962v1_p3_0.jpg",
-      "caption": "Figure 1: The apparent power law and the same picture from histories without one. (a) Weekly closing price of Bitcoin, 2011\u20132026 (820 Saturdays), against years since the genesis block, both on logarithmic scales, with the least-squares power law (R2 = 0.956, exponent 5.51). (b) Four simulated histories with constant drift equal to Bitcoin\u2019s average weekly log growth, \u2014 Panel (a) shows Bitcoin's weekly closing price from 2011-2026 plotted against years since genesis on double-logarithmic scales, ",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2611.13962v1"
-    },
-    {
-      "doc_id": "2611.13962v1",
-      "title": "Deceleration without identification: testing a power-law trend in Bitcoin prices under persistent noise",
-      "page": 4,
-      "thumb": "/data/figures/2611.13962v1_p4_1.jpg",
-      "caption": "Figure 2: What each trend implies (illustrative curves, no price data). (a) A power law through 1 US dollar at 2 years and 100,000 US dollars at 17.7 years of age (exponent 5.28), with constant-drift, Gompertz and logistic curves fitted to it by least squares over the record window (shaded). Within the window they stay within 0.6 (Gompertz), 1.7 (logistic) and 2.7 (constant \u2014 Figure 2 displays two panels comparing trend models fitted to a price record on logarithmic scales. Panel (a) shows four ",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2611.13962v1"
-    },
-    {
-      "doc_id": "2611.13962v1",
-      "title": "Deceleration without identification: testing a power-law trend in Bitcoin prices under persistent noise",
-      "page": 7,
-      "thumb": "/data/figures/2611.13962v1_p7_2.jpg",
-      "caption": "Figure 3: What the declared deviation models look like (simulation, no price data). (a)\u2013(e) Three simulated deviation paths for five members of the family, at the 820 weekly dates of the record, each shown after removing its own least-squares line in time. All panels use the same random numbers, so the differences come from the model alone. (b) Autoregressive with half-life 1.1 years. (c) Fraction \u2014 This figure displays five time-series simulations of price deviations from trend across different",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2611.13962v1"
-    },
-    {
-      "doc_id": "2611.13962v1",
-      "title": "Deceleration without identification: testing a power-law trend in Bitcoin prices under persistent noise",
-      "page": 8,
-      "thumb": "/data/figures/2611.13962v1_p8_3.jpg",
-      "caption": "Figure 4: What more years buy (simulation, no price data). (a) Trend question: oracle upper bound (dashed, open circles) and the achieved power of our test S1 (solid, squares) at the published exponent, for three deviation models, against the year the record ends. Lines assume future volatility stays at its 2026 level; shaded bands extend to the case where it keeps falling at its past rate. For 20 \u2014 Figure 4 displays simulation results comparing statistical power for detecting a power-law trend ",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2611.13962v1"
-    },
-    {
-      "doc_id": "2611.13841v1",
-      "title": "Nonzero-Sum Stochastic Exit Games with Singular Belief Dynamics",
-      "page": 20,
-      "thumb": "/data/figures/2611.13841v1_p20_0.jpg",
-      "caption": "Figure 1. A plot of (Xt, Zt) (solid thick line). \u2014 This figure plots a stochastic trajectory in the (x, z) space, with x on the horizontal axis (0-8) and z on the vertical axis (0-1.0). The solid thick line traces the path of (X_t, Z_t) over time, showing irregular oscillations around a curved region bounded by dashed and dash-dot curves labeled \u03b2(Y(z)) and \u03b1(Y(z)). The shaded area between these boundary curves represents the feasible region, and the trajectory's dense, jagged behavior between a",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2611.13841v1"
-    },
-    {
-      "doc_id": "2611.13616v1",
-      "title": "Optimal Trading Speed on Blockchain",
-      "page": 4,
-      "thumb": "/data/figures/2611.13616v1_p4_0.jpg",
-      "caption": "Figure 1. Arbitrage profits and effective spreads on Base around Flashblocks. This figure plots, for Base, arbi- trageurs\u2019 net profit per dollar traded and the effective spread, before and after the public launch on July 16, 2025; the post-launch sample begins on July 17. Panel (a) plots the net markout on arbitrage swaps in basis points (bps): the 10- second price move against the Binance mid-quo \u2014 This figure displays two bar charts comparing arbitrage metrics on Base before and after Flashblo",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2611.13616v1"
-    },
-    {
-      "doc_id": "2611.13616v1",
-      "title": "Optimal Trading Speed on Blockchain",
-      "page": 6,
-      "thumb": "/data/figures/2611.13616v1_p6_1.jpg",
-      "caption": "Figure 2. Block timing and the form of competition. Arbitrage transactions A and B arrive at the same times in both panels; each arbitrageur chooses the fee it pays the sequencer, as a percentage of the arbitrage prize, when it sends its transaction, without seeing whether its rival has arrived. In Panel A, both arrive within one long block and the higher fee executes. In Panel B, the same arrival \u2014 This figure illustrates two distinct blockchain sequencing scenarios affecting arbitrage transact",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2611.13616v1"
-    },
-    {
-      "doc_id": "2611.13616v1",
-      "title": "Optimal Trading Speed on Blockchain",
-      "page": 12,
-      "thumb": "/data/figures/2611.13616v1_p12_2.jpg",
-      "caption": "Figure 3. Transaction execution on a blockchain. This figure illustrates how transactions wait for blocks and how they are ordered within a block. Panel A places six transactions on a timeline: each can be included no earlier than the first block after it arrives, and Transactions 3 and 6 are left out of that block and included in a later one. The protocol sets a target block interval, and the rea \u2014 This figure illustrates transaction execution and ordering on a blockchain using two panels. Pane",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2611.13616v1"
-    },
-    {
-      "doc_id": "2611.13616v1",
-      "title": "Optimal Trading Speed on Blockchain",
+      "doc_id": "2611.17247v1",
+      "title": "Price-impact Martingale optimal transport",
       "page": 18,
-      "thumb": "/data/figures/2611.13616v1_p18_3.jpg",
-      "caption": "Figure 4. Stale quotes and the timing of a withdrawal. This figure illustrates, with a stylized price path, how a pool\u2019s quote becomes stale and why a withdrawal must execute in time. In each price panel, the dashed line is the external price, the solid step line is the pool\u2019s quote, the shaded band around it is the no-arbitrage band set by the pool\u2019s trading fee, and the vertical lines mark block \u2014 Figure 4 illustrates four scenarios of stale quotes and withdrawal timing on blockchain, using st",
+      "thumb": "/data/figures/2611.17247v1_p18_1.jpg",
+      "caption": "Figure 2: Price bounds per claim for the forward-start call with marginals fitted to SPX option quotes. The left panel shows the seller\u2019s upper bound and the right panel the buyer\u2019s lower bound. To compare the bounds across strike ratios k, we subtract the common lower bound (1\u2212k)+ implied by E[X1] = E[X2] = 1 and express the difference in normalized basis points. The solid curves labelled \u03b7 = 0.0 \u2014 This figure displays price bounds for a forward-start call option across different strike ratios,",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2611.13616v1"
+      "source": "https://arxiv.org/pdf/2611.17247v1"
     },
     {
-      "doc_id": "2611.13550v1",
-      "title": "Tabular Foundation Models in Financial Predictions",
+      "doc_id": "2611.17247v1",
+      "title": "Price-impact Martingale optimal transport",
+      "page": 19,
+      "thumb": "/data/figures/2611.17247v1_p19_2.jpg",
+      "caption": "Figure 3: Seller\u2019s upper bound for the basket call with 16 support points per marginal, in payoff units. The effective impact on asset a is \u03b7a = \u03b5(\u03baa \u2014 This figure displays two panels comparing price-impact bounds for a basket call option. The left panel shows \"Common impact\" with a line plot of upper price against common effective impact \u03b7 on a logarithmic x-axis, including reference lines for MOT upper and OT upper bounds. The right panel shows \"Asset-specific impact\" with four scatter points ",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2611.17247v1"
+    },
+    {
+      "doc_id": "2611.17170v1",
+      "title": "Improving Algorithmic Trading for BESS on Intraday Electricity Markets through Distributional Price Forecasts",
+      "page": 4,
+      "thumb": "/data/figures/2611.17170v1_p4_0.jpg",
+      "caption": "Figure 1: Timing of spot markets for one day of trading. The gray area signifies the time period where products on the IDC market can be traded. The market time points are the times when the day-ahead and intraday auctions are cleared. Note that the graph does not contain the markets for the next day, which open during the depicted time period. In particular, the intraday continuous market for day \u2014 This figure illustrates the timeline of electricity market trading operations over a 24-hour peri",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2611.17170v1"
+    },
+    {
+      "doc_id": "2611.17170v1",
+      "title": "Improving Algorithmic Trading for BESS on Intraday Electricity Markets through Distributional Price Forecasts",
+      "page": 4,
+      "thumb": "/data/figures/2611.17170v1_p4_1.jpg",
+      "caption": "Figure 2: Illustration of the limit order book clearing mechanism. Figure and caption adapted from Graf et al. (2024). \u2014 This figure illustrates the limit order book (LOB) structure and clearing mechanism across day-ahead and intraday continuous trading sessions. The upper panel shows a timeline of trading windows with day-ahead auctions (IDA1, IDA2) and intraday continuous trading (IDA3), while the lower panels display the LOB composition at different time points, with ask stack (red) and bid s",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2611.17170v1"
+    },
+    {
+      "doc_id": "2611.17170v1",
+      "title": "Improving Algorithmic Trading for BESS on Intraday Electricity Markets through Distributional Price Forecasts",
+      "page": 8,
+      "thumb": "/data/figures/2611.17170v1_p8_2.jpg",
+      "caption": "Figure 3: Reduced snapshot of the limit order book and forecast orders for product h visible to the optimization. \u2014 This figure displays a snapshot of a limit order book for an electricity market product, shown as a horizontal bar chart with stacked price-quantity pairs. The visualization contrasts actual market data (solid bars in red for Ask and blue for Bid) against model forecast predictions (dotted/patterned bars in lighter shades), with prices listed on the left axis (ranging from approxim",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2611.17170v1"
+    },
+    {
+      "doc_id": "2611.17170v1",
+      "title": "Improving Algorithmic Trading for BESS on Intraday Electricity Markets through Distributional Price Forecasts",
+      "page": 10,
+      "thumb": "/data/figures/2611.17170v1_p10_3.jpg",
+      "caption": "Figure 4: Definition of the buying and selling prices based on the empirical distribution of all mid prices. For the exemplary \u03b1 = 0.4 depicted here, we receive limit prices for selling and buying (ql, qu) that will lead to a trade if we approach prices in the tail mass of the distribution. \u2014 The left panel shows an empirical cumulative distribution function (ECDF) of midprice values in EUR/MWh for an electricity delivery on 2022-01-03, with horizontal dashed lines marking the 20th percentile (o",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2611.17170v1"
+    },
+    {
+      "doc_id": "2611.16992v1",
+      "title": "Media Trading with Censored Auction Prices: A Stochastic Control and Reinforcement Learning Approach",
+      "page": 2,
+      "thumb": "/data/figures/2611.16992v1_p2_0.jpg",
+      "caption": "Fig. 1 Main participants in a programmatic advertising auction. \u2014 This is a flowchart diagram showing the architecture of a programmatic advertising auction ecosystem with six main participants: Client, User, Advertiser, Demand-side Platform (DSP), Data Providers, Supply-side Platform (SSP), Publisher, and Adserver. Arrows indicate information and instruction flows between components, with the Adserver Exchange serving as the central hub connecting DSPs (which handle advertiser bids and budgets)",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2611.16992v1"
+    },
+    {
+      "doc_id": "2611.16992v1",
+      "title": "Media Trading with Censored Auction Prices: A Stochastic Control and Reinforcement Learning Approach",
+      "page": 5,
+      "thumb": "/data/figures/2611.16992v1_p5_1.jpg",
+      "caption": "Fig. 2 Bidding policy from the benchmark implementation \u2014 This figure displays three heatmaps showing optimal bidding policies across different parameter spaces in media trading auctions. Each panel represents a different scenario (labeled with \u03b2 values of 0.5, 0.71, and 0.5 respectively) with axes representing remaining budget (vertical) and either remaining impressions or time (horizontal), with color intensity indicating the optimal bid amount. The key takeaway is that the bidding strategy va",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2611.16992v1"
+    },
+    {
+      "doc_id": "2611.16992v1",
+      "title": "Media Trading with Censored Auction Prices: A Stochastic Control and Reinforcement Learning Approach",
+      "page": 5,
+      "thumb": "/data/figures/2611.16992v1_p5_2.jpg",
+      "caption": "Fig. 3 Benchmark trajectories \u2014 This figure displays four line plots with shaded confidence intervals comparing performance metrics across sales performance (x-axis from 0.0 to 1.0) for an optimal bidding strategy in media trading. The top-left plot shows optimal strategy price versus market price, with both metrics increasing with sales performance; the top-right plot depicts remaining budget depletion, declining from 1.0 to approximately 0.4 as sales performance increases; the bottom-left plot",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2611.16992v1"
+    },
+    {
+      "doc_id": "2611.16992v1",
+      "title": "Media Trading with Censored Auction Prices: A Stochastic Control and Reinforcement Learning Approach",
+      "page": 11,
+      "thumb": "/data/figures/2611.16992v1_p11_3.jpg",
+      "caption": "Fig. 4 Mean-square error of the capped-bid estimator versus sample size, with 3000 independent replications and S = 0.5; dashed reference line of slope \u22121 \u2014 This log-log plot shows the mean-square error (MSE) of a capped-bid estimator as a function of the number of exploratory bids N, with y-axis labeled as E[(S^N - S)\u00b2 | Monte Carlo] and x-axis showing N from 10 to 10\u00b3. The empirical MSE (solid blue line) closely tracks a reference slope of -1 (dashed line), demonstrating that the estimator ach",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2611.16992v1"
+    },
+    {
+      "doc_id": "2611.16540v1",
+      "title": "Dynamic Scenario-Based Portfolio Optimization for Multi-Asset ETFs",
+      "page": 10,
+      "thumb": "/data/figures/2611.16540v1_p10_0.jpg",
+      "caption": "Figure 1: Illustrative long\u2013only historical (left) and dynamic (right) mean\u2013variance efficient frontiers. Estimation ends 20 December 2022; evaluated return date 21 December 2022. Return and standard deviation are daily percentages. The plots exclude the baseline turnover restriction. The highlighted point is a frontier-grid maximum excess-return-to-standard-deviation candidate, not the turnover-  \u2014 This figure displays mean-variance efficient frontiers comparing historical and dynamic portfolio",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2611.16540v1"
+    },
+    {
+      "doc_id": "2611.16540v1",
+      "title": "Dynamic Scenario-Based Portfolio Optimization for Multi-Asset ETFs",
+      "page": 10,
+      "thumb": "/data/figures/2611.16540v1_p10_1.jpg",
+      "caption": "Figure 2: Illustrative long\u2013only historical (left) and dynamic (right) CVaR 95% efficient frontiers at the same estimation cutoff and with identical plotting scales. The plotted candidate maximizes excess expected return divided by CVaR 95% over the grid; no target-turnover constraint is imposed. \u2014 Figure 2 displays two scatter plots comparing long-only efficient frontiers using Conditional Value-at-Risk (CVaR) at 95% confidence level, with historical data (left) and dynamic methodology (right).",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2611.16540v1"
+    },
+    {
+      "doc_id": "2611.16540v1",
+      "title": "Dynamic Scenario-Based Portfolio Optimization for Multi-Asset ETFs",
+      "page": 11,
+      "thumb": "/data/figures/2611.16540v1_p11_2.jpg",
+      "caption": "Figure 3: Illustrative long\u2013only historical (left) and dynamic (right) CVaR 99% efficient frontiers. The x-axis is daily CVaR 99% in percent. The risk-free reference is an illustrative line through the selected excess-return-to-CVaR candidate, not a market-based capital-market line. \u2014 This figure displays two scatter plots with fitted efficient frontiers comparing historical and dynamic CVaR 99% optimization for long-only portfolios, estimated through December 20, 2022. The x-axis represents dai",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2611.16540v1"
+    },
+    {
+      "doc_id": "2611.16540v1",
+      "title": "Dynamic Scenario-Based Portfolio Optimization for Multi-Asset ETFs",
+      "page": 12,
+      "thumb": "/data/figures/2611.16540v1_p12_3.jpg",
+      "caption": "Figure 4: Baseline gross portfolio-value paths (initial investment USD 100), 21 December 2022\u2013 30 September 2026. Historical results appear on the left and dynamic results on the right. Rows show long\u2013only tangent, long\u2013only minimum-risk, long\u2013short tangent, and long\u2013short minimum-risk strategies. BHP denotes the common initially equal-weighted unrebalanced benchmark. Portfolio weights selected us \u2014 This figure displays portfolio performance comparison over 21 December 2022 to 30 September 2026,",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2611.16540v1"
+    },
+    {
+      "doc_id": "2611.16495v1",
+      "title": "Verifiable Settlement and Pricing for Local Energy Markets: Architecture and Deployment on Hyperledger Besu",
+      "page": 11,
+      "thumb": "/data/figures/2611.16495v1_p11_0.jpg",
+      "caption": "Figure 1: Actors and information flows \u2014 This diagram illustrates the system architecture for a blockchain-based local energy market with three main entities: consumer premises (left), community operator (center), and permissioned ledger/Besu/QBFT (right). The figure shows information flows between components including meter data, local optimizer operations, session daemon aggregation, market contract settlements, and pricing library interactions, with the verifier contracts auditing transaction",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2611.16495v1"
+    },
+    {
+      "doc_id": "2611.16495v1",
+      "title": "Verifiable Settlement and Pricing for Local Energy Markets: Architecture and Deployment on Hyperledger Besu",
+      "page": 15,
+      "thumb": "/data/figures/2611.16495v1_p15_1.jpg",
+      "caption": "Figure 2: Smart contract ecosystem. \u2014 This figure is a flowchart depicting the smart contract ecosystem architecture for a local energy market system built on blockchain. The diagram shows four main actors (Operator, Registered prosumers, Floor administrator, and Tariff reporters) on the left feeding into a central Market contract, which then connects to downstream components including a Grid tariff contract, Pricing library, Batch and Reveal verifiers, and Settlement token with associated grid ",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2611.16495v1"
+    },
+    {
+      "doc_id": "2611.16495v1",
+      "title": "Verifiable Settlement and Pricing for Local Energy Markets: Architecture and Deployment on Hyperledger Besu",
       "page": 20,
-      "thumb": "/data/figures/2611.13550v1_p20_0.jpg",
-      "caption": "Figure 1A plots the ROC curves underlying these AUCs. Each curve shows the trade-off \u2014 This text passage describes Table 2B, which presents pairwise AUC comparisons between machine learning models evaluated using paired bootstrap testing with 10,000 replicates. The key finding is that TabFM shows statistically significant performance advantages over all competing models, while Llama significantly outperforms tree-based models; differences between tree-based models themselves are generally not st",
+      "thumb": "/data/figures/2611.16495v1_p20_2.jpg",
+      "caption": "Figure 3: Cycle of one day. \u2014 This figure illustrates the daily settlement cycle for a blockchain-based local energy market, spanning 24 hours from day c to day c+1. The timeline shows two key phases: a recourse window (12 hours) during day c+1 where batch proofs can be submitted and verified, followed by a deadline at 12:00 on day c+1. The diagram depicts the settlement process flow, where trades are either settled (advancing commitments, freezing queues, and processing withdrawals) if all proo",
       "vision": true,
-      "source": "https://arxiv.org/pdf/2611.13550v1"
-    },
-    {
-      "doc_id": "2611.13550v1",
-      "title": "Tabular Foundation Models in Financial Predictions",
-      "page": 23,
-      "thumb": "/data/figures/2611.13550v1_p23_1.jpg",
-      "caption": "Figure 2 plots each model\u2019s AUC under each level of perturbation, together with the \u2014 This figure displays a line plot comparing the robustness of different forecasting models (TabFM, RF, SGB, GBDT-X, GPT-4, and Llama) to digit perturbations in test predictor values. The x-axis represents the number of digits perturbed (0, 1, 3, or 5), while the y-axis shows AUC scores ranging from approximately 48% to 66%. The key takeaway is that tree-based models (Random Forest, Gradient Boosting) demonstrate",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2611.13550v1"
+      "source": "https://arxiv.org/pdf/2611.16495v1"
     }
   ],
   "docs": [
     {
-      "id": "2611.14325v1",
-      "title": "Point-in-Time Encoders for Earnings Calls",
-      "source": "https://arxiv.org/pdf/2611.14325v1",
-      "pages": 10,
+      "id": "2611.17247v1",
+      "title": "Price-impact Martingale optimal transport",
+      "source": "https://arxiv.org/pdf/2611.17247v1",
+      "pages": 39,
       "images": 0,
       "figures_captioned": 3,
       "tables": 0,
-      "has_math": false,
+      "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 38
+      "chunks_indexed": 53
     },
     {
-      "id": "2611.14245v1",
-      "title": "Deep Learning for Operator Maps in Optimal Liquidation",
-      "source": "https://arxiv.org/pdf/2611.14245v1",
-      "pages": 48,
+      "id": "2611.17170v1",
+      "title": "Improving Algorithmic Trading for BESS on Intraday Electricity Markets through Distributional Price Forecasts",
+      "source": "https://arxiv.org/pdf/2611.17170v1",
+      "pages": 31,
+      "images": 8,
+      "figures_captioned": 4,
+      "tables": 2,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 59
+    },
+    {
+      "id": "2611.16992v1",
+      "title": "Media Trading with Censored Auction Prices: A Stochastic Control and Reinforcement Learning Approach",
+      "source": "https://arxiv.org/pdf/2611.16992v1",
+      "pages": 27,
+      "images": 10,
+      "figures_captioned": 4,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 49
+    },
+    {
+      "id": "2611.16540v1",
+      "title": "Dynamic Scenario-Based Portfolio Optimization for Multi-Asset ETFs",
+      "source": "https://arxiv.org/pdf/2611.16540v1",
+      "pages": 50,
+      "images": 16,
+      "figures_captioned": 4,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 37
+    },
+    {
+      "id": "2611.16495v1",
+      "title": "Verifiable Settlement and Pricing for Local Energy Markets: Architecture and Deployment on Hyperledger Besu",
+      "source": "https://arxiv.org/pdf/2611.16495v1",
+      "pages": 41,
+      "images": 0,
+      "figures_captioned": 3,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 40
+    },
+    {
+      "id": "2611.16484v1",
+      "title": "TAPES: Terminal Adjoint-Propagated Error Scheduling for Financial Diffusion Samplers",
+      "source": "https://arxiv.org/pdf/2611.16484v1",
+      "pages": 9,
+      "images": 2,
+      "figures_captioned": 0,
+      "tables": 1,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 29
+    },
+    {
+      "id": "2611.16471v1",
+      "title": "Accuracy Is Not Welfare: Evaluating AI Buyers under Strategic Price Complexity in a Synthetic Duopoly",
+      "source": "https://arxiv.org/pdf/2611.16471v1",
+      "pages": 51,
+      "images": 1,
+      "figures_captioned": 0,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 44
+    },
+    {
+      "id": "2611.16429v1",
+      "title": "On the continuity of martingale optimal transport in higher dimensions",
+      "source": "https://arxiv.org/pdf/2611.16429v1",
+      "pages": 29,
       "images": 0,
       "figures_captioned": 0,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 33
+      "chunks_indexed": 59
     },
     {
-      "id": "2611.14117v1",
-      "title": "Fine-Tuning an Order-Flow Foundation Model for Sub-Second Forecasting",
-      "source": "https://arxiv.org/pdf/2611.14117v1",
-      "pages": 20,
-      "images": 6,
-      "figures_captioned": 4,
+      "id": "2611.16129v1",
+      "title": "Novel Esscher concepts for informational risks and valuation in market models under random horizon",
+      "source": "https://arxiv.org/pdf/2611.16129v1",
+      "pages": 46,
+      "images": 0,
+      "figures_captioned": 0,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
       "chunks_indexed": 46
     },
     {
-      "id": "2611.13962v1",
-      "title": "Deceleration without identification: testing a power-law trend in Bitcoin prices under persistent noise",
-      "source": "https://arxiv.org/pdf/2611.13962v1",
-      "pages": 25,
-      "images": 0,
-      "figures_captioned": 4,
-      "tables": 3,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 53
-    },
-    {
-      "id": "2611.13841v1",
-      "title": "Nonzero-Sum Stochastic Exit Games with Singular Belief Dynamics",
-      "source": "https://arxiv.org/pdf/2611.13841v1",
-      "pages": 48,
-      "images": 1,
-      "figures_captioned": 1,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 53
-    },
-    {
-      "id": "2611.13616v1",
-      "title": "Optimal Trading Speed on Blockchain",
-      "source": "https://arxiv.org/pdf/2611.13616v1",
-      "pages": 114,
-      "images": 0,
-      "figures_captioned": 4,
-      "tables": 0,
-      "has_math": false,
-      "ocr_used": false,
-      "chunks_indexed": 39
-    },
-    {
-      "id": "2611.13550v1",
-      "title": "Tabular Foundation Models in Financial Predictions",
-      "source": "https://arxiv.org/pdf/2611.13550v1",
-      "pages": 54,
-      "images": 0,
-      "figures_captioned": 2,
-      "tables": 0,
-      "has_math": false,
-      "ocr_used": false,
-      "chunks_indexed": 28
-    },
-    {
-      "id": "2611.13365v1",
-      "title": "Making sense of rule 605",
-      "source": "https://arxiv.org/pdf/2611.13365v1",
-      "pages": 34,
-      "images": 2,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 20
-    },
-    {
-      "id": "2611.12389v1",
-      "title": "Diversification Across Predictors: Heterogeneous Ensemble Learning for Cross-Sectional Return Prediction",
-      "source": "https://arxiv.org/pdf/2611.12389v1",
-      "pages": 8,
-      "images": 8,
-      "figures_captioned": 0,
-      "tables": 3,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 23
-    },
-    {
-      "id": "2611.11803v1",
-      "title": "Diversified-Risk-Perception Risk Measures and Portfolio Selection",
-      "source": "https://arxiv.org/pdf/2611.11803v1",
-      "pages": 35,
+      "id": "2611.16087v1",
+      "title": "Convergence rates for truncated and discretised signature expansions",
+      "source": "https://arxiv.org/pdf/2611.16087v1",
+      "pages": 39,
       "images": 0,
       "figures_captioned": 0,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 41
+      "chunks_indexed": 64
     }
   ]
 }
