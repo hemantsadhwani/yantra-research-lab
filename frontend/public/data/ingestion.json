@@ -1,7 +1,7 @@
 {
   "_note": "Public run manifest of the Tier-3 agentic ingestion pipeline. Safe aggregates + provenance only; raw PDFs live in S3, not here.",
-  "run_id": "20261114T085950Z",
-  "generated_at": "2026-11-14T09:03:01+00:00",
+  "run_id": "20261115T092916Z",
+  "generated_at": "2026-11-15T09:32:55+00:00",
   "collection": "research_corpus",
   "embed_model": "BAAI/bge-small-en-v1.5",
   "dag": [
@@ -58,8 +58,8 @@
     "tables": 3,
     "with_math": 10,
     "indexed": 480,
-    "spent_usd": 0.0313,
-    "duration_s": 190.7
+    "spent_usd": 0.0314,
+    "duration_s": 219.3
   },
   "rejects_by_reason": {
     "low-relevance": 31
@@ -71,7 +71,7 @@
       "title": "Price-impact Martingale optimal transport",
       "page": 17,
       "thumb": "/data/figures/2611.17247v1_p17_0.jpg",
-      "caption": "Figure 1: At-the-money forward-start call with lognormal marginals. As the impact coefficient \u03b7 varies, the left panel shows the seller\u2019s upper bound in basis points of the initial spot, and the middle panel shows the expected number of shares traded per claim, including liquidation. Both panels use the full discrete marginals. The horizontal lines in the left panel mark the MOT and OT upper value \u2014 This figure compares three panels analyzing price impact effects in derivative pricing using an a",
+      "caption": "Figure 1: At-the-money forward-start call with lognormal marginals. As the impact coefficient \u03b7 varies, the left panel shows the seller\u2019s upper bound in basis points of the initial spot, and the middle panel shows the expected number of shares traded per claim, including liquidation. Both panels use the full discrete marginals. The horizontal lines in the left panel mark the MOT and OT upper value \u2014 This figure displays three line charts analyzing at-the-money forward-start calls under varying e",
       "vision": true,
       "source": "https://arxiv.org/pdf/2611.17247v1"
     },
@@ -80,7 +80,7 @@
       "title": "Price-impact Martingale optimal transport",
       "page": 18,
       "thumb": "/data/figures/2611.17247v1_p18_1.jpg",
-      "caption": "Figure 2: Price bounds per claim for the forward-start call with marginals fitted to SPX option quotes. The left panel shows the seller\u2019s upper bound and the right panel the buyer\u2019s lower bound. To compare the bounds across strike ratios k, we subtract the common lower bound (1\u2212k)+ implied by E[X1] = E[X2] = 1 and express the difference in normalized basis points. The solid curves labelled \u03b7 = 0.0 \u2014 This figure displays price bounds for a forward-start call option under martingale optimal transp",
+      "caption": "Figure 2: Price bounds per claim for the forward-start call with marginals fitted to SPX option quotes. The left panel shows the seller\u2019s upper bound and the right panel the buyer\u2019s lower bound. To compare the bounds across strike ratios k, we subtract the common lower bound (1\u2212k)+ implied by E[X1] = E[X2] = 1 and express the difference in normalized basis points. The solid curves labelled \u03b7 = 0.0 \u2014 This figure displays optimal transport price bounds for a forward-start call option under differe",
       "vision": true,
       "source": "https://arxiv.org/pdf/2611.17247v1"
     },
@@ -89,7 +89,7 @@
       "title": "Price-impact Martingale optimal transport",
       "page": 19,
       "thumb": "/data/figures/2611.17247v1_p19_2.jpg",
-      "caption": "Figure 3: Seller\u2019s upper bound for the basket call with 16 support points per marginal, in payoff units. The effective impact on asset a is \u03b7a = \u03b5(\u03baa \u2014 This figure shows two line/scatter plots comparing price impact effects on a basket call option. The left panel displays common impact, plotting upper price against common effective impact \u03b7 on a logarithmic x-axis, showing a monotonic increase from approximately 1.38 to 1.50 as impact increases from 10\u207b\u00b3 to 10\u00b9. The right panel displays asset-sp",
+      "caption": "Figure 3: Seller\u2019s upper bound for the basket call with 16 support points per marginal, in payoff units. The effective impact on asset a is \u03b7a = \u03b5(\u03baa \u2014 The figure displays two panels comparing price impacts in a basket call option pricing problem. The left panel shows \"Common impact\" with upper price plotted against common effective impact \u03b7 on a logarithmic x-axis, displaying a monotonically increasing curve from approximately 1.38 to 1.50 with marked bounds for MOT (Martingale Optimal Transpor",
       "vision": true,
       "source": "https://arxiv.org/pdf/2611.17247v1"
     },
@@ -98,7 +98,7 @@
       "title": "Improving Algorithmic Trading for BESS on Intraday Electricity Markets through Distributional Price Forecasts",
       "page": 4,
       "thumb": "/data/figures/2611.17170v1_p4_0.jpg",
-      "caption": "Figure 1: Timing of spot markets for one day of trading. The gray area signifies the time period where products on the IDC market can be traded. The market time points are the times when the day-ahead and intraday auctions are cleared. Note that the graph does not contain the markets for the next day, which open during the depicted time period. In particular, the intraday continuous market for day \u2014 This timeline figure illustrates the trading schedule for electricity spot markets on a single tr",
+      "caption": "Figure 1: Timing of spot markets for one day of trading. The gray area signifies the time period where products on the IDC market can be traded. The market time points are the times when the day-ahead and intraday auctions are cleared. Note that the graph does not contain the markets for the next day, which open during the depicted time period. In particular, the intraday continuous market for day \u2014 This timeline diagram illustrates the trading schedule for electricity spot markets within a sing",
       "vision": true,
       "source": "https://arxiv.org/pdf/2611.17170v1"
     },
@@ -107,7 +107,7 @@
       "title": "Improving Algorithmic Trading for BESS on Intraday Electricity Markets through Distributional Price Forecasts",
       "page": 4,
       "thumb": "/data/figures/2611.17170v1_p4_1.jpg",
-      "caption": "Figure 2: Illustration of the limit order book clearing mechanism. Figure and caption adapted from Graf et al. (2024). \u2014 This figure illustrates limit order book structure and clearing mechanics for electricity market trading across day-ahead and intraday continuous trading sessions. The left panel shows a single snapshot of the order book at time T=1 with ask stack (red) and bid stack (blue) layers, while the right panel depicts how the order book evolves across multiple time periods (T=1 to T=",
+      "caption": "Figure 2: Illustration of the limit order book clearing mechanism. Figure and caption adapted from Graf et al. (2024). \u2014 This figure illustrates the limit order book (LOB) structure and clearing mechanism for intraday electricity markets at different time points. The left panel shows the LOB composition at T=1 with ask stack (red, showing prices 200.5-97.5 with volumes), bid-ask spread, and bid stack (blue, showing prices 35.5 to -20.5 with volumes), while the right panel demonstrates how the LO",
       "vision": true,
       "source": "https://arxiv.org/pdf/2611.17170v1"
     },
@@ -116,7 +116,7 @@
       "title": "Improving Algorithmic Trading for BESS on Intraday Electricity Markets through Distributional Price Forecasts",
       "page": 8,
       "thumb": "/data/figures/2611.17170v1_p8_2.jpg",
-      "caption": "Figure 3: Reduced snapshot of the limit order book and forecast orders for product h visible to the optimization. \u2014 This figure displays a snapshot of a limit order book for an intraday electricity market product, shown as a stacked bar chart with price levels on the y-axis (ranging from 22\u20ac to 83\u20ac per MWh) and order quantities on the x-axis. The chart uses a color-coded legend distinguishing between market orders (solid colors) and forecast orders (dotted pattern), with red representing ask pri",
+      "caption": "Figure 3: Reduced snapshot of the limit order book and forecast orders for product h visible to the optimization. \u2014 This figure displays a snapshot of a limit order book for intraday electricity market trading, showing a vertical stack of price levels with associated quantities. The chart uses a color-coded legend distinguishing between actual market ask/bid prices (solid red and dark blue bars) and forecasted ask/bid prices (dashed/patterned red and blue bars), with price levels ranging from 22",
       "vision": true,
       "source": "https://arxiv.org/pdf/2611.17170v1"
     },
@@ -125,7 +125,7 @@
       "title": "Improving Algorithmic Trading for BESS on Intraday Electricity Markets through Distributional Price Forecasts",
       "page": 10,
       "thumb": "/data/figures/2611.17170v1_p10_3.jpg",
-      "caption": "Figure 4: Definition of the buying and selling prices based on the empirical distribution of all mid prices. For the exemplary \u03b1 = 0.4 depicted here, we receive limit prices for selling and buying (ql, qu) that will lead to a trade if we approach prices in the tail mass of the distribution. \u2014 The figure shows two panels for electricity price forecasting on 2022-01-03 at 19:00. The left panel displays an ECDF (empirical cumulative distribution function) of midprice in EUR/MWh with marked quantile",
+      "caption": "Figure 4: Definition of the buying and selling prices based on the empirical distribution of all mid prices. For the exemplary \u03b1 = 0.4 depicted here, we receive limit prices for selling and buying (ql, qu) that will lead to a trade if we approach prices in the tail mass of the distribution. \u2014 The figure shows two panels analyzing midprice distribution for electricity delivery on 2022-01-03 at 19:00. The left panel displays an Empirical Cumulative Distribution Function (ECDF) of midprices in EUR/",
       "vision": true,
       "source": "https://arxiv.org/pdf/2611.17170v1"
     },
@@ -134,7 +134,7 @@
       "title": "Media Trading with Censored Auction Prices: A Stochastic Control and Reinforcement Learning Approach",
       "page": 2,
       "thumb": "/data/figures/2611.16992v1_p2_0.jpg",
-      "caption": "Fig. 1 Main participants in a programmatic advertising auction. \u2014 This diagram illustrates the architecture of a programmatic advertising auction ecosystem with three main participant groups: Client (demand side), Data Providers (center), and User (supply side). The flow shows how advertisers submit instructions and bids through a Demand-side Platform, which interacts with a Data Providers component and an Ad Exchange, which then connects to a Supply-side Platform serving inventory to publishers",
+      "caption": "Fig. 1 Main participants in a programmatic advertising auction. \u2014 This diagram illustrates the architecture of a programmatic advertising auction ecosystem, showing interactions between five main participant types: Client, User, Advertiser, Demand-side Platform (DSP), Data Provider, Supply-side Platform (SSP), and Publisher, connected through a central Ad Exchange. The chart uses boxes and arrows to depict information and transaction flows, including bid requests, impressions, price data, and pu",
       "vision": true,
       "source": "https://arxiv.org/pdf/2611.16992v1"
     },
@@ -143,7 +143,7 @@
       "title": "Media Trading with Censored Auction Prices: A Stochastic Control and Reinforcement Learning Approach",
       "page": 5,
       "thumb": "/data/figures/2611.16992v1_p5_1.jpg",
-      "caption": "Fig. 2 Bidding policy from the benchmark implementation \u2014 These three heatmaps display optimal bidding policies across different market conditions in a media trading auction framework. Each heatmap uses a color gradient (dark blue to yellow) to represent bid values, with the left plot showing optimal bid versus remaining budget and impressions, the middle plot showing optimal bid versus matching budget and auction depth, and the right plot showing optimal bid versus time-to-deadline and auction ",
+      "caption": "Fig. 2 Bidding policy from the benchmark implementation \u2014 This figure displays three heatmaps showing optimal bidding policies across different parameter spaces in a media trading auction context. Each heatmap uses color gradients (dark blue to yellow) to represent bid values, with the left panel varying remaining budget and monitoring budget, the middle panel showing remaining budget and winning probability, and the right panel displaying remaining budget and time. The key takeaway is that opti",
       "vision": true,
       "source": "https://arxiv.org/pdf/2611.16992v1"
     },
@@ -152,7 +152,7 @@
       "title": "Media Trading with Censored Auction Prices: A Stochastic Control and Reinforcement Learning Approach",
       "page": 5,
       "thumb": "/data/figures/2611.16992v1_p5_2.jpg",
-      "caption": "Fig. 3 Benchmark trajectories \u2014 This figure displays four line plots showing key performance metrics from a reinforcement learning bidding strategy over mean sales performance (x-axis from 0 to 1.0). The top-left plot compares optimal strategy vs market price, showing the optimal bid (blue) tracking above market price (purple) with confidence bands. The top-right plot shows budget depletion over sales performance, with remaining budget declining from 1.0 to approximately 0.4. The bottom-left plo",
+      "caption": "Fig. 3 Benchmark trajectories \u2014 This figure displays four line plots showing benchmark trajectories from a media trading algorithm. The top-left panel compares optimal strategy versus market price, both trending upward with confidence bands. The top-right panel shows remaining budget depleting monotonically over sales performance on the x-axis. The bottom-left panel displays cumulative sales increasing nonlinearly with sales performance, with shaded confidence intervals widening over time. The b",
       "vision": true,
       "source": "https://arxiv.org/pdf/2611.16992v1"
     },
@@ -161,7 +161,7 @@
       "title": "Media Trading with Censored Auction Prices: A Stochastic Control and Reinforcement Learning Approach",
       "page": 11,
       "thumb": "/data/figures/2611.16992v1_p11_3.jpg",
-      "caption": "Fig. 4 Mean-square error of the capped-bid estimator versus sample size, with 3000 independent replications and S = 0.5; dashed reference line of slope \u22121 \u2014 This log-log plot displays the mean-square error (MSE) of a capped-bid estimator as a function of the number of exploratory bids N, with the y-axis showing E[(S-\u015c)\u00b2] in Monte Carlo units and the x-axis showing N ranging from 10 to 1000. The empirical MSE (solid blue line) closely tracks a reference slope of -1 (dashed orange line), demonstra",
+      "caption": "Fig. 4 Mean-square error of the capped-bid estimator versus sample size, with 3000 independent replications and S = 0.5; dashed reference line of slope \u22121 \u2014 This log-log plot compares the mean-square error (MSE) of a capped-bid estimator against the number of exploratory bids N, with the y-axis showing E[(\u015c\u2212S)\u00b2] (Monte Carlo error) and the x-axis showing N from approximately 10 to 2000. The empirical MSE curve (solid blue line) closely tracks a reference line with slope \u22121 (dashed orange line), ",
       "vision": true,
       "source": "https://arxiv.org/pdf/2611.16992v1"
     },
@@ -170,7 +170,7 @@
       "title": "Dynamic Scenario-Based Portfolio Optimization for Multi-Asset ETFs",
       "page": 10,
       "thumb": "/data/figures/2611.16540v1_p10_0.jpg",
-      "caption": "Figure 1: Illustrative long\u2013only historical (left) and dynamic (right) mean\u2013variance efficient frontiers. Estimation ends 20 December 2022; evaluated return date 21 December 2022. Return and standard deviation are daily percentages. The plots exclude the baseline turnover restriction. The highlighted point is a frontier-grid maximum excess-return-to-standard-deviation candidate, not the turnover-  \u2014 This figure displays two mean-variance efficient frontiers for long-only portfolios estimated to ",
+      "caption": "Figure 1: Illustrative long\u2013only historical (left) and dynamic (right) mean\u2013variance efficient frontiers. Estimation ends 20 December 2022; evaluated return date 21 December 2022. Return and standard deviation are daily percentages. The plots exclude the baseline turnover restriction. The highlighted point is a frontier-grid maximum excess-return-to-standard-deviation candidate, not the turnover-  \u2014 This figure displays mean-variance efficient frontiers for long-only portfolios, comparing histor",
       "vision": true,
       "source": "https://arxiv.org/pdf/2611.16540v1"
     },
@@ -179,7 +179,7 @@
       "title": "Dynamic Scenario-Based Portfolio Optimization for Multi-Asset ETFs",
       "page": 10,
       "thumb": "/data/figures/2611.16540v1_p10_1.jpg",
-      "caption": "Figure 2: Illustrative long\u2013only historical (left) and dynamic (right) CVaR 95% efficient frontiers at the same estimation cutoff and with identical plotting scales. The plotted candidate maximizes excess expected return divided by CVaR 95% over the grid; no target-turnover constraint is imposed. \u2014 This figure displays two CVaR 95% efficient frontier plots comparing historical (left) and dynamic (right) mean-CVaR optimization approaches for long-only portfolios, estimated through December 20, 20",
+      "caption": "Figure 2: Illustrative long\u2013only historical (left) and dynamic (right) CVaR 95% efficient frontiers at the same estimation cutoff and with identical plotting scales. The plotted candidate maximizes excess expected return divided by CVaR 95% over the grid; no target-turnover constraint is imposed. \u2014 This figure displays two mean-CVaR efficient frontier plots (historical on left, dynamic on right) for a long-only multi-asset ETF portfolio, with daily CVaR at 95% on the x-axis and expected daily re",
       "vision": true,
       "source": "https://arxiv.org/pdf/2611.16540v1"
     },
@@ -188,7 +188,7 @@
       "title": "Dynamic Scenario-Based Portfolio Optimization for Multi-Asset ETFs",
       "page": 11,
       "thumb": "/data/figures/2611.16540v1_p11_2.jpg",
-      "caption": "Figure 3: Illustrative long\u2013only historical (left) and dynamic (right) CVaR 99% efficient frontiers. The x-axis is daily CVaR 99% in percent. The risk-free reference is an illustrative line through the selected excess-return-to-CVaR candidate, not a market-based capital-market line. \u2014 This figure displays two scatter plots with fitted efficient frontier curves comparing historical and dynamic CVaR 99% optimization approaches for multi-asset ETFs as of December 20, 2022. The x-axis represents dai",
+      "caption": "Figure 3: Illustrative long\u2013only historical (left) and dynamic (right) CVaR 99% efficient frontiers. The x-axis is daily CVaR 99% in percent. The risk-free reference is an illustrative line through the selected excess-return-to-CVaR candidate, not a market-based capital-market line. \u2014 This figure displays two scatter plots comparing historical (left) and dynamic (right) CVaR 99% efficient frontiers for long-only portfolio optimization as of December 20, 2022. The x-axes measure Daily CVaR at 99%",
       "vision": true,
       "source": "https://arxiv.org/pdf/2611.16540v1"
     },
@@ -197,7 +197,7 @@
       "title": "Dynamic Scenario-Based Portfolio Optimization for Multi-Asset ETFs",
       "page": 12,
       "thumb": "/data/figures/2611.16540v1_p12_3.jpg",
-      "caption": "Figure 4: Baseline gross portfolio-value paths (initial investment USD 100), 21 December 2022\u2013 30 September 2026. Historical results appear on the left and dynamic results on the right. Rows show long\u2013only tangent, long\u2013only minimum-risk, long\u2013short tangent, and long\u2013short minimum-risk strategies. BHP denotes the common initially equal-weighted unrebalanced benchmark. Portfolio weights selected us \u2014 This figure displays six time-series line charts comparing portfolio value trajectories from Dece",
+      "caption": "Figure 4: Baseline gross portfolio-value paths (initial investment USD 100), 21 December 2022\u2013 30 September 2026. Historical results appear on the left and dynamic results on the right. Rows show long\u2013only tangent, long\u2013only minimum-risk, long\u2013short tangent, and long\u2013short minimum-risk strategies. BHP denotes the common initially equal-weighted unrebalanced benchmark. Portfolio weights selected us \u2014 This figure displays six line charts comparing portfolio value evolution from December 2022 to Se",
       "vision": true,
       "source": "https://arxiv.org/pdf/2611.16540v1"
     },
@@ -206,7 +206,7 @@
       "title": "Verifiable Settlement and Pricing for Local Energy Markets: Architecture and Deployment on Hyperledger Besu",
       "page": 11,
       "thumb": "/data/figures/2611.16495v1_p11_0.jpg",
-      "caption": "Figure 1: Actors and information flows \u2014 This figure is a flow diagram showing the architecture of a local energy market system with three main domains: Consumer premises (left), Community operator (center), and Permissioned ledger/Besu, QBFT (right). The diagram illustrates how data flows between a meter and local optimizer at consumer premises, through a session daemon at the community operator that aggregates and processes power per batch, to various ledger components including market contrac",
+      "caption": "Figure 1: Actors and information flows \u2014 This diagram illustrates the system architecture for a permissioned blockchain-based local energy market, showing three main actor groups: consumer premises (left), community operator (center), and permissioned ledger infrastructure (right). Data flows between consumers' local optimizers and meters, through the community operator's session daemon and power process, to a Besu-based permissioned ledger that records market contracts, pricing information, and",
       "vision": true,
       "source": "https://arxiv.org/pdf/2611.16495v1"
     },
@@ -215,7 +215,7 @@
       "title": "Verifiable Settlement and Pricing for Local Energy Markets: Architecture and Deployment on Hyperledger Besu",
       "page": 15,
       "thumb": "/data/figures/2611.16495v1_p15_1.jpg",
-      "caption": "Figure 2: Smart contract ecosystem. \u2014 This figure is a flowchart diagram illustrating the smart contract ecosystem architecture for a local energy market system. It shows how multiple actors (Operator, Registered prosumers, Floor administrator) interact with a central Market contract that handles session and pricing mechanisms, which then connects to specialized contracts including Tariff reporters, Grid administrator, Grid tariff contract, Batch verifier, Reveal verifier, and Settlement token, ",
+      "caption": "Figure 2: Smart contract ecosystem. \u2014 This figure is a flowchart depicting the smart contract architecture for a local energy market system deployed on blockchain. It shows four input actors (Operator, Registered prosumers, Floor administrator, and Tariff reporters) feeding into a central \"Market contract\" component that handles session and pricing operations, which then routes data to downstream modules including a Grid tariff contract, Pricing library, Batch verifier, Reveal verifier, and Sett",
       "vision": true,
       "source": "https://arxiv.org/pdf/2611.16495v1"
     },
@@ -224,7 +224,7 @@
       "title": "Verifiable Settlement and Pricing for Local Energy Markets: Architecture and Deployment on Hyperledger Besu",
       "page": 20,
       "thumb": "/data/figures/2611.16495v1_p20_2.jpg",
-      "caption": "Figure 3: Cycle of one day. \u2014 This flowchart illustrates the daily settlement cycle for a blockchain-based local energy market, spanning from 00:00 (day c+1) to 12:00 (day c+1). The figure shows two possible outcomes: a \"settled\" state where commitments advance, frozen queues are consumed, and capped withdrawals are processed, or a \"canceled\" state where trading is nullified if proofs remain pending or conditions are unmet. The diagram delineates key phases including a 96-session trading day (da",
+      "caption": "Figure 3: Cycle of one day. \u2014 This flowchart illustrates a 24-hour settlement cycle for a local energy market system on a blockchain platform. The timeline spans from 00:00 (day e+1) to 12:00 (day e+1), with day e consisting of 96 sessions of 15-minute aggregates where prices and no money moves are recorded. The figure shows two possible end states: either transactions are \"settled\" (with commitments advanced and queues consumed) or orders are \"canceled\" (with no moves recorded and queues cleare",
       "vision": true,
       "source": "https://arxiv.org/pdf/2611.16495v1"
     }
