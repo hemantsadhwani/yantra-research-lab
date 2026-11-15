@@ -45,3 +45,13 @@ deploy/k8s/backend-secret.yaml
 slm_regime_classifier/adapters/
 slm_regime_classifier/datasets/
 mlflow.db
+
+# terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfplan
+crash.log
+.terraform.lock.hcl.bak
+infra/**/*.auto.tfvars
+infra/environments/*.backend.hcl

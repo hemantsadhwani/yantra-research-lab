@@ -1,0 +1,6 @@
+# Copy to dev.backend.hcl and put your account id in the bucket name (from infra/bootstrap outputs).
+bucket         = "agentic-tfstate-<account-id>"
+key            = "platform/dev.tfstate"
+region         = "ap-south-1"
+dynamodb_table = "agentic-tflock"
+encrypt        = true
