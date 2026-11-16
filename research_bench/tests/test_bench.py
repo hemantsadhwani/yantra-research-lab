@@ -51,9 +51,18 @@ def test_code_refuses_over_budget_and_off_plan_experiments() -> None:
     out = build(Greedy()).invoke(new_state("Ride sustained trends", "synthetic:trend:1001", mode="benchmark"),
                                  {"recursion_limit": 60})
     led = out["ledger"]
-    assert led["families"] == [] and led["trials"] == 0
+    assert led["families"] and all(f["round"] == 1 for f in led["families"])   # only the code baseline ran
+    assert led["trials"] == sum(f["trials"] for f in led["families"])
     assert any("over budget" in d for d in led["dropped"]) and any("not in plan" in d for d in led["dropped"])
-    assert out["verdict"]["decision"] == "reject" and "holdout" not in out
+
+
+def test_round_one_is_the_full_baseline_grid_run_by_code() -> None:
+    out = build(OfflineAgents()).invoke(new_state("Buy short-term oversold dips", SRC, mode="benchmark"),
+                                        {"recursion_limit": 60})
+    first = [f for f in out["ledger"]["families"] if f["round"] == 1]
+    assert {f["template"] for f in first} == set(out["plan"]["templates"])
+    assert all(f["trials"] == tools.n_trials(tools.clamp(f["template"], {})[0]) for f in first)
+    assert out["proposals"][0]["hypothesis"] == "baseline"
 
 
 class Asks(OfflineAgents):

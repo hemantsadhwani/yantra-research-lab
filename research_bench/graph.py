@@ -6,6 +6,9 @@ the holdout once and stops for a human before anything is promoted.
                   └→ data → research → run → critique → decide ─→ research   (next round)
                                                           └→ finalize → report → gate → END
 
+Round 1 is the baseline (each planned template's full grid, by code); the researcher refines from
+round 2, so a plan always has at least 2 rounds and a budget of baseline + 40 trials or more.
+
 Agents decide (what to ask, plan, test, believe); code verifies (clamping, trials, walk-forward,
 the sealed holdout, numbers in the report). State is plain JSON, so any checkpointer works.
 """
@@ -84,8 +87,9 @@ def build(agents: Any, checkpointer: Any = None):
     def plan(s: State) -> dict:
         p, use = agents.plan(s)
         templates = [t for t in p.templates if t in tools.catalogue()] or ["ema_cross"]
-        return {"plan": {**p.model_dump(), "templates": templates,
-                         "rounds": min(p.rounds, MAX_ROUNDS)}, "spend": _spent(s, use)}
+        baseline = sum(tools.n_trials(tools.clamp(t, {})[0]) for t in templates)
+        return {"plan": {**p.model_dump(), "templates": templates, "rounds": min(max(p.rounds, 2), MAX_ROUNDS),
+                         "trial_budget": max(p.trial_budget, baseline + 40)}, "spend": _spent(s, use)}
 
     def review_plan(s: State) -> dict:
         r, use = agents.review_plan(s)
@@ -104,6 +108,15 @@ def build(agents: Any, checkpointer: Any = None):
     def research(s: State) -> dict:
         if _over_budget(s):
             return {"stop_reason": "budget"}
+        if s["round"] == 1:
+            # Coverage before refinement: the first look is each planned template's full grid,
+            # filters off, run by code. Models open with textbook values (RSI 14) and miss the
+            # rest of the space; the agents refine from a baseline instead of guessing one.
+            exps = [{"template": t, "params": {}, "rationale": "baseline: full template grid, filters off"}
+                    for t in s["plan"]["templates"]]
+            return {"proposals": [*s["proposals"], {"round": 1, "diagnosis": "no results yet",
+                                                     "hypothesis": "baseline", "experiments": exps,
+                                                     "diagnose": [], "stop": False, "stop_reason": ""}]}
         p, use = agents.research(s)
         return {"proposals": [*s["proposals"], {"round": s["round"], **p.model_dump()}],
                 "spend": _spent(s, use)}

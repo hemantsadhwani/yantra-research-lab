@@ -1,0 +1,1239 @@
+{
+ "what": "Planted-edge benchmark: 10 markets with a real edge, 10 of pure noise; seeds 1-20 (calibration used 1000-1019).",
+ "date": "2026-11-16",
+ "protocol": {
+  "holdout_days": 504,
+  "folds": 5,
+  "oos_sharpe_min": 0.4,
+  "positive_folds_min": 0.6,
+  "holdout_sharpe_min": 0.2,
+  "naive_sharpe_min": 0.6,
+  "cost_bps": 5.0
+ },
+ "summary": {
+  "naive": {
+   "edges_recovered": "10/10",
+   "noise_promoted": "4/10",
+   "trials": 25200
+  },
+  "protocol": {
+   "edges_recovered": "9/10",
+   "noise_promoted": "0/10",
+   "trials": 25200
+  },
+  "agents_llm": {
+   "edges_recovered": "6/10",
+   "noise_promoted": "0/10",
+   "trials": 2297,
+   "usd": 0.3411,
+   "median_seconds_per_study": 38.7,
+   "errors": 0
+  }
+ },
+ "cases": [
+  {
+   "seed": 1,
+   "market": "trend",
+   "truth": "edge",
+   "idea": "Ride sustained trends",
+   "templates": [
+    "ema_cross",
+    "donchian_breakout"
+   ],
+   "dataset": {
+    "source": "synthetic trend seed 1",
+    "first": "2010-01-04",
+    "last": "2025-05-02",
+    "rows": 4000,
+    "has_vix": true,
+    "checks": {
+     "duplicate_dates": 0,
+     "out_of_order": 0,
+     "bad_ohlc": 0,
+     "non_positive": 0,
+     "gaps_over_5_days": 0
+    },
+    "passed": true,
+    "sha256": "804c9b87dba900ea"
+   },
+   "naive": {
+    "promote": true,
+    "in_sample_sharpe": 0.856,
+    "template": "donchian_breakout",
+    "trials": 900
+   },
+   "protocol": {
+    "promote": true,
+    "reason": "passed",
+    "oos_sharpe": 0.414,
+    "positive_folds": 4,
+    "holdout_sharpe": 1.66,
+    "trials": 900
+   },
+   "seconds": 3.0,
+   "agents_llm": {
+    "promote": true,
+    "reason": "F1 passed walk-forward (OOS Sharpe 0.717) and the holdout (Sharpe 1.088)",
+    "templates": [
+     "ema_cross",
+     "donchian_breakout",
+     "fib_pullback"
+    ],
+    "rounds": 3,
+    "stop": "planned rounds done",
+    "trials": 96,
+    "looks": 3,
+    "required_oos_sharpe": 0.558,
+    "best_oos_sharpe": 0.717,
+    "holdout_sharpe": 1.088,
+    "refused_by_code": 5,
+    "model_calls": 8,
+    "usd": 0.014093,
+    "seconds": 39.2
+   }
+  },
+  {
+   "seed": 2,
+   "market": "trend",
+   "truth": "edge",
+   "idea": "Ride sustained trends",
+   "templates": [
+    "ema_cross",
+    "donchian_breakout"
+   ],
+   "dataset": {
+    "source": "synthetic trend seed 2",
+    "first": "2010-01-04",
+    "last": "2025-05-02",
+    "rows": 4000,
+    "has_vix": true,
+    "checks": {
+     "duplicate_dates": 0,
+     "out_of_order": 0,
+     "bad_ohlc": 0,
+     "non_positive": 0,
+     "gaps_over_5_days": 0
+    },
+    "passed": true,
+    "sha256": "d9b1ce86067b5b73"
+   },
+   "naive": {
+    "promote": true,
+    "in_sample_sharpe": 1.212,
+    "template": "donchian_breakout",
+    "trials": 900
+   },
+   "protocol": {
+    "promote": true,
+    "reason": "passed",
+    "oos_sharpe": 0.717,
+    "positive_folds": 4,
+    "holdout_sharpe": 1.853,
+    "trials": 900
+   },
+   "seconds": 3.01,
+   "agents_llm": {
+    "promote": true,
+    "reason": "F4 passed walk-forward (OOS Sharpe 1.088) and the holdout (Sharpe 1.636)",
+    "templates": [
+     "ema_cross",
+     "donchian_breakout",
+     "fib_pullback"
+    ],
+    "rounds": 3,
+    "stop": "planned rounds done",
+    "trials": 60,
+    "looks": 5,
+    "required_oos_sharpe": 0.632,
+    "best_oos_sharpe": 1.088,
+    "holdout_sharpe": 1.636,
+    "refused_by_code": 3,
+    "model_calls": 10,
+    "usd": 0.027261,
+    "seconds": 69.6
+   }
+  },
+  {
+   "seed": 3,
+   "market": "trend",
+   "truth": "edge",
+   "idea": "Ride sustained trends",
+   "templates": [
+    "ema_cross",
+    "donchian_breakout"
+   ],
+   "dataset": {
+    "source": "synthetic trend seed 3",
+    "first": "2010-01-04",
+    "last": "2025-05-02",
+    "rows": 4000,
+    "has_vix": true,
+    "checks": {
+     "duplicate_dates": 0,
+     "out_of_order": 0,
+     "bad_ohlc": 0,
+     "non_positive": 0,
+     "gaps_over_5_days": 0
+    },
+    "passed": true,
+    "sha256": "966b14dedc5d1fde"
+   },
+   "naive": {
+    "promote": true,
+    "in_sample_sharpe": 1.608,
+    "template": "ema_cross",
+    "trials": 900
+   },
+   "protocol": {
+    "promote": true,
+    "reason": "passed",
+    "oos_sharpe": 1.522,
+    "positive_folds": 5,
+    "holdout_sharpe": 2.153,
+    "trials": 900
+   },
+   "seconds": 2.98,
+   "agents_llm": {
+    "promote": true,
+    "reason": "F2 passed walk-forward (OOS Sharpe 1.648) and the holdout (Sharpe 2.012)",
+    "templates": [
+     "ema_cross",
+     "donchian_breakout"
+    ],
+    "rounds": 2,
+    "stop": "planned rounds done",
+    "trials": 172,
+    "looks": 3,
+    "required_oos_sharpe": 0.558,
+    "best_oos_sharpe": 1.648,
+    "holdout_sharpe": 2.012,
+    "refused_by_code": 2,
+    "model_calls": 7,
+    "usd": 0.010401,
+    "seconds": 38.9
+   }
+  },
+  {
+   "seed": 4,
+   "market": "trend",
+   "truth": "edge",
+   "idea": "Ride sustained trends",
+   "templates": [
+    "ema_cross",
+    "donchian_breakout"
+   ],
+   "dataset": {
+    "source": "synthetic trend seed 4",
+    "first": "2010-01-04",
+    "last": "2025-05-02",
+    "rows": 4000,
+    "has_vix": true,
+    "checks": {
+     "duplicate_dates": 0,
+     "out_of_order": 0,
+     "bad_ohlc": 0,
+     "non_positive": 0,
+     "gaps_over_5_days": 0
+    },
+    "passed": true,
+    "sha256": "1f72801adb7fe0d2"
+   },
+   "naive": {
+    "promote": true,
+    "in_sample_sharpe": 1.217,
+    "template": "donchian_breakout",
+    "trials": 900
+   },
+   "protocol": {
+    "promote": true,
+    "reason": "passed",
+    "oos_sharpe": 0.968,
+    "positive_folds": 5,
+    "holdout_sharpe": 0.302,
+    "trials": 900
+   },
+   "seconds": 2.98,
+   "agents_llm": {
+    "promote": true,
+    "reason": "F2 passed walk-forward (OOS Sharpe 1.074) and the holdout (Sharpe 0.302)",
+    "templates": [
+     "ema_cross",
+     "donchian_breakout",
+     "fib_pullback"
+    ],
+    "rounds": 3,
+    "stop": "planned rounds done",
+    "trials": 172,
+    "looks": 3,
+    "required_oos_sharpe": 0.558,
+    "best_oos_sharpe": 1.074,
+    "holdout_sharpe": 0.302,
+    "refused_by_code": 6,
+    "model_calls": 9,
+    "usd": 0.016735,
+    "seconds": 51.9
+   }
+  },
+  {
+   "seed": 5,
+   "market": "trend",
+   "truth": "edge",
+   "idea": "Ride sustained trends",
+   "templates": [
+    "ema_cross",
+    "donchian_breakout"
+   ],
+   "dataset": {
+    "source": "synthetic trend seed 5",
+    "first": "2010-01-04",
+    "last": "2025-05-02",
+    "rows": 4000,
+    "has_vix": true,
+    "checks": {
+     "duplicate_dates": 0,
+     "out_of_order": 0,
+     "bad_ohlc": 0,
+     "non_positive": 0,
+     "gaps_over_5_days": 0
+    },
+    "passed": true,
+    "sha256": "33401d1f10dd9dc8"
+   },
+   "naive": {
+    "promote": true,
+    "in_sample_sharpe": 0.871,
+    "template": "donchian_breakout",
+    "trials": 900
+   },
+   "protocol": {
+    "promote": false,
+    "reason": "failed walk-forward",
+    "oos_sharpe": 0.379,
+    "positive_folds": 3,
+    "holdout_sharpe": null,
+    "trials": 900
+   },
+   "seconds": 2.77,
+   "agents_llm": {
+    "promote": false,
+    "reason": "F1 passed walk-forward (OOS Sharpe 0.606) but failed the holdout (Sharpe 0.062)",
+    "templates": [
+     "ema_cross",
+     "donchian_breakout"
+    ],
+    "rounds": 2,
+    "stop": "trial budget used",
+    "trials": 200,
+    "looks": 4,
+    "required_oos_sharpe": 0.6,
+    "best_oos_sharpe": 0.606,
+    "holdout_sharpe": 0.062,
+    "refused_by_code": 1,
+    "model_calls": 7,
+    "usd": 0.009341,
+    "seconds": 21.7
+   }
+  },
+  {
+   "seed": 6,
+   "market": "meanrev",
+   "truth": "edge",
+   "idea": "Buy short-term oversold dips",
+   "templates": [
+    "rsi_reversion",
+    "bollinger_reversion"
+   ],
+   "dataset": {
+    "source": "synthetic meanrev seed 6",
+    "first": "2010-01-04",
+    "last": "2025-05-02",
+    "rows": 4000,
+    "has_vix": true,
+    "checks": {
+     "duplicate_dates": 0,
+     "out_of_order": 0,
+     "bad_ohlc": 0,
+     "non_positive": 0,
+     "gaps_over_5_days": 0
+    },
+    "passed": true,
+    "sha256": "bc083947cb8e7bda"
+   },
+   "naive": {
+    "promote": true,
+    "in_sample_sharpe": 1.531,
+    "template": "rsi_reversion",
+    "trials": 1620
+   },
+   "protocol": {
+    "promote": true,
+    "reason": "passed",
+    "oos_sharpe": 0.901,
+    "positive_folds": 5,
+    "holdout_sharpe": 1.747,
+    "trials": 1620
+   },
+   "seconds": 5.28,
+   "agents_llm": {
+    "promote": true,
+    "reason": "F6 passed walk-forward (OOS Sharpe 1.059) and the holdout (Sharpe 1.442)",
+    "templates": [
+     "rsi_reversion"
+    ],
+    "rounds": 3,
+    "stop": "critic: further rounds would fit noise",
+    "trials": 156,
+    "looks": 8,
+    "required_oos_sharpe": 0.7,
+    "best_oos_sharpe": 1.059,
+    "holdout_sharpe": 1.442,
+    "refused_by_code": 1,
+    "model_calls": 11,
+    "usd": 0.026421,
+    "seconds": 40.7
+   }
+  },
+  {
+   "seed": 7,
+   "market": "meanrev",
+   "truth": "edge",
+   "idea": "Buy short-term oversold dips",
+   "templates": [
+    "rsi_reversion",
+    "bollinger_reversion"
+   ],
+   "dataset": {
+    "source": "synthetic meanrev seed 7",
+    "first": "2010-01-04",
+    "last": "2025-05-02",
+    "rows": 4000,
+    "has_vix": true,
+    "checks": {
+     "duplicate_dates": 0,
+     "out_of_order": 0,
+     "bad_ohlc": 0,
+     "non_positive": 0,
+     "gaps_over_5_days": 0
+    },
+    "passed": true,
+    "sha256": "08a42de55e3c9f84"
+   },
+   "naive": {
+    "promote": true,
+    "in_sample_sharpe": 1.282,
+    "template": "rsi_reversion",
+    "trials": 1620
+   },
+   "protocol": {
+    "promote": true,
+    "reason": "passed",
+    "oos_sharpe": 0.877,
+    "positive_folds": 5,
+    "holdout_sharpe": 0.493,
+    "trials": 1620
+   },
+   "seconds": 5.3,
+   "agents_llm": {
+    "promote": false,
+    "reason": "no family cleared walk-forward at the bar for 2 looks (OOS Sharpe >= 0.5); holdout left sealed",
+    "templates": [
+     "rsi_reversion"
+    ],
+    "rounds": 1,
+    "stop": "critic: further rounds would fit noise",
+    "trials": 74,
+    "looks": 2,
+    "required_oos_sharpe": 0.5,
+    "best_oos_sharpe": 0.188,
+    "holdout_sharpe": null,
+    "refused_by_code": 1,
+    "model_calls": 7,
+    "usd": 0.013128,
+    "seconds": 22.4
+   }
+  },
+  {
+   "seed": 8,
+   "market": "meanrev",
+   "truth": "edge",
+   "idea": "Buy short-term oversold dips",
+   "templates": [
+    "rsi_reversion",
+    "bollinger_reversion"
+   ],
+   "dataset": {
+    "source": "synthetic meanrev seed 8",
+    "first": "2010-01-04",
+    "last": "2025-05-02",
+    "rows": 4000,
+    "has_vix": true,
+    "checks": {
+     "duplicate_dates": 0,
+     "out_of_order": 0,
+     "bad_ohlc": 0,
+     "non_positive": 0,
+     "gaps_over_5_days": 0
+    },
+    "passed": true,
+    "sha256": "3470a966443d40ad"
+   },
+   "naive": {
+    "promote": true,
+    "in_sample_sharpe": 1.569,
+    "template": "rsi_reversion",
+    "trials": 1620
+   },
+   "protocol": {
+    "promote": true,
+    "reason": "passed",
+    "oos_sharpe": 1.463,
+    "positive_folds": 5,
+    "holdout_sharpe": 0.605,
+    "trials": 1620
+   },
+   "seconds": 5.3,
+   "agents_llm": {
+    "promote": false,
+    "reason": "no family cleared walk-forward at the bar for 2 looks (OOS Sharpe >= 0.5); holdout left sealed",
+    "templates": [
+     "rsi_reversion"
+    ],
+    "rounds": 1,
+    "stop": "critic: further rounds would fit noise",
+    "trials": 65,
+    "looks": 2,
+    "required_oos_sharpe": 0.5,
+    "best_oos_sharpe": 0.328,
+    "holdout_sharpe": null,
+    "refused_by_code": 1,
+    "model_calls": 7,
+    "usd": 0.012944,
+    "seconds": 19.9
+   }
+  },
+  {
+   "seed": 9,
+   "market": "meanrev",
+   "truth": "edge",
+   "idea": "Buy short-term oversold dips",
+   "templates": [
+    "rsi_reversion",
+    "bollinger_reversion"
+   ],
+   "dataset": {
+    "source": "synthetic meanrev seed 9",
+    "first": "2010-01-04",
+    "last": "2025-05-02",
+    "rows": 4000,
+    "has_vix": true,
+    "checks": {
+     "duplicate_dates": 0,
+     "out_of_order": 0,
+     "bad_ohlc": 0,
+     "non_positive": 0,
+     "gaps_over_5_days": 0
+    },
+    "passed": true,
+    "sha256": "6f708656e6cc0a3e"
+   },
+   "naive": {
+    "promote": true,
+    "in_sample_sharpe": 1.625,
+    "template": "rsi_reversion",
+    "trials": 1620
+   },
+   "protocol": {
+    "promote": true,
+    "reason": "passed",
+    "oos_sharpe": 1.266,
+    "positive_folds": 5,
+    "holdout_sharpe": 1.78,
+    "trials": 1620
+   },
+   "seconds": 5.31,
+   "agents_llm": {
+    "promote": false,
+    "reason": "no family cleared walk-forward at the bar for 6 looks (OOS Sharpe >= 0.658); holdout left sealed",
+    "templates": [
+     "rsi_reversion"
+    ],
+    "rounds": 2,
+    "stop": "critic: further rounds would fit noise",
+    "trials": 27,
+    "looks": 6,
+    "required_oos_sharpe": 0.658,
+    "best_oos_sharpe": 0.038,
+    "holdout_sharpe": null,
+    "refused_by_code": 0,
+    "model_calls": 9,
+    "usd": 0.018162,
+    "seconds": 35.0
+   }
+  },
+  {
+   "seed": 10,
+   "market": "meanrev",
+   "truth": "edge",
+   "idea": "Buy short-term oversold dips",
+   "templates": [
+    "rsi_reversion",
+    "bollinger_reversion"
+   ],
+   "dataset": {
+    "source": "synthetic meanrev seed 10",
+    "first": "2010-01-04",
+    "last": "2025-05-02",
+    "rows": 4000,
+    "has_vix": true,
+    "checks": {
+     "duplicate_dates": 0,
+     "out_of_order": 0,
+     "bad_ohlc": 0,
+     "non_positive": 0,
+     "gaps_over_5_days": 0
+    },
+    "passed": true,
+    "sha256": "ea4fd233b7ece13c"
+   },
+   "naive": {
+    "promote": true,
+    "in_sample_sharpe": 1.118,
+    "template": "rsi_reversion",
+    "trials": 1620
+   },
+   "protocol": {
+    "promote": true,
+    "reason": "passed",
+    "oos_sharpe": 0.981,
+    "positive_folds": 4,
+    "holdout_sharpe": 1.185,
+    "trials": 1620
+   },
+   "seconds": 5.27,
+   "agents_llm": {
+    "promote": true,
+    "reason": "F3 passed walk-forward (OOS Sharpe 0.661) and the holdout (Sharpe 0.854)",
+    "templates": [
+     "rsi_reversion"
+    ],
+    "rounds": 3,
+    "stop": "planned rounds done",
+    "trials": 97,
+    "looks": 4,
+    "required_oos_sharpe": 0.6,
+    "best_oos_sharpe": 0.661,
+    "holdout_sharpe": 0.854,
+    "refused_by_code": 3,
+    "model_calls": 11,
+    "usd": 0.023944,
+    "seconds": 38.7
+   }
+  },
+  {
+   "seed": 11,
+   "market": "noise",
+   "truth": "no_edge",
+   "idea": "Ride sustained trends",
+   "templates": [
+    "ema_cross",
+    "donchian_breakout"
+   ],
+   "dataset": {
+    "source": "synthetic noise seed 11",
+    "first": "2010-01-04",
+    "last": "2025-05-02",
+    "rows": 4000,
+    "has_vix": true,
+    "checks": {
+     "duplicate_dates": 0,
+     "out_of_order": 0,
+     "bad_ohlc": 0,
+     "non_positive": 0,
+     "gaps_over_5_days": 0
+    },
+    "passed": true,
+    "sha256": "93981a81e9b5177c"
+   },
+   "naive": {
+    "promote": false,
+    "in_sample_sharpe": 0.518,
+    "template": "donchian_breakout",
+    "trials": 900
+   },
+   "protocol": {
+    "promote": false,
+    "reason": "failed walk-forward",
+    "oos_sharpe": 0.278,
+    "positive_folds": 2,
+    "holdout_sharpe": null,
+    "trials": 900
+   },
+   "seconds": 2.81,
+   "agents_llm": {
+    "promote": false,
+    "reason": "no family cleared walk-forward at the bar for 6 looks (OOS Sharpe >= 0.658); holdout left sealed",
+    "templates": [
+     "ema_cross",
+     "donchian_breakout"
+    ],
+    "rounds": 3,
+    "stop": "planned rounds done",
+    "trials": 192,
+    "looks": 6,
+    "required_oos_sharpe": 0.658,
+    "best_oos_sharpe": 0.625,
+    "holdout_sharpe": null,
+    "refused_by_code": 3,
+    "model_calls": 9,
+    "usd": 0.016819,
+    "seconds": 37.8
+   }
+  },
+  {
+   "seed": 12,
+   "market": "noise",
+   "truth": "no_edge",
+   "idea": "Buy short-term oversold dips",
+   "templates": [
+    "rsi_reversion",
+    "bollinger_reversion"
+   ],
+   "dataset": {
+    "source": "synthetic noise seed 12",
+    "first": "2010-01-04",
+    "last": "2025-05-02",
+    "rows": 4000,
+    "has_vix": true,
+    "checks": {
+     "duplicate_dates": 0,
+     "out_of_order": 0,
+     "bad_ohlc": 0,
+     "non_positive": 0,
+     "gaps_over_5_days": 0
+    },
+    "passed": true,
+    "sha256": "b121e7293e3b96e0"
+   },
+   "naive": {
+    "promote": true,
+    "in_sample_sharpe": 0.843,
+    "template": "bollinger_reversion",
+    "trials": 1620
+   },
+   "protocol": {
+    "promote": false,
+    "reason": "failed walk-forward",
+    "oos_sharpe": -0.285,
+    "positive_folds": 2,
+    "holdout_sharpe": null,
+    "trials": 1620
+   },
+   "seconds": 5.03,
+   "agents_llm": {
+    "promote": false,
+    "reason": "F1 passed walk-forward (OOS Sharpe 0.831) but failed the holdout (Sharpe -0.175)",
+    "templates": [
+     "rsi_reversion",
+     "bollinger_reversion"
+    ],
+    "rounds": 3,
+    "stop": "planned rounds done",
+    "trials": 62,
+    "looks": 6,
+    "required_oos_sharpe": 0.658,
+    "best_oos_sharpe": 0.831,
+    "holdout_sharpe": -0.175,
+    "refused_by_code": 2,
+    "model_calls": 11,
+    "usd": 0.026256,
+    "seconds": 49.5
+   }
+  },
+  {
+   "seed": 13,
+   "market": "noise",
+   "truth": "no_edge",
+   "idea": "Ride sustained trends",
+   "templates": [
+    "ema_cross",
+    "donchian_breakout"
+   ],
+   "dataset": {
+    "source": "synthetic noise seed 13",
+    "first": "2010-01-04",
+    "last": "2025-05-02",
+    "rows": 4000,
+    "has_vix": true,
+    "checks": {
+     "duplicate_dates": 0,
+     "out_of_order": 0,
+     "bad_ohlc": 0,
+     "non_positive": 0,
+     "gaps_over_5_days": 0
+    },
+    "passed": true,
+    "sha256": "5953e4d316b65799"
+   },
+   "naive": {
+    "promote": false,
+    "in_sample_sharpe": 0.356,
+    "template": "ema_cross",
+    "trials": 900
+   },
+   "protocol": {
+    "promote": false,
+    "reason": "failed walk-forward",
+    "oos_sharpe": 0.274,
+    "positive_folds": 3,
+    "holdout_sharpe": null,
+    "trials": 900
+   },
+   "seconds": 2.82,
+   "agents_llm": {
+    "promote": false,
+    "reason": "no family cleared walk-forward at the bar for 1 looks (OOS Sharpe >= 0.4); holdout left sealed",
+    "templates": [
+     "ema_cross",
+     "donchian_breakout",
+     "fib_pullback"
+    ],
+    "rounds": 1,
+    "stop": "critic: further rounds would fit noise",
+    "trials": 108,
+    "looks": 1,
+    "required_oos_sharpe": 0.4,
+    "best_oos_sharpe": 0.018,
+    "holdout_sharpe": null,
+    "refused_by_code": 2,
+    "model_calls": 5,
+    "usd": 0.006351,
+    "seconds": 18.4
+   }
+  },
+  {
+   "seed": 14,
+   "market": "noise",
+   "truth": "no_edge",
+   "idea": "Buy short-term oversold dips",
+   "templates": [
+    "rsi_reversion",
+    "bollinger_reversion"
+   ],
+   "dataset": {
+    "source": "synthetic noise seed 14",
+    "first": "2010-01-04",
+    "last": "2025-05-02",
+    "rows": 4000,
+    "has_vix": true,
+    "checks": {
+     "duplicate_dates": 0,
+     "out_of_order": 0,
+     "bad_ohlc": 0,
+     "non_positive": 0,
+     "gaps_over_5_days": 0
+    },
+    "passed": true,
+    "sha256": "663d90a463ad37ab"
+   },
+   "naive": {
+    "promote": false,
+    "in_sample_sharpe": 0.548,
+    "template": "rsi_reversion",
+    "trials": 1620
+   },
+   "protocol": {
+    "promote": false,
+    "reason": "failed walk-forward",
+    "oos_sharpe": -0.229,
+    "positive_folds": 2,
+    "holdout_sharpe": null,
+    "trials": 1620
+   },
+   "seconds": 4.99,
+   "agents_llm": {
+    "promote": false,
+    "reason": "no family cleared walk-forward at the bar for 2 looks (OOS Sharpe >= 0.5); holdout left sealed",
+    "templates": [
+     "rsi_reversion",
+     "bollinger_reversion"
+    ],
+    "rounds": 1,
+    "stop": "trial budget used",
+    "trials": 40,
+    "looks": 2,
+    "required_oos_sharpe": 0.5,
+    "best_oos_sharpe": 0.281,
+    "holdout_sharpe": null,
+    "refused_by_code": 0,
+    "model_calls": 7,
+    "usd": 0.012866,
+    "seconds": 28.9
+   }
+  },
+  {
+   "seed": 15,
+   "market": "noise",
+   "truth": "no_edge",
+   "idea": "Ride sustained trends",
+   "templates": [
+    "ema_cross",
+    "donchian_breakout"
+   ],
+   "dataset": {
+    "source": "synthetic noise seed 15",
+    "first": "2010-01-04",
+    "last": "2025-05-02",
+    "rows": 4000,
+    "has_vix": true,
+    "checks": {
+     "duplicate_dates": 0,
+     "out_of_order": 0,
+     "bad_ohlc": 0,
+     "non_positive": 0,
+     "gaps_over_5_days": 0
+    },
+    "passed": true,
+    "sha256": "95ac0ebc9df4ffe0"
+   },
+   "naive": {
+    "promote": false,
+    "in_sample_sharpe": 0.318,
+    "template": "donchian_breakout",
+    "trials": 900
+   },
+   "protocol": {
+    "promote": false,
+    "reason": "failed walk-forward",
+    "oos_sharpe": -0.356,
+    "positive_folds": 1,
+    "holdout_sharpe": null,
+    "trials": 900
+   },
+   "seconds": 2.84,
+   "agents_llm": {
+    "promote": false,
+    "reason": "no family cleared walk-forward at the bar for 2 looks (OOS Sharpe >= 0.5); holdout left sealed",
+    "templates": [
+     "ema_cross",
+     "donchian_breakout"
+    ],
+    "rounds": 3,
+    "stop": "critic: further rounds would fit noise",
+    "trials": 100,
+    "looks": 2,
+    "required_oos_sharpe": 0.5,
+    "best_oos_sharpe": -0.138,
+    "holdout_sharpe": null,
+    "refused_by_code": 5,
+    "model_calls": 11,
+    "usd": 0.023608,
+    "seconds": 45.6
+   }
+  },
+  {
+   "seed": 16,
+   "market": "noise",
+   "truth": "no_edge",
+   "idea": "Buy short-term oversold dips",
+   "templates": [
+    "rsi_reversion",
+    "bollinger_reversion"
+   ],
+   "dataset": {
+    "source": "synthetic noise seed 16",
+    "first": "2010-01-04",
+    "last": "2025-05-02",
+    "rows": 4000,
+    "has_vix": true,
+    "checks": {
+     "duplicate_dates": 0,
+     "out_of_order": 0,
+     "bad_ohlc": 0,
+     "non_positive": 0,
+     "gaps_over_5_days": 0
+    },
+    "passed": true,
+    "sha256": "a585ee5fab038e8b"
+   },
+   "naive": {
+    "promote": true,
+    "in_sample_sharpe": 0.673,
+    "template": "rsi_reversion",
+    "trials": 1620
+   },
+   "protocol": {
+    "promote": false,
+    "reason": "failed walk-forward",
+    "oos_sharpe": -0.084,
+    "positive_folds": 2,
+    "holdout_sharpe": null,
+    "trials": 1620
+   },
+   "seconds": 5.06,
+   "agents_llm": {
+    "promote": false,
+    "reason": "no family cleared walk-forward at the bar for 6 looks (OOS Sharpe >= 0.658); holdout left sealed",
+    "templates": [
+     "rsi_reversion"
+    ],
+    "rounds": 2,
+    "stop": "critic: further rounds would fit noise",
+    "trials": 162,
+    "looks": 6,
+    "required_oos_sharpe": 0.658,
+    "best_oos_sharpe": 0.242,
+    "holdout_sharpe": null,
+    "refused_by_code": 6,
+    "model_calls": 9,
+    "usd": 0.019866,
+    "seconds": 41.1
+   }
+  },
+  {
+   "seed": 17,
+   "market": "noise",
+   "truth": "no_edge",
+   "idea": "Ride sustained trends",
+   "templates": [
+    "ema_cross",
+    "donchian_breakout"
+   ],
+   "dataset": {
+    "source": "synthetic noise seed 17",
+    "first": "2010-01-04",
+    "last": "2025-05-02",
+    "rows": 4000,
+    "has_vix": true,
+    "checks": {
+     "duplicate_dates": 0,
+     "out_of_order": 0,
+     "bad_ohlc": 0,
+     "non_positive": 0,
+     "gaps_over_5_days": 0
+    },
+    "passed": true,
+    "sha256": "e43d11d5588bf126"
+   },
+   "naive": {
+    "promote": false,
+    "in_sample_sharpe": 0.503,
+    "template": "donchian_breakout",
+    "trials": 900
+   },
+   "protocol": {
+    "promote": false,
+    "reason": "failed walk-forward",
+    "oos_sharpe": 0.071,
+    "positive_folds": 2,
+    "holdout_sharpe": null,
+    "trials": 900
+   },
+   "seconds": 2.86,
+   "agents_llm": {
+    "promote": false,
+    "reason": "no family cleared walk-forward at the bar for 5 looks (OOS Sharpe >= 0.632); holdout left sealed",
+    "templates": [
+     "ema_cross"
+    ],
+    "rounds": 2,
+    "stop": "critic: further rounds would fit noise",
+    "trials": 188,
+    "looks": 5,
+    "required_oos_sharpe": 0.632,
+    "best_oos_sharpe": 0.16,
+    "holdout_sharpe": null,
+    "refused_by_code": 1,
+    "model_calls": 7,
+    "usd": 0.010069,
+    "seconds": 22.8
+   }
+  },
+  {
+   "seed": 18,
+   "market": "noise",
+   "truth": "no_edge",
+   "idea": "Buy short-term oversold dips",
+   "templates": [
+    "rsi_reversion",
+    "bollinger_reversion"
+   ],
+   "dataset": {
+    "source": "synthetic noise seed 18",
+    "first": "2010-01-04",
+    "last": "2025-05-02",
+    "rows": 4000,
+    "has_vix": true,
+    "checks": {
+     "duplicate_dates": 0,
+     "out_of_order": 0,
+     "bad_ohlc": 0,
+     "non_positive": 0,
+     "gaps_over_5_days": 0
+    },
+    "passed": true,
+    "sha256": "e669b4a39f8355f4"
+   },
+   "naive": {
+    "promote": true,
+    "in_sample_sharpe": 0.768,
+    "template": "rsi_reversion",
+    "trials": 1620
+   },
+   "protocol": {
+    "promote": false,
+    "reason": "failed walk-forward",
+    "oos_sharpe": -0.182,
+    "positive_folds": 3,
+    "holdout_sharpe": null,
+    "trials": 1620
+   },
+   "seconds": 5.06,
+   "agents_llm": {
+    "promote": false,
+    "reason": "no family cleared walk-forward at the bar for 5 looks (OOS Sharpe >= 0.632); holdout left sealed",
+    "templates": [
+     "rsi_reversion"
+    ],
+    "rounds": 3,
+    "stop": "planned rounds done",
+    "trials": 95,
+    "looks": 5,
+    "required_oos_sharpe": 0.632,
+    "best_oos_sharpe": 0.548,
+    "holdout_sharpe": null,
+    "refused_by_code": 2,
+    "model_calls": 10,
+    "usd": 0.023546,
+    "seconds": 39.8
+   }
+  },
+  {
+   "seed": 19,
+   "market": "noise",
+   "truth": "no_edge",
+   "idea": "Ride sustained trends",
+   "templates": [
+    "ema_cross",
+    "donchian_breakout"
+   ],
+   "dataset": {
+    "source": "synthetic noise seed 19",
+    "first": "2010-01-04",
+    "last": "2025-05-02",
+    "rows": 4000,
+    "has_vix": true,
+    "checks": {
+     "duplicate_dates": 0,
+     "out_of_order": 0,
+     "bad_ohlc": 0,
+     "non_positive": 0,
+     "gaps_over_5_days": 0
+    },
+    "passed": true,
+    "sha256": "a792812f63bac867"
+   },
+   "naive": {
+    "promote": false,
+    "in_sample_sharpe": 0.453,
+    "template": "ema_cross",
+    "trials": 900
+   },
+   "protocol": {
+    "promote": false,
+    "reason": "failed walk-forward",
+    "oos_sharpe": 0.074,
+    "positive_folds": 2,
+    "holdout_sharpe": null,
+    "trials": 900
+   },
+   "seconds": 2.81,
+   "agents_llm": {
+    "promote": false,
+    "reason": "no family cleared walk-forward at the bar for 8 looks (OOS Sharpe >= 0.7); holdout left sealed",
+    "templates": [
+     "ema_cross",
+     "donchian_breakout",
+     "fib_pullback"
+    ],
+    "rounds": 3,
+    "stop": "critic: further rounds would fit noise",
+    "trials": 177,
+    "looks": 8,
+    "required_oos_sharpe": 0.7,
+    "best_oos_sharpe": 0.427,
+    "holdout_sharpe": null,
+    "refused_by_code": 1,
+    "model_calls": 9,
+    "usd": 0.016054,
+    "seconds": 27.2
+   }
+  },
+  {
+   "seed": 20,
+   "market": "noise",
+   "truth": "no_edge",
+   "idea": "Buy short-term oversold dips",
+   "templates": [
+    "rsi_reversion",
+    "bollinger_reversion"
+   ],
+   "dataset": {
+    "source": "synthetic noise seed 20",
+    "first": "2010-01-04",
+    "last": "2025-05-02",
+    "rows": 4000,
+    "has_vix": true,
+    "checks": {
+     "duplicate_dates": 0,
+     "out_of_order": 0,
+     "bad_ohlc": 0,
+     "non_positive": 0,
+     "gaps_over_5_days": 0
+    },
+    "passed": true,
+    "sha256": "80ffc1d8e60a86b7"
+   },
+   "naive": {
+    "promote": true,
+    "in_sample_sharpe": 0.708,
+    "template": "bollinger_reversion",
+    "trials": 1620
+   },
+   "protocol": {
+    "promote": false,
+    "reason": "failed walk-forward",
+    "oos_sharpe": -0.281,
+    "positive_folds": 2,
+    "holdout_sharpe": null,
+    "trials": 1620
+   },
+   "seconds": 5.06,
+   "agents_llm": {
+    "promote": false,
+    "reason": "no family cleared walk-forward at the bar for 3 looks (OOS Sharpe >= 0.558); holdout left sealed",
+    "templates": [
+     "rsi_reversion"
+    ],
+    "rounds": 1,
+    "stop": "critic: further rounds would fit noise",
+    "trials": 54,
+    "looks": 3,
+    "required_oos_sharpe": 0.558,
+    "best_oos_sharpe": 0.157,
+    "holdout_sharpe": null,
+    "refused_by_code": 0,
+    "model_calls": 7,
+    "usd": 0.013203,
+    "seconds": 23.2
+   }
+  }
+ ],
+ "disclosure": "The looks penalty (required OOS Sharpe = 0.4 + 0.1*log2(looks)) was added after an early smoke test of the adaptive search, using rule-based agents, promoted the noise market at benchmark seed 12. The penalty was set from first principles, not tuned; all later agent tuning used calibration seeds 1000+. Seed 12 is therefore not fully unseen for the agents arm.",
+ "models": {
+  "intake": "google.gemma-3-12b-it",
+  "planner": "deepseek.v3.2",
+  "researcher": "deepseek.v3.2",
+  "critic": "deepseek.v3.2",
+  "reporter": "google.gemma-3-12b-it"
+ }
+}
