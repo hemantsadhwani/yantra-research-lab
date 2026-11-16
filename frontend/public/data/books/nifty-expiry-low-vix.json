@@ -24,23 +24,13 @@
   },
   "cost": {
     "worst_day_points": -31.74,
-    "worst_day_inr": -32167,
     "max_drawdown_points": -31.74,
-    "max_drawdown_inr": -32167,
     "best_day_points": 75.81,
-    "best_day_inr": 74781,
     "days_up": 13,
     "days_traded": 18,
     "day_gate_pct": -25
   },
   "sizing": {
-    "per_leg_inr": 100000,
-    "lot": 65,
-    "net_pnl_inr": 332551,
-    "peak_reserve_inr": 196254,
-    "avg_deployed_inr": 98457,
-    "lots_per_leg_min": 22,
-    "lots_per_leg_max": 48,
     "slippage_pct_per_trade": 1.0
   },
   "monthly": [

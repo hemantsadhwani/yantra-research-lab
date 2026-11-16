@@ -11,12 +11,12 @@ How to read this:
 - Morning ones: weekly and monthly — read once, at startup; a morning gate never pulls you out of a running day, it refuses to start the next one
 
 Profiles and their armed gates:
-- NIFTY weekday HIGH-VIX: daily M2M at -27% (-₹4,050), checked every tick; weekly intraday floor at -59% (-₹8,850), checked every tick; weekly hard stop at -59% (-₹8,850), checked startup only
-- NIFTY weekday LOW-VIX: daily M2M at -27% (-₹4,050), checked every tick; weekly intraday floor at -59% (-₹8,850), checked every tick; weekly hard stop at -59% (-₹8,850), checked startup only
-- NIFTY expiry HIGH-VIX: daily M2M at -33% (-₹33,000), checked every tick; monthly stop at -50% (-₹50,000), checked startup only
-- NIFTY expiry LOW-VIX: daily M2M at -25% (-₹25,000), checked every tick; monthly stop at -50% (-₹50,000), checked startup only
-- SENSEX expiry: daily M2M at -50% (-₹37,500), checked every tick
-- SENSEX weekday: daily M2M at -27% (-₹1,08,000), checked every tick; weekly hard stop at -60% (-₹2,40,000), checked startup only; weekly expiry gate at -38% (-₹1,52,000), checked startup only
+- NIFTY weekday HIGH-VIX: daily M2M at -27%, checked every tick; weekly intraday floor at -59%, checked every tick; weekly hard stop at -59%, checked startup only
+- NIFTY weekday LOW-VIX: daily M2M at -27%, checked every tick; weekly intraday floor at -59%, checked every tick; weekly hard stop at -59%, checked startup only
+- NIFTY expiry HIGH-VIX: daily M2M at -33%, checked every tick; monthly stop at -50%, checked startup only
+- NIFTY expiry LOW-VIX: daily M2M at -25%, checked every tick; monthly stop at -50%, checked startup only
+- SENSEX expiry: daily M2M at -50%, checked every tick
+- SENSEX weekday: daily M2M at -27%, checked every tick; weekly hard stop at -60%, checked startup only; weekly expiry gate at -38%, checked startup only
 
 What each gate cancels:
 - Daily M2M: counts from that book, that day, blocks rest of today, open trades are force-exited
@@ -33,9 +33,9 @@ Present but inert:
 - SENSEX expiry: Weekly expiry gate, weekly hard stop
 
 Paper sub-book brakes:
-- NIFTY weekday HIGH-VIX: book base ₹7,50,000, floor -27% (-₹2,02,500), worst day so far -₹5,625
-- NIFTY weekday LOW-VIX: book base ₹7,50,000, floor -27% (-₹2,02,500), worst day so far -₹5,625
-- SENSEX weekday: book base ₹12,00,000, floor -27% (-₹3,24,000), worst day so far -₹1,80,000
+- NIFTY weekday HIGH-VIX: floor -27% of its own book base
+- NIFTY weekday LOW-VIX: floor -27% of its own book base
+- SENSEX weekday: floor -27% of its own book base
 
 These gates will not save you from:
 - A slow bleed — The daily cap bounds one session and the weekly one bounds a week that starts badly. A run of days each landing just inside the daily cap passes through the whole stack untouched.

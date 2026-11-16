@@ -58,37 +58,6 @@ def fmt_num(value: float, decimals: int = 2) -> str:
     return f"{value:.{decimals}f}"
 
 
-def fmt_inr(value: float) -> str:
-    """Format a rupee amount with Indian digit grouping, e.g. 5855118 -> 58,55,118.
-
-    Negative values keep a leading '-' before the currency symbol is applied by
-    the caller. Fractional rupees are rounded to the nearest integer.
-    """
-    negative = value < 0
-    n = round(abs(value))
-    s = str(n)
-    if len(s) <= 3:
-        grouped = s
-    else:
-        head, tail = s[:-3], s[-3:]
-        parts = []
-        while len(head) > 2:
-            parts.insert(0, head[-2:])
-            head = head[:-2]
-        if head:
-            parts.insert(0, head)
-        grouped = ",".join(parts) + "," + tail
-    return ("-" if negative else "") + grouped
-
-
-def fmt_inr_symbol(value: float) -> str:
-    """Indian-grouped rupee amount with a leading currency symbol, e.g. '-69,004' -> '-₹69,004'."""
-    grouped = fmt_inr(value)
-    if grouped.startswith("-"):
-        return "-₹" + grouped[1:]
-    return "₹" + grouped
-
-
 def fmt_pct(value: float, decimals: int = 1) -> str:
     return f"{value:.{decimals}f}%"
 
@@ -160,16 +129,13 @@ def render_book(book: dict, product_def: dict) -> str:
     # What it costs
     lines.append("What it costs:")
     lines.append(
-        f"- Worst day {fmt_num(c['worst_day_points'])} points (about "
-        f"{fmt_inr_symbol(c['worst_day_inr'])})"
+        f"- Worst day {fmt_num(c['worst_day_points'])} points"
     )
     lines.append(
-        f"- Max drawdown {fmt_num(c['max_drawdown_points'])} points (about "
-        f"{fmt_inr_symbol(c['max_drawdown_inr'])})"
+        f"- Max drawdown {fmt_num(c['max_drawdown_points'])} points"
     )
     lines.append(
-        f"- Best day {fmt_points(c['best_day_points'])} (about "
-        f"{fmt_inr_symbol(c['best_day_inr'])})"
+        f"- Best day {fmt_points(c['best_day_points'])}"
     )
     lines.append(f"- Days up {c['days_up']} of {c['days_traded']} traded days")
     lines.append(
@@ -178,20 +144,13 @@ def render_book(book: dict, product_def: dict) -> str:
     )
     lines.append("")
 
-    # Sizing
-    lots_range = f"{sz['lots_per_leg_min']}–{sz['lots_per_leg_max']}"
+    # Costs (rupee sizing and position sizes are not published)
     slippage = (
         "slippage not separately charged"
         if sz["slippage_pct_per_trade"] is None
         else f"slippage {fmt_num(sz['slippage_pct_per_trade'], 1)}% per trade"
     )
-    lines.append(
-        "Sizing: "
-        f"{fmt_inr_symbol(sz['per_leg_inr'])} per leg, lot size {sz['lot']}, "
-        f"{lots_range} lots per leg, average deployed {fmt_inr_symbol(sz['avg_deployed_inr'])}, "
-        f"peak reserve {fmt_inr_symbol(sz['peak_reserve_inr'])}, net P&L "
-        f"{fmt_inr_symbol(sz['net_pnl_inr'])}, {slippage}."
-    )
+    lines.append(f"Costs: {slippage}.")
     lines.append("")
 
     # Month by month
@@ -351,8 +310,7 @@ def render_risk_gates(rg: dict) -> str:
             gate_name = row["gate"]
             gate_lower = gate_name[0].lower() + gate_name[1:] if gate_name else gate_name
             gate_bits.append(
-                f"{gate_lower} at {fmt_num(row['trips_at_pct'], 0)}% "
-                f"({fmt_inr_symbol(row['in_inr'])}), checked {checked}"
+                f"{gate_lower} at {fmt_num(row['trips_at_pct'], 0)}%, checked {checked}"
             )
         gate_text = "; ".join(gate_bits) if gate_bits else "no gates armed"
         lines.append(f"- {name}: {gate_text}")
@@ -374,9 +332,7 @@ def render_risk_gates(rg: dict) -> str:
     lines.append("Paper sub-book brakes:")
     for row in rg["paper_brakes"]:
         lines.append(
-            f"- {row['profile']}: book base {fmt_inr_symbol(row['book_base_inr'])}, "
-            f"floor {fmt_num(row['floor_pct'], 0)}% ({fmt_inr_symbol(row['floor_inr'])}), "
-            f"worst day so far {fmt_inr_symbol(row['worst_day_inr'])}"
+            f"- {row['profile']}: floor {fmt_num(row['floor_pct'], 0)}% of its own book base"
         )
     lines.append("")
 

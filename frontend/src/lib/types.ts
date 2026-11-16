@@ -150,7 +150,7 @@ export interface ChatResponse {
 // Strategy books (Strategy Explorer). Real, labeled backtest OUTPUTS exported
 // from the private master — never engine parameters or entry/exit logic.
 // Units: P&L in "points" (option-premium points, as the monthly reports use),
-// with ₹ equivalents where the report gives them. Summed, not compounded.
+// percent/points only: rupee sizing is never published. Summed, not compounded.
 // ---------------------------------------------------------------------------
 
 export type BookStatus = "LIVE" | "PAPER";
@@ -173,11 +173,8 @@ export interface BookHeadline {
 
 export interface BookCost {
   worst_day_points: number;
-  worst_day_inr: number;
   max_drawdown_points: number;
-  max_drawdown_inr: number;
   best_day_points: number;
-  best_day_inr: number;
   days_up: number;
   days_traded: number;
   /** daily M2M halt as % of the book's own base capital (negative) */
@@ -185,13 +182,6 @@ export interface BookCost {
 }
 
 export interface BookSizing {
-  per_leg_inr: number;
-  lot: number;
-  net_pnl_inr: number;
-  peak_reserve_inr: number;
-  avg_deployed_inr: number;
-  lots_per_leg_min: number;
-  lots_per_leg_max: number;
   slippage_pct_per_trade: number | null;
 }
 
@@ -250,17 +240,16 @@ export interface RiskGateRow {
   profile: string;
   gate: string;
   trips_at_pct: number;
-  in_inr: number;
   checked: "every tick" | "startup only";
 }
 
 export interface RiskGatesData {
   as_of: string;
   how_to_read: { term: string; meaning: string }[];
-  profiles: { profile: string; m2m_base_inr: number; sizes: string; armed_gates: number }[];
+  profiles: { profile: string; sizes: string; armed_gates: number }[];
   armed: RiskGateRow[];
   cancels: { gate: string; counts_from: string; blocks: string; open_trades: string }[];
   inert: { profile: string; present_but_inert: string }[];
-  paper_brakes: { profile: string; book_base_inr: number; floor_pct: number; floor_inr: number; worst_day_inr: number }[];
+  paper_brakes: { profile: string; floor_pct: number }[];
   will_not_save_you_from: { title: string; body: string }[];
 }

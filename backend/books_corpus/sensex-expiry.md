@@ -11,13 +11,13 @@ Headline:
 - Top 5 trades are 34% of the book
 
 What it costs:
-- Worst day -69.27 points (about -₹69,004)
-- Max drawdown -172.04 points (about -₹1,70,254)
-- Best day +1254.43 points (about ₹12,39,390)
+- Worst day -69.27 points
+- Max drawdown -172.04 points
+- Best day +1254.43 points
 - Days up 27 of 47 traded days
 - Daily gate: M2M halt at -50% of the book's own base capital
 
-Sizing: ₹1,00,000 per leg, lot size 20, 19–163 lots per leg, average deployed ₹98,716, peak reserve ₹1,99,864, net P&L ₹58,55,118, slippage 1.0% per trade.
+Costs: slippage 1.0% per trade.
 
 Month by month:
 - 2025-09: +319.13 points

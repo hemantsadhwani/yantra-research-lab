@@ -15,27 +15,6 @@ const GATES_TAB = "risk-gates";
 
 /* ---- formatting helpers -------------------------------------------------- */
 
-/** Indian digit grouping: 2214089 -> 22,14,089 */
-function inrGroup(n: number): string {
-  const neg = n < 0;
-  const s = String(Math.round(Math.abs(n)));
-  let out: string;
-  if (s.length <= 3) {
-    out = s;
-  } else {
-    const tail = s.slice(-3);
-    let head = s.slice(0, -3);
-    const parts: string[] = [];
-    while (head.length > 2) {
-      parts.unshift(head.slice(-2));
-      head = head.slice(0, -2);
-    }
-    if (head) parts.unshift(head);
-    out = `${parts.join(",")},${tail}`;
-  }
-  return `${neg ? "−" : ""}₹${out}`;
-}
-
 /** Signed number with a real minus sign, fixed decimals. */
 function signed(n: number, digits = 2): string {
   const body = Math.abs(n).toFixed(digits);
@@ -238,18 +217,7 @@ function SeriesPending() {
 function BookView({ book, disclaimer }: { book: Book; disclaimer: string }) {
   const h = book.headline;
   const c = book.cost;
-  const s = book.sizing;
   const hasSeries = !book.series_pending && book.monthly.length > 0;
-
-  const sizingRows: [string, string][] = [
-    ["Per leg", inrGroup(s.per_leg_inr)],
-    ["Lot", String(s.lot)],
-    ["Lots per leg", `${s.lots_per_leg_min}–${s.lots_per_leg_max}`],
-    ["Avg deployed", inrGroup(s.avg_deployed_inr)],
-    ["Peak reserve", inrGroup(s.peak_reserve_inr)],
-    ["Net P&L", inrGroup(s.net_pnl_inr)],
-    ["Slippage", s.slippage_pct_per_trade === null ? "—" : `${s.slippage_pct_per_trade}%/trade`],
-  ];
 
   return (
     <div className="sx-book">
@@ -293,19 +261,16 @@ function BookView({ book, disclaimer }: { book: Book; disclaimer: string }) {
         <Tile
           k="worst day"
           v={signed(c.worst_day_points)}
-          sub={inrGroup(c.worst_day_inr)}
           tone={c.worst_day_points}
         />
         <Tile
           k="max drawdown"
           v={signed(c.max_drawdown_points)}
-          sub={inrGroup(c.max_drawdown_inr)}
           tone={c.max_drawdown_points}
         />
         <Tile
           k="best day"
           v={signed(c.best_day_points)}
-          sub={inrGroup(c.best_day_inr)}
           tone={c.best_day_points}
         />
         <Tile
@@ -318,19 +283,12 @@ function BookView({ book, disclaimer }: { book: Book; disclaimer: string }) {
         Day gate: M2M halt at {signedPct(c.day_gate_pct)} of the book&apos;s own base
       </span>
 
-      <SubHead>Sizing</SubHead>
-      <div className="scroll">
-        <table className="sx-sizing mono">
-          <tbody>
-            {sizingRows.map(([k, v]) => (
-              <tr key={k}>
-                <th scope="row">{k}</th>
-                <td>{v}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+      <span className="caption sx-gateline">
+        Slippage charged:{" "}
+        {book.sizing.slippage_pct_per_trade === null
+          ? "not separately charged"
+          : `${book.sizing.slippage_pct_per_trade}% per trade`}
+      </span>
 
       <div className="sx-callout">
         <p>
@@ -427,7 +385,6 @@ function RiskGatesPanel({ data }: { data: RiskGatesData }) {
           <thead>
             <tr>
               <th>profile</th>
-              <th>M2M base</th>
               <th>sizes</th>
               <th>armed gates</th>
             </tr>
@@ -436,7 +393,6 @@ function RiskGatesPanel({ data }: { data: RiskGatesData }) {
             {data.profiles.map((p) => (
               <tr key={p.profile}>
                 <td>{p.profile}</td>
-                <td>{inrGroup(p.m2m_base_inr)}</td>
                 <td>{p.sizes}</td>
                 <td>{p.armed_gates}</td>
               </tr>
@@ -453,7 +409,6 @@ function RiskGatesPanel({ data }: { data: RiskGatesData }) {
               <th>profile</th>
               <th>gate</th>
               <th>trips at</th>
-              <th>in &#8377;</th>
               <th>checked</th>
             </tr>
           </thead>
@@ -464,7 +419,6 @@ function RiskGatesPanel({ data }: { data: RiskGatesData }) {
                   <td>{i === 0 ? g.profile : ""}</td>
                   <td>{r.gate}</td>
                   <td style={{ color: "var(--down)" }}>{signedPct(r.trips_at_pct)}</td>
-                  <td style={{ color: "var(--down)" }}>{inrGroup(r.in_inr)}</td>
                   <td>{r.checked}</td>
                 </tr>
               ))
@@ -523,20 +477,14 @@ function RiskGatesPanel({ data }: { data: RiskGatesData }) {
           <thead>
             <tr>
               <th>profile</th>
-              <th>book base</th>
-              <th>floor</th>
-              <th>floor &#8377;</th>
-              <th>worst day</th>
+              <th>floor (of its own base)</th>
             </tr>
           </thead>
           <tbody>
             {data.paper_brakes.map((p) => (
               <tr key={p.profile}>
                 <td>{p.profile}</td>
-                <td>{inrGroup(p.book_base_inr)}</td>
                 <td style={{ color: "var(--down)" }}>{signedPct(p.floor_pct)}</td>
-                <td style={{ color: "var(--down)" }}>{inrGroup(p.floor_inr)}</td>
-                <td style={{ color: "var(--down)" }}>{inrGroup(p.worst_day_inr)}</td>
               </tr>
             ))}
           </tbody>
