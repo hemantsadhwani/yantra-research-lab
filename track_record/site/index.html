@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Strategy Track Record</title>
+<meta name="description" content="Results of three intraday index-options strategies, in percent only.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <header>
+    <p class="eyebrow">Yantra Research Lab</p>
+    <h1 id="title">Track record</h1>
+    <p class="lede" id="lede"></p>
+    <p class="meta" id="meta">Loading…</p>
+  </header>
+
+  <section class="define" aria-labelledby="define-h">
+    <h2 id="define-h">What the % means</h2>
+    <p id="definition"></p>
+  </section>
+
+  <section aria-labelledby="tiles-h">
+    <h2 id="tiles-h" class="visually-hidden">Summary by strategy</h2>
+    <div class="tiles" id="tiles"></div>
+  </section>
+
+  <section class="card" aria-labelledby="cum-h">
+    <div class="card-head">
+      <h2 id="cum-h">Cumulative result</h2>
+      <p class="sub">Running sum of daily %, per strategy. Flat stretches are days it did not trade.</p>
+    </div>
+    <div class="legend" id="legend"></div>
+    <div class="chart" id="cum" role="img" aria-label="Cumulative result per strategy over time"></div>
+  </section>
+
+  <section class="card" aria-labelledby="days-h">
+    <div class="card-head">
+      <h2 id="days-h">Every trading day</h2>
+      <p class="sub">One bar per day the strategy traded. Losing days are shown as they happened.</p>
+    </div>
+    <div id="days"></div>
+  </section>
+
+  <section class="card" aria-labelledby="month-h">
+    <div class="card-head">
+      <h2 id="month-h">By month</h2>
+      <p class="sub">Sum of daily % in each calendar month, with the days traded.</p>
+    </div>
+    <div class="table-wrap"><table id="months"></table></div>
+    <p class="note" id="other-note"></p>
+  </section>
+
+  <footer>
+    <p id="disclaimer"></p>
+    <p><span id="built"></span> No prices, symbols, times or position sizes leave the trading
+      system. Code: <a href="https://github.com/hemantsadhwani/yantra-research-lab/tree/main/track_record">track_record/</a>.</p>
+  </footer>
+</main>
+<div class="tip" id="tip" role="status" aria-live="polite" hidden></div>
+<script src="app.js"></script>
+</body>
+</html>

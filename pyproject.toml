@@ -29,7 +29,7 @@ slm    = ["torch>=2.2", "transformers>=4.46", "peft>=0.13", "datasets>=2.20"]
 yantra-research = "research_lab.run:main"
 
 [tool.setuptools]
-packages = ["research_lab", "research_lab.agents", "synthetic_engine", "mcp_server", "llm_gateway"]
+packages = ["research_lab", "research_lab.agents", "synthetic_engine", "mcp_server", "llm_gateway", "track_record"]
 
 [tool.ruff]
 line-length = 100
@@ -37,4 +37,4 @@ target-version = "py312"
 
 [tool.pytest.ini_options]
 addopts = "-q"
-testpaths = ["tests", "research_lab/tests", "llm_gateway/tests"]
+testpaths = ["tests", "research_lab/tests", "llm_gateway/tests", "track_record/tests"]

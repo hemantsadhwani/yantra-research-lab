@@ -55,3 +55,7 @@ crash.log
 .terraform.lock.hcl.bak
 infra/**/*.auto.tfvars
 infra/environments/*.backend.hcl
+
+# track record: local tfvars (bucket name) and build output
+infra/track_record/terraform.tfvars
+infra/track_record/build/
