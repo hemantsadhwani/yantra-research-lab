@@ -1,7 +1,7 @@
 {
   "_note": "Public run manifest of the Tier-3 agentic ingestion pipeline. Safe aggregates + provenance only; raw PDFs live in S3, not here.",
-  "run_id": "20261115T092916Z",
-  "generated_at": "2026-11-15T09:32:55+00:00",
+  "run_id": "20261116T094704Z",
+  "generated_at": "2026-11-16T09:50:19+00:00",
   "collection": "research_corpus",
   "embed_model": "BAAI/bge-small-en-v1.5",
   "dag": [
@@ -50,16 +50,16 @@
     "discovered": 10,
     "fetched": 10,
     "parsed": 10,
-    "chunks": 511,
-    "accepted": 480,
+    "chunks": 471,
+    "accepted": 440,
     "rejected": 31,
-    "images": 37,
+    "images": 43,
     "figures_captioned": 18,
-    "tables": 3,
-    "with_math": 10,
-    "indexed": 480,
-    "spent_usd": 0.0314,
-    "duration_s": 219.3
+    "tables": 6,
+    "with_math": 9,
+    "indexed": 440,
+    "spent_usd": 0.0317,
+    "duration_s": 194.7
   },
   "rejects_by_reason": {
     "low-relevance": 31
@@ -67,11 +67,137 @@
   "budget_usd": 3.0,
   "figures": [
     {
+      "doc_id": "2611.18367v1",
+      "title": "DECODE: Decomposable Environments for COntrolled Sequential-Decision Evaluation",
+      "page": 2,
+      "thumb": "/data/figures/2611.18367v1_p2_0.jpg",
+      "caption": "Figure 1: Overview of DECODE. \u2014 This is a flow diagram showing the architecture of DECODE, a framework for controlled sequential-decision evaluation. The diagram shows four main components: a Generator (left) that produces known parameters and process noise, which feeds into Released Members (center-left) specifying base configurations and noise levels, then branches into two parallel paths\u2014Solvers (top) that fit responses on logged data and References (bottom) that provide labeled reference sol",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2611.18367v1"
+    },
+    {
+      "doc_id": "2611.18367v1",
+      "title": "DECODE: Decomposable Environments for COntrolled Sequential-Decision Evaluation",
+      "page": 5,
+      "thumb": "/data/figures/2611.18367v1_p5_1.jpg",
+      "caption": "Figure 2: World generation and policy-value evaluation. \u2014 This flowchart illustrates the world generation and evaluation pipeline for a controlled sequential-decision environment. The Training World (1,000,000 loans over 24 months) and Evaluation World (100,000 loans over 12 months) both use shared dynamics and independent seeds, then feed into solver construction (fitting predictors and white rules) and logged history (months 0-5) respectively. These outputs converge into a Closed-loop Grading ",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2611.18367v1"
+    },
+    {
+      "doc_id": "2611.18367v1",
+      "title": "DECODE: Decomposable Environments for COntrolled Sequential-Decision Evaluation",
+      "page": 8,
+      "thumb": "/data/figures/2611.18367v1_p8_2.jpg",
+      "caption": "Figure 3: Closed-loop performance on Base. \u2014 Panel (a) is a line chart showing the percentage of exact optimum achieved (y-axis) across 1-month and 6-month horizons (x-axis) for four solver classes: GBM-cash, GBM-lags, LLM-agent, and GBM-flat, with the exact optimum marked as a reference line. Panel (b) is a dot plot displaying disclosure values in points (x-axis) for three stages: full disclosure, exact-response step, and filter-feature step (y-axis). The key takeaway is that performance improv",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2611.18367v1"
+    },
+    {
+      "doc_id": "2611.18367v1",
+      "title": "DECODE: Decomposable Environments for COntrolled Sequential-Decision Evaluation",
+      "page": 9,
+      "thumb": "/data/figures/2611.18367v1_p9_3.jpg",
+      "caption": "Figure 4: Memory measurements. \u2014 This figure displays two line charts measuring memory effects in a controlled decision-making environment. Panel (a) shows R\u00b2 values (0 to 1.0 on y-axis) versus memory parameter \u03b4 (0 to 4.0 on x-axis) for three information sets: true state, history, and transition, with the true state maintaining near-perfect R\u00b2 across all \u03b4 values while history and transition decline. Panel (b) plots separation per draw (0 to 0.50 on y-axis) against the same memory parameter \u03b4, ",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2611.18367v1"
+    },
+    {
+      "doc_id": "2611.18214v1",
+      "title": "Local Stochastic Volatility Iterations",
+      "page": 9,
+      "thumb": "/data/figures/2611.18214v1_p9_0.jpg",
+      "caption": "Figure 1. Implied volatility smiles of SPX options on 18 December 2024 at 9, 30 and 366 days. Top: the refined SVI target, the Bergomi model as calibrated on 20 November, labelled backbone, the particle method, and the joint regres- sion with degrees (10, 12) and (6, 8) after five fixed-point iterations. Bottom: differences to the target in volatility basis points. \u2014 This figure displays implied volatility smiles across three time horizons (9 days, 30 days, and 366 days) for SPX options, with th",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2611.18214v1"
+    },
+    {
+      "doc_id": "2611.18214v1",
+      "title": "Local Stochastic Volatility Iterations",
+      "page": 9,
+      "thumb": "/data/figures/2611.18214v1_p9_1.jpg",
+      "caption": "Figure 2. Left: root mean square change \u2206i of the leverage factor along the simulated paths for the degrees (10, 12) and (6, 8). Right: bid\u2013ask loss over all quotes along the correction steps for the degrees (6, 8), started after 0, 3, 5 and 8 iterations, \u00b12 standard errors from 20 independently randomized sets of 216 \u2014 Figure 2 contains two panels analyzing convergence properties of a local stochastic volatility model. The left panel is a line plot showing root mean square change (\u0394\u1d62) on a loga",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2611.18214v1"
+    },
+    {
+      "doc_id": "2611.18150v1",
+      "title": "Who Should Be on the Panel? Task-Conditioned Persona Selection for LLM Trading Agents",
+      "page": 3,
+      "thumb": "/data/figures/2611.18150v1_p3_0.jpg",
+      "caption": "Figure 1 follows one stock through a run. Before the first trading day, the recruiter reads a sketch s of how the stock has traded and seats a panel P = {p1, . . . , pN} of N named real traders whose styles suit it; the panel then stands for the whole run. \u2014 This section describes a multi-agent LLM trading system where a recruiter selects a panel of N trader personas based on a sketch of a stock's historical trading characteristics before the trading run begins. The panel of selected personas th",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2611.18150v1"
+    },
+    {
+      "doc_id": "2611.18150v1",
+      "title": "Who Should Be on the Panel? Task-Conditioned Persona Selection for LLM Trading Agents",
+      "page": 4,
+      "thumb": "/data/figures/2611.18150v1_p4_1.jpg",
+      "caption": "Figure 1: Overview of FinPanel. The recruiter reads a direction-blind sketch of the stock and seats N named traders once per run; every day each trader reads the same brief and gives an independent call with an argument; the distiller settles each call against the market and maintains a hierarchical track record per trader; the manager reads the arguments and the records and commits the portfolio. \u2014 This figure shows the FinPanel architecture for LLM trading agents, organized as a flow diagram w",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2611.18150v1"
+    },
+    {
+      "doc_id": "2611.18150v1",
+      "title": "Who Should Be on the Panel? Task-Conditioned Persona Selection for LLM Trading Agents",
+      "page": 5,
+      "thumb": "/data/figures/2611.18150v1_p5_2.jpg",
+      "caption": "Figure 2 shows the cumulative return paths of Fin- Panel, the three prior LLM agents and buy-and-hold over 2025-FY, and Tables 1 and 2 compare FinPanel with all baselines on 2025-FY and on 2025-H1. We have the following observations. 1) FinPanel out- performs the three prior LLM agents. It returns 16.1% on the mean of the eight stocks over 2025- FY against 7.9% for the best of them run as their pa \u2014 This section describes the experimental setup and evaluation metrics for comparing FinPanel again",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2611.18150v1"
+    },
+    {
+      "doc_id": "2611.18150v1",
+      "title": "Who Should Be on the Panel? Task-Conditioned Persona Selection for LLM Trading Agents",
+      "page": 6,
+      "thumb": "/data/figures/2611.18150v1_p6_3.jpg",
+      "caption": "Figure 2: Cumulative return over 2025-FY per stock for FinPanel, the three LLM agents run as their papers prescribe, and buy-and-hold. \u2014 This figure displays eight line charts showing cumulative returns (%) over a one-year period for eight stocks (TSLA, NFLX, AMZN, MSFT, GS, WMT, BA, XOM), each comparing four trading strategies: FinPanel (orange), FinMem (teal), FinAgent (pink), TradingAgents (gray), and Buy-and-hold (dashed line). The y-axis represents cumulative return percentage ranging from ",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2611.18150v1"
+    },
+    {
+      "doc_id": "2611.17515v1",
+      "title": "A Push Down the Mountain: Framing Effects and Internal State Interventions on Collusive Behavior in a Long-Horizon LLM Agent",
+      "page": 4,
+      "thumb": "/data/figures/2611.17515v1_p4_0.jpg",
+      "caption": "Figure 1. Phase II design for tests at saved decisions (Sections 5.1.1, 5.1.2 and 5.1.3) and causal tests that follow (Sections 5.1.3\u20135.2). \u2014 This flowchart illustrates the experimental design for testing framing effects on LLM agent behavior in a financial trading scenario. The diagram shows four treatment branches stemming from identical market history and state information: \"Loss UBS's request,\" \"Gain UBS's request,\" \"Loss + you (blame),\" and \"Gain + you (credit),\" which feed into a compariso",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2611.17515v1"
+    },
+    {
+      "doc_id": "2611.17515v1",
+      "title": "A Push Down the Mountain: Framing Effects and Internal State Interventions on Collusive Behavior in a Long-Horizon LLM Agent",
+      "page": 9,
+      "thumb": "/data/figures/2611.17515v1_p9_1.jpg",
+      "caption": "Figure 2. Experiment B participation. Each condition has ten episodes, each a full episode of 58 messages from UBS; error bars are 95% intervals from resampling episodes. \u201cWent along\u201d is a scored trade in UBS\u2019s requested direction, not a judgment about the agent\u2019s stated intent. \u2014 This bar chart displays the percentage of requests that agents \"went along with\" across five experimental conditions: Neutral, Loss, Gain, Blame, and Credit. The y-axis shows the percentage of requests (0-40%), and err",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2611.17515v1"
+    },
+    {
+      "doc_id": "2611.17515v1",
+      "title": "A Push Down the Mountain: Framing Effects and Internal State Interventions on Collusive Behavior in a Long-Horizon LLM Agent",
+      "page": 11,
+      "thumb": "/data/figures/2611.17515v1_p11_2.jpg",
+      "caption": "Figure 3. The management memo changes the size of the agent\u2019s unprompted trading volume: ounces traded before the first chat, averaged per trading day in Experiment A. \u2014 This bar chart displays silver trading volume in thousands of ounces per day across five experimental conditions: Neutral (18), Loss (349), Gain (217), Blame (341), and Credit (181). The x-axis shows different framing conditions used in a management memo intervention, while the y-axis measures trading volume before the first cha",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2611.17515v1"
+    },
+    {
+      "doc_id": "2611.17515v1",
+      "title": "A Push Down the Mountain: Framing Effects and Internal State Interventions on Collusive Behavior in a Long-Horizon LLM Agent",
+      "page": 12,
+      "thumb": "/data/figures/2611.17515v1_p12_3.jpg",
+      "caption": "Figure 4. A second bank\u2019s endorsement, by framing. Credit rose from 18% to 40% (Holm p = 0.027); blame rose from 33% to 48% but was not significant after correction. Error bars are 95% intervals from resampling episodes; ten episodes per bar. \u2014 This grouped bar chart compares the percentage of requests that \"went along\" with either UBS alone (blue bars) or UBS plus Bank C (orange bars) across five different framings: Neutral, Loss, Gain, Blame, and Credit. The y-axis shows the percentage of requ",
+      "vision": true,
+      "source": "https://arxiv.org/pdf/2611.17515v1"
+    },
+    {
       "doc_id": "2611.17247v1",
       "title": "Price-impact Martingale optimal transport",
       "page": 17,
       "thumb": "/data/figures/2611.17247v1_p17_0.jpg",
-      "caption": "Figure 1: At-the-money forward-start call with lognormal marginals. As the impact coefficient \u03b7 varies, the left panel shows the seller\u2019s upper bound in basis points of the initial spot, and the middle panel shows the expected number of shares traded per claim, including liquidation. Both panels use the full discrete marginals. The horizontal lines in the left panel mark the MOT and OT upper value \u2014 This figure displays three line charts analyzing at-the-money forward-start calls under varying e",
+      "caption": "Figure 1: At-the-money forward-start call with lognormal marginals. As the impact coefficient \u03b7 varies, the left panel shows the seller\u2019s upper bound in basis points of the initial spot, and the middle panel shows the expected number of shares traded per claim, including liquidation. Both panels use the full discrete marginals. The horizontal lines in the left panel mark the MOT and OT upper value \u2014 This figure displays three line charts analyzing a forward-start call option under price-impact c",
       "vision": true,
       "source": "https://arxiv.org/pdf/2611.17247v1"
     },
@@ -80,7 +206,7 @@
       "title": "Price-impact Martingale optimal transport",
       "page": 18,
       "thumb": "/data/figures/2611.17247v1_p18_1.jpg",
-      "caption": "Figure 2: Price bounds per claim for the forward-start call with marginals fitted to SPX option quotes. The left panel shows the seller\u2019s upper bound and the right panel the buyer\u2019s lower bound. To compare the bounds across strike ratios k, we subtract the common lower bound (1\u2212k)+ implied by E[X1] = E[X2] = 1 and express the difference in normalized basis points. The solid curves labelled \u03b7 = 0.0 \u2014 This figure displays optimal transport price bounds for a forward-start call option under differe",
+      "caption": "Figure 2: Price bounds per claim for the forward-start call with marginals fitted to SPX option quotes. The left panel shows the seller\u2019s upper bound and the right panel the buyer\u2019s lower bound. To compare the bounds across strike ratios k, we subtract the common lower bound (1\u2212k)+ implied by E[X1] = E[X2] = 1 and express the difference in normalized basis points. The solid curves labelled \u03b7 = 0.0 \u2014 This figure displays two panels comparing price bounds for a forward-start call option under diff",
       "vision": true,
       "source": "https://arxiv.org/pdf/2611.17247v1"
     },
@@ -89,7 +215,7 @@
       "title": "Price-impact Martingale optimal transport",
       "page": 19,
       "thumb": "/data/figures/2611.17247v1_p19_2.jpg",
-      "caption": "Figure 3: Seller\u2019s upper bound for the basket call with 16 support points per marginal, in payoff units. The effective impact on asset a is \u03b7a = \u03b5(\u03baa \u2014 The figure displays two panels comparing price impacts in a basket call option pricing problem. The left panel shows \"Common impact\" with upper price plotted against common effective impact \u03b7 on a logarithmic x-axis, displaying a monotonically increasing curve from approximately 1.38 to 1.50 with marked bounds for MOT (Martingale Optimal Transpor",
+      "caption": "Figure 3: Seller\u2019s upper bound for the basket call with 16 support points per marginal, in payoff units. The effective impact on asset a is \u03b7a = \u03b5(\u03baa \u2014 This figure presents two scatter/line plots showing upper price bounds for a basket call option under different market impact scenarios. The left panel displays \"Common impact\" with a logarithmic x-axis showing common effective impact \u03b7, illustrating how the upper price increases from approximately 1.38 to 1.50 as \u03b7 increases from 10^-3 to 10^1, ",
       "vision": true,
       "source": "https://arxiv.org/pdf/2611.17247v1"
     },
@@ -98,138 +224,72 @@
       "title": "Improving Algorithmic Trading for BESS on Intraday Electricity Markets through Distributional Price Forecasts",
       "page": 4,
       "thumb": "/data/figures/2611.17170v1_p4_0.jpg",
-      "caption": "Figure 1: Timing of spot markets for one day of trading. The gray area signifies the time period where products on the IDC market can be traded. The market time points are the times when the day-ahead and intraday auctions are cleared. Note that the graph does not contain the markets for the next day, which open during the depicted time period. In particular, the intraday continuous market for day \u2014 This timeline diagram illustrates the trading schedule for electricity spot markets within a sing",
+      "caption": "Figure 1: Timing of spot markets for one day of trading. The gray area signifies the time period where products on the IDC market can be traded. The market time points are the times when the day-ahead and intraday auctions are cleared. Note that the graph does not contain the markets for the next day, which open during the depicted time period. In particular, the intraday continuous market for day \u2014 This timeline figure illustrates the trading schedule for electricity spot markets within a singl",
       "vision": true,
       "source": "https://arxiv.org/pdf/2611.17170v1"
-    },
-    {
-      "doc_id": "2611.17170v1",
-      "title": "Improving Algorithmic Trading for BESS on Intraday Electricity Markets through Distributional Price Forecasts",
-      "page": 4,
-      "thumb": "/data/figures/2611.17170v1_p4_1.jpg",
-      "caption": "Figure 2: Illustration of the limit order book clearing mechanism. Figure and caption adapted from Graf et al. (2024). \u2014 This figure illustrates the limit order book (LOB) structure and clearing mechanism for intraday electricity markets at different time points. The left panel shows the LOB composition at T=1 with ask stack (red, showing prices 200.5-97.5 with volumes), bid-ask spread, and bid stack (blue, showing prices 35.5 to -20.5 with volumes), while the right panel demonstrates how the LO",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2611.17170v1"
-    },
-    {
-      "doc_id": "2611.17170v1",
-      "title": "Improving Algorithmic Trading for BESS on Intraday Electricity Markets through Distributional Price Forecasts",
-      "page": 8,
-      "thumb": "/data/figures/2611.17170v1_p8_2.jpg",
-      "caption": "Figure 3: Reduced snapshot of the limit order book and forecast orders for product h visible to the optimization. \u2014 This figure displays a snapshot of a limit order book for intraday electricity market trading, showing a vertical stack of price levels with associated quantities. The chart uses a color-coded legend distinguishing between actual market ask/bid prices (solid red and dark blue bars) and forecasted ask/bid prices (dashed/patterned red and blue bars), with price levels ranging from 22",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2611.17170v1"
-    },
-    {
-      "doc_id": "2611.17170v1",
-      "title": "Improving Algorithmic Trading for BESS on Intraday Electricity Markets through Distributional Price Forecasts",
-      "page": 10,
-      "thumb": "/data/figures/2611.17170v1_p10_3.jpg",
-      "caption": "Figure 4: Definition of the buying and selling prices based on the empirical distribution of all mid prices. For the exemplary \u03b1 = 0.4 depicted here, we receive limit prices for selling and buying (ql, qu) that will lead to a trade if we approach prices in the tail mass of the distribution. \u2014 The figure shows two panels analyzing midprice distribution for electricity delivery on 2022-01-03 at 19:00. The left panel displays an Empirical Cumulative Distribution Function (ECDF) of midprices in EUR/",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2611.17170v1"
-    },
-    {
-      "doc_id": "2611.16992v1",
-      "title": "Media Trading with Censored Auction Prices: A Stochastic Control and Reinforcement Learning Approach",
-      "page": 2,
-      "thumb": "/data/figures/2611.16992v1_p2_0.jpg",
-      "caption": "Fig. 1 Main participants in a programmatic advertising auction. \u2014 This diagram illustrates the architecture of a programmatic advertising auction ecosystem, showing interactions between five main participant types: Client, User, Advertiser, Demand-side Platform (DSP), Data Provider, Supply-side Platform (SSP), and Publisher, connected through a central Ad Exchange. The chart uses boxes and arrows to depict information and transaction flows, including bid requests, impressions, price data, and pu",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2611.16992v1"
-    },
-    {
-      "doc_id": "2611.16992v1",
-      "title": "Media Trading with Censored Auction Prices: A Stochastic Control and Reinforcement Learning Approach",
-      "page": 5,
-      "thumb": "/data/figures/2611.16992v1_p5_1.jpg",
-      "caption": "Fig. 2 Bidding policy from the benchmark implementation \u2014 This figure displays three heatmaps showing optimal bidding policies across different parameter spaces in a media trading auction context. Each heatmap uses color gradients (dark blue to yellow) to represent bid values, with the left panel varying remaining budget and monitoring budget, the middle panel showing remaining budget and winning probability, and the right panel displaying remaining budget and time. The key takeaway is that opti",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2611.16992v1"
-    },
-    {
-      "doc_id": "2611.16992v1",
-      "title": "Media Trading with Censored Auction Prices: A Stochastic Control and Reinforcement Learning Approach",
-      "page": 5,
-      "thumb": "/data/figures/2611.16992v1_p5_2.jpg",
-      "caption": "Fig. 3 Benchmark trajectories \u2014 This figure displays four line plots showing benchmark trajectories from a media trading algorithm. The top-left panel compares optimal strategy versus market price, both trending upward with confidence bands. The top-right panel shows remaining budget depleting monotonically over sales performance on the x-axis. The bottom-left panel displays cumulative sales increasing nonlinearly with sales performance, with shaded confidence intervals widening over time. The b",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2611.16992v1"
-    },
-    {
-      "doc_id": "2611.16992v1",
-      "title": "Media Trading with Censored Auction Prices: A Stochastic Control and Reinforcement Learning Approach",
-      "page": 11,
-      "thumb": "/data/figures/2611.16992v1_p11_3.jpg",
-      "caption": "Fig. 4 Mean-square error of the capped-bid estimator versus sample size, with 3000 independent replications and S = 0.5; dashed reference line of slope \u22121 \u2014 This log-log plot compares the mean-square error (MSE) of a capped-bid estimator against the number of exploratory bids N, with the y-axis showing E[(\u015c\u2212S)\u00b2] (Monte Carlo error) and the x-axis showing N from approximately 10 to 2000. The empirical MSE curve (solid blue line) closely tracks a reference line with slope \u22121 (dashed orange line), ",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2611.16992v1"
-    },
-    {
-      "doc_id": "2611.16540v1",
-      "title": "Dynamic Scenario-Based Portfolio Optimization for Multi-Asset ETFs",
-      "page": 10,
-      "thumb": "/data/figures/2611.16540v1_p10_0.jpg",
-      "caption": "Figure 1: Illustrative long\u2013only historical (left) and dynamic (right) mean\u2013variance efficient frontiers. Estimation ends 20 December 2022; evaluated return date 21 December 2022. Return and standard deviation are daily percentages. The plots exclude the baseline turnover restriction. The highlighted point is a frontier-grid maximum excess-return-to-standard-deviation candidate, not the turnover-  \u2014 This figure displays mean-variance efficient frontiers for long-only portfolios, comparing histor",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2611.16540v1"
-    },
-    {
-      "doc_id": "2611.16540v1",
-      "title": "Dynamic Scenario-Based Portfolio Optimization for Multi-Asset ETFs",
-      "page": 10,
-      "thumb": "/data/figures/2611.16540v1_p10_1.jpg",
-      "caption": "Figure 2: Illustrative long\u2013only historical (left) and dynamic (right) CVaR 95% efficient frontiers at the same estimation cutoff and with identical plotting scales. The plotted candidate maximizes excess expected return divided by CVaR 95% over the grid; no target-turnover constraint is imposed. \u2014 This figure displays two mean-CVaR efficient frontier plots (historical on left, dynamic on right) for a long-only multi-asset ETF portfolio, with daily CVaR at 95% on the x-axis and expected daily re",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2611.16540v1"
-    },
-    {
-      "doc_id": "2611.16540v1",
-      "title": "Dynamic Scenario-Based Portfolio Optimization for Multi-Asset ETFs",
-      "page": 11,
-      "thumb": "/data/figures/2611.16540v1_p11_2.jpg",
-      "caption": "Figure 3: Illustrative long\u2013only historical (left) and dynamic (right) CVaR 99% efficient frontiers. The x-axis is daily CVaR 99% in percent. The risk-free reference is an illustrative line through the selected excess-return-to-CVaR candidate, not a market-based capital-market line. \u2014 This figure displays two scatter plots comparing historical (left) and dynamic (right) CVaR 99% efficient frontiers for long-only portfolio optimization as of December 20, 2022. The x-axes measure Daily CVaR at 99%",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2611.16540v1"
-    },
-    {
-      "doc_id": "2611.16540v1",
-      "title": "Dynamic Scenario-Based Portfolio Optimization for Multi-Asset ETFs",
-      "page": 12,
-      "thumb": "/data/figures/2611.16540v1_p12_3.jpg",
-      "caption": "Figure 4: Baseline gross portfolio-value paths (initial investment USD 100), 21 December 2022\u2013 30 September 2026. Historical results appear on the left and dynamic results on the right. Rows show long\u2013only tangent, long\u2013only minimum-risk, long\u2013short tangent, and long\u2013short minimum-risk strategies. BHP denotes the common initially equal-weighted unrebalanced benchmark. Portfolio weights selected us \u2014 This figure displays six line charts comparing portfolio value evolution from December 2022 to Se",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2611.16540v1"
-    },
-    {
-      "doc_id": "2611.16495v1",
-      "title": "Verifiable Settlement and Pricing for Local Energy Markets: Architecture and Deployment on Hyperledger Besu",
-      "page": 11,
-      "thumb": "/data/figures/2611.16495v1_p11_0.jpg",
-      "caption": "Figure 1: Actors and information flows \u2014 This diagram illustrates the system architecture for a permissioned blockchain-based local energy market, showing three main actor groups: consumer premises (left), community operator (center), and permissioned ledger infrastructure (right). Data flows between consumers' local optimizers and meters, through the community operator's session daemon and power process, to a Besu-based permissioned ledger that records market contracts, pricing information, and",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2611.16495v1"
-    },
-    {
-      "doc_id": "2611.16495v1",
-      "title": "Verifiable Settlement and Pricing for Local Energy Markets: Architecture and Deployment on Hyperledger Besu",
-      "page": 15,
-      "thumb": "/data/figures/2611.16495v1_p15_1.jpg",
-      "caption": "Figure 2: Smart contract ecosystem. \u2014 This figure is a flowchart depicting the smart contract architecture for a local energy market system deployed on blockchain. It shows four input actors (Operator, Registered prosumers, Floor administrator, and Tariff reporters) feeding into a central \"Market contract\" component that handles session and pricing operations, which then routes data to downstream modules including a Grid tariff contract, Pricing library, Batch verifier, Reveal verifier, and Sett",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2611.16495v1"
-    },
-    {
-      "doc_id": "2611.16495v1",
-      "title": "Verifiable Settlement and Pricing for Local Energy Markets: Architecture and Deployment on Hyperledger Besu",
-      "page": 20,
-      "thumb": "/data/figures/2611.16495v1_p20_2.jpg",
-      "caption": "Figure 3: Cycle of one day. \u2014 This flowchart illustrates a 24-hour settlement cycle for a local energy market system on a blockchain platform. The timeline spans from 00:00 (day e+1) to 12:00 (day e+1), with day e consisting of 96 sessions of 15-minute aggregates where prices and no money moves are recorded. The figure shows two possible end states: either transactions are \"settled\" (with commitments advanced and queues consumed) or orders are \"canceled\" (with no moves recorded and queues cleare",
-      "vision": true,
-      "source": "https://arxiv.org/pdf/2611.16495v1"
     }
   ],
   "docs": [
+    {
+      "id": "2611.18367v1",
+      "title": "DECODE: Decomposable Environments for COntrolled Sequential-Decision Evaluation",
+      "source": "https://arxiv.org/pdf/2611.18367v1",
+      "pages": 22,
+      "images": 2,
+      "figures_captioned": 4,
+      "tables": 3,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 51
+    },
+    {
+      "id": "2611.18214v1",
+      "title": "Local Stochastic Volatility Iterations",
+      "source": "https://arxiv.org/pdf/2611.18214v1",
+      "pages": 12,
+      "images": 0,
+      "figures_captioned": 2,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 30
+    },
+    {
+      "id": "2611.18150v1",
+      "title": "Who Should Be on the Panel? Task-Conditioned Persona Selection for LLM Trading Agents",
+      "source": "https://arxiv.org/pdf/2611.18150v1",
+      "pages": 15,
+      "images": 0,
+      "figures_captioned": 4,
+      "tables": 1,
+      "has_math": false,
+      "ocr_used": false,
+      "chunks_indexed": 34
+    },
+    {
+      "id": "2611.17902v1",
+      "title": "Well-Posedness of Semimartingale Optimal Transport with Partial Marginal Constraints for Model Calibration",
+      "source": "https://arxiv.org/pdf/2611.17902v1",
+      "pages": 45,
+      "images": 0,
+      "figures_captioned": 0,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 62
+    },
+    {
+      "id": "2611.17515v1",
+      "title": "A Push Down the Mountain: Framing Effects and Internal State Interventions on Collusive Behavior in a Long-Horizon LLM Agent",
+      "source": "https://arxiv.org/pdf/2611.17515v1",
+      "pages": 38,
+      "images": 7,
+      "figures_captioned": 4,
+      "tables": 0,
+      "has_math": true,
+      "ocr_used": false,
+      "chunks_indexed": 39
+    },
     {
       "id": "2611.17247v1",
       "title": "Price-impact Martingale optimal transport",
@@ -248,11 +308,11 @@
       "source": "https://arxiv.org/pdf/2611.17170v1",
       "pages": 31,
       "images": 8,
-      "figures_captioned": 4,
+      "figures_captioned": 1,
       "tables": 2,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 59
+      "chunks_indexed": 56
     },
     {
       "id": "2611.16992v1",
@@ -260,11 +320,11 @@
       "source": "https://arxiv.org/pdf/2611.16992v1",
       "pages": 27,
       "images": 10,
-      "figures_captioned": 4,
+      "figures_captioned": 0,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 49
+      "chunks_indexed": 45
     },
     {
       "id": "2611.16540v1",
@@ -272,11 +332,11 @@
       "source": "https://arxiv.org/pdf/2611.16540v1",
       "pages": 50,
       "images": 16,
-      "figures_captioned": 4,
+      "figures_captioned": 0,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 37
+      "chunks_indexed": 33
     },
     {
       "id": "2611.16495v1",
@@ -284,71 +344,11 @@
       "source": "https://arxiv.org/pdf/2611.16495v1",
       "pages": 41,
       "images": 0,
-      "figures_captioned": 3,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 40
-    },
-    {
-      "id": "2611.16484v1",
-      "title": "TAPES: Terminal Adjoint-Propagated Error Scheduling for Financial Diffusion Samplers",
-      "source": "https://arxiv.org/pdf/2611.16484v1",
-      "pages": 9,
-      "images": 2,
-      "figures_captioned": 0,
-      "tables": 1,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 29
-    },
-    {
-      "id": "2611.16471v1",
-      "title": "Accuracy Is Not Welfare: Evaluating AI Buyers under Strategic Price Complexity in a Synthetic Duopoly",
-      "source": "https://arxiv.org/pdf/2611.16471v1",
-      "pages": 51,
-      "images": 1,
       "figures_captioned": 0,
       "tables": 0,
       "has_math": true,
       "ocr_used": false,
-      "chunks_indexed": 44
-    },
-    {
-      "id": "2611.16429v1",
-      "title": "On the continuity of martingale optimal transport in higher dimensions",
-      "source": "https://arxiv.org/pdf/2611.16429v1",
-      "pages": 29,
-      "images": 0,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 59
-    },
-    {
-      "id": "2611.16129v1",
-      "title": "Novel Esscher concepts for informational risks and valuation in market models under random horizon",
-      "source": "https://arxiv.org/pdf/2611.16129v1",
-      "pages": 46,
-      "images": 0,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 46
-    },
-    {
-      "id": "2611.16087v1",
-      "title": "Convergence rates for truncated and discretised signature expansions",
-      "source": "https://arxiv.org/pdf/2611.16087v1",
-      "pages": 39,
-      "images": 0,
-      "figures_captioned": 0,
-      "tables": 0,
-      "has_math": true,
-      "ocr_used": false,
-      "chunks_indexed": 64
+      "chunks_indexed": 37
     }
   ]
 }
