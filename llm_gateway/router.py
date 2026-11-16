@@ -6,7 +6,7 @@ import os
 
 from llm_gateway.base import Provider
 
-PROVIDERS = ("anthropic", "bedrock", "ollama")
+PROVIDERS = ("anthropic", "bedrock", "converse", "ollama")
 
 
 def get_provider(name: str | None = None, model: str | None = None) -> Provider:
@@ -23,6 +23,9 @@ def get_provider(name: str | None = None, model: str | None = None) -> Provider:
     if chosen == "bedrock":
         from llm_gateway.bedrock_provider import BedrockProvider
         return BedrockProvider(model=model)
+    if chosen == "converse":
+        from llm_gateway.converse_provider import ConverseProvider
+        return ConverseProvider(model=model)
     if chosen == "ollama":
         from llm_gateway.ollama_provider import OllamaProvider
         return OllamaProvider(model=model)

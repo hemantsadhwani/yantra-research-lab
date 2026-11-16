@@ -15,6 +15,9 @@ logger = logging.getLogger("llm_gateway.pricing")
 # model -> (input, output, cache_read, cache_write) USD per million tokens
 PRICES: dict[str, tuple[float, float, float, float]] = {
     "claude-haiku-4-5": (1.00, 5.00, 0.10, 1.25),
+    # Bedrock on-demand, ap-south-1 (AWS pricing page, 15 Nov 2026)
+    "google.gemma-3-12b-it": (0.11, 0.34, 0.0, 0.0),
+    "deepseek.v3.2": (0.74, 2.22, 0.0, 0.0),
 }
 PRICE_LABEL = "list price"
 
@@ -27,6 +30,12 @@ def _row(model: str) -> tuple[float, float, float, float] | None:
     if "haiku-4-5" in model:          # e.g. us.anthropic.claude-haiku-4-5-20251001-v1:0
         return PRICES["claude-haiku-4-5"]
     return None
+
+
+def require_price(model: str) -> None:
+    """Refuse a model with no price row before any call: spend must always be accountable."""
+    if _row(model) is None:
+        raise ValueError(f"no price row for {model!r}: add it to llm_gateway/pricing.py first")
 
 
 def estimate_cost(
