@@ -42,7 +42,7 @@ plan-vs-actual as an honesty feature.
 
 ## As built (2026-09-13)
 
-**Screens — the six real routes** (Next.js 14.2.5 / React 18, deployed on Vercel):
+**Screens — the six real routes** (Next.js 14.2.5 / React 18, as deployed on Vercel until 17 Nov 2026; history):
 
 | Route | What's actually there |
 |---|---|
@@ -55,11 +55,11 @@ plan-vs-actual as an honesty feature.
 
 - **No Portfolio screen exists** — it's roadmap, not built. The **Plan-vs-Actual** panel described
   above exists in the UI but currently renders placeholder zeros (no live-vs-backtest data feed yet).
-- **Architecture, as built:** static Next.js app on Vercel, auto-deployed on push to `main`; **no
+- **Architecture, as built (since 17 Nov 2026):** static Next.js export on S3 + CloudFront, published by
+  `frontend/deploy_aws.sh`; three routes (`/`, `/research-lab/`, `/track-record/`); **no
   auth** ([ADR-0006](../docs/adr/0006-auth-rbac.md) — v1 ships with none); data comes from static
   JSON checked into `frontend/public/data/` (books, ingestion manifest), not a live database.
-- **Target, not built:** the Portfolio screen, Cognito auth/RBAC, S3+CloudFront hosting (Vercel is
-  the actual host), multi-tenant isolation. Clerk is the documented v2 auth path, per ADR-0006.
+- **Target, not built:** the Portfolio screen, Cognito auth/RBAC, multi-tenant isolation. Clerk is the documented v2 auth path, per ADR-0006.
 
 ### Strategy books — how outputs reach the site
 The data path behind `/strategies` and the chatbot's book answers: private monthly-report PDFs →

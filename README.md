@@ -114,11 +114,11 @@ On the chatbot, the output filter is measured end to end with a provider scripte
 **0/32 leaks reach the user with the filter on, 6/32 with it off** (`python -m eval.redteam --live`).
 The leaks are hand-written, so this measures the filter's coverage, not how often a real model leaks.
 
-**Two vector stores, one `Retriever` interface.** The chatbot retrieves from Qdrant by default
-(local on-disk, or Qdrant Cloud in prod). `VECTOR_BACKEND=faiss` swaps in an exact-cosine FAISS
+**Two vector stores, one `Retriever` interface.** (The chatbot was retired on 17 Nov 2026; the code stays
+until removal.) The chatbot retrieved from Qdrant by default (local on-disk, or Qdrant Cloud when it was live). `VECTOR_BACKEND=faiss` swaps in an exact-cosine FAISS
 index persisted in `backend/.faiss/`, same embedding model, no chatbot change: `make demo-faiss`.
 A test asserts both engines return the same top-1 document on a 6-doc corpus
-(`pytest backend/tests/test_faiss_backend.py`). Prod still runs on Qdrant.
+(`pytest backend/tests/test_faiss_backend.py`).
 
 **RAGAS-style chatbot eval.** `python -m eval.ragas_eval` scores faithfulness, answer relevancy,
 context precision and context recall over 12 golden questions (`eval/datasets/ragas_golden.jsonl`),
@@ -186,8 +186,9 @@ The MLflow model registry is not used yet.
 
 ## Containers and Kubernetes (the app layer)
 
-The public demo runs on Fly.io + Vercel because that is the cheapest way to keep a portfolio app
-live ([ADR-0005](docs/adr/0005-serverless-demo-aws-target.md)). The same two services are also packaged
+The live site is a static Next.js export on S3 + CloudFront (https://d5m79jfuo76r4.cloudfront.net, `infra/track_record/`).
+The earlier Fly.io + Vercel demo ([ADR-0005](docs/adr/0005-public-demo-deployment.md)) was retired on 17 Nov 2026.
+The v1 backend and frontend were also packaged
 the way a platform team would run them ([ADR-0011](docs/adr/0011-containers-and-kubernetes.md)):
 
 ```bash
@@ -242,16 +243,16 @@ research_lab/          # the agentic engine: stdlib loop + LangGraph arm (checkp
 synthetic_engine/      # public toy backtest engine (zero IP)
 mcp_server/            # MCP server exposing run_backtest over the engine
 llm_gateway/           # provider seam: Anthropic / Bedrock / Ollama, schema-validated output
-backend/               # RAG chatbot with IP + PII guardrails (FastAPI → Fly.io)
-frontend/              # Next.js public site (→ Vercel)
-ingestion/             # LangGraph ingestion DAG for the knowledge base (daily cron) + page layout router
+backend/               # RAG chatbot with IP + PII guardrails (FastAPI; retired 17 Nov 2026, removal pending)
+frontend/              # Next.js public site (static export → S3 + CloudFront)
+ingestion/             # LangGraph ingestion DAG for the knowledge base (cron off; retired) + page layout router
 slm_regime_classifier/ # CPU LoRA distillation kata for the layout labels (the regime classifier is not built)
 eval/                  # CI eval-gate, guardrail red-team, chatbot eval, layout-router eval
 tests/                 # core tests
 knowledge_base/        # corpus seed-list + eval sets
 scripts/               # regenerate cached site data
 architecture/  docs/   # system design, ADRs, design log
-.github/workflows/     # CI (lint · test · eval-gate) + the daily ingestion cron
+.github/workflows/     # CI (lint · test · eval-gate) + manual-only ingestion (retired)
 ```
 
 ## What's built and what's next

@@ -1,8 +1,8 @@
 # 08 · Deployment — AWS, monorepo, dev→prod promotion
 
-> **This is the business/scale target.** The *public demo* deploys today on a minimal-cost
-> stack — **Vercel** (frontend) + **Fly.io** (`yantra-chatbot`, region `sin`, one machine kept
-> warm — not scale-to-zero, ~$2/mo) + **Qdrant Cloud** (not local mode) + **Logfire** — see
+> **This is the business/scale target.** Since 17 Nov 2026 the public site is a static export on
+> **S3 + CloudFront** (https://d5m79jfuo76r4.cloudfront.net, `infra/track_record/`). The earlier demo stack (Vercel + Fly.io
+> `yantra-chatbot` + Qdrant Cloud + Logfire) is retired; the sections below that describe it are history. See
 > [ADR-0005](../docs/adr/0005-public-demo-deployment.md) and [02a](02a-data-ingestion-asbuilt.md).
 > Same container lifts to Fargate later.
 

@@ -2,7 +2,7 @@
 # Build context is the frontend/ directory:
 #     docker build -t yantra-frontend --build-arg NEXT_PUBLIC_BACKEND_URL=http://localhost:8000 frontend/
 # NEXT_PUBLIC_* values are inlined at build time by Next.js, so the backend URL is a build arg.
-# The public demo still deploys to Vercel; this image is for Compose / Kubernetes (deploy/k8s).
+# The public site is a static export on S3 + CloudFront (frontend/deploy_aws.sh); this image is for Compose / Kubernetes (deploy/k8s).
 
 FROM node:20-alpine AS deps
 WORKDIR /app

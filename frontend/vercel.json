@@ -1,0 +1,12 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "redirects": [
+    { "source": "/strategies", "destination": "https://d5m79jfuo76r4.cloudfront.net/track-record/", "permanent": true },
+    { "source": "/strategies/:path*", "destination": "https://d5m79jfuo76r4.cloudfront.net/track-record/", "permanent": true },
+    { "source": "/ops", "destination": "https://d5m79jfuo76r4.cloudfront.net/research-lab/", "permanent": true },
+    { "source": "/pipeline", "destination": "https://d5m79jfuo76r4.cloudfront.net/research-lab/", "permanent": true },
+    { "source": "/chat", "destination": "https://d5m79jfuo76r4.cloudfront.net/", "permanent": true },
+    { "source": "/research-lab", "destination": "https://d5m79jfuo76r4.cloudfront.net/research-lab/", "permanent": true },
+    { "source": "/:path*", "destination": "https://d5m79jfuo76r4.cloudfront.net/:path*", "permanent": true }
+  ]
+}

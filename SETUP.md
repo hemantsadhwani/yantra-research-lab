@@ -1,5 +1,7 @@
 # Setup — accounts & tokens for v1 (do this once, before deploying)
 
+> **Retired 17 Nov 2026.** This guide describes the v1 stack (Vercel + Fly.io + Qdrant Cloud). All three are shut down. The live site is a static export on S3 + CloudFront (https://d5m79jfuo76r4.cloudfront.net); see `CLAUDE.md` → Deployment. Kept for history only.
+
 Get these in place **now** so building/deploying isn't blocked later. The golden rule:
 **secrets go in `.env` (git-ignored) or the host's secrets manager — never in code, never in a
 prompt, never committed.** You create them in your browser; no tool ever needs to *see* them.

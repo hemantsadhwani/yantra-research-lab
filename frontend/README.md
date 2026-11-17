@@ -64,13 +64,11 @@ npm run start
 { "answer": "…", "refused": false, "sources": [{ "title": "…", "snippet": "…" }], "output_filtered": false, "refuse_reason": null }
 ```
 
-## Deploy on Vercel
+## Deploy (S3 + CloudFront)
 
-1. Import this repository into Vercel.
-2. Set **Root Directory** to `frontend/`.
-3. Framework preset: **Next.js** (auto-detected). Build command `npm run build`.
-4. Add the env var **`NEXT_PUBLIC_BACKEND_URL`** pointing at your deployed backend.
-5. Deploy.
+`AWS_PROFILE=agentic TF=<terraform> bash frontend/deploy_aws.sh` builds the static export
+(`STATIC_EXPORT=1`) and syncs it to the bucket behind CloudFront (`infra/track_record/`).
+Vercel only serves `vercel.json` redirects to the AWS site since 17 Nov 2026.
 
 ## Theming
 

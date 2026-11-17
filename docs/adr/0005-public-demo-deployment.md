@@ -1,6 +1,10 @@
 # ADR-0005 — Public demo deploys on a minimal-cost serverless stack; AWS is the business target
 
-**Status:** accepted · 2026-07-04 · amended 2026-09-13 (see "Amendments" at the end)
+**Status:** superseded 2026-11-17 · accepted 2026-07-04 · amended 2026-09-13 (see "Amendments" at the end)
+
+> **Superseded 17 Nov 2026.** The Fly.io app was destroyed, the Qdrant collection emptied, and Vercel now
+> only redirects to the AWS site. The site is a static export on S3 + CloudFront (https://d5m79jfuo76r4.cloudfront.net,
+> `infra/track_record/`). The reasoning below is kept as the record of the earlier choice.
 
 ## Question
 How do we put a **public, always-on URL** in front of the platform — a live site + working

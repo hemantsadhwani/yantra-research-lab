@@ -4,7 +4,8 @@
 #   docker compose up --build       # backend http://localhost:8000, frontend http://localhost:3000
 #   docker compose --profile private up --build   # adds a local Ollama; nothing leaves the machine
 #
-# The public demo runs on Fly.io + Vercel (backend/fly.toml). Kubernetes manifests: deploy/k8s.
+# The public site is a static export on S3 + CloudFront; the Fly.io + Vercel demo was retired 17 Nov 2026.
+# Kubernetes manifests: deploy/k8s.
 
 services:
   backend:

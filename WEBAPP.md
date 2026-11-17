@@ -1,5 +1,7 @@
 # Running & deploying the v1 web app
 
+> **Retired 17 Nov 2026.** This guide describes the v1 stack (Vercel + Fly.io + Qdrant Cloud). All three are shut down. The live site is a static export on S3 + CloudFront (https://d5m79jfuo76r4.cloudfront.net); see `CLAUDE.md` → Deployment. Kept for history only.
+
 The public demo = a **Next.js frontend** (`frontend/`) + a **FastAPI RAG chatbot** (`backend/`),
 on top of the existing Python research loop. Accounts/keys: see [SETUP.md](SETUP.md). No auth in v1.
 

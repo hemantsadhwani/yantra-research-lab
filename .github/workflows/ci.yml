@@ -4,14 +4,14 @@ name: ci
 #
 #   changes ─┬─ core (3.12, 3.13; stdlib only) ─┐
 #            ├─ agents (3.13; .[all]) ──────────┴─ eval-gate (both arms) ─┐
-#            ├─ backend ──────────────────────────────────────────────────┴─ deploy-prod (main, opt-in)
+#            ├─ backend
 #            └─ ingestion
 #
 # Four test jobs, two eval gates (loop-beats-baseline on the stdlib AND the LangGraph
 # loop; red-team guardrail block rate). dev/prod are GitHub *environments*, not
 # directories — see docs/adr/0004-monorepo-and-environment-promotion.md.
-# No job here pretends to deploy: deploy-prod is a real `flyctl deploy`, and a no-op until
-# the owner opts in (see the job's comment).
+# No deploy job: the Fly.io chatbot was retired on 17 Nov 2026 (app destroyed). The site is a static
+# export on AWS, published by frontend/deploy_aws.sh.
 
 on:
   push:
@@ -49,7 +49,7 @@ jobs:
       - uses: dorny/paths-filter@v3
         id: filter
         with:
-          # frontend/ is built and deployed by Vercel's Git integration (ADR-0005); the
+          # frontend/ is published to S3 + CloudFront by frontend/deploy_aws.sh; the
           # output is exposed for a future build job and consumed by nothing here yet.
           filters: |
             core: ['research_lab/**', 'synthetic_engine/**', 'mcp_server/**', 'llm_gateway/**', 'eval/**', 'tests/**', 'pyproject.toml']
@@ -172,15 +172,6 @@ jobs:
       - run: pip install -e '.[all]'
       - run: python -m eval.run_gate --arm both
 
-  # ---- prod deploy of the chatbot backend to Fly.io ----
-  # A NO-OP until the owner opts in. To enable, in GitHub → Settings:
-  #   1. Secrets and variables → Actions → Secrets:   FLY_API_TOKEN   (`fly tokens create deploy -a yantra-chatbot`)
-  #   2. Secrets and variables → Actions → Variables: ENABLE_FLY_DEPLOY = true
-  #   3. Environments → New environment "prod" → Required reviewers (you) and
-  #      Deployment branches: main only. Put FLY_API_TOKEN on the environment to scope it.
-  # Runs only on a push to main, only when the backend changed and passed, and only if no
-  # upstream job failed or was cancelled (eval-gate may be skipped on a backend-only change;
-  # core/agents are listed too so a skipped gate can never mask a failed test job).
   # ---- containers: both images must build; Kubernetes manifests must render (ADR-0011) ----
   containers:
     needs: changes
@@ -212,24 +203,3 @@ jobs:
         run: kubectl kustomize deploy/k8s > /tmp/rendered.yaml && grep -c '^kind:' /tmp/rendered.yaml
       - name: compose file is valid
         run: docker compose config -q
-
-  deploy-prod:
-    needs: [changes, core, agents, eval-gate, backend]
-    if: >-
-      always() &&
-      github.ref == 'refs/heads/main' && github.event_name == 'push' &&
-      vars.ENABLE_FLY_DEPLOY == 'true' &&
-      needs.backend.result == 'success' &&
-      !contains(needs.*.result, 'failure') && !contains(needs.*.result, 'cancelled')
-    runs-on: ubuntu-latest
-    environment: prod        # manual approval gate lives on the GitHub environment
-    concurrency:
-      group: deploy-prod
-      cancel-in-progress: false
-    steps:
-      - uses: actions/checkout@v4
-      - uses: superfly/flyctl-actions/setup-flyctl@master
-      # Build context is the repo root: the image copies the shared llm_gateway/ package.
-      - run: flyctl deploy --config backend/fly.toml --dockerfile backend/Dockerfile --remote-only .
-        env:
-          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}

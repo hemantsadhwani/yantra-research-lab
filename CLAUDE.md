@@ -94,12 +94,12 @@ synthetic_engine/      engine.py — public toy backtest engine (zero IP)
 mcp_server/            server.py — MCP tools wrapping the engine (run_backtest, get_param_space, ...)
 eval/                  run_gate.py (--arm stdlib|graph|both), redteam.py (--live), judge_eval.py, chatbot_books_eval.py,
                        layout_eval.py (--fake)
-backend/               FastAPI RAG chatbot + guardrails + Logfire (Fly.io)
-ingestion/             LangGraph document-ingestion DAG (daily GitHub Actions cron) · layout_router.py (page
+backend/               FastAPI RAG chatbot + guardrails + Logfire (retired 17 Nov 2026; removal pending)
+ingestion/             LangGraph document-ingestion DAG (retired; cron off) · layout_router.py (page
                        layout: rules | slm | frontier, YANTRA_LAYOUT_BACKEND, default rules, advisory) ·
                        layout_labels.py (page features + free teacher labels)
 slm_regime_classifier/ distill_layout.py: CPU LoRA kata on the layout labels (regime classifier itself not built)
-frontend/              Next.js portal (Vercel); frontend/Dockerfile for Compose / Kubernetes
+frontend/              Next.js static export → S3 + CloudFront; frontend/Dockerfile for Compose / Kubernetes
 deploy/                k8s/ kustomize manifests (probes, limits, HPA, Ingress) · kind/ local cluster (ADR-0011)
 docs/                  architecture.md, DESIGN_LOG.md, adr/
 architecture/          design docs 01–08 with honest "As built" sections
@@ -134,7 +134,7 @@ Read these before re-deriving a decision — they record the trade-offs as they 
 - `docs/adr/0008` one `Provider` protocol (Anthropic / Bedrock / Ollama); thin adapter, not LiteLLM
 - `docs/adr/0009` persistent memory over one SQLite file; promotions human-only
 - `docs/adr/0010` evaluation ladder: verify → score → judge (veto only) → human; budget; leak rate
-- `docs/adr/0011` app layer packaged for Kubernetes (Compose, kustomize, kind, CI image builds); Fly + Vercel stay the public demo
+- `docs/adr/0011` app layer packaged for Kubernetes (Compose, kustomize, kind, CI image builds); (the Fly + Vercel demo was retired 17 Nov 2026)
 - `docs/adr/0012` SLM cascade: code → SLM → frontier; SLMs decide and score, frontier writes; swap in at ≥ 95% agreement
 
 ## Deployment
@@ -149,37 +149,12 @@ Publish with `AWS_PROFILE=agentic TF=<terraform.exe> bash frontend/deploy_aws.sh
 
 Removed 17 Nov: `/chat`, `/ops`, `/pipeline`, `/strategies` and the Ask widget. The research-paper RAG is retired, and the ingest cron is off.
 
-Legacy (being retired):
-
-| Piece | URL |
-|---|---|
-| Frontend (Next.js → Vercel) | https://yantra-research-lab.vercel.app. It still auto-deploys from main, but `/track-record/` has no data there. |
-| Backend API docs (FastAPI → Fly.io) | https://yantra-chatbot.fly.dev/docs. Scaled to 0 on 16 Nov (rupee takedown). |
-
-Two gotchas:
-- The Fly app is **`yantra-chatbot`** (see `backend/fly.toml`), *not* `yantra-backend`.
-- The backend's **root path `/` returns 404** — there is no route there. Link `/docs`,
-  `/health`, or `/api/metrics` instead.
-
-`backend/fly.toml` now sets `min_machines_running = 1` and `auto_stop_machines = false` so
-demo traffic never pays the ~20s cold start. That costs ~$2/mo; revert both to go back to
-scale-to-zero. **Config changes require a deploy to take effect. Deploy from the repo root (the Docker context is the root since WP4): `fly deploy --config backend/fly.toml --dockerfile backend/Dockerfile .`**
-
-**The chatbot's vector index lives in Qdrant Cloud, not in the image.** `QDRANT_URL` and
-`QDRANT_API_KEY` are Fly secrets. The Dockerfile no longer builds a local index (removed in WP4;
-prod never read it). After any corpus change, re-ingest against the cluster:
-
-```bash
-fly ssh console -a yantra-chatbot -C "sh -c 'cd /app && python ingest.py'"
-```
-
-A `fly deploy` alone does **not** update what the bot retrieves. This cost a full debugging cycle:
-four deploys in a row appeared to change nothing, and stale `knowledge_base/README` chunks kept
-coming back as top sources long after that file was excluded from ingestion.
-
-`.github/workflows/ingest.yml` runs a daily 02:17 UTC cron on an ephemeral runner. It is
-incremental against content-hashed S3 bronze, so most days re-process nothing, and it
-auto-commits the refreshed manifest with `[skip ci]`.
+Retired 17 Nov 2026 (nothing of it bills any more):
+- **Fly.io:** app `yantra-chatbot` destroyed; the account has no apps, Postgres, Redis or extensions. `backend/fly.toml` deleted.
+- **Vercel:** `frontend/vercel.json` 301-redirects every old path to the CloudFront site. Delete the Vercel project once the old links have aged out.
+- **Qdrant Cloud:** collection emptied; delete the cluster in the Qdrant console.
+- **Ingestion:** cron removed from `.github/workflows/ingest.yml` (manual only); the `yantra-ingest` IAM key is inactive.
+- The `backend/`, `ingestion/` and RAG eval code stays in the tree until the planned removal.
 
 ## Claims discipline
 

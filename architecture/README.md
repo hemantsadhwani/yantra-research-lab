@@ -6,9 +6,9 @@ document below states the *decision, the why, and the cost/latency/scale/reliabi
 (the ADR lens). The public build runs on a **synthetic engine** (zero proprietary IP); the
 production version drives a private strategy engine, referenced here only in the abstract.
 
-**Live vs target.** The public demo actually deploys on **Vercel (frontend) + Fly.io (backend,
-`yantra-chatbot`) + Qdrant Cloud (vectors) + Logfire (traces)** — see 02a, 04, 06, 08 for the
-as-built detail. **AWS (Fargate/Cognito/CloudWatch)** is the documented business/scale target,
+**Live vs target.** Since 17 Nov 2026 the site is a static export on **S3 + CloudFront** (https://d5m79jfuo76r4.cloudfront.net).
+The earlier demo stack (Vercel + Fly.io `yantra-chatbot` + Qdrant Cloud + Logfire) is retired; 02a, 04, 06, 08
+and the diagrams in `diagrams/` still describe it and are kept as history. **AWS (Fargate/Cognito/CloudWatch)** is the documented business/scale target,
 not what's running. Where a doc below describes the target design, it says so; an "As built
 (2026-09-13)" section marks what's actually live.
 
