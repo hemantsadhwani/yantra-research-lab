@@ -5,6 +5,9 @@
     python -m research_bench.run --resume <thread> --answer "continuation"   (or --decision approve)
 
 Data: ``--source NIFTY50+VIX`` (default, public daily data) or ``synthetic:<kind>:<seed>``.
+Engine: in-process by default; ``--engine mcp`` uses the public MCP server; ``--engine-cmd
+"<command>"`` launches any server with the same tools (e.g. a private one over real backtests),
+and ``--source`` then names one of its datasets.
 The run is checkpointed in ``.cache/bench.sqlite``; it stops for questions and before promotion.
 The full state (ledger, spend, report) is written to ``.cache/runs/<thread>.json``.
 """
@@ -13,6 +16,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import shlex
 import sqlite3
 import sys
 import time
@@ -63,12 +67,19 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--resume")
     ap.add_argument("--answer")
     ap.add_argument("--decision", choices=["approve", "reject"])
+    ap.add_argument("--engine", choices=["local", "mcp"], default="local")
+    ap.add_argument("--engine-cmd", help="command that starts a private MCP engine server")
+    ap.add_argument("--engine-cwd")
     a = ap.parse_args(argv)
     Path(".cache").mkdir(exist_ok=True)
     RUNS.mkdir(parents=True, exist_ok=True)
     saver = SqliteSaver(sqlite3.connect(".cache/bench.sqlite", check_same_thread=False))
-    g = build(OfflineAgents() if a.offline else LLMAgents(), checkpointer=saver)
+    engine = None
+    if a.engine_cmd or a.engine == "mcp":
+        from research_bench.engine import MCPEngine
+        engine = MCPEngine(argv=shlex.split(a.engine_cmd, posix=False) if a.engine_cmd else None, cwd=a.engine_cwd)
     thread = a.resume or uuid.uuid4().hex[:8]
+    g = build(OfflineAgents() if a.offline else LLMAgents(), checkpointer=saver, engine=engine, study=thread)
     cfg = {"configurable": {"thread_id": thread}, "recursion_limit": 80}
     t0 = time.time()
     if a.resume:

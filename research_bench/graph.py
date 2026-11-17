@@ -52,6 +52,8 @@ class State(TypedDict, total=False):
     spend: dict
     budget_usd: float
     log: list[str]
+    catalogue: dict
+    study: str
 
 
 def new_state(idea: str, source: str, mode: str = "interactive", budget_usd: float = 0.05) -> State:
@@ -71,10 +73,34 @@ def _over_budget(s: State) -> bool:
     return s["spend"]["usd"] >= s["budget_usd"]
 
 
-def build(agents: Any, checkpointer: Any = None):
+def build(agents: Any, checkpointer: Any = None, engine: Any = None, study: str | None = None):
+    """``engine``: LocalEngine by default, or MCPEngine for a (private) MCP server. ``study`` names
+    the run for the engine's holdout seal (a fresh id when not given)."""
+    import uuid
+
+    from research_bench.engine import LocalEngine
+    eng = engine or LocalEngine()
+    study_id = study or uuid.uuid4().hex[:12]
+
+    from research_bench.agents import OfflineAgents
+    fallback = OfflineAgents()
+
+    def call(role: str, s: State, *args: Any, **kw: Any) -> tuple[Any, dict]:
+        """Unusable model output (bad schema, provider error) falls back to the deterministic
+        policy AND is recorded as a failure, so a degraded run never looks like a clean one."""
+        try:
+            return getattr(agents, role)(s, *args, **kw)
+        except Exception as e:  # any model or provider failure takes the same path
+            if isinstance(agents, OfflineAgents):
+                raise
+            out, use = getattr(fallback, role)(s, *args, **kw)
+            return out, {**use, "role": role, "failure": f"{type(e).__name__}: {str(e)[:160]}"}
+
     def intake(s: State) -> dict:
-        spec, use = agents.intake(s)
-        return {"spec": spec.model_dump(), "spend": _spent(s, use), "intake_turns": s["intake_turns"] + 1}
+        cat = s.get("catalogue") or eng.catalogue()
+        spec, use = call("intake", {**s, "catalogue": cat})
+        return {"spec": spec.model_dump(), "spend": _spent(s, use), "intake_turns": s["intake_turns"] + 1,
+                "catalogue": cat, "study": s.get("study") or study_id}
 
     def ask(s: State) -> dict:
         answers = interrupt({"questions": s["spec"]["questions"]})
@@ -85,14 +111,15 @@ def build(agents: Any, checkpointer: Any = None):
         return "ask" if wants else "plan"
 
     def plan(s: State) -> dict:
-        p, use = agents.plan(s)
-        templates = [t for t in p.templates if t in tools.catalogue()] or ["ema_cross"]
-        baseline = sum(tools.n_trials(tools.clamp(t, {})[0]) for t in templates)
+        p, use = call("plan", s)
+        cat = s["catalogue"]
+        templates = [t for t in p.templates if t in cat] or [next(iter(cat))]
+        baseline = sum(tools.n_trials(tools.clamp(t, {}, cat)[0]) for t in templates)
         return {"plan": {**p.model_dump(), "templates": templates, "rounds": min(max(p.rounds, 2), MAX_ROUNDS),
                          "trial_budget": max(p.trial_budget, baseline + 40)}, "spend": _spent(s, use)}
 
     def review_plan(s: State) -> dict:
-        r, use = agents.review_plan(s)
+        r, use = call("review_plan", s)
         return {"plan_review": r.model_dump(), "spend": _spent(s, use),
                 "plan_revisions": s["plan_revisions"] + (0 if r.approve else 1)}
 
@@ -100,7 +127,7 @@ def build(agents: Any, checkpointer: Any = None):
         return "plan" if (not s["plan_review"]["approve"] and s["plan_revisions"] <= 1) else "data"
 
     def data(s: State) -> dict:
-        c = tools.card(s["source"])
+        c = eng.dataset_card(s["source"])
         line = (f"data {s['source']}: {c['rows']} rows, checks "
                 f"{'passed' if c['passed'] else 'FAILED'}, sha {c['sha256']}")
         return {"card": c, "log": [*s["log"], line]}
@@ -117,7 +144,7 @@ def build(agents: Any, checkpointer: Any = None):
             return {"proposals": [*s["proposals"], {"round": 1, "diagnosis": "no results yet",
                                                      "hypothesis": "baseline", "experiments": exps,
                                                      "diagnose": [], "stop": False, "stop_reason": ""}]}
-        p, use = agents.research(s)
+        p, use = call("research", s)
         return {"proposals": [*s["proposals"], {"round": s["round"], **p.model_dump()}],
                 "spend": _spent(s, use)}
 
@@ -134,7 +161,7 @@ def build(agents: Any, checkpointer: Any = None):
             if e["template"] not in s["plan"]["templates"]:
                 led["dropped"].append(f"round {s['round']}: {e['template']} not in plan")
                 continue
-            sub, dropped = tools.clamp(e["template"], e["params"])
+            sub, dropped = tools.clamp(e["template"], e["params"], s["catalogue"])
             led["dropped"] += [f"round {s['round']}: {d}" for d in dropped]
             n = tools.n_trials(sub)
             if (e["template"], str(sub)) in seen:
@@ -144,7 +171,7 @@ def build(agents: Any, checkpointer: Any = None):
                 led["dropped"].append(f"round {s['round']}: {e['template']} needs {n} trials, over budget")
                 continue
             fid = f"F{len(led['families']) + 1}"
-            led["families"].append(tools.run_family(s["source"], e["template"], sub, fid, s["round"]))
+            led["families"].append(eng.run_family(s["source"], e["template"], sub, fid, s["round"]))
             led["trials"] += n
             led["looks"] += 1
             round_left -= n
@@ -152,19 +179,19 @@ def build(agents: Any, checkpointer: Any = None):
         by_id = {f["id"]: f for f in led["families"]}
         for fid in prop.get("diagnose", []):
             if fid in by_id and fid not in led["diagnostics"]:
-                led["diagnostics"][fid] = tools.diagnostics(s["source"], by_id[fid])
+                led["diagnostics"][fid] = eng.diagnostics(s["source"], by_id[fid])
         best = max((f["oos_sharpe"] for f in led["families"]), default=float("-inf"))
         return {"ledger": led, "best_history": [*s["best_history"], best]}
 
     def critique(s: State) -> dict:
         if s.get("stop_reason") or not s["ledger"]["families"] or _over_budget(s):
             return {}
-        r, use = agents.critique(s)
+        r, use = call("critique", s)
         led = {**s["ledger"], "neighbourhood": dict(s["ledger"]["neighbourhood"])}
         by_id = {f["id"]: f for f in led["families"]}
         for fid in r.check:
             if fid in by_id and fid not in led["neighbourhood"]:
-                led["neighbourhood"][fid] = tools.neighbourhood(s["source"], by_id[fid])
+                led["neighbourhood"][fid] = eng.neighbourhood(s["source"], by_id[fid])
         return {"reviews": [*s["reviews"], {"round": s["round"], **r.model_dump()}],
                 "ledger": led, "spend": _spent(s, use)}
 
@@ -193,20 +220,22 @@ def build(agents: Any, checkpointer: Any = None):
 
     def finalize(s: State) -> dict:
         bar = tools.required_oos_sharpe(s["ledger"]["looks"])
+        fails = sum(1 for c in s["spend"]["calls"] if c.get("failure"))
         passed = [f for f in s["ledger"]["families"] if f["passed_walk_forward"] and f["oos_sharpe"] >= bar]
         if not passed:
             return {"verdict": {"decision": "reject", "family": None, "required_oos_sharpe": bar,
+                                "agent_failures": fails,
                                 "reason": f"no family cleared walk-forward at the bar for "
                                           f"{s['ledger']['looks']} looks (OOS Sharpe >= {bar}); holdout left sealed"}}
         best = max(passed, key=lambda f: f["oos_sharpe"])
-        ho = tools.open_holdout(s["source"], best)              # the only time the holdout is read
+        ho = eng.open_holdout(s["source"], best, s["study"])    # the only read; the engine seals it
         decision = "promote?" if ho["passed"] else "reject"
         reason = (f"{best['id']} passed walk-forward (OOS Sharpe {best['oos_sharpe']}) and the holdout "
                   f"(Sharpe {ho['sharpe']})" if ho["passed"] else
                   f"{best['id']} passed walk-forward (OOS Sharpe {best['oos_sharpe']}) but failed the holdout "
                   f"(Sharpe {ho['sharpe']})")
         return {"holdout": ho, "verdict": {"decision": decision, "reason": reason, "family": best["id"],
-                                           "required_oos_sharpe": bar}}
+                                           "required_oos_sharpe": bar, "agent_failures": fails}}
 
     def report(s: State) -> dict:
         if s["mode"] == "benchmark":
@@ -217,12 +246,12 @@ def build(agents: Any, checkpointer: Any = None):
                  "diagnostics": s["ledger"]["diagnostics"], "neighbourhood": s["ledger"]["neighbourhood"],
                  "holdout": s.get("holdout"), "verdict": s["verdict"], "stop_reason": s["stop_reason"],
                  "cost_usd": s["spend"]["usd"]}
-        rep, use = agents.report(s, facts)
+        rep, use = call("report", s, facts)
         spend = _spent(s, use)
         text = " ".join([rep.title, rep.summary, *rep.findings, rep.verdict])
         bad = checker.unsupported(text, facts)
         if bad:
-            rep, use = agents.report(s, facts, fix=bad)
+            rep, use = call("report", s, facts, fix=bad)
             spend = {"usd": round(spend["usd"] + use["usd"], 6), "calls": [*spend["calls"], use]}
             bad = checker.unsupported(" ".join([rep.title, rep.summary, *rep.findings, rep.verdict]), facts)
         return {"report": rep.model_dump(), "report_check": {"unsupported_numbers": bad, "passed": not bad},

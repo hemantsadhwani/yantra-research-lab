@@ -102,3 +102,18 @@ def test_report_with_invented_numbers_is_repaired_or_flagged() -> None:
     out = build(Liar(), checkpointer=MemorySaver()).invoke(
         new_state("Buy short-term oversold dips", SRC), {"configurable": {"thread_id": "t2"}, "recursion_limit": 60})
     assert out["report_check"] == {"unsupported_numbers": ["99.9"], "passed": False}
+
+
+def test_bad_model_output_falls_back_and_is_counted() -> None:
+    class Broken:                   # stands in for LLMAgents: not an OfflineAgents subclass
+        def __getattr__(self, role):
+            return getattr(OfflineAgents(), role)
+
+        def research(self, state):
+            raise ValueError("experiments.2.params.filters.0: Input should be a valid number")
+
+    out = build(Broken()).invoke(new_state("Buy short-term oversold dips", SRC, mode="benchmark"),
+                                 {"recursion_limit": 60})
+    fails = [c for c in out["spend"]["calls"] if c.get("failure")]
+    assert fails and all(c["role"] == "research" for c in fails)
+    assert out["verdict"]["agent_failures"] == len(fails)

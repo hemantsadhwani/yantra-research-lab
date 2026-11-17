@@ -54,21 +54,25 @@ def catalogue() -> dict:
                    "filters": FILTER_SPACE} for name, t in TEMPLATES.items()}
 
 
-def clamp(template: str, params: dict[str, list[float]]) -> tuple[dict[str, list[float]], list[str]]:
+def clamp(template: str, params: dict[str, list[float]],
+          cat: dict | None = None) -> tuple[dict[str, list[float]], list[str]]:
     """Keep only catalogue values; unspecified template params take the full catalogue list,
-    unspecified filters stay off. Returns the sub-space and what was dropped (shown to agents)."""
-    if template not in TEMPLATES:
+    unspecified filters stay off. Returns the sub-space and what was dropped (shown to agents).
+    ``cat`` is any engine's catalogue (local by default), so the same rule fronts a private engine."""
+    cat = catalogue() if cat is None else cat
+    if template not in cat:
         raise ValueError(f"unknown template {template!r}")
-    space = TEMPLATES[template].full_space()
+    own, filters = cat[template]["params"], cat[template]["filters"]
+    space = {**own, **filters}
     sub, dropped = {}, []
     for k, allowed in space.items():
         asked = params.get(k)
         if asked is None:
-            sub[k] = list(allowed) if k in TEMPLATES[template].space else [0]
+            sub[k] = list(allowed) if k in own else [0]
             continue
         keep = [x for x in allowed if any(math.isclose(x, a) for a in asked)]
         dropped += [f"{k}={a}" for a in asked if not any(math.isclose(a, x) for x in allowed)]
-        sub[k] = keep or ([0] if k in FILTER_SPACE else list(allowed))
+        sub[k] = keep or ([0] if k in filters else list(allowed))
     dropped += [f"{k} (not a parameter)" for k in params if k not in space]
     return sub, dropped
 

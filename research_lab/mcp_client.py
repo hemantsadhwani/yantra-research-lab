@@ -35,12 +35,16 @@ class MCPToolError(RuntimeError):
 
 
 class BacktestMCPClient:
-    def __init__(self, timeout: float = _TIMEOUT_S) -> None:
+    def __init__(self, timeout: float = _TIMEOUT_S, module: str = SERVER_MODULE,
+                 argv: list[str] | None = None, cwd: str | None = None) -> None:
+        """``module`` runs ``python -m <module>`` from this repo; ``argv`` launches any other
+        server instead (e.g. a private engine), with ``cwd`` as its working directory."""
         try:
             import mcp  # noqa: F401  (fail early with a clear message)
         except ImportError as exc:  # keep Tier-1 dependency-free
             raise RuntimeError("MCP not installed. Run: pip install -e '.[mcp]'") from exc
         self._timeout = timeout
+        self._module, self._argv, self._cwd = module, argv, cwd
         self._loop = asyncio.new_event_loop()
         self._thread = threading.Thread(target=self._loop.run_forever,
                                         name="mcp-client-loop", daemon=True)
@@ -68,8 +72,8 @@ class BacktestMCPClient:
         # that work even when the package is not pip-installed.
         env["PYTHONPATH"] = os.pathsep.join(
             p for p in (str(REPO_ROOT), env.get("PYTHONPATH", "")) if p)
-        params = StdioServerParameters(command=sys.executable, args=["-m", SERVER_MODULE],
-                                       cwd=str(REPO_ROOT), env=env)
+        cmd = self._argv or [sys.executable, "-m", self._module]
+        params = StdioServerParameters(command=cmd[0], args=cmd[1:], cwd=self._cwd or str(REPO_ROOT), env=env)
         stack = AsyncExitStack()
         try:
             read, write = await stack.enter_async_context(stdio_client(params))

@@ -32,6 +32,20 @@ LLM agents: Gemma 3 12B for intake and the report; DeepSeek V3.2 for the planner
 4. v2 was checked on calibration seeds first: 9/10 edges, 0/10 noise, 1,552 trials. It then ran once on seeds 1–20.
 5. The change was prompted by v1's benchmark failures. Both files are kept.
 
+**Which model for which agent (calibration seeds 1000–1019, 17 Nov).** Model choice is tuning, so it
+ran on calibration seeds only (`--calibration --models gemma|deepseek`; files in `.cache/`, not committed):
+
+| Models | Edges | Noise | Trials | Cost (20 studies) | Median study |
+|---|---|---|---|---|---|
+| all Gemma 3 12B | 8/10 | 0/10 | 940 | $0.027 | 14 s, plus 1 study crashed on a malformed proposal |
+| mix (Gemma intake/report, DeepSeek plan/research/critic) | 9/10 | 0/10 | 1,552 | $0.27 | 24 s |
+| all DeepSeek V3.2 | 10/10 | 0/10 | 2,581 | $0.21 | 16 s |
+
+The research roles stay on DeepSeek. Gemma alone is 10× cheaper, but it lost an edge and broke the schema once.
+The mix and all-DeepSeek differ only in the intake model; 9 vs 10 is within noise at n = 20. The crash led to
+a fix: bad model output now falls back to the rule policy and is counted (`agent_failures` in the verdict),
+so a degraded study never looks clean.
+
 Reproduce: `python -m eval.planted_benchmark [--agents offline|llm] [--tag v2]`. The `llm` arm needs AWS credentials with Bedrock access. `--calibration` runs seeds 1000–1019 into `.cache/`, never into `results/`.
 
 ## Context-engineering study (Day 6B)

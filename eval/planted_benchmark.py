@@ -84,13 +84,14 @@ def run_case(kind: str, seed: int) -> dict:
     }
 
 
-def agents_case(kind: str, seed: int, which: str) -> dict:
-    from research_bench.agents import LLMAgents, OfflineAgents
+def agents_case(kind: str, seed: int, which: str, models: str = "mixed") -> dict:
+    from research_bench.agents import MODEL_SETS, LLMAgents, OfflineAgents
     from research_bench.graph import build, new_state
     idea, _ = idea_for(kind, seed)
     t0 = time.perf_counter()
     try:
-        out = build(LLMAgents() if which == "llm" else OfflineAgents()).invoke(
+        agents = LLMAgents(role_models=dict(MODEL_SETS[models])) if which == "llm" else OfflineAgents()
+        out = build(agents).invoke(
             new_state(idea, f"synthetic:{kind}:{seed}", mode="benchmark", budget_usd=0.05),
             {"recursion_limit": 80})
     except Exception as e:  # noqa: BLE001 - a failed study counts as a reject, recorded as an error
@@ -103,6 +104,7 @@ def agents_case(kind: str, seed: int, which: str) -> dict:
             "best_oos_sharpe": max((f["oos_sharpe"] for f in led["families"]), default=None),
             "holdout_sharpe": (out.get("holdout") or {}).get("sharpe"),
             "refused_by_code": len(led["dropped"]), "model_calls": len(out["spend"]["calls"]),
+            "agent_failures": verdict.get("agent_failures", 0),
             "usd": out["spend"]["usd"], "seconds": round(time.perf_counter() - t0, 1)}
 
 
@@ -117,7 +119,8 @@ def summarise(cases: list[dict], arm: str) -> dict:
     if arm.startswith("agents"):
         out |= {"usd": round(sum(c[arm].get("usd", 0) for c in cases), 4),
                 "median_seconds_per_study": sorted(c[arm]["seconds"] for c in cases)[len(cases) // 2],
-                "errors": sum("error" in c[arm] for c in cases)}
+                "errors": sum("error" in c[arm] for c in cases),
+                "agent_failures_fell_back": sum(c[arm].get("agent_failures", 0) for c in cases)}
     return out
 
 
@@ -125,6 +128,8 @@ def main(argv: list[str] | None = None) -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     ap = argparse.ArgumentParser()
     ap.add_argument("--agents", choices=["offline", "llm"])
+    ap.add_argument("--models", choices=["mixed", "gemma", "deepseek"], default="mixed",
+                    help="model per role for the llm arm (research_bench.agents.MODEL_SETS)")
     ap.add_argument("--workers", type=int, default=4)
     ap.add_argument("--calibration", action="store_true",
                     help="seeds 1000-1019 (for checking a change; written to .cache, never to results)")
@@ -140,7 +145,7 @@ def main(argv: list[str] | None = None) -> int:
               f"  protocol {'PROMOTE' if c['protocol']['promote'] else 'reject ':<7} ({c['protocol']['reason']})")
     if a.agents:
         with ThreadPoolExecutor(a.workers) as pool:
-            res = list(pool.map(lambda ks: agents_case(*ks, a.agents), cases_in))
+            res = list(pool.map(lambda ks: agents_case(*ks, a.agents, a.models), cases_in))
         for c, r in zip(cases, res, strict=True):
             c[f"agents_{a.agents}"] = r
             print(f"  seed {c['seed']:>2} {c['market']:<8} agents {'PROMOTE' if r['promote'] else 'reject ':<7}"
@@ -157,9 +162,11 @@ def main(argv: list[str] | None = None) -> int:
     if a.agents:
         out["disclosure"] = DISCLOSURE
         if a.agents == "llm":
-            from research_bench.agents import ROLE_MODELS
-            out["models"] = {r: m for r, (_, m) in ROLE_MODELS.items()}
-    suffix = (f"_agents-{a.agents}" if a.agents else "") + (f"_{a.tag}" if a.tag else "")
+            from research_bench.agents import MODEL_SETS
+            out["models"] = {r: m for r, (_, m) in MODEL_SETS[a.models].items()}
+    suffix = ((f"_agents-{a.agents}" if a.agents else "")
+              + (f"-{a.models}" if a.agents == "llm" and a.models != "mixed" else "")
+              + (f"_{a.tag}" if a.tag else ""))
     if a.calibration:
         out["what"] = "CALIBRATION run, seeds 1000-1019: for checking changes; not a benchmark result."
         Path(".cache").mkdir(exist_ok=True)

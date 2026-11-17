@@ -32,6 +32,12 @@ ROLE_MODELS = {
     "critic": ("converse", "deepseek.v3.2"),
     "reporter": ("converse", "google.gemma-3-12b-it"),
 }
+GEMMA, DEEPSEEK = ("converse", "google.gemma-3-12b-it"), ("converse", "deepseek.v3.2")
+MODEL_SETS = {
+    "mixed": ROLE_MODELS,
+    "gemma": dict.fromkeys(ROLE_MODELS, GEMMA),
+    "deepseek": dict.fromkeys(ROLE_MODELS, DEEPSEEK),
+}
 
 SUCCESS_TEST = (
     f"Fixed in code: walk-forward over {tools.PROTO.folds} test blocks with parameters re-chosen "
@@ -115,11 +121,12 @@ def brief(state: dict, extra: dict | None = None) -> str:
 class LLMAgents:
     providers: dict[str, Any] = field(default_factory=dict)
     max_tokens: int = 900
+    role_models: dict[str, tuple[str, str]] = field(default_factory=lambda: dict(ROLE_MODELS))
 
     def _provider(self, role: str) -> Any:
         if role not in self.providers:
             from llm_gateway.router import get_provider
-            name, model = ROLE_MODELS["critic" if role == "plan_critic" else role]
+            name, model = self.role_models["critic" if role == "plan_critic" else role]
             self.providers[role] = get_provider(name, model)
         return self.providers[role]
 
@@ -136,14 +143,15 @@ class LLMAgents:
                                                "questions_allowed": allow}), StrategySpec)
 
     def plan(self, state: dict) -> tuple[Plan, dict]:
-        extra = {"catalogue": tools.catalogue(), "critic_changes": (state.get("plan_review") or {}).get("changes")}
+        extra = {"catalogue": state.get("catalogue") or tools.catalogue(), "critic_changes": (state.get("plan_review") or {}).get("changes")}
         return self._ask("planner", brief(state, extra), Plan)
 
     def review_plan(self, state: dict) -> tuple[PlanReview, dict]:
         return self._ask("plan_critic", brief(state), PlanReview)
 
     def research(self, state: dict) -> tuple[RoundProposal, dict]:
-        cat = {t: c for t, c in tools.catalogue().items() if t in state["plan"]["templates"]}
+        cat = {t: c for t, c in (state.get("catalogue") or tools.catalogue()).items()
+               if t in state["plan"]["templates"]}
         return self._ask("researcher", brief(state, {"catalogue": cat}), RoundProposal)
 
     def critique(self, state: dict) -> tuple[CriticReview, dict]:
