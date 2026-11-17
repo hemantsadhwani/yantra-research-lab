@@ -1,0 +1,1264 @@
+{
+ "studies": [
+  {
+   "id": "b3cbfc4a",
+   "idea": "Ride sustained NIFTY trends, and step aside when India VIX is high",
+   "source": "NIFTY50+VIX",
+   "source_label": "NIFTY 50 + India VIX, daily (public data)",
+   "dataset": {
+    "rows": 4566,
+    "start": "2008-03-03",
+    "end": "2026-11-16",
+    "sha256": "b84b00568ae9aa50",
+    "passed": true
+   },
+   "spec": {
+    "style": "continuation",
+    "summary": "This strategy aims to capitalize on established NIFTY 50 trends while mitigating risk during periods of increased market volatility as indicated by the India VIX."
+   },
+   "plan": {
+    "hypothesis": "Using a trend-following strategy (EMA crossover) with VIX filtering will produce positive risk-adjusted returns by capturing sustained NIFTY trends while avoiding high-volatility periods.",
+    "templates": [
+     "ema_cross"
+    ],
+    "trial_budget": 200,
+    "rounds": 3,
+    "rationale": "The idea focuses on riding NIFTY trends and stepping aside when VIX is high. EMA crossover is a classic trend-following approach that aligns well with 'riding sustained trends'. The VIX filter (vix_max) directly implements the 'step aside when India VIX is high' component. We should test multiple parameter combinations to find optimal trend sensitivity and VIX thresholds. A trial budget of 200 allows thorough exploration of parameter space (4 fast \u00d7 4 slow \u00d7 4 vix_max = 64 combos, plus trend_ema variations) while staying within reasonable bounds. 3 rounds provides opportunity to refine based on initial results."
+   },
+   "plan_review": {
+    "approve": false,
+    "changes": "The plan has a critical issue: the 'filters_wanted' array contains an excessive number of repeated entries (over 200 repetitions of 'trend' and 'vix'). This appears to be an error in specification. The plan should clarify what specific trend and VIX filters are needed - likely just one trend filter (like EMA crossover) and one VIX filter (like vix_max threshold). The current specification would create confusion and potentially waste trial budget on testing redundant filters."
+   },
+   "plan_revisions": 2,
+   "rounds": [
+    {
+     "round": 1,
+     "by": "code (baseline)",
+     "diagnosis": "no results yet",
+     "hypothesis": "baseline",
+     "experiments": [
+      {
+       "template": "ema_cross",
+       "params": {},
+       "rationale": "baseline: full template grid, filters off"
+      }
+     ],
+     "families": [
+      {
+       "id": "F1",
+       "template": "ema_cross",
+       "trials": 16,
+       "in_sample_sharpe": 0.82,
+       "oos_sharpe": 0.732,
+       "positive_folds": 4,
+       "passed_walk_forward": true,
+       "buy_hold_oos_sharpe": 0.707,
+       "best_params": {
+        "fast": 5,
+        "slow": 100,
+        "trend_ema": 0,
+        "vix_max": 0,
+        "atr_stop": 0
+       }
+      }
+     ],
+     "refused_by_code": [],
+     "critic": {
+      "verdict": "robustness_check",
+      "concerns": [
+       "The strategy uses only EMA crossover without VIX filtering despite the idea being about stepping aside when VIX is high",
+       "Only 16 trials used out of 200 budget - suggests limited exploration of parameter space",
+       "No information about parameter stability across neighbouring values",
+       "The walk-forward test only has 1 look so far, making it hard to assess robustness"
+      ]
+     }
+    },
+    {
+     "round": 2,
+     "by": "researcher",
+     "diagnosis": "The first round tested only the basic EMA crossover (F1) without any VIX filtering, which contradicts the core idea of stepping aside when VIX is high. The strategy performed well (OOS Sharpe 0.732) but this is likely due to the strong trend-following component alone. The neighbourhood analysis shows good robustness (all neighbours within 70% of centre Sharpe), but we haven't tested the VIX component at all. The critic correctly noted the missing VIX filter and limited exploration.",
+     "hypothesis": "Adding VIX filtering (vix_max) to the EMA crossover strategy will improve risk-adjusted returns by avoiding high-volatility periods while maintaining trend-following gains.",
+     "experiments": [
+      {
+       "template": "ema_cross",
+       "params": {
+        "fast": [
+         5.0,
+         10.0,
+         20.0,
+         30.0
+        ],
+        "slow": [
+         50.0,
+         100.0,
+         150.0,
+         200.0
+        ],
+        "vix_max": [
+         20.0,
+         25.0,
+         30.0
+        ]
+       },
+       "rationale": "Add VIX filtering to test the core idea of stepping aside when India VIX is high. Using the same EMA parameters as F1 but adding vix_max values to find optimal volatility threshold."
+      },
+      {
+       "template": "ema_cross",
+       "params": {
+        "fast": [
+         5.0,
+         10.0,
+         20.0,
+         30.0
+        ],
+        "slow": [
+         50.0,
+         100.0,
+         150.0,
+         200.0
+        ],
+        "trend_ema": [
+         100.0,
+         200.0
+        ]
+       },
+       "rationale": "Test trend_ema filter to require price above a long-term EMA, ensuring we only trade in established uptrends. This adds another layer of trend confirmation."
+      },
+      {
+       "template": "ema_cross",
+       "params": {
+        "fast": [
+         5.0,
+         10.0,
+         20.0,
+         30.0
+        ],
+        "slow": [
+         50.0,
+         100.0,
+         150.0,
+         200.0
+        ],
+        "vix_max": [
+         20.0,
+         25.0,
+         30.0
+        ],
+        "trend_ema": [
+         100.0,
+         200.0
+        ]
+       },
+       "rationale": "Combine both VIX filtering and trend_ema confirmation to implement the full idea: ride sustained trends only when volatility is manageable."
+      }
+     ],
+     "families": [
+      {
+       "id": "F2",
+       "template": "ema_cross",
+       "trials": 48,
+       "in_sample_sharpe": 0.817,
+       "oos_sharpe": 0.812,
+       "positive_folds": 4,
+       "passed_walk_forward": true,
+       "buy_hold_oos_sharpe": 0.707,
+       "best_params": {
+        "fast": 10,
+        "slow": 50,
+        "trend_ema": 0,
+        "vix_max": 30,
+        "atr_stop": 0
+       }
+      },
+      {
+       "id": "F3",
+       "template": "ema_cross",
+       "trials": 32,
+       "in_sample_sharpe": 0.797,
+       "oos_sharpe": 0.621,
+       "positive_folds": 4,
+       "passed_walk_forward": true,
+       "buy_hold_oos_sharpe": 0.707,
+       "best_params": {
+        "fast": 5,
+        "slow": 100,
+        "trend_ema": 100,
+        "vix_max": 0,
+        "atr_stop": 0
+       }
+      }
+     ],
+     "refused_by_code": [
+      "ema_cross needs 96 trials, over budget"
+     ],
+     "critic": {
+      "verdict": "robustness_check",
+      "concerns": [
+       "The strategy shows strong performance in high VIX regimes (Sharpe 1.53 when VIX>25) which seems counter-intuitive for a strategy that's supposed to step aside when VIX is high",
+       "The walk-forward test has only 3 looks so far, making it difficult to assess true out-of-sample robustness",
+       "Performance appears highly regime-dependent with significant variation across years (e.g., -17.1% in 2011, -7.0% in 2013)",
+       "The required OOS Sharpe threshold keeps increasing (now 0.558, will be 0.6 after next look), making it harder to pass with each additional test"
+      ]
+     }
+    },
+    {
+     "round": 3,
+     "by": "researcher",
+     "diagnosis": "The strategy has shown surprisingly strong performance in high VIX regimes (Sharpe 1.53 when VIX>25) despite the original hypothesis of stepping aside during high volatility. F2 (with vix_max filter) achieved the best OOS Sharpe of 0.812, beating buy-and-hold (0.707). However, the high VIX performance suggests the VIX filter may not be working as intended - perhaps the strategy is actually performing well during high VIX periods rather than avoiding them. The neighbourhood analysis shows robustness (all neighbours within 70% of centre Sharpe), but the walk-forward threshold keeps increasing (now 0.558, will be 0.6 after next look). Performance is regime-dependent with significant year-to-year variation.",
+     "hypothesis": "The strategy's strong performance in high VIX regimes suggests that either: 1) The VIX filter isn't effectively filtering out high-volatility periods, or 2) The trend-following component actually works well during high VIX periods when trends are more pronounced. We should test whether adding an ATR stop-loss improves risk management during volatile periods while maintaining the strong trend-following performance.",
+     "experiments": [
+      {
+       "template": "ema_cross",
+       "params": {
+        "fast": [
+         5.0,
+         10.0,
+         20.0,
+         30.0
+        ],
+        "slow": [
+         50.0,
+         100.0,
+         150.0,
+         200.0
+        ],
+        "atr_stop": [
+         2.0,
+         3.0
+        ]
+       },
+       "rationale": "Add ATR stop-loss to test if risk management during volatile periods improves the strategy. The strong performance in high VIX regimes suggests we may need better downside protection rather than avoiding high VIX entirely. ATR stop will exit positions when volatility spikes, potentially improving risk-adjusted returns."
+      },
+      {
+       "template": "ema_cross",
+       "params": {
+        "fast": [
+         5.0,
+         10.0,
+         20.0,
+         30.0
+        ],
+        "slow": [
+         50.0,
+         100.0,
+         150.0,
+         200.0
+        ],
+        "vix_max": [
+         20.0,
+         25.0,
+         30.0
+        ],
+        "trend_ema": [
+         100.0,
+         200.0
+        ]
+       },
+       "rationale": "Combine both trend_ema and vix_max filters to see if dual filtering improves consistency. The trend_ema filter (from F3) ensures we only trade when in a clear trend, while vix_max filters high volatility periods. This tests whether the combination addresses the regime dependency observed in yearly returns."
+      },
+      {
+       "template": "ema_cross",
+       "params": {
+        "fast": [
+         5.0,
+         10.0
+        ],
+        "slow": [
+         100.0,
+         150.0,
+         200.0
+        ],
+        "vix_max": [
+         0.0
+        ]
+       },
+       "rationale": "Test removing the VIX filter entirely to see if the strong high-VIX performance is genuine. If performance remains strong without VIX filtering, it suggests the original hypothesis about stepping aside during high VIX may be wrong, and we should embrace rather than avoid high volatility periods."
+      }
+     ],
+     "families": [
+      {
+       "id": "F4",
+       "template": "ema_cross",
+       "trials": 32,
+       "in_sample_sharpe": 0.825,
+       "oos_sharpe": 0.738,
+       "positive_folds": 4,
+       "passed_walk_forward": true,
+       "buy_hold_oos_sharpe": 0.707,
+       "best_params": {
+        "fast": 5,
+        "slow": 100,
+        "trend_ema": 0,
+        "vix_max": 0,
+        "atr_stop": 2.0
+       }
+      },
+      {
+       "id": "F5",
+       "template": "ema_cross",
+       "trials": 6,
+       "in_sample_sharpe": 0.82,
+       "oos_sharpe": 0.732,
+       "positive_folds": 4,
+       "passed_walk_forward": true,
+       "buy_hold_oos_sharpe": 0.707,
+       "best_params": {
+        "fast": 5,
+        "slow": 100,
+        "trend_ema": 0,
+        "vix_max": 0,
+        "atr_stop": 0
+       }
+      }
+     ],
+     "refused_by_code": [
+      "ema_cross needs 96 trials, over budget"
+     ],
+     "critic": {
+      "verdict": "robustness_check",
+      "concerns": []
+     }
+    }
+   ],
+   "stop_reason": "planned rounds done",
+   "verdict": {
+    "decision": "reject",
+    "reason": "F2 passed walk-forward (OOS Sharpe 0.812) but failed the holdout (Sharpe -0.443)",
+    "family": "F2",
+    "required_oos_sharpe": 0.632,
+    "agent_failures": 0
+   },
+   "holdout": {
+    "family": "F2",
+    "params": {
+     "fast": 10,
+     "slow": 50,
+     "trend_ema": 0,
+     "vix_max": 30,
+     "atr_stop": 0
+    },
+    "sharpe": -0.443,
+    "return_pct": -7.05,
+    "max_drawdown_pct": 11.14,
+    "trades": 9,
+    "passed": false,
+    "buy_hold_sharpe": 0.234,
+    "window": [
+     "2024-10-28",
+     "2026-11-16"
+    ]
+   },
+   "trials": 134,
+   "looks": 5,
+   "report": {
+    "title": "NIFTY Trend Following with VIX Filter Study",
+    "summary": "The study tested an EMA crossover strategy with VIX filtering on NIFTY50 data from 2008-03-03 to 2026-11-16.  4566 rows of data were analyzed, with 1 gap over 5 days. Family F2 showed promise with an in-sample Sharpe of 0.817 and an OOS Sharpe of 0.812. However, it failed the holdout with a Sharpe of -0.443.",
+    "findings": [
+     "The dataset had 4566 rows.",
+     "Family F2 had best in-sample Sharpe of 0.817.",
+     "Family F2 had best OOS Sharpe of 0.812.",
+     "Family F2 had a holdout Sharpe of -0.443.",
+     "The study used 3 rounds.",
+     "The trial budget was 200."
+    ],
+    "verdict": "Reject. Family F2 passed walk-forward but failed the holdout."
+   },
+   "report_check": {
+    "unsupported_numbers": [],
+    "passed": true
+   },
+   "spend": {
+    "usd": 0.023923,
+    "calls": 11,
+    "by_role": {
+     "intake": {
+      "calls": 1,
+      "usd": 0.00032,
+      "model": "google.gemma-3-12b-it"
+     },
+     "planner": {
+      "calls": 2,
+      "usd": 0.004814,
+      "model": "deepseek.v3.2"
+     },
+     "plan_critic": {
+      "calls": 2,
+      "usd": 0.003324,
+      "model": "deepseek.v3.2"
+     },
+     "critic": {
+      "calls": 3,
+      "usd": 0.007161,
+      "model": "deepseek.v3.2"
+     },
+     "researcher": {
+      "calls": 2,
+      "usd": 0.006991,
+      "model": "deepseek.v3.2"
+     },
+     "reporter": {
+      "calls": 1,
+      "usd": 0.001313,
+      "model": "google.gemma-3-12b-it"
+     }
+    }
+   },
+   "seconds": 38,
+   "human": null
+  },
+  {
+   "id": "7cd5ee60",
+   "idea": "Buy short-term oversold dips in NIFTY, but only when the bigger trend is up",
+   "source": "NIFTY50+VIX",
+   "source_label": "NIFTY 50 + India VIX, daily (public data)",
+   "dataset": {
+    "rows": 4566,
+    "start": "2008-03-03",
+    "end": "2026-11-16",
+    "sha256": "b84b00568ae9aa50",
+    "passed": true
+   },
+   "spec": {
+    "style": "reversal",
+    "summary": "This specification outlines a trading strategy for the NIFTY 50 index, incorporating India VIX to manage risk and confirm trend direction. The core idea is to capitalize on short-term oversold conditions within an established uptrend."
+   },
+   "plan": {
+    "hypothesis": "The strategy of buying short-term oversold dips in NIFTY when the bigger trend is up can generate positive risk-adjusted returns.",
+    "templates": [
+     "rsi_reversion",
+     "bollinger_reversion"
+    ],
+    "trial_budget": 200,
+    "rounds": 3,
+    "rationale": "The idea focuses on reversal opportunities within established uptrends, which should capture mean reversion while avoiding counter-trend risks. Using trend filters (trend_ema) ensures we only trade when the broader trend is up, while VIX filters (vix_max) help avoid high-volatility periods that might indicate trend changes. The RSI reversion template directly tests oversold conditions, while Bollinger reversion tests extreme price moves. A trial budget of 200 allows thorough testing of parameter combinations across these templates without excessive false discovery risk."
+   },
+   "plan_review": {
+    "approve": false,
+    "changes": "The plan uses only two templates (rsi_reversion, bollinger_reversion) which test oversold conditions but lack a clear mechanism to ensure 'the bigger trend is up'. While trend_ema is mentioned, the templates themselves may not enforce a strong uptrend filter. The trial budget of 200 is reasonable, but the plan should explicitly incorporate a robust trend filter (e.g., requiring price above a long-term moving average) into the parameter space to properly test the core idea of trading only during established uptrends."
+   },
+   "plan_revisions": 2,
+   "rounds": [
+    {
+     "round": 1,
+     "by": "code (baseline)",
+     "diagnosis": "no results yet",
+     "hypothesis": "baseline",
+     "experiments": [
+      {
+       "template": "rsi_reversion",
+       "params": {},
+       "rationale": "baseline: full template grid, filters off"
+      },
+      {
+       "template": "bollinger_reversion",
+       "params": {},
+       "rationale": "baseline: full template grid, filters off"
+      }
+     ],
+     "families": [
+      {
+       "id": "F1",
+       "template": "rsi_reversion",
+       "trials": 36,
+       "in_sample_sharpe": 0.329,
+       "oos_sharpe": 0.17,
+       "positive_folds": 4,
+       "passed_walk_forward": false,
+       "buy_hold_oos_sharpe": 0.707,
+       "best_params": {
+        "n": 14,
+        "entry": 30,
+        "exit": 70,
+        "trend_ema": 0,
+        "vix_max": 0,
+        "atr_stop": 0
+       }
+      },
+      {
+       "id": "F2",
+       "template": "bollinger_reversion",
+       "trials": 9,
+       "in_sample_sharpe": 0.27,
+       "oos_sharpe": 0.221,
+       "positive_folds": 3,
+       "passed_walk_forward": false,
+       "buy_hold_oos_sharpe": 0.707,
+       "best_params": {
+        "n": 40,
+        "k": 2.0,
+        "trend_ema": 0,
+        "vix_max": 0,
+        "atr_stop": 0
+       }
+      }
+     ],
+     "refused_by_code": [],
+     "critic": {
+      "verdict": "continue",
+      "concerns": [
+       "The best OOS Sharpe (0.221) is significantly below the required threshold of 0.5",
+       "All families failed walk-forward testing (none passed)",
+       "Performance is substantially worse than buy-and-hold (0.707 OOS Sharpe)",
+       "Only 3-4 positive folds out of 5, indicating inconsistent performance across test blocks"
+      ]
+     }
+    },
+    {
+     "round": 2,
+     "by": "researcher",
+     "diagnosis": "The first round results show both RSI and Bollinger reversion strategies underperforming significantly. The best OOS Sharpe of 0.221 (F2) is well below the required 0.5 threshold and substantially worse than buy-and-hold (0.707). Only 3-4 out of 5 folds were positive, indicating inconsistent performance across time periods. The strategies are failing to capture the 'buy dips in uptrends' concept effectively - they're either too sensitive (catching false reversals) or not aligned with the actual trend dynamics.",
+     "hypothesis": "The current parameter spaces for RSI and Bollinger reversion are too narrow and don't effectively filter for genuine uptrends. The trend_ema filter needs to be properly utilized to ensure we only trade when the broader trend is up, and VIX filters should help avoid high-volatility periods that might indicate trend changes. We need to test more aggressive trend filtering and explore different VIX thresholds to improve signal quality.",
+     "experiments": [
+      {
+       "template": "rsi_reversion",
+       "params": {
+        "n": [
+         5.0,
+         14.0
+        ],
+        "entry": [
+         20.0,
+         30.0
+        ],
+        "exit": [
+         50.0,
+         60.0
+        ],
+        "trend_ema": [
+         100.0,
+         200.0
+        ],
+        "vix_max": [
+         20.0,
+         25.0
+        ]
+       },
+       "rationale": "Focus on longer RSI periods (5,14) with moderate oversold levels (20,30) and exit at 50-60. Use trend_ema filters (100,200) to ensure uptrend, and VIX max (20,25) to avoid high volatility periods. This should better capture the 'dips in uptrends' concept."
+      },
+      {
+       "template": "bollinger_reversion",
+       "params": {
+        "n": [
+         20.0,
+         40.0
+        ],
+        "k": [
+         2.0,
+         2.5
+        ],
+        "trend_ema": [
+         100.0,
+         200.0
+        ],
+        "vix_max": [
+         20.0,
+         25.0
+        ]
+       },
+       "rationale": "Test longer Bollinger periods (20,40) with wider bands (k=2.0,2.5) to catch more significant oversold moves. Combine with trend_ema filters to ensure uptrend context and VIX filters to avoid high volatility."
+      },
+      {
+       "template": "rsi_reversion",
+       "params": {
+        "n": [
+         14.0
+        ],
+        "entry": [
+         30.0
+        ],
+        "exit": [
+         50.0
+        ],
+        "trend_ema": [
+         200.0
+        ],
+        "vix_max": [
+         25.0
+        ],
+        "atr_stop": [
+         2.0,
+         3.0
+        ]
+       },
+       "rationale": "Test a more conservative configuration: 14-day RSI, entry at 30, exit at 50, strong 200-day EMA trend filter, VIX max 25, plus ATR-based stop losses (2.0,3.0) to manage risk. This focuses on quality over quantity of signals."
+      }
+     ],
+     "families": [
+      {
+       "id": "F3",
+       "template": "rsi_reversion",
+       "trials": 32,
+       "in_sample_sharpe": 0.655,
+       "oos_sharpe": 0.206,
+       "positive_folds": 2,
+       "passed_walk_forward": false,
+       "buy_hold_oos_sharpe": 0.707,
+       "best_params": {
+        "n": 14,
+        "entry": 30,
+        "exit": 50,
+        "trend_ema": 200,
+        "vix_max": 25,
+        "atr_stop": 0
+       }
+      },
+      {
+       "id": "F4",
+       "template": "bollinger_reversion",
+       "trials": 16,
+       "in_sample_sharpe": 0.609,
+       "oos_sharpe": 0.595,
+       "positive_folds": 4,
+       "passed_walk_forward": true,
+       "buy_hold_oos_sharpe": 0.707,
+       "best_params": {
+        "n": 20,
+        "k": 2.5,
+        "trend_ema": 200,
+        "vix_max": 20,
+        "atr_stop": 0
+       }
+      },
+      {
+       "id": "F5",
+       "template": "rsi_reversion",
+       "trials": 2,
+       "in_sample_sharpe": 0.655,
+       "oos_sharpe": 0.538,
+       "positive_folds": 3,
+       "passed_walk_forward": true,
+       "buy_hold_oos_sharpe": 0.707,
+       "best_params": {
+        "n": 14,
+        "entry": 30,
+        "exit": 50,
+        "trend_ema": 200,
+        "vix_max": 25,
+        "atr_stop": 2.0
+       }
+      }
+     ],
+     "refused_by_code": [],
+     "critic": {
+      "verdict": "continue",
+      "concerns": [
+       "The best OOS Sharpe (0.595) is still below buy-and-hold (0.707), suggesting the strategy underperforms a simple passive approach",
+       "Only 4 out of 5 positive folds, indicating some inconsistency across test blocks",
+       "The strategy shows negative performance in certain years (2008: -29.8%, 2016: -5.5%, 2020: -7.7%) which could indicate vulnerability to market stress periods",
+       "Performance in high VIX regimes (vix>25) shows Sharpe of 0.22, suggesting the strategy struggles during high volatility periods despite using VIX filters"
+      ]
+     }
+    },
+    {
+     "round": 3,
+     "by": "researcher",
+     "diagnosis": "The best performing family F4 (Bollinger reversion) achieved OOS Sharpe 0.595 with 4/5 positive folds, passing walk-forward but still below buy-and-hold (0.707). The strategy shows strong performance in uptrend regimes (Sharpe 0.81) but struggles in high VIX (>25) periods (Sharpe 0.22) and has negative years during market stress (2008, 2016, 2020). The RSI reversion family F5 shows promise with OOS Sharpe 0.538 but only tested 2 trials. The diagnostics reveal the strategy works well in uptrends but needs better protection during high volatility periods.",
+     "hypothesis": "The strategy can be improved by enhancing volatility filtering and adding stop-loss protection to reduce drawdowns during high VIX periods while maintaining strong uptrend performance.",
+     "experiments": [
+      {
+       "template": "bollinger_reversion",
+       "params": {
+        "n": [
+         20.0,
+         40.0
+        ],
+        "k": [
+         2.0,
+         2.5
+        ],
+        "trend_ema": [
+         100.0,
+         200.0
+        ],
+        "vix_max": [
+         15.0,
+         20.0
+        ],
+        "atr_stop": [
+         2.0,
+         3.0
+        ]
+       },
+       "rationale": "Test tighter VIX filtering (15, 20 instead of 20, 25) to avoid high volatility periods where strategy underperforms, while adding ATR stop-loss to limit drawdowns. Building on best family F4."
+      },
+      {
+       "template": "rsi_reversion",
+       "params": {
+        "n": [
+         14.0
+        ],
+        "entry": [
+         30.0
+        ],
+        "exit": [
+         50.0
+        ],
+        "trend_ema": [
+         200.0
+        ],
+        "vix_max": [
+         20.0
+        ],
+        "atr_stop": [
+         2.0,
+         3.0
+        ]
+       },
+       "rationale": "Expand testing of promising F5 configuration with tighter VIX filter (20 vs 25) and ATR stop-loss to improve risk management during volatile periods."
+      },
+      {
+       "template": "bollinger_reversion",
+       "params": {
+        "n": [
+         20.0,
+         40.0
+        ],
+        "k": [
+         2.0,
+         2.5
+        ],
+        "trend_ema": [
+         200.0
+        ],
+        "vix_max": [
+         0.0
+        ],
+        "atr_stop": [
+         2.0,
+         3.0
+        ]
+       },
+       "rationale": "Test removing VIX filter entirely but adding ATR stop-loss, to see if stop-loss alone can handle volatility risk while capturing more opportunities."
+      }
+     ],
+     "families": [
+      {
+       "id": "F6",
+       "template": "bollinger_reversion",
+       "trials": 16,
+       "in_sample_sharpe": 0.609,
+       "oos_sharpe": 0.453,
+       "positive_folds": 3,
+       "passed_walk_forward": true,
+       "buy_hold_oos_sharpe": 0.707,
+       "best_params": {
+        "n": 20,
+        "k": 2.5,
+        "trend_ema": 200,
+        "vix_max": 20,
+        "atr_stop": 3.0
+       }
+      },
+      {
+       "id": "F7",
+       "template": "rsi_reversion",
+       "trials": 2,
+       "in_sample_sharpe": 0.491,
+       "oos_sharpe": 0.538,
+       "positive_folds": 3,
+       "passed_walk_forward": true,
+       "buy_hold_oos_sharpe": 0.707,
+       "best_params": {
+        "n": 14,
+        "entry": 30,
+        "exit": 50,
+        "trend_ema": 200,
+        "vix_max": 20,
+        "atr_stop": 2.0
+       }
+      },
+      {
+       "id": "F8",
+       "template": "bollinger_reversion",
+       "trials": 8,
+       "in_sample_sharpe": 0.582,
+       "oos_sharpe": 0.431,
+       "positive_folds": 4,
+       "passed_walk_forward": true,
+       "buy_hold_oos_sharpe": 0.707,
+       "best_params": {
+        "n": 40,
+        "k": 2.0,
+        "trend_ema": 200,
+        "vix_max": 0,
+        "atr_stop": 3.0
+       }
+      }
+     ],
+     "refused_by_code": [
+      "vix_max=15.0"
+     ],
+     "critic": {
+      "verdict": "stop",
+      "concerns": [
+       "The best OOS Sharpe (0.595) is below buy-and-hold (0.707), meaning the strategy underperforms a simple passive approach",
+       "The strategy shows zero or minimal returns in many years (2008-2012, 2016, 2019, 2022, 2024), indicating it's not capturing consistent alpha across market cycles",
+       "Performance appears concentrated in specific regimes (uptrend, low VIX) but fails during high volatility and downtrend periods",
+       "The walk-forward requirement has increased to 0.7 Sharpe due to multiple looks, making it harder to validate the strategy"
+      ]
+     }
+    }
+   ],
+   "stop_reason": "critic: further rounds would fit noise",
+   "verdict": {
+    "decision": "reject",
+    "family": null,
+    "required_oos_sharpe": 0.7,
+    "agent_failures": 0,
+    "reason": "no family cleared walk-forward at the bar for 8 looks (OOS Sharpe >= 0.7); holdout left sealed"
+   },
+   "holdout": null,
+   "trials": 121,
+   "looks": 8,
+   "report": {
+    "title": "NIFTY Reversion Strategy Test",
+    "summary": "The strategy tested buying short-term oversold dips in NIFTY during uptrends.  The dataset contained 4566 rows, from 2008-03-03 to 2026-11-16.  Multiple families using RSI and Bollinger reversion templates were tested.",
+    "findings": [
+     "Family F4 (Bollinger reversion) had an in-sample Sharpe of 0.609 and an OOS Sharpe of 0.595.",
+     "Family F5 (RSI reversion) had an in-sample Sharpe of 0.655 and an OOS Sharpe of 0.538.",
+     "Family F7 (RSI reversion) had an in-sample Sharpe of 0.491 and an OOS Sharpe of 0.538.",
+     "Family F6 (Bollinger reversion) had an in-sample Sharpe of 0.609 and an OOS Sharpe of 0.453.",
+     "Family F8 (Bollinger reversion) had an in-sample Sharpe of 0.582 and an OOS Sharpe of 0.431."
+    ],
+    "verdict": "Rejected. No family passed walk-forward with an OOS Sharpe of 0.7."
+   },
+   "report_check": {
+    "unsupported_numbers": [],
+    "passed": true
+   },
+   "spend": {
+    "usd": 0.023059,
+    "calls": 11,
+    "by_role": {
+     "intake": {
+      "calls": 1,
+      "usd": 0.00032,
+      "model": "google.gemma-3-12b-it"
+     },
+     "planner": {
+      "calls": 2,
+      "usd": 0.00426,
+      "model": "deepseek.v3.2"
+     },
+     "plan_critic": {
+      "calls": 2,
+      "usd": 0.002924,
+      "model": "deepseek.v3.2"
+     },
+     "critic": {
+      "calls": 3,
+      "usd": 0.00731,
+      "model": "deepseek.v3.2"
+     },
+     "researcher": {
+      "calls": 2,
+      "usd": 0.006947,
+      "model": "deepseek.v3.2"
+     },
+     "reporter": {
+      "calls": 1,
+      "usd": 0.001298,
+      "model": "google.gemma-3-12b-it"
+     }
+    }
+   },
+   "seconds": 47,
+   "human": null
+  },
+  {
+   "id": "266cf665",
+   "idea": "Buy short-term oversold dips",
+   "source": "synthetic:meanrev:1006",
+   "source_label": "synthetic:meanrev:1006",
+   "dataset": {
+    "rows": 4000,
+    "start": "2010-01-04",
+    "end": "2025-05-02",
+    "sha256": "615ac593a5db1737",
+    "passed": true
+   },
+   "spec": {
+    "style": "reversal",
+    "summary": "This trading idea suggests buying when the market appears oversold, indicating a potential reversal. The specification below outlines a testable strategy for the NIFTY 50 index, incorporating India VIX to help confirm oversold conditions."
+   },
+   "plan": {
+    "hypothesis": "Buying short-term oversold dips using RSI reversion with VIX and trend filters can generate positive risk-adjusted returns in NIFTY 50",
+    "templates": [
+     "rsi_reversion"
+    ],
+    "trial_budget": 200,
+    "rounds": 3,
+    "rationale": "The idea focuses on reversal strategies using RSI oversold conditions. The rsi_reversion template directly implements this logic with entry/exit RSI thresholds. We'll test with VIX filters (vix_max) to ensure high volatility doesn't trigger false signals, and trend filters (trend_ema) to avoid catching falling knives. The trial budget of 200 allows testing multiple parameter combinations across the walk-forward blocks while staying within reasonable computational limits. 3 rounds should be sufficient to explore the parameter space without excessive multiple testing."
+   },
+   "plan_review": {
+    "approve": true,
+    "changes": ""
+   },
+   "plan_revisions": 0,
+   "rounds": [
+    {
+     "round": 1,
+     "by": "code (baseline)",
+     "diagnosis": "no results yet",
+     "hypothesis": "baseline",
+     "experiments": [
+      {
+       "template": "rsi_reversion",
+       "params": {},
+       "rationale": "baseline: full template grid, filters off"
+      }
+     ],
+     "families": [
+      {
+       "id": "F1",
+       "template": "rsi_reversion",
+       "trials": 36,
+       "in_sample_sharpe": 1.517,
+       "oos_sharpe": 1.109,
+       "positive_folds": 5,
+       "passed_walk_forward": true,
+       "buy_hold_oos_sharpe": 0.103,
+       "best_params": {
+        "n": 2,
+        "entry": 20,
+        "exit": 60,
+        "trend_ema": 0,
+        "vix_max": 0,
+        "atr_stop": 0
+       }
+      }
+     ],
+     "refused_by_code": [],
+     "critic": {
+      "verdict": "robustness_check",
+      "concerns": []
+     }
+    },
+    {
+     "round": 2,
+     "by": "researcher",
+     "diagnosis": "The initial family F1 performed exceptionally well with OOS Sharpe of 1.109, far exceeding the required threshold of 0.4. All 5 folds were positive, and it passed walk-forward. The neighbourhood analysis shows robustness with 88% of neighbours within 70% of centre Sharpe, and median neighbour Sharpe of 1.255 indicates parameter stability. The strategy appears to work well with the default parameters tested (n=2-14, entry=10-30, exit=50-70).",
+     "hypothesis": "The core RSI reversion strategy works well, but we should test whether adding volatility and trend filters can improve robustness or risk-adjusted returns further without degrading performance.",
+     "experiments": [
+      {
+       "template": "rsi_reversion",
+       "params": {
+        "n": [
+         2.0,
+         3.0,
+         5.0,
+         14.0
+        ],
+        "entry": [
+         10.0,
+         20.0,
+         30.0
+        ],
+        "exit": [
+         50.0,
+         60.0,
+         70.0
+        ],
+        "vix_max": [
+         20.0,
+         25.0,
+         30.0
+        ]
+       },
+       "rationale": "Test adding VIX maximum filter to avoid entering positions during extreme volatility periods. This could improve risk management by filtering out signals during panic selling episodes."
+      },
+      {
+       "template": "rsi_reversion",
+       "params": {
+        "n": [
+         2.0,
+         3.0,
+         5.0,
+         14.0
+        ],
+        "entry": [
+         10.0,
+         20.0,
+         30.0
+        ],
+        "exit": [
+         50.0,
+         60.0,
+         70.0
+        ],
+        "trend_ema": [
+         100.0,
+         200.0
+        ]
+       },
+       "rationale": "Test adding trend EMA filter to avoid catching 'falling knives' - only take oversold signals when price is above a moving average, ensuring we're trading with the broader trend."
+      },
+      {
+       "template": "rsi_reversion",
+       "params": {
+        "n": [
+         2.0,
+         3.0,
+         5.0,
+         14.0
+        ],
+        "entry": [
+         10.0,
+         20.0,
+         30.0
+        ],
+        "exit": [
+         50.0,
+         60.0,
+         70.0
+        ],
+        "atr_stop": [
+         2.0,
+         3.0
+        ]
+       },
+       "rationale": "Test adding ATR-based stop loss to manage downside risk. This could improve risk-adjusted returns by cutting losses quickly while letting winners run."
+      }
+     ],
+     "families": [
+      {
+       "id": "F2",
+       "template": "rsi_reversion",
+       "trials": 108,
+       "in_sample_sharpe": 1.446,
+       "oos_sharpe": 0.803,
+       "positive_folds": 5,
+       "passed_walk_forward": true,
+       "buy_hold_oos_sharpe": 0.103,
+       "best_params": {
+        "n": 2,
+        "entry": 20,
+        "exit": 60,
+        "trend_ema": 0,
+        "vix_max": 30,
+        "atr_stop": 0
+       }
+      }
+     ],
+     "refused_by_code": [
+      "rsi_reversion needs 72 trials, over budget",
+      "rsi_reversion needs 72 trials, over budget"
+     ],
+     "critic": {
+      "verdict": "robustness_check",
+      "concerns": []
+     }
+    },
+    {
+     "round": 3,
+     "by": "researcher",
+     "diagnosis": "The results show strong performance for both families F1 and F2, with F1 achieving OOS Sharpe of 1.109 and F2 achieving 0.803, both well above the current required threshold of 0.5. Diagnostics reveal interesting patterns: F1 performs exceptionally well in downtrends (Sharpe 2.0) and high VIX regimes (Sharpe 1.81), but weaker in uptrends (Sharpe 0.92). The strategy appears to be a true reversal strategy that excels when markets are stressed. Both families show good robustness with 88% of neighbours within 70% of centre Sharpe. The neighbourhood analysis shows F1 has slightly better performance than F2, suggesting that adding VIX filters (F2) didn't improve results and may have slightly degraded performance.",
+     "hypothesis": "The strategy works best as a pure reversal play without VIX filters, particularly excelling in downtrends and high volatility environments. Adding trend filters may help improve performance in uptrends where the strategy currently underperforms.",
+     "experiments": [
+      {
+       "template": "rsi_reversion",
+       "params": {
+        "n": [
+         2.0,
+         3.0,
+         5.0,
+         14.0
+        ],
+        "entry": [
+         10.0,
+         20.0,
+         30.0
+        ],
+        "exit": [
+         50.0,
+         60.0,
+         70.0
+        ],
+        "trend_ema": [
+         100.0,
+         200.0
+        ]
+       },
+       "rationale": "Add trend filter to improve performance in uptrends. Diagnostics show F1 has Sharpe 0.92 in uptrends vs 2.0 in downtrends. The trend_ema filter should help avoid catching falling knives and improve uptrend performance while maintaining strong downtrend performance."
+      },
+      {
+       "template": "rsi_reversion",
+       "params": {
+        "n": [
+         2.0,
+         3.0,
+         5.0,
+         14.0
+        ],
+        "entry": [
+         10.0,
+         20.0,
+         30.0
+        ],
+        "exit": [
+         50.0,
+         60.0,
+         70.0
+        ],
+        "atr_stop": [
+         2.0,
+         3.0
+        ]
+       },
+       "rationale": "Test ATR-based stop loss to manage risk. The strategy already performs well, but adding a stop loss could improve risk-adjusted returns by limiting downside during false signals, particularly in volatile periods."
+      }
+     ],
+     "families": [],
+     "refused_by_code": [
+      "rsi_reversion needs 72 trials, over budget",
+      "rsi_reversion needs 72 trials, over budget"
+     ],
+     "critic": {
+      "verdict": "robustness_check",
+      "concerns": [
+       "The strategy shows suspiciously high OOS Sharpe ratios (1.109 for F1, 0.803 for F2) compared to buy-and-hold (0.103), raising questions about data mining or unrealistic assumptions.",
+       "The diagnostics show extreme performance in downtrend regimes (Sharpe 2.0) and high volatility regimes (Sharpe 1.81 when VIX>25), which may indicate the strategy is capturing crisis alpha rather than a general reversal effect.",
+       "The neighbourhood analysis shows some instability - while most neighbours perform well, the minimum Sharpe drops to 0.392 for F1 and 0.298 for F2, suggesting parameter sensitivity.",
+       "The strategy has been tested across 144 trials with only 2 walk-forward looks, increasing the risk of overfitting despite the walk-forward protocol."
+      ]
+     }
+    }
+   ],
+   "stop_reason": "planned rounds done",
+   "verdict": {
+    "decision": "promote?",
+    "reason": "F1 passed walk-forward (OOS Sharpe 1.109) and the holdout (Sharpe 1.463)",
+    "family": "F1",
+    "required_oos_sharpe": 0.5,
+    "agent_failures": 0
+   },
+   "holdout": {
+    "family": "F1",
+    "params": {
+     "n": 2,
+     "entry": 20,
+     "exit": 60,
+     "trend_ema": 0,
+     "vix_max": 0,
+     "atr_stop": 0
+    },
+    "sharpe": 1.463,
+    "return_pct": 26.77,
+    "max_drawdown_pct": 5.59,
+    "trades": 45,
+    "passed": true,
+    "buy_hold_sharpe": 0.32,
+    "window": [
+     "2023-05-30",
+     "2025-05-02"
+    ]
+   },
+   "trials": 144,
+   "looks": 2,
+   "report": {
+    "title": "NIFTY 50 RSI Reversion Strategy Report",
+    "summary": "The study tested buying short-term oversold dips in NIFTY 50 using RSI reversion. It used 3 rounds and a trial budget of 200. The dataset spanned from 2010-01-04 to 2025-05-02, containing 4000 rows.",
+    "findings": [
+     "Family F1 had an in-sample Sharpe of 1.517 and an out-of-sample Sharpe of 1.109.",
+     "Family F2 had an in-sample Sharpe of 1.446 and an out-of-sample Sharpe of 0.803.",
+     "F1 passed the walk-forward test.",
+     "The best parameters for F1 were n=2, entry=20, exit=60.",
+     "The holdout test for F1 achieved a Sharpe of 1.463 and a return of 26.77%."
+    ],
+    "verdict": "Promote. Family F1 passed walk-forward and the holdout test."
+   },
+   "report_check": {
+    "unsupported_numbers": [],
+    "passed": true
+   },
+   "spend": {
+    "usd": 0.012324,
+    "calls": 9,
+    "by_role": {
+     "intake": {
+      "calls": 1,
+      "usd": 4.4e-05,
+      "model": "google.gemma-3-12b-it"
+     },
+     "planner": {
+      "calls": 1,
+      "usd": 0.001526,
+      "model": "deepseek.v3.2"
+     },
+     "plan_critic": {
+      "calls": 1,
+      "usd": 0.000721,
+      "model": "deepseek.v3.2"
+     },
+     "critic": {
+      "calls": 3,
+      "usd": 0.00407,
+      "model": "deepseek.v3.2"
+     },
+     "researcher": {
+      "calls": 2,
+      "usd": 0.005077,
+      "model": "deepseek.v3.2"
+     },
+     "reporter": {
+      "calls": 1,
+      "usd": 0.000886,
+      "model": "google.gemma-3-12b-it"
+     }
+    }
+   },
+   "seconds": 31,
+   "human": null
+  }
+ ],
+ "benchmark": {
+  "markets": "20 synthetic markets: 10 with a planted edge, 10 pure noise (seeds 1-20)",
+  "arms": [
+   {
+    "label": "Grid search, promote best in-sample",
+    "edges": "10/10",
+    "noise": "4/10",
+    "trials": 25200,
+    "usd": 0.0,
+    "median_seconds": null,
+    "file": null
+   },
+   {
+    "label": "Grid search + walk-forward + sealed holdout",
+    "edges": "9/10",
+    "noise": "0/10",
+    "trials": 25200,
+    "usd": 0.0,
+    "median_seconds": null,
+    "file": null
+   },
+   {
+    "label": "Agents, rules only",
+    "edges": "9/10",
+    "noise": "0/10",
+    "trials": 2400,
+    "usd": 0.0,
+    "median_seconds": 1.3,
+    "file": "planted_benchmark_2026-11-16_agents-offline.json"
+   },
+   {
+    "label": "LLM agents v1",
+    "edges": "6/10",
+    "noise": "0/10",
+    "trials": 2297,
+    "usd": 0.3411,
+    "median_seconds": 38.7,
+    "file": "planted_benchmark_2026-11-16_agents-llm.json"
+   },
+   {
+    "label": "LLM agents v2",
+    "edges": "9/10",
+    "noise": "0/10",
+    "trials": 1809,
+    "usd": 0.3403,
+    "median_seconds": 33.4,
+    "file": "planted_benchmark_2026-11-16_agents-llm_v2.json"
+   }
+  ]
+ }
+}

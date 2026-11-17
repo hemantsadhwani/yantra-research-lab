@@ -3,12 +3,11 @@ import "./globals.css";
 import Ticker from "@/components/Ticker";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
-import AskLauncher from "@/components/chat/AskLauncher";
 
 export const metadata: Metadata = {
-  title: "yantra-research-lab — autonomous strategy research (paper/simulated)",
+  title: "yantra · agentic strategy research",
   description:
-    "Signal Desk: an autonomous quant-research loop — propose, backtest, judge, rank, remember — bounded by a budget with a human approval gate. ALL PAPER / SIMULATED. Educational, not investment advice.",
+    "Six AI agents turn a trading idea into a tested verdict: agents decide what to test, code decides what is true, a person promotes. Measured on a planted-edge benchmark. Research software, not investment advice.",
 };
 
 // Set the theme before paint to avoid a flash of the wrong theme.
@@ -29,7 +28,6 @@ export default function RootLayout({
           <main>{children}</main>
           <Footer />
         </div>
-        <AskLauncher />
       </body>
     </html>
   );

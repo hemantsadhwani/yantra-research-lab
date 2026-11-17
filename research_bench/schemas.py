@@ -5,7 +5,7 @@ from __future__ import annotations
 
 from typing import Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, field_validator
 
 Style = Literal["continuation", "reversal", "pullback", "unsure"]
 
@@ -18,6 +18,13 @@ class StrategySpec(BaseModel):
     questions: list[str] = Field(default_factory=list, max_length=3,
                                  description="only what is missing to test the idea; empty when complete")
     summary: str = Field(description="the idea in one testable sentence")
+
+    @field_validator("indicators", "filters_wanted")
+    @classmethod
+    def _dedupe(cls, v: list) -> list:
+        """Models sometimes loop and repeat an entry hundreds of times (seen live: 237 repeats of
+        'trend'/'vix' from the intake). Keep the first occurrence of each, at most 8: lossless."""
+        return list(dict.fromkeys(v))[:8]
 
 
 class Plan(BaseModel):

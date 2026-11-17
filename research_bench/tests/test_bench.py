@@ -87,6 +87,12 @@ def test_interactive_run_asks_then_stops_at_the_human_gate() -> None:
     assert out["report"]["title"] and out["report_check"]["passed"]
 
 
+def test_spec_lists_are_deduped_when_a_model_loops() -> None:
+    s = StrategySpec(style="continuation", summary="x", filters_wanted=["trend", "vix"] * 120,
+                     indicators=[f"i{k}" for k in range(20)])
+    assert s.filters_wanted == ["trend", "vix"] and len(s.indicators) == 8
+
+
 def test_checker_flags_numbers_not_in_the_facts() -> None:
     facts = {"families": [{"oos_sharpe": 0.734, "trials": 16}], "holdout": {"sharpe": -0.596}}
     ok = "OOS Sharpe 0.73 over 16 trials; the holdout Sharpe was -0.60."

@@ -4,18 +4,11 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import ThemeToggle from "./ThemeToggle";
 
-const LINKS = [
-  { href: "/", label: "Home" },
-  { href: "/strategies", label: "Strategies" },
-  { href: "/research-lab", label: "Research Lab" },
-  { href: "/pipeline", label: "Pipeline" },
-  { href: "/ops", label: "Live Ops" },
-  { href: "/chat", label: "Ask" },
-];
+const REPO = "https://github.com/hemantsadhwani/yantra-research-lab";
 
 export default function Nav() {
-  const pathname = usePathname();
-
+  const pathname = usePathname() ?? "/";
+  const on = (href: string) => (href === "/" ? pathname === "/" : pathname.startsWith(href));
   return (
     <nav className="appnav" aria-label="Primary">
       <Link href="/" className="logo">
@@ -23,26 +16,24 @@ export default function Nav() {
         yantra
       </Link>
       <span className="chip acc" aria-hidden="true">
-        ◆ Options
+        ◆ Research bench
       </span>
       <div className="navlinks">
-        {LINKS.map((l) => {
-          const active =
-            l.href === "/" ? pathname === "/" : pathname.startsWith(l.href);
-          return (
-            <Link
-              key={l.href}
-              href={l.href}
-              className={active ? "on" : undefined}
-              aria-current={active ? "page" : undefined}
-            >
-              {l.label}
-            </Link>
-          );
-        })}
+        <Link href="/" className={on("/") ? "on" : undefined} aria-current={on("/") ? "page" : undefined}>
+          Home
+        </Link>
+        <Link
+          href="/research-lab/"
+          className={on("/research-lab") ? "on" : undefined}
+          aria-current={on("/research-lab") ? "page" : undefined}
+        >
+          Research Lab
+        </Link>
+        <a href="/track-record/">Track Record</a>
+        <a href={REPO}>GitHub</a>
       </div>
       <div className="navcta">
-        <span className="chip paper">ALL PAPER / SIMULATED</span>
+        <span className="chip paper">BACKTEST · NOT ADVICE</span>
         <ThemeToggle />
       </div>
     </nav>

@@ -139,13 +139,22 @@ Read these before re-deriving a decision — they record the trade-offs as they 
 
 ## Deployment
 
+**Since 17 Nov 2026 the site is on AWS:** https://d5m79jfuo76r4.cloudfront.net (S3 + CloudFront, `infra/track_record/`).
+It is a Next.js static export with three routes:
+- `/`
+- `/research-lab/`: bench replays and the benchmark, from `frontend/public/data/bench.json`, written by `scripts/export_bench_replays.py`.
+- `/track-record/`: a static page, `frontend/public/track-record/`. It reads `/data/track_record.json`, which the Lambda writes at 17:00 IST.
+
+Publish with `AWS_PROFILE=agentic TF=<terraform.exe> bash frontend/deploy_aws.sh`. It never touches `data/track_record.json`. Terraform owns the bucket and distribution, plus a CloudFront Function that maps folder URLs to `index.html`. It does not own the page files.
+
+Removed 17 Nov: `/chat`, `/ops`, `/pipeline`, `/strategies` and the Ask widget. The research-paper RAG is retired, and the ingest cron is off.
+
+Legacy (being retired):
+
 | Piece | URL |
 |---|---|
-| Frontend (Next.js → Vercel) | https://yantra-research-lab.vercel.app |
-| Live Ops dashboard | https://yantra-research-lab.vercel.app/ops |
-| Backend API docs (FastAPI → Fly.io) | https://yantra-chatbot.fly.dev/docs |
-
-Frontend routes: `/`, `/strategies`, `/research-lab`, `/chat`, `/ops`, `/pipeline`.
+| Frontend (Next.js → Vercel) | https://yantra-research-lab.vercel.app. It still auto-deploys from main, but `/track-record/` has no data there. |
+| Backend API docs (FastAPI → Fly.io) | https://yantra-chatbot.fly.dev/docs. Scaled to 0 on 16 Nov (rupee takedown). |
 
 Two gotchas:
 - The Fly app is **`yantra-chatbot`** (see `backend/fly.toml`), *not* `yantra-backend`.

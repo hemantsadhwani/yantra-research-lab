@@ -1,46 +1,58 @@
+/* Restyled 17 Nov 2026 to the yantra site look (tokens from frontend/src/app/globals.css).
+   Series colours --s1..--s3 are unchanged: they were checked for colour-blind separation. */
 :root {
-  --page: #f9f9f7;
-  --surface: #fcfcfb;
-  --ink: #0b0b0b;
-  --ink-2: #52514e;
-  --muted: #898781;
-  --grid: #e1e0d9;
-  --axis: #c3c2b7;
-  --border: #e1e0d9;
-  --s1: #2a78d6;
-  --s2: #eb6834;
-  --s3: #1baf7a;
-  --s4: #898781;
-  --define: #eef4fc;
-  color-scheme: light;
+  --ground: #080b11; --gridbg: rgba(125, 165, 205, 0.045);
+  --page: #080b11; --surface: #121a27; --ink: #e9eef7; --ink-2: #b7c3d2; --muted: #8496a9;
+  --grid: #1d2634; --axis: #2d3a4e; --border: #1d2634; --accent: #ffb14e; --accent-ink: #ffbf6b;
+  --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #898781; --define: #0e131c;
+  --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  color-scheme: dark;
 }
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --page: #0d0d0d; --surface: #1a1a19; --ink: #f0efec; --ink-2: #c3c2b7; --muted: #898781;
-    --grid: #2c2c2a; --axis: #383835; --border: #2c2c2a;
-    --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #898781; --define: #16202c;
-    color-scheme: dark;
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --ground: #eef1f6; --gridbg: rgba(40, 72, 110, 0.05);
+    --page: #eef1f6; --surface: #ffffff; --ink: #101725; --ink-2: #3c4b5e; --muted: #586b82;
+    --grid: #d3dbe6; --axis: #b1bccb; --border: #d3dbe6; --accent: #e07b00; --accent-ink: #a85c00;
+    --s1: #2a78d6; --s2: #eb6834; --s3: #1baf7a; --s4: #898781; --define: #f5f8fc;
+    color-scheme: light;
   }
 }
-:root[data-theme="dark"] {
-  --page: #0d0d0d; --surface: #1a1a19; --ink: #f0efec; --ink-2: #c3c2b7; --muted: #898781;
-  --grid: #2c2c2a; --axis: #383835; --border: #2c2c2a;
-  --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #898781; --define: #16202c;
-  color-scheme: dark;
+:root[data-theme="light"] {
+  --ground: #eef1f6; --gridbg: rgba(40, 72, 110, 0.05);
+  --page: #eef1f6; --surface: #ffffff; --ink: #101725; --ink-2: #3c4b5e; --muted: #586b82;
+  --grid: #d3dbe6; --axis: #b1bccb; --border: #d3dbe6; --accent: #e07b00; --accent-ink: #a85c00;
+  --s1: #2a78d6; --s2: #eb6834; --s3: #1baf7a; --s4: #898781; --define: #f5f8fc;
+  color-scheme: light;
 }
 
 * { box-sizing: border-box; }
 body {
-  margin: 0; background: var(--page); color: var(--ink);
+  margin: 0; color: var(--ink); background-color: var(--ground);
+  background-image: linear-gradient(var(--gridbg) 1px, transparent 1px),
+    linear-gradient(90deg, var(--gridbg) 1px, transparent 1px);
+  background-size: 34px 34px;
   font: 16px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  font-variant-numeric: tabular-nums;
+  font-variant-numeric: tabular-nums; -webkit-font-smoothing: antialiased;
 }
-main { max-width: 980px; margin: 0 auto; padding: 32px 16px 48px; }
-h1 { font-size: 2rem; line-height: 1.15; margin: 4px 0 8px; letter-spacing: -0.01em; }
+main { max-width: 1140px; margin: 0 auto; padding: 0 24px 56px; }
+.topnav { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; padding: 16px 0;
+  border-bottom: 1px solid var(--border); margin-bottom: 24px; font-family: var(--mono); font-size: 13px; }
+.topnav .logo { color: var(--ink); font-weight: 700; text-decoration: none; letter-spacing: .02em; }
+.topnav .logo::before { content: "◆ "; color: var(--accent); }
+.topnav nav { display: flex; gap: 16px; flex-wrap: wrap; }
+.topnav nav a { color: var(--muted); text-decoration: none; }
+.topnav nav a:hover, .topnav nav a.on { color: var(--accent-ink); }
+.topnav .chip { margin-left: auto; border: 1px solid var(--border); border-radius: 999px; padding: 2px 10px;
+  font-size: 10.5px; letter-spacing: .1em; color: var(--muted); }
+h1 { font-size: clamp(28px, 4.6vw, 46px); line-height: 1; margin: 8px 0 12px; letter-spacing: -0.03em;
+  font-weight: 800; text-transform: uppercase; }
 h2 { font-size: 1.05rem; margin: 0; }
-.eyebrow { margin: 0; color: var(--ink-2); font-size: .85rem; letter-spacing: .04em; text-transform: uppercase; }
-.lede { margin: 0 0 6px; color: var(--ink-2); max-width: 62ch; }
-.meta { margin: 0; color: var(--muted); font-size: .9rem; }
+.eyebrow { margin: 0; color: var(--accent-ink); font: 12.5px var(--mono); letter-spacing: .06em; }
+.eyebrow::before { content: "// "; }
+.lede { margin: 0 0 6px; color: var(--muted); max-width: 62ch; font-size: 15.5px; }
+.meta { margin: 0; color: var(--muted); font: .82rem var(--mono); }
+.define { border: 1px solid var(--border); }
+.tile .big, .tile dd, td { font-family: var(--mono); }
 .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
 
 .define { margin: 24px 0; padding: 14px 16px; border-radius: 10px; background: var(--define); }

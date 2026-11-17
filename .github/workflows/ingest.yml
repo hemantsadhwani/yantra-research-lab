@@ -4,9 +4,9 @@ name: ingest-corpus
 #   - runs daily (and on demand) on an ephemeral runner — no always-on compute
 #   - incremental (content-hashed S3 bronze) so most days re-process nothing
 #   - commits the refreshed public manifest back, which auto-redeploys the site
+# RETIRED 17 Nov 2026: the research-paper RAG chatbot left the site (the bench replaced it), so
+# the daily schedule is off. Manual runs stay possible until the end-of-week cleanup removes it.
 on:
-  schedule:
-    - cron: "17 2 * * *" # 02:17 UTC daily (off-peak)
   workflow_dispatch: # manual "Run workflow" button
     inputs:
       corpus_size:

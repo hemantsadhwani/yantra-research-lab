@@ -3,14 +3,20 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Strategy Track Record</title>
+<title>Track Record · yantra</title>
 <meta name="description" content="Results of three intraday index-options strategies, in percent only.">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="/track-record/style.css">
+<script>(function(){try{var t=localStorage.getItem("yrl-theme");if(t==="light"||t==="dark"){document.documentElement.setAttribute("data-theme",t);}}catch(e){}})();</script>
 </head>
 <body>
 <main>
+  <div class="topnav">
+    <a class="logo" href="/">yantra</a>
+    <nav aria-label="Primary"><a href="/">Home</a><a href="/research-lab/">Research Lab</a><a class="on" href="/track-record/" aria-current="page">Track Record</a><a href="https://github.com/hemantsadhwani/yantra-research-lab">GitHub</a></nav>
+    <span class="chip">BACKTEST · NOT ADVICE</span>
+  </div>
   <header>
-    <p class="eyebrow">Yantra Research Lab</p>
+    <p class="eyebrow">daily backtest record</p>
     <h1 id="title">Track record</h1>
     <p class="lede" id="lede"></p>
     <p class="meta" id="meta">Loading…</p>
@@ -59,6 +65,6 @@
   </footer>
 </main>
 <div class="tip" id="tip" role="status" aria-live="polite" hidden></div>
-<script src="app.js"></script>
+<script src="/track-record/app.js"></script>
 </body>
 </html>

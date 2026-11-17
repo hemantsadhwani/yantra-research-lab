@@ -20,23 +20,24 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "site" {
   }
 }
 
-locals {
-  site_dir = "${path.module}/../../track_record/site"
-  site_files = {
-    "index.html" = "text/html; charset=utf-8"
-    "style.css"  = "text/css; charset=utf-8"
-    "app.js"     = "application/javascript; charset=utf-8"
-  }
-}
+# Page files are NOT managed here (17 Nov 2026): the whole yantra site (Next.js static export,
+# with the track record at /track-record/) is synced by frontend/deploy_aws.sh, and the Lambda
+# owns data/track_record.json. Terraform owns the bucket, the distribution and the access rules.
 
-resource "aws_s3_object" "site" {
-  for_each      = local.site_files
-  bucket        = aws_s3_bucket.site.id
-  key           = each.key
-  source        = "${local.site_dir}/${each.key}"
-  etag          = filemd5("${local.site_dir}/${each.key}")
-  content_type  = each.value
-  cache_control = "max-age=300"
+# Folder URLs (/research-lab/) -> /research-lab/index.html; the S3 REST origin has no index docs.
+resource "aws_cloudfront_function" "index" {
+  name    = "${var.name}-index"
+  runtime = "cloudfront-js-2.0"
+  comment = "Map folder URLs to index.html"
+  publish = true
+  code    = <<-JS
+    function handler(event) {
+      var r = event.request, u = r.uri;
+      if (u.endsWith("/")) { r.uri = u + "index.html"; }
+      else if (u.lastIndexOf(".") < u.lastIndexOf("/")) { r.uri = u + "/index.html"; }
+      return r;
+    }
+  JS
 }
 
 resource "aws_cloudfront_origin_access_control" "site" {
@@ -48,7 +49,7 @@ resource "aws_cloudfront_origin_access_control" "site" {
 
 resource "aws_cloudfront_distribution" "site" {
   enabled             = true
-  comment             = "Yantra Research Lab track record"
+  comment             = "yantra site: research bench + track record"
   default_root_object = "index.html"
   price_class         = "PriceClass_200" # includes India edge locations
 
@@ -66,6 +67,23 @@ resource "aws_cloudfront_distribution" "site" {
     compress                   = true
     cache_policy_id            = "658327ea-f89d-4fab-a63d-7e88639e58f6" # Managed-CachingOptimized (honours max-age)
     response_headers_policy_id = "67f7725c-6f97-4210-82d7-5512b31e9d03" # Managed-SecurityHeadersPolicy
+
+    function_association {
+      event_type   = "viewer-request"
+      function_arn = aws_cloudfront_function.index.arn
+    }
+  }
+
+  # A missing key on a private S3 origin returns 403; show the site's own 404 page instead.
+  custom_error_response {
+    error_code         = 403
+    response_code      = 404
+    response_page_path = "/404.html"
+  }
+  custom_error_response {
+    error_code         = 404
+    response_code      = 404
+    response_page_path = "/404.html"
   }
 
   restrictions {

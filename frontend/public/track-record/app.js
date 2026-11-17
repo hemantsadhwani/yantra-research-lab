@@ -273,7 +273,7 @@ function render() {
   header(DOC); tiles(DOC, colors); legend(DOC, colors); cumulative(DOC, colors); dailyBars(DOC, colors); months(DOC);
 }
 
-fetch("data/track_record.json", { cache: "no-cache" })
+fetch("/data/track_record.json", { cache: "no-cache" })
   .then((r) => { if (!r.ok) throw new Error(r.status); return r.json(); })
   .then((doc) => { DOC = doc; render(); })
   .catch(() => { $("meta").textContent = "The track record could not be loaded. Please try again later."; });
