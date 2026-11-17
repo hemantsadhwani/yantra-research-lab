@@ -54,6 +54,11 @@ def build_server(engine: Any = None):  # pragma: no cover - thin adapter, exerci
         return eng.open_holdout(source, family, study)
 
     @mcp.tool(structured_output=True)
+    def protocol(source: str, looks: int) -> dict[str, Any]:
+        """The success test in words, and the OOS bar now and after one more look."""
+        return eng.protocol(source, looks)
+
+    @mcp.tool(structured_output=True)
     def seal_log(source: str) -> dict[str, Any]:
         """Every holdout opening for a source: how many, by which study, for which family."""
         return eng.seal_log(source)

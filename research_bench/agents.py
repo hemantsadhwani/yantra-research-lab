@@ -91,17 +91,20 @@ SYSTEM = {
 def brief(state: dict, extra: dict | None = None) -> str:
     """The ledger, summarised: what an agent needs this turn, nothing else."""
     led = state["ledger"]
-    fams = sorted(led["families"], key=lambda f: f["oos_sharpe"], reverse=True)
+    fams = sorted(led["families"], key=tools.score, reverse=True)
     rows = [{k: f[k] for k in ("id", "round", "template", "trials", "in_sample_sharpe", "oos_sharpe",
-                               "positive_folds", "passed_walk_forward", "buy_hold_oos_sharpe")}
+                               "positive_folds", "passed_walk_forward", "buy_hold_oos_sharpe", "score")
+             if k in f}
             | {"space": {k: v for k, v in f["space"].items() if v != [0]}} for f in fams[:8]]
     payload = {
         "idea": state["idea"], "spec": state.get("spec"), "plan": state.get("plan"),
-        "success_test": SUCCESS_TEST,
+        "success_test": state.get("protocol_text") or SUCCESS_TEST,
         "budget": {"trials_used": led["trials"], "trial_budget": (state.get("plan") or {}).get("trial_budget"),
                    "walk_forward_looks": led["looks"],
-                   "required_oos_sharpe_now": tools.required_oos_sharpe(led["looks"]),
-                   "required_oos_sharpe_after_one_more_look": tools.required_oos_sharpe(led["looks"] + 1),
+                   "required_oos_sharpe_now": (state.get("bar") or {}).get(
+                       "required_now", tools.required_oos_sharpe(led["looks"])),
+                   "required_oos_sharpe_after_one_more_look": (state.get("bar") or {}).get(
+                       "required_next", tools.required_oos_sharpe(led["looks"] + 1)),
                    "round": state["round"],
                    "rounds": (state.get("plan") or {}).get("rounds")},
         "families_best_first": rows,
@@ -194,7 +197,7 @@ class OfflineAgents:
         if r == 1:
             exps = [Experiment(template=t, params={}, rationale="baseline grid") for t in templates]
             return RoundProposal(diagnosis="no results yet", hypothesis="baseline", experiments=exps), self.NONE
-        best = max(led["families"], key=lambda f: f["oos_sharpe"])
+        best = max(led["families"], key=tools.score)
         base = {k: v for k, v in best["space"].items() if k not in tools.FILTER_SPACE}
         if r == 2:
             exps = [Experiment(template=best["template"], params={**base, "trend_ema": [0, 200]},

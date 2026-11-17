@@ -77,6 +77,12 @@ def clamp(template: str, params: dict[str, list[float]],
     return sub, dropped
 
 
+def score(f: dict) -> float:
+    """A family's ranking metric: the engine's ``score`` when it sends one (e.g. a private
+    engine's excess over the shipped book), else the walk-forward OOS Sharpe."""
+    return f.get("score", f["oos_sharpe"])
+
+
 def n_trials(sub: dict[str, list[float]]) -> int:
     return math.prod(len(v_) for v_ in sub.values())
 

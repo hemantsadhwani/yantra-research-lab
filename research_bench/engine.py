@@ -2,6 +2,7 @@
 
     catalogue() · dataset_card(source) · run_family(source, template, space, fid, round_no)
     diagnostics(source, family) · neighbourhood(source, family) · open_holdout(source, family, study)
+    protocol(source, looks) -> {text, required_now, required_next}: the engine owns the success test
 
 ``LocalEngine`` runs the public quant_engine in-process. ``MCPEngine`` calls the same tool names
 on an MCP server over stdio: ``research_bench.mcp_server`` (public) or a private server that
@@ -30,6 +31,7 @@ class Engine(Protocol):
     def diagnostics(self, source: str, family: dict) -> dict: ...
     def neighbourhood(self, source: str, family: dict) -> dict: ...
     def open_holdout(self, source: str, family: dict, study: str) -> dict: ...
+    def protocol(self, source: str, looks: int) -> dict: ...   # {text, required_now, required_next}
 
 
 class HoldoutSealed(RuntimeError):
@@ -88,6 +90,11 @@ class LocalEngine:
     def seal_log(self, source: str) -> dict:
         return self.seal.log(source)
 
+    def protocol(self, source: str, looks: int) -> dict:
+        from research_bench.agents import SUCCESS_TEST
+        return {"text": SUCCESS_TEST, "required_now": tools.required_oos_sharpe(looks),
+                "required_next": tools.required_oos_sharpe(looks + 1)}
+
 
 class MCPEngine:
     """The same tools over MCP stdio. ``argv`` launches the server; default: the public one."""
@@ -122,6 +129,9 @@ class MCPEngine:
 
     def seal_log(self, source: str) -> dict:
         return self._call("seal_log", source=source)
+
+    def protocol(self, source: str, looks: int) -> dict:
+        return self._call("protocol", source=source, looks=looks)
 
     def close(self) -> None:
         self._c.close()

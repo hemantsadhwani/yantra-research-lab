@@ -54,6 +54,8 @@ class State(TypedDict, total=False):
     log: list[str]
     catalogue: dict
     study: str
+    protocol_text: str
+    bar: dict
 
 
 def new_state(idea: str, source: str, mode: str = "interactive", budget_usd: float = 0.05) -> State:
@@ -99,8 +101,9 @@ def build(agents: Any, checkpointer: Any = None, engine: Any = None, study: str 
     def intake(s: State) -> dict:
         cat = s.get("catalogue") or eng.catalogue()
         spec, use = call("intake", {**s, "catalogue": cat})
+        proto = s.get("protocol_text") or eng.protocol(s["source"], 0)["text"]
         return {"spec": spec.model_dump(), "spend": _spent(s, use), "intake_turns": s["intake_turns"] + 1,
-                "catalogue": cat, "study": s.get("study") or study_id}
+                "catalogue": cat, "study": s.get("study") or study_id, "protocol_text": proto}
 
     def ask(s: State) -> dict:
         answers = interrupt({"questions": s["spec"]["questions"]})
@@ -180,8 +183,10 @@ def build(agents: Any, checkpointer: Any = None, engine: Any = None, study: str 
         for fid in prop.get("diagnose", []):
             if fid in by_id and fid not in led["diagnostics"]:
                 led["diagnostics"][fid] = eng.diagnostics(s["source"], by_id[fid])
-        best = max((f["oos_sharpe"] for f in led["families"]), default=float("-inf"))
-        return {"ledger": led, "best_history": [*s["best_history"], best]}
+        best = max((tools.score(f) for f in led["families"]), default=float("-inf"))
+        bar = eng.protocol(s["source"], led["looks"])
+        return {"ledger": led, "best_history": [*s["best_history"], best],
+                "bar": {"required_now": bar["required_now"], "required_next": bar["required_next"]}}
 
     def critique(s: State) -> dict:
         if s.get("stop_reason") or not s["ledger"]["families"] or _over_budget(s):
@@ -219,15 +224,15 @@ def build(agents: Any, checkpointer: Any = None, engine: Any = None, study: str 
         return "finalize" if s.get("stop_reason") else "research"
 
     def finalize(s: State) -> dict:
-        bar = tools.required_oos_sharpe(s["ledger"]["looks"])
+        bar = eng.protocol(s["source"], s["ledger"]["looks"])["required_now"]
         fails = sum(1 for c in s["spend"]["calls"] if c.get("failure"))
-        passed = [f for f in s["ledger"]["families"] if f["passed_walk_forward"] and f["oos_sharpe"] >= bar]
+        passed = [f for f in s["ledger"]["families"] if f["passed_walk_forward"] and tools.score(f) >= bar]
         if not passed:
             return {"verdict": {"decision": "reject", "family": None, "required_oos_sharpe": bar,
                                 "agent_failures": fails,
                                 "reason": f"no family cleared walk-forward at the bar for "
                                           f"{s['ledger']['looks']} looks (OOS Sharpe >= {bar}); holdout left sealed"}}
-        best = max(passed, key=lambda f: f["oos_sharpe"])
+        best = max(passed, key=tools.score)
         ho = eng.open_holdout(s["source"], best, s["study"])    # the only read; the engine seals it
         decision = "promote?" if ho["passed"] else "reject"
         reason = (f"{best['id']} passed walk-forward (OOS Sharpe {best['oos_sharpe']}) and the holdout "
@@ -241,7 +246,7 @@ def build(agents: Any, checkpointer: Any = None, engine: Any = None, study: str 
         if s["mode"] == "benchmark":
             return {}
         facts = {"idea": s["idea"], "plan": s["plan"], "dataset": s["card"],
-                 "families": sorted(s["ledger"]["families"], key=lambda f: f["oos_sharpe"], reverse=True)[:5],
+                 "families": sorted(s["ledger"]["families"], key=tools.score, reverse=True)[:5],
                  "trials": s["ledger"]["trials"], "walk_forward_looks": s["ledger"]["looks"],
                  "diagnostics": s["ledger"]["diagnostics"], "neighbourhood": s["ledger"]["neighbourhood"],
                  "holdout": s.get("holdout"), "verdict": s["verdict"], "stop_reason": s["stop_reason"],
