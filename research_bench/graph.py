@@ -226,18 +226,19 @@ def build(agents: Any, checkpointer: Any = None, engine: Any = None, study: str 
     def finalize(s: State) -> dict:
         bar = eng.protocol(s["source"], s["ledger"]["looks"])["required_now"]
         fails = sum(1 for c in s["spend"]["calls"] if c.get("failure"))
+        metric = "OOS score" if any("score" in f for f in s["ledger"]["families"]) else "OOS Sharpe"
         passed = [f for f in s["ledger"]["families"] if f["passed_walk_forward"] and tools.score(f) >= bar]
         if not passed:
             return {"verdict": {"decision": "reject", "family": None, "required_oos_sharpe": bar,
                                 "agent_failures": fails,
                                 "reason": f"no family cleared walk-forward at the bar for "
-                                          f"{s['ledger']['looks']} looks (OOS Sharpe >= {bar}); holdout left sealed"}}
+                                          f"{s['ledger']['looks']} looks ({metric} >= {bar}); holdout left sealed"}}
         best = max(passed, key=tools.score)
         ho = eng.open_holdout(s["source"], best, s["study"])    # the only read; the engine seals it
         decision = "promote?" if ho["passed"] else "reject"
-        reason = (f"{best['id']} passed walk-forward (OOS Sharpe {best['oos_sharpe']}) and the holdout "
+        reason = (f"{best['id']} passed walk-forward ({metric} {tools.score(best)}) and the holdout "
                   f"(Sharpe {ho['sharpe']})" if ho["passed"] else
-                  f"{best['id']} passed walk-forward (OOS Sharpe {best['oos_sharpe']}) but failed the holdout "
+                  f"{best['id']} passed walk-forward ({metric} {tools.score(best)}) but failed the holdout "
                   f"(Sharpe {ho['sharpe']})")
         return {"holdout": ho, "verdict": {"decision": decision, "reason": reason, "family": best["id"],
                                            "required_oos_sharpe": bar, "agent_failures": fails}}
