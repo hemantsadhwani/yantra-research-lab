@@ -58,3 +58,14 @@ owner's options backtests) without changing the agents. Only metrics cross the b
   grid + protocol arm on those, the results say so.
 - Open models per role keep a full run at about a cent (Gemma ≈ $0.00003, DeepSeek ≈ $0.0004
   per call, measured 16 Nov).
+
+## As built (17 Nov 2026)
+
+- **Benchmark** (`results/README.md`): LLM agents v2 recovered 9/10 planted edges and promoted 0/10 noise markets. That matches the grid + protocol arm with 1,809 trials instead of 25,200, at $0.34 for 20 studies. v1 recovered 6/10 and is kept, with the reasons for its misses.
+- **Round 1 is a code-run baseline:** each planned template's full grid. Models open with textbook values; the agents refine from coverage.
+- **The engine seam** (`research_bench/engine.py`). The bench drives a `LocalEngine` or any MCP server with the same tool names: `catalogue`, `dataset_card`, `run_family`, `diagnostics`, `neighbourhood`, `open_holdout`, `protocol`, `seal_log`.
+- **The engine owns the success test.** `protocol` returns the text and the bar for the current number of looks. A private engine can judge a family against its own baseline (for example a shipped configuration), with a bar scaled to its own noise.
+- **The holdout seal lives in the engine, not the client:** one opening per study, every opening logged.
+- **Private use.** A private MCP server over real backtests serves the same names and returns aggregates only. It is not in this repo; per ADR-0001, the real strategies stay outside it.
+- **Unusable model output** falls back to the rule policy and is counted in `verdict.agent_failures`.
+- **Models per role** were measured on calibration seeds. The research roles stay on DeepSeek V3.2; Gemma alone was 10× cheaper but lost an edge and broke the schema once.
