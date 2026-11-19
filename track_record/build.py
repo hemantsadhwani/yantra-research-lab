@@ -54,8 +54,40 @@ def feed_from_s3(bucket: str, prefix: str, client=None) -> tuple[dict[str, str],
     return books, json.loads(s3_text(client, bucket, prefix + "manifest.json"))
 
 
-def feed_document(books: dict[str, str], manifest: dict) -> dict:
-    return backtest_record(books, manifest.get("generated_at") or now_ist())
+# Robustness statistics (``stats.json`` beside the feed, written by the same export from the
+# published daily totals only). Optional: the page renders without it. Only these fields pass.
+STATS_FIELDS = {
+    "monte_carlo": ("days_per_year", "year_p5", "year_median", "drawdown_p95"),
+    "drawdown": ("largest", "current"),
+    "deflated_sharpe": ("probability", "trials"),
+    "halves": ("first", "second", "split_date"),
+}
+
+
+def robustness_block(raw: dict) -> dict:
+    return {k: {f: raw[k][f] for f in fields if f in raw[k]}
+            for k, fields in STATS_FIELDS.items() if isinstance(raw.get(k), dict)}
+
+
+def feed_document(books: dict[str, str], manifest: dict, stats: dict | None = None) -> dict:
+    doc = backtest_record(books, manifest.get("generated_at") or now_ist())
+    for s in doc["strategies"]:
+        raw = ((stats or {}).get("books") or {}).get(s["id"].replace("-", "_"))
+        if isinstance(raw, dict):
+            s["robustness"] = robustness_block(raw)
+    return doc
+
+
+def stats_from_dir(folder: Path) -> dict | None:
+    p = folder / "stats.json"
+    return json.loads(p.read_text(encoding="utf-8")) if p.is_file() else None
+
+
+def stats_from_s3(bucket: str, prefix: str, client=None) -> dict | None:
+    try:
+        return json.loads(s3_text(s3_client(client), bucket, prefix + "stats.json"))
+    except Exception:            # missing or unreadable: the page simply shows no robustness table
+        return None
 
 
 # ---------- live ledger (private screen-share) ----------
@@ -85,7 +117,8 @@ def to_json(doc: dict) -> str:
 def handler(event: dict, context: object, client=None) -> dict:
     client = s3_client(client)
     books, manifest = feed_from_s3(os.environ["FEED_BUCKET"], os.environ["FEED_PREFIX"], client)
-    doc = feed_document(books, manifest)
+    doc = feed_document(books, manifest,
+                        stats_from_s3(os.environ["FEED_BUCKET"], os.environ["FEED_PREFIX"], client))
     client.put_object(Bucket=os.environ["SITE_BUCKET"],
                       Key=os.environ.get("SITE_KEY", "data/track_record.json"),
                       Body=to_json(doc).encode("utf-8"),
@@ -107,7 +140,8 @@ def main(argv: list[str] | None = None) -> int:
         doc = track_record(rows_from_dir(a.ledger_dir), now_ist())
     else:
         books, manifest = feed_from_dir(a.feed_dir) if a.feed_dir else feed_from_s3(a.feed_s3, a.prefix)
-        doc = feed_document(books, manifest)
+        stats = stats_from_dir(a.feed_dir) if a.feed_dir else stats_from_s3(a.feed_s3, a.prefix)
+        doc = feed_document(books, manifest, stats)
     a.out.parent.mkdir(parents=True, exist_ok=True)
     a.out.write_text(to_json(doc), encoding="utf-8")
     print(f"wrote {a.out}: {doc['kind']}, {doc['first_day']} to {doc['as_of']}, "

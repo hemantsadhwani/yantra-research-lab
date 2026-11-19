@@ -267,10 +267,48 @@ function months(doc) {
   $("other-note").textContent = notes.join(" ");
 }
 
+// ---------- robustness (optional: hidden when the JSON carries none) ----------
+function robustness(doc) {
+  const withR = doc.strategies.filter((s) => s.robustness);
+  $("robust-card").hidden = withR.length === 0;
+  const tbl = $("robust");
+  tbl.replaceChildren();
+  if (!withR.length) return;
+  const get = (s, a, b) => (s.robustness && s.robustness[a] && s.robustness[a][b] != null ? s.robustness[a][b] : null);
+  const P = (v) => (v == null ? "–" : pct(v, 0));
+  const rowsSpec = [
+    ["Simulated year: typical", (s) => P(get(s, "monte_carlo", "year_median"))],
+    ["Simulated year: 1-in-20 bad", (s) => P(get(s, "monte_carlo", "year_p5"))],
+    ["Drawdown: largest so far", (s) => P(get(s, "drawdown", "largest"))],
+    ["Drawdown: now", (s) => P(get(s, "drawdown", "current"))],
+    ["Drawdown: 1-in-20 year", (s) => P(get(s, "monte_carlo", "drawdown_p95"))],
+    ["Deflated Sharpe", (s) => {
+      const p = get(s, "deflated_sharpe", "probability"), n = get(s, "deflated_sharpe", "trials");
+      return p == null ? "–" : `${Math.round(p * 100)}% (vs ${n} variants)`;
+    }],
+    ["First half / second half", (s) => {
+      const a = get(s, "halves", "first"), b = get(s, "halves", "second");
+      return a == null ? "–" : `${P(a)} / ${P(b)}`;
+    }],
+  ];
+  const thead = el("thead"), hr = el("tr");
+  hr.append(el("th", { scope: "col" }, ""));
+  doc.strategies.forEach((s) => hr.append(el("th", { scope: "col" }, s.name)));
+  thead.append(hr);
+  const tbody = el("tbody");
+  for (const [label, f] of rowsSpec) {
+    const tr = el("tr");
+    tr.append(el("th", { scope: "row" }, label));
+    doc.strategies.forEach((s) => tr.append(el("td", {}, s.robustness ? f(s) : "–")));
+    tbody.append(tr);
+  }
+  tbl.append(thead, tbody);
+}
+
 function render() {
   if (!DOC) return;
   const colors = COLOR_VARS.map(css);
-  header(DOC); tiles(DOC, colors); legend(DOC, colors); cumulative(DOC, colors); dailyBars(DOC, colors); months(DOC);
+  header(DOC); tiles(DOC, colors); legend(DOC, colors); cumulative(DOC, colors); dailyBars(DOC, colors); months(DOC); robustness(DOC);
 }
 
 fetch("/data/track_record.json", { cache: "no-cache" })

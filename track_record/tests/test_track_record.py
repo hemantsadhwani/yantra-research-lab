@@ -158,6 +158,34 @@ def test_lambda_reads_only_the_feed_and_writes_the_json(monkeypatch: pytest.Monk
     assert s3.put["CacheControl"] == "max-age=300"
     doc = json.loads(s3.put["Body"])
     assert by_id(doc)["nifty-weekday"]["summary"]["total_pnl_pct"] == 8.5
+    assert all("robustness" not in s for s in doc["strategies"])     # no stats.json: no table
+
+
+STATS = {"books": {"nifty_weekday": {
+    "days": 2,
+    "monte_carlo": {"days_per_year": 150, "years_simulated": 10000, "year_p5": 100.0,
+                    "year_median": 900.0, "drawdown_p95": -200.0},
+    "drawdown": {"largest": -4.0, "current": -4.0},
+    "deflated_sharpe": {"probability": 0.86, "trials": 200},
+    "halves": {"first": 12.5, "second": -4.0, "split_date": "2025-10-24"},
+    "kelly": {"full": 0.4},                                  # not on the allow-list: must not pass
+}}}
+
+
+def test_lambda_carries_allow_listed_robustness_from_stats_json(monkeypatch: pytest.MonkeyPatch) -> None:
+    feed = dict(FEED)
+    feed["public_feed/stats.json"] = json.dumps(STATS)
+    s3 = FakeS3(feed)
+    monkeypatch.setenv("FEED_BUCKET", "b")
+    monkeypatch.setenv("FEED_PREFIX", "public_feed/")
+    monkeypatch.setenv("SITE_BUCKET", "site")
+    build.handler({}, None, client=s3)
+    doc = json.loads(s3.put["Body"])
+    r = by_id(doc)["nifty-weekday"]["robustness"]
+    assert r["monte_carlo"] == {"days_per_year": 150, "year_p5": 100.0, "year_median": 900.0, "drawdown_p95": -200.0}
+    assert r["deflated_sharpe"] == {"probability": 0.86, "trials": 200}
+    assert "kelly" not in json.dumps(doc) and "years_simulated" not in json.dumps(doc)
+    assert "robustness" not in by_id(doc)["nifty-expiry"]                # book absent from stats.json
 
 
 def test_a_missing_feed_file_fails_loudly(monkeypatch: pytest.MonkeyPatch) -> None:

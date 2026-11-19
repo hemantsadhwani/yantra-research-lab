@@ -58,6 +58,17 @@
     <p class="note" id="other-note"></p>
   </section>
 
+  <section class="card" aria-labelledby="robust-h" id="robust-card" hidden>
+    <div class="card-head">
+      <h2 id="robust-h">How robust is it</h2>
+      <p class="sub">Computed from the daily results above. A simulated year redraws a year's worth of the
+        strategy's own days, at random, 10,000 times; a 1-in-20 figure is one that only 5% of those years are worse than.</p>
+    </div>
+    <div class="table-wrap"><table id="robust"></table></div>
+    <p class="note">Deflated Sharpe: the probability that the daily result is better than the luckiest of
+      that many rule variants with no real edge. All of this is in-sample, like the record itself.</p>
+  </section>
+
   <footer>
     <p id="disclaimer"></p>
     <p><span id="built"></span> No prices, symbols, times or position sizes leave the trading
