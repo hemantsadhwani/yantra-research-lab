@@ -1,0 +1,5962 @@
+{
+ "what": "FINAL eval on benchmark seeds 1-20",
+ "date": "2026-11-19",
+ "tag": "student",
+ "harness": "mixed (v2: Gemma intake, DeepSeek planner/plan critic/critic; researcher local)",
+ "researcher": "Qwen/Qwen2.5-3B-Instruct+lora:a1",
+ "adapter": {
+  "dataset_sha256": "53d7b29c66dd0bf52a55218b61b8ab5bcefa515c2c8894b18ec9811f0587de46",
+  "records": 151,
+  "base": "Qwen/Qwen2.5-3B-Instruct",
+  "steps": 51,
+  "train_seeds": [
+   1000,
+   1428
+  ]
+ },
+ "summary": {
+  "studies": 20,
+  "edges_recovered": "9/10",
+  "noise_promoted": "0/10",
+  "trials": 1824,
+  "trials_per_study": 91.2,
+  "usd": 0.1526,
+  "usd_per_study": 0.00763,
+  "median_seconds_per_study": 195.1,
+  "errors": 0,
+  "researcher_calls_ok": 35,
+  "agent_failures_fell_back": 0
+ },
+ "cases": [
+  {
+   "seed": 1,
+   "kind": "trend",
+   "truth": "edge",
+   "source": "synthetic:trend:1",
+   "idea": "Ride sustained trends",
+   "promote": true,
+   "reason": "F4 passed walk-forward (OOS Sharpe 0.729) and the holdout (Sharpe 1.715)",
+   "templates": [
+    "ema_cross",
+    "donchian_breakout"
+   ],
+   "rounds": 3,
+   "stop": "planned rounds done",
+   "trials": 177,
+   "looks": 6,
+   "refused_by_code": 2,
+   "best_oos_sharpe": 0.729,
+   "families": [
+    {
+     "id": "F1",
+     "round": 1,
+     "template": "ema_cross",
+     "space": {
+      "fast": [
+       5,
+       10,
+       20,
+       30
+      ],
+      "slow": [
+       50,
+       100,
+       150,
+       200
+      ],
+      "trend_ema": [
+       0
+      ],
+      "vix_max": [
+       0
+      ],
+      "atr_stop": [
+       0
+      ]
+     },
+     "trials": 16,
+     "oos_sharpe": 0.706,
+     "positive_folds": 4,
+     "passed_walk_forward": true
+    },
+    {
+     "id": "F2",
+     "round": 1,
+     "template": "donchian_breakout",
+     "space": {
+      "entry_n": [
+       20,
+       55,
+       100
+      ],
+      "exit_n": [
+       10,
+       20,
+       50
+      ],
+      "trend_ema": [
+       0
+      ],
+      "vix_max": [
+       0
+      ],
+      "atr_stop": [
+       0
+      ]
+     },
+     "trials": 9,
+     "oos_sharpe": 0.507,
+     "positive_folds": 4,
+     "passed_walk_forward": true
+    },
+    {
+     "id": "F3",
+     "round": 2,
+     "template": "ema_cross",
+     "space": {
+      "fast": [
+       5,
+       10,
+       20,
+       30
+      ],
+      "slow": [
+       50,
+       100,
+       150,
+       200
+      ],
+      "trend_ema": [
+       100,
+       200
+      ],
+      "vix_max": [
+       0
+      ],
+      "atr_stop": [
+       0
+      ]
+     },
+     "trials": 32,
+     "oos_sharpe": 0.71,
+     "positive_folds": 4,
+     "passed_walk_forward": true
+    },
+    {
+     "id": "F4",
+     "round": 2,
+     "template": "ema_cross",
+     "space": {
+      "fast": [
+       5,
+       10,
+       20,
+       30
+      ],
+      "slow": [
+       50,
+       100,
+       150,
+       200
+      ],
+      "trend_ema": [
+       0
+      ],
+      "vix_max": [
+       20,
+       25,
+       30
+      ],
+      "atr_stop": [
+       0
+      ]
+     },
+     "trials": 48,
+     "oos_sharpe": 0.729,
+     "positive_folds": 4,
+     "passed_walk_forward": true
+    },
+    {
+     "id": "F5",
+     "round": 2,
+     "template": "donchian_breakout",
+     "space": {
+      "entry_n": [
+       20,
+       55,
+       100
+      ],
+      "exit_n": [
+       10,
+       20,
+       50
+      ],
+      "trend_ema": [
+       100,
+       200
+      ],
+      "vix_max": [
+       0
+      ],
+      "atr_stop": [
+       0
+      ]
+     },
+     "trials": 18,
+     "oos_sharpe": 0.415,
+     "positive_folds": 4,
+     "passed_walk_forward": true
+    },
+    {
+     "id": "F6",
+     "round": 3,
+     "template": "donchian_breakout",
+     "space": {
+      "entry_n": [
+       20,
+       55,
+       100
+      ],
+      "exit_n": [
+       10,
+       20,
+       50
+      ],
+      "trend_ema": [
+       100,
+       200
+      ],
+      "vix_max": [
+       20,
+       25,
+       30
+      ],
+      "atr_stop": [
+       0
+      ]
+     },
+     "trials": 54,
+     "oos_sharpe": 0.456,
+     "positive_folds": 4,
+     "passed_walk_forward": true
+    }
+   ],
+   "proposals": [
+    {
+     "round": 2,
+     "output": {
+      "diagnosis": "The first round results show both F1 (EMA cross) and F2 (Donchian breakout) passed walk-forward with excellent OOS Sharpe (0.706 and 0.507 respectively), well above the required threshold of 0.5. However, the critic raised valid concerns about suspiciously high performance for simple EMA cross strategies and noted limited parameter exploration. The neighbourhood analysis shows strong robustness - all neighbours within 70% of centre Sharpe for both families, indicating the strategies aren't overly sensitive to parameter choices.",
+      "hypothesis": "Adding trend filters (trend_ema) to the best-performing EMA cross strategy (F1) may improve risk management by ensuring we only trade during strong uptrends, potentially reducing drawdowns while maintaining or improving returns. The Donchian breakout already has trend filters enabled (trend_ema=100,200) and appears robust, suggesting it may benefit less from additional trend confirmation.",
+      "experiments": [
+       {
+        "template": "ema_cross",
+        "params": {
+         "fast": [
+          5.0,
+          10.0,
+          20.0,
+          30.0
+         ],
+         "slow": [
+          50.0,
+          100.0,
+          150.0,
+          200.0
+         ],
+         "trend_ema": [
+          100.0,
+          200.0
+         ]
+        },
+        "rationale": "Add trend confirmation to the best-performing EMA cross strategy by requiring the price to be above a longer-term EMA (100 or 200 days). This should help avoid false signals during sideways markets and reduce drawdowns during downtrends, potentially improving risk-adjusted returns."
+       },
+       {
+        "template": "ema_cross",
+        "params": {
+         "fast": [
+          5.0,
+          10.0,
+          20.0,
+          30.0
+         ],
+         "slow": [
+          50.0,
+          100.0,
+          150.0,
+          200.0
+         ],
+         "vix_max": [
+          20.0,
+          25.0,
+          30.0
+         ]
+        },
+        "rationale": "Test volatility filtering to see if limiting trades during high volatility periods improves risk management. High VIX often indicates market stress where trend-following strategies perform poorly."
+       },
+       {
+        "template": "donchian_breakout",
+        "params": {
+         "entry_n": [
+          20.0,
+          55.0,
+          100.0
+         ],
+         "exit_n": [
+          10.0,
+          20.0,
+          50.0
+         ],
+         "trend_ema": [
+          100.0,
+          200.0
+         ]
+        },
+        "rationale": "Enhance the Donchian breakout strategy with trend confirmation by requiring price to be above a longer-term EMA. This should improve the strategy's ability to capture sustained uptrends while avoiding false signals during sideways markets."
+       }
+      ],
+      "diagnose": [
+       "F1"
+      ],
+      "stop": false,
+      "stop_reason": ""
+     },
+     "model": "Qwen/Qwen2.5-3B-Instruct+lora:a1",
+     "usd": 0.0,
+     "mode": "prompt"
+    },
+    {
+     "round": 3,
+     "output": {
+      "diagnosis": "The results show surprisingly high OOS Sharpe ratios (0.729 for F4, 0.71 for F3, 0.706 for F1) for simple EMA cross strategies, which is concerning given the baseline buy-and-hold return of 0.28. The strategy performs exceptionally well in high VIX regimes (>25) with Sharpe 1.13, but poorly in moderate VIX regimes (15-25) with Sharpe -0.51. The neighbourhood analysis shows good stability for F1 and F2, but less so for F3 and F4. The last critic flagged concerns about suspiciously high performance and potential regime dependence.",
+      "hypothesis": "The high performance in high VIX regimes suggests the strategy may be capturing volatility-related signals rather than pure trend-following. Adding trend filters (trend_ema) should help ensure we're only trading during strong trends, potentially improving performance in moderate VIX regimes where current strategies struggle. Testing different volatility caps (vix_max) might also help manage risk during high volatility periods.",
+      "experiments": [
+       {
+        "template": "ema_cross",
+        "params": {
+         "fast": [
+          5.0,
+          10.0,
+          20.0,
+          30.0
+         ],
+         "slow": [
+          50.0,
+          100.0,
+          150.0,
+          200.0
+         ],
+         "trend_ema": [
+          100.0,
+          200.0
+         ],
+         "vix_max": [
+          20.0,
+          25.0,
+          30.0
+         ]
+        },
+        "rationale": "Add trend_ema filter to require strong underlying trend (100 or 200-day EMA up) and limit exposure to moderate volatility (vix_max=20,25,30). This should improve performance in moderate VIX regimes while maintaining high VIX performance."
+       },
+       {
+        "template": "ema_cross",
+        "params": {
+         "fast": [
+          5.0,
+          10.0,
+          20.0,
+          30.0
+         ],
+         "slow": [
+          50.0,
+          100.0,
+          150.0,
+          200.0
+         ],
+         "trend_ema": [
+          0.0
+         ],
+         "vix_max": [
+          0.0
+         ]
+        },
+        "rationale": "Baseline test without any filters to establish a reference point for comparison. This helps isolate the effect of adding trend and volatility filters."
+       },
+       {
+        "template": "donchian_breakout",
+        "params": {
+         "entry_n": [
+          20.0,
+          55.0,
+          100.0
+         ],
+         "exit_n": [
+          10.0,
+          20.0,
+          50.0
+         ],
+         "trend_ema": [
+          100.0,
+          200.0
+         ],
+         "vix_max": [
+          20.0,
+          25.0,
+          30.0
+         ]
+        },
+        "rationale": "Test trend_ema filter on donchian breakout strategy to see if it improves performance in moderate VIX regimes. The donchian breakout already captures breakouts from consolidation, so adding trend confirmation could enhance robustness."
+       }
+      ],
+      "diagnose": [
+       "F3",
+       "F4"
+      ],
+      "stop": false,
+      "stop_reason": ""
+     },
+     "model": "Qwen/Qwen2.5-3B-Instruct+lora:a1",
+     "usd": 0.0,
+     "mode": "prompt"
+    }
+   ],
+   "agent_failures": 0,
+   "failures": [],
+   "model_calls": 8,
+   "usd": 0.008975,
+   "seconds": 145.5
+  },
+  {
+   "seed": 2,
+   "kind": "trend",
+   "truth": "edge",
+   "source": "synthetic:trend:2",
+   "idea": "Ride sustained trends",
+   "promote": true,
+   "reason": "F2 passed walk-forward (OOS Sharpe 0.664) and the holdout (Sharpe 0.978)",
+   "templates": [
+    "ema_cross"
+   ],
+   "rounds": 3,
+   "stop": "planned rounds done",
+   "trials": 58,
+   "looks": 6,
+   "refused_by_code": 1,
+   "best_oos_sharpe": 0.664,
+   "families": [
+    {
+     "id": "F1",
+     "round": 1,
+     "template": "ema_cross",
+     "space": {
+      "fast": [
+       5,
+       10,
+       20,
+       30
+      ],
+      "slow": [
+       50,
+       100,
+       150,
+       200
+      ],
+      "trend_ema": [
+       0
+      ],
+      "vix_max": [
+       0
+      ],
+      "atr_stop": [
+       0
+      ]
+     },
+     "trials": 16,
+     "oos_sharpe": 0.452,
+     "positive_folds": 4,
+     "passed_walk_forward": true
+    },
+    {
+     "id": "F2",
+     "round": 2,
+     "template": "ema_cross",
+     "space": {
+      "fast": [
+       20
+      ],
+      "slow": [
+       100
+      ],
+      "trend_ema": [
+       100
+      ],
+      "vix_max": [
+       20
+      ],
+      "atr_stop": [
+       2.0
+      ]
+     },
+     "trials": 1,
+     "oos_sharpe": 0.664,
+     "positive_folds": 3,
+     "passed_walk_forward": true
+    },
+    {
+     "id": "F3",
+     "round": 2,
+     "template": "ema_cross",
+     "space": {
+      "fast": [
+       20,
+       30
+      ],
+      "slow": [
+       100,
+       150
+      ],
+      "trend_ema": [
+       0,
+       100
+      ],
+      "vix_max": [
+       0,
+       25
+      ],
+      "atr_stop": [
+       0,
+       3.0
+      ]
+     },
+     "trials": 32,
+     "oos_sharpe": 0.294,
+     "positive_folds": 3,
+     "passed_walk_forward": false
+    },
+    {
+     "id": "F4",
+     "round": 2,
+     "template": "ema_cross",
+     "space": {
+      "fast": [
+       20,
+       30
+      ],
+      "slow": [
+       100,
+       150
+      ],
+      "trend_ema": [
+       100
+      ],
+      "vix_max": [
+       25
+      ],
+      "atr_stop": [
+       2.0
+      ]
+     },
+     "trials": 4,
+     "oos_sharpe": 0.339,
+     "positive_folds": 3,
+     "passed_walk_forward": false
+    },
+    {
+     "id": "F5",
+     "round": 3,
+     "template": "ema_cross",
+     "space": {
+      "fast": [
+       20
+      ],
+      "slow": [
+       100
+      ],
+      "trend_ema": [
+       100
+      ],
+      "vix_max": [
+       30
+      ],
+      "atr_stop": [
+       2.0
+      ]
+     },
+     "trials": 1,
+     "oos_sharpe": 0.354,
+     "positive_folds": 3,
+     "passed_walk_forward": false
+    },
+    {
+     "id": "F6",
+     "round": 3,
+     "template": "ema_cross",
+     "space": {
+      "fast": [
+       20,
+       30
+      ],
+      "slow": [
+       100,
+       150
+      ],
+      "trend_ema": [
+       0
+      ],
+      "vix_max": [
+       0
+      ],
+      "atr_stop": [
+       0
+      ]
+     },
+     "trials": 4,
+     "oos_sharpe": 0.28,
+     "positive_folds": 3,
+     "passed_walk_forward": false
+    }
+   ],
+   "proposals": [
+    {
+     "round": 2,
+     "output": {
+      "diagnosis": "The first round tested the ema_cross template with parameter ranges matching the original specification (fast: 5-30, slow: 50-200) and explored trend_ema, vix_max, and atr_stop filters. Family F1 achieved excellent OOS Sharpe of 0.452 with 4 positive folds, passing walk-forward validation. However, the critic raised valid concerns about marginal performance meeting the current threshold, instability shown by only 4/5 positive folds, and potential overfitting given the broad parameter space. No diagnostics were run yet.",
+      "hypothesis": "The strong initial performance warrants further exploration with more focused parameter tuning around the successful region while adding robustness checks. We should test whether tightening the parameter ranges or adding specific trend_ema thresholds can improve consistency and potentially meet the higher required OOS Sharpe of 0.5 after one more look.",
+      "experiments": [
+       {
+        "template": "ema_cross",
+        "params": {
+         "fast": [
+          20.0
+         ],
+         "slow": [
+          100.0
+         ],
+         "trend_ema": [
+          100.0
+         ],
+         "vix_max": [
+          20.0
+         ],
+         "atr_stop": [
+          2.0
+         ]
+        },
+        "rationale": "Focus on the most promising region from the first round (fast=20, slow=100) and add trend_ema=100 to ensure we're capturing established trends, vix_max=20 to avoid high volatility periods, and atr_stop=2.0 for risk management. This represents a more conservative, trend-following approach that might show better consistency across folds."
+       },
+       {
+        "template": "ema_cross",
+        "params": {
+         "fast": [
+          20.0,
+          30.0
+         ],
+         "slow": [
+          100.0,
+          150.0
+         ],
+         "trend_ema": [
+          0.0,
+          100.0
+         ],
+         "vix_max": [
+          0.0,
+          25.0
+         ],
+         "atr_stop": [
+          0.0,
+          3.0
+         ]
+        },
+        "rationale": "Test parameter combinations that explore the broader fast=20-30 range and slower=100-150 while keeping trend_ema=0 to see if removing trend filtering improves consistency. Add vix_max=0 to avoid volatility filters and atr_stop=0 to remove stop-loss constraints. This tests whether the trend_ema filter was necessary for the strong performance."
+       },
+       {
+        "template": "ema_cross",
+        "params": {
+         "fast": [
+          20.0,
+          30.0
+         ],
+         "slow": [
+          100.0,
+          150.0
+         ],
+         "trend_ema": [
+          100.0
+         ],
+         "vix_max": [
+          25.0
+         ],
+         "atr_stop": [
+          2.0
+         ]
+        },
+        "rationale": "Combine the best elements from both previous experiments: fast=20-30, slow=100-150 with trend_ema=100 for trend confirmation, vix_max=25 to manage volatility, and atr_stop=2.0 for risk control. This represents a balanced, conservative trend-following strategy that addresses the critic's concerns about stability."
+       }
+      ],
+      "diagnose": [
+       "F1"
+      ],
+      "stop": false,
+      "stop_reason": ""
+     },
+     "model": "Qwen/Qwen2.5-3B-Instruct+lora:a1",
+     "usd": 0.0,
+     "mode": "prompt"
+    },
+    {
+     "round": 3,
+     "output": {
+      "diagnosis": "The best family F2 achieved excellent OOS Sharpe (0.664) with only 1 trial, suggesting it may be a lucky parameter combination. However, the critic raised valid concerns about potential overfitting given its narrow parameter space (fast=20, slow=100, trend_ema=100, vix_max=20, atr_stop=2.0) and lack of robustness checks. Diagnostics show F2 performs well across regimes (especially high Sharpe in low VIX environments) but has some weaknesses in downtrends (Sharpe 0.44 vs 1.05 in uptrends). The neighbourhood analysis indicates F2 is stable (all neighbours within 70% of centre Sharpe). The broader exploration in F1 (0.452) and F3 (0.294) shows more variability and potential for improvement.",
+      "hypothesis": "The core 'ride sustained trends' idea is sound, but we need to test whether the excellent performance in F2 is sustainable with more robust parameter exploration and risk management filters. Adding trend_ema filter to require stronger trend confirmation (100-day EMA) and testing higher VIX thresholds (vix_max=30) might improve risk-adjusted returns by avoiding choppy markets while maintaining the strong uptrend focus.",
+      "experiments": [
+       {
+        "template": "ema_cross",
+        "params": {
+         "fast": [
+          20.0
+         ],
+         "slow": [
+          100.0
+         ],
+         "trend_ema": [
+          100.0
+         ],
+         "vix_max": [
+          30.0
+         ],
+         "atr_stop": [
+          2.0
+         ]
+        },
+        "rationale": "Test the exact parameters from F2 with added trend_ema filter for stronger trend confirmation and higher VIX threshold. This addresses the critic's concern about potential overfitting to specific parameters and tests whether the strong uptrend focus remains robust with more conservative risk management."
+       },
+       {
+        "template": "ema_cross",
+        "params": {
+         "fast": [
+          20.0,
+          30.0
+         ],
+         "slow": [
+          100.0,
+          150.0
+         ],
+         "trend_ema": [
+          100.0
+         ],
+         "vix_max": [
+          25.0
+         ],
+         "atr_stop": [
+          2.0
+         ]
+        },
+        "rationale": "Expand the parameter search around F2's successful combination to test variations. Include both fast=20 and 30 days to capture different entry points, and slower slow=150 to potentially improve risk-adjusted returns. Keep trend_ema=100 for trend confirmation and vix_max=25 to avoid extreme volatility environments."
+       },
+       {
+        "template": "ema_cross",
+        "params": {
+         "fast": [
+          20.0,
+          30.0
+         ],
+         "slow": [
+          100.0,
+          150.0
+         ],
+         "trend_ema": [
+          0.0
+         ],
+         "vix_max": [
+          0.0
+         ],
+         "atr_stop": [
+          0.0
+         ]
+        },
+        "rationale": "Conduct a control experiment with all filters disabled to isolate the effect of trend_ema and vix_max. This helps determine if these filters are genuinely improving performance or if they're just capturing market conditions where the strategy already works well."
+       }
+      ],
+      "diagnose": [
+       "F2"
+      ],
+      "stop": false,
+      "stop_reason": ""
+     },
+     "model": "Qwen/Qwen2.5-3B-Instruct+lora:a1",
+     "usd": 0.0,
+     "mode": "prompt"
+    }
+   ],
+   "agent_failures": 0,
+   "failures": [],
+   "model_calls": 10,
+   "usd": 0.01134,
+   "seconds": 179.1
+  },
+  {
+   "seed": 3,
+   "kind": "trend",
+   "truth": "edge",
+   "source": "synthetic:trend:3",
+   "idea": "Ride sustained trends",
+   "promote": true,
+   "reason": "F3 passed walk-forward (OOS Sharpe 1.519) and the holdout (Sharpe 2.153)",
+   "templates": [
+    "ema_cross",
+    "donchian_breakout"
+   ],
+   "rounds": 3,
+   "stop": "critic: further rounds would fit noise",
+   "trials": 97,
+   "looks": 4,
+   "refused_by_code": 3,
+   "best_oos_sharpe": 1.519,
+   "families": [
+    {
+     "id": "F1",
+     "round": 1,
+     "template": "ema_cross",
+     "space": {
+      "fast": [
+       5,
+       10,
+       20,
+       30
+      ],
+      "slow": [
+       50,
+       100,
+       150,
+       200
+      ],
+      "trend_ema": [
+       0
+      ],
+      "vix_max": [
+       0
+      ],
+      "atr_stop": [
+       0
+      ]
+     },
+     "trials": 16,
+     "oos_sharpe": 1.376,
+     "positive_folds": 5,
+     "passed_walk_forward": true
+    },
+    {
+     "id": "F2",
+     "round": 1,
+     "template": "donchian_breakout",
+     "space": {
+      "entry_n": [
+       20,
+       55,
+       100
+      ],
+      "exit_n": [
+       10,
+       20,
+       50
+      ],
+      "trend_ema": [
+       0
+      ],
+      "vix_max": [
+       0
+      ],
+      "atr_stop": [
+       0
+      ]
+     },
+     "trials": 9,
+     "oos_sharpe": 1.413,
+     "positive_folds": 5,
+     "passed_walk_forward": true
+    },
+    {
+     "id": "F3",
+     "round": 2,
+     "template": "ema_cross",
+     "space": {
+      "fast": [
+       5,
+       10,
+       20
+      ],
+      "slow": [
+       50,
+       100,
+       150
+      ],
+      "trend_ema": [
+       100,
+       200
+      ],
+      "vix_max": [
+       20,
+       25
+      ],
+      "atr_stop": [
+       0
+      ]
+     },
+     "trials": 36,
+     "oos_sharpe": 1.519,
+     "positive_folds": 5,
+     "passed_walk_forward": true
+    },
+    {
+     "id": "F4",
+     "round": 2,
+     "template": "donchian_breakout",
+     "space": {
+      "entry_n": [
+       20,
+       55,
+       100
+      ],
+      "exit_n": [
+       10,
+       20,
+       50
+      ],
+      "trend_ema": [
+       100,
+       200
+      ],
+      "vix_max": [
+       20,
+       25
+      ],
+      "atr_stop": [
+       0
+      ]
+     },
+     "trials": 36,
+     "oos_sharpe": 1.345,
+     "positive_folds": 3,
+     "passed_walk_forward": true
+    }
+   ],
+   "proposals": [
+    {
+     "round": 2,
+     "output": {
+      "diagnosis": "The first round results show both F1 (EMA cross) and F2 (Donchian breakout) passing walk-forward with OOS Sharpe of 1.413 and 1.376 respectively, significantly higher than buy-hold Sharpe of 0.623. However, the critic raised valid concerns about implausibly high performance and potential overfitting given the short trial budget (25 trials) and the fact that both strategies performed almost identically to in-sample results. The neighbourhood analysis shows strong robustness around the centre values, with all neighbours within 70% of centre Sharpe, indicating the strategies may be stable but still suspiciously good.",
+      "hypothesis": "The high performance could be due to specific parameter combinations that worked well in the limited sample, or it might be capturing some edge that isn't sustainable. Adding trend_ema and vix_max filters should help test whether the strategies remain effective in more controlled market conditions (avoiding extreme volatility and choppy trends) and whether the high performance persists.",
+      "experiments": [
+       {
+        "template": "ema_cross",
+        "params": {
+         "fast": [
+          5.0,
+          10.0,
+          20.0
+         ],
+         "slow": [
+          50.0,
+          100.0,
+          150.0
+         ],
+         "trend_ema": [
+          100.0,
+          200.0
+         ],
+         "vix_max": [
+          20.0,
+          25.0
+         ]
+        },
+        "rationale": "Test EMA cross with trend_ema filter set to 100 or 200 days to ensure we're only trading with established trends, and vix_max filter to avoid high volatility periods. This addresses the critic's concern about potential overfitting to specific parameter combinations."
+       },
+       {
+        "template": "donchian_breakout",
+        "params": {
+         "entry_n": [
+          20.0,
+          55.0,
+          100.0
+         ],
+         "exit_n": [
+          10.0,
+          20.0,
+          50.0
+         ],
+         "trend_ema": [
+          100.0,
+          200.0
+         ],
+         "vix_max": [
+          20.0,
+          25.0
+         ]
+        },
+        "rationale": "Similar to EMA cross, test Donchian breakout with trend_ema and vix_max filters to see if the breakout strategy performs better in controlled market conditions. This helps determine if the breakout signals are genuinely profitable or just capturing noise."
+       }
+      ],
+      "diagnose": [
+       "F2"
+      ],
+      "stop": false,
+      "stop_reason": ""
+     },
+     "model": "Qwen/Qwen2.5-3B-Instruct+lora:a1",
+     "usd": 0.0,
+     "mode": "prompt"
+    },
+    {
+     "round": 3,
+     "output": {
+      "diagnosis": "The results show remarkably strong performance across all three families (OOS Sharpe: 1.519, 1.413, 1.376 respectively), far exceeding the required threshold of 0.6. However, the critic raised valid concerns about implausibly high returns for simple trend-following strategies, especially given the suspiciously consistent performance across different parameter combinations. The diagnostics reveal several issues: 1) All families performed exceptionally well in uptrends (Sharpe 2.13-2.35) but poorly in downtrends (Sharpe 0.15), indicating potential overfitting to favorable market regimes. 2) Performance varies significantly by year, with some years showing negative returns (2021, 2023). 3) The neighbourhood analysis shows all families have robustness - 100% of neighbours within 70% of centre Sharpe, suggesting the core strategy isn't fragile. 4) The 'ride sustained trends' hypothesis seems validated by the strong uptrend performance.",
+      "hypothesis": "While the current strategies show exceptional performance, the critic's concerns about implausibility suggest we need to test more realistic scenarios or explore whether the strong uptrend performance can be maintained in downtrends. We should focus on improving robustness in downtrends and potentially testing whether adding stop-losses or position sizing filters can reduce drawdowns without sacrificing returns.",
+      "experiments": [
+       {
+        "template": "ema_cross",
+        "params": {
+         "fast": [
+          5.0,
+          10.0,
+          20.0
+         ],
+         "slow": [
+          50.0,
+          100.0,
+          150.0
+         ],
+         "trend_ema": [
+          100.0,
+          200.0
+         ],
+         "vix_max": [
+          20.0,
+          25.0
+         ],
+         "atr_stop": [
+          2.0,
+          3.0
+         ]
+        },
+        "rationale": "Add ATR-based stop-losses to the best-performing EMA cross family (F3) to manage downside risk. This addresses the critic's concern about potential overfitting to favorable uptrends by providing protection during downtrends where performance was weak (Sharpe 0.15)."
+       },
+       {
+        "template": "donchian_breakout",
+        "params": {
+         "entry_n": [
+          20.0,
+          55.0,
+          100.0
+         ],
+         "exit_n": [
+          10.0,
+          20.0,
+          50.0
+         ],
+         "trend_ema": [
+          100.0,
+          200.0
+         ],
+         "vix_max": [
+          20.0,
+          25.0
+         ],
+         "atr_stop": [
+          2.0,
+          3.0
+         ]
+        },
+        "rationale": "Test the same ATR-based stop-loss approach on the best-performing Donchian breakout family (F4). This combines trend confirmation (trend_ema) with risk management (ATR stop) to see if it improves robustness across all market regimes."
+       },
+       {
+        "template": "ema_cross",
+        "params": {
+         "fast": [
+          5.0,
+          10.0,
+          20.0
+         ],
+         "slow": [
+          50.0,
+          100.0,
+          150.0
+         ],
+         "trend_ema": [
+          0.0
+         ],
+         "vix_max": [
+          0.0
+         ],
+         "atr_stop": [
+          0.0
+         ]
+        },
+        "rationale": "Conduct a control experiment with no filters to isolate the pure EMA cross effect. This helps determine if the strong performance is due to specific filter combinations or inherent properties of the EMA cross strategy itself."
+       }
+      ],
+      "diagnose": [
+       "F2",
+       "F4"
+      ],
+      "stop": false,
+      "stop_reason": ""
+     },
+     "model": "Qwen/Qwen2.5-3B-Instruct+lora:a1",
+     "usd": 0.0,
+     "mode": "prompt"
+    }
+   ],
+   "agent_failures": 0,
+   "failures": [],
+   "model_calls": 8,
+   "usd": 0.00814,
+   "seconds": 220.6
+  },
+  {
+   "seed": 4,
+   "kind": "trend",
+   "truth": "edge",
+   "source": "synthetic:trend:4",
+   "idea": "Ride sustained trends",
+   "promote": true,
+   "reason": "F2 passed walk-forward (OOS Sharpe 0.915) and the holdout (Sharpe 0.588)",
+   "templates": [
+    "ema_cross"
+   ],
+   "rounds": 3,
+   "stop": "critic: further rounds would fit noise",
+   "trials": 48,
+   "looks": 2,
+   "refused_by_code": 4,
+   "best_oos_sharpe": 0.915,
+   "families": [
+    {
+     "id": "F1",
+     "round": 1,
+     "template": "ema_cross",
+     "space": {
+      "fast": [
+       5,
+       10,
+       20,
+       30
+      ],
+      "slow": [
+       50,
+       100,
+       150,
+       200
+      ],
+      "trend_ema": [
+       0
+      ],
+      "vix_max": [
+       0
+      ],
+      "atr_stop": [
+       0
+      ]
+     },
+     "trials": 16,
+     "oos_sharpe": 0.877,
+     "positive_folds": 4,
+     "passed_walk_forward": true
+    },
+    {
+     "id": "F2",
+     "round": 2,
+     "template": "ema_cross",
+     "space": {
+      "fast": [
+       5,
+       10,
+       20,
+       30
+      ],
+      "slow": [
+       50,
+       100,
+       150,
+       200
+      ],
+      "trend_ema": [
+       100,
+       200
+      ],
+      "vix_max": [
+       0
+      ],
+      "atr_stop": [
+       0
+      ]
+     },
+     "trials": 32,
+     "oos_sharpe": 0.915,
+     "positive_folds": 3,
+     "passed_walk_forward": true
+    }
+   ],
+   "proposals": [
+    {
+     "round": 2,
+     "output": {
+      "diagnosis": "The first round tested the ema_cross template with 16 trials exploring fast=5-30, slow=50-200. The best-performing family (F1) achieved OOS Sharpe of 0.877 with 4/5 positive folds, significantly outperforming buy-hold (0.032). However, the critic's concerns about potential overfitting or lack of diversification haven't been addressed yet. The walk-forward looks have increased the required OOS Sharpe to 0.5 after one more look.",
+      "hypothesis": "Adding trend filters could improve risk management by avoiding trades during choppy markets (VIX > 20) and ensuring we're trading with established trends rather than countertrends. The trend_ema filter specifically should help filter out false signals during weak trends.",
+      "experiments": [
+       {
+        "template": "ema_cross",
+        "params": {
+         "fast": [
+          5.0,
+          10.0,
+          20.0,
+          30.0
+         ],
+         "slow": [
+          50.0,
+          100.0,
+          150.0,
+          200.0
+         ],
+         "trend_ema": [
+          100.0,
+          200.0
+         ]
+        },
+        "rationale": "Add trend_ema filter to require prices to be above a longer-term EMA (100 or 200 days) to ensure we're trading with established trends rather than countertrends. This should improve risk-adjusted returns by avoiding choppy market conditions."
+       },
+       {
+        "template": "ema_cross",
+        "params": {
+         "fast": [
+          5.0,
+          10.0,
+          20.0,
+          30.0
+         ],
+         "slow": [
+          50.0,
+          100.0,
+          150.0,
+          200.0
+         ],
+         "vix_max": [
+          20.0,
+          25.0,
+          30.0
+         ]
+        },
+        "rationale": "Add VIX max filter to avoid trading during high volatility periods where trend-following strategies often fail. High VIX (>20) indicates choppy markets where price movements may be erratic and less predictable."
+       }
+      ],
+      "diagnose": [
+       "F1"
+      ],
+      "stop": false,
+      "stop_reason": ""
+     },
+     "model": "Qwen/Qwen2.5-3B-Instruct+lora:a1",
+     "usd": 0.0,
+     "mode": "prompt"
+    },
+    {
+     "round": 3,
+     "output": {
+      "diagnosis": "The results show remarkable performance with both F1 and F2 achieving OOS Sharpe ratios well above the required threshold (0.5) and passing walk-forward tests. However, the critic raised valid concerns about implausibly high returns, concentration in favorable regimes (low VIX, uptrends), and suspiciously high returns in specific years (2018, 2021). The neighbourhood analysis shows F2 has good robustness with all neighbours within 70% of centre Sharpe, but only 3 positive folds is concerning. The diagnostics reveal strong uptrend performance (Sharpe 1.23) and weak downtrend performance (Sharpe 0.62), suggesting the strategy may be biased towards bullish markets.",
+      "hypothesis": "The current strategy appears to be capturing strong uptrend signals but struggles in downtrends, which could explain the limited fold positivity despite high overall performance. Adding trend filtering (trend_ema=100 or 200) should help improve downtrend performance by avoiding trades during bear markets. Testing different VIX thresholds might also help manage volatility risk more effectively. The atr_stop filter could provide downside protection without significantly degrading returns.",
+      "experiments": [
+       {
+        "template": "ema_cross",
+        "params": {
+         "fast": [
+          5.0,
+          10.0,
+          20.0,
+          30.0
+         ],
+         "slow": [
+          50.0,
+          100.0,
+          150.0,
+          200.0
+         ],
+         "trend_ema": [
+          100.0,
+          200.0
+         ],
+         "vix_max": [
+          20.0,
+          25.0
+         ]
+        },
+        "rationale": "Add trend filtering to require prices above a longer-term EMA (100 or 200 days) to filter out downtrends. This should improve downtrend performance and potentially reduce drawdowns. Test VIX max thresholds to avoid extreme volatility periods where the strategy may struggle."
+       },
+       {
+        "template": "ema_cross",
+        "params": {
+         "fast": [
+          5.0,
+          10.0,
+          20.0,
+          30.0
+         ],
+         "slow": [
+          50.0,
+          100.0,
+          150.0,
+          200.0
+         ],
+         "atr_stop": [
+          2.0,
+          3.0
+         ]
+        },
+        "rationale": "Test ATR-based stop-losses to limit downside exposure during volatile periods. This could help maintain gains in downtrends and potentially improve fold positivity by cutting losing positions early."
+       },
+       {
+        "template": "ema_cross",
+        "params": {
+         "fast": [
+          5.0,
+          10.0,
+          20.0,
+          30.0
+         ],
+         "slow": [
+          50.0,
+          100.0,
+          150.0,
+          200.0
+         ],
+         "trend_ema": [
+          100.0,
+          200.0
+         ],
+         "vix_max": [
+          20.0,
+          25.0
+         ],
+         "atr_stop": [
+          2.0,
+          3.0
+         ]
+        },
+        "rationale": "Combine trend filtering with volatility and stop-loss filters to create a more conservative version of the original strategy. This addresses the weakness in downtrends while maintaining the core uptrend capture mechanism."
+       }
+      ],
+      "diagnose": [
+       "F2"
+      ],
+      "stop": false,
+      "stop_reason": ""
+     },
+     "model": "Qwen/Qwen2.5-3B-Instruct+lora:a1",
+     "usd": 0.0,
+     "mode": "prompt"
+    }
+   ],
+   "agent_failures": 0,
+   "failures": [],
+   "model_calls": 8,
+   "usd": 0.007313,
+   "seconds": 249.2
+  },
+  {
+   "seed": 5,
+   "kind": "trend",
+   "truth": "edge",
+   "source": "synthetic:trend:5",
+   "idea": "Ride sustained trends",
+   "promote": false,
+   "reason": "no family cleared walk-forward at the bar for 6 looks (OOS Sharpe >= 0.658); holdout left sealed",
+   "templates": [
+    "ema_cross",
+    "donchian_breakout"
+   ],
+   "rounds": 3,
+   "stop": "planned rounds done",
+   "trials": 124,
+   "looks": 6,
+   "refused_by_code": 2,
+   "best_oos_sharpe": 0.567,
+   "families": [
+    {
+     "id": "F1",
+     "round": 1,
+     "template": "ema_cross",
+     "space": {
+      "fast": [
+       5,
+       10,
+       20,
+       30
+      ],
+      "slow": [
+       50,
+       100,
+       150,
+       200
+      ],
+      "trend_ema": [
+       0
+      ],
+      "vix_max": [
+       0
+      ],
+      "atr_stop": [
+       0
+      ]
+     },
+     "trials": 16,
+     "oos_sharpe": 0.494,
+     "positive_folds": 3,
+     "passed_walk_forward": true
+    },
+    {
+     "id": "F2",
+     "round": 1,
+     "template": "donchian_breakout",
+     "space": {
+      "entry_n": [
+       20,
+       55,
+       100
+      ],
+      "exit_n": [
+       10,
+       20,
+       50
+      ],
+      "trend_ema": [
+       0
+      ],
+      "vix_max": [
+       0
+      ],
+      "atr_stop": [
+       0
+      ]
+     },
+     "trials": 9,
+     "oos_sharpe": 0.172,
+     "positive_folds": 3,
+     "passed_walk_forward": false
+    },
+    {
+     "id": "F3",
+     "round": 2,
+     "template": "ema_cross",
+     "space": {
+      "fast": [
+       5,
+       10,
+       20
+      ],
+      "slow": [
+       50,
+       100,
+       150
+      ],
+      "trend_ema": [
+       100,
+       200
+      ],
+      "vix_max": [
+       0
+      ],
+      "atr_stop": [
+       2.0,
+       3.0
+      ]
+     },
+     "trials": 36,
+     "oos_sharpe": 0.567,
+     "positive_folds": 3,
+     "passed_walk_forward": true
+    },
+    {
+     "id": "F4",
+     "round": 2,
+     "template": "ema_cross",
+     "space": {
+      "fast": [
+       5,
+       10,
+       20
+      ],
+      "slow": [
+       50,
+       100,
+       150
+      ],
+      "trend_ema": [
+       0
+      ],
+      "vix_max": [
+       20,
+       25,
+       30
+      ],
+      "atr_stop": [
+       0
+      ]
+     },
+     "trials": 27,
+     "oos_sharpe": 0.446,
+     "positive_folds": 3,
+     "passed_walk_forward": true
+    },
+    {
+     "id": "F5",
+     "round": 2,
+     "template": "ema_cross",
+     "space": {
+      "fast": [
+       5,
+       10,
+       20
+      ],
+      "slow": [
+       50,
+       100,
+       150
+      ],
+      "trend_ema": [
+       0
+      ],
+      "vix_max": [
+       0
+      ],
+      "atr_stop": [
+       0,
+       2.0,
+       3.0
+      ]
+     },
+     "trials": 27,
+     "oos_sharpe": 0.489,
+     "positive_folds": 4,
+     "passed_walk_forward": true
+    },
+    {
+     "id": "F6",
+     "round": 3,
+     "template": "ema_cross",
+     "space": {
+      "fast": [
+       5,
+       10,
+       20
+      ],
+      "slow": [
+       50,
+       100,
+       150
+      ],
+      "trend_ema": [
+       0
+      ],
+      "vix_max": [
+       0
+      ],
+      "atr_stop": [
+       0
+      ]
+     },
+     "trials": 9,
+     "oos_sharpe": 0.481,
+     "positive_folds": 3,
+     "passed_walk_forward": true
+    }
+   ],
+   "proposals": [
+    {
+     "round": 2,
+     "output": {
+      "diagnosis": "The first round produced promising results with F1 (EMA cross) achieving OOS Sharpe of 0.494, passing walk-forward with 3/5 positive folds. However, the critic flagged concerns about borderline performance consistency (only 3/5 positive folds) and marginal outperformance (barely meeting current requirement of 0.5). F2 (Donchian breakout) performed poorly with OOS Sharpe of 0.172 and failed walk-forward. The neighbourhood analysis shows moderate robustness around the centre Sharpe (median neighbour Sharpe 0.561, min 0.472), suggesting some parameter sensitivity.",
+      "hypothesis": "The EMA cross template appears strong but needs further refinement. Adding trend filters (trend_ema) could improve consistency by ensuring trades align with longer-term uptrends. Testing different ATR stop-loss values might enhance risk management without sacrificing returns. We should also explore whether adding VIX max filter could help avoid high volatility periods where trend-following may fail.",
+      "experiments": [
+       {
+        "template": "ema_cross",
+        "params": {
+         "fast": [
+          5.0,
+          10.0,
+          20.0
+         ],
+         "slow": [
+          50.0,
+          100.0,
+          150.0
+         ],
+         "trend_ema": [
+          100.0,
+          200.0
+         ],
+         "atr_stop": [
+          2.0,
+          3.0
+         ]
+        },
+        "rationale": "Add trend_ema filter to require trades occur during established uptrends (100 or 200-day EMA above zero). This should improve consistency by avoiding counter-trend entries. Test ATR stop-loss values (2.0, 3.0) to manage downside risk."
+       },
+       {
+        "template": "ema_cross",
+        "params": {
+         "fast": [
+          5.0,
+          10.0,
+          20.0
+         ],
+         "slow": [
+          50.0,
+          100.0,
+          150.0
+         ],
+         "vix_max": [
+          20.0,
+          25.0,
+          30.0
+         ]
+        },
+        "rationale": "Add VIX max filter to avoid trading during extreme volatility periods. High VIX often disrupts trend-following signals. Test three VIX thresholds (20, 25, 30) to find optimal volatility avoidance level."
+       },
+       {
+        "template": "ema_cross",
+        "params": {
+         "fast": [
+          5.0,
+          10.0,
+          20.0
+         ],
+         "slow": [
+          50.0,
+          100.0,
+          150.0
+         ],
+         "atr_stop": [
+          0.0,
+          2.0,
+          3.0
+         ]
+        },
+        "rationale": "Test ATR stop-loss values (0, 2.0, 3.0) to determine if risk management improves performance. Zero ATR means no stop, 2.0 and 3.0 provide moderate protection."
+       }
+      ],
+      "diagnose": [
+       "F1"
+      ],
+      "stop": false,
+      "stop_reason": ""
+     },
+     "model": "Qwen/Qwen2.5-3B-Instruct+lora:a1",
+     "usd": 0.0,
+     "mode": "prompt"
+    },
+    {
+     "round": 3,
+     "output": {
+      "diagnosis": "The best family F3 shows strong OOS Sharpe (0.567) but only 3/5 positive folds, similar to F1. Diagnostics reveal performance concentration: F1 excels in VIX<15 (Sharpe 1.12) and uptrend (Sharpe 0.84) but struggles in VIX 15-25 (-0.31 Sharpe) and downtrends (Sharpe 0.75). Yearly returns show extreme variability with high positive years (2016: 51.6%, 2020: 45.2%) and negative years (2011: -4.9, 2021: -15.6, 2022: -11.3). The neighbourhood analysis for F1 shows decent stability (80% within 70% of centre), but F3's neighbourhood stability is lower (78%).",
+      "hypothesis": "The strategy's weakness in VIX 15-25 and downtrends suggests it may be too sensitive to volatility extremes or bear markets. Adding volatility filters (vix_max) could help reduce losses during high-volatility periods. Testing trend filters (trend_ema) might improve performance in downtrends.",
+      "experiments": [
+       {
+        "template": "ema_cross",
+        "params": {
+         "fast": [
+          5.0,
+          10.0,
+          20.0
+         ],
+         "slow": [
+          50.0,
+          100.0,
+          150.0
+         ],
+         "trend_ema": [
+          100.0,
+          200.0
+         ],
+         "atr_stop": [
+          0.0,
+          2.0,
+          3.0
+         ],
+         "vix_max": [
+          20.0,
+          25.0,
+          30.0
+         ]
+        },
+        "rationale": "Add trend filter to avoid entering trades during downtrends where Sharpe is 0.75. Test vix_max filter to limit exposure during high-volatility periods where Sharpe is -0.31. This addresses the regime weaknesses identified in diagnostics."
+       },
+       {
+        "template": "ema_cross",
+        "params": {
+         "fast": [
+          5.0,
+          10.0,
+          20.0
+         ],
+         "slow": [
+          50.0,
+          100.0,
+          150.0
+         ],
+         "trend_ema": [
+          0.0
+         ],
+         "atr_stop": [
+          0.0
+         ],
+         "vix_max": [
+          0.0
+         ]
+        },
+        "rationale": "Baseline without any filters to see if removing volatility and trend restrictions improves consistency across all regimes."
+       },
+       {
+        "template": "ema_cross",
+        "params": {
+         "fast": [
+          5.0,
+          10.0,
+          20.0
+         ],
+         "slow": [
+          50.0,
+          100.0,
+          150.0
+         ],
+         "trend_ema": [
+          100.0,
+          200.0
+         ],
+         "atr_stop": [
+          2.0,
+          3.0
+         ],
+         "vix_max": [
+          0.0
+         ]
+        },
+        "rationale": "Test ATR stop-losses with trend filter to manage downside risk during strong trends while avoiding high-volatility periods."
+       }
+      ],
+      "diagnose": [
+       "F3"
+      ],
+      "stop": false,
+      "stop_reason": ""
+     },
+     "model": "Qwen/Qwen2.5-3B-Instruct+lora:a1",
+     "usd": 0.0,
+     "mode": "prompt"
+    }
+   ],
+   "agent_failures": 0,
+   "failures": [],
+   "model_calls": 8,
+   "usd": 0.008267,
+   "seconds": 233.0
+  },
+  {
+   "seed": 6,
+   "kind": "meanrev",
+   "truth": "edge",
+   "source": "synthetic:meanrev:6",
+   "idea": "Buy short-term oversold dips",
+   "promote": true,
+   "reason": "F7 passed walk-forward (OOS Sharpe 1.312) and the holdout (Sharpe 1.704)",
+   "templates": [
+    "rsi_reversion",
+    "bollinger_reversion"
+   ],
+   "rounds": 3,
+   "stop": "critic: further rounds would fit noise",
+   "trials": 76,
+   "looks": 8,
+   "refused_by_code": 0,
+   "best_oos_sharpe": 1.312,
+   "families": [
+    {
+     "id": "F1",
+     "round": 1,
+     "template": "rsi_reversion",
+     "space": {
+      "n": [
+       2,
+       3,
+       5,
+       14
+      ],
+      "entry": [
+       10,
+       20,
+       30
+      ],
+      "exit": [
+       50,
+       60,
+       70
+      ],
+      "trend_ema": [
+       0
+      ],
+      "vix_max": [
+       0
+      ],
+      "atr_stop": [
+       0
+      ]
+     },
+     "trials": 36,
+     "oos_sharpe": 1.245,
+     "positive_folds": 5,
+     "passed_walk_forward": true
+    },
+    {
+     "id": "F2",
+     "round": 1,
+     "template": "bollinger_reversion",
+     "space": {
+      "n": [
+       10,
+       20,
+       40
+      ],
+      "k": [
+       1.5,
+       2.0,
+       2.5
+      ],
+      "trend_ema": [
+       0
+      ],
+      "vix_max": [
+       0
+      ],
+      "atr_stop": [
+       0
+      ]
+     },
+     "trials": 9,
+     "oos_sharpe": 0.904,
+     "positive_folds": 5,
+     "passed_walk_forward": true
+    },
+    {
+     "id": "F3",
+     "round": 2,
+     "template": "rsi_reversion",
+     "space": {
+      "n": [
+       14
+      ],
+      "entry": [
+       20
+      ],
+      "exit": [
+       60
+      ],
+      "trend_ema": [
+       100
+      ],
+      "vix_max": [
+       25
+      ],
+      "atr_stop": [
+       2.0
+      ]
+     },
+     "trials": 1,
+     "oos_sharpe": 0.0,
+     "positive_folds": 0,
+     "passed_walk_forward": false
+    },
+    {
+     "id": "F4",
+     "round": 2,
+     "template": "bollinger_reversion",
+     "space": {
+      "n": [
+       20
+      ],
+      "k": [
+       2.0
+      ],
+      "trend_ema": [
+       100
+      ],
+      "vix_max": [
+       25
+      ],
+      "atr_stop": [
+       2.0
+      ]
+     },
+     "trials": 1,
+     "oos_sharpe": 0.263,
+     "positive_folds": 3,
+     "passed_walk_forward": false
+    },
+    {
+     "id": "F5",
+     "round": 2,
+     "template": "rsi_reversion",
+     "space": {
+      "n": [
+       5
+      ],
+      "entry": [
+       20
+      ],
+      "exit": [
+       60
+      ],
+      "trend_ema": [
+       0
+      ],
+      "vix_max": [
+       0
+      ],
+      "atr_stop": [
+       0
+      ]
+     },
+     "trials": 1,
+     "oos_sharpe": 0.155,
+     "positive_folds": 3,
+     "passed_walk_forward": false
+    },
+    {
+     "id": "F6",
+     "round": 3,
+     "template": "rsi_reversion",
+     "space": {
+      "n": [
+       2,
+       3,
+       5
+      ],
+      "entry": [
+       10,
+       20
+      ],
+      "exit": [
+       50,
+       60
+      ],
+      "trend_ema": [
+       100
+      ],
+      "vix_max": [
+       25
+      ],
+      "atr_stop": [
+       0
+      ]
+     },
+     "trials": 12,
+     "oos_sharpe": 0.426,
+     "positive_folds": 3,
+     "passed_walk_forward": true
+    },
+    {
+     "id": "F7",
+     "round": 3,
+     "template": "rsi_reversion",
+     "space": {
+      "n": [
+       2,
+       3,
+       5
+      ],
+      "entry": [
+       10,
+       20
+      ],
+      "exit": [
+       50,
+       60
+      ],
+      "trend_ema": [
+       0
+      ],
+      "vix_max": [
+       0
+      ],
+      "atr_stop": [
+       2.0
+      ]
+     },
+     "trials": 12,
+     "oos_sharpe": 1.312,
+     "positive_folds": 5,
+     "passed_walk_forward": true
+    },
+    {
+     "id": "F8",
+     "round": 3,
+     "template": "bollinger_reversion",
+     "space": {
+      "n": [
+       10,
+       20
+      ],
+      "k": [
+       1.5,
+       2.0
+      ],
+      "trend_ema": [
+       100
+      ],
+      "vix_max": [
+       25
+      ],
+      "atr_stop": [
+       0
+      ]
+     },
+     "trials": 4,
+     "oos_sharpe": 0.37,
+     "positive_folds": 4,
+     "passed_walk_forward": false
+    }
+   ],
+   "proposals": [
+    {
+     "round": 2,
+     "output": {
+      "diagnosis": "The first round produced surprisingly strong results with both F1 (rsi_reversion) and F2 (bollinger_reversion) passing walk-forward with OOS Sharpe of 1.245 and 0.904 respectively, well above the current required threshold of 0.5. However, the critic raised valid concerns about the suspiciously high performance and lack of neighbourhood testing. The neighbourhood analysis shows F1 has good stability (88% of neighbours within 70% of centre Sharpe) but F2 has less robust neighbours (80%). Both strategies passed walk-forward with all 5 folds positive, which is unusual.",
+      "hypothesis": "The strong initial results suggest the basic oversold reversal logic works well, but we need to test whether adding filters (trend_ema, vix_max, atr_stop) can improve risk-adjusted returns by avoiding bad market conditions or providing stop-loss protection. Given the suspiciously high OOS Sharpe, we should also explore whether different parameter combinations or longer RSI periods might yield even better results.",
+      "experiments": [
+       {
+        "template": "rsi_reversion",
+        "params": {
+         "n": [
+          14.0
+         ],
+         "entry": [
+          20.0
+         ],
+         "exit": [
+          60.0
+         ],
+         "trend_ema": [
+          100.0
+         ],
+         "vix_max": [
+          25.0
+         ],
+         "atr_stop": [
+          2.0
+         ]
+        },
+        "rationale": "Test adding trend_ema=100, vix_max=25, atr_stop=2 to filter out weak trends and high volatility periods. This addresses the critic's concern about suspiciously high performance by potentially improving risk management."
+       },
+       {
+        "template": "bollinger_reversion",
+        "params": {
+         "n": [
+          20.0
+         ],
+         "k": [
+          2.0
+         ],
+         "trend_ema": [
+          100.0
+         ],
+         "vix_max": [
+          25.0
+         ],
+         "atr_stop": [
+          2.0
+         ]
+        },
+        "rationale": "Add similar filters to bollinger_reversion to see if they improve its already strong performance. The original bollinger_reversion had fewer neighbours (5 vs 8 for rsi_reversion), suggesting more parameter sensitivity."
+       },
+       {
+        "template": "rsi_reversion",
+        "params": {
+         "n": [
+          5.0
+         ],
+         "entry": [
+          20.0
+         ],
+         "exit": [
+          60.0
+         ],
+         "trend_ema": [
+          0.0
+         ],
+         "vix_max": [
+          0.0
+         ],
+         "atr_stop": [
+          0.0
+         ]
+        },
+        "rationale": "Test a shorter RSI period (5 instead of 14) to see if faster oversold signals perform differently. This explores whether shorter-term oversold conditions capture quicker price reversals."
+       }
+      ],
+      "diagnose": [
+       "F1",
+       "F2"
+      ],
+      "stop": false,
+      "stop_reason": ""
+     },
+     "model": "Qwen/Qwen2.5-3B-Instruct+lora:a1",
+     "usd": 0.0,
+     "mode": "prompt"
+    },
+    {
+     "round": 3,
+     "output": {
+      "diagnosis": "The results show both F1 (RSI reversion) and F2 (Bollinger reversion) passed walk-forward with strong OOS Sharpe (1.245 and 0.904 respectively), but the neighbourhood analysis reveals F1 has implausibly high centre Sharpe (1.47) with only 88% of neighbours within 70% of centre, suggesting potential overfitting. The last critic flagged concerns about suspiciously high performance and vulnerability to extreme conditions (negative returns in 2020). Diagnostics show F1 performs well in downtrends (Sharpe 2.63) but poorly in uptrends (Sharpe 0.82), indicating the strategy may struggle during bull markets. F2 shows more balanced performance across regimes.",
+      "hypothesis": "The high centre Sharpe for F1 suggests we need to test whether adding filters can improve robustness or reveal genuine alpha. Given the implausible high centre value, we should explore whether adding trend filtering (trend_ema=100) or volatility caps (vix_max=25) can stabilize performance. The neighbourhood analysis indicates F1 needs more conservative parameter ranges to maintain stability. For F2, we should test whether removing the high entry threshold (entry=20) and adjusting exit thresholds can improve risk-adjusted returns without sacrificing too much upside.",
+      "experiments": [
+       {
+        "template": "rsi_reversion",
+        "params": {
+         "n": [
+          2.0,
+          3.0,
+          5.0
+         ],
+         "entry": [
+          10.0,
+          20.0
+         ],
+         "exit": [
+          50.0,
+          60.0
+         ],
+         "trend_ema": [
+          100.0
+         ],
+         "vix_max": [
+          25.0
+         ]
+        },
+        "rationale": "Test F1 with trend filtering (trend_ema=100) and volatility caps (vix_max=25) to see if these filters can stabilize the implausibly high centre Sharpe by reducing drawdowns during downtrends and limiting exposure during high volatility periods."
+       },
+       {
+        "template": "rsi_reversion",
+        "params": {
+         "n": [
+          2.0,
+          3.0,
+          5.0
+         ],
+         "entry": [
+          10.0,
+          20.0
+         ],
+         "exit": [
+          50.0,
+          60.0
+         ],
+         "atr_stop": [
+          2.0
+         ]
+        },
+        "rationale": "Add ATR stop-loss (atr_stop=2.0) to F1 to manage downside risk and potentially improve risk-adjusted returns by cutting positions when prices move against the strategy."
+       },
+       {
+        "template": "bollinger_reversion",
+        "params": {
+         "n": [
+          10.0,
+          20.0
+         ],
+         "k": [
+          1.5,
+          2.0
+         ],
+         "trend_ema": [
+          100.0
+         ],
+         "vix_max": [
+          25.0
+         ]
+        },
+        "rationale": "Test F2 with trend filtering (trend_ema=100) and volatility caps (vix_max=25) to see if these filters can improve its already strong performance by avoiding extreme market conditions."
+       }
+      ],
+      "diagnose": [
+       "F1"
+      ],
+      "stop": false,
+      "stop_reason": ""
+     },
+     "model": "Qwen/Qwen2.5-3B-Instruct+lora:a1",
+     "usd": 0.0,
+     "mode": "prompt"
+    }
+   ],
+   "agent_failures": 0,
+   "failures": [],
+   "model_calls": 8,
+   "usd": 0.008963,
+   "seconds": 243.3
+  },
+  {
+   "seed": 7,
+   "kind": "meanrev",
+   "truth": "edge",
+   "source": "synthetic:meanrev:7",
+   "idea": "Buy short-term oversold dips",
+   "promote": true,
+   "reason": "F1 passed walk-forward (OOS Sharpe 0.933) and the holdout (Sharpe 0.429)",
+   "templates": [
+    "rsi_reversion",
+    "bollinger_reversion"
+   ],
+   "rounds": 2,
+   "stop": "planned rounds done",
+   "trials": 45,
+   "looks": 2,
+   "refused_by_code": 2,
+   "best_oos_sharpe": 0.933,
+   "families": [
+    {
+     "id": "F1",
+     "round": 1,
+     "template": "rsi_reversion",
+     "space": {
+      "n": [
+       2,
+       3,
+       5,
+       14
+      ],
+      "entry": [
+       10,
+       20,
+       30
+      ],
+      "exit": [
+       50,
+       60,
+       70
+      ],
+      "trend_ema": [
+       0
+      ],
+      "vix_max": [
+       0
+      ],
+      "atr_stop": [
+       0
+      ]
+     },
+     "trials": 36,
+     "oos_sharpe": 0.933,
+     "positive_folds": 5,
+     "passed_walk_forward": true
+    },
+    {
+     "id": "F2",
+     "round": 1,
+     "template": "bollinger_reversion",
+     "space": {
+      "n": [
+       10,
+       20,
+       40
+      ],
+      "k": [
+       1.5,
+       2.0,
+       2.5
+      ],
+      "trend_ema": [
+       0
+      ],
+      "vix_max": [
+       0
+      ],
+      "atr_stop": [
+       0
+      ]
+     },
+     "trials": 9,
+     "oos_sharpe": 0.912,
+     "positive_folds": 5,
+     "passed_walk_forward": true
+    }
+   ],
+   "proposals": [
+    {
+     "round": 2,
+     "output": {
+      "diagnosis": "Both families from round 1 passed walk-forward with excellent OOS Sharpe (F1: 0.933, F2: 0.912) well above the current required threshold of 0.5. However, the required OOS Sharpe after one more look is 0.558, indicating we need to improve performance slightly. The neighbourhood analysis shows no promising neighbours for either family, suggesting we've explored the parameter space effectively.",
+      "hypothesis": "The current best strategies show strong performance but may benefit from incorporating the requested filters (trend, VIX, ATR stop) to improve risk management and potentially enhance returns. Given the successful baseline, we should test whether adding trend filtering (trend_ema) improves performance by avoiding trades during downtrends or whether limiting trades to low VIX periods (vix_max) helps capture more reliable signals. We'll start with trend filtering as it's more aligned with the reversal strategy's focus on temporary undervaluation.",
+      "experiments": [
+       {
+        "template": "rsi_reversion",
+        "params": {
+         "n": [
+          2.0,
+          3.0,
+          5.0,
+          14.0
+         ],
+         "entry": [
+          10.0,
+          20.0,
+          30.0
+         ],
+         "exit": [
+          50.0,
+          60.0,
+          70.0
+         ],
+         "trend_ema": [
+          100.0,
+          200.0
+         ]
+        },
+        "rationale": "Add trend filtering to ensure we only trade when prices are above a longer-term EMA, avoiding downtrends where oversold conditions might be misleading. This aligns with the reversal strategy's assumption of temporary undervaluation rather than sustained bear markets."
+       },
+       {
+        "template": "rsi_reversion",
+        "params": {
+         "n": [
+          2.0,
+          3.0,
+          5.0,
+          14.0
+         ],
+         "entry": [
+          10.0,
+          20.0,
+          30.0
+         ],
+         "exit": [
+          50.0,
+          60.0,
+          70.0
+         ],
+         "vix_max": [
+          20.0,
+          25.0,
+          30.0
+         ]
+        },
+        "rationale": "Limit trades to low VIX periods to avoid choppy markets where oversold conditions could be false positives. This filters for more reliable reversal signals by ensuring the market isn't too volatile."
+       }
+      ],
+      "diagnose": [
+       "F1"
+      ],
+      "stop": false,
+      "stop_reason": ""
+     },
+     "model": "Qwen/Qwen2.5-3B-Instruct+lora:a1",
+     "usd": 0.0,
+     "mode": "prompt"
+    }
+   ],
+   "agent_failures": 0,
+   "failures": [],
+   "model_calls": 6,
+   "usd": 0.005212,
+   "seconds": 99.1
+  },
+  {
+   "seed": 8,
+   "kind": "meanrev",
+   "truth": "edge",
+   "source": "synthetic:meanrev:8",
+   "idea": "Buy short-term oversold dips",
+   "promote": true,
+   "reason": "F1 passed walk-forward (OOS Sharpe 1.428) and the holdout (Sharpe 0.623)",
+   "templates": [
+    "rsi_reversion"
+   ],
+   "rounds": 3,
+   "stop": "critic: further rounds would fit noise",
+   "trials": 92,
+   "looks": 3,
+   "refused_by_code": 3,
+   "best_oos_sharpe": 1.428,
+   "families": [
+    {
+     "id": "F1",
+     "round": 1,
+     "template": "rsi_reversion",
+     "space": {
+      "n": [
+       2,
+       3,
+       5,
+       14
+      ],
+      "entry": [
+       10,
+       20,
+       30
+      ],
+      "exit": [
+       50,
+       60,
+       70
+      ],
+      "trend_ema": [
+       0
+      ],
+      "vix_max": [
+       0
+      ],
+      "atr_stop": [
+       0
+      ]
+     },
+     "trials": 36,
+     "oos_sharpe": 1.428,
+     "positive_folds": 5,
+     "passed_walk_forward": true
+    },
+    {
+     "id": "F2",
+     "round": 2,
+     "template": "rsi_reversion",
+     "space": {
+      "n": [
+       2,
+       3,
+       5,
+       14
+      ],
+      "entry": [
+       10,
+       20
+      ],
+      "exit": [
+       50,
+       60
+      ],
+      "trend_ema": [
+       0
+      ],
+      "vix_max": [
+       0
+      ],
+      "atr_stop": [
+       2.0,
+       3.0
+      ]
+     },
+     "trials": 32,
+     "oos_sharpe": 1.367,
+     "positive_folds": 5,
+     "passed_walk_forward": true
+    },
+    {
+     "id": "F3",
+     "round": 3,
+     "template": "rsi_reversion",
+     "space": {
+      "n": [
+       2,
+       3,
+       5
+      ],
+      "entry": [
+       10,
+       20
+      ],
+      "exit": [
+       50,
+       60
+      ],
+      "trend_ema": [
+       0
+      ],
+      "vix_max": [
+       0
+      ],
+      "atr_stop": [
+       2.0,
+       3.0
+      ]
+     },
+     "trials": 24,
+     "oos_sharpe": 1.367,
+     "positive_folds": 5,
+     "passed_walk_forward": true
+    }
+   ],
+   "proposals": [
+    {
+     "round": 2,
+     "output": {
+      "diagnosis": "The first round produced surprisingly strong results with F1 achieving OOS Sharpe of 1.428, well above the required threshold of 0.4. However, the critic raised valid concerns about implausibility given the simplicity of the RSI reversion strategy on NIFTY 50 and limited exploration of the parameter space. The neighbourhood check revealed no nearby neighbours passed walk-forward, indicating potential instability. The strategy passed walk-forward with all 5 folds positive.",
+      "hypothesis": "Adding volatility filters (VIX max) could help filter out high-volatility periods where false signals might occur more frequently, potentially improving robustness. The trend filter (EMA) may also help avoid counter-trend trades during downtrends.",
+      "experiments": [
+       {
+        "template": "rsi_reversion",
+        "params": {
+         "n": [
+          2.0,
+          3.0,
+          5.0,
+          14.0
+         ],
+         "entry": [
+          20.0,
+          30.0
+         ],
+         "exit": [
+          50.0,
+          60.0
+         ],
+         "trend_ema": [
+          100.0,
+          200.0
+         ],
+         "vix_max": [
+          20.0,
+          25.0,
+          30.0
+         ]
+        },
+        "rationale": "Add trend filter to avoid counter-trend trades and volatility filter to avoid high-VIX periods where false signals might occur. Testing moderate EMA values (100-200) for trend confirmation and VIX max thresholds (20-30) to filter out extreme volatility regimes."
+       },
+       {
+        "template": "rsi_reversion",
+        "params": {
+         "n": [
+          2.0,
+          3.0,
+          5.0,
+          14.0
+         ],
+         "entry": [
+          10.0,
+          20.0
+         ],
+         "exit": [
+          50.0,
+          60.0
+         ],
+         "atr_stop": [
+          2.0,
+          3.0
+         ]
+        },
+        "rationale": "Test ATR stop-loss filters to manage risk during volatile periods. This addresses the critic's concern about overfitting by adding a technical risk management component."
+       }
+      ],
+      "diagnose": [
+       "F1"
+      ],
+      "stop": false,
+      "stop_reason": ""
+     },
+     "model": "Qwen/Qwen2.5-3B-Instruct+lora:a1",
+     "usd": 0.0,
+     "mode": "prompt"
+    },
+    {
+     "round": 3,
+     "output": {
+      "diagnosis": "The initial results show suspiciously high OOS Sharpe values (1.428 for F1, 1.367 for F2) for a simple RSI reversion strategy on NIFTY 50, well above typical expectations. Diagnostics reveal: 1) Consistent strong performance across all VIX regimes (both high and low), suggesting the strategy may be capturing noise rather than genuine trends. 2) Strong performance during downtrends (Sharpe 2.15) but weaker during uptrends (Sharpe 1.09), indicating potential overfitting to bear markets. 3) Yearly returns show some volatility but no clear pattern that would justify such high Sharpe ratios.",
+      "hypothesis": "The high Sharpe values may be due to data snooping bias or overfitting. Adding volatility filters (vix_max) could help ensure we're capturing meaningful oversold conditions rather than random dips. Testing trend filters (trend_ema) might also help avoid buying during false downtrends. The current parameter space seems saturated - we need to explore whether adding more restrictive filters improves robustness.",
+      "experiments": [
+       {
+        "template": "rsi_reversion",
+        "params": {
+         "n": [
+          2.0,
+          3.0,
+          5.0
+         ],
+         "entry": [
+          20.0,
+          30.0
+         ],
+         "exit": [
+          50.0,
+          60.0
+         ],
+         "trend_ema": [
+          100.0,
+          200.0
+         ],
+         "vix_max": [
+          20.0,
+          25.0
+         ]
+        },
+        "rationale": "Add trend filter to require prices to be above EMA(100) or EMA(200) to avoid buying during false downtrends. Add VIX filter to limit entries to low volatility periods (VIX < 20). This should reduce false signals and improve the strategy's ability to capture genuine oversold conditions."
+       },
+       {
+        "template": "rsi_reversion",
+        "params": {
+         "n": [
+          2.0,
+          3.0,
+          5.0
+         ],
+         "entry": [
+          10.0,
+          20.0
+         ],
+         "exit": [
+          50.0,
+          60.0
+         ],
+         "atr_stop": [
+          2.0,
+          3.0
+         ]
+        },
+        "rationale": "Test ATR stop-loss filters to protect gains and avoid whipsaws. This addresses the concern about weak performance during uptrends by providing downside protection."
+       },
+       {
+        "template": "rsi_reversion",
+        "params": {
+         "n": [
+          2.0,
+          3.0,
+          5.0
+         ],
+         "entry": [
+          20.0,
+          30.0
+         ],
+         "exit": [
+          50.0,
+          60.0
+         ],
+         "trend_ema": [
+          0.0
+         ],
+         "vix_max": [
+          0.0
+         ]
+        },
+        "rationale": "Baseline comparison with no filters to establish baseline performance. This helps determine if the observed high Sharpe is due to filtering or inherent strategy weakness."
+       }
+      ],
+      "diagnose": [
+       "F1",
+       "F2"
+      ],
+      "stop": false,
+      "stop_reason": ""
+     },
+     "model": "Qwen/Qwen2.5-3B-Instruct+lora:a1",
+     "usd": 0.0,
+     "mode": "prompt"
+    }
+   ],
+   "agent_failures": 0,
+   "failures": [],
+   "model_calls": 8,
+   "usd": 0.007584,
+   "seconds": 211.5
+  },
+  {
+   "seed": 9,
+   "kind": "meanrev",
+   "truth": "edge",
+   "source": "synthetic:meanrev:9",
+   "idea": "Buy short-term oversold dips",
+   "promote": true,
+   "reason": "F3 passed walk-forward (OOS Sharpe 1.304) and the holdout (Sharpe 1.846)",
+   "templates": [
+    "rsi_reversion",
+    "bollinger_reversion"
+   ],
+   "rounds": 3,
+   "stop": "critic: further rounds would fit noise",
+   "trials": 57,
+   "looks": 3,
+   "refused_by_code": 3,
+   "best_oos_sharpe": 1.304,
+   "families": [
+    {
+     "id": "F1",
+     "round": 1,
+     "template": "rsi_reversion",
+     "space": {
+      "n": [
+       2,
+       3,
+       5,
+       14
+      ],
+      "entry": [
+       10,
+       20,
+       30
+      ],
+      "exit": [
+       50,
+       60,
+       70
+      ],
+      "trend_ema": [
+       0
+      ],
+      "vix_max": [
+       0
+      ],
+      "atr_stop": [
+       0
+      ]
+     },
+     "trials": 36,
+     "oos_sharpe": 1.208,
+     "positive_folds": 5,
+     "passed_walk_forward": true
+    },
+    {
+     "id": "F2",
+     "round": 1,
+     "template": "bollinger_reversion",
+     "space": {
+      "n": [
+       10,
+       20,
+       40
+      ],
+      "k": [
+       1.5,
+       2.0,
+       2.5
+      ],
+      "trend_ema": [
+       0
+      ],
+      "vix_max": [
+       0
+      ],
+      "atr_stop": [
+       0
+      ]
+     },
+     "trials": 9,
+     "oos_sharpe": 1.128,
+     "positive_folds": 5,
+     "passed_walk_forward": true
+    },
+    {
+     "id": "F3",
+     "round": 3,
+     "template": "rsi_reversion",
+     "space": {
+      "n": [
+       2,
+       3,
+       5
+      ],
+      "entry": [
+       10,
+       20
+      ],
+      "exit": [
+       50,
+       60
+      ],
+      "trend_ema": [
+       0
+      ],
+      "vix_max": [
+       0
+      ],
+      "atr_stop": [
+       0
+      ]
+     },
+     "trials": 12,
+     "oos_sharpe": 1.304,
+     "positive_folds": 5,
+     "passed_walk_forward": true
+    }
+   ],
+   "proposals": [
+    {
+     "round": 2,
+     "output": {
+      "diagnosis": "Both F1 (rsi_reversion) and F2 (bollinger_reversion) passed walk-forward with excellent OOS Sharpe (1.208 and 1.128 respectively), well above the current required threshold of 0.5. However, the original hypothesis suggested adding trend, VIX, and ATR stop filters to improve risk management. Neither family currently includes these filters. The neighbourhood analysis shows no recent neighbours were created, indicating the strategies are stable.",
+      "hypothesis": "Adding trend, VIX, and ATR stop filters to the best-performing rsi_reversion family will improve risk-adjusted returns by avoiding trades during unfavorable market conditions (strong downtrends, high volatility, or excessive drawdowns). The bollinger_reversion family may also benefit from similar filters.",
+      "experiments": [
+       {
+        "template": "rsi_reversion",
+        "params": {
+         "n": [
+          2.0,
+          3.0,
+          5.0,
+          14.0
+         ],
+         "entry": [
+          10.0,
+          20.0,
+          30.0
+         ],
+         "exit": [
+          50.0,
+          60.0,
+          70.0
+         ],
+         "trend_ema": [
+          100.0,
+          200.0
+         ],
+         "vix_max": [
+          20.0,
+          25.0,
+          30.0
+         ],
+         "atr_stop": [
+          2.0,
+          3.0
+         ]
+        },
+        "rationale": "Add trend_ema filter to avoid trades during strong downtrends, vix_max to avoid high volatility periods, and atr_stop for proper risk management. This builds on the successful rsi_reversion template with the requested filters."
+       },
+       {
+        "template": "bollinger_reversion",
+        "params": {
+         "n": [
+          10.0,
+          20.0,
+          40.0
+         ],
+         "k": [
+          1.5,
+          2.0,
+          2.5
+         ],
+         "trend_ema": [
+          100.0,
+          200.0
+         ],
+         "vix_max": [
+          20.0,
+          25.0,
+          30.0
+         ],
+         "atr_stop": [
+          2.0,
+          3.0
+         ]
+        },
+        "rationale": "Add trend_ema filter to avoid trades during strong downtrends, vix_max to avoid high volatility periods, and atr_stop for proper risk management. This builds on the successful bollinger_reversion template with the requested filters."
+       }
+      ],
+      "diagnose": [
+       "F1"
+      ],
+      "stop": false,
+      "stop_reason": ""
+     },
+     "model": "Qwen/Qwen2.5-3B-Instruct+lora:a1",
+     "usd": 0.0,
+     "mode": "prompt"
+    },
+    {
+     "round": 3,
+     "output": {
+      "diagnosis": "The first round results show both F1 (rsi_reversion) and F2 (bollinger_reversion) passed walk-forward with excellent OOS Sharpe ratios (1.208 and 1.128 respectively), well above the current required threshold of 0.5. Diagnostics reveal interesting patterns: F1 performs exceptionally well during downtrends (Sharpe 2.23) and moderate volatility regimes (VIX 15-25, Sharpe 0.99), but struggles in high volatility (>25 VIX, Sharpe 2.45) and uptrends (Sharpe 1.44). F2 shows stronger performance in uptrends (Sharpe 1.44) than downtrends (Sharpe 2.23). The year-by-year return analysis shows some volatility in returns across years, with particularly strong performances in 2012, 2013, 2017, and 2018.",
+      "hypothesis": "Given the strong initial results, we should focus on refining the best-performing strategies rather than exploring new templates. The rsi_reversion family appears more robust across regimes, especially during uptrends where it shows higher Sharpe (1.44 vs 2.23 for F1). We should test whether adding the requested filters (trend_ema, vix_max, atr_stop) can improve or maintain these strong results, or if they introduce too much risk. Since we've already used up most of our trial budget, we should prioritize diagnostics on the most promising family (rsi_reversion) to understand its behavior under different filter conditions.",
+      "experiments": [
+       {
+        "template": "rsi_reversion",
+        "params": {
+         "n": [
+          2.0,
+          3.0,
+          5.0
+         ],
+         "entry": [
+          20.0,
+          30.0
+         ],
+         "exit": [
+          60.0,
+          70.0
+         ],
+         "trend_ema": [
+          100.0,
+          200.0
+         ],
+         "vix_max": [
+          20.0,
+          25.0
+         ],
+         "atr_stop": [
+          2.0,
+          3.0
+         ]
+        },
+        "rationale": "Test rsi_reversion with all three filter options (trend_ema, vix_max, atr_stop) to see if they improve or maintain the strong performance observed in F1. This will help determine if the original strategy needs filtering or if the current parameter ranges already provide robust risk management."
+       },
+       {
+        "template": "rsi_reversion",
+        "params": {
+         "n": [
+          2.0,
+          3.0,
+          5.0
+         ],
+         "entry": [
+          10.0,
+          20.0
+         ],
+         "exit": [
+          50.0,
+          60.0
+         ],
+         "trend_ema": [
+          0.0
+         ],
+         "vix_max": [
+          0.0
+         ],
+         "atr_stop": [
+          0.0
+         ]
+        },
+        "rationale": "Run a clean version of rsi_reversion without any filters to establish a baseline performance. This will help isolate the impact of the filters on the strategy's robustness."
+       }
+      ],
+      "diagnose": [
+       "F1"
+      ],
+      "stop": false,
+      "stop_reason": ""
+     },
+     "model": "Qwen/Qwen2.5-3B-Instruct+lora:a1",
+     "usd": 0.0,
+     "mode": "prompt"
+    }
+   ],
+   "agent_failures": 0,
+   "failures": [],
+   "model_calls": 8,
+   "usd": 0.007632,
+   "seconds": 201.6
+  },
+  {
+   "seed": 10,
+   "kind": "meanrev",
+   "truth": "edge",
+   "source": "synthetic:meanrev:10",
+   "idea": "Buy short-term oversold dips",
+   "promote": true,
+   "reason": "F1 passed walk-forward (OOS Sharpe 1.076) and the holdout (Sharpe 1.311)",
+   "templates": [
+    "rsi_reversion"
+   ],
+   "rounds": 3,
+   "stop": "critic: further rounds would fit noise",
+   "trials": 70,
+   "looks": 6,
+   "refused_by_code": 1,
+   "best_oos_sharpe": 1.076,
+   "families": [
+    {
+     "id": "F1",
+     "round": 1,
+     "template": "rsi_reversion",
+     "space": {
+      "n": [
+       2,
+       3,
+       5,
+       14
+      ],
+      "entry": [
+       10,
+       20,
+       30
+      ],
+      "exit": [
+       50,
+       60,
+       70
+      ],
+      "trend_ema": [
+       0
+      ],
+      "vix_max": [
+       0
+      ],
+      "atr_stop": [
+       0
+      ]
+     },
+     "trials": 36,
+     "oos_sharpe": 1.076,
+     "positive_folds": 5,
+     "passed_walk_forward": true
+    },
+    {
+     "id": "F2",
+     "round": 2,
+     "template": "rsi_reversion",
+     "space": {
+      "n": [
+       14
+      ],
+      "entry": [
+       10,
+       20,
+       30
+      ],
+      "exit": [
+       50,
+       60,
+       70
+      ],
+      "trend_ema": [
+       0
+      ],
+      "vix_max": [
+       0
+      ],
+      "atr_stop": [
+       2.0,
+       3.0
+      ]
+     },
+     "trials": 18,
+     "oos_sharpe": 0.201,
+     "positive_folds": 1,
+     "passed_walk_forward": false
+    },
+    {
+     "id": "F3",
+     "round": 2,
+     "template": "rsi_reversion",
+     "space": {
+      "n": [
+       14
+      ],
+      "entry": [
+       10,
+       20,
+       30
+      ],
+      "exit": [
+       50,
+       60,
+       70
+      ],
+      "trend_ema": [
+       0
+      ],
+      "vix_max": [
+       0
+      ],
+      "atr_stop": [
+       0
+      ]
+     },
+     "trials": 9,
+     "oos_sharpe": 0.201,
+     "positive_folds": 1,
+     "passed_walk_forward": false
+    },
+    {
+     "id": "F4",
+     "round": 3,
+     "template": "rsi_reversion",
+     "space": {
+      "n": [
+       14
+      ],
+      "entry": [
+       20
+      ],
+      "exit": [
+       60
+      ],
+      "trend_ema": [
+       100,
+       200
+      ],
+      "vix_max": [
+       20,
+       25
+      ],
+      "atr_stop": [
+       0
+      ]
+     },
+     "trials": 4,
+     "oos_sharpe": 0.0,
+     "positive_folds": 0,
+     "passed_walk_forward": false
+    },
+    {
+     "id": "F5",
+     "round": 3,
+     "template": "rsi_reversion",
+     "space": {
+      "n": [
+       14
+      ],
+      "entry": [
+       20
+      ],
+      "exit": [
+       60
+      ],
+      "trend_ema": [
+       0
+      ],
+      "vix_max": [
+       0
+      ],
+      "atr_stop": [
+       2.0,
+       3.0
+      ]
+     },
+     "trials": 2,
+     "oos_sharpe": -0.158,
+     "positive_folds": 1,
+     "passed_walk_forward": false
+    },
+    {
+     "id": "F6",
+     "round": 3,
+     "template": "rsi_reversion",
+     "space": {
+      "n": [
+       14
+      ],
+      "entry": [
+       20
+      ],
+      "exit": [
+       60
+      ],
+      "trend_ema": [
+       100
+      ],
+      "vix_max": [
+       25
+      ],
+      "atr_stop": [
+       0
+      ]
+     },
+     "trials": 1,
+     "oos_sharpe": 0.0,
+     "positive_folds": 0,
+     "passed_walk_forward": false
+    }
+   ],
+   "proposals": [
+    {
+     "round": 2,
+     "output": {
+      "diagnosis": "The first round tested F1 with 36 trials exploring RSI(14) with entry thresholds of 10-30 and exit thresholds of 50-70. The results show surprisingly strong performance with OOS Sharpe of 1.076, passing walk-forward validation. However, the critic raised valid concerns about potential overfitting given the exceptional Sharpe and the fact that all 5 folds were positive. The neighbourhood analysis shows moderate robustness with 43% of neighbours within 70% of centre Sharpe, but some neighbours performed poorly (min Sharpe 0.318). The buy-and-hold benchmark was -0.085, suggesting the test period may be favorable for mean-reversion strategies.",
+      "hypothesis": "While the initial results are impressive, they may be driven by specific parameter combinations rather than generalizability. Adding volatility filters (vix_max) and trend filters (trend_ema) should help avoid capturing signals during extreme volatility or unfavorable market conditions. Testing different RSI periods (2, 3, 5) while keeping the core RSI(14) structure might reveal more robust parameter ranges.",
+      "experiments": [
+       {
+        "template": "rsi_reversion",
+        "params": {
+         "n": [
+          2.0,
+          3.0,
+          5.0
+         ],
+         "entry": [
+          10.0,
+          20.0,
+          30.0
+         ],
+         "exit": [
+          50.0,
+          60.0,
+          70.0
+         ],
+         "trend_ema": [
+          100.0,
+          200.0
+         ],
+         "vix_max": [
+          20.0,
+          25.0,
+          30.0
+         ]
+        },
+        "rationale": "Test RSI periods 2, 3, 5 alongside the original 14 to see if shorter periods capture quicker reversals while avoiding extreme volatility. Add trend filter (EMA 100, 200) to ensure we're not catching falling knives during downtrends, and volatility filter (VIX max 20-30) to avoid high-risk periods."
+       },
+       {
+        "template": "rsi_reversion",
+        "params": {
+         "n": [
+          14.0
+         ],
+         "entry": [
+          10.0,
+          20.0,
+          30.0
+         ],
+         "exit": [
+          50.0,
+          60.0,
+          70.0
+         ],
+         "atr_stop": [
+          2.0,
+          3.0
+         ]
+        },
+        "rationale": "Focus on the core RSI(14) structure with added ATR stop-loss to manage downside risk. Test different stop levels (2.0, 3.0) to find optimal protection while maintaining the core oversold/recovery logic."
+       },
+       {
+        "template": "rsi_reversion",
+        "params": {
+         "n": [
+          14.0
+         ],
+         "entry": [
+          10.0,
+          20.0,
+          30.0
+         ],
+         "exit": [
+          50.0,
+          60.0,
+          70.0
+         ],
+         "trend_ema": [
+          0.0
+         ],
+         "vix_max": [
+          0.0
+         ],
+         "atr_stop": [
+          0.0
+         ]
+        },
+        "rationale": "Pure RSI(14) with default filters off to isolate the core reversal effect. This helps determine if the strategy's success is dependent on specific filter configurations or if it works independently."
+       }
+      ],
+      "diagnose": [
+       "F1"
+      ],
+      "stop": false,
+      "stop_reason": ""
+     },
+     "model": "Qwen/Qwen2.5-3B-Instruct+lora:a1",
+     "usd": 0.0,
+     "mode": "prompt"
+    },
+    {
+     "round": 3,
+     "output": {
+      "diagnosis": "The results show F1 performed exceptionally well with OOS Sharpe 1.076, but the critic raised valid concerns about robustness. The neighbourhood analysis reveals parameter sensitivity with median neighbour Sharpe of 0.578 (46% lower than centre), indicating the strategy may be overfitting. Diagnostics show strong performance in high volatility regimes (VIX>25 Sharpe 1.42) and downtrends (Sharpe 1.15), suggesting crisis alpha rather than general oversold reversion. Performance is concentrated in specific years (2013: 30.5%, 2022: 35.0%). The required OOS Sharpe after one more look is now 0.6, and we have used 63 trials out of 100.",
+      "hypothesis": "The exceptional performance of F1 suggests the core reversal mechanism works well, but the parameter sensitivity and concentration in specific regimes indicate we need to test whether adding volatility filters (vix_max) or trend filters (trend_ema) can improve robustness while maintaining edge. We should also explore whether combining different filter configurations yields better results.",
+      "experiments": [
+       {
+        "template": "rsi_reversion",
+        "params": {
+         "n": [
+          14.0
+         ],
+         "entry": [
+          20.0
+         ],
+         "exit": [
+          60.0
+         ],
+         "vix_max": [
+          20.0,
+          25.0
+         ],
+         "trend_ema": [
+          100.0,
+          200.0
+         ]
+        },
+        "rationale": "Test adding volatility filters (vix_max=20,25) to avoid trading during high volatility periods where the strategy performs poorly (VIX>25 Sharpe 1.42). Also test trend filters (trend_ema=100,200) to ensure we're not catching falling knives in strong downtrends. This explores whether filtering can improve robustness while preserving the core reversal logic."
+       },
+       {
+        "template": "rsi_reversion",
+        "params": {
+         "n": [
+          14.0
+         ],
+         "entry": [
+          20.0
+         ],
+         "exit": [
+          60.0
+         ],
+         "atr_stop": [
+          2.0,
+          3.0
+         ]
+        },
+        "rationale": "Add ATR stop-loss filters to manage risk during volatile periods. This addresses the concern about crisis alpha by providing downside protection. Testing two ATR levels (2.0,3.0) will show if stop-losses improve risk-adjusted returns."
+       },
+       {
+        "template": "rsi_reversion",
+        "params": {
+         "n": [
+          14.0
+         ],
+         "entry": [
+          20.0
+         ],
+         "exit": [
+          60.0
+         ],
+         "trend_ema": [
+          100.0
+         ],
+         "vix_max": [
+          25.0
+         ]
+        },
+        "rationale": "Combine trend filter (100-day EMA) with volatility filter (VIX max 25) to ensure we're trading during uptrends and moderate volatility periods. This tests whether filtering both trend and volatility improves robustness compared to just one filter."
+       }
+      ],
+      "diagnose": [
+       "F1"
+      ],
+      "stop": false,
+      "stop_reason": ""
+     },
+     "model": "Qwen/Qwen2.5-3B-Instruct+lora:a1",
+     "usd": 0.0,
+     "mode": "prompt"
+    }
+   ],
+   "agent_failures": 0,
+   "failures": [],
+   "model_calls": 8,
+   "usd": 0.007995,
+   "seconds": 215.7
+  },
+  {
+   "seed": 11,
+   "kind": "noise",
+   "truth": "no_edge",
+   "source": "synthetic:noise:11",
+   "idea": "Ride sustained trends",
+   "promote": false,
+   "reason": "no family cleared walk-forward at the bar for 3 looks (OOS Sharpe >= 0.558); holdout left sealed",
+   "templates": [
+    "ema_cross",
+    "donchian_breakout"
+   ],
+   "rounds": 3,
+   "stop": "planned rounds done",
+   "trials": 57,
+   "looks": 3,
+   "refused_by_code": 3,
+   "best_oos_sharpe": 0.441,
+   "families": [
+    {
+     "id": "F1",
+     "round": 1,
+     "template": "ema_cross",
+     "space": {
+      "fast": [
+       5,
+       10,
+       20,
+       30
+      ],
+      "slow": [
+       50,
+       100,
+       150,
+       200
+      ],
+      "trend_ema": [
+       0
+      ],
+      "vix_max": [
+       0
+      ],
+      "atr_stop": [
+       0
+      ]
+     },
+     "trials": 16,
+     "oos_sharpe": 0.22,
+     "positive_folds": 3,
+     "passed_walk_forward": false
+    },
+    {
+     "id": "F2",
+     "round": 1,
+     "template": "donchian_breakout",
+     "space": {
+      "entry_n": [
+       20,
+       55,
+       100
+      ],
+      "exit_n": [
+       10,
+       20,
+       50
+      ],
+      "trend_ema": [
+       0
+      ],
+      "vix_max": [
+       0
+      ],
+      "atr_stop": [
+       0
+      ]
+     },
+     "trials": 9,
+     "oos_sharpe": 0.076,
+     "positive_folds": 1,
+     "passed_walk_forward": false
+    },
+    {
+     "id": "F3",
+     "round": 2,
+     "template": "ema_cross",
+     "space": {
+      "fast": [
+       5,
+       10,
+       20,
+       30
+      ],
+      "slow": [
+       50,
+       100,
+       150,
+       200
+      ],
+      "trend_ema": [
+       100,
+       200
+      ],
+      "vix_max": [
+       0
+      ],
+      "atr_stop": [
+       0
+      ]
+     },
+     "trials": 32,
+     "oos_sharpe": 0.441,
+     "positive_folds": 4,
+     "passed_walk_forward": true
+    }
+   ],
+   "proposals": [
+    {
+     "round": 2,
+     "output": {
+      "diagnosis": "The first round results show both families failing walk-forward with OOS Sharpe below the required threshold (0.5). F1 achieved 0.22 OOS Sharpe with 3/5 positive folds, while F2 had 0.076 OOS Sharpe with only 1/5 positive folds. Both strategies showed weak in-sample performance (0.343 and 0.146 respectively). The neighbourhood analysis revealed no promising neighbours for either family. The critic's concerns about insufficient robustness and low in-sample Sharpe remain valid.",
+      "hypothesis": "Adding trend filters could improve the trend-riding strategy by ensuring trades are taken only during favorable market conditions. The trend_ema filter requires prices to be above a longer-term EMA, which should help avoid choppy markets where trend-following strategies often struggle. We should test trend_ema=100 and trend_ema=200 to see if they enhance the already weak performance of the EMA cross strategy.",
+      "experiments": [
+       {
+        "template": "ema_cross",
+        "params": {
+         "fast": [
+          5.0,
+          10.0,
+          20.0,
+          30.0
+         ],
+         "slow": [
+          50.0,
+          100.0,
+          150.0,
+          200.0
+         ],
+         "trend_ema": [
+          100.0,
+          200.0
+         ]
+        },
+        "rationale": "Add trend_ema filter to require prices to be above a 100-day EMA, filtering out choppy markets where trend-following often fails. This may improve the already weak EMA cross performance by ensuring trades are taken only during established uptrends."
+       },
+       {
+        "template": "ema_cross",
+        "params": {
+         "fast": [
+          5.0,
+          10.0,
+          20.0,
+          30.0
+         ],
+         "slow": [
+          50.0,
+          100.0,
+          150.0,
+          200.0
+         ],
+         "vix_max": [
+          20.0,
+          25.0,
+          30.0
+         ]
+        },
+        "rationale": "Test VIX max filter to avoid trading during high volatility periods where trend-following strategies often underperform. High VIX typically indicates market uncertainty, which may disrupt trend signals."
+       }
+      ],
+      "diagnose": [
+       "F1"
+      ],
+      "stop": false,
+      "stop_reason": ""
+     },
+     "model": "Qwen/Qwen2.5-3B-Instruct+lora:a1",
+     "usd": 0.0,
+     "mode": "prompt"
+    },
+    {
+     "round": 3,
+     "output": {
+      "diagnosis": "The current best family F3 (ema_cross) shows strong performance in uptrends (Sharpe 0.57) but weaker performance in downtrends (-0.07 Sharpe). Yearly returns exhibit high volatility with several negative years. The neighbourhood analysis reveals no promising neighbours for F3. The critic flagged concerns about borderline OOS Sharpe (0.441 vs required 0.558) and only 4/5 positive folds. Diagnostics show F3 performs poorly during high VIX regimes (Sharpe -0.2 for vix15-25).",
+      "hypothesis": "Adding trend_ema filter to the ema_cross template should help avoid trades during unfavorable market conditions, particularly high VIX periods where performance is weak. The trend_ema filter requires price to be above a longer-term EMA, ensuring we only trade when the overall trend is favorable. This should improve consistency across regimes.",
+      "experiments": [
+       {
+        "template": "ema_cross",
+        "params": {
+         "fast": [
+          5.0,
+          10.0,
+          20.0,
+          30.0
+         ],
+         "slow": [
+          50.0,
+          100.0,
+          150.0,
+          200.0
+         ],
+         "trend_ema": [
+          100.0,
+          200.0
+         ]
+        },
+        "rationale": "Add trend_ema filter to require price above 100 or 200-day EMA, filtering out trades during unfavorable market conditions. This addresses the regime weakness observed in diagnostics, especially during high VIX periods where Sharpe was -0.2."
+       },
+       {
+        "template": "ema_cross",
+        "params": {
+         "fast": [
+          5.0,
+          10.0,
+          20.0,
+          30.0
+         ],
+         "slow": [
+          50.0,
+          100.0,
+          150.0,
+          200.0
+         ],
+         "vix_max": [
+          20.0,
+          25.0,
+          30.0
+         ]
+        },
+        "rationale": "Add vix_max filter to limit trades to days with VIX below specified thresholds. This avoids trading during extreme volatility periods where performance is weak (Sharpe -0.2 for vix15-25). The vix_max filter ensures we only trade when volatility is moderate."
+       }
+      ],
+      "diagnose": [
+       "F3"
+      ],
+      "stop": false,
+      "stop_reason": ""
+     },
+     "model": "Qwen/Qwen2.5-3B-Instruct+lora:a1",
+     "usd": 0.0,
+     "mode": "prompt"
+    }
+   ],
+   "agent_failures": 0,
+   "failures": [],
+   "model_calls": 8,
+   "usd": 0.007579,
+   "seconds": 208.8
+  },
+  {
+   "seed": 12,
+   "kind": "noise",
+   "truth": "no_edge",
+   "source": "synthetic:noise:12",
+   "idea": "Buy short-term oversold dips",
+   "promote": false,
+   "reason": "no family cleared walk-forward at the bar for 5 looks (OOS Sharpe >= 0.632); holdout left sealed",
+   "templates": [
+    "rsi_reversion",
+    "bollinger_reversion"
+   ],
+   "rounds": 3,
+   "stop": "critic: further rounds would fit noise",
+   "trials": 181,
+   "looks": 5,
+   "refused_by_code": 1,
+   "best_oos_sharpe": 0.313,
+   "families": [
+    {
+     "id": "F1",
+     "round": 1,
+     "template": "rsi_reversion",
+     "space": {
+      "n": [
+       2,
+       3,
+       5,
+       14
+      ],
+      "entry": [
+       10,
+       20,
+       30
+      ],
+      "exit": [
+       50,
+       60,
+       70
+      ],
+      "trend_ema": [
+       0
+      ],
+      "vix_max": [
+       0
+      ],
+      "atr_stop": [
+       0
+      ]
+     },
+     "trials": 36,
+     "oos_sharpe": -0.125,
+     "positive_folds": 1,
+     "passed_walk_forward": false
+    },
+    {
+     "id": "F2",
+     "round": 1,
+     "template": "bollinger_reversion",
+     "space": {
+      "n": [
+       10,
+       20,
+       40
+      ],
+      "k": [
+       1.5,
+       2.0,
+       2.5
+      ],
+      "trend_ema": [
+       0
+      ],
+      "vix_max": [
+       0
+      ],
+      "atr_stop": [
+       0
+      ]
+     },
+     "trials": 9,
+     "oos_sharpe": 0.282,
+     "positive_folds": 4,
+     "passed_walk_forward": false
+    },
+    {
+     "id": "F3",
+     "round": 2,
+     "template": "rsi_reversion",
+     "space": {
+      "n": [
+       2,
+       3,
+       5
+      ],
+      "entry": [
+       10,
+       20
+      ],
+      "exit": [
+       50,
+       60
+      ],
+      "trend_ema": [
+       100,
+       200
+      ],
+      "vix_max": [
+       20,
+       25
+      ],
+      "atr_stop": [
+       2.0,
+       3.0
+      ]
+     },
+     "trials": 96,
+     "oos_sharpe": -0.315,
+     "positive_folds": 2,
+     "passed_walk_forward": false
+    },
+    {
+     "id": "F4",
+     "round": 2,
+     "template": "bollinger_reversion",
+     "space": {
+      "n": [
+       10,
+       20
+      ],
+      "k": [
+       1.5,
+       2.0
+      ],
+      "trend_ema": [
+       100,
+       200
+      ],
+      "vix_max": [
+       20,
+       25
+      ],
+      "atr_stop": [
+       2.0,
+       3.0
+      ]
+     },
+     "trials": 32,
+     "oos_sharpe": 0.313,
+     "positive_folds": 3,
+     "passed_walk_forward": false
+    },
+    {
+     "id": "F5",
+     "round": 3,
+     "template": "bollinger_reversion",
+     "space": {
+      "n": [
+       10,
+       20
+      ],
+      "k": [
+       1.5,
+       2.0
+      ],
+      "trend_ema": [
+       0
+      ],
+      "vix_max": [
+       30
+      ],
+      "atr_stop": [
+       2.0,
+       3.0
+      ]
+     },
+     "trials": 8,
+     "oos_sharpe": -0.095,
+     "positive_folds": 2,
+     "passed_walk_forward": false
+    }
+   ],
+   "proposals": [
+    {
+     "round": 2,
+     "output": {
+      "diagnosis": "Both families failed walk-forward with F1 (rsi_reversion) showing negative OOS Sharpe (-0.125) and F2 (bollinger_reversion) passing walk-forward but with low OOS Sharpe (0.282). The required OOS Sharpe after one more look is now 0.558, which these results fall short of. Both strategies used default parameter ranges without exploring filter variations.",
+      "hypothesis": "The current parameter ranges may not be optimal for either template. Adding trend filters (trend_ema) could improve performance by avoiding trades during downtrends, and VIX filters (vix_max) could help avoid high volatility periods where reversals might fail. Testing these filters systematically could reveal better parameter combinations.",
+      "experiments": [
+       {
+        "template": "rsi_reversion",
+        "params": {
+         "n": [
+          2.0,
+          3.0,
+          5.0
+         ],
+         "entry": [
+          10.0,
+          20.0
+         ],
+         "exit": [
+          50.0,
+          60.0
+         ],
+         "trend_ema": [
+          100.0,
+          200.0
+         ],
+         "vix_max": [
+          20.0,
+          25.0
+         ],
+         "atr_stop": [
+          2.0,
+          3.0
+         ]
+        },
+        "rationale": "Add trend and VIX filters to rsi_reversion to see if they improve performance. The trend_ema filter will require prices above a certain EMA to trade, avoiding downtrends. The vix_max filter will limit trades during high volatility periods. This explores whether filtering the input data improves the strategy's robustness."
+       },
+       {
+        "template": "bollinger_reversion",
+        "params": {
+         "n": [
+          10.0,
+          20.0
+         ],
+         "k": [
+          1.5,
+          2.0
+         ],
+         "trend_ema": [
+          100.0,
+          200.0
+         ],
+         "vix_max": [
+          20.0,
+          25.0
+         ],
+         "atr_stop": [
+          2.0,
+          3.0
+         ]
+        },
+        "rationale": "Apply similar filters to bollinger_reversion to see if they enhance its performance. The trend_ema filter ensures trades occur only when price is above a longer-term EMA, avoiding downtrends. The vix_max filter limits trades during high volatility. This tests whether adding filters to the Bollinger band-based strategy improves its consistency."
+       }
+      ],
+      "diagnose": [
+       "F2"
+      ],
+      "stop": false,
+      "stop_reason": ""
+     },
+     "model": "Qwen/Qwen2.5-3B-Instruct+lora:a1",
+     "usd": 0.0,
+     "mode": "prompt"
+    },
+    {
+     "round": 3,
+     "output": {
+      "diagnosis": "The best family F4 (bollinger_reversion) shows OOS Sharpe 0.313, well below the current required threshold of 0.6. Diagnostics reveal performance is concentrated in downtrends (Sharpe 0.61) but weak in uptrends (Sharpe 0.25), indicating regime dependence. Yearly returns show strong performance in 2018-2019 but negative in 2017, 2020, 2021. The neighbourhood analysis shows F4 has limited robustness with only 25% of neighbours within 70% of centre Sharpe. F2 also performed poorly with OOS Sharpe 0.282.",
+      "hypothesis": "The strategy's weakness in uptrends suggests it may be too sensitive to oversold conditions rather than true reversals. Adding trend filters could help avoid buying during false oversold signals in uptrending markets. Testing trend_ema=100 or 200 should filter out extreme uptrends while allowing downtrend entries. Also, exploring higher VIX thresholds (vix_max=30) might improve performance during volatile periods.",
+      "experiments": [
+       {
+        "template": "bollinger_reversion",
+        "params": {
+         "n": [
+          10.0,
+          20.0
+         ],
+         "k": [
+          1.5,
+          2.0
+         ],
+         "trend_ema": [
+          100.0,
+          200.0
+         ],
+         "vix_max": [
+          20.0,
+          25.0
+         ],
+         "atr_stop": [
+          2.0,
+          3.0
+         ]
+        },
+        "rationale": "Add trend filtering to avoid buying during extreme uptrends. Using trend_ema=100 or 200 should filter out false oversold signals in uptrending markets, potentially improving performance in downtrends where the strategy currently excels."
+       },
+       {
+        "template": "bollinger_reversion",
+        "params": {
+         "n": [
+          10.0,
+          20.0
+         ],
+         "k": [
+          1.5,
+          2.0
+         ],
+         "trend_ema": [
+          0.0
+         ],
+         "vix_max": [
+          30.0
+         ],
+         "atr_stop": [
+          2.0,
+          3.0
+         ]
+        },
+        "rationale": "Test higher VIX thresholds (vix_max=30) to see if limiting trades during high volatility improves overall performance. This addresses the regime dependence observed in diagnostics."
+       }
+      ],
+      "diagnose": [
+       "F4"
+      ],
+      "stop": false,
+      "stop_reason": ""
+     },
+     "model": "Qwen/Qwen2.5-3B-Instruct+lora:a1",
+     "usd": 0.0,
+     "mode": "prompt"
+    }
+   ],
+   "agent_failures": 0,
+   "failures": [],
+   "model_calls": 8,
+   "usd": 0.008021,
+   "seconds": 197.1
+  },
+  {
+   "seed": 13,
+   "kind": "noise",
+   "truth": "no_edge",
+   "source": "synthetic:noise:13",
+   "idea": "Ride sustained trends",
+   "promote": false,
+   "reason": "no family cleared walk-forward at the bar for 5 looks (OOS Sharpe >= 0.632); holdout left sealed",
+   "templates": [
+    "ema_cross",
+    "donchian_breakout"
+   ],
+   "rounds": 3,
+   "stop": "critic: further rounds would fit noise",
+   "trials": 93,
+   "looks": 5,
+   "refused_by_code": 3,
+   "best_oos_sharpe": 0.385,
+   "families": [
+    {
+     "id": "F1",
+     "round": 1,
+     "template": "ema_cross",
+     "space": {
+      "fast": [
+       5,
+       10,
+       20,
+       30
+      ],
+      "slow": [
+       50,
+       100,
+       150,
+       200
+      ],
+      "trend_ema": [
+       0
+      ],
+      "vix_max": [
+       0
+      ],
+      "atr_stop": [
+       0
+      ]
+     },
+     "trials": 16,
+     "oos_sharpe": 0.385,
+     "positive_folds": 4,
+     "passed_walk_forward": false
+    },
+    {
+     "id": "F2",
+     "round": 1,
+     "template": "donchian_breakout",
+     "space": {
+      "entry_n": [
+       20,
+       55,
+       100
+      ],
+      "exit_n": [
+       10,
+       20,
+       50
+      ],
+      "trend_ema": [
+       0
+      ],
+      "vix_max": [
+       0
+      ],
+      "atr_stop": [
+       0
+      ]
+     },
+     "trials": 9,
+     "oos_sharpe": 0.204,
+     "positive_folds": 2,
+     "passed_walk_forward": false
+    },
+    {
+     "id": "F3",
+     "round": 2,
+     "template": "ema_cross",
+     "space": {
+      "fast": [
+       5,
+       10,
+       20,
+       30
+      ],
+      "slow": [
+       50,
+       100,
+       150,
+       200
+      ],
+      "trend_ema": [
+       100,
+       200
+      ],
+      "vix_max": [
+       0
+      ],
+      "atr_stop": [
+       0
+      ]
+     },
+     "trials": 32,
+     "oos_sharpe": 0.258,
+     "positive_folds": 3,
+     "passed_walk_forward": false
+    },
+    {
+     "id": "F4",
+     "round": 3,
+     "template": "ema_cross",
+     "space": {
+      "fast": [
+       5,
+       10,
+       20
+      ],
+      "slow": [
+       50,
+       100,
+       150
+      ],
+      "trend_ema": [
+       0
+      ],
+      "vix_max": [
+       20,
+       25,
+       30
+      ],
+      "atr_stop": [
+       0
+      ]
+     },
+     "trials": 27,
+     "oos_sharpe": 0.348,
+     "positive_folds": 3,
+     "passed_walk_forward": false
+    },
+    {
+     "id": "F5",
+     "round": 3,
+     "template": "ema_cross",
+     "space": {
+      "fast": [
+       30
+      ],
+      "slow": [
+       100,
+       150,
+       200
+      ],
+      "trend_ema": [
+       0
+      ],
+      "vix_max": [
+       20,
+       25,
+       30
+      ],
+      "atr_stop": [
+       0
+      ]
+     },
+     "trials": 9,
+     "oos_sharpe": 0.245,
+     "positive_folds": 3,
+     "passed_walk_forward": false
+    }
+   ],
+   "proposals": [
+    {
+     "round": 2,
+     "output": {
+      "diagnosis": "The first round produced two families: F1 (EMA cross) with OOS Sharpe 0.385 (4/5 positive folds) and F2 (Donchian breakout) with OOS Sharpe 0.204 (2/5 positive folds). Both failed the walk-forward threshold of 0.5. The critic noted the strategy has potential but needs refinement. The neighbourhood analysis shows no promising neighbours for either family.",
+      "hypothesis": "Adding trend filters to the best-performing EMA cross family (F1) may improve its walk-forward performance by ensuring trades align with established trends. The trend_ema filter requires price to be above a longer-term EMA, which should help avoid counter-trend trades during downtrends. We'll test this hypothesis by adding trend_ema filter values to the existing EMA cross parameters.",
+      "experiments": [
+       {
+        "template": "ema_cross",
+        "params": {
+         "fast": [
+          5.0,
+          10.0,
+          20.0,
+          30.0
+         ],
+         "slow": [
+          50.0,
+          100.0,
+          150.0,
+          200.0
+         ],
+         "trend_ema": [
+          100.0,
+          200.0
+         ]
+        },
+        "rationale": "Add trend_ema filter to ensure trades occur only when price is above a longer-term EMA, filtering out counter-trend moves. This aligns with the 'ride sustained trends' idea and may improve the already strong OOS performance."
+       }
+      ],
+      "diagnose": [
+       "F1"
+      ],
+      "stop": false,
+      "stop_reason": ""
+     },
+     "model": "Qwen/Qwen2.5-3B-Instruct+lora:a1",
+     "usd": 0.0,
+     "mode": "prompt"
+    },
+    {
+     "round": 3,
+     "output": {
+      "diagnosis": "The best family (F1) shows OOS Sharpe of 0.385, which is below the current required threshold of 0.558 and hasn't passed walk-forward. Diagnostics reveal strong performance in moderate VIX regimes (15-25) and uptrends, but weakness in high VIX (>25) and downtrends. The strategy performs poorly in negative years (2011, 2012, 2017, 2020) and has inconsistent year-over-year returns. Adding trend filters to EMA cross (F3) didn't improve performance, suggesting the trend filter may not be beneficial or the parameter choices need refinement.",
+      "hypothesis": "The core issue appears to be the strategy's sensitivity to high volatility periods (VIX >25) where it underperforms significantly. Given the strong performance in moderate VIX regimes, we should test whether adding volatility filters can improve risk-adjusted returns during volatile periods. We should also explore whether different EMA combinations or longer/shorter period combinations might perform better in high VIX environments.",
+      "experiments": [
+       {
+        "template": "ema_cross",
+        "params": {
+         "fast": [
+          5.0,
+          10.0,
+          20.0
+         ],
+         "slow": [
+          50.0,
+          100.0,
+          150.0
+         ],
+         "vix_max": [
+          20.0,
+          25.0,
+          30.0
+         ]
+        },
+        "rationale": "Test volatility filters on the best-performing EMA cross family. The diagnostics show weakness in high VIX (>25) periods. Adding vix_max filter to limit exposure during extreme volatility could help reduce drawdowns and improve risk-adjusted returns."
+       },
+       {
+        "template": "ema_cross",
+        "params": {
+         "fast": [
+          5.0,
+          10.0,
+          20.0
+         ],
+         "slow": [
+          50.0,
+          100.0,
+          150.0
+         ],
+         "trend_ema": [
+          100.0,
+          200.0
+         ]
+        },
+        "rationale": "Re-test with trend filters to see if they improve performance in downtrends, which showed weaker Sharpe (0.85) compared to uptrends (0.18). The original hypothesis suggested trend filters would help, but F3 failed to improve performance."
+       },
+       {
+        "template": "ema_cross",
+        "params": {
+         "fast": [
+          30.0,
+          40.0,
+          50.0
+         ],
+         "slow": [
+          100.0,
+          150.0,
+          200.0
+         ],
+         "vix_max": [
+          20.0,
+          25.0,
+          30.0
+         ]
+        },
+        "rationale": "Explore different EMA combinations focusing on faster/slower pairs that might perform better in high VIX environments. The original F1 used slower combinations (50-200) which struggled in high volatility."
+       }
+      ],
+      "diagnose": [
+       "F1"
+      ],
+      "stop": false,
+      "stop_reason": ""
+     },
+     "model": "Qwen/Qwen2.5-3B-Instruct+lora:a1",
+     "usd": 0.0,
+     "mode": "prompt"
+    }
+   ],
+   "agent_failures": 0,
+   "failures": [],
+   "model_calls": 8,
+   "usd": 0.007275,
+   "seconds": 194.6
+  },
+  {
+   "seed": 14,
+   "kind": "noise",
+   "truth": "no_edge",
+   "source": "synthetic:noise:14",
+   "idea": "Buy short-term oversold dips",
+   "promote": false,
+   "reason": "no family cleared walk-forward at the bar for 3 looks (OOS Sharpe >= 0.558); holdout left sealed",
+   "templates": [
+    "rsi_reversion"
+   ],
+   "rounds": 3,
+   "stop": "critic: further rounds would fit noise",
+   "trials": 49,
+   "looks": 3,
+   "refused_by_code": 4,
+   "best_oos_sharpe": 0.37,
+   "families": [
+    {
+     "id": "F1",
+     "round": 1,
+     "template": "rsi_reversion",
+     "space": {
+      "n": [
+       2,
+       3,
+       5,
+       14
+      ],
+      "entry": [
+       10,
+       20,
+       30
+      ],
+      "exit": [
+       50,
+       60,
+       70
+      ],
+      "trend_ema": [
+       0
+      ],
+      "vix_max": [
+       0
+      ],
+      "atr_stop": [
+       0
+      ]
+     },
+     "trials": 36,
+     "oos_sharpe": -0.064,
+     "positive_folds": 3,
+     "passed_walk_forward": false
+    },
+    {
+     "id": "F2",
+     "round": 3,
+     "template": "rsi_reversion",
+     "space": {
+      "n": [
+       2,
+       3,
+       5
+      ],
+      "entry": [
+       10,
+       20
+      ],
+      "exit": [
+       50,
+       60
+      ],
+      "trend_ema": [
+       0
+      ],
+      "vix_max": [
+       0
+      ],
+      "atr_stop": [
+       0
+      ]
+     },
+     "trials": 12,
+     "oos_sharpe": 0.236,
+     "positive_folds": 4,
+     "passed_walk_forward": false
+    },
+    {
+     "id": "F3",
+     "round": 3,
+     "template": "rsi_reversion",
+     "space": {
+      "n": [
+       14
+      ],
+      "entry": [
+       20
+      ],
+      "exit": [
+       60
+      ],
+      "trend_ema": [
+       0
+      ],
+      "vix_max": [
+       0
+      ],
+      "atr_stop": [
+       0
+      ]
+     },
+     "trials": 1,
+     "oos_sharpe": 0.37,
+     "positive_folds": 2,
+     "passed_walk_forward": false
+    }
+   ],
+   "proposals": [
+    {
+     "round": 2,
+     "output": {
+      "diagnosis": "The first round tested the basic RSI_reversion template with limited parameter exploration (only 36 trials across 36 combinations). Family F1 achieved in-sample Sharpe of 0.338 but failed walk-forward with OOS Sharpe -0.064, well below the required threshold of 0.4. Only 3 of 5 folds were positive, indicating the strategy is generating more losers than winners. The strategy underperformed buy-and-hold by 0.249. The neighbourhood analysis shows no promising neighbours around the best parameters.",
+      "hypothesis": "The failure of F1 suggests either the core RSI reversal concept isn't working for this market or the parameter ranges tested weren't optimal. Adding trend filters (trend_ema) could help avoid buying during downtrends, volatility filters (vix_max) could reduce false signals during high-volatility periods, and ATR stops could improve risk management. We should test whether adding these filters improves the strategy's performance.",
+      "experiments": [
+       {
+        "template": "rsi_reversion",
+        "params": {
+         "n": [
+          2.0,
+          3.0,
+          5.0,
+          14.0
+         ],
+         "entry": [
+          10.0,
+          20.0,
+          30.0
+         ],
+         "exit": [
+          50.0,
+          60.0,
+          70.0
+         ],
+         "trend_ema": [
+          100.0,
+          200.0
+         ],
+         "vix_max": [
+          20.0,
+          25.0,
+          30.0
+         ],
+         "atr_stop": [
+          2.0,
+          3.0
+         ]
+        },
+        "rationale": "Add trend_ema filter to avoid buying when price is below EMA(100) or EMA(200), vix_max filter to limit trades during high-volatility periods (VIX > 20, 25, 30), and atr_stop to add downside protection. This explores whether filtering the RSI signals improves the strategy's robustness and risk-adjusted returns."
+       },
+       {
+        "template": "rsi_reversion",
+        "params": {
+         "n": [
+          2.0,
+          3.0,
+          5.0,
+          14.0
+         ],
+         "entry": [
+          10.0,
+          20.0,
+          30.0
+         ],
+         "exit": [
+          50.0,
+          60.0,
+          70.0
+         ],
+         "trend_ema": [
+          0.0
+         ],
+         "vix_max": [
+          0.0
+         ],
+         "atr_stop": [
+          0.0
+         ]
+        },
+        "rationale": "Test the original RSI_reversion template again with all filters disabled to see if removing the filters reveals any hidden patterns or weaknesses in the core RSI reversal logic."
+       },
+       {
+        "template": "rsi_reversion",
+        "params": {
+         "n": [
+          2.0,
+          3.0,
+          5.0,
+          14.0
+         ],
+         "entry": [
+          10.0,
+          20.0,
+          30.0
+         ],
+         "exit": [
+          50.0,
+          60.0,
+          70.0
+         ],
+         "trend_ema": [
+          0.0
+         ],
+         "vix_max": [
+          0.0
+         ],
+         "atr_stop": [
+          0.0
+         ]
+        },
+        "rationale": "Repeat the original RSI_reversion template with all filters disabled to ensure we're not missing any parameter combinations that might work better than the current best."
+       }
+      ],
+      "diagnose": [
+       "F1"
+      ],
+      "stop": false,
+      "stop_reason": ""
+     },
+     "model": "Qwen/Qwen2.5-3B-Instruct+lora:a1",
+     "usd": 0.0,
+     "mode": "prompt"
+    },
+    {
+     "round": 3,
+     "output": {
+      "diagnosis": "The first round tested basic RSI parameters (n=2,3,5,14; entry=10,20,30; exit=50,60,70) without any filters. The results show F1 failed walk-forward with OOS Sharpe -0.064 (below required 0.4), and performed poorly across regimes: strong in moderate VIX (15-25) and downtrends, but weak in low VIX and uptrends. The strategy shows significant underperformance relative to buy-and-hold (OOS Sharpe -0.064 vs 0.249). The neighbourhood analysis revealed no promising neighbours around the best-performing parameters.",
+      "hypothesis": "Adding volatility filters (vix_max) could help avoid high-stress periods where the strategy underperforms, while trend filters might improve performance in downtrends. The ATR stop could provide better risk management during volatile periods.",
+      "experiments": [
+       {
+        "template": "rsi_reversion",
+        "params": {
+         "n": [
+          2.0,
+          3.0,
+          5.0
+         ],
+         "entry": [
+          10.0,
+          20.0
+         ],
+         "exit": [
+          50.0,
+          60.0
+         ],
+         "trend_ema": [
+          100.0,
+          200.0
+         ],
+         "vix_max": [
+          20.0,
+          25.0
+         ],
+         "atr_stop": [
+          2.0,
+          3.0
+         ]
+        },
+        "rationale": "Test adding trend_ema filter (100,200 days) to avoid counter-trend trades, vix_max filter (20,25) to avoid high-VIX periods, and atr_stop (2.0,3.0) for risk management. This explores whether filtering the RSI signals improves consistency across regimes."
+       },
+       {
+        "template": "rsi_reversion",
+        "params": {
+         "n": [
+          2.0,
+          3.0,
+          5.0
+         ],
+         "entry": [
+          10.0,
+          20.0
+         ],
+         "exit": [
+          50.0,
+          60.0
+         ],
+         "trend_ema": [
+          0.0
+         ],
+         "vix_max": [
+          0.0
+         ],
+         "atr_stop": [
+          0.0
+         ]
+        },
+        "rationale": "Fine-tune the original best-performing parameters (n=2,3,5; entry=10,20; exit=50,60) without any filters to see if removing the restrictive filters from the previous round reveals any hidden strengths."
+       },
+       {
+        "template": "rsi_reversion",
+        "params": {
+         "n": [
+          14.0
+         ],
+         "entry": [
+          20.0
+         ],
+         "exit": [
+          60.0
+         ],
+         "trend_ema": [
+          0.0
+         ],
+         "vix_max": [
+          0.0
+         ],
+         "atr_stop": [
+          0.0
+         ]
+        },
+        "rationale": "Test a more aggressive RSI parameter set (n=14, entry=20, exit=60) that may capture stronger mean-reversion signals than the conservative n=2,3,5. This explores whether a different RSI configuration could perform better."
+       }
+      ],
+      "diagnose": [
+       "F1"
+      ],
+      "stop": false,
+      "stop_reason": ""
+     },
+     "model": "Qwen/Qwen2.5-3B-Instruct+lora:a1",
+     "usd": 0.0,
+     "mode": "prompt"
+    }
+   ],
+   "agent_failures": 0,
+   "failures": [],
+   "model_calls": 8,
+   "usd": 0.007159,
+   "seconds": 194.0
+  },
+  {
+   "seed": 15,
+   "kind": "noise",
+   "truth": "no_edge",
+   "source": "synthetic:noise:15",
+   "idea": "Ride sustained trends",
+   "promote": false,
+   "reason": "no family cleared walk-forward at the bar for 3 looks (OOS Sharpe >= 0.558); holdout left sealed",
+   "templates": [
+    "ema_cross",
+    "donchian_breakout"
+   ],
+   "rounds": 2,
+   "stop": "critic: further rounds would fit noise",
+   "trials": 133,
+   "looks": 3,
+   "refused_by_code": 1,
+   "best_oos_sharpe": -0.124,
+   "families": [
+    {
+     "id": "F1",
+     "round": 1,
+     "template": "ema_cross",
+     "space": {
+      "fast": [
+       5,
+       10,
+       20,
+       30
+      ],
+      "slow": [
+       50,
+       100,
+       150,
+       200
+      ],
+      "trend_ema": [
+       0
+      ],
+      "vix_max": [
+       0
+      ],
+      "atr_stop": [
+       0
+      ]
+     },
+     "trials": 16,
+     "oos_sharpe": -0.124,
+     "positive_folds": 2,
+     "passed_walk_forward": false
+    },
+    {
+     "id": "F2",
+     "round": 1,
+     "template": "donchian_breakout",
+     "space": {
+      "entry_n": [
+       20,
+       55,
+       100
+      ],
+      "exit_n": [
+       10,
+       20,
+       50
+      ],
+      "trend_ema": [
+       0
+      ],
+      "vix_max": [
+       0
+      ],
+      "atr_stop": [
+       0
+      ]
+     },
+     "trials": 9,
+     "oos_sharpe": -0.138,
+     "positive_folds": 1,
+     "passed_walk_forward": false
+    },
+    {
+     "id": "F3",
+     "round": 2,
+     "template": "ema_cross",
+     "space": {
+      "fast": [
+       5,
+       10,
+       20
+      ],
+      "slow": [
+       50,
+       100,
+       150
+      ],
+      "trend_ema": [
+       100,
+       200
+      ],
+      "vix_max": [
+       20,
+       25,
+       30
+      ],
+      "atr_stop": [
+       2.0,
+       3.0
+      ]
+     },
+     "trials": 108,
+     "oos_sharpe": -0.206,
+     "positive_folds": 1,
+     "passed_walk_forward": false
+    }
+   ],
+   "proposals": [
+    {
+     "round": 2,
+     "output": {
+      "diagnosis": "The first round results show both EMA cross (F1) and Donchian breakout (F2) families performed poorly with negative OOS Sharpe ratios (-0.124 and -0.138 respectively) and failed walk-forward validation (only 2/5 positive folds for EMA cross and 1/5 for Donchian breakout). Both strategies failed to beat buy-and-hold (-0.22). The critic's concerns about weak continuation hypothesis are valid given these results.",
+      "hypothesis": "The original hypothesis was flawed - continuation strategies using simple moving averages may not be effective for capturing sustained trends in NIFTY 50. We need to explore different approaches or refine the existing templates rather than testing the same basic continuation strategies again.",
+      "experiments": [
+       {
+        "template": "ema_cross",
+        "params": {
+         "fast": [
+          5.0,
+          10.0,
+          20.0
+         ],
+         "slow": [
+          50.0,
+          100.0,
+          150.0
+         ],
+         "trend_ema": [
+          100.0,
+          200.0
+         ],
+         "vix_max": [
+          20.0,
+          25.0,
+          30.0
+         ],
+         "atr_stop": [
+          2.0,
+          3.0
+         ]
+        },
+        "rationale": "Add trend filtering (trend_ema=100,200) and volatility filtering (vix_max=20,25,30) to the EMA cross template. ATR stop-loss (atr_stop=2.0,3.0) may help manage risk. This addresses the criticism that the original templates didn't filter for strong trends or high volatility conditions."
+       },
+       {
+        "template": "donchian_breakout",
+        "params": {
+         "entry_n": [
+          20.0,
+          55.0,
+          100.0
+         ],
+         "exit_n": [
+          10.0,
+          20.0,
+          50.0
+         ],
+         "trend_ema": [
+          100.0,
+          200.0
+         ],
+         "vix_max": [
+          20.0,
+          25.0,
+          30.0
+         ],
+         "atr_stop": [
+          2.0,
+          3.0
+         ]
+        },
+        "rationale": "Apply similar trend and volatility filters to the Donchian breakout template. Adding trend filtering ensures we only trade during established trends, and volatility filtering avoids extreme market conditions. ATR stop-loss helps protect gains."
+       }
+      ],
+      "diagnose": [
+       "F1",
+       "F2"
+      ],
+      "stop": false,
+      "stop_reason": ""
+     },
+     "model": "Qwen/Qwen2.5-3B-Instruct+lora:a1",
+     "usd": 0.0,
+     "mode": "prompt"
+    }
+   ],
+   "agent_failures": 0,
+   "failures": [],
+   "model_calls": 6,
+   "usd": 0.00563,
+   "seconds": 106.4
+  },
+  {
+   "seed": 16,
+   "kind": "noise",
+   "truth": "no_edge",
+   "source": "synthetic:noise:16",
+   "idea": "Buy short-term oversold dips",
+   "promote": false,
+   "reason": "no family cleared walk-forward at the bar for 6 looks (OOS Sharpe >= 0.658); holdout left sealed",
+   "templates": [
+    "rsi_reversion"
+   ],
+   "rounds": 3,
+   "stop": "critic: further rounds would fit noise",
+   "trials": 48,
+   "looks": 6,
+   "refused_by_code": 0,
+   "best_oos_sharpe": 0.759,
+   "families": [
+    {
+     "id": "F1",
+     "round": 1,
+     "template": "rsi_reversion",
+     "space": {
+      "n": [
+       2,
+       3,
+       5,
+       14
+      ],
+      "entry": [
+       10,
+       20,
+       30
+      ],
+      "exit": [
+       50,
+       60,
+       70
+      ],
+      "trend_ema": [
+       0
+      ],
+      "vix_max": [
+       0
+      ],
+      "atr_stop": [
+       0
+      ]
+     },
+     "trials": 36,
+     "oos_sharpe": 0.274,
+     "positive_folds": 2,
+     "passed_walk_forward": false
+    },
+    {
+     "id": "F2",
+     "round": 2,
+     "template": "rsi_reversion",
+     "space": {
+      "n": [
+       14
+      ],
+      "entry": [
+       20,
+       30
+      ],
+      "exit": [
+       50,
+       60
+      ],
+      "trend_ema": [
+       0
+      ],
+      "vix_max": [
+       0
+      ],
+      "atr_stop": [
+       0
+      ]
+     },
+     "trials": 4,
+     "oos_sharpe": 0.759,
+     "positive_folds": 2,
+     "passed_walk_forward": false
+    },
+    {
+     "id": "F3",
+     "round": 2,
+     "template": "rsi_reversion",
+     "space": {
+      "n": [
+       5
+      ],
+      "entry": [
+       20,
+       30
+      ],
+      "exit": [
+       50,
+       60
+      ],
+      "trend_ema": [
+       0
+      ],
+      "vix_max": [
+       0
+      ],
+      "atr_stop": [
+       0
+      ]
+     },
+     "trials": 4,
+     "oos_sharpe": -0.012,
+     "positive_folds": 2,
+     "passed_walk_forward": false
+    },
+    {
+     "id": "F4",
+     "round": 2,
+     "template": "rsi_reversion",
+     "space": {
+      "n": [
+       14
+      ],
+      "entry": [
+       20
+      ],
+      "exit": [
+       50
+      ],
+      "trend_ema": [
+       0
+      ],
+      "vix_max": [
+       0
+      ],
+      "atr_stop": [
+       0
+      ]
+     },
+     "trials": 1,
+     "oos_sharpe": 0.637,
+     "positive_folds": 2,
+     "passed_walk_forward": false
+    },
+    {
+     "id": "F5",
+     "round": 3,
+     "template": "rsi_reversion",
+     "space": {
+      "n": [
+       14
+      ],
+      "entry": [
+       20
+      ],
+      "exit": [
+       50
+      ],
+      "trend_ema": [
+       100
+      ],
+      "vix_max": [
+       25
+      ],
+      "atr_stop": [
+       0
+      ]
+     },
+     "trials": 1,
+     "oos_sharpe": 0.0,
+     "positive_folds": 0,
+     "passed_walk_forward": false
+    },
+    {
+     "id": "F6",
+     "round": 3,
+     "template": "rsi_reversion",
+     "space": {
+      "n": [
+       14
+      ],
+      "entry": [
+       20
+      ],
+      "exit": [
+       50
+      ],
+      "trend_ema": [
+       0
+      ],
+      "vix_max": [
+       0
+      ],
+      "atr_stop": [
+       2.0,
+       3.0
+      ]
+     },
+     "trials": 2,
+     "oos_sharpe": 0.637,
+     "positive_folds": 2,
+     "passed_walk_forward": false
+    }
+   ],
+   "proposals": [
+    {
+     "round": 2,
+     "output": {
+      "diagnosis": "The first round tested the basic RSI reversion template with oversold entry thresholds (20-30) and moderate RSI period (14). Results showed OOS Sharpe of 0.274, well below the required 0.4, with only 2 out of 5 test blocks positive. The strategy underperformed buy-and-hold (0.498 vs 0.274) and failed to meet the walk-forward criteria. The neighbourhood analysis revealed no promising neighbours around the best-performing parameters (n=5, entry=30, exit=60). This suggests the core RSI reversion hypothesis may need refinement rather than confirmation.",
+      "hypothesis": "The oversold reversal strategy appears flawed given the current parameter choices. We should explore whether different RSI periods or entry thresholds might work better, or if adding volatility filters could improve risk management. Given the limited success so far, we should focus on optimizing the core RSI parameters rather than adding complex filters.",
+      "experiments": [
+       {
+        "template": "rsi_reversion",
+        "params": {
+         "n": [
+          14.0
+         ],
+         "entry": [
+          20.0,
+          30.0
+         ],
+         "exit": [
+          50.0,
+          60.0
+         ]
+        },
+        "rationale": "Test a narrower range of RSI periods (14) with more conservative entry thresholds (20, 30) and exits (50, 60). The original template used n=[2,3,5,14] which was too broad. Narrowing down to 14 may capture more reliable oversold conditions while keeping thresholds manageable."
+       },
+       {
+        "template": "rsi_reversion",
+        "params": {
+         "n": [
+          5.0
+         ],
+         "entry": [
+          20.0,
+          30.0
+         ],
+         "exit": [
+          50.0,
+          60.0
+         ]
+        },
+        "rationale": "Test a shorter RSI period (5) with the same entry thresholds as above. Shorter periods can capture quicker reversals but may require tighter entry thresholds to avoid whipsaws. This explores whether faster-moving indicators work better for oversold conditions."
+       },
+       {
+        "template": "rsi_reversion",
+        "params": {
+         "n": [
+          14.0
+         ],
+         "entry": [
+          20.0
+         ],
+         "exit": [
+          50.0
+         ]
+        },
+        "rationale": "Test a single parameter combination focusing on the most conservative settings. This isolates the effect of RSI period 14 with entry threshold 20 and exit threshold 50, avoiding the full 3x3x3 grid search from the previous round."
+       }
+      ],
+      "diagnose": [
+       "F1"
+      ],
+      "stop": false,
+      "stop_reason": ""
+     },
+     "model": "Qwen/Qwen2.5-3B-Instruct+lora:a1",
+     "usd": 0.0,
+     "mode": "prompt"
+    },
+    {
+     "round": 3,
+     "output": {
+      "diagnosis": "The results show F2 performed exceptionally well with OOS Sharpe 0.759, but the critic raised valid concerns about the suspiciously high performance relative to in-sample (0.298) and the limited number of trials (4). Diagnostics reveal F2 performs best in downtrends and high VIX regimes (Sharpe 0.81, 0.45 respectively), but poorly in uptrends (Sharpe 0.51) and low VIX regimes (Sharpe 0.01). The neighbourhood analysis shows F2 has weak robustness with only 38% of neighbours within 70% of centre Sharpe. F4 performed poorly with negative OOS Sharpe (-0.012). The overall pattern suggests the strategy may be capturing specific market conditions rather than general market trends.",
+      "hypothesis": "The RSI reversion template works well in downtrends and high VIX environments but struggles in uptrends and low volatility periods. Adding trend filters could improve robustness by ensuring we only trade during uptrends, and VIX filters could help avoid high volatility periods where the strategy may fail. Testing trend_ema=100 and vix_max=25 should filter for uptrends and moderate volatility, potentially improving the strategy's consistency across market regimes.",
+      "experiments": [
+       {
+        "template": "rsi_reversion",
+        "params": {
+         "n": [
+          14.0
+         ],
+         "entry": [
+          20.0
+         ],
+         "exit": [
+          50.0
+         ],
+         "trend_ema": [
+          100.0
+         ],
+         "vix_max": [
+          25.0
+         ]
+        },
+        "rationale": "Add trend_ema=100 to require uptrends and vix_max=25 to avoid high volatility periods. This should improve the strategy's performance in uptrends and moderate volatility environments, addressing the critic's concern about concentration in downtrends and high VIX regimes."
+       },
+       {
+        "template": "rsi_reversion",
+        "params": {
+         "n": [
+          14.0
+         ],
+         "entry": [
+          20.0
+         ],
+         "exit": [
+          50.0
+         ],
+         "atr_stop": [
+          2.0,
+          3.0
+         ]
+        },
+        "rationale": "Test ATR stop filters to provide downside protection. Given the strategy's focus on oversold conditions, adding stop-losses could improve risk management and potentially reduce drawdowns during volatile periods."
+       }
+      ],
+      "diagnose": [
+       "F2"
+      ],
+      "stop": false,
+      "stop_reason": ""
+     },
+     "model": "Qwen/Qwen2.5-3B-Instruct+lora:a1",
+     "usd": 0.0,
+     "mode": "prompt"
+    }
+   ],
+   "agent_failures": 0,
+   "failures": [],
+   "model_calls": 8,
+   "usd": 0.008005,
+   "seconds": 195.1
+  },
+  {
+   "seed": 17,
+   "kind": "noise",
+   "truth": "no_edge",
+   "source": "synthetic:noise:17",
+   "idea": "Ride sustained trends",
+   "promote": false,
+   "reason": "no family cleared walk-forward at the bar for 5 looks (OOS Sharpe >= 0.632); holdout left sealed",
+   "templates": [
+    "ema_cross",
+    "donchian_breakout"
+   ],
+   "rounds": 3,
+   "stop": "critic: further rounds would fit noise",
+   "trials": 169,
+   "looks": 5,
+   "refused_by_code": 1,
+   "best_oos_sharpe": 0.29,
+   "families": [
+    {
+     "id": "F1",
+     "round": 1,
+     "template": "ema_cross",
+     "space": {
+      "fast": [
+       5,
+       10,
+       20,
+       30
+      ],
+      "slow": [
+       50,
+       100,
+       150,
+       200
+      ],
+      "trend_ema": [
+       0
+      ],
+      "vix_max": [
+       0
+      ],
+      "atr_stop": [
+       0
+      ]
+     },
+     "trials": 16,
+     "oos_sharpe": 0.248,
+     "positive_folds": 3,
+     "passed_walk_forward": false
+    },
+    {
+     "id": "F2",
+     "round": 1,
+     "template": "donchian_breakout",
+     "space": {
+      "entry_n": [
+       20,
+       55,
+       100
+      ],
+      "exit_n": [
+       10,
+       20,
+       50
+      ],
+      "trend_ema": [
+       0
+      ],
+      "vix_max": [
+       0
+      ],
+      "atr_stop": [
+       0
+      ]
+     },
+     "trials": 9,
+     "oos_sharpe": 0.049,
+     "positive_folds": 2,
+     "passed_walk_forward": false
+    },
+    {
+     "id": "F3",
+     "round": 2,
+     "template": "ema_cross",
+     "space": {
+      "fast": [
+       5,
+       10,
+       20,
+       30
+      ],
+      "slow": [
+       50,
+       100,
+       150,
+       200
+      ],
+      "trend_ema": [
+       100,
+       200
+      ],
+      "vix_max": [
+       0
+      ],
+      "atr_stop": [
+       0
+      ]
+     },
+     "trials": 32,
+     "oos_sharpe": 0.162,
+     "positive_folds": 2,
+     "passed_walk_forward": false
+    },
+    {
+     "id": "F4",
+     "round": 2,
+     "template": "ema_cross",
+     "space": {
+      "fast": [
+       5,
+       10,
+       20,
+       30
+      ],
+      "slow": [
+       50,
+       100,
+       150,
+       200
+      ],
+      "trend_ema": [
+       0
+      ],
+      "vix_max": [
+       20,
+       25,
+       30
+      ],
+      "atr_stop": [
+       0
+      ]
+     },
+     "trials": 48,
+     "oos_sharpe": 0.29,
+     "positive_folds": 4,
+     "passed_walk_forward": false
+    },
+    {
+     "id": "F5",
+     "round": 3,
+     "template": "ema_cross",
+     "space": {
+      "fast": [
+       5,
+       10,
+       20,
+       30
+      ],
+      "slow": [
+       50,
+       100,
+       150,
+       200
+      ],
+      "trend_ema": [
+       100,
+       200
+      ],
+      "vix_max": [
+       20,
+       25
+      ],
+      "atr_stop": [
+       0
+      ]
+     },
+     "trials": 64,
+     "oos_sharpe": 0.14,
+     "positive_folds": 3,
+     "passed_walk_forward": false
+    }
+   ],
+   "proposals": [
+    {
+     "round": 2,
+     "output": {
+      "diagnosis": "The first round results show both families underperforming buy-and-hold (OOS Sharpe 0.248 for ema_cross, 0.049 for donchian_breakout vs 0.371 for buy-and-hold). Both passed walk-forward with 3/5 positive folds, but neither reached the required 0.5 threshold. The critic's concerns about weak performance are valid - we need to improve significantly to meet the next threshold of 0.558 after one more look.",
+      "hypothesis": "Adding trend filters (trend_ema) to the EMA cross template may improve its performance by ensuring we only trade during strong uptrends, potentially filtering out false signals. The donchian_breakout already has trend_ema filter, so we'll focus on optimizing the EMA cross with additional trend validation.",
+      "experiments": [
+       {
+        "template": "ema_cross",
+        "params": {
+         "fast": [
+          5.0,
+          10.0,
+          20.0,
+          30.0
+         ],
+         "slow": [
+          50.0,
+          100.0,
+          150.0,
+          200.0
+         ],
+         "trend_ema": [
+          100.0,
+          200.0
+         ]
+        },
+        "rationale": "Add trend_ema filter to require price above a longer-term EMA (100 or 200 days) to confirm we're trading during a strong uptrend. This should reduce false signals and improve the quality of entries."
+       },
+       {
+        "template": "ema_cross",
+        "params": {
+         "fast": [
+          5.0,
+          10.0,
+          20.0,
+          30.0
+         ],
+         "slow": [
+          50.0,
+          100.0,
+          150.0,
+          200.0
+         ],
+         "vix_max": [
+          20.0,
+          25.0,
+          30.0
+         ]
+        },
+        "rationale": "Test volatility filters to avoid trading during high-volatility periods where trend-following strategies often fail. High VIX (>20) reduces the effectiveness of trend-following signals."
+       }
+      ],
+      "diagnose": [
+       "F1"
+      ],
+      "stop": false,
+      "stop_reason": ""
+     },
+     "model": "Qwen/Qwen2.5-3B-Instruct+lora:a1",
+     "usd": 0.0,
+     "mode": "prompt"
+    },
+    {
+     "round": 3,
+     "output": {
+      "diagnosis": "The best OOS Sharpe (0.29) for F4 is still below the required threshold of 0.6. Diagnostics show regime dependence: strong performance in high VIX (>25) and downtrend periods, weaker in moderate VIX (15-25) and uptrends. Year-to-year performance is inconsistent with several negative years. The strategy shows sensitivity to VIX max filter values - higher VIX thresholds reduce performance. The trend_ema filter (100, 200) improves performance in downtrends but doesn't fully address regime weakness.",
+      "hypothesis": "Adding trend_ema filter to the best-performing F4 configuration may improve consistency across regimes by ensuring we only trade during strong trends. Testing different trend_ema values (100, 200) combined with optimal VIX max settings (20, 25) should help capture the strong performance in high VIX and downtrend regimes while maintaining or improving overall consistency.",
+      "experiments": [
+       {
+        "template": "ema_cross",
+        "params": {
+         "fast": [
+          5.0,
+          10.0,
+          20.0,
+          30.0
+         ],
+         "slow": [
+          50.0,
+          100.0,
+          150.0,
+          200.0
+         ],
+         "trend_ema": [
+          100.0,
+          200.0
+         ],
+         "vix_max": [
+          20.0,
+          25.0
+         ]
+        },
+        "rationale": "Test trend_ema=100 and 200 with VIX max=20 and 25 to see if combining trend confirmation with moderate volatility filtering improves regime consistency. This addresses the current regime weakness where performance drops in moderate VIX and uptrends."
+       },
+       {
+        "template": "ema_cross",
+        "params": {
+         "fast": [
+          5.0,
+          10.0,
+          20.0,
+          30.0
+         ],
+         "slow": [
+          50.0,
+          100.0,
+          150.0,
+          200.0
+         ],
+         "trend_ema": [
+          0.0
+         ],
+         "vix_max": [
+          0.0
+         ]
+        },
+        "rationale": "Baseline comparison with no trend_ema or VIX max filters to isolate the effect of trend confirmation alone. This helps determine if trend_ema is genuinely beneficial or just filters out too many signals."
+       }
+      ],
+      "diagnose": [
+       "F4"
+      ],
+      "stop": false,
+      "stop_reason": ""
+     },
+     "model": "Qwen/Qwen2.5-3B-Instruct+lora:a1",
+     "usd": 0.0,
+     "mode": "prompt"
+    }
+   ],
+   "agent_failures": 0,
+   "failures": [],
+   "model_calls": 8,
+   "usd": 0.007905,
+   "seconds": 183.5
+  },
+  {
+   "seed": 18,
+   "kind": "noise",
+   "truth": "no_edge",
+   "source": "synthetic:noise:18",
+   "idea": "Buy short-term oversold dips",
+   "promote": false,
+   "reason": "no family cleared walk-forward at the bar for 3 looks (OOS Sharpe >= 0.558); holdout left sealed",
+   "templates": [
+    "rsi_reversion",
+    "bollinger_reversion"
+   ],
+   "rounds": 2,
+   "stop": "critic: further rounds would fit noise",
+   "trials": 81,
+   "looks": 3,
+   "refused_by_code": 1,
+   "best_oos_sharpe": 0.282,
+   "families": [
+    {
+     "id": "F1",
+     "round": 1,
+     "template": "rsi_reversion",
+     "space": {
+      "n": [
+       2,
+       3,
+       5,
+       14
+      ],
+      "entry": [
+       10,
+       20,
+       30
+      ],
+      "exit": [
+       50,
+       60,
+       70
+      ],
+      "trend_ema": [
+       0
+      ],
+      "vix_max": [
+       0
+      ],
+      "atr_stop": [
+       0
+      ]
+     },
+     "trials": 36,
+     "oos_sharpe": 0.282,
+     "positive_folds": 4,
+     "passed_walk_forward": false
+    },
+    {
+     "id": "F2",
+     "round": 1,
+     "template": "bollinger_reversion",
+     "space": {
+      "n": [
+       10,
+       20,
+       40
+      ],
+      "k": [
+       1.5,
+       2.0,
+       2.5
+      ],
+      "trend_ema": [
+       0
+      ],
+      "vix_max": [
+       0
+      ],
+      "atr_stop": [
+       0
+      ]
+     },
+     "trials": 9,
+     "oos_sharpe": 0.229,
+     "positive_folds": 2,
+     "passed_walk_forward": false
+    },
+    {
+     "id": "F3",
+     "round": 2,
+     "template": "rsi_reversion",
+     "space": {
+      "n": [
+       2,
+       3,
+       5
+      ],
+      "entry": [
+       10,
+       20
+      ],
+      "exit": [
+       50,
+       60
+      ],
+      "trend_ema": [
+       0
+      ],
+      "vix_max": [
+       20,
+       25,
+       30
+      ],
+      "atr_stop": [
+       0
+      ]
+     },
+     "trials": 36,
+     "oos_sharpe": -0.208,
+     "positive_folds": 2,
+     "passed_walk_forward": false
+    }
+   ],
+   "proposals": [
+    {
+     "round": 2,
+     "output": {
+      "diagnosis": "Both families failed walk-forward with OOS Sharpe below the current required threshold of 0.5. F1 (rsi_reversion) had 4 positive folds but OOS Sharpe of only 0.282, while F2 (bollinger_reversion) had only 2 positive folds. Neither family passed the walk-forward threshold. The neighbourhood analysis shows no promising neighbours for either family. The critic's concerns about the current state are valid - we need to find a better-performing strategy or understand why these strategies aren't working.",
+      "hypothesis": "The failure of both families suggests the core reversal logic may be flawed for the NIFTY 50 market environment. We should test whether adding volatility filters (VIX max) could improve performance by avoiding high-volatility periods where reversals might fail. Additionally, exploring different RSI thresholds or entry/exit combinations within the existing parameter space might reveal more effective settings.",
+      "experiments": [
+       {
+        "template": "rsi_reversion",
+        "params": {
+         "n": [
+          2.0,
+          3.0,
+          5.0
+         ],
+         "entry": [
+          10.0,
+          20.0
+         ],
+         "exit": [
+          50.0,
+          60.0
+         ],
+         "vix_max": [
+          20.0,
+          25.0,
+          30.0
+         ]
+        },
+        "rationale": "Add VIX filter to see if limiting trades during high volatility improves performance. The original spec mentions 'trend', 'vix', and 'atr_stop' as filters wanted, and VIX filtering could help avoid choppy markets where reversals often fail."
+       },
+       {
+        "template": "bollinger_reversion",
+        "params": {
+         "n": [
+          10.0,
+          20.0
+         ],
+         "k": [
+          1.5,
+          2.0
+         ],
+         "vix_max": [
+          20.0,
+          25.0,
+          30.0
+         ]
+        },
+        "rationale": "Test volatility filtering on the bollinger_reversion template to see if restricting trades based on VIX levels could improve its weak performance. The bollinger_reversion template already uses trend filtering (trend_ema=0), so adding VIX max should be straightforward."
+       }
+      ],
+      "diagnose": [
+       "F1",
+       "F2"
+      ],
+      "stop": false,
+      "stop_reason": ""
+     },
+     "model": "Qwen/Qwen2.5-3B-Instruct+lora:a1",
+     "usd": 0.0,
+     "mode": "prompt"
+    }
+   ],
+   "agent_failures": 0,
+   "failures": [],
+   "model_calls": 6,
+   "usd": 0.005906,
+   "seconds": 89.7
+  },
+  {
+   "seed": 19,
+   "kind": "noise",
+   "truth": "no_edge",
+   "source": "synthetic:noise:19",
+   "idea": "Ride sustained trends",
+   "promote": false,
+   "reason": "no family cleared walk-forward at the bar for 3 looks (OOS Sharpe >= 0.558); holdout left sealed",
+   "templates": [
+    "ema_cross",
+    "donchian_breakout"
+   ],
+   "rounds": 2,
+   "stop": "critic: further rounds would fit noise",
+   "trials": 133,
+   "looks": 3,
+   "refused_by_code": 1,
+   "best_oos_sharpe": 0.292,
+   "families": [
+    {
+     "id": "F1",
+     "round": 1,
+     "template": "ema_cross",
+     "space": {
+      "fast": [
+       5,
+       10,
+       20,
+       30
+      ],
+      "slow": [
+       50,
+       100,
+       150,
+       200
+      ],
+      "trend_ema": [
+       0
+      ],
+      "vix_max": [
+       0
+      ],
+      "atr_stop": [
+       0
+      ]
+     },
+     "trials": 16,
+     "oos_sharpe": 0.292,
+     "positive_folds": 2,
+     "passed_walk_forward": false
+    },
+    {
+     "id": "F2",
+     "round": 1,
+     "template": "donchian_breakout",
+     "space": {
+      "entry_n": [
+       20,
+       55,
+       100
+      ],
+      "exit_n": [
+       10,
+       20,
+       50
+      ],
+      "trend_ema": [
+       0
+      ],
+      "vix_max": [
+       0
+      ],
+      "atr_stop": [
+       0
+      ]
+     },
+     "trials": 9,
+     "oos_sharpe": 0.287,
+     "positive_folds": 3,
+     "passed_walk_forward": false
+    },
+    {
+     "id": "F3",
+     "round": 2,
+     "template": "donchian_breakout",
+     "space": {
+      "entry_n": [
+       20,
+       55,
+       100
+      ],
+      "exit_n": [
+       10,
+       20,
+       50
+      ],
+      "trend_ema": [
+       100,
+       200
+      ],
+      "vix_max": [
+       20,
+       25,
+       30
+      ],
+      "atr_stop": [
+       2.0,
+       3.0
+      ]
+     },
+     "trials": 108,
+     "oos_sharpe": 0.124,
+     "positive_folds": 1,
+     "passed_walk_forward": false
+    }
+   ],
+   "proposals": [
+    {
+     "round": 2,
+     "output": {
+      "diagnosis": "The first round results show both EMA cross (F1) and Donchian breakout (F2) families failing walk-forward with OOS Sharpe ratios of 0.292 and 0.287 respectively, well below the current required threshold of 0.5. Both families had fewer than 3 positive folds (2 for F1, 3 for F2). The buy-and-hold OOS Sharpe was 0.214, indicating the market conditions were challenging for trend-following strategies. The neighbourhood analysis shows no promising neighbours for either family.",
+      "hypothesis": "The failure of both continuation templates suggests the current parameter ranges may not be capturing the sustained trends effectively. Adding trend filters (trend_ema) could help filter out choppy or sideways markets where trend-following would fail. Testing higher VIX thresholds (vix_max) might also help avoid high volatility periods where trend signals are less reliable. We should test whether adding stop-losses (atr_stop) improves risk management without sacrificing returns.",
+      "experiments": [
+       {
+        "template": "ema_cross",
+        "params": {
+         "fast": [
+          5.0,
+          10.0,
+          20.0,
+          30.0
+         ],
+         "slow": [
+          50.0,
+          100.0,
+          150.0,
+          200.0
+         ],
+         "trend_ema": [
+          100.0,
+          200.0
+         ],
+         "vix_max": [
+          20.0,
+          25.0,
+          30.0
+         ],
+         "atr_stop": [
+          2.0,
+          3.0
+         ]
+        },
+        "rationale": "Add trend_ema filter to require price above a longer-term EMA for trend confirmation, and test vix_max to avoid high volatility periods. ATR stop-loss could help manage downside risk."
+       },
+       {
+        "template": "donchian_breakout",
+        "params": {
+         "entry_n": [
+          20.0,
+          55.0,
+          100.0
+         ],
+         "exit_n": [
+          10.0,
+          20.0,
+          50.0
+         ],
+         "trend_ema": [
+          100.0,
+          200.0
+         ],
+         "vix_max": [
+          20.0,
+          25.0,
+          30.0
+         ],
+         "atr_stop": [
+          2.0,
+          3.0
+         ]
+        },
+        "rationale": "Similar to EMA cross, add trend confirmation filter and volatility constraints. ATR stop-loss could improve risk-adjusted returns."
+       }
+      ],
+      "diagnose": [
+       "F1",
+       "F2"
+      ],
+      "stop": false,
+      "stop_reason": ""
+     },
+     "model": "Qwen/Qwen2.5-3B-Instruct+lora:a1",
+     "usd": 0.0,
+     "mode": "prompt"
+    }
+   ],
+   "agent_failures": 0,
+   "failures": [],
+   "model_calls": 6,
+   "usd": 0.005613,
+   "seconds": 86.5
+  },
+  {
+   "seed": 20,
+   "kind": "noise",
+   "truth": "no_edge",
+   "source": "synthetic:noise:20",
+   "idea": "Buy short-term oversold dips",
+   "promote": false,
+   "reason": "no family cleared walk-forward at the bar for 1 looks (OOS Sharpe >= 0.4); holdout left sealed",
+   "templates": [
+    "rsi_reversion"
+   ],
+   "rounds": 2,
+   "stop": "critic: further rounds would fit noise",
+   "trials": 36,
+   "looks": 1,
+   "refused_by_code": 2,
+   "best_oos_sharpe": 0.331,
+   "families": [
+    {
+     "id": "F1",
+     "round": 1,
+     "template": "rsi_reversion",
+     "space": {
+      "n": [
+       2,
+       3,
+       5,
+       14
+      ],
+      "entry": [
+       10,
+       20,
+       30
+      ],
+      "exit": [
+       50,
+       60,
+       70
+      ],
+      "trend_ema": [
+       0
+      ],
+      "vix_max": [
+       0
+      ],
+      "atr_stop": [
+       0
+      ]
+     },
+     "trials": 36,
+     "oos_sharpe": 0.331,
+     "positive_folds": 3,
+     "passed_walk_forward": false
+    }
+   ],
+   "proposals": [
+    {
+     "round": 2,
+     "output": {
+      "diagnosis": "The first round tested the RSI reversion template with parameters centered around n=5, entry=20, exit=60. While it achieved OOS Sharpe of 0.331 (borderline passing the current threshold of 0.4), it only had 3 positive folds out of 5, failing the strict walk-forward criteria. The neighbourhood analysis shows moderate robustness (14% of neighbours within 70% of centre Sharpe), indicating some parameter sensitivity. The critic flagged concerns about parameter stability across the tested range.",
+      "hypothesis": "Adding trend/vix/atr_stop filters could improve the strategy's performance by avoiding trades during unfavorable market conditions or excessive volatility. Specifically, we should test whether filtering out low-volatility periods (VIX > 20) and limiting trades to uptrends (EMA(10)>0) can enhance returns while maintaining risk management.",
+      "experiments": [
+       {
+        "template": "rsi_reversion",
+        "params": {
+         "n": [
+          2.0,
+          3.0,
+          5.0,
+          14.0
+         ],
+         "entry": [
+          10.0,
+          20.0,
+          30.0
+         ],
+         "exit": [
+          50.0,
+          60.0,
+          70.0
+         ],
+         "trend_ema": [
+          100.0,
+          200.0
+         ],
+         "vix_max": [
+          20.0,
+          25.0,
+          30.0
+         ],
+         "atr_stop": [
+          2.0,
+          3.0
+         ]
+        },
+        "rationale": "Add trend and volatility filters to F1. The trend filter (EMA(10)>0) ensures we only trade during uptrends, while vix_max filters out high-volatility periods (>20). ATR stop-loss (2.0-3.0) provides downside protection. This addresses the critic's concern about parameter stability by constraining the parameter space to more reasonable values."
+       },
+       {
+        "template": "rsi_reversion",
+        "params": {
+         "n": [
+          2.0,
+          3.0,
+          5.0,
+          14.0
+         ],
+         "entry": [
+          10.0,
+          20.0,
+          30.0
+         ],
+         "exit": [
+          50.0,
+          60.0,
+          70.0
+         ],
+         "trend_ema": [
+          0.0
+         ],
+         "vix_max": [
+          0.0
+         ],
+         "atr_stop": [
+          0.0
+         ]
+        },
+        "rationale": "Baseline comparison without any filters to establish a reference point. This helps assess whether adding filters actually improves performance or if the current strategy already performs well enough."
+       }
+      ],
+      "diagnose": [
+       "F1"
+      ],
+      "stop": false,
+      "stop_reason": ""
+     },
+     "model": "Qwen/Qwen2.5-3B-Instruct+lora:a1",
+     "usd": 0.0,
+     "mode": "prompt"
+    }
+   ],
+   "agent_failures": 0,
+   "failures": [],
+   "model_calls": 8,
+   "usd": 0.008125,
+   "seconds": 93.9
+  }
+ ],
+ "spend_ledger_usd": 0.152644
+}

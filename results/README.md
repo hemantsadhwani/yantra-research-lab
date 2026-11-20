@@ -48,6 +48,86 @@ so a degraded study never looks clean.
 
 Reproduce: `python -m eval.planted_benchmark [--agents offline|llm] [--tag v2]`. The `llm` arm needs AWS credentials with Bedrock access. `--calibration` runs seeds 1000–1019 into `.cache/`, never into `results/`.
 
+## Learn from the ledger: rejection-sampling fine-tuning (19 Nov 2026)
+
+`research_bench/ledger_ft/` has six parts:
+1. A teacher (DeepSeek V3.2) runs bench studies on calibration seeds 1000+.
+2. Code labels each researcher proposal (`label.py`).
+3. Only verified wins go into a hashed training set (`dataset.py`).
+4. Qwen2.5-3B-Instruct is QLoRA-trained on it locally on an RTX 3060 (`train_qlora.py`).
+5. The tuned model is served locally as the researcher (`llm_gateway/hf_local_provider.py`).
+6. It is evaluated once on benchmark seeds 1–20 (`evaluate.py --final`).
+
+Guards: benchmark seeds are refused everywhere else, and each final arm can run only once. Every paid call reserves its worst-case cost against a hard cap (`spend.py`). Tests: `research_bench/tests/test_ledger_ft.py` (no GPU, network or AWS).
+
+A **win** needs a right final verdict plus one of the following:
+- **edge market:** the proposal's family passed walk-forward at the raised bar, or it stopped after an earlier family had cleared it;
+- **noise market:** it stopped with zero new trials.
+
+**Final eval, seeds 1–20, run once per arm.** All three arms use the same v2 setup: Gemma intake, DeepSeek planner, plan critic and critic. Only the researcher changes.
+
+| Researcher | Edges | Noise promoted | Trials | Cost / study | Fallbacks | Refused by code | Median study | File |
+|---|---|---|---|---|---|---|---|---|
+| DeepSeek V3.2 (v2, 16 Nov) | 9/10 | 0/10 | 1,809 | $0.017 | 0 | 48 | 33 s | `planted_benchmark_2026-11-16_agents-llm_v2.json` |
+| Qwen2.5-3B, untuned | 9/10 | 0/10 | **1,305** | $0.0072 | 1 | 81 | 141 s | `ledger_ft_2026-11-19_base.json` |
+| Qwen2.5-3B + ledger QLoRA | 9/10 | 0/10 | 1,824 | $0.0076 | 0 | 38 | 195 s | `ledger_ft_2026-11-19_student.json` |
+
+**What it shows.**
+- **Verdicts:** a local 3B researcher, tuned or not, kept v2's verdicts on seeds 1–20 (9/10 edges, 0/10 noise).
+- **Cost:** it cut cost per study by 55–58%, because the researcher calls cost $0.
+- **Validity:** fine-tuning halved the proposals code refused, from 81 to 38. Valid JSON went from 33 calls plus 1 fallback to 35 calls with 0 fallbacks.
+
+**What it does not show.**
+- **Fine-tuning did not cut trials. That was the target KPI, and it failed.** The student ran 1,824 trials against 1,305 for the untuned model, about the same as its teacher (v2: 1,809).
+- The untuned model's low count comes from bad proposals, not discipline. Code refused most of its experiments: only 28 of 77 ran, against 50 of 86 for the student.
+- The student learned to imitate its teacher's valid refinements. It did not learn to stop.
+- The label rewards finding a family that clears the bar, not finding it cheaply.
+- The teacher set `stop` only 3 times in 670 proposals, so the set held only 2 noise-stop wins in 151.
+- The cost cut belongs to local serving, not to fine-tuning: the untuned model gets the same cut.
+- Studies are slower, because one local GPU serves the researcher calls one at a time.
+- Twenty markets is a small sample. A 9 vs 9 tie says nothing about the edge rate.
+
+**Collection, calibration seeds 1000–1431 (v2 setup, DeepSeek researcher; files in `.cache/ledger_ft/`).**
+- **Studies:** 432, with 0 errors and 0 fallbacks.
+- **Verdicts:** 168/216 edges, 3/216 noise promoted.
+- **Yield:** 151 wins in 670 proposals, at $5.00.
+- **Training set:** 151 records, SHA-256 `53d7b29c…de46`. Kinds: 84 trend, 65 meanrev, 2 noise.
+
+The pilot gate (seeds 1000–1015) failed first. It projected $6.07 against a $5.00 cap, with a win rate of 0.19 against 0.20. Hemant raised the cap to $8 and chose to proceed. The win-rate test was overridden.
+
+**Training.**
+- **Setup:** 4-bit NF4 base, LoRA r=16 on all attention and MLP projections (29.9M trainable of 1.73B parameters shown in 4-bit), loss on the assistant turn only.
+- **Data:** 136 train and 15 validation records, split by seed.
+- **Schedule:** 3 epochs, 51 steps of 8 examples, lr 2e-4 cosine.
+- **Run:** 78 minutes, with a peak of 10.3 GiB allocated. Windows spilled into shared memory, which slowed it.
+- **Validation loss:** 1.042, then 0.630, 0.572 and 0.568.
+
+**Smoke check before the final eval.** Calibration seeds 1900–1907, with every other role on the rule policy, at $0:
+
+| Researcher | Edges | Noise | Trials / study |
+|---|---|---|---|
+| untuned | 3/4 | 0/4 | 161 |
+| tuned | 3/4 | 0/4 | 156 |
+| rule policy | 3/4 | 0/4 | 126 |
+
+**Spend (ledger, list price):**
+
+| Stage | Cost |
+|---|---|
+| pilot | $0.193 |
+| collection | $4.812 |
+| final eval, untuned | $0.144 |
+| final eval, student | $0.153 |
+| **total** | **$5.30** (cap $8) |
+
+There were 3,391 paid calls. None failed, and none passed its reservation. Training and serving ran on the local GPU at $0.
+
+**Next, not built.** Two changes could make the trials KPI movable:
+- give the teacher the option to stop, plus the round's trial cap in its brief;
+- add a label term that rewards clearing the bar with fewer trials.
+
+Each needs a new calibration pilot first.
+
 ## Context-engineering study (Day 6B)
 
 Raw output from `research_lab/experiments/context_study.py` — the Day 6B context-engineering

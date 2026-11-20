@@ -6,7 +6,7 @@ import os
 
 from llm_gateway.base import Provider
 
-PROVIDERS = ("anthropic", "bedrock", "converse", "ollama")
+PROVIDERS = ("anthropic", "bedrock", "converse", "ollama", "hf_local")
 
 
 def get_provider(name: str | None = None, model: str | None = None) -> Provider:
@@ -29,4 +29,7 @@ def get_provider(name: str | None = None, model: str | None = None) -> Provider:
     if chosen == "ollama":
         from llm_gateway.ollama_provider import OllamaProvider
         return OllamaProvider(model=model)
+    if chosen == "hf_local":
+        from llm_gateway.hf_local_provider import HFLocalProvider
+        return HFLocalProvider(model=model)
     raise ValueError(f"unknown LLM provider {chosen!r}; valid: {', '.join(PROVIDERS)}")

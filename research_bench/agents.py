@@ -152,10 +152,16 @@ class LLMAgents:
     def review_plan(self, state: dict) -> tuple[PlanReview, dict]:
         return self._ask("plan_critic", brief(state), PlanReview)
 
-    def research(self, state: dict) -> tuple[RoundProposal, dict]:
+    @staticmethod
+    def research_brief(state: dict) -> str:
+        """The researcher's user message. One function, so a teacher's recorded prompt and a
+        fine-tuned student's prompt are byte-identical (research_bench.ledger_ft)."""
         cat = {t: c for t, c in (state.get("catalogue") or tools.catalogue()).items()
                if t in state["plan"]["templates"]}
-        return self._ask("researcher", brief(state, {"catalogue": cat}), RoundProposal)
+        return brief(state, {"catalogue": cat})
+
+    def research(self, state: dict) -> tuple[RoundProposal, dict]:
+        return self._ask("researcher", self.research_brief(state), RoundProposal)
 
     def critique(self, state: dict) -> tuple[CriticReview, dict]:
         return self._ask("critic", brief(state), CriticReview)

@@ -24,12 +24,18 @@ all    = ["yantra-research-lab[agents,llm,mcp,memory,ops,dev]"]
 # torch is large, and PyTorch ships no Intel-macOS wheels for Python 3.13 (the dev Mac ran it from a
 # 3.12 venv with torch 2.2.2 + transformers 4.46.3 + peft 0.13.2; see results/distill_2026-09-30.md).
 slm    = ["torch>=2.2", "transformers>=4.46", "peft>=0.13", "datasets>=2.20"]
+# Learn from the ledger (research_bench/ledger_ft): QLoRA-train and serve a small researcher model on
+# a local CUDA GPU. Not in `all`. Install torch from the CUDA index first, e.g.
+# pip install torch --index-url https://download.pytorch.org/whl/cu128 ; built with torch 2.11,
+# transformers 5.23, peft 0.21.3, bitsandbytes 0.50.2, accelerate, datasets (19 Nov 2026).
+ledger-ft = ["torch>=2.6", "transformers>=4.51", "peft>=0.15", "bitsandbytes>=0.45", "accelerate>=1.0",
+             "datasets>=2.20"]
 
 [project.scripts]
 yantra-research = "research_lab.run:main"
 
 [tool.setuptools]
-packages = ["research_lab", "research_lab.agents", "synthetic_engine", "mcp_server", "llm_gateway", "track_record", "quant_engine", "research_bench"]
+packages = ["research_lab", "research_lab.agents", "synthetic_engine", "mcp_server", "llm_gateway", "track_record", "quant_engine", "research_bench", "research_bench.ledger_ft"]
 
 [tool.ruff]
 line-length = 100
